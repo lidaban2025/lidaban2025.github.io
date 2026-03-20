@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - FormCopy Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fff;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            text-align: center;
+            padding: 40px 24px 32px;
+            background: linear-gradient(135deg, #4285f4 0%, #356ac3 100%);
+            color: #fff;
+        }
+        header h1 { font-size: 1.8em; font-weight: 700; margin-bottom: 4px; }
+        header p { opacity: 0.85; font-size: 0.95em; }
+        h2 { font-size: 1.2em; color: #4285f4; margin: 32px 0 12px; }
+        h3 { font-size: 1.05em; color: #222; margin: 24px 0 8px; }
+        p, li { font-size: 0.95em; color: #444; margin-bottom: 10px; }
+        ol, ul { padding-left: 24px; margin-bottom: 16px; }
+        a { color: #4285f4; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { display: inline-block; margin-bottom: 24px; font-size: 0.9em; }
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            border-left: 3px solid #4285f4;
+        }
+        .faq-item h3 { margin-top: 0; color: #333; }
+        .faq-item p:last-child { margin-bottom: 0; }
+        .contact-box {
+            background: #eef3fc;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .contact-box p { color: #333; }
+        .contact-box a { font-weight: 600; }
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.85em;
+            color: #999;
+            border-top: 1px solid #e8e8e8;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Support</h1>
+        <p>FormCopy Pro</p>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back">&larr; Back to Home</a>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How do I set up FormCopy Pro?</h3>
+            <ol>
+                <li>Open the Google Sheets spreadsheet linked to your Google Form responses.</li>
+                <li>Click Extensions &rarr; Add-ons &rarr; Get add-ons.</li>
+                <li>Search for "FormCopy Pro" and click Install.</li>
+                <li>Grant the required permissions when prompted.</li>
+                <li>Add your formulas to row 2 of the response sheet in any columns you need.</li>
+                <li>Go to Extensions &rarr; FormCopy Pro &rarr; Enable to activate automatic copying.</li>
+                <li>Every new form submission will now get your formulas automatically.</li>
+            </ol>
+        </div>
+
+        <div class="faq-item">
+            <h3>Where do I put my formulas?</h3>
+            <p>Place your formulas in <strong>row 2</strong> of the form response sheet, in the columns where you want them. FormCopy Pro detects these formulas and copies them (with adjusted row references) into every new response row. You can use any formula: SUM, VLOOKUP, IF, CONCATENATE, etc.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if I already have responses without formulas?</h3>
+            <p>Use the <strong>Manual Batch Run</strong> feature. Go to Extensions &rarr; FormCopy Pro &rarr; Batch Run. This will apply the formulas from row 2 to all existing response rows that are missing them.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Will it overwrite my existing data?</h3>
+            <p>FormCopy Pro only writes formulas to cells that correspond to formula columns in row 2. It will not overwrite cells in columns where row 2 contains plain values (not formulas). However, if a formula column already has data in a response row, the formula will replace it.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does it work with VLOOKUP and other reference formulas?</h3>
+            <p>Yes. FormCopy Pro works with any formula, including VLOOKUP, INDEX/MATCH, IMPORTRANGE, and more. Row references within formulas are automatically adjusted for each new row.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I check my usage?</h3>
+            <p>Go to Extensions &rarr; FormCopy Pro &rarr; Settings. Your current submission count and remaining quota for the month are displayed. The Free tier allows 50 submissions per month. Usage resets on the first day of each calendar month.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I uninstall FormCopy Pro?</h3>
+            <p>Go to Extensions &rarr; Add-ons &rarr; Manage add-ons, find FormCopy Pro, click the three-dot menu, and select "Remove". This will remove all stored settings and disable automatic formula copying.</p>
+        </div>
+
+        <div class="contact-box">
+            <h2 style="margin-top: 0;">Still Need Help?</h2>
+            <p>If your question is not answered above, feel free to reach out to us directly.</p>
+            <p style="margin-top: 12px;"><a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 FormCopy Pro. All rights reserved.</p>
+    </footer>
+</body>
+</html>

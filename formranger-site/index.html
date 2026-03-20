@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormRanger Pro - Populate Google Forms Choices from Sheets Data</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fff;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            text-align: center;
+            padding: 60px 24px 40px;
+            background: linear-gradient(135deg, #4285f4 0%, #356ac3 100%);
+            color: #fff;
+        }
+        header h1 { font-size: 2.2em; font-weight: 700; margin-bottom: 12px; }
+        header p.tagline { font-size: 1.15em; opacity: 0.92; max-width: 560px; margin: 0 auto; }
+        h2 { font-size: 1.4em; color: #4285f4; margin-bottom: 16px; }
+        .features { margin: 48px auto; max-width: 720px; padding: 0 24px; }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+        .feature-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 24px;
+            border-left: 3px solid #4285f4;
+        }
+        .feature-card h3 { font-size: 1.05em; margin-bottom: 8px; color: #222; }
+        .feature-card p { font-size: 0.95em; color: #555; }
+        .pricing { margin: 0 auto; max-width: 720px; padding: 0 24px 48px; }
+        .tier-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
+        .tier-table th, .tier-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 0.95em;
+        }
+        .tier-table th { background: #f8f9fa; color: #333; font-weight: 600; }
+        .tier-table td { color: #444; }
+        .links {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid #e8e8e8;
+        }
+        .links a {
+            color: #4285f4;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.95em;
+        }
+        .links a:hover { text-decoration: underline; }
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.85em;
+            color: #999;
+            border-top: 1px solid #e8e8e8;
+        }
+        footer a { color: #4285f4; text-decoration: none; }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.6em; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FormRanger Pro</h1>
+        <p class="tagline">Populate Google Forms choices from Sheets data. Keep dropdowns, checkboxes, and grids always in sync with your spreadsheet.</p>
+    </header>
+
+    <section class="features">
+        <h2>Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Link Any Question Type</h3>
+                <p>Connect Multiple Choice, Dropdown, Checkbox, and Grid questions to your spreadsheet data columns.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Auto-Update on Form Open</h3>
+                <p>Choices are automatically refreshed every time the form is opened, so respondents always see the latest options.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Timed Updates</h3>
+                <p>Schedule automatic updates every 1, 6, 12, or 24 hours to keep choices in sync without opening the form.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Remove Duplicates</h3>
+                <p>Automatically remove duplicate values from your source data so respondents see only unique choices.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Sort Options</h3>
+                <p>Sort choices A to Z or Z to A automatically. Present clean, organized options to your respondents.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Multiple Mappings</h3>
+                <p>Link multiple form questions to different spreadsheet columns. Each question gets its own data source.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <h2>Pricing</h2>
+        <table class="tier-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Free</th>
+                    <th>Pro ($19/year)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Linked questions</td>
+                    <td>3</td>
+                    <td>Unlimited</td>
+                </tr>
+                <tr>
+                    <td>Auto-update on form open</td>
+                    <td>Included</td>
+                    <td>Included</td>
+                </tr>
+                <tr>
+                    <td>Timed updates</td>
+                    <td>&mdash;</td>
+                    <td>Included</td>
+                </tr>
+                <tr>
+                    <td>Sort &amp; dedup</td>
+                    <td>Included</td>
+                    <td>Included</td>
+                </tr>
+                <tr>
+                    <td>Priority support</td>
+                    <td>&mdash;</td>
+                    <td>Included</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="support.html">Support</a>
+    </section>
+
+    <footer>
+        <p>Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></p>
+        <p style="margin-top: 8px;">&copy; 2026 FormRanger Pro. All rights reserved.</p>
+    </footer>
+</body>
+</html>

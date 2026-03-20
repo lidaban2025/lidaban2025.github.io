@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - FormMerge Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fff;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            text-align: center;
+            padding: 40px 24px 32px;
+            background: linear-gradient(135deg, #4285f4 0%, #356ac3 100%);
+            color: #fff;
+        }
+        header h1 { font-size: 1.8em; font-weight: 700; margin-bottom: 4px; }
+        header p { opacity: 0.85; font-size: 0.95em; }
+        h2 { font-size: 1.2em; color: #4285f4; margin: 32px 0 12px; }
+        h3 { font-size: 1.05em; color: #222; margin: 24px 0 8px; }
+        p, li { font-size: 0.95em; color: #444; margin-bottom: 10px; }
+        ol, ul { padding-left: 24px; margin-bottom: 16px; }
+        a { color: #4285f4; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { display: inline-block; margin-bottom: 24px; font-size: 0.9em; }
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            border-left: 3px solid #4285f4;
+        }
+        .faq-item h3 { margin-top: 0; color: #333; }
+        .faq-item p:last-child { margin-bottom: 0; }
+        .contact-box {
+            background: #eef3fc;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .contact-box p { color: #333; }
+        .contact-box a { font-weight: 600; }
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.85em;
+            color: #999;
+            border-top: 1px solid #e8e8e8;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Support</h1>
+        <p>FormMerge Pro</p>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back">&larr; Back to Home</a>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How do I set up FormMerge Pro?</h3>
+            <ol>
+                <li>Open the Google Sheets spreadsheet linked to your Google Form responses.</li>
+                <li>Click Extensions &rarr; Add-ons &rarr; Get add-ons.</li>
+                <li>Search for "FormMerge Pro" and click Install.</li>
+                <li>Grant the required permissions when prompted.</li>
+                <li>Go to Extensions &rarr; FormMerge Pro &rarr; Configure.</li>
+                <li>Select the email column (the column containing recipient email addresses).</li>
+                <li>Write your email subject and body using &#123;&#123;Column Header&#125;&#125; merge tags.</li>
+                <li>Save your settings. Emails will be sent automatically on new submissions.</li>
+            </ol>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do merge tags work?</h3>
+            <p>Merge tags use double curly braces with your column headers. For example, if your spreadsheet has columns "Name" and "Score", you can write: <code>Hi &#123;&#123;Name&#125;&#125;, your score is &#123;&#123;Score&#125;&#125;.</code> Each email will be personalized with the values from that row.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How does FormMerge Pro detect the email column?</h3>
+            <p>FormMerge Pro auto-detects columns containing email addresses by scanning column headers and values. You can also manually select the email column in the configuration panel if auto-detection does not pick the right one.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I send a test email before going live?</h3>
+            <p>Yes. In the configuration panel, click "Send Test Email". A test email will be sent to your own email address using the first data row, so you can preview exactly what recipients will receive.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if some rows were not emailed?</h3>
+            <p>Use the <strong>Batch Send All Unsent</strong> feature. Go to Extensions &rarr; FormMerge Pro &rarr; Batch Send. This sends emails for all rows that do not yet have a "Sent" status in the status tracking column.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I track which emails have been sent?</h3>
+            <p>FormMerge Pro automatically adds a status column to your sheet. Each row shows "Sent" with a timestamp when the email was successfully sent, or "Error" if sending failed. This makes it easy to see at a glance which responses have been processed.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why are my emails not being delivered?</h3>
+            <p>If emails are not arriving, check the following:</p>
+            <ul>
+                <li>Verify that the recipient email addresses in your spreadsheet are correct.</li>
+                <li>Ask recipients to check their spam/junk folder.</li>
+                <li>Ensure you have not exceeded your monthly email limit (50 for the Free tier).</li>
+                <li>Google Apps Script has daily email sending limits. If you send a high volume across multiple add-ons, you may have reached this limit.</li>
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I uninstall FormMerge Pro?</h3>
+            <p>Go to Extensions &rarr; Add-ons &rarr; Manage add-ons, find FormMerge Pro, click the three-dot menu, and select "Remove". This will remove all stored settings and disable automatic email sending.</p>
+        </div>
+
+        <div class="contact-box">
+            <h2 style="margin-top: 0;">Still Need Help?</h2>
+            <p>If your question is not answered above, feel free to reach out to us directly.</p>
+            <p style="margin-top: 12px;"><a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 FormMerge Pro. All rights reserved.</p>
+    </footer>
+</body>
+</html>
