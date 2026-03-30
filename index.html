@@ -3,10 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lidaban2025</title>
+    <title>FormSuite | Google Workspace add-ons for forms, sheets, docs, and email flows</title>
+    <meta name="description" content="FormSuite brings together Google Workspace add-ons for document generation, formula automation, approval workflows, notifications, form controls, and dynamic form choices.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1f1f1f;
+            background: linear-gradient(180deg, #f7faff 0%, #ffffff 42%);
+            line-height: 1.6;
+        }
+        a { color: #1967d2; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1160px; margin: 0 auto; padding: 28px 20px 64px; }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #12326b;
+        }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 0.95rem;
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+            align-items: stretch;
+            margin-bottom: 28px;
+        }
+        .hero-panel, .summary-panel, .section-card, .product-card {
+            background: #fff;
+            border: 1px solid #d9e5ff;
+            border-radius: 18px;
+            box-shadow: 0 14px 40px rgba(24, 78, 170, 0.08);
+        }
+        .hero-panel {
+            padding: 34px 32px;
+            background: linear-gradient(135deg, #e9f1ff 0%, #ffffff 74%);
+        }
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #dce9ff;
+            color: #12326b;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+            margin-bottom: 14px;
+            color: #10264f;
+        }
+        .hero p {
+            font-size: 1.02rem;
+            color: #41516d;
+            max-width: 700px;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 11px 16px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: #1967d2;
+            color: #fff;
+        }
+        .btn-secondary {
+            background: #fff;
+            color: #12326b;
+            border-color: #c8d8ff;
+        }
+        .summary-panel {
+            padding: 24px;
+            display: grid;
+            gap: 14px;
+        }
+        .metric {
+            padding: 16px;
+            border-radius: 14px;
+            background: #f6f9ff;
+            border: 1px solid #e4edff;
+        }
+        .metric strong {
+            display: block;
+            font-size: 1.35rem;
+            color: #12326b;
+            margin-bottom: 4px;
+        }
+        .metric span {
+            color: #54657f;
+            font-size: 0.93rem;
+        }
+        .section-card {
+            padding: 26px;
+            margin-bottom: 22px;
+        }
+        h2 {
+            font-size: 1.45rem;
+            letter-spacing: -0.02em;
+            color: #10264f;
+            margin-bottom: 10px;
+        }
+        .section-lead {
+            color: #5a6b86;
+            margin-bottom: 18px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .product-card {
+            padding: 20px;
+            display: grid;
+            gap: 12px;
+        }
+        .product-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 12px;
+        }
+        .product-name {
+            font-size: 1.08rem;
+            font-weight: 800;
+            color: #12326b;
+        }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #eef4ff;
+            color: #335aa3;
+            font-size: 0.74rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .product-card p {
+            color: #53647e;
+            font-size: 0.94rem;
+        }
+        .link-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .step {
+            padding: 16px;
+            border-radius: 14px;
+            background: #f8fbff;
+            border: 1px solid #e3edff;
+        }
+        .step strong {
+            display: inline-block;
+            color: #12326b;
+            margin-bottom: 8px;
+        }
+        .step p {
+            color: #5a6b86;
+            font-size: 0.92rem;
+        }
+        .footer {
+            margin-top: 28px;
+            color: #677891;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; }
+            .product-grid, .steps { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <h1>lidaban2025</h1>
-    <p>Developer pages</p>
+    <div class="shell">
+        <div class="topbar">
+            <div class="brand">FormSuite</div>
+            <div class="nav">
+                <a href="#products">Products</a>
+                <a href="#start">Getting started</a>
+                <a href="mailto:lidaban2025@gmail.com">Contact</a>
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="hero-panel">
+                <div class="eyebrow">Google Workspace add-ons</div>
+                <h1>One toolkit for document merges, approval flows, formula automation, form controls, and notifications.</h1>
+                <p>FormSuite is a collection of focused Google Workspace add-ons for teams that run on Forms, Sheets, Docs, and Gmail. Each product solves one operational problem well, and the products are designed to work together without adding extra servers or external dashboards.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#products">Browse products</a>
+                    <a class="btn btn-secondary" href="docforge-site/support.html">Open support center</a>
+                </div>
+            </div>
+            <div class="summary-panel">
+                <div class="metric">
+                    <strong>7 products</strong>
+                    <span>Coverage across Sheets automation, Forms workflows, document generation, and outbound email flows.</span>
+                </div>
+                <div class="metric">
+                    <strong>Guided setup</strong>
+                    <span>Each product has a product page, support page, privacy policy, and terms page on this site.</span>
+                </div>
+                <div class="metric">
+                    <strong>Built for review clarity</strong>
+                    <span>Pages explain what each add-on does, when to use it, and where to find help during setup and verification.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card" id="products">
+            <h2>Products</h2>
+            <p class="section-lead">Choose the product that matches the workflow you want to automate. Each card links to the live product overview and support guide.</p>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-head"><div class="product-name">DocForge</div><div class="badge">Sheets + Docs</div></div>
+                    <p>Generate Google Docs and PDFs from spreadsheet rows, map fields to templates, and optionally email the results.</p>
+                    <div class="link-row"><a href="docforge-site/index.html">Overview</a><a href="docforge-site/support.html">Setup & support</a></div>
+                </article>
+                <article class="product-card">
+                    <div class="product-head"><div class="product-name">FormCopy</div><div class="badge">Sheets</div></div>
+                    <p>Copy row-2 formulas into every new form response row so scoring, enrichment, and reporting formulas stay intact automatically.</p>
+                    <div class="link-row"><a href="formcopy-site/index.html">Overview</a><a href="formcopy-site/support.html">Setup & support</a></div>
+                </article>
+                <article class="product-card">
+                    <div class="product-head"><div class="product-name">FormMerge</div><div class="badge">Sheets + Gmail</div></div>
+                    <p>Send personalized emails from Google Sheets using merge tags, test sends, batch sends, and status tracking.</p>
+                    <div class="link-row"><a href="formmerge-site/index.html">Overview</a><a href="formmerge-site/support.html">Setup & support</a></div>
+                </article>
+                <article class="product-card">
+                    <div class="product-head"><div class="product-name">FormFlow</div><div class="badge">Forms + Approvals</div></div>
+                    <p>Route form submissions into multi-step approval chains with approvers, reminders, and audit visibility inside Google Forms.</p>
+                    <div class="link-row"><a href="formflow-site/index.html">Overview</a><a href="formflow-site/support.html">Setup & support</a></div>
+                </article>
+                <article class="product-card">
+                    <div class="product-head"><div class="product-name">FormGuard</div><div class="badge">Forms Controls</div></div>
+                    <p>Set response limits, scheduled open/close windows, notifications, and other safeguards to keep Forms clean and controlled.</p>
+                    <div class="link-row"><a href="formguard-site/index.html">Overview</a><a href="formguard-site/support.html">Setup & support</a></div>
+                </article>
+                <article class="product-card">
+                    <div class="product-head"><div class="product-name">FormNotifier</div><div class="badge">Forms + Email</div></div>
+                    <p>Send owner alerts and respondent confirmations from Google Forms with customizable subjects, bodies, and recipient rules.</p>
+                    <div class="link-row"><a href="formnotifier-site/index.html">Overview</a><a href="formnotifier-site/support.html">Setup & support</a></div>
+                </article>
+                <article class="product-card">
+                    <div class="product-head"><div class="product-name">FormRanger</div><div class="badge">Forms + Sheets</div></div>
+                    <p>Populate choice questions from spreadsheet data so dropdowns, checkboxes, and grids stay current without manual edits.</p>
+                    <div class="link-row"><a href="formranger-site/index.html">Overview</a><a href="formranger-site/support.html">Setup & support</a></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-card" id="start">
+            <h2>Getting started</h2>
+            <p class="section-lead">A simple path if you are evaluating, onboarding, or reviewing one of the add-ons.</p>
+            <div class="steps">
+                <div class="step">
+                    <strong>1. Open the product page</strong>
+                    <p>Start from the product overview to confirm the add-on fits your workflow and see the main features at a glance.</p>
+                </div>
+                <div class="step">
+                    <strong>2. Use the support guide</strong>
+                    <p>Each support page includes setup steps, common questions, and the exact Google Workspace context where the add-on runs.</p>
+                </div>
+                <div class="step">
+                    <strong>3. Return to the add-on</strong>
+                    <p>Once the setup steps are clear, go back to Google Forms or Google Sheets and complete the flow inside the add-on sidebar.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormSuite. All rights reserved.
+        </div>
+    </div>
 </body>
 </html>
