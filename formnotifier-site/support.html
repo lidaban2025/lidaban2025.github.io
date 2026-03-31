@@ -1,131 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - FormNotifier</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background: #fff;
-        }
-        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
-        header {
-            text-align: center;
-            padding: 40px 24px 32px;
-            background: linear-gradient(135deg, #4285f4 0%, #356ac3 100%);
-            color: #fff;
-        }
-        header h1 { font-size: 1.8em; font-weight: 700; margin-bottom: 4px; }
-        header p { opacity: 0.85; font-size: 0.95em; }
-        h2 { font-size: 1.2em; color: #4285f4; margin: 32px 0 12px; }
-        h3 { font-size: 1.05em; color: #222; margin: 24px 0 8px; }
-        p, li { font-size: 0.95em; color: #444; margin-bottom: 10px; }
-        ol, ul { padding-left: 24px; margin-bottom: 16px; }
-        a { color: #4285f4; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .back { display: inline-block; margin-bottom: 24px; font-size: 0.9em; }
-        .faq-item {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px 24px;
-            margin-bottom: 16px;
-            border-left: 3px solid #4285f4;
-        }
-        .faq-item h3 { margin-top: 0; color: #333; }
-        .faq-item p:last-child { margin-bottom: 0; }
-        .contact-box {
-            background: #eef3fc;
-            border-radius: 8px;
-            padding: 24px;
-            text-align: center;
-            margin-top: 32px;
-        }
-        .contact-box p { color: #333; }
-        .contact-box a { font-weight: 600; }
-        footer {
-            text-align: center;
-            padding: 24px;
-            font-size: 0.85em;
-            color: #999;
-            border-top: 1px solid #e8e8e8;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support | FormNotifier</title>
+  <style>
+    :root { --bg:#f7f8fc; --panel:#ffffff; --ink:#152033; --muted:#5f6c80; --line:#d9e1f2; --brand:#2151d1; --brand-soft:#ebf1ff; --accent:#0f9d58; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI",Roboto,Arial,sans-serif; background:radial-gradient(circle at top,#eef3ff 0,var(--bg) 42%); color:var(--ink); line-height:1.65; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 64px; }
+    .nav { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:24px; font-size:14px; }
+    .nav a { color:var(--muted); text-decoration:none; }
+    .nav a:hover { color:var(--brand); }
+    .hero { background:linear-gradient(135deg,#ffffff 0%,#eef3ff 100%); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(33,81,209,.08); }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--brand-soft); color:var(--brand); border-radius:999px; padding:6px 12px; font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; margin-bottom:14px; }
+    h1 { font-size:clamp(30px,5vw,44px); line-height:1.08; margin-bottom:12px; }
+    .hero p { max-width:700px; color:var(--muted); font-size:17px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid var(--line); }
+    .btn-primary { background:var(--brand); color:#fff; border-color:var(--brand); }
+    .btn-secondary { background:#fff; color:var(--ink); }
+    .grid { display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin-top:24px; }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:24px; box-shadow:0 10px 30px rgba(18,37,63,.04); }
+    .card h2 { font-size:22px; margin-bottom:14px; }
+    .card h3 { font-size:16px; margin:18px 0 10px; }
+    .card p, .card li { color:var(--muted); font-size:15px; }
+    .card ul, .card ol { padding-left:20px; }
+    .card li + li { margin-top:8px; }
+    .faq-item + .faq-item { margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
+    .faq-item strong { display:block; margin-bottom:6px; color:var(--ink); }
+    .meta-list { list-style:none; padding-left:0; }
+    .meta-list li + li { margin-top:10px; }
+    .pill { display:inline-flex; padding:5px 10px; border-radius:999px; background:#eef8f2; color:var(--accent); font-size:12px; font-weight:700; margin-bottom:12px; }
+    footer { margin-top:28px; color:var(--muted); font-size:13px; text-align:center; }
+    @media (max-width:860px) { .grid { grid-template-columns:1fr; } .hero { padding:22px; } }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Support</h1>
-        <p>FormNotifier</p>
-    </header>
-
-    <div class="container">
-        <a href="index.html" class="back">&larr; Back to Home</a>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-            <h3>How do I set up FormNotifier?</h3>
-            <ol>
-                <li>Open your Google Form in edit mode.</li>
-                <li>Click the puzzle piece icon (Add-ons) in the top toolbar.</li>
-                <li>Search for "FormNotifier" and click Install.</li>
-                <li>Grant the required permissions when prompted.</li>
-                <li>Go to Add-ons &rarr; FormNotifier &rarr; Configure to set up your notification preferences.</li>
-                <li>Add recipient email addresses and customize your email template.</li>
-                <li>Save your settings. Notifications will be sent automatically on new submissions.</li>
-            </ol>
-        </div>
-
-        <div class="faq-item">
-            <h3>How do I use template variables?</h3>
-            <p>You can include form response data in your email templates using double curly braces. For example, if your form has a question titled "Name", use <code>{{Name}}</code> in your template to insert the respondent's answer. Variable names must match your form question titles exactly.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Why am I not receiving notification emails?</h3>
-            <p>If notifications are not arriving, check the following:</p>
-            <ul>
-                <li>Verify that the recipient email addresses are correct in your configuration.</li>
-                <li>Check your spam/junk folder for the notification emails.</li>
-                <li>Ensure you have not exceeded your monthly notification limit (50 for the Free tier).</li>
-                <li>Confirm that the form trigger is active by going to Add-ons &rarr; FormNotifier &rarr; Configure.</li>
-                <li>Google Apps Script has daily email sending limits. If you send a high volume of emails across multiple add-ons, you may have reached this limit.</li>
-            </ul>
-        </div>
-
-        <div class="faq-item">
-            <h3>How do I send confirmation emails to respondents?</h3>
-            <p>In the FormNotifier configuration panel, enable the "Respondent Confirmation" option. Your form must collect email addresses (via the built-in "Collect email addresses" setting in Google Forms) for this feature to work. You can customize the confirmation email template separately from admin notifications.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>How do I check my notification usage?</h3>
-            <p>Open Add-ons &rarr; FormNotifier &rarr; Configure. Your current usage and remaining quota for the month are displayed at the top of the configuration panel. Usage resets on the first day of each calendar month.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Can I use FormNotifier on multiple forms?</h3>
-            <p>Yes. The Free tier supports up to 3 forms. The Pro tier supports unlimited forms. Each form has its own independent configuration and notification settings.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>How do I uninstall FormNotifier?</h3>
-            <p>Go to Add-ons &rarr; Manage add-ons, find FormNotifier, click the three-dot menu, and select "Remove". This will remove all stored settings and disable notifications for that form.</p>
-        </div>
-
-        <div class="contact-box">
-            <h2 style="margin-top: 0;">Still Need Help?</h2>
-            <p>If your question is not answered above, feel free to reach out to us directly.</p>
-            <p style="margin-top: 12px;"><a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></p>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 FormNotifier. All rights reserved.</p>
-    </footer>
+  <div class="shell">
+    <nav class="nav">
+      <a href="/">FormSuite</a>
+      <a href="./index.html">FormNotifier</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./support.html">Support</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Support center</div>
+      <h1>FormNotifier</h1>
+      <p>Send owner alerts and respondent confirmations from Google Forms without another backend.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="./index.html">Open product page</a>
+        <a class="btn btn-secondary" href="mailto:lidaban2025@gmail.com?subject=FormNotifier support request">Email support</a>
+      </div>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <div class="pill">Quick start</div>
+        <h2>Get running fast</h2>
+        <ol><li>Open the Google Form in edit mode and launch FormNotifier.</li><li>Choose whether to notify the form owner, extra recipients, respondents, or all three.</li><li>Customize the subject line and body, then run Preflight.</li><li>Save the setup and send a test notification before going live.</li></ol>
+        <h3>Permissions and reviewer notes</h3>
+        <ul><li>Google Forms access to read field labels and responses for message rendering.</li><li>Mail access to send notifications and respondent confirmations.</li><li>Container UI access for the Forms editor sidebar only.</li></ul>
+      </article>
+      <aside class="card">
+        <div class="pill">Need help</div>
+        <h2>Contact</h2>
+        <ul class="meta-list">
+          <li><strong>Email</strong><br><a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></li>
+          <li><strong>Website</strong><br><a href="https://formsuite.dev/">formsuite.dev</a></li>
+          <li><strong>Response time</strong><br>Usually within 1 business day for reviewer and customer support questions.</li>
+        </ul>
+      </aside>
+    </section>
+    <section class="card" style="margin-top:18px;">
+      <div class="pill">FAQ</div>
+      <h2>Common questions</h2>
+      <div class="faq-item"><strong>Can I send only selected fields in the email?</strong><p>Yes. Turn off Include all form fields and choose the exact fields you want to render.</p></div><div class="faq-item"><strong>How do respondent confirmations find the email address?</strong><p>FormNotifier uses collected email first, then an explicit email field if you choose one.</p></div><div class="faq-item"><strong>Where can I inspect the last send result?</strong><p>The sidebar keeps the latest notification report visible so you can troubleshoot quickly.</p></div>
+    </section>
+    <footer><p>&copy; 2026 FormNotifier. Part of the FormSuite product family.</p></footer>
+  </div>
 </body>
 </html>

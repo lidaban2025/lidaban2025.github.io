@@ -1,124 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - FormRanger Pro</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background: #fff;
-        }
-        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
-        header {
-            text-align: center;
-            padding: 40px 24px 32px;
-            background: linear-gradient(135deg, #4285f4 0%, #356ac3 100%);
-            color: #fff;
-        }
-        header h1 { font-size: 1.8em; font-weight: 700; margin-bottom: 4px; }
-        header p { opacity: 0.85; font-size: 0.95em; }
-        h2 { font-size: 1.2em; color: #4285f4; margin: 32px 0 12px; }
-        h3 { font-size: 1.05em; color: #222; margin: 24px 0 8px; }
-        p, li { font-size: 0.95em; color: #444; margin-bottom: 10px; }
-        ol, ul { padding-left: 24px; margin-bottom: 16px; }
-        a { color: #4285f4; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .back { display: inline-block; margin-bottom: 24px; font-size: 0.9em; }
-        .faq-item {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px 24px;
-            margin-bottom: 16px;
-            border-left: 3px solid #4285f4;
-        }
-        .faq-item h3 { margin-top: 0; color: #333; }
-        .faq-item p:last-child { margin-bottom: 0; }
-        .contact-box {
-            background: #eef3fc;
-            border-radius: 8px;
-            padding: 24px;
-            text-align: center;
-            margin-top: 32px;
-        }
-        .contact-box p { color: #333; }
-        .contact-box a { font-weight: 600; }
-        footer {
-            text-align: center;
-            padding: 24px;
-            font-size: 0.85em;
-            color: #999;
-            border-top: 1px solid #e8e8e8;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support | FormRanger</title>
+  <style>
+    :root { --bg:#f7f8fc; --panel:#ffffff; --ink:#152033; --muted:#5f6c80; --line:#d9e1f2; --brand:#2151d1; --brand-soft:#ebf1ff; --accent:#0f9d58; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI",Roboto,Arial,sans-serif; background:radial-gradient(circle at top,#eef3ff 0,var(--bg) 42%); color:var(--ink); line-height:1.65; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 64px; }
+    .nav { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:24px; font-size:14px; }
+    .nav a { color:var(--muted); text-decoration:none; }
+    .nav a:hover { color:var(--brand); }
+    .hero { background:linear-gradient(135deg,#ffffff 0%,#eef3ff 100%); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(33,81,209,.08); }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--brand-soft); color:var(--brand); border-radius:999px; padding:6px 12px; font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; margin-bottom:14px; }
+    h1 { font-size:clamp(30px,5vw,44px); line-height:1.08; margin-bottom:12px; }
+    .hero p { max-width:700px; color:var(--muted); font-size:17px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid var(--line); }
+    .btn-primary { background:var(--brand); color:#fff; border-color:var(--brand); }
+    .btn-secondary { background:#fff; color:var(--ink); }
+    .grid { display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin-top:24px; }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:24px; box-shadow:0 10px 30px rgba(18,37,63,.04); }
+    .card h2 { font-size:22px; margin-bottom:14px; }
+    .card h3 { font-size:16px; margin:18px 0 10px; }
+    .card p, .card li { color:var(--muted); font-size:15px; }
+    .card ul, .card ol { padding-left:20px; }
+    .card li + li { margin-top:8px; }
+    .faq-item + .faq-item { margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
+    .faq-item strong { display:block; margin-bottom:6px; color:var(--ink); }
+    .meta-list { list-style:none; padding-left:0; }
+    .meta-list li + li { margin-top:10px; }
+    .pill { display:inline-flex; padding:5px 10px; border-radius:999px; background:#eef8f2; color:var(--accent); font-size:12px; font-weight:700; margin-bottom:12px; }
+    footer { margin-top:28px; color:var(--muted); font-size:13px; text-align:center; }
+    @media (max-width:860px) { .grid { grid-template-columns:1fr; } .hero { padding:22px; } }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Support</h1>
-        <p>FormRanger Pro</p>
-    </header>
-
-    <div class="container">
-        <a href="index.html" class="back">&larr; Back to Home</a>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-            <h3>How do I set up FormRanger Pro?</h3>
-            <ol>
-                <li>Open your Google Form in edit mode.</li>
-                <li>Click the puzzle piece icon (Add-ons) in the top toolbar.</li>
-                <li>Search for "FormRanger Pro" and click Install.</li>
-                <li>Grant the required permissions when prompted.</li>
-                <li>Go to Add-ons &rarr; FormRanger Pro &rarr; Configure.</li>
-                <li>Select a form question, then choose the spreadsheet and column to pull choices from.</li>
-                <li>Click Save. Choices will be populated immediately and updated automatically.</li>
-            </ol>
-        </div>
-
-        <div class="faq-item">
-            <h3>What question types are supported?</h3>
-            <p>FormRanger Pro supports <strong>Multiple Choice</strong>, <strong>Dropdown</strong>, <strong>Checkbox</strong>, and <strong>Grid</strong> (both Multiple Choice Grid and Checkbox Grid) question types. Each can be linked to a different spreadsheet column.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>How do I link a question to a spreadsheet column?</h3>
-            <p>In the FormRanger Pro configuration panel, select the question you want to populate. Then choose the Google Sheets spreadsheet, the specific sheet tab, and the column containing your choice values. The add-on will read all non-empty values from that column and set them as the question's choices.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>How often are choices updated?</h3>
-            <p>By default, choices are updated every time the form is opened in edit mode. Pro users can also set up timed updates (every 1, 6, 12, or 24 hours) so choices stay current even without opening the form editor.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Can I remove duplicates from the choices?</h3>
-            <p>Yes. Enable the "Remove Duplicates" option in the configuration for each linked question. The add-on will automatically filter out duplicate values from your source column before populating the form choices.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>What happens if my spreadsheet is deleted or moved?</h3>
-            <p>If the linked spreadsheet becomes inaccessible, FormRanger Pro will not be able to update choices. The form will retain the last set of choices that were successfully populated. You can reconfigure the add-on to point to a new spreadsheet at any time.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>How do I uninstall FormRanger Pro?</h3>
-            <p>Go to Add-ons &rarr; Manage add-ons, find FormRanger Pro, click the three-dot menu, and select "Remove". This will remove all stored settings and disable automatic choice updates for that form.</p>
-        </div>
-
-        <div class="contact-box">
-            <h2 style="margin-top: 0;">Still Need Help?</h2>
-            <p>If your question is not answered above, feel free to reach out to us directly.</p>
-            <p style="margin-top: 12px;"><a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></p>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 FormRanger Pro. All rights reserved.</p>
-    </footer>
+  <div class="shell">
+    <nav class="nav">
+      <a href="/">FormSuite</a>
+      <a href="./index.html">FormRanger</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./support.html">Support</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Support center</div>
+      <h1>FormRanger</h1>
+      <p>Populate Google Forms choices from live Google Sheets data with safer mapping validation.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="./index.html">Open product page</a>
+        <a class="btn btn-secondary" href="mailto:lidaban2025@gmail.com?subject=FormRanger support request">Email support</a>
+      </div>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <div class="pill">Quick start</div>
+        <h2>Get running fast</h2>
+        <ol><li>Open the Google Form in edit mode and launch FormRanger.</li><li>Choose a supported question, then load a spreadsheet URL or ID.</li><li>Pick the sheet tab and column you want to use as the live choice source.</li><li>Save the configuration, run Preflight, and use Update now to verify the choices.</li></ol>
+        <h3>Permissions and reviewer notes</h3>
+        <ul><li>Google Forms access to update supported choice-based questions.</li><li>Google Sheets access to read the source data for the selected mappings.</li><li>Container UI access for the mapping sidebar and validation flow.</li></ul>
+      </article>
+      <aside class="card">
+        <div class="pill">Need help</div>
+        <h2>Contact</h2>
+        <ul class="meta-list">
+          <li><strong>Email</strong><br><a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></li>
+          <li><strong>Website</strong><br><a href="https://formsuite.dev/">formsuite.dev</a></li>
+          <li><strong>Response time</strong><br>Usually within 1 business day for reviewer and customer support questions.</li>
+        </ul>
+      </aside>
+    </section>
+    <section class="card" style="margin-top:18px;">
+      <div class="pill">FAQ</div>
+      <h2>Common questions</h2>
+      <div class="faq-item"><strong>Which question types are supported?</strong><p>Multiple choice, dropdown, checkbox, grid, and checkbox grid questions.</p></div><div class="faq-item"><strong>Why does a mapping fail validation?</strong><p>Typical causes are a removed form question, a renamed sheet tab, or a missing column header in the source spreadsheet.</p></div><div class="faq-item"><strong>Can I remove duplicate choices?</strong><p>Yes. The mapping wizard includes a Remove duplicates option before you save the link.</p></div>
+    </section>
+    <footer><p>&copy; 2026 FormRanger. Part of the FormSuite product family.</p></footer>
+  </div>
 </body>
 </html>
