@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormGuard | Form controls and response safeguards for Google Forms</title>
+    <meta name="description" content="FormGuard helps teams control response limits, schedules, notifications, and answer availability inside Google Forms.">
+    <style>
+        :root {
+            --ink: #17263d;
+            --muted: #5a6a83;
+            --line: #d9e2ef;
+            --blue: #1463ff;
+            --blue-soft: #eef4ff;
+            --green-soft: #ebf8ef;
+            --sand-soft: #fff7e8;
+            --shadow: 0 18px 45px rgba(23, 38, 61, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top right, #eff5ff 0, #eff5ff 22%, transparent 48%),
+                linear-gradient(180deg, #fbfdff 0%, #ffffff 54%);
+            line-height: 1.65;
+        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+        }
+        .hero,
+        .section,
+        .panel {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 18px;
+            padding: 30px;
+            margin-bottom: 18px;
+        }
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.55rem;
+            line-height: 1.06;
+            letter-spacing: -0.05em;
+            margin-bottom: 14px;
+        }
+        .hero p {
+            color: var(--muted);
+            max-width: 640px;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .summary {
+            display: grid;
+            gap: 12px;
+        }
+        .summary .panel {
+            padding: 16px;
+        }
+        .summary strong {
+            display: block;
+            font-size: 1.04rem;
+            margin-bottom: 6px;
+        }
+        .summary span {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+        .section {
+            padding: 26px;
+            margin-top: 18px;
+        }
+        h2 {
+            font-size: 1.45rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+        }
+        .lead {
+            color: var(--muted);
+            margin-bottom: 18px;
+            max-width: 760px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .feature {
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: #fff;
+        }
+        .feature strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.02rem;
+        }
+        .feature p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+        .steps {
+            padding-left: 20px;
+            display: grid;
+            gap: 10px;
+        }
+        .steps li { color: var(--muted); }
+        .link-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 14px;
+            font-weight: 600;
+        }
+        .note {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--sand-soft);
+            border: 1px solid #f0d7a4;
+            color: #805300;
+            font-size: 0.93rem;
+        }
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 900px) {
+            .hero,
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="index.html"><strong>FormGuard</strong></a>
+            <a href="support.html">Support</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms-of-service.html">Terms</a>
+            <a href="../index.html">FormSuite home</a>
+        </nav>
+
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Google Forms add-on</div>
+                <h1>Keep forms open only when they should be, and answers available only while they still matter.</h1>
+                <p>FormGuard is a focused Google Forms add-on for teams that need operational controls inside the form editor. It brings response limits, schedule-based opening and closing, notifications, and answer choice controls into one place so the form stays manageable after launch.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="support.html">Open setup guide</a>
+                    <a class="btn btn-secondary" href="privacy-policy.html">Review data handling</a>
+                </div>
+            </div>
+            <div class="summary">
+                <div class="panel">
+                    <strong>Best fit</strong>
+                    <span>Registration forms, sign-up forms, internal request forms, and any workflow that must stop accepting responses at the right moment.</span>
+                </div>
+                <div class="panel">
+                    <strong>Main controls</strong>
+                    <span>Response caps, custom close messages, scheduled availability, email notifications, and answer choice elimination.</span>
+                </div>
+                <div class="panel">
+                    <strong>Where it runs</strong>
+                    <span>Inside the Google Forms editor sidebar, so the operator can manage rules without switching tools.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Core features</h2>
+            <p class="lead">FormGuard is designed around the most common form-control tasks that otherwise end up spread across manual checks and small scripts.</p>
+            <div class="grid">
+                <div class="feature">
+                    <strong>Response limiter</strong>
+                    <p>Close a form automatically after a configured number of submissions and show a clear custom message to respondents.</p>
+                </div>
+                <div class="feature">
+                    <strong>Scheduled open and close</strong>
+                    <p>Set future open and close times so a form becomes available only during the intended collection window.</p>
+                </div>
+                <div class="feature">
+                    <strong>Choice elimination</strong>
+                    <p>Remove or disable answer options once they reach capacity, which is useful for slots, sessions, or inventory-like choices.</p>
+                </div>
+                <div class="feature">
+                    <strong>Email notifications</strong>
+                    <p>Notify the owner when the form closes or when new submissions arrive, depending on the rules you enable.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quick start</h2>
+            <p class="lead">A straightforward setup path for reviewers and first-time users.</p>
+            <ol class="steps">
+                <li>Open any Google Form and launch FormGuard from the Extensions menu.</li>
+                <li>Enable the controls you need, such as a response limit, notifications, or scheduled closing.</li>
+                <li>Save the settings and keep the form under watch from the same sidebar.</li>
+            </ol>
+            <div class="link-bar">
+                <a href="support.html">Support and setup</a>
+                <a href="privacy-policy.html">Privacy policy</a>
+                <a href="terms-of-service.html">Terms of service</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Typical use cases</h2>
+            <div class="grid">
+                <div class="feature">
+                    <strong>Event and session caps</strong>
+                    <p>Stop accepting responses after a seat limit is reached and prevent late overbooking.</p>
+                </div>
+                <div class="feature">
+                    <strong>Time-boxed request windows</strong>
+                    <p>Open a request form at the start of a process and close it automatically when the window ends.</p>
+                </div>
+                <div class="feature">
+                    <strong>Limited answer availability</strong>
+                    <p>Retire filled answer options from a question when each option has its own capacity.</p>
+                </div>
+                <div class="feature">
+                    <strong>Admin visibility</strong>
+                    <p>Keep the form owner informed when key control events happen instead of checking manually.</p>
+                </div>
+            </div>
+            <div class="note">
+                Google Forms is a trademark of Google LLC. FormGuard is an independent add-on and is not affiliated with or endorsed by Google LLC.
+            </div>
+        </section>
+
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormGuard. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

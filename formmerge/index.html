@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FormCopy | Formula automation for Google Forms response sheets</title>
-    <meta name="description" content="FormCopy keeps formulas and formats flowing into every new Google Forms response row in Google Sheets.">
+    <title>FormMerge | Personalized email workflows from Google Sheets</title>
+    <meta name="description" content="FormMerge sends personalized emails from Google Sheets with merge tags, tests, batch runs, and delivery tracking.">
     <style>
         :root {
             --ink: #182740;
@@ -12,7 +12,7 @@
             --line: #d9e3f0;
             --blue: #1760ff;
             --blue-soft: #eef4ff;
-            --green-soft: #eaf8ef;
+            --sand-soft: #fff7e8;
             --shadow: 0 18px 44px rgba(24, 39, 64, 0.10);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -84,9 +84,9 @@
             margin-top: 18px;
             padding: 16px 18px;
             border-radius: 18px;
-            background: var(--green-soft);
-            border: 1px solid #cde8d6;
-            color: #17633f;
+            background: var(--sand-soft);
+            border: 1px solid #f0d7a4;
+            color: #805300;
             font-size: 0.93rem;
         }
         .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
@@ -99,7 +99,7 @@
 <body>
     <div class="shell">
         <nav class="nav">
-            <a href="index.html"><strong>FormCopy</strong></a>
+            <a href="index.html"><strong>FormMerge</strong></a>
             <a href="support.html">Support</a>
             <a href="privacy.html">Privacy</a>
             <a href="terms.html">Terms</a>
@@ -108,55 +108,55 @@
         <section class="hero">
             <div>
                 <div class="eyebrow">Google Sheets add-on</div>
-                <h1>Keep formulas, formats, and row logic alive after every new form response.</h1>
-                <p>FormCopy helps teams preserve the logic inside a response sheet after new Google Form submissions arrive. Instead of manually dragging formulas down or cleaning up broken formatting, you define the model once and let the add-on keep new rows consistent.</p>
+                <h1>Send personalized outbound email from the sheet your team already uses to run the workflow.</h1>
+                <p>FormMerge turns rows in Google Sheets into individualized email messages with merge tags, test sends, batch delivery, and visible status tracking. It fits teams that want a reliable operational mail workflow without moving data into a separate campaign platform.</p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="support.html">Open setup guide</a>
                     <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
                 </div>
             </div>
             <div class="summary">
-                <div class="panel"><strong>Best fit</strong><span>Scoring sheets, enrichment workflows, lookup-heavy response tabs, and sheets where row 2 already contains the logic you want to preserve.</span></div>
-                <div class="panel"><strong>Main controls</strong><span>Formula copy-down, format propagation, row reference adjustment, and backfill for rows that already arrived before setup.</span></div>
-                <div class="panel"><strong>Where it runs</strong><span>Inside the Google Sheets file receiving form responses, so the calculation layer stays next to the raw data.</span></div>
+                <div class="panel"><strong>Best fit</strong><span>Confirmations, intake follow-ups, internal notifications, and repeatable outbound email workflows driven by sheet data.</span></div>
+                <div class="panel"><strong>Main controls</strong><span>Merge tags, test sends, CC and BCC support, batch runs, and row-level visibility into send status.</span></div>
+                <div class="panel"><strong>Where it runs</strong><span>Inside the Google Sheets file where the merge data already lives, keeping operators close to the source records.</span></div>
             </div>
         </section>
         <section class="section">
             <h2>Core features</h2>
-            <p class="lead">FormCopy is for the moment when a response sheet stops being a raw export and starts acting like a real operational model.</p>
+            <p class="lead">FormMerge is designed for teams that need dependable operational email delivery, not a marketing tool with unrelated complexity.</p>
             <div class="grid">
-                <div class="feature"><strong>Automatic formula copy-down</strong><p>Detect the formulas you have already built and apply them to new rows without manual dragging.</p></div>
-                <div class="feature"><strong>Reference-aware expansion</strong><p>Adjust row references so formulas stay usable as the sheet grows with new responses.</p></div>
-                <div class="feature"><strong>Formatting consistency</strong><p>Keep number formats, colors, and layout cues aligned as fresh data arrives.</p></div>
-                <div class="feature"><strong>Backfill for existing responses</strong><p>Apply the same logic to rows that landed before you finished configuring the add-on.</p></div>
+                <div class="feature"><strong>Dynamic merge tags</strong><p>Use column headers to personalize the subject and body of each outgoing message.</p></div>
+                <div class="feature"><strong>Test before send</strong><p>Preview and send a safe sample before you run a larger batch or rely on the setup in production.</p></div>
+                <div class="feature"><strong>Batch sending</strong><p>Process unsent rows in a deliberate run when you need operational control over timing.</p></div>
+                <div class="feature"><strong>Status visibility</strong><p>Track what was sent, skipped, or failed directly inside the sheet your team already reviews.</p></div>
             </div>
         </section>
         <section class="section">
             <h2>Typical use cases</h2>
             <div class="grid">
-                <div class="feature"><strong>Scoring and grading sheets</strong><p>Apply formulas for totals, weights, and calculated outcomes after each new submission.</p></div>
-                <div class="feature"><strong>Operational enrichment</strong><p>Attach lookups, status flags, derived columns, and internal helper fields to response rows automatically.</p></div>
-                <div class="feature"><strong>Finance or ops spreadsheets</strong><p>Preserve downstream formulas that teams use to score, classify, or route work.</p></div>
-                <div class="feature"><strong>Low-maintenance analytics prep</strong><p>Keep the response sheet analysis-ready even when submissions arrive continuously.</p></div>
+                <div class="feature"><strong>Applicant and respondent updates</strong><p>Send confirmations, next steps, or instructions tied to each submitted row.</p></div>
+                <div class="feature"><strong>Internal team notifications</strong><p>Deliver personalized operational emails to owners, reviewers, or request handlers.</p></div>
+                <div class="feature"><strong>Event and program operations</strong><p>Communicate schedules, reminders, or follow-up actions from a well-structured source sheet.</p></div>
+                <div class="feature"><strong>Batch review workflows</strong><p>Hold a queue of ready records in Sheets and send them on your own cadence.</p></div>
             </div>
         </section>
         <section class="section">
             <h2>Quick start</h2>
-            <p class="lead">A simple setup path for operators and reviewers.</p>
+            <p class="lead">A simple setup path that stays inside Google Sheets.</p>
             <ol class="steps">
-                <li>Open the Google Sheets response file linked to your form.</li>
-                <li>Launch FormCopy and select the sheet or range that defines the logic to preserve.</li>
-                <li>Choose whether you want to handle future rows, backfill existing rows, or both.</li>
-                <li>Save the setup and verify the next incoming response carries the right formulas and formatting.</li>
+                <li>Open the sheet containing the rows you want to email from.</li>
+                <li>Launch FormMerge and define the message template, recipients, and merge fields.</li>
+                <li>Run a test send to validate the output.</li>
+                <li>Send the batch and monitor the status columns in the same sheet.</li>
             </ol>
             <div class="link-bar">
                 <a href="support.html">Support and setup</a>
                 <a href="privacy.html">Privacy policy</a>
                 <a href="terms.html">Terms of service</a>
             </div>
-            <div class="note">This page stays focused on product fit, workflow value, and evaluation clarity so teams can understand the operational payoff quickly.</div>
+            <div class="note">The goal here is to make the product fit and workflow value obvious first, so teams can judge whether the add-on belongs in their process.</div>
         </section>
-        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormCopy. All rights reserved.</div>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormMerge. All rights reserved.</div>
     </div>
 </body>
 </html>

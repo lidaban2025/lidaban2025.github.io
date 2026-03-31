@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FormCopy | Formula automation for Google Forms response sheets</title>
-    <meta name="description" content="FormCopy keeps formulas and formats flowing into every new Google Forms response row in Google Sheets.">
+    <title>FormRanger | Dynamic Google Forms choices from spreadsheet data</title>
+    <meta name="description" content="FormRanger syncs Google Forms question choices from spreadsheet data with sorting, deduplication, and scheduled refresh options.">
     <style>
         :root {
             --ink: #182740;
@@ -12,7 +12,7 @@
             --line: #d9e3f0;
             --blue: #1760ff;
             --blue-soft: #eef4ff;
-            --green-soft: #eaf8ef;
+            --sand-soft: #fff7e8;
             --shadow: 0 18px 44px rgba(24, 39, 64, 0.10);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -84,9 +84,9 @@
             margin-top: 18px;
             padding: 16px 18px;
             border-radius: 18px;
-            background: var(--green-soft);
-            border: 1px solid #cde8d6;
-            color: #17633f;
+            background: var(--sand-soft);
+            border: 1px solid #f0d7a4;
+            color: #805300;
             font-size: 0.93rem;
         }
         .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
@@ -99,7 +99,7 @@
 <body>
     <div class="shell">
         <nav class="nav">
-            <a href="index.html"><strong>FormCopy</strong></a>
+            <a href="index.html"><strong>FormRanger</strong></a>
             <a href="support.html">Support</a>
             <a href="privacy.html">Privacy</a>
             <a href="terms.html">Terms</a>
@@ -107,56 +107,56 @@
         </nav>
         <section class="hero">
             <div>
-                <div class="eyebrow">Google Sheets add-on</div>
-                <h1>Keep formulas, formats, and row logic alive after every new form response.</h1>
-                <p>FormCopy helps teams preserve the logic inside a response sheet after new Google Form submissions arrive. Instead of manually dragging formulas down or cleaning up broken formatting, you define the model once and let the add-on keep new rows consistent.</p>
+                <div class="eyebrow">Google Forms add-on</div>
+                <h1>Keep form choices synced with the spreadsheet your team is already maintaining.</h1>
+                <p>FormRanger connects Google Forms questions to spreadsheet-backed data so dropdowns, multiple-choice lists, and checkboxes stay current without manual editing. It is built for teams managing changing rosters, catalogs, schedules, and other dynamic option sets.</p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="support.html">Open setup guide</a>
                     <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
                 </div>
             </div>
             <div class="summary">
-                <div class="panel"><strong>Best fit</strong><span>Scoring sheets, enrichment workflows, lookup-heavy response tabs, and sheets where row 2 already contains the logic you want to preserve.</span></div>
-                <div class="panel"><strong>Main controls</strong><span>Formula copy-down, format propagation, row reference adjustment, and backfill for rows that already arrived before setup.</span></div>
-                <div class="panel"><strong>Where it runs</strong><span>Inside the Google Sheets file receiving form responses, so the calculation layer stays next to the raw data.</span></div>
+                <div class="panel"><strong>Best fit</strong><span>Course lists, inventory-backed choices, department menus, location pickers, and forms where options must stay aligned with live sheet data.</span></div>
+                <div class="panel"><strong>Main controls</strong><span>Question mapping, range sync, deduplication, sorting, and scheduled refresh behavior.</span></div>
+                <div class="panel"><strong>Where it runs</strong><span>Configured from the Google Forms editor while connected to a Google Sheets source of truth.</span></div>
             </div>
         </section>
         <section class="section">
             <h2>Core features</h2>
-            <p class="lead">FormCopy is for the moment when a response sheet stops being a raw export and starts acting like a real operational model.</p>
+            <p class="lead">FormRanger exists so teams do not have to maintain the same list of valid answers in two different places.</p>
             <div class="grid">
-                <div class="feature"><strong>Automatic formula copy-down</strong><p>Detect the formulas you have already built and apply them to new rows without manual dragging.</p></div>
-                <div class="feature"><strong>Reference-aware expansion</strong><p>Adjust row references so formulas stay usable as the sheet grows with new responses.</p></div>
-                <div class="feature"><strong>Formatting consistency</strong><p>Keep number formats, colors, and layout cues aligned as fresh data arrives.</p></div>
-                <div class="feature"><strong>Backfill for existing responses</strong><p>Apply the same logic to rows that landed before you finished configuring the add-on.</p></div>
+                <div class="feature"><strong>Spreadsheet-backed choices</strong><p>Map questions to a sheet range so the form reflects the latest values from your source data.</p></div>
+                <div class="feature"><strong>Question-type coverage</strong><p>Use dynamic data with supported Google Forms question types such as dropdowns, checkboxes, and multiple choice.</p></div>
+                <div class="feature"><strong>Sorting and cleanup</strong><p>Sort values and remove duplicates before respondents ever see the resulting options.</p></div>
+                <div class="feature"><strong>Scheduled refreshes</strong><p>Keep the form aligned with sheet changes over time instead of relying on manual question edits.</p></div>
             </div>
         </section>
         <section class="section">
             <h2>Typical use cases</h2>
             <div class="grid">
-                <div class="feature"><strong>Scoring and grading sheets</strong><p>Apply formulas for totals, weights, and calculated outcomes after each new submission.</p></div>
-                <div class="feature"><strong>Operational enrichment</strong><p>Attach lookups, status flags, derived columns, and internal helper fields to response rows automatically.</p></div>
-                <div class="feature"><strong>Finance or ops spreadsheets</strong><p>Preserve downstream formulas that teams use to score, classify, or route work.</p></div>
-                <div class="feature"><strong>Low-maintenance analytics prep</strong><p>Keep the response sheet analysis-ready even when submissions arrive continuously.</p></div>
+                <div class="feature"><strong>Roster-driven requests</strong><p>Populate form questions with current team members, instructors, reviewers, or locations.</p></div>
+                <div class="feature"><strong>Operational catalogs</strong><p>Keep forms aligned with live lists of products, services, sessions, or support categories.</p></div>
+                <div class="feature"><strong>Program administration</strong><p>Use centrally maintained spreadsheets to control the choice lists that respondents can select.</p></div>
+                <div class="feature"><strong>Lower-maintenance forms</strong><p>Reduce the risk of stale or inconsistent choices across forms that must stay accurate over time.</p></div>
             </div>
         </section>
         <section class="section">
             <h2>Quick start</h2>
-            <p class="lead">A simple setup path for operators and reviewers.</p>
+            <p class="lead">A clear setup path for reviewers and operators.</p>
             <ol class="steps">
-                <li>Open the Google Sheets response file linked to your form.</li>
-                <li>Launch FormCopy and select the sheet or range that defines the logic to preserve.</li>
-                <li>Choose whether you want to handle future rows, backfill existing rows, or both.</li>
-                <li>Save the setup and verify the next incoming response carries the right formulas and formatting.</li>
+                <li>Open the Google Form and launch FormRanger from the Extensions menu.</li>
+                <li>Select the question you want to link and choose the spreadsheet source range.</li>
+                <li>Apply any sorting or deduplication options that fit your workflow.</li>
+                <li>Save the mapping and verify the updated question choices in the form.</li>
             </ol>
             <div class="link-bar">
                 <a href="support.html">Support and setup</a>
                 <a href="privacy.html">Privacy policy</a>
                 <a href="terms.html">Terms of service</a>
             </div>
-            <div class="note">This page stays focused on product fit, workflow value, and evaluation clarity so teams can understand the operational payoff quickly.</div>
+            <div class="note">This page is designed first to explain product fit, workflow behavior, and reviewer context so teams can evaluate the add-on with less guesswork.</div>
         </section>
-        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormCopy. All rights reserved.</div>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormRanger. All rights reserved.</div>
     </div>
 </body>
 </html>
