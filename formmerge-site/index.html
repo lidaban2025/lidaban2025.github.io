@@ -3,156 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FormMerge Pro - Send Personalized Emails from Google Forms</title>
+    <title>FormMerge | Personalized email workflows from Google Sheets</title>
+    <meta name="description" content="FormMerge sends personalized emails from Google Sheets with merge tags, tests, batch runs, and delivery tracking.">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --ink: #182740;
+            --muted: #5a6c87;
+            --line: #d9e3f0;
+            --blue: #1760ff;
+            --blue-soft: #eef4ff;
+            --sand-soft: #fff7e8;
+            --shadow: 0 18px 44px rgba(24, 39, 64, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background: #fff;
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #eef5ff 0, #eef5ff 22%, transparent 46%),
+                linear-gradient(180deg, #fbfdff 0%, #ffffff 56%);
+            line-height: 1.65;
         }
-        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
-        header {
-            text-align: center;
-            padding: 60px 24px 40px;
-            background: linear-gradient(135deg, #4285f4 0%, #356ac3 100%);
-            color: #fff;
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
+        .nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.94rem; }
+        .hero, .section, .panel {
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
         }
-        header h1 { font-size: 2.2em; font-weight: 700; margin-bottom: 12px; }
-        header p.tagline { font-size: 1.15em; opacity: 0.92; max-width: 560px; margin: 0 auto; }
-        h2 { font-size: 1.4em; color: #4285f4; margin-bottom: 16px; }
-        .features { margin: 48px auto; max-width: 720px; padding: 0 24px; }
-        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
-        .feature-card {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 24px;
-            border-left: 3px solid #4285f4;
+        .hero {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 18px;
+            padding: 30px;
+            margin-bottom: 18px;
         }
-        .feature-card h3 { font-size: 1.05em; margin-bottom: 8px; color: #222; }
-        .feature-card p { font-size: 0.95em; color: #555; }
-        .pricing { margin: 0 auto; max-width: 720px; padding: 0 24px 48px; }
-        .tier-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
-        .tier-table th, .tier-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #e8e8e8;
-            font-size: 0.95em;
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
-        .tier-table th { background: #f8f9fa; color: #333; font-weight: 600; }
-        .tier-table td { color: #444; }
-        .links {
-            text-align: center;
-            padding: 40px 24px;
-            border-top: 1px solid #e8e8e8;
+        h1 { font-size: 2.55rem; line-height: 1.05; letter-spacing: -0.05em; margin-bottom: 14px; }
+        .hero p { color: var(--muted); max-width: 640px; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
         }
-        .links a {
-            color: #4285f4;
-            text-decoration: none;
-            margin: 0 16px;
-            font-size: 0.95em;
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .summary { display: grid; gap: 12px; }
+        .summary .panel { padding: 16px; }
+        .summary strong { display: block; font-size: 1.04rem; margin-bottom: 6px; }
+        .summary span { color: var(--muted); font-size: 0.92rem; }
+        .section { padding: 26px; margin-top: 18px; }
+        h2 { font-size: 1.45rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .lead { color: var(--muted); margin-bottom: 18px; max-width: 760px; }
+        .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .feature { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+        .feature strong { display: block; margin-bottom: 8px; font-size: 1.02rem; }
+        .feature p { color: var(--muted); font-size: 0.94rem; }
+        .steps { padding-left: 20px; display: grid; gap: 10px; }
+        .steps li { color: var(--muted); }
+        .link-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-weight: 600; }
+        .note {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--sand-soft);
+            border: 1px solid #f0d7a4;
+            color: #805300;
+            font-size: 0.93rem;
         }
-        .links a:hover { text-decoration: underline; }
-        footer {
-            text-align: center;
-            padding: 24px;
-            font-size: 0.85em;
-            color: #999;
-            border-top: 1px solid #e8e8e8;
-        }
-        footer a { color: #4285f4; text-decoration: none; }
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.6em; }
-            .feature-grid { grid-template-columns: 1fr; }
+        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        @media (max-width: 900px) {
+            .hero, .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.1rem; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>FormMerge Pro</h1>
-        <p class="tagline">Send personalized emails when Google Forms are submitted. Use &#123;&#123;merge tags&#125;&#125; to customize every message automatically.</p>
-    </header>
-
-    <section class="features">
-        <h2>Features</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>&#123;&#123;Merge Tags&#125;&#125; Template System</h3>
-                <p>Use your column headers as merge tags to personalize every email. Subject and body both support dynamic content.</p>
+    <div class="shell">
+        <nav class="nav">
+            <a href="index.html"><strong>FormMerge</strong></a>
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="../index.html">FormSuite home</a>
+        </nav>
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Google Sheets add-on</div>
+                <h1>Send personalized outbound email from the sheet your team already uses to run the workflow.</h1>
+                <p>FormMerge turns rows in Google Sheets into individualized email messages with merge tags, test sends, batch delivery, and visible status tracking. It fits teams that want a reliable operational mail workflow without moving data into a separate campaign platform.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="support.html">Open setup guide</a>
+                    <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>HTML Email</h3>
-                <p>Send professional HTML emails with customizable header color, footer text, and rich formatting out of the box.</p>
+            <div class="summary">
+                <div class="panel"><strong>Best fit</strong><span>Confirmations, intake follow-ups, internal notifications, and repeatable outbound email workflows driven by sheet data.</span></div>
+                <div class="panel"><strong>Main controls</strong><span>Merge tags, test sends, CC and BCC support, batch runs, and row-level visibility into send status.</span></div>
+                <div class="panel"><strong>Where it runs</strong><span>Inside the Google Sheets file where the merge data already lives, keeping operators close to the source records.</span></div>
             </div>
-            <div class="feature-card">
-                <h3>CC/BCC Support</h3>
-                <p>Add CC and BCC recipients to every email. Perfect for keeping managers, assistants, or archives in the loop.</p>
+        </section>
+        <section class="section">
+            <h2>Core features</h2>
+            <p class="lead">FormMerge is designed for teams that need dependable operational email delivery, not a marketing tool with unrelated complexity.</p>
+            <div class="grid">
+                <div class="feature"><strong>Dynamic merge tags</strong><p>Use column headers to personalize the subject and body of each outgoing message.</p></div>
+                <div class="feature"><strong>Test before send</strong><p>Preview and send a safe sample before you run a larger batch or rely on the setup in production.</p></div>
+                <div class="feature"><strong>Batch sending</strong><p>Process unsent rows in a deliberate run when you need operational control over timing.</p></div>
+                <div class="feature"><strong>Status visibility</strong><p>Track what was sent, skipped, or failed directly inside the sheet your team already reviews.</p></div>
             </div>
-            <div class="feature-card">
-                <h3>Status Tracking Column</h3>
-                <p>A status column is automatically added to your sheet showing which rows have been emailed and when.</p>
+        </section>
+        <section class="section">
+            <h2>Typical use cases</h2>
+            <div class="grid">
+                <div class="feature"><strong>Applicant and respondent updates</strong><p>Send confirmations, next steps, or instructions tied to each submitted row.</p></div>
+                <div class="feature"><strong>Internal team notifications</strong><p>Deliver personalized operational emails to owners, reviewers, or request handlers.</p></div>
+                <div class="feature"><strong>Event and program operations</strong><p>Communicate schedules, reminders, or follow-up actions from a well-structured source sheet.</p></div>
+                <div class="feature"><strong>Batch review workflows</strong><p>Hold a queue of ready records in Sheets and send them on your own cadence.</p></div>
             </div>
-            <div class="feature-card">
-                <h3>Batch Send All Unsent</h3>
-                <p>Missed some responses? One click sends emails for all rows that haven't been emailed yet.</p>
+        </section>
+        <section class="section">
+            <h2>Quick start</h2>
+            <p class="lead">A simple setup path that stays inside Google Sheets.</p>
+            <ol class="steps">
+                <li>Open the sheet containing the rows you want to email from.</li>
+                <li>Launch FormMerge and define the message template, recipients, and merge fields.</li>
+                <li>Run a test send to validate the output.</li>
+                <li>Send the batch and monitor the status columns in the same sheet.</li>
+            </ol>
+            <div class="link-bar">
+                <a href="support.html">Support and setup</a>
+                <a href="privacy.html">Privacy policy</a>
+                <a href="terms.html">Terms of service</a>
             </div>
-            <div class="feature-card">
-                <h3>Send Test Email</h3>
-                <p>Preview exactly what your recipients will see by sending a test email to yourself before going live.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="pricing">
-        <h2>Pricing</h2>
-        <table class="tier-table">
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>Free</th>
-                    <th>Pro ($19/year)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Emails per month</td>
-                    <td>50</td>
-                    <td>Unlimited</td>
-                </tr>
-                <tr>
-                    <td>Merge tags</td>
-                    <td>Included</td>
-                    <td>Included</td>
-                </tr>
-                <tr>
-                    <td>CC/BCC</td>
-                    <td>&mdash;</td>
-                    <td>Included</td>
-                </tr>
-                <tr>
-                    <td>HTML customization</td>
-                    <td>Basic</td>
-                    <td>Full</td>
-                </tr>
-                <tr>
-                    <td>Priority support</td>
-                    <td>&mdash;</td>
-                    <td>Included</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section class="links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="support.html">Support</a>
-    </section>
-
-    <footer>
-        <p>Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></p>
-        <p style="margin-top: 8px;">&copy; 2026 FormMerge Pro. All rights reserved.</p>
-    </footer>
+            <div class="note">The goal here is to make the product fit and workflow value obvious first, so teams can judge whether the add-on belongs in their process.</div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormMerge. All rights reserved.</div>
+    </div>
 </body>
 </html>
