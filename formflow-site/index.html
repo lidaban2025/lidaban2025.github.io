@@ -3,65 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FormFlow — Approval Workflow for Google Forms™</title>
+    <title>FormFlow | Approval workflows for Google Forms</title>
+    <meta name="description" content="FormFlow turns Google Forms submissions into approval workflows with email notifications, status tracking, and response-sheet updates.">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.7; color: #333; background: #fafafa; }
-        .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
-        h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: #1a1a1a; }
-        h2 { font-size: 20px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #1a1a1a; }
-        p { font-size: 15px; margin-bottom: 12px; }
-        ul { padding-left: 24px; margin-bottom: 16px; }
-        li { margin-bottom: 6px; font-size: 15px; }
-        a { color: #4285f4; text-decoration: none; }
+        :root {
+            --ink: #182740;
+            --muted: #5a6c87;
+            --line: #d9e3f0;
+            --blue: #1760ff;
+            --blue-soft: #eef4ff;
+            --green-soft: #eaf8ef;
+            --shadow: 0 18px 44px rgba(24, 39, 64, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #eef5ff 0, #eef5ff 22%, transparent 46%),
+                linear-gradient(180deg, #fbfdff 0%, #ffffff 56%);
+            line-height: 1.65;
+        }
+        a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .hero { text-align: center; padding: 48px 0 32px; }
-        .hero h1 { font-size: 32px; }
-        .hero p { font-size: 17px; color: #666; margin-top: 8px; }
-        .links { margin-top: 32px; }
-        .links a { display: inline-block; margin: 0 12px 8px 0; padding: 8px 16px; background: #f0f0f0; border-radius: 6px; font-size: 14px; }
-        .links a:hover { background: #e0e0e0; text-decoration: none; }
-        .dev-info { margin-top: 40px; padding: 24px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; }
-        .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e0e0e0; font-size: 13px; color: #999; text-align: center; }
-        .trademark { font-size: 12px; color: #999; margin-top: 24px; }
+        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-size: 0.94rem;
+        }
+        .hero,
+        .section,
+        .panel {
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 18px;
+            padding: 30px;
+            margin-bottom: 18px;
+        }
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.05;
+            letter-spacing: -0.05em;
+            margin-bottom: 14px;
+        }
+        .hero p {
+            color: var(--muted);
+            max-width: 640px;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .summary {
+            display: grid;
+            gap: 12px;
+        }
+        .summary .panel { padding: 16px; }
+        .summary strong {
+            display: block;
+            font-size: 1.04rem;
+            margin-bottom: 6px;
+        }
+        .summary span {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+        .section {
+            padding: 26px;
+            margin-top: 18px;
+        }
+        h2 {
+            font-size: 1.45rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+        }
+        .lead {
+            color: var(--muted);
+            margin-bottom: 18px;
+            max-width: 760px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .feature {
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: #fff;
+        }
+        .feature strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.02rem;
+        }
+        .feature p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+        .steps {
+            padding-left: 20px;
+            display: grid;
+            gap: 10px;
+        }
+        .steps li { color: var(--muted); }
+        .link-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 14px;
+            font-weight: 600;
+        }
+        .note {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--green-soft);
+            border: 1px solid #cde8d6;
+            color: #17633f;
+            font-size: 0.93rem;
+        }
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 900px) {
+            .hero,
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.1rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <h1>FormFlow</h1>
-            <p>Approval Workflow for Google Forms™</p>
-        </div>
-
-        <p>FormFlow is a Google Forms™ Editor Add-on that transforms form submissions into configurable multi-level approval workflows. Approvers receive email notifications and can approve or reject requests via a web interface, with status tracked in Google Sheets™.</p>
-
-        <h2>Features</h2>
-        <ul>
-            <li>Multi-level sequential approval chains</li>
-            <li>One-click Approve/Reject via email links</li>
-            <li>Automatic status tracking in Google Sheets™</li>
-            <li>Overdue reminders and auto-expire</li>
-            <li>Secure UUID-based approval links with Google account verification</li>
-            <li>All data stays in your own Google Workspace — no external servers</li>
-        </ul>
-
-        <div class="links">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="terms-of-service.html">Terms of Service</a>
+    <div class="shell">
+        <nav class="nav">
+            <a href="index.html"><strong>FormFlow</strong></a>
             <a href="support.html">Support</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms-of-service.html">Terms</a>
+            <a href="../index.html">FormSuite home</a>
+        </nav>
+
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Google Forms add-on</div>
+                <h1>Turn form submissions into approval workflows your team can actually operate.</h1>
+                <p>FormFlow is a Google Forms add-on for teams that need more than a raw response spreadsheet. It routes submissions into approval steps, sends the right emails, and writes status back to the linked response sheet so the workflow stays visible and auditable.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="support.html">Open setup guide</a>
+                    <a class="btn btn-secondary" href="privacy-policy.html">Review data handling</a>
+                </div>
+            </div>
+            <div class="summary">
+                <div class="panel">
+                    <strong>Best fit</strong>
+                    <span>Leave requests, access approvals, internal intake forms, and any Google Form that needs structured review before action.</span>
+                </div>
+                <div class="panel">
+                    <strong>Main layers</strong>
+                    <span>Approval routing, email notifications, linked response-sheet status tracking, and approval state updates.</span>
+                </div>
+                <div class="panel">
+                    <strong>Where it runs</strong>
+                    <span>Configured from the Google Forms editor, with the linked spreadsheet used as the workflow record.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Core features</h2>
+            <p class="lead">FormFlow is built for teams that need to keep the submission surface simple while adding a real approval process behind it.</p>
+            <div class="grid">
+                <div class="feature">
+                    <strong>Multi-step approval routing</strong>
+                    <p>Set approver levels so submissions move through the right people in the right order.</p>
+                </div>
+                <div class="feature">
+                    <strong>Email-driven approvals</strong>
+                    <p>Send approval notifications and keep reviewers moving without forcing them into another internal tool.</p>
+                </div>
+                <div class="feature">
+                    <strong>Response-sheet status tracking</strong>
+                    <p>Use the linked Google Sheets response file as the source of truth for workflow status and audit visibility.</p>
+                </div>
+                <div class="feature">
+                    <strong>Preflight before launch</strong>
+                    <p>Check the workflow configuration before it goes live so setup mistakes are caught earlier.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quick start</h2>
+            <p class="lead">A clear path for reviewers and operators.</p>
+            <ol class="steps">
+                <li>Open your Google Form and launch FormFlow from the Extensions menu.</li>
+                <li>Configure the approval steps and assign the approver email addresses.</li>
+                <li>Save the configuration and run preflight before sending traffic through the form.</li>
+                <li>Track the resulting workflow state in the linked Google Sheets response file.</li>
+            </ol>
+            <div class="link-bar">
+                <a href="support.html">Support and setup</a>
+                <a href="privacy-policy.html">Privacy policy</a>
+                <a href="terms-of-service.html">Terms of service</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Typical use cases</h2>
+            <div class="grid">
+                <div class="feature">
+                    <strong>Operations requests</strong>
+                    <p>Route internal requests through manager or department approvals without building a separate portal.</p>
+                </div>
+                <div class="feature">
+                    <strong>HR and leave flows</strong>
+                    <p>Collect a request in Google Forms and move it through a defined approval chain.</p>
+                </div>
+                <div class="feature">
+                    <strong>Access and exception approvals</strong>
+                    <p>Use Forms as the intake point and the linked response sheet as the approval log.</p>
+                </div>
+                <div class="feature">
+                    <strong>Visible audit trail</strong>
+                    <p>Keep the workflow readable for operators because status changes are tied back to the spreadsheet record.</p>
+                </div>
+            </div>
+            <div class="note">
+                Google Forms, Google Sheets, and Google Workspace are trademarks of Google LLC. FormFlow is an independent add-on and is not affiliated with or endorsed by Google LLC.
+            </div>
+        </section>
+
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormFlow. All rights reserved.
         </div>
-
-        <div class="dev-info">
-            <h2>Developer Information</h2>
-            <p><strong>Developer:</strong> FormFlow Team</p>
-            <p><strong>Contact:</strong> <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></p>
-            <p><strong>Location:</strong> Independent developer</p>
-            <p>FormFlow is developed and maintained by an independent developer focused on building productivity tools for Google Workspace™.</p>
-        </div>
-
-        <p class="trademark">Google Forms, Google Sheets, and Google Workspace are trademarks of Google LLC. FormFlow is not affiliated with or endorsed by Google.</p>
-
-        <div class="footer">&copy; 2026 FormFlow. All rights reserved.</div>
     </div>
 </body>
 </html>
