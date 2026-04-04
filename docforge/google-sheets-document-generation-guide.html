@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to generate documents from Google Sheets data | DocForge guide</title>
+    <meta name="description" content="Learn how to generate Google Docs and PDFs from Google Sheets data with templates, field mapping, and preflight checks using DocForge.">
+    <link rel="canonical" href="https://formsuite.dev/docforge/google-sheets-document-generation-guide.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="How to generate documents from Google Sheets data | DocForge guide">
+    <meta property="og:description" content="Learn how to generate Google Docs and PDFs from Google Sheets data with templates, field mapping, and preflight checks using DocForge.">
+    <meta property="og:url" content="https://formsuite.dev/docforge/google-sheets-document-generation-guide.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to generate documents from Google Sheets data">
+    <meta name="twitter:description" content="Learn how to generate Google Docs and PDFs from Google Sheets data with DocForge.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "How to generate documents from Google Sheets data",
+            "description": "A guide to generating Google Docs and PDFs from Google Sheets rows with DocForge.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/docforge/google-sheets-document-generation-guide.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:14ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>DocForge</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Workflow guide</div>
+            <h1>How to generate documents from Google Sheets data</h1>
+            <p>When spreadsheet rows need to turn into letters, certificates, PDFs, packets, or templated files, manual copy-paste quickly becomes a fragile process. DocForge is built for teams that already manage source records in Google Sheets and want consistent document generation on top of that data.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="./support.html">Open DocForge setup guide</a>
+                <a class="btn btn-secondary" href="./index.html">View DocForge overview</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Best-fit document generation scenarios</h2>
+            <p class="lead">This workflow is strongest when a sheet row needs to become a reusable, reviewable output file.</p>
+            <div class="grid">
+                <div class="feature"><strong>Certificates and letters</strong><p>Use a template to generate repeatable documents from row-level data.</p></div>
+                <div class="feature"><strong>Invoices or packets</strong><p>Keep file generation tied to the source records without rebuilding the document every time.</p></div>
+                <div class="feature"><strong>Review-ready PDFs</strong><p>Create editable Google Docs, PDF exports, or both depending on the workflow.</p></div>
+                <div class="feature"><strong>Batch processing</strong><p>Generate many files from the same template while keeping naming and structure consistent.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Recommended setup path</h2>
+            <ol class="steps">
+                <li>Build the source sheet so each document field maps cleanly to a column header your team can recognize.</li>
+                <li>Create or choose the Google Docs template you want to use as the layout for the generated output.</li>
+                <li>Launch DocForge, connect the template, map the fields, and run preflight before any full batch.</li>
+                <li>Generate one test file first, then confirm the output format, naming, and any PDF conversion behavior are correct.</li>
+            </ol>
+            <div class="note">Preflight is especially valuable in document workflows because a small mapping mistake can multiply across a full run of files very quickly.</div>
+        </section>
+        <section class="section">
+            <h2>What to evaluate before launch</h2>
+            <div class="grid">
+                <div class="feature"><strong>Template discipline</strong><p>Keep the template fields aligned with the actual spreadsheet headers so replacement works reliably.</p></div>
+                <div class="feature"><strong>Output format</strong><p>Decide whether operators need editable Docs, final PDFs, or both in the same workflow.</p></div>
+                <div class="feature"><strong>Naming and filing</strong><p>Plan how generated files should be named and reviewed so they do not become hard to manage later.</p></div>
+                <div class="feature"><strong>Email delivery needs</strong><p>If documents are sent after generation, test that step separately from the merge itself.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Next steps</h2>
+            <div class="link-bar">
+                <a href="./support.html">DocForge support and setup</a>
+                <a href="./privacy.html">Privacy policy</a>
+                <a href="./terms.html">Terms of service</a>
+                <a href="../resources/index.html">More workflow guides</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

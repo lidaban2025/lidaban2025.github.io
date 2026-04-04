@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormSuite Pricing | Annual plans and bundles for the add-on family</title>
+    <meta name="description" content="Review FormSuite annual pricing, product bundles, launch-mode support policy, and the add-on lineup across Forms, Sheets, Docs, and email workflows.">
+    <link rel="canonical" href="https://formsuite.dev/pricing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="FormSuite Pricing | Annual plans and bundles for the add-on family">
+    <meta property="og:description" content="Review FormSuite annual pricing, product bundles, and launch-mode support policy for the add-on family.">
+    <meta property="og:url" content="https://formsuite.dev/pricing.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta property="og:image:alt" content="FormSuite pricing and bundle overview">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FormSuite Pricing | Annual plans and bundles for the add-on family">
+    <meta name="twitter:description" content="Review FormSuite annual pricing, product bundles, and launch-mode support policy.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebPage",
+                    "name": "FormSuite pricing",
+                    "url": "https://formsuite.dev/pricing.html",
+                    "description": "Annual plans and bundles for the FormSuite add-on family."
+                },
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "Why not publish monthly pricing first?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Annual pricing keeps billing logic, renewal support, and positioning simpler while the product family is still fresh in market review."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Why do bundles matter now?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Bundles turn seven separate listings into one product-family story and give reviewers, support, and customers a clearer commercial map."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "What happens during Google review?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "All add-ons stay in free launch mode while review is active. The public pricing structure is published so teams can evaluate fit before billing switches on."
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    </script>
+    <style>
+        :root {
+            --ink: #16253d;
+            --muted: #5d6f88;
+            --line: #d7e2f0;
+            --panel: rgba(255, 255, 255, 0.94);
+            --blue: #165dff;
+            --blue-soft: #eef4ff;
+            --green-soft: #eaf8ef;
+            --sand: #fff7e8;
+            --shadow: 0 22px 55px rgba(20, 35, 59, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #eef6ff 0, #eef6ff 18%, transparent 42%),
+                radial-gradient(circle at top right, #fff5ea 0, #fff5ea 16%, transparent 36%),
+                linear-gradient(180deg, #f8fbff 0%, #ffffff 58%);
+            line-height: 1.6;
+        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1160px; margin: 0 auto; padding: 28px 20px 64px; }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .brand {
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.95rem;
+        }
+        .hero,
+        .section,
+        .card,
+        .price-table {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+        .hero { padding: 34px; margin-bottom: 18px; }
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.05;
+            letter-spacing: -0.05em;
+            margin-bottom: 14px;
+            max-width: 12ch;
+        }
+        .hero p {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .pricing-note {
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: var(--sand);
+            border: 1px solid #f1ddb6;
+            color: #8b5a00;
+            font-size: 0.93rem;
+        }
+        .section { padding: 28px; margin-top: 18px; }
+        h2 {
+            font-size: 1.55rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+        }
+        .lead {
+            color: var(--muted);
+            margin-bottom: 18px;
+            max-width: 760px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .card { padding: 22px; display: grid; gap: 12px; }
+        .pill {
+            display: inline-flex;
+            width: fit-content;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: #177245;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .card h3 {
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+        .price {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+        .subprice {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+        .feature-list {
+            display: grid;
+            gap: 8px;
+            font-size: 0.93rem;
+            color: var(--ink);
+        }
+        .feature-list span {
+            display: block;
+            padding-left: 14px;
+            position: relative;
+        }
+        .feature-list span::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.94rem;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 14px 12px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            color: var(--muted);
+            font-size: 0.84rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        tr:last-child td { border-bottom: none; }
+        .faq {
+            display: grid;
+            gap: 14px;
+        }
+        .faq strong { display: block; margin-bottom: 6px; }
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 980px) {
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.3rem; max-width: none; }
+            .topbar { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <div class="topbar">
+            <div class="brand">FormSuite</div>
+            <div class="nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="mailto:lidaban2025@gmail.com">Contact</a>
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="eyebrow">Pricing overview</div>
+            <h1>Annual plans first, bundles second, support simple.</h1>
+            <p>This pricing page turns the seven add-ons into one clear commercial system without adding billing complexity too early. Teams can evaluate a single tool quickly, then see where bundles make sense as they adopt multiple workflows across Forms, Sheets, Docs, and email.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=FormSuite pricing inquiry">Contact sales</a>
+                <a class="btn btn-secondary" href="index.html">Back to FormSuite</a>
+            </div>
+            <div class="pricing-note">All seven add-ons currently remain free while Google review is active. This page publishes the planned pricing structure so teams can evaluate fit, budgeting, and bundle logic before billing goes live.</div>
+        </section>
+
+        <section class="section">
+            <h2>Individual plans</h2>
+            <p class="lead">Start with one add-on when a team has a single operational bottleneck. Move to a bundle once they standardize on the wider workflow stack.</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="pill">Forms workflow</div>
+                    <h3>FormFlow</h3>
+                    <div class="price">$29<span class="subprice"> / year</span></div>
+                    <div class="feature-list">
+                        <span>Free tier: 10 approval runs per month</span>
+                        <span>Pro: unlimited approval runs and reminder-heavy workflows</span>
+                        <span>Best for approval routing and audit visibility</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="pill">Form protection</div>
+                    <h3>FormGuard</h3>
+                    <div class="price">$29<span class="subprice"> / year</span></div>
+                    <div class="feature-list">
+                        <span>Free tier: core close/reopen controls</span>
+                        <span>Pro: timers, choice elimination, and advanced alerts</span>
+                        <span>Annual only at public launch</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="pill">Notifications</div>
+                    <h3>FormNotifier</h3>
+                    <div class="price">$19<span class="subprice"> / year</span></div>
+                    <div class="feature-list">
+                        <span>Free tier: 50 notifications per month</span>
+                        <span>Pro: unlimited notifications and higher-volume use</span>
+                        <span>Best for confirmations and internal alerts</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="pill">Document merge</div>
+                    <h3>DocForge</h3>
+                    <div class="price">$29<span class="subprice"> / year</span></div>
+                    <div class="feature-list">
+                        <span>Free tier: 20 merges per month</span>
+                        <span>Pro: unlimited merges, Slides merge, and email delivery</span>
+                        <span>Best for certificates, letters, PDFs, and template output</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="pill">Sheet automation</div>
+                    <h3>FormCopy</h3>
+                    <div class="price">$19<span class="subprice"> / year</span></div>
+                    <div class="feature-list">
+                        <span>Free tier: 50 copied response rows per month</span>
+                        <span>Pro: unlimited row copy and backfill-heavy usage</span>
+                        <span>Best for scoring and enrichment sheets</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="pill">Dynamic forms</div>
+                    <h3>FormRanger</h3>
+                    <div class="price">$19<span class="subprice"> / year</span></div>
+                    <div class="feature-list">
+                        <span>Free tier: 3 active mappings</span>
+                        <span>Pro: unlimited mappings and scheduled refresh</span>
+                        <span>Best for synced dropdowns and live source lists</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top:16px;">
+                <div class="pill">Email merge</div>
+                <h3>FormMerge</h3>
+                <div class="price">$19<span class="subprice"> / year</span></div>
+                <div class="feature-list">
+                    <span>Free tier: 50 merged emails per month</span>
+                    <span>Pro: unlimited merged emails and production-scale sending</span>
+                    <span>Best for confirmations, follow-ups, and response-driven email operations</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Bundle packaging</h2>
+            <p class="lead">Bundle names follow operational jobs rather than technical categories, so teams can understand the value faster.</p>
+            <div class="price-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bundle</th>
+                            <th>Includes</th>
+                            <th>Annual price</th>
+                            <th>Best fit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Forms Ops Bundle</td>
+                            <td>FormFlow, FormGuard, FormNotifier, FormRanger</td>
+                            <td>$79/year</td>
+                            <td>Teams running intake, approvals, notifications, and dynamic form controls together</td>
+                        </tr>
+                        <tr>
+                            <td>Response Ops Bundle</td>
+                            <td>FormCopy, FormMerge, DocForge</td>
+                            <td>$59/year</td>
+                            <td>Teams turning response sheets into formulas, outbound email, PDFs, or documents</td>
+                        </tr>
+                        <tr>
+                            <td>FormSuite Complete</td>
+                            <td>All seven add-ons</td>
+                            <td>$119/year</td>
+                            <td>Operators who want one purchase path for the full workflow stack</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Policy</h2>
+            <p class="lead">The commercial model stays intentionally narrow in phase 1 so support, billing, and renewal logic remain manageable.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Billing shape</h3>
+                    <div class="feature-list">
+                        <span>Annual plans only at launch</span>
+                        <span>No public monthly plan in phase 1</span>
+                        <span>No public lifetime plan until the full suite shares one billing path</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>License model</h3>
+                    <div class="feature-list">
+                        <span>Bind licenses to the Google account used inside the add-on</span>
+                        <span>Use a 14-day grace window before downgrade</span>
+                        <span>Keep launch-mode counters for internal telemetry until billing flips live</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Support promise</h3>
+                    <div class="feature-list">
+                        <span>Single support mailbox for all seven tools</span>
+                        <span>Product-specific support pages stay on the same domain</span>
+                        <span>Bundle buyers should not need separate onboarding paths</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="faq">
+                <div>
+                    <strong>Why not publish monthly pricing first?</strong>
+                    <p>Annual pricing keeps billing logic, renewal support, and positioning simpler while the product family is still fresh in market review.</p>
+                </div>
+                <div>
+                    <strong>Why do bundles matter now?</strong>
+                    <p>They turn seven separate listings into one product family story and give reviewers, support, and customers a clearer commercial map.</p>
+                </div>
+                <div>
+                    <strong>What happens during Google review?</strong>
+                    <p>All add-ons stay in free launch mode. The pricing structure stays visible so the review queue can clear before the public billing switch happens in one pass.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. Pricing overview.</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">FormSuite social card</title>
+  <desc id="desc">FormSuite provides Google Workspace add-ons for forms, sheets, docs, and email workflows.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef6ff" />
+      <stop offset="55%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#fff5ea" />
+    </linearGradient>
+    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#165dff" />
+      <stop offset="100%" stop-color="#0f9d58" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)" />
+  <circle cx="1035" cy="130" r="135" fill="#edf4ff" />
+  <circle cx="130" cy="520" r="155" fill="#fff1d7" />
+  <rect x="78" y="78" width="1044" height="474" rx="30" fill="#ffffff" stroke="#d9e4f2" stroke-width="2" />
+  <rect x="110" y="112" width="188" height="44" rx="22" fill="#edf4ff" />
+  <text x="204" y="140" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#165dff">Google Workspace add-ons</text>
+  <text x="110" y="242" font-family="Segoe UI, Arial, sans-serif" font-size="70" font-weight="800" fill="#14233b">FormSuite</text>
+  <text x="110" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="31" fill="#5b6c86">Tools for Google Forms, Google Sheets, Google Docs, and Gmail workflows.</text>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#14233b">
+    <rect x="110" y="360" width="300" height="64" rx="24" fill="#f8fbff" stroke="#d9e4f2" />
+    <text x="138" y="401" font-weight="700">DocForge</text>
+    <text x="268" y="401" fill="#5b6c86">Documents from Sheets</text>
+    <rect x="430" y="360" width="300" height="64" rx="24" fill="#f8fbff" stroke="#d9e4f2" />
+    <text x="458" y="401" font-weight="700">FormFlow</text>
+    <text x="590" y="401" fill="#5b6c86">Approvals for Forms</text>
+    <rect x="750" y="360" width="300" height="64" rx="24" fill="#f8fbff" stroke="#d9e4f2" />
+    <text x="778" y="401" font-weight="700">FormCopy</text>
+    <text x="914" y="401" fill="#5b6c86">Formula automation</text>
+    <rect x="110" y="444" width="300" height="64" rx="24" fill="#f8fbff" stroke="#d9e4f2" />
+    <text x="138" y="485" font-weight="700">FormGuard</text>
+    <text x="278" y="485" fill="#5b6c86">Controls and safeguards</text>
+    <rect x="430" y="444" width="300" height="64" rx="24" fill="#f8fbff" stroke="#d9e4f2" />
+    <text x="458" y="485" font-weight="700">FormNotifier</text>
+    <text x="636" y="485" fill="#5b6c86">Alerts and confirmations</text>
+    <rect x="750" y="444" width="300" height="64" rx="24" fill="#f8fbff" stroke="#d9e4f2" />
+    <text x="778" y="485" font-weight="700">FormRanger</text>
+    <text x="928" y="485" fill="#5b6c86">Dynamic choice syncing</text>
+  </g>
+  <rect x="894" y="118" width="156" height="46" rx="23" fill="url(#chip)" />
+  <text x="972" y="147" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">formsuite.dev</text>
+</svg>
