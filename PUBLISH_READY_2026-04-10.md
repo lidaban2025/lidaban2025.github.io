@@ -17,11 +17,13 @@ Date: `2026-04-10`
 ## Still needed before true self-serve checkout
 
 1. Create one real payment link per offer
-2. Replace `mailto:` checkout buttons on:
-   - `/buy/`
-   - `/starter-kit/`
-   - `/services/google-workspace-ai-automation.html`
-3. Test payment success and delivery workflow
+2. Copy `buy/payment-links.example.js` to `buy/payment-links.js`
+3. Fill the three values:
+   - `starterKit`
+   - `setupPackage`
+   - `formflowPilot`
+4. Test `/buy/` and confirm buttons switch from manual checkout to secure checkout
+5. Test payment success and delivery workflow
 
 ## Still needed before public launch
 
@@ -43,6 +45,14 @@ Date: `2026-04-10`
 - Gumroad
 - Lemon Squeezy
 - PayPal payment links
+
+## Fastest Stripe-ready switch
+
+1. Create 3 Stripe Payment Links
+2. Save them in `buy/payment-links.js`
+3. Push once
+4. Re-open `/buy/`
+5. Confirm the badges now show `Secure checkout ready`
 
 ## Recommended next move
 

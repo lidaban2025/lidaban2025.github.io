@@ -16,6 +16,7 @@
     <meta name="twitter:title" content="Checkout Paths | FormSuite">
     <meta name="twitter:description" content="Choose a checkout path for the FormSuite starter kit, fixed automation setup, or product pilot.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script src="payment-links.js"></script>
     <style>
         :root {
             --ink: #16253d;
@@ -112,6 +113,16 @@
             color: #8b5a00;
             font-size: 0.93rem;
         }
+        .status {
+            display: inline-flex;
+            width: fit-content;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            background: var(--sand);
+            color: #8b5a00;
+        }
         .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
         @media (max-width: 980px) {
             .grid { grid-template-columns: 1fr; }
@@ -147,6 +158,7 @@
                 <article class="card">
                     <div class="pill">Starter kit</div>
                     <h3>Google Workspace AI Automation Starter Kit</h3>
+                    <div class="status" id="starter-status">Manual checkout active</div>
                     <p>Best for self-serve buyers who want the workflow package and install notes.</p>
                     <ul class="list">
                         <li>Starter kit: $29</li>
@@ -154,13 +166,14 @@
                         <li>Guided setup upgrade: $199</li>
                     </ul>
                     <div class="actions">
-                        <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=Starter%20Kit%20Purchase">Start manual checkout</a>
+                        <a class="btn btn-primary" id="starter-link" href="mailto:lidaban2025@gmail.com?subject=Starter%20Kit%20Purchase">Start manual checkout</a>
                         <a class="btn btn-secondary" href="../starter-kit/index.html">Review offer</a>
                     </div>
                 </article>
                 <article class="card">
                     <div class="pill">Setup service</div>
                     <h3>7-Day Google Workspace AI Automation Setup</h3>
+                    <div class="status" id="setup-status">Manual checkout active</div>
                     <p>Best for teams that want one workflow configured for them.</p>
                     <ul class="list">
                         <li>Starter setup: $299</li>
@@ -168,13 +181,14 @@
                         <li>Maintenance: $79 per month</li>
                     </ul>
                     <div class="actions">
-                        <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=AI%20Automation%20Setup">Start manual checkout</a>
+                        <a class="btn btn-primary" id="setup-link" href="mailto:lidaban2025@gmail.com?subject=AI%20Automation%20Setup">Start manual checkout</a>
                         <a class="btn btn-secondary" href="../services/google-workspace-ai-automation.html">Review offer</a>
                     </div>
                 </article>
                 <article class="card">
                     <div class="pill">Product pilot</div>
                     <h3>FormFlow AI Pilot</h3>
+                    <div class="status" id="pilot-status">Manual checkout active</div>
                     <p>Best when you want to start with one approval queue inside Google Forms.</p>
                     <ul class="list">
                         <li>One pilot workflow</li>
@@ -182,7 +196,7 @@
                         <li>Can convert into service work later</li>
                     </ul>
                     <div class="actions">
-                        <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=FormFlow%20Pilot">Start manual checkout</a>
+                        <a class="btn btn-primary" id="pilot-link" href="mailto:lidaban2025@gmail.com?subject=FormFlow%20Pilot">Start manual checkout</a>
                         <a class="btn btn-secondary" href="../formflow/index.html">Review offer</a>
                     </div>
                 </article>
@@ -191,22 +205,31 @@
 
         <section class="section">
             <h2>Future payment-link slots</h2>
-            <p class="lead">When you are ready, replace the buttons above with one real payment link per offer. This is the only missing technical step for self-serve checkout.</p>
+            <p class="lead">When you are ready, create a real `payment-links.js` file next to this page and fill one payment URL per offer. The buttons above will switch automatically from manual email checkout to real payment links.</p>
             <div class="grid">
                 <article class="card">
-                    <h3>Starter kit payment link slot</h3>
-                    <div class="code">Replace mailto with:
-https://your-provider.example/starter-kit</div>
+                    <h3>Starter kit slot</h3>
+                    <div class="code">window.FORMSUITE_PAYMENT_LINKS = {
+  starterKit: "https://buy.stripe.com/your-link-1",
+  setupPackage: "",
+  formflowPilot: ""
+};</div>
                 </article>
                 <article class="card">
-                    <h3>Setup service payment link slot</h3>
-                    <div class="code">Replace mailto with:
-https://your-provider.example/setup-package</div>
+                    <h3>Setup service slot</h3>
+                    <div class="code">window.FORMSUITE_PAYMENT_LINKS = {
+  starterKit: "",
+  setupPackage: "https://buy.stripe.com/your-link-2",
+  formflowPilot: ""
+};</div>
                 </article>
                 <article class="card">
-                    <h3>Pilot deposit link slot</h3>
-                    <div class="code">Replace mailto with:
-https://your-provider.example/formflow-pilot</div>
+                    <h3>Pilot slot</h3>
+                    <div class="code">window.FORMSUITE_PAYMENT_LINKS = {
+  starterKit: "",
+  setupPackage: "",
+  formflowPilot: "https://buy.stripe.com/your-link-3"
+};</div>
                 </article>
             </div>
         </section>
@@ -216,5 +239,43 @@ https://your-provider.example/formflow-pilot</div>
             &copy; 2026 FormSuite. All rights reserved.
         </div>
     </div>
+    <script>
+        (function () {
+            const links = window.FORMSUITE_PAYMENT_LINKS || {};
+            const items = [
+                {
+                    key: "starterKit",
+                    linkId: "starter-link",
+                    statusId: "starter-status",
+                    liveLabel: "Secure checkout ready"
+                },
+                {
+                    key: "setupPackage",
+                    linkId: "setup-link",
+                    statusId: "setup-status",
+                    liveLabel: "Secure checkout ready"
+                },
+                {
+                    key: "formflowPilot",
+                    linkId: "pilot-link",
+                    statusId: "pilot-status",
+                    liveLabel: "Secure checkout ready"
+                }
+            ];
+
+            items.forEach(function (item) {
+                const target = links[item.key];
+                const link = document.getElementById(item.linkId);
+                const status = document.getElementById(item.statusId);
+                if (!link || !status || !target) return;
+                link.href = target;
+                link.textContent = "Open secure checkout";
+                status.textContent = item.liveLabel;
+                status.style.background = "#eaf8ef";
+                status.style.color = "#177245";
+                status.style.border = "1px solid #cde8d6";
+            });
+        }());
+    </script>
 </body>
 </html>
