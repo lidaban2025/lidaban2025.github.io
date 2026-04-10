@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Workspace AI Automation Starter Kit | FormSuite</title>
+    <meta name="description" content="A lightweight starter kit for Google Forms, Gmail, Docs, and Sheets automation. Includes three workflow templates, setup notes, and operator-ready customization guidance.">
+    <link rel="canonical" href="https://formsuite.dev/starter-kit/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Workspace AI Automation Starter Kit | FormSuite">
+    <meta property="og:description" content="Three ready-to-adapt Google Workspace workflow templates for AI summaries, auto-replies, spreadsheet logging, and document generation.">
+    <meta property="og:url" content="https://formsuite.dev/starter-kit/">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Workspace AI Automation Starter Kit | FormSuite">
+    <meta name="twitter:description" content="Three ready-to-adapt Google Workspace workflow templates for AI summaries, auto-replies, spreadsheet logging, and document generation.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <style>
+        :root {
+            --ink: #16253d;
+            --muted: #5d6f88;
+            --line: #d7e2f0;
+            --panel: rgba(255, 255, 255, 0.94);
+            --blue: #165dff;
+            --blue-soft: #eef4ff;
+            --green-soft: #eaf8ef;
+            --sand: #fff7e8;
+            --shadow: 0 22px 55px rgba(20, 35, 59, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #eef6ff 0, #eef6ff 18%, transparent 42%),
+                radial-gradient(circle at top right, #fff5ea 0, #fff5ea 16%, transparent 36%),
+                linear-gradient(180deg, #f8fbff 0%, #ffffff 58%);
+            line-height: 1.62;
+        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1160px; margin: 0 auto; padding: 28px 20px 64px; }
+        .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .brand { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.03em; }
+        .nav { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.95rem; }
+        .hero, .section, .card, .price-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 18px;
+            padding: 34px;
+            margin-bottom: 18px;
+        }
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.85rem;
+            line-height: 1.04;
+            letter-spacing: -0.05em;
+            margin-bottom: 14px;
+            max-width: 10ch;
+        }
+        .hero p { color: var(--muted); font-size: 1.02rem; max-width: 720px; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .side-list { display: grid; gap: 12px; }
+        .mini {
+            padding: 16px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+        .mini strong { display: block; margin-bottom: 6px; font-size: 1rem; }
+        .mini span { color: var(--muted); font-size: 0.92rem; }
+        .section { padding: 28px; margin-top: 18px; }
+        h2 { font-size: 1.55rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .lead { color: var(--muted); margin-bottom: 20px; max-width: 780px; }
+        .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .card, .price-card { padding: 22px; display: grid; gap: 12px; }
+        .pill {
+            display: inline-flex;
+            width: fit-content;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: #177245;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .card h3, .price-card h3 { font-size: 1.12rem; letter-spacing: -0.02em; }
+        .card p, .price-card p, .list li { color: var(--muted); font-size: 0.94rem; }
+        .list { padding-left: 18px; display: grid; gap: 8px; }
+        .price { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; }
+        .subprice { color: var(--muted); font-size: 0.92rem; }
+        .compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .notice {
+            margin-top: 14px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--sand);
+            border: 1px solid #f1ddb6;
+            color: #8b5a00;
+            font-size: 0.93rem;
+        }
+        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        @media (max-width: 980px) {
+            .hero, .grid, .compare { grid-template-columns: 1fr; }
+            h1 { font-size: 2.3rem; max-width: none; }
+            .topbar { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <div class="topbar">
+            <div class="brand">FormSuite</div>
+            <div class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../pricing.html">Pricing</a>
+                <a href="../resources/index.html">Resources</a>
+                <a href="../services/google-workspace-ai-automation.html">Services</a>
+                <a href="../offers/index.html">Offers</a>
+                <a href="../buy/index.html">Buy</a>
+                <a href="mailto:lidaban2025@gmail.com?subject=Starter%20Kit%20Purchase">Buy</a>
+            </div>
+        </div>
+
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Template pack</div>
+                <h1>Ship your first Google Workspace AI workflow faster.</h1>
+                <p>The Google Workspace AI Automation Starter Kit packages the exact kind of workflows small teams ask for first: AI summaries from form responses, email drafting from spreadsheet data, and document generation from structured records. It is designed for operators, freelancers, and small internal tooling teams that need a clean starting point instead of a custom build from scratch.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="../buy/index.html">Buy starter kit</a>
+                    <a class="btn btn-secondary" href="install.html">Read installation guide</a>
+                </div>
+                <div class="notice">Delivery is handled by email for now. You get the package, setup notes, and the current version archive after purchase confirmation.</div>
+            </div>
+            <div class="side-list">
+                <div class="mini">
+                    <strong>3 workflow templates</strong>
+                    <span>Built around Google Forms, Gmail, Google Docs, and Google Sheets operations that are easy to explain and easy to adapt.</span>
+                </div>
+                <div class="mini">
+                    <strong>Operator-ready notes</strong>
+                    <span>Includes setup order, configuration checkpoints, and field-level guidance so the package is useful beyond raw source code.</span>
+                </div>
+                <div class="mini">
+                    <strong>Best fit</strong>
+                    <span>Freelancers, automation consultants, and small ops teams that want a fast starting point they can customize.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What is inside</h2>
+            <p class="lead">This is not a vague prompt bundle. It is a working starter pack centered on repeatable Google Workspace flows you can adapt for your own internal use, client delivery, or packaged automation offer.</p>
+            <div class="grid">
+                <article class="card">
+                    <div class="pill">Workflow 1</div>
+                    <h3>Form to AI summary log</h3>
+                    <p>Capture new submissions, write a compact AI summary, label the request, and store the enriched record in the response sheet for follow-up.</p>
+                    <ul class="list">
+                        <li>Form intake structure</li>
+                        <li>Summary and tagging prompts</li>
+                        <li>Sheet logging pattern</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="pill">Workflow 2</div>
+                    <h3>Sheet row to email draft</h3>
+                    <p>Turn structured records into editable Gmail drafts for confirmations, follow-ups, or operator review before sending.</p>
+                    <ul class="list">
+                        <li>Draft-ready email template logic</li>
+                        <li>Prompt examples for reply tone</li>
+                        <li>Draft status tracking notes</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="pill">Workflow 3</div>
+                    <h3>Sheet row to Docs output</h3>
+                    <p>Generate a Google Docs output from row data with merge variables and a predictable document handoff process.</p>
+                    <ul class="list">
+                        <li>Template mapping approach</li>
+                        <li>Generation checkpoints</li>
+                        <li>Docs or PDF handoff notes</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How teams usually use it</h2>
+            <div class="compare">
+                <div class="card">
+                    <h3>Use it as your own internal base</h3>
+                    <p>Start from a working pattern instead of building every trigger, prompt, sheet update, and document mapping from zero.</p>
+                    <ul class="list">
+                        <li>Internal ops automation experiments</li>
+                        <li>Prototype a team workflow in a day</li>
+                        <li>Standardize repetitive setup work</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Use it as a client delivery shortcut</h3>
+                    <p>Package one of the starter workflows into a client-facing automation service, then customize only the last mile.</p>
+                    <ul class="list">
+                        <li>Google Workspace setup gigs</li>
+                        <li>Industry-tailored workflow packs</li>
+                        <li>Faster first delivery for service work</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Pricing</h2>
+            <p class="lead">Keep the offer simple. This pack is meant to start conversations and shorten delivery time, not create a complex checkout problem.</p>
+            <div class="grid">
+                <article class="price-card">
+                    <div class="pill">Solo</div>
+                    <h3>Starter kit</h3>
+                    <div class="price">$29 <span class="subprice">one-time</span></div>
+                    <p>Package archive, setup notes, and the installation guide.</p>
+                </article>
+                <article class="price-card">
+                    <div class="pill">Recommended</div>
+                    <h3>Starter kit plus walkthrough</h3>
+                    <div class="price">$79 <span class="subprice">one-time</span></div>
+                    <p>Everything in the kit plus one email walkthrough thread for setup questions and adaptation advice.</p>
+                </article>
+                <article class="price-card">
+                    <div class="pill">Done with you</div>
+                    <h3>Guided setup</h3>
+                    <div class="price">$199 <span class="subprice">one-time</span></div>
+                    <p>Starter kit plus one configured workflow setup for your own Google Workspace environment.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Before you buy</h2>
+            <p class="lead">This package is intentionally narrow. It is best for people who already know they want to automate around Google Forms, Gmail, Google Docs, and Sheets.</p>
+            <div class="compare">
+                <div class="card">
+                    <h3>Good fit</h3>
+                    <ul class="list">
+                        <li>You already work inside Google Workspace.</li>
+                        <li>You want a starting point, not a full product.</li>
+                        <li>You are comfortable making small adjustments yourself.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Not the best fit</h3>
+                    <ul class="list">
+                        <li>You need a polished SaaS with account management.</li>
+                        <li>You need Slack, Shopify, or CRM integrations on day one.</li>
+                        <li>You need a full custom workflow without any operator setup.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Purchase and delivery</h2>
+            <p class="lead">For now the buying path is simple: email to purchase, receive the package, then decide whether you want to self-install or upgrade to guided setup.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=Starter%20Kit%20Purchase">Email to purchase</a>
+                <a class="btn btn-secondary" href="../buy/index.html">Open checkout paths</a>
+                <a class="btn btn-secondary" href="install.html">Installation guide</a>
+                <a class="btn btn-secondary" href="../offers/index.html">See all offers</a>
+                <a class="btn btn-secondary" href="../services/google-workspace-ai-automation.html">Need a custom build instead?</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="compare">
+                <div class="card">
+                    <h3>Do I get a hosted app?</h3>
+                    <p>No. This is a starter package with workflows, notes, and setup guidance. If you want a workflow configured for you, use the setup service.</p>
+                </div>
+                <div class="card">
+                    <h3>Can I use it for client work?</h3>
+                    <p>Yes. The package is written to be a useful base for internal use or small client delivery, especially if you already work in Google Workspace.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormSuite. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

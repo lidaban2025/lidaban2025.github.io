@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starter Kit Installation Guide | FormSuite</title>
+    <meta name="description" content="Installation guide for the Google Workspace AI Automation Starter Kit, including prerequisites, setup order, customization notes, and support boundaries.">
+    <link rel="canonical" href="https://formsuite.dev/starter-kit/install.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Starter Kit Installation Guide | FormSuite">
+    <meta property="og:description" content="Set up the Google Workspace AI Automation Starter Kit with clear prerequisites, installation order, and customization checkpoints.">
+    <meta property="og:url" content="https://formsuite.dev/starter-kit/install.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Starter Kit Installation Guide | FormSuite">
+    <meta name="twitter:description" content="Set up the Google Workspace AI Automation Starter Kit with clear prerequisites, installation order, and customization checkpoints.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <style>
+        :root {
+            --bg: #f7f8fc;
+            --panel: #ffffff;
+            --ink: #152033;
+            --muted: #5f6c80;
+            --line: #d9e1f2;
+            --brand: #2151d1;
+            --brand-soft: #ebf1ff;
+            --sand: #fff7e8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: radial-gradient(circle at top, #eef3ff 0, var(--bg) 42%);
+            color: var(--ink);
+            line-height: 1.68;
+        }
+        a { color: var(--brand); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 980px; margin: 0 auto; padding: 28px 20px 64px; }
+        .nav { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; font-size: 14px; }
+        .nav a { color: var(--muted); }
+        .hero, .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(33, 81, 209, 0.08);
+        }
+        .hero { padding: 30px; }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            background: var(--brand-soft);
+            color: var(--brand);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.08; margin-bottom: 12px; }
+        .hero p { max-width: 760px; color: var(--muted); font-size: 17px; }
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--line);
+        }
+        .btn-primary { background: var(--brand); color: #fff; border-color: var(--brand); }
+        .btn-secondary { background: #fff; color: var(--ink); }
+        .grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 18px;
+            margin-top: 24px;
+        }
+        .card { padding: 24px; }
+        .card h2 { font-size: 22px; margin-bottom: 14px; }
+        .card h3 { font-size: 16px; margin: 18px 0 10px; }
+        .list, .steps {
+            padding-left: 20px;
+            display: grid;
+            gap: 10px;
+        }
+        .list li, .steps li { color: var(--muted); }
+        .notice {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--sand);
+            border: 1px solid #f1ddb6;
+            color: #8b5a00;
+            font-size: 0.93rem;
+        }
+        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite home</a>
+            <a href="index.html">Starter kit</a>
+            <a href="../services/google-workspace-ai-automation.html">Services</a>
+            <a href="../resources/index.html">Resources</a>
+        </nav>
+
+        <section class="hero">
+            <div class="eyebrow">Installation guide</div>
+            <h1>Install the starter kit in the right order and keep the first workflow simple.</h1>
+            <p>This guide is written for solo builders and small teams using Google Workspace already. The goal is not to produce a perfect system on day one. The goal is to get one flow working, verify the data path, then customize the final step.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=Starter%20Kit%20Purchase">Buy the starter kit</a>
+                <a class="btn btn-secondary" href="index.html">Back to starter kit</a>
+            </div>
+        </section>
+
+        <div class="grid">
+            <article class="card">
+                <h2>Prerequisites</h2>
+                <ul class="list">
+                    <li>A Google account with access to Forms, Sheets, Docs, and Gmail.</li>
+                    <li>One test form or one test spreadsheet you can safely modify.</li>
+                    <li>A willingness to keep the first version narrow: one intake, one output, one operator.</li>
+                    <li>If you want live AI output, the API key or model configuration required by the chosen workflow.</li>
+                </ul>
+
+                <h3>Recommended install order</h3>
+                <ol class="steps">
+                    <li>Start with the form-to-summary workflow because it gives the fastest visible result.</li>
+                    <li>Connect the sheet logging path next so every run is auditable.</li>
+                    <li>Add Gmail draft generation only after the source data and summary output look correct.</li>
+                    <li>Use the Docs generation workflow last, once field names and data mapping are stable.</li>
+                </ol>
+
+                <h3>What to customize first</h3>
+                <ul class="list">
+                    <li>Column headers and merge variables.</li>
+                    <li>The summary prompt and any status labels.</li>
+                    <li>Recipient fields and draft subject lines.</li>
+                    <li>Document naming and storage location.</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2>What is included</h2>
+                <ul class="list">
+                    <li>Three workflow templates for Forms, Sheets, Gmail, and Docs automation.</li>
+                    <li>Configuration notes that explain where each workflow expects its source data.</li>
+                    <li>Operator notes that show which parts are safe to rename and which should stay stable.</li>
+                    <li>Basic adaptation guidance for internal use or client delivery.</li>
+                </ul>
+
+                <h3>Support boundaries</h3>
+                <ul class="list">
+                    <li>The starter kit is a working base, not a full hosted app.</li>
+                    <li>Email walkthrough help is included only if you buy the walkthrough or guided setup tier.</li>
+                    <li>If you need a custom workflow assembled for you, move to the service package instead.</li>
+                </ul>
+
+                <h3>Best first outcome</h3>
+                <p style="color: var(--muted);">Within the first setup session, aim to prove one clean loop: new record in, AI output written, operator can review the result. Stop there before you expand the scope.</p>
+            </article>
+        </div>
+
+        <section class="card" style="margin-top: 18px;">
+            <h2>Common mistakes to avoid</h2>
+            <ul class="list">
+                <li>Trying to wire all three workflows at once.</li>
+                <li>Renaming every field before the first successful run.</li>
+                <li>Adding multiple approvers, recipients, or output variations too early.</li>
+                <li>Treating the starter kit like a finished SaaS instead of a starting point.</li>
+            </ul>
+            <div class="notice">If you already know you need the workflow customized for a real team, skip the self-install struggle and use the fixed delivery package instead.</div>
+            <div class="hero-actions" style="margin-top: 18px;">
+                <a class="btn btn-primary" href="../services/google-workspace-ai-automation.html">See the fixed delivery package</a>
+                <a class="btn btn-secondary" href="mailto:lidaban2025@gmail.com?subject=Starter%20Kit%20Walkthrough">Ask for setup help</a>
+            </div>
+        </section>
+
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormSuite. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

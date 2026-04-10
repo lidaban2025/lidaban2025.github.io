@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Day Google Workspace AI Automation Setup | FormSuite</title>
+    <meta name="description" content="A fixed-scope Google Workspace AI automation service for Forms, Sheets, Gmail, and Docs. Launch one workflow in 7 days with setup, prompts, and operator handoff.">
+    <link rel="canonical" href="https://formsuite.dev/services/google-workspace-ai-automation.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="7-Day Google Workspace AI Automation Setup | FormSuite">
+    <meta property="og:description" content="A fixed-scope delivery package for one Google Workspace workflow with AI summaries, drafts, document generation, and operator handoff.">
+    <meta property="og:url" content="https://formsuite.dev/services/google-workspace-ai-automation.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="7-Day Google Workspace AI Automation Setup | FormSuite">
+    <meta name="twitter:description" content="A fixed-scope delivery package for one Google Workspace workflow with AI summaries, drafts, document generation, and operator handoff.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <style>
+        :root {
+            --ink: #16253d;
+            --muted: #5d6f88;
+            --line: #d7e2f0;
+            --panel: rgba(255, 255, 255, 0.94);
+            --blue: #165dff;
+            --blue-soft: #eef4ff;
+            --green-soft: #eaf8ef;
+            --sand: #fff7e8;
+            --shadow: 0 22px 55px rgba(20, 35, 59, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #eef6ff 0, #eef6ff 18%, transparent 42%),
+                radial-gradient(circle at top right, #fff5ea 0, #fff5ea 16%, transparent 36%),
+                linear-gradient(180deg, #f8fbff 0%, #ffffff 58%);
+            line-height: 1.62;
+        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1160px; margin: 0 auto; padding: 28px 20px 64px; }
+        .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .brand { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.03em; }
+        .nav { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.95rem; }
+        .hero, .section, .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 18px;
+            padding: 34px;
+            margin-bottom: 18px;
+        }
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.85rem;
+            line-height: 1.04;
+            letter-spacing: -0.05em;
+            margin-bottom: 14px;
+            max-width: 11ch;
+        }
+        .hero p { color: var(--muted); font-size: 1.02rem; max-width: 720px; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .summary { display: grid; gap: 12px; }
+        .mini {
+            padding: 16px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+        .mini strong { display: block; margin-bottom: 6px; font-size: 1rem; }
+        .mini span { color: var(--muted); font-size: 0.92rem; }
+        .section { padding: 28px; margin-top: 18px; }
+        h2 { font-size: 1.55rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .lead { color: var(--muted); margin-bottom: 20px; max-width: 780px; }
+        .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .card { padding: 22px; display: grid; gap: 12px; }
+        .pill {
+            display: inline-flex;
+            width: fit-content;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: #177245;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .card h3 { font-size: 1.12rem; letter-spacing: -0.02em; }
+        .card p, .list li { color: var(--muted); font-size: 0.94rem; }
+        .list { padding-left: 18px; display: grid; gap: 8px; }
+        .timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+        .step {
+            padding: 18px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+        .step strong { display: inline-block; margin-bottom: 8px; }
+        .step p { color: var(--muted); font-size: 0.93rem; }
+        .notice {
+            margin-top: 14px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--sand);
+            border: 1px solid #f1ddb6;
+            color: #8b5a00;
+            font-size: 0.93rem;
+        }
+        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        @media (max-width: 980px) {
+            .hero, .grid, .timeline { grid-template-columns: 1fr; }
+            h1 { font-size: 2.3rem; max-width: none; }
+            .topbar { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <div class="topbar">
+            <div class="brand">FormSuite</div>
+            <div class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../pricing.html">Pricing</a>
+                <a href="../starter-kit/index.html">Starter kit</a>
+                <a href="../resources/index.html">Resources</a>
+                <a href="../offers/index.html">Offers</a>
+                <a href="../buy/index.html">Buy</a>
+                <a href="mailto:lidaban2025@gmail.com?subject=AI%20Automation%20Setup">Contact</a>
+            </div>
+        </div>
+
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Fixed delivery package</div>
+                <h1>Launch one Google Workspace AI workflow in 7 days.</h1>
+                <p>This package is for teams that do not want to assemble scripts, prompts, sheet logic, and document wiring themselves. We take one narrow workflow, configure it around your Google Workspace setup, and hand off an operator-ready version with the logic already connected.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="../buy/index.html">Book the setup package</a>
+                    <a class="btn btn-secondary" href="../starter-kit/index.html">Need the cheaper starter kit?</a>
+                </div>
+                <div class="notice">Scope stays fixed on purpose. One workflow, one environment, one clean handoff. That is how this stays fast and sellable.</div>
+            </div>
+            <div class="summary">
+                <div class="mini">
+                    <strong>Best fit</strong>
+                    <span>Small teams already living in Google Forms, Google Sheets, Gmail, and Google Docs.</span>
+                </div>
+                <div class="mini">
+                    <strong>Typical jobs</strong>
+                    <span>Form intake summaries, response routing, Gmail draft creation, Docs generation, and spreadsheet-driven follow-up.</span>
+                </div>
+                <div class="mini">
+                    <strong>Buying logic</strong>
+                    <span>Simple enough for a fixed price, clear enough for a small team to approve without a long sales cycle.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What is included</h2>
+            <p class="lead">The goal is to help a team stop talking about automation and start using one workflow that actually runs in their Google Workspace environment.</p>
+            <div class="grid">
+                <article class="card">
+                    <div class="pill">Included</div>
+                    <h3>One workflow configuration</h3>
+                    <p>We set up one narrow automation flow around your source form, source sheet, or source document process.</p>
+                    <ul class="list">
+                        <li>One intake or source dataset</li>
+                        <li>One output or operator path</li>
+                        <li>One owner handoff</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="pill">Included</div>
+                    <h3>Prompt and logic setup</h3>
+                    <p>We configure the summary, reply draft, or document-generation behavior so the workflow is useful on day one.</p>
+                    <ul class="list">
+                        <li>AI summary or draft prompt</li>
+                        <li>Field mapping and status logic</li>
+                        <li>Basic review checkpoints</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="pill">Included</div>
+                    <h3>Operator handoff</h3>
+                    <p>You get a setup note that explains what the workflow does, where to update it, and how to test it after handoff.</p>
+                    <ul class="list">
+                        <li>Short handoff notes</li>
+                        <li>Test run guidance</li>
+                        <li>7-day support window</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Pricing</h2>
+            <p class="lead">Fixed pricing keeps this easy to buy and easy to deliver.</p>
+            <div class="grid">
+                <article class="card">
+                    <div class="pill">Entry</div>
+                    <h3>Starter setup</h3>
+                    <p style="font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">$299</p>
+                    <ul class="list">
+                        <li>One simple workflow</li>
+                        <li>One operator</li>
+                        <li>Email-only support</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="pill">Recommended</div>
+                    <h3>Core setup</h3>
+                    <p style="font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">$599</p>
+                    <ul class="list">
+                        <li>One production-ready workflow</li>
+                        <li>AI output plus operator handoff</li>
+                        <li>7-day tweak window</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="pill">Ongoing</div>
+                    <h3>Maintenance add-on</h3>
+                    <p style="font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">$79<span style="font-size: 0.92rem; color: var(--muted);"> / month</span></p>
+                    <ul class="list">
+                        <li>Prompt adjustments</li>
+                        <li>Light workflow edits</li>
+                        <li>Priority issue triage</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Typical delivery timeline</h2>
+            <div class="timeline">
+                <div class="step">
+                    <strong>Day 1</strong>
+                    <p>Confirm the workflow scope, source file, and target outcome.</p>
+                </div>
+                <div class="step">
+                    <strong>Day 2-3</strong>
+                    <p>Wire the source data, prompt logic, and sheet or document updates.</p>
+                </div>
+                <div class="step">
+                    <strong>Day 4-5</strong>
+                    <p>Test the workflow using your own sample records and tighten the output.</p>
+                </div>
+                <div class="step">
+                    <strong>Day 6-7</strong>
+                    <p>Ship the configured version, handoff notes, and support window.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Good fit and bad fit</h2>
+            <div class="grid">
+                <article class="card">
+                    <div class="pill">Good fit</div>
+                    <h3>Use this package if</h3>
+                    <ul class="list">
+                        <li>You already use Google Workspace heavily.</li>
+                        <li>You want a working result faster than a custom project proposal.</li>
+                        <li>You can keep the first automation narrow and operator-led.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="pill">Bad fit</div>
+                    <h3>Do not use this package if</h3>
+                    <ul class="list">
+                        <li>You need a full multi-system platform.</li>
+                        <li>You need heavy CRM or ERP integration on day one.</li>
+                        <li>You want a vague AI strategy engagement instead of a specific workflow.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="pill">Alternative</div>
+                    <h3>Cheaper path</h3>
+                    <p>If you can handle the last mile yourself, buy the starter kit and use the templates as your base instead of ordering the full setup package.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Book the package</h2>
+            <p class="lead">If you can describe the workflow in one sentence, this offer is probably scoped correctly.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=AI%20Automation%20Setup">Email to book</a>
+                <a class="btn btn-secondary" href="../buy/index.html">Open checkout paths</a>
+                <a class="btn btn-secondary" href="../offers/index.html">See contact templates</a>
+                <a class="btn btn-secondary" href="../starter-kit/index.html">See the starter kit first</a>
+                <a class="btn btn-secondary" href="../formflow/index.html">Need approval workflows?</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="grid">
+                <article class="card">
+                    <div class="pill">Scope</div>
+                    <h3>What does “one workflow” mean?</h3>
+                    <p>One source, one main outcome, and one clear operator path. If the request turns into a whole platform, it is outside this package.</p>
+                </article>
+                <article class="card">
+                    <div class="pill">Timeline</div>
+                    <h3>Is 7 days guaranteed?</h3>
+                    <p>The package is designed for 7-day delivery when the workflow is narrow and the source data is already in Google Workspace.</p>
+                </article>
+                <article class="card">
+                    <div class="pill">Support</div>
+                    <h3>What happens after delivery?</h3>
+                    <p>You get a short support window for small fixes, and you can add maintenance if you want ongoing prompt or workflow adjustments.</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormSuite. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

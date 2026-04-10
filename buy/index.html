@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Paths | FormSuite</title>
+    <meta name="description" content="Choose a checkout path for the FormSuite starter kit, fixed automation setup, or product pilot. Payment is currently handled through manual confirmation and email invoicing.">
+    <link rel="canonical" href="https://formsuite.dev/buy/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Checkout Paths | FormSuite">
+    <meta property="og:description" content="Choose a checkout path for the FormSuite starter kit, fixed automation setup, or product pilot.">
+    <meta property="og:url" content="https://formsuite.dev/buy/">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Checkout Paths | FormSuite">
+    <meta name="twitter:description" content="Choose a checkout path for the FormSuite starter kit, fixed automation setup, or product pilot.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <style>
+        :root {
+            --ink: #16253d;
+            --muted: #5d6f88;
+            --line: #d7e2f0;
+            --panel: rgba(255, 255, 255, 0.94);
+            --blue: #165dff;
+            --blue-soft: #eef4ff;
+            --green-soft: #eaf8ef;
+            --sand: #fff7e8;
+            --shadow: 0 22px 55px rgba(20, 35, 59, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #eef6ff 0, #eef6ff 18%, transparent 42%),
+                radial-gradient(circle at top right, #fff5ea 0, #fff5ea 16%, transparent 36%),
+                linear-gradient(180deg, #f8fbff 0%, #ffffff 58%);
+            line-height: 1.62;
+        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1160px; margin: 0 auto; padding: 28px 20px 64px; }
+        .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .brand { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.03em; }
+        .nav { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.95rem; }
+        .hero, .section, .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+        .hero { padding: 34px; margin-bottom: 18px; }
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 { font-size: 2.8rem; line-height: 1.05; letter-spacing: -0.05em; margin-bottom: 14px; max-width: 10ch; }
+        .hero p { max-width: 760px; color: var(--muted); font-size: 1.03rem; }
+        .section { padding: 28px; margin-top: 18px; }
+        h2 { font-size: 1.55rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .lead { color: var(--muted); margin-bottom: 20px; max-width: 780px; }
+        .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .card { padding: 22px; display: grid; gap: 12px; }
+        .pill {
+            display: inline-flex;
+            width: fit-content;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: #177245;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .card h3 { font-size: 1.12rem; letter-spacing: -0.02em; }
+        .card p, .list li, .code { color: var(--muted); font-size: 0.94rem; }
+        .list { padding-left: 18px; display: grid; gap: 8px; }
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .code {
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: #fff;
+            font-family: Consolas, "Courier New", monospace;
+            white-space: pre-wrap;
+        }
+        .notice {
+            margin-top: 14px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--sand);
+            border: 1px solid #f1ddb6;
+            color: #8b5a00;
+            font-size: 0.93rem;
+        }
+        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        @media (max-width: 980px) {
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.3rem; max-width: none; }
+            .topbar { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <div class="topbar">
+            <div class="brand">FormSuite</div>
+            <div class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../offers/index.html">Offers</a>
+                <a href="../starter-kit/index.html">Starter kit</a>
+                <a href="../services/google-workspace-ai-automation.html">Services</a>
+                <a href="mailto:lidaban2025@gmail.com">Email</a>
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="eyebrow">Checkout paths</div>
+            <h1>Choose what you want to buy first.</h1>
+            <p>This checkout page keeps the buying path centralized. For now, payment is handled manually by email confirmation or invoice. The page is already structured so a Stripe, Gumroad, Lemon Squeezy, or PayPal payment link can replace the current email buttons later without changing the offer pages.</p>
+            <div class="notice">Current state: live checkout structure, manual payment handoff. Final step still needed later: replace the email buttons with your real payment links.</div>
+        </section>
+
+        <section class="section">
+            <h2>Checkout options</h2>
+            <p class="lead">Use the matching checkout path below. Each one already includes the right email subject so inquiries stay organized.</p>
+            <div class="grid">
+                <article class="card">
+                    <div class="pill">Starter kit</div>
+                    <h3>Google Workspace AI Automation Starter Kit</h3>
+                    <p>Best for self-serve buyers who want the workflow package and install notes.</p>
+                    <ul class="list">
+                        <li>Starter kit: $29</li>
+                        <li>Starter kit plus walkthrough: $79</li>
+                        <li>Guided setup upgrade: $199</li>
+                    </ul>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=Starter%20Kit%20Purchase">Start manual checkout</a>
+                        <a class="btn btn-secondary" href="../starter-kit/index.html">Review offer</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="pill">Setup service</div>
+                    <h3>7-Day Google Workspace AI Automation Setup</h3>
+                    <p>Best for teams that want one workflow configured for them.</p>
+                    <ul class="list">
+                        <li>Starter setup: $299</li>
+                        <li>Core setup: $599</li>
+                        <li>Maintenance: $79 per month</li>
+                    </ul>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=AI%20Automation%20Setup">Start manual checkout</a>
+                        <a class="btn btn-secondary" href="../services/google-workspace-ai-automation.html">Review offer</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="pill">Product pilot</div>
+                    <h3>FormFlow AI Pilot</h3>
+                    <p>Best when you want to start with one approval queue inside Google Forms.</p>
+                    <ul class="list">
+                        <li>One pilot workflow</li>
+                        <li>Approval-focused framing</li>
+                        <li>Can convert into service work later</li>
+                    </ul>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=FormFlow%20Pilot">Start manual checkout</a>
+                        <a class="btn btn-secondary" href="../formflow/index.html">Review offer</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Future payment-link slots</h2>
+            <p class="lead">When you are ready, replace the buttons above with one real payment link per offer. This is the only missing technical step for self-serve checkout.</p>
+            <div class="grid">
+                <article class="card">
+                    <h3>Starter kit payment link slot</h3>
+                    <div class="code">Replace mailto with:
+https://your-provider.example/starter-kit</div>
+                </article>
+                <article class="card">
+                    <h3>Setup service payment link slot</h3>
+                    <div class="code">Replace mailto with:
+https://your-provider.example/setup-package</div>
+                </article>
+                <article class="card">
+                    <h3>Pilot deposit link slot</h3>
+                    <div class="code">Replace mailto with:
+https://your-provider.example/formflow-pilot</div>
+                </article>
+            </div>
+        </section>
+
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormSuite. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
