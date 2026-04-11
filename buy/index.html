@@ -250,39 +250,16 @@
         (function () {
             const links = window.FORMSUITE_PAYMENT_LINKS || {};
             const items = [
-                {
-                    key: "starterKit",
-                    linkId: "starter-link",
-                    statusId: "starter-status",
-                    liveLabel: "Secure checkout ready"
-                },
-                {
-                    key: "setupPackage",
-                    linkId: "setup-link",
-                    statusId: "setup-status",
-                    liveLabel: "Secure checkout ready"
-                },
-                {
-                    key: "formflowPilot",
-                    linkId: "pilot-link",
-                    statusId: "pilot-status",
-                    liveLabel: "Secure checkout ready"
-                }
+                { key: "starterKit", linkId: "starter-link" },
+                { key: "setupPackage", linkId: "setup-link" },
+                { key: "formflowPilot", linkId: "pilot-link" }
             ];
-
             items.forEach(function (item) {
                 const target = links[item.key];
                 const link = document.getElementById(item.linkId);
                 if (!link || !target) return;
                 link.href = target;
                 link.textContent = "Open secure checkout";
-                var status = document.getElementById(item.statusId);
-                if (status) {
-                    status.textContent = item.liveLabel;
-                    status.style.background = "#eaf8ef";
-                    status.style.color = "#177245";
-                    status.style.border = "1px solid #cde8d6";
-                }
             });
         }());
     </script>
