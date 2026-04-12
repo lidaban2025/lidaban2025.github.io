@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Google Forms to open and close automatically | FormGuard guide</title>
+    <meta name="description" content="Schedule Google Forms close and reopen times with FormGuard so intake windows, applications, signups, and request forms do not need manual monitoring.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/schedule-google-forms-open-close-guide.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Schedule Google Forms to open and close automatically">
+    <meta property="og:description" content="Run time-boxed Google Forms collection windows with scheduled close and reopen controls.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/schedule-google-forms-open-close-guide.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Schedule Google Forms to open and close automatically">
+    <meta name="twitter:description" content="Run time-boxed intake windows without watching the form manually.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Schedule Google Forms to open and close automatically",
+            "description": "A guide to scheduled Google Forms open and close controls with FormGuard.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/schedule-google-forms-open-close-guide.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --sand-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section,.panel { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--sand-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./google-forms-limit-responses-guide.html">Response limits</a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Workflow guide</div>
+            <h1>Schedule Google Forms to open and close automatically</h1>
+            <p>Some Google Forms should only collect responses during a specific window: applications, event signups, daily intake forms, office-hour requests, or limited-time surveys.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./index.html">View FormGuard overview</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Use scheduled controls when</h2>
+            <div class="grid">
+                <div class="feature"><strong>Registration windows</strong><p>Open and close signups around a fixed event or application period.</p></div>
+                <div class="feature"><strong>Daily intake forms</strong><p>Keep the same link or QR code while controlling when responses are accepted.</p></div>
+                <div class="feature"><strong>Internal request queues</strong><p>Close intake after a deadline and reopen it for the next collection period.</p></div>
+                <div class="feature"><strong>Capacity control</strong><p>Combine timers with response limits so the earliest rule closes the form.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Set a close or reopen time</h2>
+            <ol class="steps">
+                <li>Open your Google Form.</li>
+                <li>Open FormGuard from the Google Forms add-ons menu.</li>
+                <li>Turn on <strong>Timer</strong>.</li>
+                <li>Choose a close time, a reopen time, or both.</li>
+                <li>Save settings.</li>
+            </ol>
+            <div class="note">
+                Google Apps Script time triggers are not second-level schedulers. Timer actions usually run within a few minutes of the scheduled time, depending on Google's trigger scheduling.
+            </div>
+        </section>
+        <section class="section">
+            <h2>Best fit</h2>
+            <p class="lead">Use this for operational control, not for high-stakes second-level timing. For most classes, events, signups, and intake windows, a few minutes of scheduling variance is usually acceptable.</p>
+            <div class="link-bar">
+                <a href="./google-forms-limit-responses-guide.html">Read the response limit guide</a>
+                <a href="./google-forms-choice-limiter-guide.html">Read the choice limiter guide</a>
+                <a href="./support.html">Open setup guide</a>
+            </div>
+        </section>
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormGuard. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

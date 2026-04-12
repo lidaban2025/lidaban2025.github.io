@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms choice limiter for slots and quotas | FormGuard guide</title>
+    <meta name="description" content="Use FormGuard as a Google Forms choice limiter for appointment slots, event sessions, volunteer roles, inventory choices, and signup quotas.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-choice-limiter-guide.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms choice limiter for slots and quotas">
+    <meta property="og:description" content="Replace filled choices in Google Forms when a quota is reached.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-choice-limiter-guide.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms choice limiter for slots and quotas">
+    <meta name="twitter:description" content="Use choice quotas for appointment slots, event sessions, volunteer roles, and signup options.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms choice limiter for slots and quotas",
+            "description": "A guide to limiting Google Forms choices with FormGuard.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-choice-limiter-guide.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section,.panel { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./google-forms-limit-responses-guide.html">Response limits</a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Workflow guide</div>
+            <h1>Google Forms choice limiter for slots and quotas</h1>
+            <p>Choice limits help when each answer option represents capacity: appointment times, workshop sessions, volunteer roles, pickup windows, or simple inventory choices.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./index.html">View FormGuard overview</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>When choice limits help</h2>
+            <div class="grid">
+                <div class="feature"><strong>Appointment slots</strong><p>Let visitors pick a time slot and remove it when the quota is filled.</p></div>
+                <div class="feature"><strong>Event sessions</strong><p>Keep each session within capacity while the rest of the form stays open.</p></div>
+                <div class="feature"><strong>Volunteer roles</strong><p>Stop assigning a role after enough people have selected it.</p></div>
+                <div class="feature"><strong>Simple inventory choices</strong><p>Use option quotas when each selected choice consumes one unit.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Set up choice limits with FormGuard</h2>
+            <ol class="steps">
+                <li>Add your multiple-choice, checkbox, or dropdown question in Google Forms.</li>
+                <li>Open FormGuard from the Google Forms add-ons menu.</li>
+                <li>Turn on <strong>Choice eliminator</strong>.</li>
+                <li>Set the quota for the supported question.</li>
+                <li>Save settings and test the form with a sample submission.</li>
+            </ol>
+            <div class="note">
+                For quantity-based sales, such as one response buying three units, a simple choice quota may not be enough. Test the workflow on a copy before using it for live inventory.
+            </div>
+        </section>
+        <section class="section">
+            <h2>Use choice limits with response limits</h2>
+            <p class="lead">Choice limits can run alongside a total response limit. A form can close when total capacity is reached while individual options are removed as they fill.</p>
+            <div class="link-bar">
+                <a href="./google-forms-limit-responses-guide.html">Read the response limit guide</a>
+                <a href="./schedule-google-forms-open-close-guide.html">Read the timer guide</a>
+                <a href="./support.html">Open setup guide</a>
+            </div>
+        </section>
+        <div class="footer">
+            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
+            &copy; 2026 FormGuard. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
