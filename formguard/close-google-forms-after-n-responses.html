@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Close Google Forms After N Responses | FormGuard</title>
+    <meta name="description" content="Close Google Forms after a fixed number of responses, show a clear closed-form message, and notify the owner when the limit is reached.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/close-google-forms-after-n-responses.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Close Google Forms After N Responses | FormGuard">
+    <meta property="og:description" content="A practical guide to closing Google Forms after a response cap, with notes on race conditions, testing, and notifications.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/close-google-forms-after-n-responses.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Close Google Forms After N Responses">
+    <meta name="twitter:description" content="Set a response cap, closed-form message, and owner notification for Google Forms.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Close Google Forms After N Responses",
+            "description": "How to close Google Forms after a response cap and handle the edge cases around already-open forms.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/close-google-forms-after-n-responses.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:14ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Google Forms response cap</div>
+            <h1>Close Google Forms after N responses</h1>
+            <p>For course registrations, event seats, volunteer signups, and limited intake forms, the simplest rule is often: keep the form open until it reaches a fixed number of responses, then close it with a clear message.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>When this setup helps</h2>
+            <p class="lead">Use a response cap when the total number of accepted submissions matters more than the exact submission time.</p>
+            <div class="grid">
+                <div class="feature"><strong>Course seats</strong><p>Close registration after the class reaches capacity.</p></div>
+                <div class="feature"><strong>Event attendance</strong><p>Stop collecting responses after the room, ticket, or session limit is reached.</p></div>
+                <div class="feature"><strong>Internal intake</strong><p>Limit how many requests a team accepts during a collection window.</p></div>
+                <div class="feature"><strong>Simple waitlist handoff</strong><p>Show a closed-form message that points late visitors to the next step.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Set the cap with FormGuard</h2>
+            <ol class="steps">
+                <li>Install FormGuard from the Google Workspace Marketplace.</li>
+                <li>Open the target Google Form in edit mode.</li>
+                <li>Open FormGuard from the add-ons menu.</li>
+                <li>Turn on the response limiter and enter the response cap.</li>
+                <li>Add a closed-form message that tells late visitors what to do next.</li>
+                <li>Turn on a close notification if the owner should receive an email when the cap is reached.</li>
+                <li>Save settings and test the form before sending it to a large audience.</li>
+            </ol>
+        </section>
+        <section class="section">
+            <h2>Plan for already-open forms</h2>
+            <p class="lead">No Google Forms response cap can fully control every person who already opened the form before the limit was reached. Test the edge case before using any limit tool for high-stakes registration.</p>
+            <div class="grid">
+                <div class="feature"><strong>Small audiences</strong><p>A normal response cap is usually enough when traffic is low and submissions are not simultaneous.</p></div>
+                <div class="feature"><strong>High traffic launches</strong><p>Use a lower public cap, a waitlist, or manual review if many people may submit at the same time.</p></div>
+                <div class="feature"><strong>Clear messaging</strong><p>Tell late visitors whether registration is closed, waitlisted, or handled by email.</p></div>
+                <div class="feature"><strong>Owner notification</strong><p>Send an email when the limit is reached so the operator knows the form closed.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Combine with schedules or choices</h2>
+            <p>A response cap can run alongside scheduled open and close times. For session-based forms, choice quotas can also remove filled answer options while the overall form remains open.</p>
+            <div class="link-bar">
+                <a href="./schedule-google-forms-open-close-guide.html">Schedule open and close times</a>
+                <a href="./google-forms-choice-limiter-guide.html">Choice limiter guide</a>
+                <a href="./formlimiter-alternative-google-forms.html">FormLimiter alternative</a>
+            </div>
+            <div class="note">FormGuard is free of charge during public launch while real-world feedback is collected.</div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
