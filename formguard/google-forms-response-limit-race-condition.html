@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms Response Limit Race Conditions | FormGuard</title>
+    <meta name="description" content="Understand Google Forms response limit race conditions, why already-open forms can overshoot capacity, and how to set safer expectations with FormGuard.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-response-limit-race-condition.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms Response Limit Race Conditions | FormGuard">
+    <meta property="og:description" content="Why response caps can overshoot in Google Forms, what Apps Script can and cannot control, and how to run safer signup workflows.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-response-limit-race-condition.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms Response Limit Race Conditions">
+    <meta name="twitter:description" content="What happens when multiple people submit a limited Google Form at the same time and how to reduce oversubscription risk.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms Response Limit Race Conditions",
+            "description": "A practical guide to understanding Google Forms response limit race conditions and how to run safer capped signups.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-response-limit-race-condition.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --sand-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:16ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--sand-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Response cap edge case</div>
+            <h1>Google Forms response limit race conditions</h1>
+            <p>When multiple people already have a Google Form open, a response limit is not the same thing as a transactional reservation system. The form may still receive a small overshoot around the last available seat.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./close-google-forms-after-n-responses.html">Open response cap guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Why this happens</h2>
+            <p class="lead">A form can only close after a submission is processed. If several people opened the form before the limit was reached, they may all still attempt to submit.</p>
+            <div class="grid">
+                <div class="feature"><strong>Already-open tabs</strong><p>A visitor who opened the form earlier may still be looking at a valid page even after capacity is almost gone.</p></div>
+                <div class="feature"><strong>Near-simultaneous submissions</strong><p>If multiple people submit at roughly the same time, one rule update may arrive a little later than the final visible seat.</p></div>
+                <div class="feature"><strong>Trigger timing</strong><p>Apps Script reacts quickly for normal operations, but it is not a hard real-time locking system.</p></div>
+                <div class="feature"><strong>Operator expectations</strong><p>For low-volume forms this is usually fine. For high-demand launches, it needs a clearer plan.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>What native Google Forms can and cannot do</h2>
+            <div class="grid">
+                <div class="feature"><strong>What it can do</strong><p>Google Forms can stop accepting responses manually, collect timestamps, and show a closed-form message once the form is closed.</p></div>
+                <div class="feature"><strong>What it cannot guarantee</strong><p>It does not provide seat locking, queueing, or atomic reservation logic for people who are already in the form.</p></div>
+                <div class="feature"><strong>Where Apps Script helps</strong><p>Apps Script can watch submissions, close the form after a cap, and notify the owner without manual monitoring.</p></div>
+                <div class="feature"><strong>Where custom code still falls short</strong><p>A script can reduce oversubscription risk, but it still cannot turn Google Forms into a strict booking engine.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>How to run a safer capped signup</h2>
+            <ol class="steps">
+                <li>Set the public cap slightly below the true hard limit if oversubscription would be painful.</li>
+                <li>Write a closed-form message that explains whether late users should join a waitlist or email the organizer.</li>
+                <li>Turn on owner notifications so the operator knows when the form closes.</li>
+                <li>Test the form on a copy before launch, especially if many people may submit at once.</li>
+                <li>For very high-demand registration, plan a manual review or backup waitlist flow instead of assuming zero overshoot.</li>
+            </ol>
+            <div class="note">FormGuard is a practical control layer for Google Forms. It is not a payment-backed reservation or inventory system, and it should not be described that way.</div>
+        </section>
+        <section class="section">
+            <h2>Where FormGuard fits well</h2>
+            <p class="lead">FormGuard is strongest when the form needs clear operational controls, not transactional guarantees.</p>
+            <div class="grid">
+                <div class="feature"><strong>Good fit</strong><p>Classes, workshops, volunteer signups, intake windows, office hours, and internal request forms with moderate traffic.</p></div>
+                <div class="feature"><strong>Use extra caution</strong><p>Public launches, scarce seats, or situations where even one extra confirmed spot creates a real operational problem.</p></div>
+                <div class="feature"><strong>Helpful pairings</strong><p>Combine a response cap with scheduled open and close times, custom close messaging, and owner notifications.</p></div>
+                <div class="feature"><strong>Not the right promise</strong><p>Do not position FormGuard as a zero-race-condition booking engine or a guaranteed hard inventory lock.</p></div>
+            </div>
+            <div class="link-bar">
+                <a href="./close-google-forms-after-n-responses.html">Close after N responses</a>
+                <a href="./schedule-google-forms-open-close-guide.html">Schedule open and close times</a>
+                <a href="./google-forms-session-capacity-choice-quota.html">Session capacity guide</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
