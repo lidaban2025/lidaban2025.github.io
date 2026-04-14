@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Google Forms Close Automatically After 100 Responses? | FormGuard</title>
+    <meta name="description" content="Learn how to close Google Forms automatically after 100 responses, what native Forms can do, and where FormGuard helps with safer response-cap workflows.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/can-google-forms-close-automatically-after-100-responses.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Can Google Forms Close Automatically After 100 Responses? | FormGuard">
+    <meta property="og:description" content="A practical answer to the common Google Forms question about closing a form after 100 responses.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/can-google-forms-close-automatically-after-100-responses.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Can Google Forms Close Automatically After 100 Responses?">
+    <meta name="twitter:description" content="How to set a 100-response cap in Google Forms and what to watch for when traffic is high.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Can Google Forms close automatically after 100 responses?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. A Google Form can be configured to stop accepting responses after a set limit, such as 100 total responses. The safer setup also includes a clear closed-form message and operator notification so late visitors know what to do next."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Will a 100-response cap stop every already-open form instantly?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. People who already opened the form before the limit was reached may still submit, especially during high-traffic signups. That is why operators should plan for race conditions, buffer caps, or a waitlist fallback."
+                    }
+                }
+            ]
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --amber-soft:#fff7e8; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.5rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #cde8d6; background:var(--green-soft); color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #edd8a7; background:var(--amber-soft); color:#7d5a00; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.05rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Google Forms FAQ</div>
+            <h1>Can Google Forms close automatically after 100 responses?</h1>
+            <p>Yes. If your goal is to stop collecting responses after a fixed number like 100, you can run Google Forms with a response cap and a clear closed-form message. The important part is planning what happens at the boundary, especially if multiple people already opened the form.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./close-google-forms-after-n-responses.html">Read the full cap guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Short answer</h2>
+            <p class="lead">For registrations, workshop seats, RSVP forms, and intake limits, a 100-response cap is a common setup. The safer version is not just “close at 100” but “close at 100, show the next step, and notify the operator.”</p>
+            <div class="grid">
+                <div class="feature"><strong>Yes for a total cap</strong><p>You can stop the form after 100 total submissions.</p></div>
+                <div class="feature"><strong>Add a closed message</strong><p>Tell late visitors whether the form is closed, waitlisted, or redirected elsewhere.</p></div>
+                <div class="feature"><strong>Notify the owner</strong><p>Send an email or internal alert when the cap is reached so someone can take over.</p></div>
+                <div class="feature"><strong>Test the edge case</strong><p>High-demand forms may still get a small overshoot from people who already had the form open.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>How to set a 100-response limit</h2>
+            <ol class="steps">
+                <li>Open the target Google Form in edit mode.</li>
+                <li>Open FormGuard from the add-ons menu.</li>
+                <li>Enable the response limit rule.</li>
+                <li>Set the total response cap to <strong>100</strong>.</li>
+                <li>Add a closed-form message that explains what late visitors should do next.</li>
+                <li>Turn on owner notification if someone needs to know when the cap is reached.</li>
+                <li>Run a quick test before sending the form to a large audience.</li>
+            </ol>
+            <div class="note">A 100-response limit is often enough for classes, office hours, pilot cohorts, and simple event signups where a total cap matters more than exact seat locking.</div>
+        </section>
+        <section class="section">
+            <h2>What to watch for at the limit</h2>
+            <p class="lead">The tricky part is not the number 100 itself. The tricky part is what happens when several respondents are already on the page right before the form closes.</p>
+            <div class="grid">
+                <div class="feature"><strong>Low traffic</strong><p>For internal forms or smaller groups, a normal cap is usually enough.</p></div>
+                <div class="feature"><strong>High traffic</strong><p>If a course or event opens to a large audience at the same time, a small overshoot can still happen.</p></div>
+                <div class="feature"><strong>Safer operations</strong><p>Use a lower public cap, a waitlist fallback, or manual review if exact final counts matter.</p></div>
+                <div class="feature"><strong>Clear handoff</strong><p>Late visitors should see a message with a next step instead of a dead end.</p></div>
+            </div>
+            <div class="warn">If you need strict real-time seat reservation, inventory deduction, or payment-locked checkout behavior, that is a different problem than a simple Google Forms response cap.</div>
+        </section>
+        <section class="section">
+            <h2>Good use cases for a 100-response cap</h2>
+            <div class="grid">
+                <div class="feature"><strong>Workshop registration</strong><p>Accept the first 100 registrations, then move later demand to a waitlist or second session.</p></div>
+                <div class="feature"><strong>Community RSVP</strong><p>Stop the form once the room or venue limit is reached.</p></div>
+                <div class="feature"><strong>Pilot cohort intake</strong><p>Take the first 100 applications in a round, then close and review the batch.</p></div>
+                <div class="feature"><strong>Internal request windows</strong><p>Let a team accept only a fixed number of requests before pausing intake.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <p>Most operators pair a 100-response cap with one or more of these follow-up controls.</p>
+            <div class="link-bar">
+                <a href="./close-google-forms-after-n-responses.html">Close after N responses</a>
+                <a href="./google-forms-response-limit-race-condition.html">Race condition guide</a>
+                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
+                <a href="./google-forms-choice-quota-vs-inventory-tracking.html">Quota vs inventory</a>
+            </div>
+            <div class="note">FormGuard helps with response caps, messaging, and notifications. It is not positioned as a strict reservation or inventory engine.</div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
