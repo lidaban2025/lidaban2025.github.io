@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html</loc>
@@ -107,6 +107,14 @@
   <url>
     <loc>https://formsuite.dev/formguard/google-forms-session-capacity-choice-quota.html</loc>
     <lastmod>2026-04-13</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formguard/google-forms-waitlist-after-capacity.html</loc>
+    <lastmod>2026-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formguard/google-forms-choice-quota-vs-inventory-tracking.html</loc>
+    <lastmod>2026-04-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/google-forms-response-limit-race-condition.html</loc>
