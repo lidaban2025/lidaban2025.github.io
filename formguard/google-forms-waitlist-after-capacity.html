@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms Waitlist After Capacity | FormGuard</title>
+    <meta name="description" content="Set up a safer Google Forms waitlist flow after capacity is reached with response caps, closed-form messaging, and owner notifications.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-waitlist-after-capacity.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms Waitlist After Capacity | FormGuard">
+    <meta property="og:description" content="How to move late signups to a waitlist after a Google Form reaches capacity without pretending the form is a strict reservation system.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-waitlist-after-capacity.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms Waitlist After Capacity">
+    <meta name="twitter:description" content="A practical pattern for handling Google Forms waitlists after capacity is reached.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms Waitlist After Capacity",
+            "description": "A practical guide to turning a capped Google Form into a safer waitlist flow once capacity is reached.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-waitlist-after-capacity.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:16ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Waitlist handoff</div>
+            <h1>Google Forms waitlist after capacity</h1>
+            <p>When a Google Form fills up, the next best step is usually not to keep forcing late responses into the same form. A safer pattern is to close the main form cleanly, show a clear message, and hand late users to a waitlist or backup path.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./close-google-forms-after-n-responses.html">Open response cap guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>When a waitlist pattern makes sense</h2>
+            <p class="lead">Use this when the main event, workshop, class, or signup window has a fixed cap, but you still want a structured next step for people who arrive late.</p>
+            <div class="grid">
+                <div class="feature"><strong>Classes and workshops</strong><p>The main seats are full, but canceled spots may reopen later.</p></div>
+                <div class="feature"><strong>Appointments and office hours</strong><p>Time slots fill up, but late users may still want a backup slot or callback.</p></div>
+                <div class="feature"><strong>Volunteer signups</strong><p>The main roles are full, but alternates are still useful.</p></div>
+                <div class="feature"><strong>Internal intake</strong><p>The active queue is full, but later requests can be staged for manual review.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Simple waitlist pattern with FormGuard</h2>
+            <ol class="steps">
+                <li>Set a response cap for the main Google Form.</li>
+                <li>Write a closed-form message that explains the form is full and tells late users what to do next.</li>
+                <li>Link that message to a separate waitlist form, a contact email, or a manual request path.</li>
+                <li>Turn on owner notifications so the operator knows the main form has closed.</li>
+                <li>Test the full handoff before launch, including the waitlist link and message wording.</li>
+            </ol>
+            <div class="note">The safest pattern is usually two flows: the main form for confirmed spots, then a separate waitlist path for everyone else.</div>
+        </section>
+        <section class="section">
+            <h2>What native Google Forms does and does not do</h2>
+            <div class="grid">
+                <div class="feature"><strong>What it can do</strong><p>Google Forms can show a closed-form message after the form stops accepting responses.</p></div>
+                <div class="feature"><strong>What it does not do by itself</strong><p>It does not create a waitlist workflow, rank alternates, or automatically promote people into confirmed spots.</p></div>
+                <div class="feature"><strong>Where FormGuard helps</strong><p>FormGuard can close the main form at a cap, keep the message consistent, and notify the owner when the handoff point is reached.</p></div>
+                <div class="feature"><strong>Where manual handling still matters</strong><p>If people drop out or seats reopen, the actual waitlist decision still belongs to your process, not to a promise of automatic reservation logic.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Safer wording for the closed-form message</h2>
+            <p class="lead">A good message reduces confusion and keeps late users from feeling like they submitted into a black box.</p>
+            <div class="grid">
+                <div class="feature"><strong>Good example</strong><p>The workshop is currently full. If you would like to join the waitlist, please use the waitlist form here: [link].</p></div>
+                <div class="feature"><strong>Avoid this</strong><p>Registration is full, but keep checking back. This creates uncertainty unless you already have a clear reopen process.</p></div>
+                <div class="feature"><strong>Operator signal</strong><p>Turn on owner notifications so someone actually knows the main form is closed and the waitlist path is active.</p></div>
+                <div class="feature"><strong>High-demand caution</strong><p>If many people may submit at the same time, combine this with a buffer cap or manual review plan.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <p>Most teams pair a waitlist flow with one or more of these controls.</p>
+            <div class="link-bar">
+                <a href="./close-google-forms-after-n-responses.html">Close after N responses</a>
+                <a href="./google-forms-response-limit-race-condition.html">Race condition guide</a>
+                <a href="./google-forms-session-capacity-choice-quota.html">Session capacity guide</a>
+                <a href="./google-forms-choice-quota-vs-inventory-tracking.html">Quota vs inventory</a>
+            </div>
+            <div class="note">FormGuard helps with the operational handoff into a waitlist. It does not turn Google Forms into a full waitlist management platform with automatic seat promotion.</div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
