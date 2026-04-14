@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Google Forms Hide a Workshop Option When It Is Full? | FormGuard</title>
+    <meta name="description" content="A practical FAQ on hiding full workshop options in Google Forms, including native limits, Apps Script tradeoffs, and where FormGuard fits safely.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/can-google-forms-hide-workshop-option-when-it-is-full.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Can Google Forms Hide a Workshop Option When It Is Full? | FormGuard">
+    <meta property="og:description" content="How to run workshop capacity in Google Forms without overpromising inventory locks or automatic waitlist promotion.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/can-google-forms-hide-workshop-option-when-it-is-full.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Can Google Forms Hide a Workshop Option When It Is Full?">
+    <meta name="twitter:description" content="A practical boundary guide for workshop option limits in Google Forms.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Can Google Forms hide a workshop option when it is full?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Not natively in the same way a ticketing platform does. You can control capacity with add-ons or scripts and then guide late users to a clear fallback path."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does this guarantee strict reservation locking?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Google Forms workflows should be treated as operational controls, not strict reservation infrastructure."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can waitlist users be auto-promoted when someone cancels?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Not by default. Waitlist promotion is typically a manual process unless you build a broader custom workflow."
+                    }
+                }
+            ]
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --sand-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.52rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:18ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--sand-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
+        .faq { display:grid; gap:12px; }
+        .qa { padding:16px 18px; border:1px solid var(--line); border-radius:16px; background:#fff; }
+        .qa h3 { font-size:1.03rem; margin-bottom:6px; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.08rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+
+        <section class="hero">
+            <div class="eyebrow">Workshop capacity FAQ</div>
+            <h1>Can Google Forms hide a workshop option when it is full?</h1>
+            <p>Short answer: not natively like a dedicated booking system. You can still run a safe workshop signup flow in Google Forms by combining clear capacity rules, fallback messaging, and operator review.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./google-forms-session-capacity-choice-quota.html">Open session capacity guide</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What teams usually mean by "hide when full"</h2>
+            <p class="lead">Most workshop operators are trying to prevent oversubscription and reduce back-and-forth, not to run strict inventory software.</p>
+            <div class="grid">
+                <div class="feature"><strong>Prevent late signups</strong><p>Stop sending users into options that are already at capacity.</p></div>
+                <div class="feature"><strong>Keep expectation clear</strong><p>Show a clear next step when a workshop slot is no longer available.</p></div>
+                <div class="feature"><strong>Protect operator time</strong><p>Reduce manual cleanup caused by overbooked choices.</p></div>
+                <div class="feature"><strong>Maintain a backup path</strong><p>Route late users to a waitlist or manual request channel.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Native Google Forms vs Apps Script vs FormGuard</h2>
+            <div class="grid">
+                <div class="feature"><strong>Native Google Forms</strong><p>Good for form-level open/close states and static choice lists. It does not provide built-in per-option hide-when-full behavior with strict reservation guarantees.</p></div>
+                <div class="feature"><strong>Apps Script</strong><p>Useful for custom checks and notifications, but you own script maintenance, edge cases, and operational reliability.</p></div>
+                <div class="feature"><strong>FormGuard</strong><p>Adds practical choice-cap and form-cap controls for common operations and keeps the flow easier for non-developer operators.</p></div>
+                <div class="feature"><strong>Boundary to keep in mind</strong><p>None of these should be positioned as strict seat-locking infrastructure under all concurrency conditions.</p></div>
+            </div>
+            <div class="note">Use language like "capacity control" and "operational guardrails." Avoid claiming hard inventory locking or strict reservation semantics.</div>
+        </section>
+
+        <section class="section">
+            <h2>A low-risk workshop pattern</h2>
+            <ol class="steps">
+                <li>Define per-workshop choice caps and a global form cap before launch.</li>
+                <li>Prepare closed-form and full-option copy that tells users what to do next.</li>
+                <li>Point late users to a separate waitlist form or manual email path.</li>
+                <li>Enable owner notifications so someone knows when caps are reached.</li>
+                <li>Run a dry test with your team and document the manual fallback steps.</li>
+            </ol>
+        </section>
+
+        <section class="section">
+            <h2>What this does not promise</h2>
+            <div class="faq">
+                <div class="qa">
+                    <h3>Strict reservation locking</h3>
+                    <p>No. This is not the same as transactional booking with hard locks.</p>
+                </div>
+                <div class="qa">
+                    <h3>Inventory-level accuracy across systems</h3>
+                    <p>No. If stock must sync across payment, ERP, or multiple channels, use a dedicated inventory workflow.</p>
+                </div>
+                <div class="qa">
+                    <h3>Automatic waitlist promotion</h3>
+                    <p>No. Promotion from waitlist to confirmed seat is usually a manual operator decision.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Related FormGuard guides</h2>
+            <p>Teams handling workshop caps often combine this FAQ with the following operational guides.</p>
+            <div class="link-bar">
+                <a href="./google-forms-session-capacity-choice-quota.html">Session capacity choice quotas</a>
+                <a href="./google-forms-choice-limiter-guide.html">Choice limiter setup</a>
+                <a href="./google-forms-response-limit-race-condition.html">Race condition boundary</a>
+                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
+            </div>
+            <div class="note">If your workflow requires strict locking, quantity math, or auto-promotions, keep Google Forms as intake and move reservation logic to a dedicated backend.</div>
+        </section>
+
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
