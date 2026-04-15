@@ -48,6 +48,14 @@
         .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
         .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
         .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .compare-wrap { margin-top:18px; overflow-x:auto; }
+        .compare { width:100%; min-width:720px; border-collapse:separate; border-spacing:0; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+        .compare th,
+        .compare td { padding:14px 16px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
+        .compare th { background:#f6f9ff; color:var(--ink); font-size:.92rem; }
+        .compare td { color:var(--muted); }
+        .compare tr:last-child td { border-bottom:none; }
+        .mini-note { margin-top:14px; color:var(--muted); font-size:.93rem; }
         .steps { padding-left:20px; display:grid; gap:10px; }
         .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
         .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
@@ -65,7 +73,7 @@
         <section class="hero">
             <div class="eyebrow">Google Forms guide</div>
             <h1>FormLimiter alternative for Google Forms</h1>
-            <p>When a Google Form needs a response cap, a scheduled close time, or limited answer choices, the owner needs a reliable way to stop babysitting the form. FormGuard is a free public launch add-on for common Google Forms control workflows.</p>
+            <p>If you are replacing FormLimiter or another older setup, the real choice is not only "which tool is cheaper" but which path actually fits the workflow: native Google Forms controls, a custom Apps Script, or a sidebar add-on like FormGuard.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
                 <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
@@ -78,6 +86,43 @@
                 <div class="feature"><strong>Manual close</strong><p>Use the Responses tab when a person can check the form and turn off accepting responses at the right time.</p></div>
                 <div class="feature"><strong>Response copy</strong><p>Use the response sheet when you need to review submissions, audit capacity, or handle a late edge case.</p></div>
             </div>
+        </section>
+        <section class="section">
+            <h2>Native Forms vs Apps Script vs FormGuard</h2>
+            <p class="lead">If you are evaluating a FormLimiter alternative, use the lightest path that still matches your actual operations.</p>
+            <div class="compare-wrap">
+                <table class="compare">
+                    <thead>
+                        <tr>
+                            <th>Path</th>
+                            <th>Best for</th>
+                            <th>Strengths</th>
+                            <th>Tradeoffs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Native Google Forms</strong></td>
+                            <td>Small forms with manual oversight</td>
+                            <td>Fastest setup, no extra tooling, good for operators who can watch submissions live</td>
+                            <td>No automatic response cap workflow, no scheduled open/close automation, and no per-option quota controls</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Apps Script</strong></td>
+                            <td>Teams comfortable maintaining custom logic</td>
+                            <td>Flexible workflows, custom triggers, room for sheet-driven logic and bespoke notifications</td>
+                            <td>Needs script ownership, testing, debugging, and realistic expectations about trigger delay and race conditions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FormGuard</strong></td>
+                            <td>Operators who want repeatable controls from the Google Forms sidebar</td>
+                            <td>Response caps, scheduled windows, choice quotas, close messages, and notifications without building the workflow from scratch</td>
+                            <td>Not a full reservation backend, not second-level precise timing, and not a replacement for quantity-aware inventory systems</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mini-note">This is the honest comparison to keep in mind: native Forms is the lightest option, Apps Script is the most flexible, and FormGuard fits the middle when you need repeatable controls without owning custom code.</p>
         </section>
         <section class="section">
             <h2>When an add-on helps</h2>
@@ -100,6 +145,15 @@
             <div class="note">FormGuard is free of charge during public launch while real-world feedback is collected.</div>
         </section>
         <section class="section">
+            <h2>Pick the path by workflow, not by hype</h2>
+            <div class="grid">
+                <div class="feature"><strong>Use native Forms when</strong><p>You only need to stop a form manually, your traffic is low, and someone can watch the response count during the live window.</p></div>
+                <div class="feature"><strong>Use Apps Script when</strong><p>You need custom branching, sheet-driven logic, or a workflow that will be maintained by someone comfortable owning code.</p></div>
+                <div class="feature"><strong>Use FormGuard when</strong><p>You want one operator-facing setup flow for response caps, schedule rules, close messages, and simple choice quotas.</p></div>
+                <div class="feature"><strong>Use a backend system when</strong><p>You need strict reservations, quantity-aware inventory, payment-confirmed seat locking, or automatic waitlist promotion.</p></div>
+            </div>
+        </section>
+        <section class="section">
             <h2>Important limits</h2>
             <div class="grid">
                 <div class="feature"><strong>Timer precision</strong><p>Google Apps Script time triggers are not second-level schedulers. Timer actions usually run within a few minutes of the scheduled time.</p></div>
@@ -112,8 +166,11 @@
             <h2>Next steps</h2>
             <div class="link-bar">
                 <a href="./google-forms-limit-responses-guide.html">Limit Google Forms responses</a>
+                <a href="./google-forms-response-limit-race-condition.html">Race condition guide</a>
                 <a href="./schedule-google-forms-open-close-guide.html">Schedule open and close times</a>
                 <a href="./google-forms-choice-limiter-guide.html">Choice limiter guide</a>
+                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
+                <a href="./google-forms-choice-quota-vs-inventory-tracking.html">Quota vs inventory</a>
                 <a href="./privacy-policy.html">Privacy policy</a>
             </div>
         </section>
