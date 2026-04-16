@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Google Forms Stop Volunteer Signups When a Role Is Full? | FormGuard</title>
+    <meta name="description" content="A practical FAQ on stopping Google Forms volunteer signups when a role or shift is full, including native limits, Apps Script tradeoffs, and where FormGuard fits.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/can-google-forms-stop-volunteer-signups-when-a-role-is-full.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Can Google Forms Stop Volunteer Signups When a Role Is Full? | FormGuard">
+    <meta property="og:description" content="How to run volunteer role capacity in Google Forms without pretending the form is a strict staffing or reservation backend.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/can-google-forms-stop-volunteer-signups-when-a-role-is-full.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Can Google Forms Stop Volunteer Signups When a Role Is Full?">
+    <meta name="twitter:description" content="A practical boundary guide for volunteer role limits in Google Forms.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Can Google Forms stop volunteer signups when a role is full?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Not natively in the same way a volunteer scheduling platform does. You can still run a practical role-capacity workflow in Google Forms by combining clear limits, fallback messaging, and operator review."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can late volunteers be moved to an alternate list automatically?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Not by default. A safer approach is to close or retire the full role, then guide late volunteers to a backup role, a waitlist, or manual review."
+                    }
+                }
+            ]
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Volunteer signup FAQ</div>
+            <h1>Can Google Forms stop volunteer signups when a role is full?</h1>
+            <p>Short answer: not natively like a dedicated volunteer scheduling platform. You can still run a practical volunteer signup flow in Google Forms by combining per-role limits, clear fallback messaging, and operator review.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./google-forms-choice-limiter-guide.html">Open choice limiter guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>What most organizers are really trying to prevent</h2>
+            <p class="lead">The real problem is usually not "build a staffing backend." It is "stop sending more people into a role that already has enough volunteers."</p>
+            <div class="grid">
+                <div class="feature"><strong>Prevent overfilled roles</strong><p>Stop collecting extra volunteers for parking, check-in, setup, cleanup, or specific shift windows once each role is covered.</p></div>
+                <div class="feature"><strong>Keep expectations clear</strong><p>Tell late volunteers whether they should choose another role, join an alternate list, or wait for manual confirmation.</p></div>
+                <div class="feature"><strong>Reduce admin cleanup</strong><p>Avoid the spreadsheet cleanup where organizers email people after the fact to say a role was already full.</p></div>
+                <div class="feature"><strong>Preserve a backup path</strong><p>Guide overflow demand into alternates, waitlists, or a separate contact path instead of pretending capacity is infinite.</p></div>
+            </div>
+            <div class="note">Use language like "role capacity" and "signup guardrails." Do not claim hard staffing locks or perfect real-time reservation behavior.</div>
+        </section>
+        <section class="section">
+            <h2>What native Google Forms can and cannot do</h2>
+            <div class="grid">
+                <div class="feature"><strong>What it can do</strong><p>Google Forms can collect volunteer preferences, role selections, contact details, and availability in one simple form.</p></div>
+                <div class="feature"><strong>What it cannot do by itself</strong><p>It does not natively retire a full role the same way a dedicated scheduling system does, nor does it automatically rebalance staffing.</p></div>
+                <div class="feature"><strong>Where Apps Script or an add-on helps</strong><p>You can add role capacity controls, handoff messaging, and notifications so late volunteers do not keep selecting already-full roles.</p></div>
+                <div class="feature"><strong>Where manual review still matters</strong><p>If people cancel, swap shifts, or need manager approval, those decisions still belong to your volunteer operations process.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>A low-risk volunteer role pattern</h2>
+            <ol class="steps">
+                <li>Define each volunteer role or shift as a simple capped option.</li>
+                <li>Decide what should happen when a role is full: hide it, disable it, or redirect volunteers to another path.</li>
+                <li>Write a clear message for late volunteers, such as an alternate role list or a backup contact email.</li>
+                <li>Turn on owner notifications so someone knows when the main role set is filled.</li>
+                <li>Test the flow before public launch, especially if several people may sign up at once.</li>
+            </ol>
+            <div class="note">The practical goal is usually to keep each role inside capacity and route overflow cleanly, not to automate every staffing decision.</div>
+        </section>
+        <section class="section">
+            <h2>Good fits and bad fits</h2>
+            <div class="grid">
+                <div class="feature"><strong>Good fit</strong><p>School events, community volunteering, church service teams, campus welcome desks, fairs, and simple multi-role signup forms.</p></div>
+                <div class="feature"><strong>Still needs caution</strong><p>High-demand signups where many volunteers may submit at the same moment can still hit race-condition edges near capacity.</p></div>
+                <div class="feature"><strong>Not the right promise</strong><p>Do not frame Google Forms as a full volunteer management system with real-time staffing locks, manager approval routing, and auto-reassignment.</p></div>
+                <div class="feature"><strong>Better alternative when complexity rises</strong><p>If each volunteer role has approvals, waitlists, reminders, hour tracking, and recurring scheduling, plan a broader volunteer scheduling workflow.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Common next step for late volunteers</h2>
+            <p class="lead">A clear fallback path is often more useful than pretending every late signup can still be accepted.</p>
+            <div class="grid">
+                <div class="feature"><strong>Alternate list</strong><p>Move extra volunteers to a backup list so organizers can fill cancellations later.</p></div>
+                <div class="feature"><strong>Different role</strong><p>Point them to another still-open role, shift, or support task.</p></div>
+                <div class="feature"><strong>Manual contact</strong><p>Give a direct email when staffing decisions need organizer review instead of automatic assignment.</p></div>
+                <div class="feature"><strong>Closed message</strong><p>Use a closed-form or role-full message that tells volunteers exactly what to do next.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <p>Volunteer role limits usually sit next to one or more of these operational patterns.</p>
+            <div class="link-bar">
+                <a href="./google-forms-choice-limiter-guide.html">Choice limiter guide</a>
+                <a href="./google-forms-session-capacity-choice-quota.html">Session capacity guide</a>
+                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
+                <a href="./google-forms-response-limit-race-condition.html">Race condition guide</a>
+                <a href="./close-google-forms-after-n-responses.html">Close after N responses</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
