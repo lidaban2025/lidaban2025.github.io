@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to test a Google Forms confirmation email before launch | FormNotifier</title>
+    <meta name="description" content="A practical checklist for testing Google Forms confirmation emails before launch, including respondent email source, template variables, test send, and delivery report checks.">
+    <link rel="canonical" href="https://formsuite.dev/formnotifier/test-google-forms-confirmation-email-before-launch.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="How to test a Google Forms confirmation email before launch">
+    <meta property="og:description" content="Use a short preflight checklist to verify respondent confirmation emails before real Google Forms submissions start arriving.">
+    <meta property="og:url" content="https://formsuite.dev/formnotifier/test-google-forms-confirmation-email-before-launch.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to test a Google Forms confirmation email before launch">
+    <meta name="twitter:description" content="Verify respondent confirmation emails before real Google Forms submissions start arriving.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "How to test a Google Forms confirmation email before launch",
+            "description": "A practical checklist for testing Google Forms respondent confirmation emails before launch.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formnotifier/test-google-forms-confirmation-email-before-launch.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h3 { font-size:1.05rem; margin-bottom:6px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormNotifier</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-forms-email-notifications-guide.html">Workflow guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Launch checklist</div>
+            <h1>How to test a Google Forms confirmation email before launch</h1>
+            <p>Most confirmation-email problems are found too late: after real people have already submitted the form. A short preflight and test-send flow helps you verify the respondent email source, template variables, delivery target, and recent send report before your form goes live.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                <a class="btn btn-secondary" href="./send-google-forms-confirmation-email-after-submit.html">Confirmation guide</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why test before launch?</h2>
+            <p class="lead">A Google Form can collect responses successfully while the follow-up email path is still broken. Test the message before sharing the public form link.</p>
+            <div class="grid">
+                <div class="feature"><strong>Wrong email source</strong><p>The form might not collect email automatically, or the selected email question might not contain a valid address.</p></div>
+                <div class="feature"><strong>Broken merge fields</strong><p>A renamed question can leave a template variable empty or confusing.</p></div>
+                <div class="feature"><strong>Unclear next step</strong><p>The confirmation may arrive but fail to tell the respondent what happens next.</p></div>
+                <div class="feature"><strong>Quota or delivery issues</strong><p>Preflight can catch basic sending constraints before real responses arrive.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Recommended test flow</h2>
+            <ol class="steps">
+                <li>Open the Google Form in edit mode and launch FormNotifier.</li>
+                <li>Enable respondent confirmation.</li>
+                <li>Choose the respondent email source: collected email or a specific email question.</li>
+                <li>Write a short subject and body with only the merge fields you actually need.</li>
+                <li>Run Preflight and fix any warning before saving.</li>
+                <li>Use Send test and inspect the email in your own inbox.</li>
+                <li>Submit one real test response through the public form link.</li>
+                <li>Reopen the sidebar and confirm the recent send report is visible.</li>
+            </ol>
+            <div class="note">A good launch test proves both paths: the simulated test email and one real public-form submission.</div>
+        </section>
+
+        <section class="section">
+            <h2>What the confirmation should include</h2>
+            <div class="grid">
+                <div class="feature"><strong>Receipt confirmation</strong><p>Tell the respondent their submission was received.</p></div>
+                <div class="feature"><strong>Useful context</strong><p>Include only the key field or next step, not every answer by default.</p></div>
+                <div class="feature"><strong>Contact path</strong><p>Give one reply address or support instruction if something looks wrong.</p></div>
+                <div class="feature"><strong>Clear expectation</strong><p>Say when the team will follow up, or whether no reply is needed.</p></div>
+            </div>
+            <div class="warn">Boundary: FormNotifier is a lightweight Forms notification add-on. It is not a full CRM, drip campaign system, or support desk.</div>
+        </section>
+
+        <section class="section">
+            <h2>Related guides</h2>
+            <div class="link-bar">
+                <a href="./send-google-forms-confirmation-email-after-submit.html">Send a confirmation email after submit</a>
+                <a href="./notify-team-when-google-form-is-submitted.html">Notify a team when a form is submitted</a>
+                <a href="./google-forms-email-notifications-guide.html">Full notification workflow guide</a>
+                <a href="./why-google-forms-notification-email-is-not-sending.html">Troubleshoot notification delivery</a>
+                <a href="./support.html">Setup support</a>
+            </div>
+        </section>
+
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

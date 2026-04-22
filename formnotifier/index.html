@@ -25,6 +25,7 @@
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Google Workspace",
             "url": "https://formsuite.dev/formnotifier/",
+            "installUrl": "https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640",
             "image": "https://formsuite.dev/social-card.svg",
             "description": "FormNotifier sends owner notifications and respondent confirmations from Google Forms with customizable templates.",
             "featureList": [
@@ -36,6 +37,13 @@
             "provider": {
                 "@type": "Organization",
                 "name": "FormSuite"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": 0,
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640"
             }
         }
     </script>
@@ -145,7 +153,9 @@
                 <h1>Make every form submission trigger the right email, to the right inbox, with the right context.</h1>
                 <p>FormNotifier helps teams turn Google Forms into a dependable notification surface. It supports owner alerts, team routing, and respondent confirmations with customizable message templates so the response does not disappear into a spreadsheet unnoticed.</p>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="support.html">Open setup guide</a>
+                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install from Marketplace</a>
+                    <a class="btn btn-secondary" href="support.html">Open setup guide</a>
+                    <a class="btn btn-secondary" href="why-google-forms-notification-email-is-not-sending.html">Troubleshoot delivery</a>
                     <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
                 </div>
             </div>
@@ -176,7 +186,7 @@
         </section>
         <section class="section">
             <h2>Quick start</h2>
-            <p class="lead">A lightweight setup path for reviewers and operators.</p>
+            <p class="lead">A lightweight setup path for operators who want dependable email workflows around Google Forms.</p>
             <ol class="steps">
                 <li>Open the Google Form and launch FormNotifier from the Extensions menu.</li>
                 <li>Choose whether you want owner alerts, respondent confirmations, or both.</li>
@@ -184,12 +194,28 @@
                 <li>Use a test notification before the form goes live.</li>
             </ol>
             <div class="link-bar">
+                <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install from Marketplace</a>
                 <a href="support.html">Support and setup</a>
                 <a href="google-forms-email-notifications-guide.html">Workflow guide</a>
+                <a href="send-google-forms-confirmation-email-after-submit.html">Confirmation email guide</a>
+                <a href="notify-team-when-google-form-is-submitted.html">Team notification guide</a>
+                <a href="why-google-forms-notification-email-is-not-sending.html">Troubleshooting guide</a>
                 <a href="privacy.html">Privacy policy</a>
                 <a href="terms.html">Terms of service</a>
             </div>
-            <div class="note">The purpose of this page is to explain workflow fit and product value clearly for reviewers and real users without distracting from the core setup story.</div>
+            <div class="note">FormNotifier is now live on Google Workspace Marketplace. Start with the install page, then use the setup guide and workflow pages to configure owner alerts and respondent confirmations.</div>
+        </section>
+        <section class="section">
+            <h2>Practical Google Forms guides</h2>
+            <p class="lead">Start with the exact notification problem you need to solve in production.</p>
+            <div class="grid">
+                <div class="feature"><strong><a href="google-forms-email-notifications-guide.html">How to send email notifications from Google Forms</a></strong><p>Set up owner alerts, respondent confirmations, and merge-field templates from one sidebar.</p></div>
+                <div class="feature"><strong><a href="send-google-forms-confirmation-email-after-submit.html">Send a confirmation email after submit</a></strong><p>Cover the common post-submit reassurance flow without building a separate automation stack.</p></div>
+                <div class="feature"><strong><a href="test-google-forms-confirmation-email-before-launch.html">Test confirmation emails before launch</a></strong><p>Run a preflight and test-send checklist before real Google Forms submissions start arriving.</p></div>
+                <div class="feature"><strong><a href="notify-team-when-google-form-is-submitted.html">Notify a team when a Google Form is submitted</a></strong><p>Route submissions to a shared inbox or operator list when a human follow-up needs to happen quickly.</p></div>
+                <div class="feature"><strong><a href="why-google-forms-notification-email-is-not-sending.html">Why your Google Forms notification email is not sending</a></strong><p>Troubleshoot recipient setup, respondent email source, preflight, test send, and execution checks.</p></div>
+                <div class="feature"><strong><a href="support.html">Set up FormNotifier</a></strong><p>Open the add-on in the Forms editor, run preflight, and send a real test before launch.</p></div>
+            </div>
         </section>
         <section class="section">
             <h2>Frequently asked questions</h2>

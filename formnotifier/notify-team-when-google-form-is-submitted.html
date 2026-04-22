@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to notify a team when a Google Form is submitted | FormNotifier</title>
+    <meta name="description" content="Learn how to notify a team when a Google Form is submitted with owner alerts, shared inbox routing, and a practical launch checklist.">
+    <link rel="canonical" href="https://formsuite.dev/formnotifier/notify-team-when-google-form-is-submitted.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="How to notify a team when a Google Form is submitted | FormNotifier">
+    <meta property="og:description" content="Set up team notifications for Google Forms with owner alerts, shared inbox routing, and merge-field templates.">
+    <meta property="og:url" content="https://formsuite.dev/formnotifier/notify-team-when-google-form-is-submitted.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to notify a team when a Google Form is submitted">
+    <meta name="twitter:description" content="Use FormNotifier to alert a team when a Google Form is submitted.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "How to notify a team when a Google Form is submitted",
+            "description": "A practical guide to team notifications in Google Forms with FormNotifier.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formnotifier/notify-team-when-google-form-is-submitted.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:14ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormNotifier</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-forms-email-notifications-guide.html">Workflow guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Team alerts</div>
+            <h1>How to notify a team when a Google Form is submitted</h1>
+            <p>Many Google Forms workflows fail because submissions land quietly in a spreadsheet and no one reacts in time. FormNotifier lets you send owner alerts and extra recipient emails from the form editor itself, so a support inbox, admissions team, or operations mailbox sees new submissions quickly.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Where this works best</h2>
+            <p class="lead">Use this pattern when a submission needs a human response, not just passive storage.</p>
+            <div class="grid">
+                <div class="feature"><strong>Shared inbox routing</strong><p>Notify a support or operations inbox as soon as a form response arrives.</p></div>
+                <div class="feature"><strong>Multi-recipient alerts</strong><p>Send the same notification to the owner and one or more additional recipients.</p></div>
+                <div class="feature"><strong>Intake operations</strong><p>Use Google Forms for incidents, requests, or admissions while keeping a team in the loop.</p></div>
+                <div class="feature"><strong>Faster response loops</strong><p>Reduce the lag between submission and action without building another backend.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Recommended setup path</h2>
+            <ol class="steps">
+                <li>Open the form in edit mode and launch FormNotifier from Extensions.</li>
+                <li>Enable owner notifications and add any extra team recipients as a comma-separated list.</li>
+                <li>Write a subject line that makes the submission type obvious in the inbox.</li>
+                <li>Run Preflight, save, and use Send test to confirm the right inboxes receive the message.</li>
+            </ol>
+            <div class="note">The fastest team notifications are not the longest ones. Keep the email focused on the fields a human needs to act on immediately.</div>
+        </section>
+        <section class="section">
+            <h2>What to verify before launch</h2>
+            <div class="grid">
+                <div class="feature"><strong>Recipient list</strong><p>Check that every extra recipient address is valid and intentionally included.</p></div>
+                <div class="feature"><strong>Subject clarity</strong><p>Make sure the subject line helps a busy team triage the submission without opening the email.</p></div>
+                <div class="feature"><strong>Field selection</strong><p>Use either the default layout or a tighter template so the alert stays readable.</p></div>
+                <div class="feature"><strong>Latest report</strong><p>Review the last notification report in the sidebar after a test send.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Next steps</h2>
+            <div class="link-bar">
+                <a href="./send-google-forms-confirmation-email-after-submit.html">Respondent confirmation guide</a>
+                <a href="./google-forms-email-notifications-guide.html">Full notification workflow guide</a>
+                <a href="./support.html">Support and setup</a>
+                <a href="./privacy.html">Privacy policy</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

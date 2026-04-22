@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why your Google Forms notification email is not sending | FormNotifier</title>
+    <meta name="description" content="Troubleshoot Google Forms notification emails that are not sending, including recipient setup, respondent email source, preflight, test send, and execution checks.">
+    <link rel="canonical" href="https://formsuite.dev/formnotifier/why-google-forms-notification-email-is-not-sending.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Why your Google Forms notification email is not sending">
+    <meta property="og:description" content="A practical troubleshooting guide for Google Forms notification emails, from recipient setup to trigger checks.">
+    <meta property="og:url" content="https://formsuite.dev/formnotifier/why-google-forms-notification-email-is-not-sending.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why your Google Forms notification email is not sending">
+    <meta name="twitter:description" content="Use a short troubleshooting flow to find why a Google Forms notification email did not send.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:16ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormNotifier</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-forms-email-notifications-guide.html">Workflow guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Troubleshooting</div>
+            <h1>Why your Google Forms notification email is not sending</h1>
+            <p>If a Google Form submission happened but no notification email arrived, the problem is usually not mysterious. It is often one of a few practical setup gaps: the wrong recipient path, the wrong respondent email source, no preflight, no test send, or no post-submit execution check.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup support</a>
+                <a class="btn btn-secondary" href="./test-google-forms-confirmation-email-before-launch.html">Open launch checklist</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Start with the shortest possible check</h2>
+            <p class="lead">Before changing templates or rewriting your form, verify the email path in this order.</p>
+            <ol class="steps">
+                <li>Confirm the notification feature is actually enabled.</li>
+                <li>Confirm at least one recipient path exists: owner, additional recipient, or respondent confirmation.</li>
+                <li>Run preflight and make sure it passes.</li>
+                <li>Run a test send before relying on real submissions.</li>
+                <li>After a real submit, inspect the most recent notification report and execution log.</li>
+            </ol>
+            <div class="note">This order matters because it separates configuration problems from trigger or delivery problems.</div>
+        </section>
+        <section class="section">
+            <h2>Common reasons the email did not send</h2>
+            <div class="grid">
+                <div class="feature"><strong>No real recipient path</strong><p>The owner alert may be off, additional recipients may be empty, and respondent confirmation may also be off.</p></div>
+                <div class="feature"><strong>Wrong respondent email source</strong><p>If the form does not collect email automatically, the confirmation flow needs an actual Email field.</p></div>
+                <div class="feature"><strong>Preflight was skipped</strong><p>Preflight is the fastest way to catch missing recipients, missing fields, or setup gaps before launch.</p></div>
+                <div class="feature"><strong>Test send was never used</strong><p>A test send catches template and recipient issues before you depend on the trigger path.</p></div>
+                <div class="feature"><strong>Nobody checked the execution state</strong><p>If the email still does not arrive after a real submit, inspect the execution log and latest report.</p></div>
+                <div class="feature"><strong>Live trigger path still needs attention</strong><p>Save and test-send style checks can look healthy while the real submit-trigger path still needs a separate check.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <div class="link-bar">
+                <a href="./test-google-forms-confirmation-email-before-launch.html">Test a confirmation email before launch</a>
+                <a href="./send-google-forms-confirmation-email-after-submit.html">Send a confirmation email after submit</a>
+                <a href="./notify-team-when-google-form-is-submitted.html">Notify a team when a form is submitted</a>
+                <a href="./google-forms-email-notifications-guide.html">Full notification workflow guide</a>
+            </div>
+            <div class="warn">Boundary: FormNotifier is a lightweight Google Forms notification add-on. It is not a full CRM, drip campaign platform, or ticketing system.</div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

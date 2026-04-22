@@ -13,6 +13,10 @@
     <lastmod>2026-04-10</lastmod>
   </url>
   <url>
+    <loc>https://formsuite.dev/resources/google-forms-registration-workflow-limits-confirmation-emails.html</loc>
+    <lastmod>2026-04-21</lastmod>
+  </url>
+  <url>
     <loc>https://formsuite.dev/starter-kit/</loc>
     <lastmod>2026-04-10</lastmod>
   </url>
@@ -94,7 +98,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-18</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html</loc>
@@ -121,8 +125,20 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
+    <loc>https://formsuite.dev/formguard/google-forms-full-but-still-accepts-responses.html</loc>
+    <lastmod>2026-04-18</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formguard/close-google-forms-after-a-deadline.html</loc>
+    <lastmod>2026-04-18</lastmod>
+  </url>
+  <url>
     <loc>https://formsuite.dev/formguard/google-forms-waitlist-after-capacity.html</loc>
     <lastmod>2026-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formguard/what-to-show-when-google-form-is-full.html</loc>
+    <lastmod>2026-04-18</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/google-forms-choice-quota-vs-inventory-tracking.html</loc>
@@ -178,15 +194,31 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/google-forms-email-notifications-guide.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-18</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formnotifier/send-google-forms-confirmation-email-after-submit.html</loc>
+    <lastmod>2026-04-18</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formnotifier/notify-team-when-google-form-is-submitted.html</loc>
+    <lastmod>2026-04-18</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formnotifier/test-google-forms-confirmation-email-before-launch.html</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/support.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formnotifier/why-google-forms-notification-email-is-not-sending.html</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/privacy.html</loc>
