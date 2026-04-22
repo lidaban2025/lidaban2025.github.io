@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FormRanger Privacy Policy | FormSuite</title>
-    <meta name="description" content="Read how FormRanger handles spreadsheet-backed choice mappings, Google Forms question data, and saved configuration settings.">
-    <link rel="canonical" href="https://formsuite.dev/formranger/privacy.html">
+    <meta name="description" content="Read how FormRanger handles spreadsheet-backed choice mappings, Google Forms question data, saved configuration settings, and data protection controls.">
+    <link rel="canonical" href="https://formsuite.dev/formranger/privacy-policy.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="FormSuite">
     <meta property="og:title" content="FormRanger Privacy Policy | FormSuite">
-    <meta property="og:description" content="Read how FormRanger handles spreadsheet-backed choice mappings, Google Forms question data, and saved configuration settings.">
-    <meta property="og:url" content="https://formsuite.dev/formranger/privacy.html">
+    <meta property="og:description" content="Read how FormRanger handles spreadsheet-backed choice mappings, Google Forms question data, saved configuration settings, and data protection controls.">
+    <meta property="og:url" content="https://formsuite.dev/formranger/privacy-policy.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FormRanger Privacy Policy | FormSuite">
-    <meta name="twitter:description" content="Read how FormRanger handles spreadsheet-backed choice mappings, question data, and saved configuration settings.">
+    <meta name="twitter:description" content="Read how FormRanger handles spreadsheet-backed choice mappings, question data, saved configuration settings, and data protection controls.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "FormRanger privacy policy",
-            "url": "https://formsuite.dev/formranger/privacy.html",
-            "description": "How FormRanger handles spreadsheet-backed choice mappings, question data, and saved configuration settings."
+            "url": "https://formsuite.dev/formranger/privacy-policy.html",
+            "description": "How FormRanger handles spreadsheet-backed choice mappings, question data, saved configuration settings, and data protection controls."
         }
     </script>
     <style>
@@ -67,7 +67,7 @@
     <div class="container">
         <a href="index.html" class="back">&larr; Back to Home</a>
 
-        <p><strong>Last updated:</strong> March 2026</p>
+        <p><strong>Last updated:</strong> April 22, 2026</p>
 
         <h2>What FormRanger Pro Does</h2>
         <p>FormRanger Pro is a Google Forms add-on that populates form question choices (dropdowns, multiple choice, checkboxes, grids) from Google Sheets data. It keeps your form choices in sync with your spreadsheet automatically.</p>
@@ -75,19 +75,28 @@
         <h2>Data We Access</h2>
         <p>FormRanger Pro requests the following permissions to function:</p>
         <ul>
-            <li><strong>Form structure</strong> (<code>forms.addons</code>, <code>forms.currentonly</code>) &mdash; We read and update the question choices in the current Google Form. We do not access form responses or other forms.</li>
-            <li><strong>Spreadsheet data</strong> (<code>spreadsheets</code>) &mdash; We read column data from the linked Google Sheets spreadsheet to populate form choices. We do not modify spreadsheet data.</li>
-            <li><strong>External requests</strong> (<code>script.external_request</code>) &mdash; Used for license validation only.</li>
-            <li><strong>User email</strong> (<code>userinfo.email</code>) &mdash; We access your email address to identify your account for license and usage tracking.</li>
+            <li><strong>Form structure</strong> (<code>forms.currentonly</code>) &mdash; We read and update supported question choices in the current Google Form. We do not access other forms or form responses.</li>
+            <li><strong>Spreadsheet data</strong> (<code>spreadsheets</code>) &mdash; We read spreadsheet metadata, sheet tabs, headers, and selected column values from spreadsheets you explicitly connect in the sidebar. We do not sell spreadsheet data or copy spreadsheet contents to external databases.</li>
+            <li><strong>User email</strong> (<code>userinfo.email</code>) &mdash; We access your email address only to identify your account for licensing and support operations.</li>
             <li><strong>Container UI</strong> (<code>script.container.ui</code>) &mdash; Used to display the add-on sidebar and configuration dialogs within Google Forms.</li>
+            <li><strong>Apps Script triggers</strong> (<code>script.scriptapp</code>) &mdash; Used to manage refresh/update automation for the configured mappings.</li>
         </ul>
 
-        <h2>Data We Collect</h2>
-        <p><strong>None.</strong> All data stays in your Google account. FormRanger Pro does not collect, store, or transmit any spreadsheet data, form data, or personal information to external servers.</p>
+        <h2>Data We Store</h2>
+        <p>FormRanger Pro stores only the minimum configuration required to run the add-on inside your Google account. This can include the selected spreadsheet ID, sheet name, column name, question ID, and mapping preferences such as sorting or duplicate removal. We do not copy entire spreadsheet datasets into external storage.</p>
 
         <h2>Data Storage</h2>
-        <p>All user settings (such as question-to-column mappings, update schedules, and usage counters) are stored exclusively in Google Apps Script's Properties Service. This data resides within Google's infrastructure, tied to your Google account.</p>
-        <p><strong>We do not operate any external servers or databases.</strong> No form data, spreadsheet data, or user information is ever transmitted to or stored on third-party servers.</p>
+        <p>All user settings (such as question-to-column mappings and update preferences) are stored exclusively in Google Apps Script's Properties Service. This data remains within Google's infrastructure and is associated with your Google account and the add-on project.</p>
+        <p><strong>We do not operate an external database for form or spreadsheet content.</strong> Spreadsheet values are read from Google Sheets at runtime and used only to build the updated choice list inside the current Google Form.</p>
+
+        <h2>Data Protection</h2>
+        <p>FormRanger Pro relies on Google's security controls for data in transit and at rest within Google Workspace and Apps Script. We do not independently export spreadsheet contents, store Google credentials, or maintain separate copies of linked spreadsheet data on our own servers.</p>
+        <ul>
+            <li>Access is limited to spreadsheets the user explicitly connects for a mapping.</li>
+            <li>Spreadsheet data is processed only for the choice-sync function requested by the user.</li>
+            <li>Only lightweight mapping configuration is persisted; raw spreadsheet rows are not retained outside Google services.</li>
+            <li>Support requests are handled through email; users should avoid sending unnecessary sensitive sheet data in support messages.</li>
+        </ul>
 
         <h2>Data Sharing</h2>
         <p>We do <strong>not</strong> share, sell, rent, or disclose any user data to third parties. Your data remains within the Google ecosystem at all times.</p>
@@ -96,7 +105,7 @@
         <p>Settings are retained in Google Properties Service for as long as the add-on is installed. Uninstalling the add-on removes all stored settings. We do not retain any data after uninstallation.</p>
 
         <h2>Security</h2>
-        <p>FormRanger Pro runs entirely within Google's Apps Script platform, inheriting Google's security infrastructure. We do not handle authentication or store credentials independently.</p>
+        <p>FormRanger Pro runs entirely within Google's Apps Script platform, inheriting Google's authentication, transport security, and infrastructure protections. We do not maintain separate passwords, tokens, or customer-hosted databases for the spreadsheet content used by the add-on.</p>
 
         <h2>Changes to This Policy</h2>
         <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated "Last updated" date.</p>
