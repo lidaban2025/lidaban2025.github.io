@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule Google Forms to open and close automatically | FormGuard guide</title>
-    <meta name="description" content="Schedule Google Forms close and reopen times with FormGuard so intake windows, applications, signups, and request forms do not need manual monitoring.">
+    <meta name="description" content="Schedule Google Forms close times and reopening windows with FormGuard so intake workflows do not need manual monitoring. Test close plus reopen schedules on a disposable form before going live.">
     <link rel="canonical" href="https://formsuite.dev/formguard/schedule-google-forms-open-close-guide.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
     <meta property="og:title" content="Schedule Google Forms to open and close automatically">
-    <meta property="og:description" content="Run time-boxed Google Forms collection windows with scheduled close and reopen controls.">
+    <meta property="og:description" content="Run time-boxed Google Forms collection windows with scheduled close controls and carefully tested reopen windows.">
     <meta property="og:url" content="https://formsuite.dev/formguard/schedule-google-forms-open-close-guide.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
@@ -86,11 +86,11 @@
                 <li>Open your Google Form.</li>
                 <li>Open FormGuard from the Google Forms add-ons menu.</li>
                 <li>Turn on <strong>Timer</strong>.</li>
-                <li>Choose a close time, a reopen time, or both.</li>
+                <li>Choose a close time, a reopen time, or both. If you use both, leave a clear gap and test that exact schedule on a disposable form.</li>
                 <li>Save settings.</li>
             </ol>
             <div class="note">
-                Google Apps Script time triggers are not second-level schedulers. Timer actions usually run within a few minutes of the scheduled time, depending on Google's trigger scheduling.
+                Google Apps Script time triggers are not second-level schedulers. Timer actions usually run within a few minutes of the scheduled time, depending on Google's trigger scheduling. For close plus reopen chains, avoid short gaps and verify the real behavior on a test form before a live launch.
             </div>
         </section>
         <section class="section">

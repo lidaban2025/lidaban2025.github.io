@@ -277,7 +277,7 @@
 
         <section class="section">
             <h2>Quick start</h2>
-            <p class="lead">A straightforward setup path for reviewers and first-time users.</p>
+            <p class="lead">A straightforward setup path for operators and first-time users.</p>
             <ol class="steps">
                 <li>Open any Google Form and launch FormGuard from the Extensions menu.</li>
                 <li>Enable the controls you need, such as a response limit, notifications, or scheduled closing.</li>
@@ -291,8 +291,11 @@
                 <a href="can-google-forms-close-automatically-after-100-responses.html">100 responses FAQ</a>
                 <a href="can-google-forms-hide-workshop-option-when-it-is-full.html">Workshop option full FAQ</a>
                 <a href="can-google-forms-stop-volunteer-signups-when-a-role-is-full.html">Volunteer role FAQ</a>
+                <a href="google-forms-full-but-still-accepts-responses.html">Form still accepts responses</a>
                 <a href="google-forms-session-capacity-choice-quota.html">Session capacity</a>
+                <a href="close-google-forms-after-a-deadline.html">Close after deadline</a>
                 <a href="google-forms-waitlist-after-capacity.html">Waitlist after full</a>
+                <a href="what-to-show-when-google-form-is-full.html">Full signup message</a>
                 <a href="google-forms-choice-quota-vs-inventory-tracking.html">Quota vs inventory</a>
                 <a href="google-forms-response-limit-race-condition.html">Race condition guide</a>
                 <a href="google-forms-limit-responses-guide.html">Workflow guide</a>
@@ -332,8 +335,20 @@
                     <p>Manage workshop seats, appointment slots, roles, and other limited options in one form.</p>
                 </div>
                 <div class="feature">
+                    <strong><a href="google-forms-full-but-still-accepts-responses.html">Why a full form still accepts responses</a></strong>
+                    <p>Explain oversubscription edge cases without pretending Google Forms is strict reservation software.</p>
+                </div>
+                <div class="feature">
+                    <strong><a href="close-google-forms-after-a-deadline.html">Close after a deadline</a></strong>
+                    <p>Use a scheduled close time for applications, RSVP windows, and time-boxed intake periods.</p>
+                </div>
+                <div class="feature">
                     <strong><a href="google-forms-waitlist-after-capacity.html">Waitlist after capacity</a></strong>
                     <p>Close the main form cleanly and hand late users to a separate waitlist or backup path.</p>
+                </div>
+                <div class="feature">
+                    <strong><a href="what-to-show-when-google-form-is-full.html">What to show when a Google Form is full</a></strong>
+                    <p>Write a clearer closed-form message and give late respondents a safer next step.</p>
                 </div>
                 <div class="feature">
                     <strong><a href="google-forms-choice-quota-vs-inventory-tracking.html">Choice quotas vs inventory tracking</a></strong>
@@ -392,7 +407,7 @@
             <div class="grid">
                 <div class="feature">
                     <strong>Can I use multiple features at once?</strong>
-                    <p>Yes. Response limits, timer, choice eliminator, and notifications all work together.</p>
+                    <p>Yes. Response limits, timers, choice eliminator, and notifications can be combined. If you need a close plus reopen chain, test that exact schedule on a disposable form first.</p>
                 </div>
                 <div class="feature">
                     <strong>Does the timer work with response limits?</strong>

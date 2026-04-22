@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms Full but Still Accepts Responses | FormGuard</title>
+    <meta name="description" content="Understand why a Google Form can still accept extra responses after it reaches capacity, and how to run a safer response-cap workflow.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-full-but-still-accepts-responses.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms Full but Still Accepts Responses | FormGuard">
+    <meta property="og:description" content="Why a Google Form can overshoot its cap and what to do instead of treating it like a strict reservation system.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-full-but-still-accepts-responses.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms Full but Still Accepts Responses">
+    <meta name="twitter:description" content="A practical guide to Google Forms overflow, response caps, and safer signup flows.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms Full but Still Accepts Responses",
+            "description": "Explain why a Google Form can still accept extra responses after the cap appears to be reached and how to build a safer overflow workflow.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-full-but-still-accepts-responses.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --sand-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--sand-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
+        .ok-note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Overflow and race conditions</div>
+            <h1>Why a Google Form can still accept responses after it is full</h1>
+            <p>If your Google Form reached capacity but one or more extra people still got through, the issue is usually not that the cap setting disappeared. The real problem is that "stop accepting responses" is not the same thing as strict real-time reservation locking.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./google-forms-response-limit-race-condition.html">Open race condition guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Why this happens</h2>
+            <p class="lead">A response cap can close the form quickly, but it cannot fully control every respondent who already opened the form a moment earlier.</p>
+            <div class="grid">
+                <div class="feature"><strong>Already-open tabs</strong><p>Someone may already be on the form page before the close action fires.</p></div>
+                <div class="feature"><strong>Near-simultaneous submissions</strong><p>Multiple respondents can submit close together around the same threshold.</p></div>
+                <div class="feature"><strong>Refresh lag</strong><p>The public form page a respondent sees is not the same thing as an operator watching the edit screen.</p></div>
+                <div class="feature"><strong>Workflow mismatch</strong><p>The form is being asked to behave like a strict booking backend, which is a stronger promise than a simple cap can make.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>What to do instead</h2>
+            <ol class="steps">
+                <li>Keep the response cap, but treat it as an operational control rather than a perfect reservation lock.</li>
+                <li>Write a clear closed-form message so late visitors immediately know whether registration is closed, waitlisted, or handled elsewhere.</li>
+                <li>Turn on owner notifications so someone knows exactly when the form crosses the threshold.</li>
+                <li>For high-demand launches, keep a manual review or buffer plan instead of promising zero oversubscription.</li>
+                <li>If overflow matters operationally, hand late respondents to a separate waitlist or contact path.</li>
+            </ol>
+            <div class="ok-note">The safest question is usually not "How do I guarantee nobody gets through?" but "What is my overflow plan if a few people are already in flight?"</div>
+        </section>
+        <section class="section">
+            <h2>When a simple cap is enough</h2>
+            <div class="grid">
+                <div class="feature"><strong>Low-volume registrations</strong><p>Internal forms, classroom use, or small signups usually work well with a normal cap and message.</p></div>
+                <div class="feature"><strong>Managed overflow</strong><p>If a small overage can be handled manually, a cap plus notification is often enough.</p></div>
+                <div class="feature"><strong>Clear fallback</strong><p>A separate waitlist or support path reduces confusion when the form is full.</p></div>
+                <div class="feature"><strong>Operator visibility</strong><p>Email alerts help the owner react quickly instead of discovering the issue late.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>When you need a stronger process</h2>
+            <p class="lead">If each spot is high value and concurrency matters, build around the limitation instead of pretending it does not exist.</p>
+            <div class="grid">
+                <div class="feature"><strong>Popular workshops</strong><p>Use a lower public cap and a waitlist if many people may rush the form at once.</p></div>
+                <div class="feature"><strong>Volunteer staffing</strong><p>Per-role limits help, but final staffing may still need manual review.</p></div>
+                <div class="feature"><strong>Office hours and appointments</strong><p>Treat full slots as a quota workflow, not a promise of inventory-grade locking.</p></div>
+                <div class="feature"><strong>High-stakes admissions</strong><p>If one extra acceptance causes real downstream cost, plan human review around the form.</p></div>
+            </div>
+            <div class="note">FormGuard helps teams run safer response-cap, schedule, and notification workflows inside Google Forms. It does not turn Google Forms into a strict reservation backend.</div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <p>These guides are the most useful follow-ups for overflow and full-form behavior.</p>
+            <div class="link-bar">
+                <a href="./close-google-forms-after-n-responses.html">Close after N responses</a>
+                <a href="./google-forms-response-limit-race-condition.html">Race condition breakdown</a>
+                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
+                <a href="./what-to-show-when-google-form-is-full.html">Closed-form message guide</a>
+                <a href="./support.html">Setup guide</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

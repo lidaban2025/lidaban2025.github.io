@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Close Google Forms After a Deadline | FormGuard</title>
+    <meta name="description" content="Close Google Forms after a date or time deadline with scheduled automation, a clear closed-form message, and owner notifications.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/close-google-forms-after-a-deadline.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Close Google Forms After a Deadline | FormGuard">
+    <meta property="og:description" content="A practical guide to time-based closing for Google Forms, including deadline messaging and timezone checks.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/close-google-forms-after-a-deadline.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Close Google Forms After a Deadline">
+    <meta name="twitter:description" content="Use scheduled open and close rules in Google Forms for deadlines, applications, and time-boxed intake windows.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Close Google Forms After a Deadline",
+            "description": "Use a scheduled close time for Google Forms when a response window ends at a specific date and time.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/close-google-forms-after-a-deadline.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Scheduled close time</div>
+            <h1>Close Google Forms after a deadline</h1>
+            <p>Some forms are not about total seats. They are about a collection window that ends at a specific date and time. In those cases, the safest setup is to schedule the form to close automatically at the deadline and make the late-response message explicit.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./schedule-google-forms-open-close-guide.html">Open timer guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Best-fit use cases</h2>
+            <p class="lead">Use a scheduled close when the end time matters more than the number of responses.</p>
+            <div class="grid">
+                <div class="feature"><strong>Application deadlines</strong><p>Stop accepting responses after a published submission cutoff.</p></div>
+                <div class="feature"><strong>RSVP windows</strong><p>Close event responses at the planning deadline instead of watching the form manually.</p></div>
+                <div class="feature"><strong>Internal request windows</strong><p>Accept requests only during a specific operating period.</p></div>
+                <div class="feature"><strong>Classroom or office hours intake</strong><p>Open and close the form around a defined session window.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Simple deadline setup with FormGuard</h2>
+            <ol class="steps">
+                <li>Open the Google Form in edit mode and launch FormGuard from the Extensions menu.</li>
+                <li>Turn on the timer or schedule control.</li>
+                <li>Set the close date and time for the exact deadline you want to enforce.</li>
+                <li>Write a closed-form message that explains the deadline has passed and where late requests should go, if anywhere.</li>
+                <li>Turn on owner notification if someone should know when the form closes.</li>
+                <li>Save the settings and test the close behavior before publishing the form widely.</li>
+            </ol>
+            <div class="note">If the deadline matters publicly, include the timezone in the message or surrounding instructions so respondents are not guessing.</div>
+        </section>
+        <section class="section">
+            <h2>Common deadline mistakes</h2>
+            <div class="grid">
+                <div class="feature"><strong>No close message</strong><p>Late respondents see a dead end instead of a useful next step.</p></div>
+                <div class="feature"><strong>No timezone check</strong><p>The operator and respondents may be thinking about different clocks.</p></div>
+                <div class="feature"><strong>No final test</strong><p>A timer rule should always be verified on a disposable test form before a real launch.</p></div>
+                <div class="feature"><strong>Mixed intent</strong><p>If a form has both a hard deadline and a hard seat cap, use both rules and be clear about which one triggers first.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Combine deadlines with other controls</h2>
+            <p class="lead">Many teams pair a deadline with one more rule so the form closes on whichever trigger happens first.</p>
+            <div class="grid">
+                <div class="feature"><strong>Deadline plus seat cap</strong><p>Close when the deadline arrives or when the form reaches capacity, whichever comes first.</p></div>
+                <div class="feature"><strong>Deadline plus notifications</strong><p>Email the owner when the scheduled close happens so the team knows the collection window ended.</p></div>
+                <div class="feature"><strong>Deadline plus waitlist</strong><p>Send late respondents to a separate path instead of leaving them with an ambiguous closed form.</p></div>
+                <div class="feature"><strong>Deadline plus staged reopen</strong><p>If you plan a second round, use a clearly separated reopen window and test it on a disposable form instead of assuming every rapid timer chain will behave the same way.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <p>These pages cover the most common follow-up questions after deadline-based form control.</p>
+            <div class="link-bar">
+                <a href="./schedule-google-forms-open-close-guide.html">Schedule open and close times</a>
+                <a href="./close-google-forms-after-n-responses.html">Close after N responses</a>
+                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
+                <a href="./what-to-show-when-google-form-is-full.html">Closed-form message guide</a>
+                <a href="./support.html">Setup guide</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

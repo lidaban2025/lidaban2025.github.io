@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms registration workflow with limits and confirmation emails</title>
+    <meta name="description" content="Build a practical Google Forms registration workflow with capacity limits, clear closed messages, owner alerts, and respondent confirmation emails.">
+    <link rel="canonical" href="https://formsuite.dev/resources/google-forms-registration-workflow-limits-confirmation-emails.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms registration workflow with limits and confirmation emails">
+    <meta property="og:description" content="A practical workflow for using Google Forms for registrations, signups, workshops, classes, and intake forms without manually babysitting every response.">
+    <meta property="og:url" content="https://formsuite.dev/resources/google-forms-registration-workflow-limits-confirmation-emails.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms registration workflow with limits and confirmation emails">
+    <meta name="twitter:description" content="Control Google Forms availability with FormGuard, then send owner alerts and respondent confirmations with FormNotifier.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "Google Forms registration workflow with limits and confirmation emails",
+            "description": "Set up a practical Google Forms registration workflow with capacity limits, closed messages, owner alerts, and respondent confirmations.",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "name": "Define the stop condition",
+                    "text": "Decide whether the form should close after a response limit, a deadline, or a full session option."
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Prepare the closed-form message",
+                    "text": "Write a clear fallback message for late users before the form goes live."
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Configure confirmation emails",
+                    "text": "Choose owner alerts, respondent confirmations, or both, then test the email path before launch."
+                },
+                {
+                    "@type": "HowToStep",
+                    "name": "Run a live-safe test",
+                    "text": "Use a throwaway form or test submission to confirm the close and notification behavior."
+                }
+            ]
+        }
+    </script>
+    <style>
+        :root {
+            --ink: #17263d;
+            --muted: #5b6d86;
+            --line: #d8e2ef;
+            --blue: #165dff;
+            --blue-soft: #eef4ff;
+            --green-soft: #eaf8ef;
+            --sand: #fff7e8;
+            --panel: rgba(255, 255, 255, 0.94);
+            --shadow: 0 22px 55px rgba(20, 35, 59, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #eef6ff 0, #eef6ff 20%, transparent 44%),
+                radial-gradient(circle at top right, #fff4e6 0, #fff4e6 18%, transparent 38%),
+                linear-gradient(180deg, #f8fbff 0%, #ffffff 58%);
+            line-height: 1.65;
+        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1080px; margin: 0 auto; padding: 28px 20px 64px; }
+        .nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.95rem; }
+        .hero, .section, .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+        .hero { padding: 34px; margin-bottom: 18px; }
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.75rem;
+            line-height: 1.05;
+            letter-spacing: -0.05em;
+            margin-bottom: 14px;
+            max-width: 860px;
+        }
+        .hero p, .lead, .card p, li { color: var(--muted); }
+        .hero p { max-width: 780px; font-size: 1.03rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .section { padding: 28px; margin-top: 18px; }
+        h2 { font-size: 1.55rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        h3 { font-size: 1.12rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .lead { margin-bottom: 20px; max-width: 780px; }
+        .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .card { padding: 20px; box-shadow: none; background: #fff; }
+        .steps { display: grid; gap: 12px; padding-left: 22px; }
+        .note {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--sand);
+            border: 1px solid #efd7a8;
+            color: #7c5400;
+        }
+        .link-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-weight: 700; }
+        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html"><strong>FormSuite</strong></a>
+            <a href="./index.html">Resources</a>
+            <a href="../formguard/index.html">FormGuard</a>
+            <a href="../formnotifier/index.html">FormNotifier</a>
+        </nav>
+
+        <section class="hero">
+            <div class="eyebrow">Google Forms registration workflow</div>
+            <h1>Run a Google Forms signup without manually watching capacity, deadlines, and confirmation emails.</h1>
+            <p>Google Forms is a fast way to collect registrations, but the operational work usually starts after the form goes live. A practical setup needs two layers: rules for when the form should stop accepting responses, and emails that tell the right people what happened after each submission.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="../formguard/index.html">Control capacity with FormGuard</a>
+                <a class="btn btn-secondary" href="../formnotifier/index.html">Send emails with FormNotifier</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The workflow problem</h2>
+            <p class="lead">The form itself is rarely the hard part. The fragile part is the operator workflow around a live signup form.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Before submission</h3>
+                    <p>You need response limits, deadline handling, session quotas, and a clear message for people who arrive after the form is full or closed.</p>
+                </div>
+                <div class="card">
+                    <h3>After submission</h3>
+                    <p>You need owner alerts, respondent confirmations, a tested email path, and enough visibility to know the last notification actually worked.</p>
+                </div>
+            </div>
+            <div class="note">Boundary: this is a lightweight registration workflow, not a payment-time reservation backend. If you need transactional seat locking, inventory holds, or payment capture, use a dedicated booking or commerce system.</div>
+        </section>
+
+        <section class="section">
+            <h2>A safer setup path</h2>
+            <p class="lead">This sequence keeps the workflow honest and easy to test before real users arrive.</p>
+            <ol class="steps">
+                <li>Decide the stop condition: maximum responses, closing deadline, or full session option.</li>
+                <li>Prepare the closed-form message before launch, including the waitlist or contact path for late users.</li>
+                <li>Use FormGuard to configure the response cap, schedule, choice quota, or closed message behavior.</li>
+                <li>Use FormNotifier to configure owner alerts, respondent confirmation emails, preflight, and test sends.</li>
+                <li>Submit a test response and confirm both sides: the form-control behavior and the email result.</li>
+            </ol>
+        </section>
+
+        <section class="section">
+            <h2>Which add-on handles what?</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>FormGuard</h3>
+                    <p>Use FormGuard when the problem is availability: response caps, scheduled open or close windows, custom closed messages, and choice-level capacity.</p>
+                    <div class="link-row">
+                        <a href="../formguard/index.html">Overview</a>
+                        <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>FormNotifier</h3>
+                    <p>Use FormNotifier when the problem is communication: owner alerts, respondent confirmations, email templates, preflight checks, and test sends.</p>
+                    <div class="link-row">
+                        <a href="../formnotifier/index.html">Overview</a>
+                        <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install from Marketplace</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Common use cases</h2>
+            <div class="grid">
+                <div class="card"><h3>Workshop registration</h3><p>Close the form when the class is full, then send a confirmation email with the time, location, and next step.</p></div>
+                <div class="card"><h3>Volunteer signup</h3><p>Stop full roles or sessions from continuing to collect responses, then notify coordinators when new submissions arrive.</p></div>
+                <div class="card"><h3>Admissions or program intake</h3><p>Keep deadline rules visible to applicants and send confirmation emails so submitters know their application was received.</p></div>
+                <div class="card"><h3>Internal request forms</h3><p>Route responses to the right operator inbox and avoid open-ended forms that keep accepting requests after capacity is reached.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Related guides</h2>
+            <p class="lead">Start with the exact part of the workflow that is currently breaking down.</p>
+            <div class="link-row">
+                <a href="../formguard/close-google-forms-after-n-responses.html">Close after N responses</a>
+                <a href="../formguard/close-google-forms-after-a-deadline.html">Close after a deadline</a>
+                <a href="../formguard/google-forms-session-capacity-choice-quota.html">Session capacity and choice quotas</a>
+                <a href="../formnotifier/send-google-forms-confirmation-email-after-submit.html">Confirmation emails after submit</a>
+                <a href="../formnotifier/test-google-forms-confirmation-email-before-launch.html">Test emails before launch</a>
+            </div>
+        </section>
+
+        <footer class="footer">FormSuite - focused Google Workspace add-ons for form operators.</footer>
+    </div>
+</body>
+</html>
