@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to show when a Google Form is full | FormGuard</title>
+    <meta name="description" content="Use a clearer closed message when a Google Form reaches capacity, including what to say, what to link next, and how FormGuard helps operators handle full forms.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/what-to-show-when-google-form-is-full.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="What to show when a Google Form is full | FormGuard">
+    <meta property="og:description" content="Write a better closed message when a Google Form reaches capacity and guide respondents to the next best action.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/what-to-show-when-google-form-is-full.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What to show when a Google Form is full">
+    <meta name="twitter:description" content="Practical message patterns for Google Forms that are full or no longer accepting responses.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --sand:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.5rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .template { margin-top:12px; padding:16px 18px; border-radius:18px; background:var(--sand); border:1px solid #f0d9aa; color:#6f4a12; }
+        .template code { display:block; white-space:pre-wrap; font-family:Consolas,"Courier New",monospace; font-size:.92rem; line-height:1.55; color:#4c3211; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.08rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-forms-limit-responses-guide.html">Workflow guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Closed-form messaging</div>
+            <h1>What to show when a Google Form is full</h1>
+            <p>When a Google Form reaches capacity, the message people see matters almost as much as the limit itself. A vague "no longer accepting responses" notice creates confusion. A better message explains what happened, what the respondent should do next, and whether another path is still available.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+                <a class="btn btn-secondary" href="./google-forms-limit-responses-guide.html">Limit responses guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>What a strong closed message should include</h2>
+            <div class="grid">
+                <div class="feature"><strong>State the current status clearly</strong><p>Tell visitors whether the form is full, closed by deadline, or temporarily paused.</p></div>
+                <div class="feature"><strong>Set expectations</strong><p>Explain whether more spots may open, whether a waitlist exists, or whether submissions are permanently closed.</p></div>
+                <div class="feature"><strong>Offer a next step</strong><p>Link to a waitlist, support inbox, alternate form, or event page when relevant.</p></div>
+                <div class="feature"><strong>Keep the message short</strong><p>Visitors should understand the outcome in a few seconds without reading an essay.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Simple message example</h2>
+            <div class="template"><code>This form is no longer accepting responses because all available spots have been filled.
+
+If additional space opens, we will update this page. If you still need help, contact {{Contact Email}}.</code></div>
+        </section>
+        <section class="section">
+            <h2>Waitlist-friendly message example</h2>
+            <div class="template"><code>Registration is currently full.
+
+If you would like to join the waitlist, please use this link: {{Waitlist Link}}.
+
+We will contact people on the waitlist if space becomes available.</code></div>
+            <div class="note">The best message depends on the actual operator workflow. If you do not have a waitlist or alternate path, do not imply one.</div>
+        </section>
+        <section class="section">
+            <h2>Related FormGuard guides</h2>
+            <div class="link-bar">
+                <a href="./google-forms-limit-responses-guide.html">How to limit responses</a>
+                <a href="./close-google-forms-after-a-deadline.html">Close after a deadline</a>
+                <a href="./google-forms-full-but-still-accepts-responses.html">Form still accepts responses</a>
+                <a href="./support.html">Support and setup</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
