@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms support request confirmation email | FormNotifier</title>
+    <meta name="description" content="Set up a Google Forms support request confirmation email with clear receipt messaging, expected response time, contact guidance, and a simple preflight checklist.">
+    <link rel="canonical" href="https://formsuite.dev/formnotifier/google-forms-support-request-confirmation-email.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms support request confirmation email | FormNotifier">
+    <meta property="og:description" content="Use Google Forms plus FormNotifier to send a clear support request confirmation email after form submission.">
+    <meta property="og:url" content="https://formsuite.dev/formnotifier/google-forms-support-request-confirmation-email.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms support request confirmation email">
+    <meta name="twitter:description" content="A practical Google Forms confirmation pattern for support and intake workflows.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms support request confirmation email",
+            "description": "A practical guide to sending support request confirmation emails from Google Forms.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formnotifier/google-forms-support-request-confirmation-email.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.4rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormNotifier</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-forms-email-notifications-guide.html">Workflow guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Support intake</div>
+            <h1>Google Forms support request confirmation email</h1>
+            <p>If you collect support requests or intake submissions with Google Forms, a confirmation email helps the sender know the request was received and what happens next. FormNotifier lets you send that confirmation from the form workflow itself, with a short subject, useful context, and a clear response-time expectation.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                <a class="btn btn-secondary" href="./send-google-forms-confirmation-email-after-submit.html">Confirmation guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>What a support confirmation should do</h2>
+            <p class="lead">The goal is not marketing copy. It is operational clarity for the person who just submitted a request.</p>
+            <div class="grid">
+                <div class="feature"><strong>Confirm receipt</strong><p>Tell the sender the support request was received successfully.</p></div>
+                <div class="feature"><strong>Set expectations</strong><p>Include a realistic response window so the person knows when to expect follow-up.</p></div>
+                <div class="feature"><strong>Echo the key context</strong><p>Include the request type, ticket category, or request summary if that helps the sender verify what was submitted.</p></div>
+                <div class="feature"><strong>Give one contact path</strong><p>If the request was urgent or incorrect, say which inbox or process should be used instead.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Recommended setup pattern</h2>
+            <ol class="steps">
+                <li>Open the Google Form in edit mode and launch FormNotifier.</li>
+                <li>Enable respondent confirmation.</li>
+                <li>Select the correct email source: collected email or the support form's email question.</li>
+                <li>Write a short subject line such as "We received your support request".</li>
+                <li>Keep the body focused on receipt, next step, and expected response time.</li>
+                <li>Run Preflight and use Send test before the form goes live.</li>
+            </ol>
+            <div class="note">For support flows, short and dependable is better than overly personalized. The message should reduce uncertainty, not create more reading work.</div>
+        </section>
+        <section class="section">
+            <h2>What to verify before launch</h2>
+            <div class="grid">
+                <div class="feature"><strong>Email source</strong><p>Check that the form is using the correct respondent email path.</p></div>
+                <div class="feature"><strong>Template accuracy</strong><p>If you include merge fields, confirm they still match the current question names.</p></div>
+                <div class="feature"><strong>Response-time promise</strong><p>Do not promise a faster turnaround than the team can actually sustain.</p></div>
+                <div class="feature"><strong>Recent send result</strong><p>After a test, verify the latest send result in the sidebar so operators have a visible checkpoint.</p></div>
+            </div>
+            <div class="warn">Boundary: FormNotifier helps with confirmation emails and owner alerts inside Google Forms. It is not a full help desk, SLA engine, or ticket-routing platform.</div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <div class="link-bar">
+                <a href="./send-google-forms-confirmation-email-after-submit.html">Send a confirmation email after submit</a>
+                <a href="./google-forms-preflight-email-setup-checklist.html">Preflight checklist</a>
+                <a href="./notify-team-when-google-form-is-submitted.html">Notify a team</a>
+                <a href="./why-google-forms-notification-email-is-not-sending.html">Troubleshoot delivery</a>
+                <a href="./support.html">Setup support</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms email report after send | FormNotifier</title>
+    <meta name="description" content="Learn what to check after a Google Forms notification email is sent, including owner alerts, respondent confirmations, test sends, and recent send results in FormNotifier.">
+    <link rel="canonical" href="https://formsuite.dev/formnotifier/google-forms-email-report-after-send.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms email report after send | FormNotifier">
+    <meta property="og:description" content="A practical guide to checking Google Forms notification results after test sends and live submissions.">
+    <meta property="og:url" content="https://formsuite.dev/formnotifier/google-forms-email-report-after-send.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms email report after send">
+    <meta name="twitter:description" content="Check owner alerts, respondent confirmations, and recent send results after a Google Form submission.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms email report after send",
+            "description": "How to inspect Google Forms notification results after a test send or live submission.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formnotifier/google-forms-email-report-after-send.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.45rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:16ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.05rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormNotifier</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./why-google-forms-notification-email-is-not-sending.html">Troubleshooting</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Recent send results</div>
+            <h1>Google Forms email report after send</h1>
+            <p>After a Google Form submission, the important question is not only whether the form captured the response. Operators also need to know whether the owner alert and respondent confirmation were attempted, where they were sent, and what to inspect if something did not arrive.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                <a class="btn btn-secondary" href="./google-forms-preflight-email-setup-checklist.html">Preflight checklist</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What a useful send report should answer</h2>
+            <p class="lead">A report is most useful when it helps the person running the form make a quick decision without opening Apps Script logs first.</p>
+            <div class="grid">
+                <div class="feature"><strong>Who was notified?</strong><p>Confirm whether the owner, shared inbox, or extra recipient list was included in the notification path.</p></div>
+                <div class="feature"><strong>Was the respondent confirmation attempted?</strong><p>Check whether the respondent email source was available and whether the confirmation path ran.</p></div>
+                <div class="feature"><strong>Did the test send match the live path?</strong><p>Compare the test message to one real public submission before trusting the form at launch.</p></div>
+                <div class="feature"><strong>What changed since setup?</strong><p>Look for renamed questions, removed email fields, old recipient lists, or exhausted account quota.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Recommended check after a test send</h2>
+            <ol class="steps">
+                <li>Run preflight and resolve missing recipient or respondent email-source warnings.</li>
+                <li>Send one test notification from the FormNotifier sidebar.</li>
+                <li>Check the owner inbox or shared inbox for the test alert.</li>
+                <li>Check the respondent confirmation inbox if confirmations are enabled.</li>
+                <li>Inspect the recent send result in the sidebar and confirm it matches what arrived.</li>
+                <li>Submit once through the public form link and repeat the inbox check with real response data.</li>
+            </ol>
+            <div class="note">The best launch check is a matched pair: one controlled test send and one real public-form submission.</div>
+        </section>
+
+        <section class="section">
+            <h2>Common report symptoms</h2>
+            <div class="grid">
+                <div class="feature"><strong>Owner alert sent, respondent missing</strong><p>The form may not be collecting respondent email, or the selected email question may be blank or invalid.</p></div>
+                <div class="feature"><strong>No owner alert</strong><p>Check whether notifications are enabled and whether at least one owner or additional recipient is configured.</p></div>
+                <div class="feature"><strong>Test works, live submit does not</strong><p>Confirm the form submit trigger is active and test one public submission after saving settings.</p></div>
+                <div class="feature"><strong>Nothing sends</strong><p>Check Gmail quota, account authorization, and the most recent preflight result before changing templates.</p></div>
+            </div>
+            <div class="warn">Boundary: a recent send report helps with setup visibility. It does not replace Gmail deliverability controls, spam-folder checks, or organization-level email policies.</div>
+        </section>
+
+        <section class="section">
+            <h2>Related guides</h2>
+            <div class="link-bar">
+                <a href="./why-google-forms-notification-email-is-not-sending.html">Troubleshoot delivery</a>
+                <a href="./test-google-forms-confirmation-email-before-launch.html">Test before launch</a>
+                <a href="./notify-team-when-google-form-is-submitted.html">Notify a team</a>
+                <a href="./google-forms-notification-to-multiple-recipients.html">Multiple recipients</a>
+                <a href="./support.html">Setup support</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

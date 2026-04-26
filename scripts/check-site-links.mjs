@@ -113,6 +113,9 @@ let missingMeta = 0;
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf-8');
   const relFile = file.replace(ROOT, '').replace(/\\/g, '/');
+  if (/^\/google[0-9a-z]+\.html$/i.test(relFile) && html.trim().startsWith('google-site-verification:')) {
+    continue;
+  }
   if (!/<title>/.test(html)) {
     console.log(`  ⚠️ Missing <title> in ${relFile}`);
     missingMeta++;
