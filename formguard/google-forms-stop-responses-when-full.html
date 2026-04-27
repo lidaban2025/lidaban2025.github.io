@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms Stop Responses When Full | FormGuard</title>
+    <meta name="description" content="Learn how to stop Google Forms responses when a form is full, show a clear closed message, add a waitlist path, and notify the owner.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-stop-responses-when-full.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms Stop Responses When Full | FormGuard">
+    <meta property="og:description" content="A practical setup for closing Google Forms when capacity is reached, without writing Apps Script.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-stop-responses-when-full.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms Stop Responses When Full">
+    <meta name="twitter:description" content="Stop Google Forms when full with a cap, closed message, fallback path, and owner alert.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms Stop Responses When Full",
+            "description": "How to stop Google Forms responses when a form is full with response caps, closed messages, waitlists, and owner alerts.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-stop-responses-when-full.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --amber-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.45rem; line-height:1.1; letter-spacing:-.05em; margin-bottom:14px; max-width:18ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .template { margin-top:12px; padding:16px 18px; border-radius:18px; background:var(--amber-soft); border:1px solid #efd49b; color:#6f4a12; }
+        .template code { display:block; white-space:pre-wrap; font-family:Consolas,"Courier New",monospace; font-size:.92rem; line-height:1.55; color:#4c3211; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #cde8d6; background:var(--green-soft); color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #edd8a7; background:var(--amber-soft); color:#7d5a00; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.05rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Capacity control</div>
+            <h1>Google Forms stop responses when full</h1>
+            <p>When a signup, RSVP, workshop, or class form is full, the form should stop accepting new responses and show a message that tells late visitors what to do next.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+                <a class="btn btn-secondary" href="./google-forms-event-registration-full-message.html">Write the full message</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">Google Forms can be turned off manually, but it does not give every form a built-in, automatic "stop when full" workflow. The practical setup is to use a response cap, a clear closed-form message, an optional waitlist path, and an owner alert so the form operator knows when capacity is reached.</p>
+            <div class="template"><code>This form is now full.
+
+We have reached the available capacity for this signup. If you would like to join the waitlist, please use this link: [waitlist link].
+
+Please do not submit another response unless the organizer contacts you.</code></div>
+        </section>
+        <section class="section">
+            <h2>Why this matters</h2>
+            <p class="lead">A full form that keeps accepting responses creates cleanup work. The organizer has to reject extra people, explain what happened, and manually decide who is confirmed.</p>
+            <div class="grid">
+                <div class="feature"><strong>Overbooking creates support work</strong><p>Extra responses may look valid to respondents even if the event, class, or session is already full.</p></div>
+                <div class="feature"><strong>Late visitors need a next step</strong><p>A good closed message should offer a waitlist, contact email, or clear final closure notice.</p></div>
+                <div class="feature"><strong>The owner needs an alert</strong><p>When the form closes, the organizer should know so they can stop sharing the link or update related pages.</p></div>
+                <div class="feature"><strong>Some workflows need a buffer</strong><p>If many people may submit at once, close below the true capacity and confirm the final list manually.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Manual option</h2>
+            <p class="lead">Manual closing can work for small forms that receive responses slowly.</p>
+            <ol class="steps">
+                <li>Open your Google Form.</li>
+                <li>Watch the response count in the Responses tab.</li>
+                <li>When the count reaches capacity, turn off "Accepting responses."</li>
+                <li>Write a custom closed-form message.</li>
+                <li>Notify the owner or team that the form is full.</li>
+            </ol>
+            <div class="warn">This method depends on someone watching the form. It is weak for overnight launches, public links, school signups, and events promoted across multiple channels.</div>
+        </section>
+        <section class="section">
+            <h2>Automatic option with FormGuard</h2>
+            <ol class="steps">
+                <li>Open the form in Google Forms.</li>
+                <li>Launch FormGuard from the Extensions menu.</li>
+                <li>Create a response limit rule for the capacity number.</li>
+                <li>Add the closed-form message shown after the form is full.</li>
+                <li>Add a waitlist link or contact email if late users still need a path.</li>
+                <li>Enable owner notification for the capacity event.</li>
+                <li>Test the form before sending the public link.</li>
+            </ol>
+            <div class="note">FormGuard is designed for lightweight Google Forms controls: response caps, scheduled open and close windows, choice quotas, closed-form messages, and owner notifications without writing Apps Script.</div>
+        </section>
+        <section class="section">
+            <h2>Use cases</h2>
+            <div class="grid">
+                <div class="feature"><strong>Event RSVPs</strong><p>Stop registrations when the room, meal count, or attendee list is full.</p></div>
+                <div class="feature"><strong>Workshop seats</strong><p>Close the signup once the workshop reaches its capacity.</p></div>
+                <div class="feature"><strong>Class signups</strong><p>Prevent a small class or club session from collecting too many names.</p></div>
+                <div class="feature"><strong>Volunteer roles</strong><p>Stop collecting responses after a limited role has enough volunteers.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Best practices</h2>
+            <div class="grid">
+                <div class="feature"><strong>Write the closed message before launch</strong><p>Do not wait until the form is already full. Decide what late visitors should see first.</p></div>
+                <div class="feature"><strong>Use one fallback path</strong><p>A single waitlist form or contact email is easier to manage than several informal overflow channels.</p></div>
+                <div class="feature"><strong>Use a capacity buffer</strong><p>If exact capacity is important, close public signups slightly early and confirm the final list manually.</p></div>
+                <div class="feature"><strong>Do a test run</strong><p>Before launch, submit test responses and confirm the form closes, the message is clear, and the owner gets notified.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>When this is not enough</h2>
+            <p>Google Forms is not a strict reservation database. If every seat must be guaranteed in real time, or if you need payments, tickets, cancellations, or assigned seats, use a dedicated event registration or ticketing system.</p>
+            <div class="warn">For high-concurrency signups, use testing, a buffer, a waitlist, and manual confirmation. Do not present Google Forms as guaranteed inventory control.</div>
+        </section>
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="grid">
+                <div class="feature"><strong>Can Google Forms stop responses when full?</strong><p>You can stop responses manually. For automatic capacity-based closing, use an add-on or custom Apps Script.</p></div>
+                <div class="feature"><strong>Can I show a message after the form is full?</strong><p>Yes. Use a closed-form message that says the form is full and gives a waitlist or contact path if one exists.</p></div>
+                <div class="feature"><strong>Can FormGuard notify me when the form closes?</strong><p>Yes. FormGuard can send owner notifications when important limits or schedules trigger.</p></div>
+                <div class="feature"><strong>Can I stop a single option when it is full?</strong><p>For sessions, workshops, roles, or time slots, use a choice quota pattern instead of only a total response cap.</p></div>
+                <div class="feature"><strong>Does this prevent all overbooking?</strong><p>No. Google Forms is not transactional, so high-speed submissions can still need a buffer and manual confirmation.</p></div>
+                <div class="feature"><strong>Should I include a waitlist?</strong><p>Include one only if someone will actually review it. Otherwise, use a clear final closure message.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <div class="link-bar">
+                <a href="./google-forms-rsvp-limit-seats.html">RSVP seat limits</a>
+                <a href="./google-forms-event-registration-full-message.html">Event full message</a>
+                <a href="./google-forms-full-but-still-accepts-responses.html">Why full forms still accept responses</a>
+                <a href="./google-forms-response-limit-race-condition.html">Response limit edge cases</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
