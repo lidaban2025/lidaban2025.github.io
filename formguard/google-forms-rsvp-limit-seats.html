@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms RSVP Limit Seats | FormGuard</title>
+    <meta name="description" content="Set a practical RSVP seat limit in Google Forms with a response cap, clear full message, waitlist fallback, and FormGuard owner alerts.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-rsvp-limit-seats.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms RSVP Limit Seats | FormGuard">
+    <meta property="og:description" content="A practical setup pattern for limiting RSVP seats in Google Forms without writing Apps Script.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-rsvp-limit-seats.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms RSVP Limit Seats">
+    <meta name="twitter:description" content="Limit RSVP seats, show a useful full message, and add a waitlist fallback for Google Forms.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms RSVP Limit Seats",
+            "description": "How to limit RSVP seats in Google Forms with capacity rules, closed messages, waitlists, and owner alerts.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-rsvp-limit-seats.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --amber-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.45rem; line-height:1.1; letter-spacing:-.05em; margin-bottom:14px; max-width:17ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .template { margin-top:12px; padding:16px 18px; border-radius:18px; background:var(--amber-soft); border:1px solid #efd49b; color:#6f4a12; }
+        .template code { display:block; white-space:pre-wrap; font-family:Consolas,"Courier New",monospace; font-size:.92rem; line-height:1.55; color:#4c3211; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #cde8d6; background:var(--green-soft); color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #edd8a7; background:var(--amber-soft); color:#7d5a00; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.05rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">RSVP seat limits</div>
+            <h1>Google Forms RSVP limit seats</h1>
+            <p>If you use Google Forms for RSVPs, the important part is not only collecting names. You need a seat limit, a clear message when the event is full, and a fallback path for people who arrive after capacity is reached.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+                <a class="btn btn-secondary" href="./google-forms-rsvp-deadline-capacity-limit.html">Deadline plus capacity guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">To limit RSVP seats in Google Forms, set a response cap that matches your capacity, write a closed-form message for visitors who arrive after the event is full, and add a waitlist or contact path if late users still need help. FormGuard can handle the cap, closed message, and owner notification from the Google Forms sidebar.</p>
+            <div class="template"><code>Registration is full.
+
+This RSVP form has reached the seat limit for the event. If you would like to join the waitlist, please use this link: [waitlist link].
+
+We will contact waitlisted guests only if space becomes available.</code></div>
+        </section>
+        <section class="section">
+            <h2>Why RSVP seat limits are tricky</h2>
+            <p class="lead">Google Forms is easy to share, but it is not designed as a transactional seat reservation system. That means the setup should be practical, honest, and easy for the organizer to monitor.</p>
+            <div class="grid">
+                <div class="feature"><strong>The cap needs a visitor message</strong><p>Stopping responses is only half the workflow. Late visitors need to know whether the event is full, whether a waitlist exists, and who to contact.</p></div>
+                <div class="feature"><strong>The owner needs to know</strong><p>If an RSVP form reaches capacity, someone should be notified so they can pause promotion, update the event page, or monitor the waitlist.</p></div>
+                <div class="feature"><strong>Already-open forms can be messy</strong><p>For high-demand events, people may open the form before the limit is reached and submit moments later. Build in a buffer if every seat matters.</p></div>
+                <div class="feature"><strong>Deadlines often matter too</strong><p>Many RSVP forms should close when the seat limit is reached or when the RSVP deadline passes, whichever happens first.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Manual setup option</h2>
+            <p class="lead">If you do not want to use an add-on, you can manually monitor responses and turn off the form when the RSVP count reaches your capacity.</p>
+            <ol class="steps">
+                <li>Open the Google Form and keep the Responses tab visible during launch.</li>
+                <li>Watch the response count as people register.</li>
+                <li>When the count reaches the seat limit, turn off "Accepting responses."</li>
+                <li>Update the closed-form message with a waitlist link or contact email.</li>
+                <li>Notify the organizer that the event is full.</li>
+            </ol>
+            <div class="warn">Manual monitoring works for small, slow-moving signups. It is risky when people can register while you are offline or when the form is shared widely.</div>
+        </section>
+        <section class="section">
+            <h2>Add-on setup option with FormGuard</h2>
+            <ol class="steps">
+                <li>Open your RSVP form in Google Forms.</li>
+                <li>Launch FormGuard from the Extensions menu.</li>
+                <li>Create a response limit rule for the event seat count.</li>
+                <li>Write a closed-form message that explains the event is full.</li>
+                <li>Add a waitlist form link or organizer email if you have a fallback path.</li>
+                <li>Enable owner notification so the organizer knows when the form closes.</li>
+                <li>Submit a test response flow before sharing the public RSVP link.</li>
+            </ol>
+            <div class="note">FormGuard is a lightweight control layer for Google Forms. It is designed for response caps, scheduled open and close times, choice quotas, closed-form messages, and owner alerts without Apps Script.</div>
+        </section>
+        <section class="section">
+            <h2>Best practices for RSVP seat limits</h2>
+            <div class="grid">
+                <div class="feature"><strong>Use a small buffer for high-demand events</strong><p>If the room has 50 seats and every seat must be confirmed manually, consider closing public RSVPs at 45 and reviewing the final list.</p></div>
+                <div class="feature"><strong>Use one waitlist path</strong><p>Send late visitors to one waitlist form or one email address. Do not create multiple unofficial overflow paths.</p></div>
+                <div class="feature"><strong>Do not promise a seat in the closed message</strong><p>Use wording like "we will contact waitlisted guests if space becomes available" instead of guaranteeing attendance.</p></div>
+                <div class="feature"><strong>Pair capacity with a deadline</strong><p>If the event has a published RSVP cutoff, use both a capacity cap and a scheduled close time.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Common mistakes</h2>
+            <div class="grid">
+                <div class="feature"><strong>Leaving the default closed message</strong><p>"This form is no longer accepting responses" does not explain whether the event is full or what the visitor should do next.</p></div>
+                <div class="feature"><strong>Counting seats manually after launch</strong><p>Manual counting is easy to forget when the form is live overnight or shared in several channels.</p></div>
+                <div class="feature"><strong>No owner alert</strong><p>If the organizer does not know the form closed, promotion may continue after the event is already full.</p></div>
+                <div class="feature"><strong>Treating Google Forms like ticketing software</strong><p>Google Forms is useful for lightweight RSVPs, but it is not a strict reservation or ticketing platform.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>When this is not enough</h2>
+            <p>Use a dedicated event registration or ticketing system if you need payment collection, assigned seats, strict first-come-first-served ordering, cancellation handling, or guaranteed transaction-level inventory.</p>
+            <div class="warn">For high-concurrency seat claiming, use testing, buffer capacity, manual confirmation, and a waitlist. Do not rely on Google Forms as a strict reservation database.</div>
+        </section>
+        <section class="section">
+            <h2>Recommended setup</h2>
+            <p class="lead">For most school events, internal sessions, workshops, volunteer meetings, and community RSVPs, use a simple FormGuard rule: capacity cap, clear closed message, optional waitlist link, and owner notification.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+                <a class="btn btn-secondary" href="./google-forms-event-registration-full-message.html">Write the full message</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="grid">
+                <div class="feature"><strong>Can Google Forms limit RSVP seats?</strong><p>Google Forms does not provide a complete seat reservation system by itself. You can monitor responses manually or use an add-on such as FormGuard to close the form when a response cap is reached.</p></div>
+                <div class="feature"><strong>Can I add a waitlist after the RSVP limit is reached?</strong><p>Yes. The simplest pattern is to close the main RSVP form and point late visitors to a separate waitlist form or contact email.</p></div>
+                <div class="feature"><strong>Can I limit seats and close at a deadline?</strong><p>Yes. A practical RSVP setup closes when either the seat cap is reached or the deadline arrives.</p></div>
+                <div class="feature"><strong>Does FormGuard guarantee exact seat inventory?</strong><p>No. Google Forms is not transactional. FormGuard is for lightweight response controls and owner alerts, not strict ticketing or inventory guarantees.</p></div>
+                <div class="feature"><strong>What should the full message say?</strong><p>Say that registration is full, provide a waitlist or contact path if one exists, and avoid promising a seat unless your team can honor it.</p></div>
+                <div class="feature"><strong>Who should use this setup?</strong><p>It fits workshops, school events, internal sessions, club meetings, volunteer briefings, and other RSVPs where a lightweight Google Forms workflow is enough.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <div class="link-bar">
+                <a href="./google-forms-rsvp-deadline-capacity-limit.html">RSVP deadline and capacity</a>
+                <a href="./google-forms-event-registration-full-message.html">Event full message</a>
+                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
+                <a href="./google-forms-response-limit-race-condition.html">Response limit edge cases</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
