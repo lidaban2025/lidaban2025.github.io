@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Forms Waitlist After Capacity | FormGuard</title>
-    <meta name="description" content="Set up a safer Google Forms waitlist flow after capacity is reached with response caps, closed-form messaging, and owner notifications.">
+    <title>Google Forms waitlist after registration is full | FormGuard</title>
+    <meta name="description" content="Set up a Google Forms waitlist after registration is full with response caps, closed-form messages, waitlist links, and owner notifications.">
     <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-waitlist-after-capacity.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="Google Forms Waitlist After Capacity | FormGuard">
-    <meta property="og:description" content="How to move late signups to a waitlist after a Google Form reaches capacity without pretending the form is a strict reservation system.">
+    <meta property="og:title" content="Google Forms waitlist after registration is full | FormGuard">
+    <meta property="og:description" content="How to move late signups to a waitlist after a Google Form reaches capacity or registration is full.">
     <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-waitlist-after-capacity.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Google Forms Waitlist After Capacity">
-    <meta name="twitter:description" content="A practical pattern for handling Google Forms waitlists after capacity is reached.">
+    <meta name="twitter:title" content="Google Forms waitlist after registration is full">
+    <meta name="twitter:description" content="A practical pattern for handling Google Forms waitlists after registration is full.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Google Forms Waitlist After Capacity",
-            "description": "A practical guide to turning a capped Google Form into a safer waitlist flow once capacity is reached.",
+            "headline": "Google Forms waitlist after registration is full",
+            "description": "A practical guide to turning a capped Google Form into a safer waitlist flow once registration is full.",
             "author": { "@type": "Organization", "name": "FormSuite" },
             "publisher": { "@type": "Organization", "name": "FormSuite" },
             "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-waitlist-after-capacity.html"
@@ -64,11 +64,19 @@
         </nav>
         <section class="hero">
             <div class="eyebrow">Waitlist handoff</div>
-            <h1>Google Forms waitlist after capacity</h1>
-            <p>When a Google Form fills up, the next best step is usually not to keep forcing late responses into the same form. A safer pattern is to close the main form cleanly, show a clear message, and hand late users to a waitlist or backup path.</p>
+            <h1>Google Forms waitlist after registration is full</h1>
+            <p>When a Google Forms registration page is full, the next best step is usually not to keep forcing late responses into the same form. A safer pattern is to close the main form cleanly, show a clear message, and hand late users to a waitlist or backup path.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
                 <a class="btn btn-secondary" href="./close-google-forms-after-n-responses.html">Open response cap guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">To create a Google Forms waitlist after registration is full, close the main registration form at the capacity limit, then use the closed-form message to send late visitors to a separate waitlist form or contact path. Keep confirmed registrations and waitlist requests separate so operators can review them clearly.</p>
+            <div class="grid">
+                <div class="feature"><strong>Main form</strong><p>Use the main form only for the active registration window or confirmed capacity.</p></div>
+                <div class="feature"><strong>Waitlist path</strong><p>Use a separate form, email address, or manual process for people who arrive after the form is full.</p></div>
             </div>
         </section>
         <section class="section">
@@ -105,10 +113,19 @@
             <h2>Safer wording for the closed-form message</h2>
             <p class="lead">A good message reduces confusion and keeps late users from feeling like they submitted into a black box.</p>
             <div class="grid">
-                <div class="feature"><strong>Good example</strong><p>The workshop is currently full. If you would like to join the waitlist, please use the waitlist form here: [link].</p></div>
+                <div class="feature"><strong>Good example</strong><p>Registration is currently full. If you would like to join the waitlist, please use the waitlist form here: [link].</p></div>
                 <div class="feature"><strong>Avoid this</strong><p>Registration is full, but keep checking back. This creates uncertainty unless you already have a clear reopen process.</p></div>
                 <div class="feature"><strong>Operator signal</strong><p>Turn on owner notifications so someone actually knows the main form is closed and the waitlist path is active.</p></div>
                 <div class="feature"><strong>High-demand caution</strong><p>If many people may submit at the same time, combine this with a buffer cap or manual review plan.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="grid">
+                <div class="feature"><strong>Can Google Forms automatically start a waitlist when registration is full?</strong><p>Not as a complete native workflow. A practical approach is to close the main form and use the closed message to point late users to a separate waitlist path.</p></div>
+                <div class="feature"><strong>Should the waitlist be the same form?</strong><p>Usually no. A separate waitlist form makes it clearer which responses are confirmed registrations and which ones still need review.</p></div>
+                <div class="feature"><strong>Can FormGuard close the main registration form?</strong><p>Yes. FormGuard can help close the main Google Form at a response cap and show the message that sends users to the waitlist.</p></div>
+                <div class="feature"><strong>Does this guarantee exact seat order?</strong><p>No. Google Forms is not a transactional reservation database. Use manual review for final seats and waitlist promotion.</p></div>
             </div>
         </section>
         <section class="section">
@@ -116,6 +133,7 @@
             <p>Most teams pair a waitlist flow with one or more of these controls.</p>
             <div class="link-bar">
                 <a href="./close-google-forms-after-n-responses.html">Close after N responses</a>
+                <a href="./google-forms-event-registration-full-message.html">Event full message</a>
                 <a href="./google-forms-response-limit-race-condition.html">Race condition guide</a>
                 <a href="./google-forms-session-capacity-choice-quota.html">Session capacity guide</a>
                 <a href="./google-forms-choice-quota-vs-inventory-tracking.html">Quota vs inventory</a>
