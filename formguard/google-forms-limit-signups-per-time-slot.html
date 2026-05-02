@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms limit signups per time slot | FormGuard</title>
+    <meta name="description" content="Limit Google Forms signups per time slot for office hours, appointments, interviews, workshops, and volunteer shifts with simple choice quotas.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-limit-signups-per-time-slot.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms limit signups per time slot | FormGuard">
+    <meta property="og:description" content="A practical setup pattern for limiting Google Forms signups per time slot without treating Forms as a full booking system.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-limit-signups-per-time-slot.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms limit signups per time slot">
+    <meta name="twitter:description" content="Use choice quotas to limit appointment, office hour, interview, workshop, and volunteer shift slots in Google Forms.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms limit signups per time slot",
+            "description": "How to limit Google Forms signups per time slot with simple choice quotas, full-slot messages, and safer fallback paths.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-limit-signups-per-time-slot.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --sand-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:16ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--sand-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
+        .success { background:var(--green-soft); border-color:#cde8d6; color:#17633f; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Time slot quota guide</div>
+            <h1>Google Forms limit signups per time slot</h1>
+            <p>If your form asks people to choose an appointment, office hour, interview, workshop, or volunteer shift, a total response cap will not protect each individual slot. You need a quota for each option, plus a clear fallback when a slot is full.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./google-forms-session-capacity-choice-quota.html">Open session capacity guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">Native Google Forms can collect a selected time slot, but it does not provide a built-in per-slot signup limit. A practical setup is to make each time slot a choice, assign a quota to each choice, and stop showing or accepting a slot after it reaches capacity.</p>
+            <div class="grid">
+                <div class="feature"><strong>Good fit</strong><p>One respondent picks one slot, and each slot has a simple capacity like 1, 3, 10, or 25.</p></div>
+                <div class="feature"><strong>Needs caution</strong><p>High-demand bookings, paid seats, strict locks, or live calendar availability need a stronger booking workflow.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Time slot examples</h2>
+            <p class="lead">This pattern works best when the choices are finite and easy for the form owner to review.</p>
+            <div class="grid">
+                <div class="feature"><strong>Office hours</strong><p>10:00, 10:20, and 10:40 can each accept a small number of people.</p></div>
+                <div class="feature"><strong>Interview slots</strong><p>Each interview window can be capped so late applicants pick another available time.</p></div>
+                <div class="feature"><strong>Workshop sessions</strong><p>Morning and afternoon sessions can fill separately instead of relying on one form-wide cap.</p></div>
+                <div class="feature"><strong>Volunteer shifts</strong><p>Each shift can close when enough people have signed up for that specific time.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Recommended setup</h2>
+            <ol class="steps">
+                <li>Create one multiple-choice or dropdown question for the available time slots.</li>
+                <li>Keep each option specific, such as "Tuesday 10:00-10:20" instead of "Morning".</li>
+                <li>Set a per-option quota for each slot in FormGuard.</li>
+                <li>Add a form-level deadline if signups should stop at a published time.</li>
+                <li>Write a backup path for people who cannot find an available slot.</li>
+                <li>Run a test on a copy of the form before sharing the public link.</li>
+            </ol>
+            <div class="note success">For low-risk scheduling, FormGuard can act as the lightweight slot-control layer inside Google Forms.</div>
+        </section>
+        <section class="section">
+            <h2>Closed-slot message pattern</h2>
+            <p class="lead">Do not leave respondents guessing when the slot they wanted is gone. Use simple wording that explains what happened and what to do next.</p>
+            <div class="feature">
+                <strong>Copy-ready message</strong>
+                <p>This time slot is now full. Please choose another available slot. If none of the remaining times work for you, contact the organizer or use the waitlist link provided in the form description.</p>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Where the boundary is</h2>
+            <div class="grid">
+                <div class="feature"><strong>Not a booking calendar</strong><p>FormGuard does not sync live calendar availability or move events between calendars.</p></div>
+                <div class="feature"><strong>Not a payment system</strong><p>A form response should not be treated as a paid reservation unless you have a separate payment workflow.</p></div>
+                <div class="feature"><strong>Not strict seat locking</strong><p>Google Forms can still have edge cases when many people submit at the same time.</p></div>
+                <div class="feature"><strong>Best with buffers</strong><p>For important slots, set quotas slightly below the real capacity and confirm the final list manually.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Related guides</h2>
+            <p>Use these pages if your time slots are part of a larger event or registration workflow.</p>
+            <div class="link-bar">
+                <a href="./google-forms-session-capacity-choice-quota.html">Session capacity and choice quotas</a>
+                <a href="./google-forms-choice-quota-vs-inventory-tracking.html">Choice quotas vs inventory tracking</a>
+                <a href="./google-forms-response-limit-race-condition.html">Response limit race conditions</a>
+                <a href="./google-forms-registration-deadline-seat-limit.html">Registration deadline and seat limit</a>
+            </div>
+            <div class="note">FormGuard is strongest for simple Google Forms signup controls: response caps, scheduled windows, choice quotas, close messages, and owner notifications.</div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
