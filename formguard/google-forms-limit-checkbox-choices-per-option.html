@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms limit checkbox choices per option | FormGuard</title>
+    <meta name="description" content="Limit Google Forms checkbox choices per option with per-choice quotas, clear full-option wording, testing steps, and honest limits for high-demand signups.">
+    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-limit-checkbox-choices-per-option.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms limit checkbox choices per option | FormGuard">
+    <meta property="og:description" content="A practical pattern for limiting each checkbox option in Google Forms when sessions, roles, time slots, or simple choices have their own quotas.">
+    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-limit-checkbox-choices-per-option.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms limit checkbox choices per option">
+    <meta name="twitter:description" content="Set per-option limits for Google Forms checkbox choices without pretending Forms is a strict reservation backend.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms limit checkbox choices per option",
+            "description": "How to limit checkbox choices per option in Google Forms with quotas, testing, full-option messages, and fallback paths.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-limit-checkbox-choices-per-option.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --sand-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:17ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--sand-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
+        .answer { padding:18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormGuard</strong></a>
+            <a href="./google-forms-choice-limiter-guide.html">Choice limiter guide</a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Checkbox option quotas</div>
+            <h1>Google Forms limit checkbox choices per option</h1>
+            <p>Checkbox questions are useful when people can select sessions, roles, meals, pickup windows, or resources. The hard part is keeping each option inside its own limit after the form is live.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                <a class="btn btn-secondary" href="./index.html">View FormGuard overview</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Quick answer</h2>
+            <div class="answer">
+                Native Google Forms does not include a full per-option quota system for checkbox choices. For a practical setup, make every limited item a clear checkbox option, set a quota for each option with an add-on such as FormGuard, test what happens when an option fills, and keep a waitlist or contact path for late users.
+            </div>
+        </section>
+        <section class="section">
+            <h2>When per-option checkbox limits help</h2>
+            <div class="grid">
+                <div class="feature"><strong>Volunteer roles</strong><p>Each role needs a fixed number of people, but the form should stay open for roles that still need help.</p></div>
+                <div class="feature"><strong>Workshop sessions</strong><p>Each session has a room cap, and attendees may choose more than one session.</p></div>
+                <div class="feature"><strong>Meal or equipment choices</strong><p>Each option has limited availability, and the operator needs a simple cap per option.</p></div>
+                <div class="feature"><strong>Pickup windows</strong><p>Several windows can stay available while filled windows stop taking more selections.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Setup pattern</h2>
+            <ol class="steps">
+                <li>Create one checkbox question where each limited item is a separate option.</li>
+                <li>Write option labels that are specific enough to audit later, such as "Friday 10:00 AM volunteer check-in" instead of only "Friday."</li>
+                <li>Open FormGuard from the Google Forms add-ons menu.</li>
+                <li>Turn on choice quotas for the checkbox question and set the limit for each option.</li>
+                <li>Submit test responses until one option fills, then confirm the visitor experience and response sheet output.</li>
+                <li>Add a fallback message, waitlist form, or contact email for options that fill earlier than expected.</li>
+            </ol>
+            <div class="note">If the same person can select multiple options, treat each selected checkbox as a separate capacity claim. That is different from a total response cap.</div>
+        </section>
+        <section class="section">
+            <h2>Copy-ready full-option wording</h2>
+            <p class="lead">Use wording that explains the filled option without making users wonder whether the whole form is broken.</p>
+            <div class="answer">
+                Some options may no longer appear because they have reached their signup limit. Please choose another available option, or use this waitlist/contact link if none of the remaining options work for you: [waitlist or contact link].
+            </div>
+        </section>
+        <section class="section">
+            <h2>Common mistakes</h2>
+            <div class="grid">
+                <div class="feature"><strong>Using one total cap</strong><p>A total response limit does not protect individual sessions, roles, or item choices.</p></div>
+                <div class="feature"><strong>Vague option labels</strong><p>Short labels make it harder to troubleshoot which slot or role reached its cap.</p></div>
+                <div class="feature"><strong>No test submission</strong><p>Always fill a test option before launch so you know what late visitors see.</p></div>
+                <div class="feature"><strong>No fallback path</strong><p>When the popular option fills, late users need a clear next step instead of guessing.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>When this is not enough</h2>
+            <p class="lead">A checkbox quota is not a full booking, ticketing, payment, or inventory system. If you need strict seat locking, multi-unit quantities, payment-backed reservations, or real-time synchronization across several forms, use a dedicated reservation workflow or keep Google Forms as intake only.</p>
+            <div class="link-bar">
+                <a href="./google-forms-choice-limiter-guide.html">Choice limiter guide</a>
+                <a href="./google-forms-choice-quota-vs-inventory-tracking.html">Quota vs inventory</a>
+                <a href="./google-forms-limit-signups-per-time-slot.html">Limit signups per time slot</a>
+                <a href="./google-forms-response-limit-race-condition.html">Race condition guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="grid">
+                <div class="feature"><strong>Can Google Forms limit each checkbox option?</strong><p>Not as a complete native quota workflow. You can use an add-on or custom script when each option needs its own cap.</p></div>
+                <div class="feature"><strong>Should I use checkboxes or dropdowns?</strong><p>Use checkboxes when respondents may select more than one option. Use dropdowns or multiple choice when they should pick only one.</p></div>
+                <div class="feature"><strong>Can filled options disappear automatically?</strong><p>With a choice limiter setup, filled options can be removed or made unavailable depending on the add-on behavior and question type.</p></div>
+                <div class="feature"><strong>Can I combine option limits with a total response cap?</strong><p>Yes. Option quotas and a total response cap solve different problems and can be used together when the workflow needs both.</p></div>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
