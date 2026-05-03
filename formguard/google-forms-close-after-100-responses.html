@@ -49,7 +49,9 @@
         .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
         .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
         .steps { padding-left:20px; display:grid; gap:10px; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #cde8d6; background:var(--green-soft); color:#17633f; font-size:.93rem; }
+        .note,.install-panel { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #cde8d6; background:var(--green-soft); color:#17633f; font-size:.93rem; }
+        .install-panel strong { display:block; color:var(--ink); font-size:1.05rem; margin-bottom:6px; }
+        .install-panel p { color:#17633f; margin-bottom:12px; }
         .warn { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #edd8a7; background:var(--amber-soft); color:#7d5a00; font-size:.93rem; }
         .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
         @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.05rem; max-width:none; } }
@@ -68,8 +70,16 @@
             <h1>Google Forms close after 100 responses</h1>
             <p>If your Google Form should stop collecting signups after 100 responses, do not rely on checking the response sheet manually. Set a response cap, prepare the closed-form message, and test the public form before launch.</p>
             <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard free</a>
                 <a class="btn btn-secondary" href="./close-google-forms-after-n-responses.html">Open response cap guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Install the response limiter</h2>
+            <div class="install-panel">
+                <strong>FormGuard is live on Google Workspace Marketplace.</strong>
+                <p>Install it on your Google Form when you want a 100-response cap, a closed-form message, and owner notification without maintaining a custom trigger.</p>
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard from Marketplace</a>
             </div>
         </section>
         <section class="section">
@@ -111,6 +121,7 @@
         <section class="section">
             <h2>Related guides</h2>
             <div class="link-bar">
+                <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard from Marketplace</a>
                 <a href="./can-google-forms-close-automatically-after-100-responses.html">100 responses FAQ</a>
                 <a href="./google-forms-response-limit-race-condition.html">Race condition guide</a>
                 <a href="./google-forms-rsvp-deadline-capacity-limit.html">RSVP deadline and capacity</a>
