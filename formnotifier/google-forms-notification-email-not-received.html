@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms notification email not received | FormNotifier</title>
+    <meta name="description" content="Troubleshoot a Google Forms notification email that was not received. Check recipients, respondent email source, spam folders, test sends, and recent send reports.">
+    <link rel="canonical" href="https://formsuite.dev/formnotifier/google-forms-notification-email-not-received.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms notification email not received">
+    <meta property="og:description" content="A practical checklist for Google Forms notifications that were sent but did not arrive where expected.">
+    <meta property="og:url" content="https://formsuite.dev/formnotifier/google-forms-notification-email-not-received.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms notification email not received">
+    <meta name="twitter:description" content="Check the recipient path, email source, spam folder, test send, and recent send report before changing your form.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:16ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormNotifier</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-forms-email-notifications-guide.html">Workflow guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Delivery troubleshooting</div>
+            <h1>Google Forms notification email not received</h1>
+            <p>If a Google Form response was submitted but the notification email did not arrive, separate the problem into two questions: did the notification actually send, and did the recipient mailbox accept or hide it?</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                <a class="btn btn-secondary" href="./why-google-forms-notification-email-is-not-sending.html">Check sending issues</a>
+                <a class="btn btn-secondary" href="./google-forms-email-report-after-send.html">Open send report guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Check in this order</h2>
+            <p class="lead">This flow avoids guessing. It starts with the recipient, then confirms the form setup, then checks whether the email was recorded as sent.</p>
+            <ol class="steps">
+                <li>Check the recipient's spam, promotions, updates, and quarantine folders.</li>
+                <li>Confirm the notification recipient address is spelled correctly.</li>
+                <li>If it is a respondent confirmation, confirm the form is collecting the email field you expect.</li>
+                <li>Send a test email to the exact same address.</li>
+                <li>Open the most recent send report and compare the expected recipient with the actual recipient.</li>
+                <li>If the send report shows no attempt, troubleshoot the sending path before investigating mailbox delivery.</li>
+            </ol>
+            <div class="note">A missing email is not always a failed send. It can also be a mailbox filter, an incorrect respondent email source, or a notification sent to a different address than expected.</div>
+        </section>
+        <section class="section">
+            <h2>Most common causes</h2>
+            <div class="grid">
+                <div class="feature"><strong>The email went to spam or quarantine</strong><p>Shared inboxes and school or company domains may filter automated notifications more aggressively than a personal mailbox.</p></div>
+                <div class="feature"><strong>The respondent email source is wrong</strong><p>If your form asks for an email address in a normal question, the confirmation must use that field, not an unrelated owner address.</p></div>
+                <div class="feature"><strong>The owner alert and respondent confirmation are mixed up</strong><p>Owner alerts go to your team. Respondent confirmations go to the person who submitted the form. Check both paths separately.</p></div>
+                <div class="feature"><strong>The notification was saved but not tested</strong><p>A real test send catches recipient and template problems before launch traffic starts arriving.</p></div>
+                <div class="feature"><strong>The recipient list changed after launch</strong><p>Teams often update shared inboxes, aliases, or routing rules. Recheck the exact recipient list after each change.</p></div>
+                <div class="feature"><strong>The live submit path never ran</strong><p>If the recent report shows no send attempt for the latest response, investigate trigger and setup issues rather than mailbox delivery.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Use FormNotifier to make the check visible</h2>
+            <p class="lead">FormNotifier is built for operators who need practical visibility before and after launch: preflight checks, test sends, owner alerts, respondent confirmations, and recent send results.</p>
+            <div class="link-bar">
+                <a href="./google-forms-preflight-email-setup-checklist.html">Preflight checklist</a>
+                <a href="./test-google-forms-confirmation-email-before-launch.html">Test before launch</a>
+                <a href="./google-forms-email-report-after-send.html">Recent send report</a>
+                <a href="./google-forms-notification-to-multiple-recipients.html">Multiple recipients</a>
+                <a href="./google-forms-shared-inbox-notification-setup.html">Shared inbox setup</a>
+            </div>
+            <div class="warn">Boundary: FormNotifier helps with Google Forms notification setup and visibility. It does not replace your mail server, spam filtering policy, or domain-level email administration.</div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
