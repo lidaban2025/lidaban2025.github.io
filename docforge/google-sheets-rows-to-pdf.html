@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets rows to PDF documents | DocForge</title>
+    <meta name="description" content="Turn Google Sheets rows into PDF documents with a Google Docs template, field mapping, preflight checks, and DocForge.">
+    <link rel="canonical" href="https://formsuite.dev/docforge/google-sheets-rows-to-pdf.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Sheets rows to PDF documents">
+    <meta property="og:description" content="A practical setup pattern for generating PDFs from Google Sheets rows with templates and preflight checks.">
+    <meta property="og:url" content="https://formsuite.dev/docforge/google-sheets-rows-to-pdf.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Sheets rows to PDF documents">
+    <meta name="twitter:description" content="Generate PDFs from spreadsheet rows using a template, field mapping, and a small test batch before the full run.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:17ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>DocForge</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-sheets-document-generation-guide.html">Document generation guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Google Sheets to PDF</div>
+            <h1>Turn Google Sheets rows into PDF documents</h1>
+            <p>If each spreadsheet row represents a person, request, invoice, certificate, or case record, DocForge can use a Google Docs template to generate consistent Google Docs and PDF files from that data.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="./index.html">View overview</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>The clean setup pattern</h2>
+            <p class="lead">Start small. A two-row test catches template and field mistakes before you generate a full folder of PDFs.</p>
+            <ol class="steps">
+                <li>Keep one record per row in Google Sheets.</li>
+                <li>Create a Google Docs template with merge tags for the fields that should appear in the final document.</li>
+                <li>Open DocForge from the Google Sheets Extensions menu.</li>
+                <li>Select the template and map sheet columns to template fields.</li>
+                <li>Run preflight before generating files.</li>
+                <li>Generate one or two test documents first, then run the full PDF batch.</li>
+            </ol>
+            <div class="note">This is useful for certificates, letters, intake summaries, invoices, reports, onboarding packets, and other repeatable documents that start from spreadsheet data.</div>
+        </section>
+        <section class="section">
+            <h2>What to check before the full run</h2>
+            <div class="grid">
+                <div class="feature"><strong>Column names</strong><p>Make sure the row 1 headers match the fields you expect to merge into the template.</p></div>
+                <div class="feature"><strong>Template access</strong><p>Use a Google Docs template that the same Google account can open and copy.</p></div>
+                <div class="feature"><strong>File naming</strong><p>Choose a naming pattern that includes a stable field such as name, ID, invoice number, or request date.</p></div>
+                <div class="feature"><strong>PDF output</strong><p>Review one generated PDF before producing the whole batch, especially if layout, page breaks, or signatures matter.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Where DocForge fits</h2>
+            <p class="lead">DocForge is a lightweight Google Sheets add-on for teams that need repeatable document generation without maintaining custom Apps Script for every new template.</p>
+            <div class="link-bar">
+                <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install from Marketplace</a>
+                <a href="./google-sheets-document-generation-guide.html">Full document generation guide</a>
+                <a href="./support.html">Support and setup</a>
+                <a href="./privacy.html">Privacy policy</a>
+            </div>
+            <div class="warn">Boundary: test the output with a small batch first. If the spreadsheet contains sensitive records, confirm the template, destination folder, and sharing settings before a full generation run.</div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
