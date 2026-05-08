@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail merge from Google Sheets with Gmail | FormMerge guide</title>
+    <meta name="description" content="Send a mail merge from Google Sheets with Gmail using merge tags, test sends, batch delivery, and row-level status tracking with FormMerge.">
+    <link rel="canonical" href="https://formsuite.dev/formmerge/mail-merge-from-google-sheets-with-gmail.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Mail merge from Google Sheets with Gmail | FormMerge guide">
+    <meta property="og:description" content="A practical guide to sending personalized Gmail messages from Google Sheets rows with FormMerge.">
+    <meta property="og:url" content="https://formsuite.dev/formmerge/mail-merge-from-google-sheets-with-gmail.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mail merge from Google Sheets with Gmail">
+    <meta name="twitter:description" content="Use FormMerge for merge tags, test sends, batch delivery, and row-level send status in Google Sheets.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Mail merge from Google Sheets with Gmail",
+            "description": "A guide to sending personalized Gmail messages from Google Sheets with FormMerge.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formmerge/mail-merge-from-google-sheets-with-gmail.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --sand-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h3 { font-size:1.04rem; margin-bottom:8px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .feature p { color:var(--muted); font-size:.94rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--sand-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
+        .faq { display:grid; gap:12px; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormMerge</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Mail merge guide</div>
+            <h1>Mail merge from Google Sheets with Gmail</h1>
+            <p>When your recipients and message fields already live in Google Sheets, a mail merge should stay close to that data. FormMerge turns sheet rows into personalized Gmail messages with merge tags, test sends, batch delivery, and row-level status tracking.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install FormMerge from Marketplace</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="./personalized-email-from-google-sheets-guide.html">Personalized email guide</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">To run a mail merge from Google Sheets with Gmail, prepare one row per recipient, keep column headers stable, write a subject and body with merge tags, send a test email, then run the batch only after the preview is correct.</p>
+            <div class="grid">
+                <div class="feature"><strong>Best source sheet</strong><p>Use clear columns such as Email, First name, Status, Amount, Date, or Next step so merge tags stay readable.</p></div>
+                <div class="feature"><strong>Best first run</strong><p>Send one test message to yourself before sending to real recipients. It catches broken tags and wrong recipient columns early.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Good use cases</h2>
+            <p class="lead">FormMerge is strongest when the message is operational and tied to records your team already reviews in a spreadsheet.</p>
+            <div class="grid">
+                <div class="feature"><strong>Program updates</strong><p>Send personalized status updates, next steps, or reminders to applicants, students, members, or event participants.</p></div>
+                <div class="feature"><strong>Form follow-up</strong><p>Use rows collected from Google Forms as the starting point for a controlled outbound email batch.</p></div>
+                <div class="feature"><strong>Internal operations</strong><p>Email owners, reviewers, or assignees with row-specific details pulled from the sheet.</p></div>
+                <div class="feature"><strong>Small batch outreach</strong><p>Send careful, personalized messages from your own Gmail account while keeping status visible in Sheets.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Setup path with FormMerge</h2>
+            <ol class="steps">
+                <li>Open the Google Sheet that contains the recipient list.</li>
+                <li>Confirm each recipient has one row and the email column is complete.</li>
+                <li>Install FormMerge and open it from the spreadsheet.</li>
+                <li>Write the subject and body using column-based merge tags.</li>
+                <li>Send a test message to check formatting, personalization, and sender behavior.</li>
+                <li>Run the batch and review status in the sheet after sending.</li>
+            </ol>
+            <div class="note">This workflow is for practical, permission-aware operational email. It should not be used for unsolicited bulk mail or messages that violate Gmail or Workspace sending rules.</div>
+        </section>
+
+        <section class="section">
+            <h2>Preflight checklist</h2>
+            <div class="grid">
+                <div class="feature"><strong>Recipient column</strong><p>Make sure the email column contains only the people who should receive the message.</p></div>
+                <div class="feature"><strong>Merge tags</strong><p>Use column names that are easy to read and avoid duplicate headers.</p></div>
+                <div class="feature"><strong>Gmail limits</strong><p>Keep your batch size aligned with your Gmail or Workspace sending limits.</p></div>
+                <div class="feature"><strong>Status review</strong><p>After the run, review sent and failed rows so nothing important is missed.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="faq">
+                <div class="feature">
+                    <h3>Can I use FormMerge with data from Google Forms?</h3>
+                    <p>Yes. If Google Forms writes responses into a linked sheet, that sheet can become the source for follow-up email after you confirm the recipient and merge columns.</p>
+                </div>
+                <div class="feature">
+                    <h3>Should I test before every batch?</h3>
+                    <p>Yes. A test send is the fastest way to catch a wrong recipient column, a missing merge tag, or formatting that looks different in Gmail.</p>
+                </div>
+                <div class="feature">
+                    <h3>Can I track status in the spreadsheet?</h3>
+                    <p>FormMerge is designed to keep send status visible from the sheet, so operators can review sent, skipped, or failed rows after a run.</p>
+                </div>
+                <div class="feature">
+                    <h3>Is this a marketing automation platform?</h3>
+                    <p>No. FormMerge is a lightweight spreadsheet-based email merge tool for practical Gmail workflows, not a full CRM or campaign automation suite.</p>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install FormMerge</a>
+                <a class="btn btn-secondary" href="./index.html">View FormMerge overview</a>
+            </div>
+        </section>
+
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

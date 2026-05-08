@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms response sheet formulas not copying | FormCopy guide</title>
+    <meta name="description" content="Fix Google Forms response sheet formulas that do not copy to new rows. Learn a clean setup path for formulas, formatting, and backfill with FormCopy.">
+    <link rel="canonical" href="https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-not-copying.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms response sheet formulas not copying | FormCopy guide">
+    <meta property="og:description" content="Fix Google Forms response sheet formulas that do not copy to new rows with a repeatable Google Sheets setup path.">
+    <meta property="og:url" content="https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-not-copying.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms response sheet formulas not copying">
+    <meta name="twitter:description" content="A practical guide to keeping formulas and formatting alive in Google Forms response sheets.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms response sheet formulas not copying",
+            "description": "A guide to fixing formulas that do not copy to new Google Forms response rows with FormCopy.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-not-copying.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h3 { font-size:1.04rem; margin-bottom:8px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .feature p { color:var(--muted); font-size:.94rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .faq { display:grid; gap:12px; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormCopy</strong></a>
+            <a href="./support.html">Support</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Troubleshooting guide</div>
+            <h1>Google Forms response sheet formulas not copying</h1>
+            <p>Google Forms adds new submissions as fresh rows, which can leave formulas, formats, helper columns, and lookup logic behind. FormCopy helps keep the response sheet consistent by copying the row model you choose into new or existing response rows.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy from Marketplace</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="./google-forms-response-sheet-formulas-guide.html">Formula workflow guide</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">If formulas stop copying in a Google Forms response sheet, first confirm the formula model is clean in one source row. Then use FormCopy to apply that model to future responses and, if needed, backfill rows that arrived before setup.</p>
+            <div class="grid">
+                <div class="feature"><strong>Best source row</strong><p>Use a row that already has the formulas, formatting, and helper columns exactly as you want them copied.</p></div>
+                <div class="feature"><strong>Best first test</strong><p>Submit one test response and check whether the new row receives the expected formulas and formats before relying on the workflow.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why this happens</h2>
+            <p class="lead">A linked response sheet is optimized for collecting form submissions. It is not a full spreadsheet automation system by itself.</p>
+            <div class="grid">
+                <div class="feature"><strong>New rows are inserted</strong><p>Form submissions create new rows, so formulas manually placed below the response area may not behave the way a normal spreadsheet table behaves.</p></div>
+                <div class="feature"><strong>Manual drag-down is fragile</strong><p>Dragging formulas down can work for a small sheet, but it is easy to forget and hard to trust when submissions arrive continuously.</p></div>
+                <div class="feature"><strong>Array formulas need care</strong><p>Some formulas are better as array formulas, while row-specific logic, formats, and backfill often still need a repeatable row model.</p></div>
+                <div class="feature"><strong>Formatting can drift</strong><p>Even if the calculation works, number formats, colors, helper columns, or validation cues may not stay consistent without a copy routine.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Setup path with FormCopy</h2>
+            <ol class="steps">
+                <li>Open the Google Sheets response file linked to your form.</li>
+                <li>Put the formulas and formatting you want to preserve into the source row, usually row 2 or another stable model row.</li>
+                <li>Install FormCopy and open it from the spreadsheet.</li>
+                <li>Choose the sheet and source pattern that should be applied to new response rows.</li>
+                <li>Run a small test before enabling the workflow for real submissions.</li>
+                <li>If older responses are missing formulas, use the backfill path after you confirm the model is correct.</li>
+            </ol>
+            <div class="note">For high-volume forms, keep a backup copy of the sheet before backfilling. It makes rollback simple if the source row formula pattern needs one more edit.</div>
+        </section>
+
+        <section class="section">
+            <h2>Common mistakes to avoid</h2>
+            <div class="grid">
+                <div class="feature"><strong>Hard-coded row references</strong><p>Check formulas that point to one fixed row when they should adjust as the copied formula moves down.</p></div>
+                <div class="feature"><strong>Mixed helper columns</strong><p>Keep operational formulas in clear helper columns so the response columns from Google Forms remain easy to audit.</p></div>
+                <div class="feature"><strong>No test submission</strong><p>A single test row catches most setup issues before real users submit the form.</p></div>
+                <div class="feature"><strong>Skipping backfill review</strong><p>Backfill is useful, but it should run only after you know the source row represents the final pattern.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="faq">
+                <div class="feature">
+                    <h3>Can I solve this with one array formula?</h3>
+                    <p>Sometimes. Array formulas are a good fit for simple calculations, but FormCopy is useful when you also need row-specific formulas, formatting, helper columns, or backfill.</p>
+                </div>
+                <div class="feature">
+                    <h3>Will FormCopy change my submitted response values?</h3>
+                    <p>The intended workflow is to preserve formulas and formatting around response data. Test on a copied sheet first if your file has sensitive production logic.</p>
+                </div>
+                <div class="feature">
+                    <h3>Can it fix existing rows that already missed formulas?</h3>
+                    <p>Yes, use the backfill path after confirming the source row is correct. Start with a small range if the sheet is important.</p>
+                </div>
+                <div class="feature">
+                    <h3>What should I do before installing?</h3>
+                    <p>Clean up one source row, remove formulas you no longer need, and submit one test response so you know exactly what should be copied.</p>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy</a>
+                <a class="btn btn-secondary" href="./index.html">View FormCopy overview</a>
+            </div>
+        </section>
+
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
