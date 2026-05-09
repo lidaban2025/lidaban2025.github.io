@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send an email to each row in Google Sheets | FormMerge</title>
+    <meta name="description" content="Send personalized Gmail messages to each row in Google Sheets with merge tags, test sends, batch control, and FormMerge.">
+    <link rel="canonical" href="https://formsuite.dev/formmerge/send-email-to-each-row-in-google-sheets.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Send an email to each row in Google Sheets">
+    <meta property="og:description" content="A practical Google Sheets to Gmail workflow for sending one personalized email per row.">
+    <meta property="og:url" content="https://formsuite.dev/formmerge/send-email-to-each-row-in-google-sheets.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Send an email to each row in Google Sheets">
+    <meta name="twitter:description" content="Use FormMerge for row-based emails, merge tags, test sends, and status tracking.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Send an email to each row in Google Sheets",
+            "description": "A guide to sending one personalized Gmail message per Google Sheets row with FormMerge.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formmerge/send-email-to-each-row-in-google-sheets.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --sand-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:16ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .feature p { color:var(--muted); font-size:.94rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--sand-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormMerge</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./mail-merge-from-google-sheets-with-gmail.html">Mail merge guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Google Sheets to Gmail</div>
+            <h1>Send an email to each row in Google Sheets</h1>
+            <p>When each row in a spreadsheet represents a recipient, FormMerge can turn the row data into a personalized Gmail message with merge tags, a test send, batch delivery, and row-level status.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install FormMerge</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="./personalized-email-from-google-sheets-guide.html">Personalized email guide</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">Prepare one row per recipient, keep an email column and clear merge-field columns, write the message template, send one test email to yourself, then run the batch only after the preview is correct.</p>
+            <div class="grid">
+                <div class="feature"><strong>Best sheet layout</strong><p>Use columns such as Email, First name, Program, Amount, Date, Status, and Next step so the message template stays readable.</p></div>
+                <div class="feature"><strong>Best first send</strong><p>Send one test to yourself before sending to real recipients. It catches wrong recipient columns and broken merge tags early.</p></div>
+            </div>
+            <div class="note">This is best for operational messages such as confirmations, reminders, applicant updates, internal handoffs, and small batch follow-ups.</div>
+        </section>
+        <section class="section">
+            <h2>Setup pattern</h2>
+            <ol class="steps">
+                <li>Clean the Google Sheet so every row has one recipient and one valid email address.</li>
+                <li>Open FormMerge and choose the recipient column.</li>
+                <li>Write the subject and body using merge tags from the column headers.</li>
+                <li>Send one test email and inspect the rendered message.</li>
+                <li>Run the batch and review row-level send status in the sheet.</li>
+            </ol>
+        </section>
+        <section class="section">
+            <h2>Before you send the batch</h2>
+            <div class="grid">
+                <div class="feature"><strong>Recipient column</strong><p>Confirm the email column is the real destination and not a helper or alternate contact field.</p></div>
+                <div class="feature"><strong>Merge tags</strong><p>Check every tag in the subject and body against the exact column headers in the sheet.</p></div>
+                <div class="feature"><strong>Small first batch</strong><p>For a new workflow, send a tiny batch first instead of the full list.</p></div>
+                <div class="feature"><strong>Status review</strong><p>Use the send status columns to see which rows were sent, skipped, or failed.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Next steps</h2>
+            <div class="link-bar">
+                <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install from Marketplace</a>
+                <a href="./support.html">FormMerge support</a>
+                <a href="./mail-merge-from-google-sheets-with-gmail.html">Mail merge from Sheets with Gmail</a>
+                <a href="./personalized-email-from-google-sheets-guide.html">Personalized email guide</a>
+                <a href="../resources/index.html">More workflow guides</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>

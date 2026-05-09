@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://formsuite.dev/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-05-09</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/pricing.html</loc>
@@ -49,6 +49,10 @@
     <lastmod>2026-04-04</lastmod>
   </url>
   <url>
+    <loc>https://formsuite.dev/docforge/google-docs-template-merge-from-google-sheets.html</loc>
+    <lastmod>2026-05-09</lastmod>
+  </url>
+  <url>
     <loc>https://formsuite.dev/docforge/google-sheets-rows-to-pdf.html</loc>
     <lastmod>2026-05-08</lastmod>
   </url>
@@ -78,6 +82,10 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/copy-formulas-to-new-google-forms-responses.html</loc>
+    <lastmod>2026-05-09</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formcopy/calculated-columns-google-forms-response-sheet.html</loc>
     <lastmod>2026-05-09</lastmod>
   </url>
   <url>
@@ -231,6 +239,10 @@
   <url>
     <loc>https://formsuite.dev/formmerge/personalized-email-from-google-sheets-guide.html</loc>
     <lastmod>2026-04-04</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formmerge/send-email-to-each-row-in-google-sheets.html</loc>
+    <lastmod>2026-05-09</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formmerge/mail-merge-from-google-sheets-with-gmail.html</loc>
