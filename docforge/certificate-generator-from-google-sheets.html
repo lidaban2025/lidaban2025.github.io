@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate generator from Google Sheets | DocForge</title>
+    <meta name="description" content="Create certificates from Google Sheets rows with a Google Docs template, merge fields, preflight checks, PDF output, and DocForge.">
+    <link rel="canonical" href="https://formsuite.dev/docforge/certificate-generator-from-google-sheets.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Certificate generator from Google Sheets | DocForge">
+    <meta property="og:description" content="A practical certificate-generation workflow for Google Sheets rows, Google Docs templates, and PDF output.">
+    <meta property="og:url" content="https://formsuite.dev/docforge/certificate-generator-from-google-sheets.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Certificate generator from Google Sheets">
+    <meta name="twitter:description" content="Generate certificates from spreadsheet rows using a template, preflight checks, and DocForge.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Certificate generator from Google Sheets",
+            "description": "A guide to generating certificates from Google Sheets rows with DocForge.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/docforge/certificate-generator-from-google-sheets.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:16ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h3 { font-size:1.04rem; margin-bottom:8px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .feature p { color:var(--muted); font-size:.94rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>DocForge</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-sheets-rows-to-pdf.html">Rows to PDF guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Certificate workflow</div>
+            <h1>Generate certificates from Google Sheets rows</h1>
+            <p>When each row represents a participant, student, volunteer, applicant, or attendee, DocForge can merge the row data into a Google Docs certificate template and produce consistent Google Docs or PDF certificates.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge from Marketplace</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="./index.html">View DocForge overview</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">To generate certificates from Google Sheets, keep one certificate recipient per row, create a Google Docs certificate template, add merge tags for fields such as name, program, date, and certificate ID, then run a small DocForge test batch before generating the full set.</p>
+            <div class="grid">
+                <div class="feature"><strong>Best source sheet</strong><p>Use stable columns such as Name, Email, Program, Completion date, Certificate ID, and Status so the template fields are easy to map.</p></div>
+                <div class="feature"><strong>Best first run</strong><p>Generate two sample certificates first. Check names, dates, page breaks, logo placement, and PDF output before the full run.</p></div>
+            </div>
+            <div class="note">This workflow fits training programs, classes, workshops, volunteer events, internal enablement, and any repeatable certificate process that already uses a spreadsheet roster.</div>
+        </section>
+
+        <section class="section">
+            <h2>Setup pattern</h2>
+            <ol class="steps">
+                <li>Prepare a Google Sheet with one recipient or record per row.</li>
+                <li>Create a Google Docs certificate template with merge tags for the fields that should change per recipient.</li>
+                <li>Open DocForge from the Google Sheets Extensions menu.</li>
+                <li>Select the certificate template and map each sheet column to the matching template field.</li>
+                <li>Run preflight to catch missing fields, blank required cells, or template access issues.</li>
+                <li>Generate a small sample batch, review the output, then generate the remaining certificates.</li>
+            </ol>
+            <div class="warn">If certificates include sensitive personal data, confirm the destination folder and sharing settings before generating the full batch.</div>
+        </section>
+
+        <section class="section">
+            <h2>Fields worth planning</h2>
+            <div class="grid">
+                <div class="feature"><strong>Recipient name</strong><p>Keep the display name in one clean column so the certificate text does not require manual cleanup.</p></div>
+                <div class="feature"><strong>Program or course</strong><p>Use a controlled value for program names to avoid inconsistent wording across generated certificates.</p></div>
+                <div class="feature"><strong>Completion date</strong><p>Decide whether the date should come from the spreadsheet or from a fixed template value.</p></div>
+                <div class="feature"><strong>Certificate ID</strong><p>Add a unique ID when your team needs lookup, verification, or internal auditability later.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Install DocForge for this workflow</h2>
+            <p class="lead">DocForge is a Google Sheets add-on for template-driven document generation. Start with one certificate template and a two-row test, then expand the same setup for recurring batches.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
+                <a class="btn btn-secondary" href="./google-sheets-rows-to-pdf.html">Read the PDF guide</a>
+                <a class="btn btn-secondary" href="./privacy.html">Privacy policy</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Next steps</h2>
+            <div class="link-bar">
+                <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install from Marketplace</a>
+                <a href="./support.html">DocForge support and setup</a>
+                <a href="./google-sheets-document-generation-guide.html">Document generation guide</a>
+                <a href="./google-sheets-rows-to-pdf.html">Rows to PDF guide</a>
+                <a href="../resources/index.html">More workflow guides</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
