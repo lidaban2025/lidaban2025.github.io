@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://formsuite.dev/</loc>
-    <lastmod>2026-05-09</lastmod>
+    <lastmod>2026-05-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/pricing.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/resources/</loc>
-    <lastmod>2026-05-09</lastmod>
+    <lastmod>2026-05-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/google-forms-registration-workflow-limits-confirmation-emails.html</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/support.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-05-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/privacy.html</loc>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/</loc>
-    <lastmod>2026-05-09</lastmod>
+    <lastmod>2026-05-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-guide.html</loc>
@@ -89,12 +89,16 @@
     <lastmod>2026-05-09</lastmod>
   </url>
   <url>
+    <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-scoring-formulas.html</loc>
+    <lastmod>2026-05-10</lastmod>
+  </url>
+  <url>
     <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-not-copying.html</loc>
     <lastmod>2026-05-08</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/support.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-05-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/privacy.html</loc>
@@ -250,7 +254,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formmerge/support.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-05-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formmerge/privacy.html</loc>

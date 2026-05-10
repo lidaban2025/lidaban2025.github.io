@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms response sheet scoring formulas | FormCopy</title>
+    <meta name="description" content="Keep scoring formulas active in a Google Forms response sheet so every new submission gets totals, weights, pass/fail labels, and review status with FormCopy.">
+    <link rel="canonical" href="https://formsuite.dev/formcopy/google-forms-response-sheet-scoring-formulas.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms response sheet scoring formulas | FormCopy">
+    <meta property="og:description" content="A setup pattern for keeping scoring, grading, and review formulas attached to new Google Forms response rows.">
+    <meta property="og:url" content="https://formsuite.dev/formcopy/google-forms-response-sheet-scoring-formulas.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms response sheet scoring formulas">
+    <meta name="twitter:description" content="Use FormCopy to preserve scoring formulas on new Google Forms response rows.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms response sheet scoring formulas",
+            "description": "A guide to keeping scoring formulas active in Google Forms response sheets with FormCopy.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formcopy/google-forms-response-sheet-scoring-formulas.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:18ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h3 { font-size:1.04rem; margin-bottom:8px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .feature p { color:var(--muted); font-size:.94rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .formula { margin-top:14px; padding:14px 16px; border:1px solid var(--line); border-radius:16px; background:#f8fbff; color:var(--ink); font-family:Consolas,"Courier New",monospace; font-size:.92rem; overflow:auto; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormCopy</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./calculated-columns-google-forms-response-sheet.html">Calculated columns</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Scoring formulas</div>
+            <h1>Google Forms response sheet scoring formulas</h1>
+            <p>Google Forms can collect answers, but many scoring workflows happen in the linked response sheet. FormCopy keeps the scoring formulas, weights, outcome labels, and review status columns attached to each new response row.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy from Marketplace</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="./copy-formulas-to-new-google-forms-responses.html">Copy formulas guide</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">To keep scoring formulas in a Google Forms response sheet, create one clean model row with the formulas you want, then use FormCopy to copy that row logic into every new response row. Test with one sample submission before sending the form to real respondents.</p>
+            <div class="grid">
+                <div class="feature"><strong>Best fit</strong><p>Quizzes that need custom weighting, application reviews, intake triage, event eligibility checks, and internal scoring sheets.</p></div>
+                <div class="feature"><strong>Best first install test</strong><p>Submit one response with predictable answers, then confirm total score, weighted score, label, owner, and status formulas all appear in the new row.</p></div>
+            </div>
+            <div class="note">If native Google Forms quiz scoring is enough, keep it simple. Use response-sheet formulas when the scoring model needs lookups, weights, reviewer flags, or downstream operations.</div>
+        </section>
+
+        <section class="section">
+            <h2>Scoring sheet pattern</h2>
+            <ol class="steps">
+                <li>Keep form answer columns untouched so Google Forms can continue writing new submissions safely.</li>
+                <li>Add scoring columns to the right of the response columns, such as Raw score, Weighted score, Outcome, Reviewer, and Status.</li>
+                <li>Build the formulas in one model row, usually the first complete response row.</li>
+                <li>Open FormCopy in the linked response spreadsheet and select the model row or scoring range.</li>
+                <li>Enable future-row handling, save the setup, and submit one test response.</li>
+                <li>Review the new row before relying on the sheet for live decisions.</li>
+            </ol>
+            <div class="warn">Avoid putting one-off manual notes in the model row. If the model row contains temporary review values, those values can be copied into future rows.</div>
+        </section>
+
+        <section class="section">
+            <h2>Example scoring formulas</h2>
+            <p class="lead">The exact formulas depend on your headers, but these are common patterns for response-sheet scoring.</p>
+            <div class="grid">
+                <div class="feature"><strong>Total score</strong><p>Add points from multiple answer checks into one score column.</p><div class="formula">=IF(B2="Yes",10,0)+IF(C2="Complete",5,0)</div></div>
+                <div class="feature"><strong>Outcome label</strong><p>Turn a score into a clear operational label for reviewers.</p><div class="formula">=IF(H2&gt;=80,"Approved","Needs review")</div></div>
+                <div class="feature"><strong>Weighted score</strong><p>Apply different weights when one answer is more important than another.</p><div class="formula">=(D2*0.6)+(E2*0.4)</div></div>
+                <div class="feature"><strong>Routing owner</strong><p>Assign a reviewer or team based on score, category, or request type.</p><div class="formula">=IF(I2="Needs review","Ops team","Auto pass")</div></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What FormCopy handles</h2>
+            <div class="grid">
+                <div class="feature"><strong>Formula copy-down</strong><p>New response rows receive the same scoring formulas without manually dragging rows after each submission.</p></div>
+                <div class="feature"><strong>Formatting consistency</strong><p>Score columns can keep number formats, colors, and visual review cues.</p></div>
+                <div class="feature"><strong>Backfill</strong><p>Existing response rows can receive the scoring logic after you finish the model row.</p></div>
+                <div class="feature"><strong>Error visibility</strong><p>Use the setup guide and test response path to catch missing formulas before the sheet becomes operationally important.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Install FormCopy for scoring workflows</h2>
+            <p class="lead">Install FormCopy when the score or review status matters after every new Google Forms submission, and the response sheet should stay ready without manual formula maintenance.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy</a>
+                <a class="btn btn-secondary" href="./support.html">FormCopy support</a>
+                <a class="btn btn-secondary" href="./privacy.html">Privacy policy</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Related guides</h2>
+            <div class="link-bar">
+                <a href="./copy-formulas-to-new-google-forms-responses.html">Copy formulas to new responses</a>
+                <a href="./calculated-columns-google-forms-response-sheet.html">Calculated columns</a>
+                <a href="./google-forms-response-sheet-formulas-not-copying.html">Formulas not copying</a>
+                <a href="./google-forms-response-sheet-formulas-guide.html">Formula workflow guide</a>
+                <a href="../resources/index.html">More workflow guides</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
