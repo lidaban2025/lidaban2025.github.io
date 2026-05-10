@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/</loc>
-    <lastmod>2026-05-09</lastmod>
+    <lastmod>2026-05-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-sheets-document-generation-guide.html</loc>
@@ -51,6 +51,10 @@
   <url>
     <loc>https://formsuite.dev/docforge/google-docs-template-merge-from-google-sheets.html</loc>
     <lastmod>2026-05-09</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/docforge/google-sheets-generate-letters-from-rows.html</loc>
+    <lastmod>2026-05-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-sheets-rows-to-pdf.html</loc>
