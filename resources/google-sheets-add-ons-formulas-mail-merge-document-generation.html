@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets add-ons for formulas, mail merge, and document generation</title>
+    <meta name="description" content="Choose which published FormSuite Google Sheets add-on to install: FormCopy for response-sheet formulas, FormMerge for personalized email, or DocForge for document generation.">
+    <link rel="canonical" href="https://formsuite.dev/resources/google-sheets-add-ons-formulas-mail-merge-document-generation.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Sheets add-ons for formulas, mail merge, and document generation">
+    <meta property="og:description" content="A practical install guide for FormCopy, FormMerge, and DocForge, the published FormSuite add-ons for Google Sheets workflows.">
+    <meta property="og:url" content="https://formsuite.dev/resources/google-sheets-add-ons-formulas-mail-merge-document-generation.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Sheets add-ons for formulas, mail merge, and document generation">
+    <meta name="twitter:description" content="Install FormCopy for formulas, FormMerge for email merge, or DocForge for document generation from Google Workspace Marketplace.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Published FormSuite Google Sheets add-ons",
+            "description": "Installable Google Sheets add-ons for response-sheet formulas, personalized email merge, and document generation.",
+            "itemListElement": [
+                {
+                    "@type": "SoftwareApplication",
+                    "position": 1,
+                    "name": "FormCopy Pro - Formulas for Google Sheets",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "Google Workspace",
+                    "url": "https://formsuite.dev/formcopy/",
+                    "installUrl": "https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "position": 2,
+                    "name": "FormMerge Pro - Email Merge for Google Sheets",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "Google Workspace",
+                    "url": "https://formsuite.dev/formmerge/",
+                    "installUrl": "https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "position": 3,
+                    "name": "DocForge - Document Merge for Google Sheets",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "Google Workspace",
+                    "url": "https://formsuite.dev/docforge/",
+                    "installUrl": "https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885"
+                }
+            ]
+        }
+    </script>
+    <style>
+        :root {
+            --ink: #17263d;
+            --muted: #5b6d86;
+            --line: #d8e2ef;
+            --blue: #165dff;
+            --blue-soft: #eef4ff;
+            --green-soft: #eaf8ef;
+            --sand: #fff7e8;
+            --panel: rgba(255, 255, 255, 0.94);
+            --shadow: 0 22px 55px rgba(20, 35, 59, 0.10);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #eef6ff 0, #eef6ff 20%, transparent 44%),
+                radial-gradient(circle at top right, #fff4e6 0, #fff4e6 18%, transparent 38%),
+                linear-gradient(180deg, #f8fbff 0%, #ffffff 58%);
+            line-height: 1.65;
+        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .shell { max-width: 1080px; margin: 0 auto; padding: 28px 20px 64px; }
+        .nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.95rem; }
+        .hero, .section, .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+        .hero { padding: 34px; margin-bottom: 18px; }
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.72rem;
+            line-height: 1.05;
+            letter-spacing: -0.05em;
+            margin-bottom: 14px;
+            max-width: 920px;
+        }
+        .hero p, .lead, .card p, li { color: var(--muted); }
+        .hero p { max-width: 820px; font-size: 1.03rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+        .section { padding: 28px; margin-top: 18px; }
+        h2 { font-size: 1.55rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        h3 { font-size: 1.12rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .lead { margin-bottom: 20px; max-width: 820px; }
+        .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .card { padding: 20px; box-shadow: none; background: #fff; display: grid; gap: 12px; }
+        .tag {
+            display: inline-flex;
+            width: fit-content;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: #177245;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .steps { display: grid; gap: 12px; padding-left: 22px; }
+        .note {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: var(--sand);
+            border: 1px solid #efd7a8;
+            color: #7c5400;
+        }
+        .link-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 4px; font-weight: 700; }
+        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        @media (max-width: 980px) {
+            .grid, .grid-two { grid-template-columns: 1fr; }
+            h1 { font-size: 2.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html"><strong>FormSuite</strong></a>
+            <a href="./index.html">Resources</a>
+            <a href="../formcopy/index.html">FormCopy</a>
+            <a href="../formmerge/index.html">FormMerge</a>
+            <a href="../docforge/index.html">DocForge</a>
+        </nav>
+
+        <section class="hero">
+            <div class="eyebrow">Published Google Sheets add-ons</div>
+            <h1>Install the right Google Sheets add-on for formulas, personalized email, or document generation.</h1>
+            <p>FormSuite has three public install paths for Google Sheets operators. Use FormCopy when Google Forms response rows need formulas and formats. Use FormMerge when spreadsheet rows should become personalized emails. Use DocForge when rows should generate Google Docs, PDFs, certificates, letters, or other templated documents.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy</a>
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install FormMerge</a>
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
+                <a class="btn btn-secondary" href="#choose">Choose by workflow</a>
+            </div>
+        </section>
+
+        <section class="section" id="choose">
+            <h2>Choose by the output you need</h2>
+            <p class="lead">This page is for evaluators who already have data in Google Sheets and need to decide which Marketplace listing to open first.</p>
+            <div class="grid">
+                <article class="card">
+                    <span class="tag">Install FormCopy</span>
+                    <h3>New form response rows should keep formulas</h3>
+                    <p>Best for scoring sheets, calculated columns, lookup helpers, status fields, formatting consistency, and any response sheet where row 2 contains the model logic.</p>
+                    <div class="link-row">
+                        <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Marketplace install</a>
+                        <a href="../formcopy/copy-formulas-to-new-google-forms-responses.html">Copy formulas guide</a>
+                        <a href="../formcopy/support.html">Setup help</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <span class="tag">Install FormMerge</span>
+                    <h3>Rows should become personalized emails</h3>
+                    <p>Best for operational email, recipient lists, custom subject and body merge tags, test sends, batch delivery, and row-level send status inside the sheet.</p>
+                    <div class="link-row">
+                        <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Marketplace install</a>
+                        <a href="../formmerge/send-email-to-each-row-in-google-sheets.html">Each row email guide</a>
+                        <a href="../formmerge/support.html">Setup help</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <span class="tag">Install DocForge</span>
+                    <h3>Rows should become Docs or PDFs</h3>
+                    <p>Best for certificates, letters, intake summaries, case files, PDF packets, template mapping, preflight checks, and repeatable document generation.</p>
+                    <div class="link-row">
+                        <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Marketplace install</a>
+                        <a href="../docforge/google-docs-template-merge-from-google-sheets.html">Template merge guide</a>
+                        <a href="../docforge/support.html">Setup help</a>
+                    </div>
+                </article>
+            </div>
+            <div class="note">If one workflow needs all three, set up the sheet logic first with FormCopy, send or review row-based emails with FormMerge, and generate formal Docs/PDFs with DocForge after the data is clean.</div>
+        </section>
+
+        <section class="section">
+            <h2>Install checklist</h2>
+            <ol class="steps">
+                <li>Open the Google Sheet that contains the source rows or linked form responses.</li>
+                <li>Install the matching add-on from Google Workspace Marketplace.</li>
+                <li>Launch the add-on from the Google Sheets Extensions menu.</li>
+                <li>Run one small preflight or test action before using a live workflow.</li>
+                <li>Keep the support page open while you confirm the first formula copy, test email, or generated document.</li>
+            </ol>
+        </section>
+
+        <section class="section">
+            <h2>After install</h2>
+            <p class="lead">The fastest install-to-value path is one tiny test. Do not start with a full production batch; prove the first row works, then scale up.</p>
+            <div class="grid grid-two">
+                <article class="card">
+                    <span class="tag">Low-risk first test</span>
+                    <h3>Use one sample row before a full run</h3>
+                    <p>Submit one test form response, send one message to yourself, or generate one document from a sample row. Check the output before turning on a recurring workflow.</p>
+                </article>
+                <article class="card">
+                    <span class="tag">Review path</span>
+                    <h3>Ask for review after a successful first setup</h3>
+                    <p>If the first copy-down, test email, or generated file works, leave a short Marketplace review or send setup feedback while the install experience is still fresh.</p>
+                    <div class="link-row">
+                        <a href="../formcopy/support.html">FormCopy feedback</a>
+                        <a href="../formmerge/support.html">FormMerge feedback</a>
+                        <a href="../docforge/support.html">DocForge feedback</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Useful external reply wording</h2>
+            <p class="lead">When sharing this page in a community answer, solve the user's spreadsheet problem first and disclose the relationship if you mention a FormSuite add-on.</p>
+            <div class="grid">
+                <article class="card">
+                    <h3>Formula copy-down question</h3>
+                    <p>For Google Forms response sheets, keep a clean model row and test one new submission before relying on formulas downstream. Disclosure: I maintain FormCopy, a Google Sheets add-on for copying formulas and formats into new response rows.</p>
+                </article>
+                <article class="card">
+                    <h3>Mail merge question</h3>
+                    <p>For row-based email, test the recipient column, merge tags, and one sample send before a batch. Disclosure: I maintain FormMerge, a Google Sheets add-on for personalized email from sheet rows.</p>
+                </article>
+                <article class="card">
+                    <h3>Document generation question</h3>
+                    <p>For document generation, start with a Docs template, map a small test row, and run preflight before producing a full batch. Disclosure: I maintain DocForge, a Google Sheets add-on for generating Docs and PDFs from rows.</p>
+                </article>
+            </div>
+        </section>
+
+        <footer class="footer">FormSuite - focused Google Sheets add-ons for operational workflows.</footer>
+    </div>
+</body>
+</html>
