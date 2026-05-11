@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatically copy formulas when a Google Form is submitted | FormCopy</title>
+    <meta name="description" content="Automatically copy formulas and formats into new Google Forms response rows in Google Sheets when a form is submitted, using a clean model row and FormCopy.">
+    <link rel="canonical" href="https://formsuite.dev/formcopy/automatically-copy-formulas-when-google-form-is-submitted.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Automatically copy formulas when a Google Form is submitted | FormCopy">
+    <meta property="og:description" content="A practical setup pattern for copying formulas into new Google Forms response rows when each submission arrives.">
+    <meta property="og:url" content="https://formsuite.dev/formcopy/automatically-copy-formulas-when-google-form-is-submitted.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Automatically copy formulas when a Google Form is submitted">
+    <meta name="twitter:description" content="Use FormCopy to keep formulas and formats active in each new Google Forms response row.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Automatically copy formulas when a Google Form is submitted",
+            "description": "A guide to automatically copying formulas and formats into new Google Forms response rows with FormCopy.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formcopy/automatically-copy-formulas-when-google-form-is-submitted.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.52rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:19ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h3 { font-size:1.04rem; margin-bottom:8px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .feature p { color:var(--muted); font-size:.94rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>FormCopy</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./copy-formulas-to-new-google-forms-responses.html">Copy formulas guide</a>
+        </nav>
+        <section class="hero">
+            <div class="eyebrow">Google Forms response sheets</div>
+            <h1>Automatically copy formulas when a Google Form is submitted</h1>
+            <p>When Google Forms writes a new submission into Google Sheets, the new row can miss formulas, formats, lookup logic, and helper columns. FormCopy keeps a clean model row and applies that row logic to each new response row automatically.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy from Marketplace</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="./index.html">View FormCopy overview</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">To automatically copy formulas when a Google Form is submitted, put the formulas and formats you want in a stable model row, install FormCopy in the linked response sheet, enable future-response handling, and submit one test response to verify the new row receives the correct formulas.</p>
+            <div class="grid">
+                <div class="feature"><strong>Use one clean model row</strong><p>Most teams use row 2 or the first complete response row as the pattern for formulas, formats, and helper columns.</p></div>
+                <div class="feature"><strong>Test with one submission</strong><p>Before using the form with real users, submit a sample response and inspect the new row for formulas, references, formatting, and status fields.</p></div>
+            </div>
+            <div class="note">This works best when the response sheet is an operational spreadsheet: scoring, routing, review status, enrichment, finance checks, or reporting prep.</div>
+        </section>
+
+        <section class="section">
+            <h2>Setup pattern</h2>
+            <ol class="steps">
+                <li>Open the spreadsheet linked to the Google Form.</li>
+                <li>Add the formulas and formatting you want future rows to inherit into the model row.</li>
+                <li>Install FormCopy and open it from the Google Sheets Extensions menu.</li>
+                <li>Select the response sheet and the formula pattern to copy.</li>
+                <li>Enable automatic handling for future form submissions.</li>
+                <li>Submit one test response and check the copied formulas before sharing the form widely.</li>
+            </ol>
+            <div class="warn">Do not use a model row that contains one-off edits, temporary values, or broken formulas. The cleaner the source row is, the safer the automatic copy-down will be.</div>
+        </section>
+
+        <section class="section">
+            <h2>Where native Sheets behavior falls short</h2>
+            <div class="grid">
+                <div class="feature"><strong>New rows are inserted by Forms</strong><p>Google Forms appends submissions in a way that can leave manually prepared formulas below the data range unused.</p></div>
+                <div class="feature"><strong>Manual drag-down is easy to forget</strong><p>Dragging formulas after every submission is fragile when responses arrive while nobody is watching the sheet.</p></div>
+                <div class="feature"><strong>Array formulas do not cover every case</strong><p>Array formulas can be useful, but row-specific formatting, mixed helper columns, and backfill often still need a repeatable row model.</p></div>
+                <div class="feature"><strong>Existing rows may need cleanup</strong><p>If responses arrived before setup, use a backfill path after confirming the model row is correct.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Install FormCopy for this workflow</h2>
+            <p class="lead">Install FormCopy when formulas should appear immediately after each new form submission without manually dragging rows or maintaining a custom Apps Script.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy</a>
+                <a class="btn btn-secondary" href="./copy-formulas-to-new-google-forms-responses.html">Read the copy-down guide</a>
+                <a class="btn btn-secondary" href="./google-forms-response-sheet-formulas-not-copying.html">Troubleshoot formulas</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Next steps</h2>
+            <div class="link-bar">
+                <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install from Marketplace</a>
+                <a href="./support.html">FormCopy support and setup</a>
+                <a href="./google-forms-response-sheet-formulas-guide.html">Formula workflow guide</a>
+                <a href="./calculated-columns-google-forms-response-sheet.html">Calculated columns guide</a>
+                <a href="../resources/google-sheets-add-ons-formulas-mail-merge-document-generation.html">Choose Sheets add-on</a>
+            </div>
+        </section>
+        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+</body>
+</html>
