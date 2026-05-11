@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormGuard permissions explained | FormSuite</title>
+  <meta name="description" content="Plain-English explanation of the Google permissions FormGuard uses for response limits, schedules, choice quotas, and owner notifications.">
+  <link rel="canonical" href="https://formsuite.dev/formguard/permissions.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="FormGuard permissions explained">
+  <meta property="og:description" content="Understand why FormGuard asks for Google permissions and how each permission supports the add-on workflow.">
+  <meta property="og:url" content="https://formsuite.dev/formguard/permissions.html">
+  <style>
+    :root{--ink:#17263d;--muted:#5a6a83;--line:#d9e2ef;--blue:#1463ff;--soft:#eef4ff;--panel:#fff;--shadow:0 18px 45px rgba(23,38,61,.1)}*{box-sizing:border-box;margin:0;padding:0}body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#f8fbff 0,#fff 60%);line-height:1.65}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.shell{max-width:980px;margin:0 auto;padding:28px 20px 60px}.nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:24px}.hero,.section{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:28px;margin-top:18px}.eyebrow{display:inline-flex;padding:7px 12px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:.8rem;font-weight:800;margin-bottom:14px}h1{font-size:2.45rem;line-height:1.08;letter-spacing:-.05em;margin-bottom:12px}h2{font-size:1.35rem;margin-bottom:10px}.lead,p,li,td{color:var(--muted)}ul{padding-left:20px;display:grid;gap:8px}table{width:100%;border-collapse:collapse;margin-top:12px}th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--ink);font-size:.82rem;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;border-radius:999px;font-weight:700}.btn-primary{background:var(--blue);color:#fff}.btn-secondary{border:1px solid var(--line);color:var(--ink)}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="index.html">FormGuard</a><a href="support.html">Support</a><a href="../pricing.html">Pricing</a><a href="../choose-google-workspace-addon.html">Choose add-on</a></nav>
+    <section class="hero">
+      <div class="eyebrow">Permissions</div>
+      <h1>Why FormGuard asks for Google permissions</h1>
+      <p class="lead">FormGuard runs inside Google Forms. It needs permission to read and update the active form, save add-on settings, and send owner notifications when you enable email alerts.</p>
+      <div class="actions"><a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a><a class="btn btn-secondary" href="support.html">Open setup guide</a></div>
+    </section>
+    <section class="section">
+      <h2>Permission mapping</h2>
+      <table><thead><tr><th>Scope</th><th>Plain-English use</th></tr></thead><tbody>
+        <tr><td>forms.addons</td><td>Lets FormGuard run as a Google Forms add-on and appear from the Forms Add-ons entry point.</td></tr>
+        <tr><td>forms.currentonly</td><td>Lets FormGuard work with the current form you open, including response settings, choice options, schedules, and close messages.</td></tr>
+        <tr><td>script.send_mail</td><td>Lets FormGuard send owner notification emails when you enable close or submission alerts.</td></tr>
+        <tr><td>userinfo.email</td><td>Lets FormGuard show or use the installing account email for owner notifications and support context.</td></tr>
+        <tr><td>script.scriptapp</td><td>Lets FormGuard create and manage Apps Script triggers needed for scheduled open/close checks.</td></tr>
+        <tr><td>script.container.ui</td><td>Lets FormGuard display its sidebar and UI inside the Google Forms editor.</td></tr>
+      </tbody></table>
+    </section>
+    <section class="section">
+      <h2>What FormGuard does not do</h2>
+      <ul>
+        <li>It does not sell your form data.</li>
+        <li>It does not turn Google Forms into a ticketing, inventory, queue, payment, or strict reservation system.</li>
+        <li>It does not send marketing emails; notification emails are tied to the rules you enable.</li>
+      </ul>
+    </section>
+    <section class="section">
+      <h2>Uninstall and support</h2>
+      <p>You can remove FormGuard from Google Workspace Marketplace's Manage Apps page or from your Google account add-on settings. If a rule was configured, open the form first and disable the rule before uninstalling when possible.</p>
+      <p>Support: <a href="mailto:lidaban2025@gmail.com?subject=FormGuard permissions question">lidaban2025@gmail.com</a>. Also review the <a href="privacy.html">privacy policy</a> and <a href="terms.html">terms</a>.</p>
+    </section>
+  </div>
+</body>
+</html>

@@ -6,7 +6,11 @@
   </url>
   <url>
     <loc>https://formsuite.dev/pricing.html</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-05-12</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/choose-google-workspace-addon.html</loc>
+    <lastmod>2026-05-12</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/</loc>
@@ -73,6 +77,10 @@
     <lastmod>2026-05-10</lastmod>
   </url>
   <url>
+    <loc>https://formsuite.dev/docforge/permissions.html</loc>
+    <lastmod>2026-05-12</lastmod>
+  </url>
+  <url>
     <loc>https://formsuite.dev/docforge/privacy.html</loc>
     <lastmod>2026-04-04</lastmod>
   </url>
@@ -111,6 +119,10 @@
   <url>
     <loc>https://formsuite.dev/formcopy/support.html</loc>
     <lastmod>2026-05-10</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formcopy/permissions.html</loc>
+    <lastmod>2026-05-12</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/privacy.html</loc>
@@ -241,6 +253,10 @@
     <lastmod>2026-04-04</lastmod>
   </url>
   <url>
+    <loc>https://formsuite.dev/formguard/permissions.html</loc>
+    <lastmod>2026-05-12</lastmod>
+  </url>
+  <url>
     <loc>https://formsuite.dev/formguard/privacy-policy.html</loc>
     <lastmod>2026-04-04</lastmod>
   </url>
@@ -267,6 +283,10 @@
   <url>
     <loc>https://formsuite.dev/formmerge/support.html</loc>
     <lastmod>2026-05-10</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formmerge/permissions.html</loc>
+    <lastmod>2026-05-12</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formmerge/privacy.html</loc>
@@ -331,6 +351,10 @@
   <url>
     <loc>https://formsuite.dev/formnotifier/support.html</loc>
     <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formnotifier/permissions.html</loc>
+    <lastmod>2026-05-12</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/why-google-forms-notification-email-is-not-sending.html</loc>
