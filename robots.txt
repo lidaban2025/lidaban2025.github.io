@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /buy/
+Disallow: /offers/
+Disallow: /starter-kit/
+Disallow: /services/
+Disallow: /pricing.html
 
 Sitemap: https://formsuite.dev/sitemap.xml

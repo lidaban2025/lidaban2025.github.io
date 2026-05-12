@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install FormSuite add-ons from Google Workspace Marketplace</title>
+  <meta name="description" content="Install the published FormSuite Google Workspace add-ons for Google Forms limits, notifications, response-sheet formulas, email merge, and document generation.">
+  <link rel="canonical" href="https://formsuite.dev/install.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Install FormSuite add-ons from Google Workspace Marketplace">
+  <meta property="og:description" content="Choose a published FormSuite add-on, install from Marketplace, and run one small first-use test.">
+  <meta property="og:url" content="https://formsuite.dev/install.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Install FormSuite add-ons from Google Workspace Marketplace">
+  <meta name="twitter:description" content="Install published FormSuite add-ons for Forms, Sheets, emails, and documents.">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Install FormSuite add-ons",
+      "url": "https://formsuite.dev/install.html",
+      "description": "Install-first entry point for published FormSuite Google Workspace add-ons."
+    }
+  </script>
+  <style>
+    :root {
+      --ink:#16253d;
+      --muted:#5d6f88;
+      --line:#d7e2f0;
+      --blue:#165dff;
+      --blue-soft:#eef4ff;
+      --green:#eaf8ef;
+      --sand:#fff7e8;
+      --panel:#fff;
+      --shadow:0 18px 45px rgba(22,37,61,.1);
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left,#eef6ff 0,#eef6ff 20%,transparent 44%),
+        radial-gradient(circle at top right,#fff5ea 0,#fff5ea 16%,transparent 38%),
+        linear-gradient(180deg,#f8fbff 0,#fff 62%);
+      line-height:1.65;
+    }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .shell { max-width:1120px; margin:0 auto; padding:28px 20px 64px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.95rem; }
+    .hero,.section,.card,.step {
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+    }
+    .hero { padding:34px; margin-bottom:18px; }
+    .eyebrow,.pill {
+      display:inline-flex;
+      width:fit-content;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:800;
+    }
+    .eyebrow { background:var(--blue-soft); color:var(--blue); margin-bottom:16px; }
+    .pill { background:var(--green); color:#177245; }
+    .pill-muted { background:var(--sand); color:#8b5a00; }
+    h1 { font-size:2.75rem; line-height:1.05; letter-spacing:0; max-width:16ch; margin-bottom:14px; }
+    h2 { font-size:1.5rem; letter-spacing:0; margin-bottom:10px; }
+    .lead,.card p,.step p,td { color:var(--muted); }
+    .hero-actions,.link-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:0 18px;
+      border-radius:999px;
+      font-weight:700;
+      border:1px solid transparent;
+    }
+    .btn-primary { background:var(--blue); color:#fff; }
+    .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:28px; margin-top:18px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px; }
+    .steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:18px; }
+    .card,.step { padding:22px; display:grid; gap:12px; }
+    .card h3 { font-size:1.15rem; }
+    .feature-list { display:grid; gap:8px; font-size:.93rem; color:var(--ink); }
+    .feature-list span { display:block; padding-left:14px; position:relative; }
+    .feature-list span::before {
+      content:"";
+      position:absolute;
+      left:0;
+      top:.68em;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--blue);
+    }
+    table { width:100%; border-collapse:collapse; margin-top:18px; font-size:.95rem; }
+    th,td { padding:14px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--ink); font-size:.82rem; text-transform:uppercase; letter-spacing:.05em; }
+    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+    @media (max-width:900px) {
+      .grid,.steps { grid-template-columns:1fr; }
+      h1 { font-size:2.2rem; max-width:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="index.html"><strong>FormSuite</strong></a>
+      <a href="choose-google-workspace-addon.html">Choose add-on</a>
+      <a href="resources/index.html">Resources</a>
+      <a href="formguard/index.html">FormGuard</a>
+      <a href="formnotifier/index.html">FormNotifier</a>
+      <a href="formcopy/index.html">FormCopy</a>
+      <a href="formmerge/index.html">FormMerge</a>
+      <a href="docforge/index.html">DocForge</a>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">Install-first center</div>
+      <h1>Install the published FormSuite add-on that matches your workflow.</h1>
+      <p class="lead">Start with one published Google Workspace Marketplace add-on, run one small first-use test, then use support or feedback only if setup is unclear. No checkout is required before installing during launch mode.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#published-addons">Pick an add-on</a>
+        <a class="btn btn-secondary" href="choose-google-workspace-addon.html">Choose by workflow</a>
+        <a class="btn btn-secondary" href="resources/index.html">Read setup guides</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Install, then test one small workflow</h2>
+      <div class="steps">
+        <article class="step"><strong>1. Choose one add-on</strong><p>Pick the product that matches the exact Forms, Sheets, email, or document workflow you need now.</p></article>
+        <article class="step"><strong>2. Install from Marketplace</strong><p>Use the official Google Workspace Marketplace listing and open the add-on in Google Forms or Google Sheets.</p></article>
+        <article class="step"><strong>3. Run a small test</strong><p>Use a disposable form, sample row, or test template before relying on the add-on for real operations.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="published-addons">
+      <h2>Published and installable now</h2>
+      <p class="lead">These five products are the current install-first FormSuite path.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="pill">Google Forms</span>
+          <h3>FormGuard</h3>
+          <p>Install when your Google Form needs response caps, scheduled open/close windows, choice quotas, closed-form messages, or owner notifications.</p>
+          <div class="feature-list">
+            <span>Best first test: close a disposable form after one response.</span>
+            <span>Good fit: RSVP, workshops, volunteer roles, internal intake, and event capacity.</span>
+            <span>Boundary: not a ticketing, payment, reservation, or inventory system.</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+            <a class="btn btn-secondary" href="formguard/permissions.html">Review permissions</a>
+            <a class="btn btn-secondary" href="formguard/support.html">Setup guide</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="pill">Google Forms</span>
+          <h3>FormNotifier</h3>
+          <p>Install when each Google Forms submission should send owner alerts, respondent confirmations, shared inbox notifications, or templated emails.</p>
+          <div class="feature-list">
+            <span>Best first test: save an owner-only alert and run preflight.</span>
+            <span>Good fit: applications, support intake, event registration, and internal request forms.</span>
+            <span>Boundary: not CRM, newsletter, cold email, or marketing automation software.</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+            <a class="btn btn-secondary" href="formnotifier/permissions.html">Review permissions</a>
+            <a class="btn btn-secondary" href="formnotifier/support.html">Setup guide</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="pill">Google Sheets</span>
+          <h3>FormCopy Pro</h3>
+          <p>Install when a Google Forms response sheet needs formulas, formats, lookups, and helper columns copied into every new response row.</p>
+          <div class="feature-list">
+            <span>Best first test: use row 2 as the model row and copy formulas to one blank response row.</span>
+            <span>Good fit: scoring, status columns, helper formulas, and response-sheet cleanup.</span>
+            <span>Boundary: formula quality still depends on the model row you prepare.</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy</a>
+            <a class="btn btn-secondary" href="formcopy/permissions.html">Review permissions</a>
+            <a class="btn btn-secondary" href="formcopy/support.html">Setup guide</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="pill">Google Sheets</span>
+          <h3>FormMerge Pro</h3>
+          <p>Install when Google Sheets rows should become personalized operational emails with merge tags, test sends, batch sends, and row-level status.</p>
+          <div class="feature-list">
+            <span>Best first test: send one test email to yourself from one sample row.</span>
+            <span>Good fit: application feedback, event notices, internal updates, and row-based operational messages.</span>
+            <span>Boundary: not CRM, newsletter, cold email, or sales automation software.</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install FormMerge</a>
+            <a class="btn btn-secondary" href="formmerge/permissions.html">Review permissions</a>
+            <a class="btn btn-secondary" href="formmerge/support.html">Setup guide</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="pill">Google Sheets</span>
+          <h3>DocForge</h3>
+          <p>Install when spreadsheet rows should generate Google Docs, PDFs, certificates, letters, or repeatable document packets from templates.</p>
+          <div class="feature-list">
+            <span>Best first test: generate one Google Doc from one sample row and one template.</span>
+            <span>Good fit: certificates, letters, intake summaries, offer letters, and repeatable documents.</span>
+            <span>Boundary: not a full DMS, contract lifecycle system, or approval platform.</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
+            <a class="btn btn-secondary" href="docforge/permissions.html">Review permissions</a>
+            <a class="btn btn-secondary" href="docforge/support.html">Setup guide</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="pill pill-muted">Pilot / fit-first</span>
+          <h3>FormFlow and FormRanger</h3>
+          <p>FormFlow stays pilot-first for approval workflows. FormRanger stays review queue / fit-first for synced form choices. Do not use these as install-first public CTAs yet.</p>
+          <div class="hero-actions">
+            <a class="btn btn-secondary" href="formflow/index.html">FormFlow pilot</a>
+            <a class="btn btn-secondary" href="formranger/index.html">FormRanger fit check</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Fast chooser</h2>
+      <table>
+        <thead><tr><th>Workflow</th><th>Install</th><th>First test</th></tr></thead>
+        <tbody>
+          <tr><td>Close Google Forms after a response cap, deadline, or full session</td><td><a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">FormGuard</a></td><td>One-response cap on a disposable form</td></tr>
+          <tr><td>Send Google Forms confirmation emails or owner alerts</td><td><a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">FormNotifier</a></td><td>Owner-only alert plus preflight</td></tr>
+          <tr><td>Copy formulas to new Google Forms response rows</td><td><a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">FormCopy Pro</a></td><td>One model-row formula copy</td></tr>
+          <tr><td>Send personalized email from Google Sheets rows</td><td><a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">FormMerge Pro</a></td><td>One test send to yourself</td></tr>
+          <tr><td>Generate Docs, PDFs, letters, or certificates from Sheets rows</td><td><a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">DocForge</a></td><td>One document from one sample row</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>After the first successful test</h2>
+      <p class="lead">If the add-on worked, a Marketplace review helps other Google Workspace users decide whether to install. If setup was confusing, send the add-on name, workflow, and first-run result to support so the next guide or UI fix is grounded in a real issue.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=FormSuite first-run feedback">Send first-run feedback</a>
+        <a class="btn btn-secondary" href="resources/index.html">Browse setup guides</a>
+      </div>
+    </section>
+
+    <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. Install-first entry point.</div>
+  </div>
+</body>
+</html>

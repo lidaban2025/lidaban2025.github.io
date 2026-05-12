@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://formsuite.dev/</loc>
-    <lastmod>2026-05-10</lastmod>
+    <lastmod>2026-05-13</lastmod>
   </url>
   <url>
-    <loc>https://formsuite.dev/pricing.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://formsuite.dev/install.html</loc>
+    <lastmod>2026-05-13</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/choose-google-workspace-addon.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-13</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/</loc>
-    <lastmod>2026-05-10</lastmod>
+    <lastmod>2026-05-13</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/google-forms-registration-workflow-limits-confirmation-emails.html</loc>
@@ -27,26 +27,6 @@
   <url>
     <loc>https://formsuite.dev/resources/google-sheets-add-ons-formulas-mail-merge-document-generation.html</loc>
     <lastmod>2026-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/starter-kit/</loc>
-    <lastmod>2026-04-10</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/starter-kit/install.html</loc>
-    <lastmod>2026-04-10</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/services/google-workspace-ai-automation.html</loc>
-    <lastmod>2026-04-10</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/offers/</loc>
-    <lastmod>2026-04-10</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/buy/</loc>
-    <lastmod>2026-04-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/</loc>
