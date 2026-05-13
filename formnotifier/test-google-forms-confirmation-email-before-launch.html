@@ -28,32 +28,49 @@
         }
     </script>
     <style>
-        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
         * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 52%); line-height:1.68; }
         a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-        .hero { padding:30px; margin-bottom:18px; }
-        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
+        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
+        .nav a { color:var(--muted); font-weight:600; }
+        .nav a:first-child { color:var(--ink); margin-right:auto; }
+        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,.82fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
+        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
+        h1 { font-size:clamp(2.1rem,5vw,3.7rem); line-height:1.02; letter-spacing:0; margin-bottom:18px; max-width:13ch; }
+        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
         h3 { font-size:1.05rem; margin-bottom:6px; }
         .hero p,.section p,.section li { color:var(--muted); }
+        .hero p { font-size:1.08rem; }
         .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:26px; margin-top:18px; }
+        .link-bar a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font-weight:700; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); } .btn-primary:hover { background:var(--blue-strong); text-decoration:none; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:42px 0 8px; margin-top:14px; }
         .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
         .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
         .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
+        .checklist-preview { padding:16px; border:1px solid var(--line); border-radius:8px; background:var(--surface); display:grid; gap:8px; }
+        .check-row { display:flex; justify-content:space-between; gap:12px; padding:9px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--muted); }
+        .check-row b { color:var(--green); }
+        .email-preview { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+        .email-preview strong { display:block; margin-bottom:8px; }
+        .email-line { height:10px; border-radius:99px; background:#dfe7f3; margin:10px 0; }
+        .email-line.short { width:66%; }
+        .status-pill { display:inline-flex; width:fit-content; margin-top:10px; padding:6px 9px; border-radius:8px; background:var(--green-soft); color:var(--green); font-size:.78rem; font-weight:900; }
+        .trust-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0 10px; }
+        .trust-item strong,.step-card strong { display:block; margin-bottom:6px; }
+        .trust-item span,.step-card p { color:var(--muted); font-size:.92rem; }
+        .workflow-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+        .step-card .number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-weight:900; margin-bottom:12px; }
         .steps { padding-left:20px; display:grid; gap:10px; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
         .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+        @media (max-width:900px) { .hero,.grid,.trust-strip,.workflow-grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.1rem; max-width:none; } .check-row { display:grid; } }
     </style>
 </head>
 <body>
@@ -66,12 +83,43 @@
             <a href="./google-forms-email-notifications-guide.html">Workflow guide</a>
         </nav>
         <section class="hero">
-            <div class="eyebrow">Launch checklist</div>
-            <h1>How to test a Google Forms confirmation email before launch</h1>
-            <p>Most confirmation-email problems are found too late: after real people have already submitted the form. A short preflight and test-send flow helps you verify the respondent email source, template variables, delivery target, and recent send report before your form goes live.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
-                <a class="btn btn-secondary" href="./send-google-forms-confirmation-email-after-submit.html">Confirmation guide</a>
+            <div>
+                <div class="eyebrow">Launch checklist</div>
+                <h1>How to test a Google Forms confirmation email before launch</h1>
+                <p>Most confirmation-email problems are found too late: after real people have already submitted the form. A short preflight and test-send flow helps you verify the respondent email source, template variables, delivery target, and recent send report before your form goes live.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                    <a class="btn btn-secondary" href="./send-google-forms-confirmation-email-after-submit.html">Confirmation guide</a>
+                </div>
+            </div>
+            <div class="visual-panel" aria-label="Confirmation email test preview">
+                <div class="checklist-preview">
+                    <div class="check-row"><span>Email source</span><b>Found</b></div>
+                    <div class="check-row"><span>Template fields</span><b>Checked</b></div>
+                    <div class="check-row"><span>Recent report</span><b>Visible</b></div>
+                </div>
+                <div class="email-preview">
+                    <strong>Test confirmation email</strong>
+                    <div class="email-line"></div>
+                    <div class="email-line"></div>
+                    <div class="email-line short"></div>
+                    <span class="status-pill">Test sent before launch</span>
+                </div>
+            </div>
+        </section>
+        <section class="trust-strip" aria-label="Confirmation test trust signals">
+            <div class="trust-item"><strong>Quick answer</strong><span>Preflight plus one real public-form submission.</span></div>
+            <div class="trust-item"><strong>First test</strong><span>Send to your own inbox before sharing the form.</span></div>
+            <div class="trust-item"><strong>Best link to share</strong><span>This guide fits launch and delivery checks.</span></div>
+            <div class="trust-item"><strong>Boundary</strong><span>Not a CRM or marketing automation system.</span></div>
+        </section>
+
+        <section class="section">
+            <h2>Three-part setup</h2>
+            <div class="workflow-grid">
+                <div class="step-card"><span class="number">1</span><strong>Check email source</strong><p>Confirm whether the form collects email automatically or uses a required email question.</p></div>
+                <div class="step-card"><span class="number">2</span><strong>Run preflight</strong><p>Check template fields, sender assumptions, and basic delivery readiness before launch.</p></div>
+                <div class="step-card"><span class="number">3</span><strong>Submit one real test</strong><p>Use the public form link once and confirm the inbox result plus recent send report.</p></div>
             </div>
         </section>
 
@@ -120,6 +168,15 @@
                 <a href="./google-forms-email-notifications-guide.html">Full notification workflow guide</a>
                 <a href="./why-google-forms-notification-email-is-not-sending.html">Troubleshoot notification delivery</a>
                 <a href="./support.html">Setup support</a>
+            </div>
+        </section>
+        <section class="section" data-install-cta="marketplace">
+            <h2>Install FormNotifier from Marketplace</h2>
+            <p class="lead">Install FormNotifier when your Google Form needs a tested respondent confirmation email before the public form link goes live.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="../install.html">Compare FormSuite add-ons</a>
             </div>
         </section>
 
