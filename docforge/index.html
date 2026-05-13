@@ -42,52 +42,62 @@
     </script>
     <style>
         :root {
-            --ink: #17263d;
-            --muted: #5a6a83;
+            --ink: #172033;
+            --muted: #5c6b80;
             --line: #d9e2ef;
-            --blue: #1463ff;
+            --blue: #1a5cff;
+            --blue-strong: #0f4fd8;
             --blue-soft: #eef4ff;
-            --green-soft: #ebf8ef;
-            --shadow: 0 18px 45px rgba(23, 38, 61, 0.10);
+            --green: #138a43;
+            --green-soft: #eaf8ef;
+            --amber-soft: #fff6df;
+            --panel: #ffffff;
+            --surface: #f7faff;
+            --shadow: 0 14px 36px rgba(23, 32, 51, 0.10);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
             color: var(--ink);
-            background:
-                radial-gradient(circle at top right, #eff5ff 0, #eff5ff 22%, transparent 48%),
-                linear-gradient(180deg, #fbfdff 0%, #ffffff 54%);
+            background: linear-gradient(180deg, #f7faff 0%, #ffffff 48%);
             line-height: 1.65;
         }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
-        .nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.94rem; }
-        .hero, .section, .panel {
-            background: rgba(255, 255, 255, 0.92);
+        .shell { max-width: 1160px; margin: 0 auto; padding: 24px 20px 64px; }
+        .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 26px; font-size: 0.94rem; }
+        .nav a { color: var(--muted); font-weight: 600; }
+        .nav a:first-child { color: var(--ink); margin-right: auto; }
+        .nav a:last-child {
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 12px;
             border: 1px solid var(--line);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
+            border-radius: 8px;
+            background: #fff;
         }
         .hero {
             display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 18px;
-            padding: 30px;
-            margin-bottom: 18px;
+            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+            gap: 34px;
+            align-items: center;
+            padding: 20px 0 24px;
+            margin-bottom: 12px;
         }
         .eyebrow {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 7px 12px;
-            border-radius: 999px;
+            border-radius: 8px;
             background: var(--blue-soft);
             color: var(--blue);
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 16px;
         }
-        h1 { font-size: 2.55rem; line-height: 1.06; letter-spacing: -0.05em; margin-bottom: 14px; }
-        .hero p { color: var(--muted); max-width: 640px; }
+        h1 { font-size: clamp(2.15rem, 5vw, 3.85rem); line-height: 1.02; letter-spacing: 0; margin-bottom: 18px; max-width: 14ch; }
+        .hero p { color: var(--muted); max-width: 680px; font-size: 1.08rem; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
         .btn {
             display: inline-flex;
@@ -95,30 +105,54 @@
             justify-content: center;
             min-height: 44px;
             padding: 0 18px;
-            border-radius: 999px;
+            border-radius: 8px;
             font-weight: 700;
             border: 1px solid transparent;
         }
-        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 10px 24px rgba(26, 92, 255, 0.22); }
+        .btn-primary:hover { background: var(--blue-strong); text-decoration: none; }
         .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-        .summary { display: grid; gap: 12px; }
-        .summary .panel { padding: 16px; }
-        .summary strong { display: block; font-size: 1.04rem; margin-bottom: 6px; }
-        .summary span { color: var(--muted); font-size: 0.92rem; }
-        .section { padding: 26px; margin-top: 18px; }
-        h2 { font-size: 1.45rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .media-panel, .trust-item, .feature, .step-card, .metric {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+        .media-panel { box-shadow: var(--shadow); overflow: hidden; }
+        .sheet-mini { padding: 18px; background: var(--surface); display: grid; gap: 10px; }
+        .sheet-row { display: grid; grid-template-columns: 1fr 0.8fr 0.72fr; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; font-size: 0.86rem; background: #fff; }
+        .sheet-row span { padding: 10px; border-right: 1px solid var(--line); color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+        .sheet-row span:last-child { border-right: 0; color: var(--green); font-weight: 800; background: var(--green-soft); }
+        .doc-preview { margin: 0 18px 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 10px 26px rgba(23, 32, 51, 0.08); }
+        .doc-title { font-weight: 900; font-size: 1.05rem; margin-bottom: 14px; }
+        .doc-line { height: 10px; border-radius: 99px; background: #dfe7f3; margin: 10px 0; }
+        .doc-line.short { width: 64%; }
+        .doc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+        .doc-tags span { padding: 6px 9px; border-radius: 8px; background: var(--blue-soft); color: var(--blue); font-size: 0.78rem; font-weight: 800; }
+        .trust-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0 10px; }
+        .trust-item { padding: 16px; }
+        .trust-item strong { display: block; margin-bottom: 4px; }
+        .trust-item span { color: var(--muted); font-size: 0.92rem; }
+        .section { padding: 42px 0 8px; margin-top: 14px; }
+        h2 { font-size: 1.75rem; letter-spacing: 0; margin-bottom: 8px; }
         .lead { color: var(--muted); margin-bottom: 18px; max-width: 760px; }
         .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-        .feature { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        .feature, .step-card, .metric { padding: 18px; }
         .feature strong { display: block; margin-bottom: 8px; font-size: 1.02rem; }
         .feature p { color: var(--muted); font-size: 0.94rem; }
+        .step-card .number { display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; border-radius: 8px; background: var(--blue-soft); color: var(--blue); font-weight: 900; margin-bottom: 12px; }
+        .step-card strong, .metric strong { display: block; margin-bottom: 8px; }
+        .step-card p, .metric p { color: var(--muted); font-size: 0.94rem; }
+        .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .metric { background: var(--surface); }
         .steps { padding-left: 20px; display: grid; gap: 10px; }
         .steps li { color: var(--muted); }
-        .link-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-weight: 600; }
+        .link-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; font-weight: 700; }
+        .link-bar a { display: inline-flex; min-height: 38px; align-items: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
         .note {
             margin-top: 18px;
             padding: 16px 18px;
-            border-radius: 18px;
+            border-radius: 8px;
             background: var(--green-soft);
             border: 1px solid #cde8d6;
             color: #17633f;
@@ -126,8 +160,12 @@
         }
         .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
         @media (max-width: 900px) {
-            .hero, .grid { grid-template-columns: 1fr; }
+            .hero, .grid, .workflow-grid, .trust-strip, .comparison { grid-template-columns: 1fr; }
+            .nav a:first-child { width: 100%; margin-right: 0; }
             h1 { font-size: 2.1rem; }
+            .sheet-mini { padding: 14px; }
+            .sheet-row { grid-template-columns: 0.92fr 0.74fr 0.62fr; font-size: 0.78rem; }
+            .sheet-row span { padding: 8px; }
         }
     </style>
 </head>
@@ -154,10 +192,63 @@
                     <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
                 </div>
             </div>
-            <div class="summary">
-                <div class="panel"><strong>Best fit</strong><span>Offer letters, certificates, intake documents, approval packets, and any workflow that starts from a structured Google Sheet.</span></div>
-                <div class="panel"><strong>Main controls</strong><span>Template mapping, preflight validation, Docs and PDF generation, output naming, and optional downstream email handoff.</span></div>
-                <div class="panel"><strong>Where it runs</strong><span>Inside the Google Sheets file that holds the source records, so the operator stays close to the data while generating files.</span></div>
+            <div class="media-panel" aria-label="DocForge document generation preview">
+                <div class="sheet-mini">
+                    <div class="sheet-row"><span>Name</span><span>Template</span><span>Status</span></div>
+                    <div class="sheet-row"><span>Avery Chen</span><span>Offer letter</span><span>Ready</span></div>
+                    <div class="sheet-row"><span>Mina Patel</span><span>Certificate</span><span>Ready</span></div>
+                </div>
+                <div class="doc-preview">
+                    <div class="doc-title">Generated document preview</div>
+                    <div class="doc-line"></div>
+                    <div class="doc-line"></div>
+                    <div class="doc-line short"></div>
+                    <div class="doc-tags">
+                        <span>{{Name}}</span>
+                        <span>{{Program}}</span>
+                        <span>{{Date}}</span>
+                        <span>PDF output</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="trust-strip" aria-label="DocForge trust signals">
+            <div class="trust-item"><strong>Marketplace install</strong><span>Published for Google Workspace users.</span></div>
+            <div class="trust-item"><strong>One-row first test</strong><span>Generate one document before running a batch.</span></div>
+            <div class="trust-item"><strong>Plain permissions</strong><span>Review why Sheets, Docs, and Drive access are needed.</span></div>
+            <div class="trust-item"><strong>Template workflow</strong><span>Use column headers and Docs tags your team can inspect.</span></div>
+        </section>
+        <section class="section">
+            <h2>From spreadsheet rows to generated files</h2>
+            <p class="lead">Start with one source row and one Google Docs template. Confirm the mapping, generate a sample Doc or PDF, then scale the same setup to a controlled batch.</p>
+            <div class="workflow-grid">
+                <div class="step-card">
+                    <span class="number">1</span>
+                    <strong>Prepare rows and tags</strong>
+                    <p>Keep stable column headers in Google Sheets and matching merge tags in the Google Docs template.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">2</span>
+                    <strong>Run preflight</strong>
+                    <p>Check template access, required fields, output naming, and folder settings before generating files.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">3</span>
+                    <strong>Generate one output</strong>
+                    <p>Create one Doc or PDF, inspect the file, then process more rows once the sample looks right.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="comparison">
+                <div class="metric">
+                    <strong>Before DocForge</strong>
+                    <p>Teams copy values from Sheets into documents by hand, rename files manually, and lose track of which rows already produced output.</p>
+                </div>
+                <div class="metric">
+                    <strong>After setup</strong>
+                    <p>Each row can generate a consistent document or PDF from the same template, with a repeatable path for review and filing.</p>
+                </div>
             </div>
         </section>
         <section class="section">

@@ -42,52 +42,62 @@
     </script>
     <style>
         :root {
-            --ink: #182740;
-            --muted: #5a6c87;
-            --line: #d9e3f0;
-            --blue: #1760ff;
+            --ink: #172033;
+            --muted: #5c6b80;
+            --line: #d9e2ef;
+            --blue: #1a5cff;
+            --blue-strong: #0f4fd8;
             --blue-soft: #eef4ff;
-            --sand-soft: #fff7e8;
-            --shadow: 0 18px 44px rgba(24, 39, 64, 0.10);
+            --green: #138a43;
+            --green-soft: #eaf8ef;
+            --amber-soft: #fff6df;
+            --panel: #ffffff;
+            --surface: #f7faff;
+            --shadow: 0 14px 36px rgba(23, 32, 51, 0.10);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
             color: var(--ink);
-            background:
-                radial-gradient(circle at top left, #eef5ff 0, #eef5ff 22%, transparent 46%),
-                linear-gradient(180deg, #fbfdff 0%, #ffffff 56%);
+            background: linear-gradient(180deg, #f7faff 0%, #ffffff 48%);
             line-height: 1.65;
         }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
-        .nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.94rem; }
-        .hero, .section, .panel {
-            background: rgba(255, 255, 255, 0.94);
+        .shell { max-width: 1160px; margin: 0 auto; padding: 24px 20px 64px; }
+        .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 26px; font-size: 0.94rem; }
+        .nav a { color: var(--muted); font-weight: 600; }
+        .nav a:first-child { color: var(--ink); margin-right: auto; }
+        .nav a:last-child {
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 12px;
             border: 1px solid var(--line);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
+            border-radius: 8px;
+            background: #fff;
         }
         .hero {
             display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 18px;
-            padding: 30px;
-            margin-bottom: 18px;
+            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+            gap: 34px;
+            align-items: center;
+            padding: 20px 0 24px;
+            margin-bottom: 12px;
         }
         .eyebrow {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 7px 12px;
-            border-radius: 999px;
+            border-radius: 8px;
             background: var(--blue-soft);
             color: var(--blue);
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 16px;
         }
-        h1 { font-size: 2.55rem; line-height: 1.05; letter-spacing: -0.05em; margin-bottom: 14px; }
-        .hero p { color: var(--muted); max-width: 640px; }
+        h1 { font-size: clamp(2.15rem, 5vw, 3.85rem); line-height: 1.02; letter-spacing: 0; margin-bottom: 18px; max-width: 14ch; }
+        .hero p { color: var(--muted); max-width: 680px; font-size: 1.08rem; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
         .btn {
             display: inline-flex;
@@ -95,39 +105,67 @@
             justify-content: center;
             min-height: 44px;
             padding: 0 18px;
-            border-radius: 999px;
+            border-radius: 8px;
             font-weight: 700;
             border: 1px solid transparent;
         }
-        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 10px 24px rgba(26, 92, 255, 0.22); }
+        .btn-primary:hover { background: var(--blue-strong); text-decoration: none; }
         .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-        .summary { display: grid; gap: 12px; }
-        .summary .panel { padding: 16px; }
-        .summary strong { display: block; font-size: 1.04rem; margin-bottom: 6px; }
-        .summary span { color: var(--muted); font-size: 0.92rem; }
-        .section { padding: 26px; margin-top: 18px; }
-        h2 { font-size: 1.45rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .media-panel, .trust-item, .feature, .step-card, .metric {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+        .media-panel { box-shadow: var(--shadow); overflow: hidden; padding: 18px; display: grid; gap: 14px; }
+        .sheet-mini { padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; display: grid; gap: 10px; }
+        .sheet-row { display: grid; grid-template-columns: 1fr 0.86fr 0.62fr; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; font-size: 0.84rem; background: #fff; }
+        .sheet-row span { padding: 9px; border-right: 1px solid var(--line); color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+        .sheet-row span:last-child { border-right: 0; color: var(--green); font-weight: 800; background: var(--green-soft); }
+        .mail-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+        .mail-head { padding: 12px 14px; background: var(--blue-soft); color: var(--blue); font-weight: 900; }
+        .mail-body { padding: 14px; display: grid; gap: 9px; }
+        .mail-line { height: 10px; border-radius: 99px; background: #dfe7f3; }
+        .mail-line.short { width: 58%; }
+        .mail-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .mail-tags span { padding: 6px 9px; border-radius: 8px; background: var(--green-soft); color: var(--green); font-size: 0.78rem; font-weight: 900; }
+        .trust-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0 10px; }
+        .trust-item { padding: 16px; }
+        .trust-item strong { display: block; margin-bottom: 4px; }
+        .trust-item span { color: var(--muted); font-size: 0.92rem; }
+        .section { padding: 42px 0 8px; margin-top: 14px; }
+        h2 { font-size: 1.75rem; letter-spacing: 0; margin-bottom: 8px; }
         .lead { color: var(--muted); margin-bottom: 18px; max-width: 760px; }
         .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-        .feature { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        .feature, .step-card, .metric { padding: 18px; }
         .feature strong { display: block; margin-bottom: 8px; font-size: 1.02rem; }
         .feature p { color: var(--muted); font-size: 0.94rem; }
+        .step-card .number { display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; border-radius: 8px; background: var(--blue-soft); color: var(--blue); font-weight: 900; margin-bottom: 12px; }
+        .step-card strong, .metric strong { display: block; margin-bottom: 8px; }
+        .step-card p, .metric p { color: var(--muted); font-size: 0.94rem; }
+        .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .metric { background: var(--surface); }
         .steps { padding-left: 20px; display: grid; gap: 10px; }
         .steps li { color: var(--muted); }
-        .link-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-weight: 600; }
+        .link-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; font-weight: 700; }
+        .link-bar a { display: inline-flex; min-height: 38px; align-items: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
         .note {
             margin-top: 18px;
             padding: 16px 18px;
-            border-radius: 18px;
-            background: var(--sand-soft);
+            border-radius: 8px;
+            background: var(--amber-soft);
             border: 1px solid #f0d7a4;
             color: #805300;
             font-size: 0.93rem;
         }
         .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
         @media (max-width: 900px) {
-            .hero, .grid { grid-template-columns: 1fr; }
+            .hero, .grid, .workflow-grid, .trust-strip, .comparison { grid-template-columns: 1fr; }
+            .nav a:first-child { width: 100%; margin-right: 0; }
             h1 { font-size: 2.1rem; }
+            .sheet-row { grid-template-columns: 0.88fr 0.84fr 0.58fr; font-size: 0.76rem; }
+            .sheet-row span { padding: 8px; }
         }
     </style>
 </head>
@@ -154,11 +192,64 @@
                     <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
                 </div>
             </div>
-            <div class="summary">
-                <div class="panel"><strong>Best fit</strong><span>Confirmations, intake follow-ups, internal notifications, and repeatable outbound email workflows driven by sheet data.</span></div>
-                <div class="panel"><strong>Main controls</strong><span>Merge tags, test sends, CC and BCC support, batch runs, and row-level visibility into send status.</span></div>
-                <div class="panel"><strong>Where it runs</strong><span>Inside the Google Sheets file where the merge data already lives, keeping operators close to the source records.</span></div>
-                <div class="panel"><strong>Install path</strong><span>Published on Google Workspace Marketplace as FormMerge Pro - Email Merge for Google Sheets.</span></div>
+            <div class="media-panel" aria-label="FormMerge sheet-to-email preview">
+                <div class="sheet-mini">
+                    <div class="sheet-row"><span>Recipient</span><span>Stage</span><span>Status</span></div>
+                    <div class="sheet-row"><span>avery@example.com</span><span>Interview</span><span>Ready</span></div>
+                    <div class="sheet-row"><span>mina@example.com</span><span>Offer</span><span>Ready</span></div>
+                </div>
+                <div class="mail-card">
+                    <div class="mail-head">Personalized email preview</div>
+                    <div class="mail-body">
+                        <div class="mail-line"></div>
+                        <div class="mail-line"></div>
+                        <div class="mail-line short"></div>
+                        <div class="mail-tags">
+                            <span>{{First name}}</span>
+                            <span>{{Stage}}</span>
+                            <span>Test sent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="trust-strip" aria-label="FormMerge trust signals">
+            <div class="trust-item"><strong>Marketplace install</strong><span>Published for Google Workspace users.</span></div>
+            <div class="trust-item"><strong>One test email</strong><span>Send to yourself before any real batch.</span></div>
+            <div class="trust-item"><strong>Plain permissions</strong><span>Review why Sheets and Gmail access are needed.</span></div>
+            <div class="trust-item"><strong>Row-level status</strong><span>Track sent, skipped, and failed rows in the sheet.</span></div>
+        </section>
+        <section class="section">
+            <h2>From sheet rows to controlled email sends</h2>
+            <p class="lead">Keep the source data in Google Sheets, write one template with merge tags, send a test message, then process a deliberate batch with status visible on each row.</p>
+            <div class="workflow-grid">
+                <div class="step-card">
+                    <span class="number">1</span>
+                    <strong>Prepare recipients</strong>
+                    <p>Use stable columns for recipient email, stage, context, and any fields you want to merge into the message.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">2</span>
+                    <strong>Write the template</strong>
+                    <p>Personalize the subject and body with merge tags, then review the output before sending.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">3</span>
+                    <strong>Send one test</strong>
+                    <p>Send one row to yourself, inspect the message, and only then run a small operational batch.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="comparison">
+                <div class="metric">
+                    <strong>Before FormMerge</strong>
+                    <p>Teams copy values into emails by hand, lose track of which rows were sent, and risk sending a real batch before testing the template.</p>
+                </div>
+                <div class="metric">
+                    <strong>After setup</strong>
+                    <p>Each row can drive a personalized operational email with a test-first path and visible status back in the sheet.</p>
+                </div>
             </div>
         </section>
         <section class="section">

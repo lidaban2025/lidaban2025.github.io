@@ -42,52 +42,62 @@
     </script>
     <style>
         :root {
-            --ink: #182740;
-            --muted: #5a6c87;
-            --line: #d9e3f0;
-            --blue: #1760ff;
+            --ink: #172033;
+            --muted: #5c6b80;
+            --line: #d9e2ef;
+            --blue: #1a5cff;
+            --blue-strong: #0f4fd8;
             --blue-soft: #eef4ff;
+            --green: #138a43;
             --green-soft: #eaf8ef;
-            --shadow: 0 18px 44px rgba(24, 39, 64, 0.10);
+            --amber-soft: #fff6df;
+            --panel: #ffffff;
+            --surface: #f7faff;
+            --shadow: 0 14px 36px rgba(23, 32, 51, 0.10);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
             color: var(--ink);
-            background:
-                radial-gradient(circle at top left, #eef5ff 0, #eef5ff 22%, transparent 46%),
-                linear-gradient(180deg, #fbfdff 0%, #ffffff 56%);
+            background: linear-gradient(180deg, #f7faff 0%, #ffffff 48%);
             line-height: 1.65;
         }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
-        .nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.94rem; }
-        .hero, .section, .panel {
-            background: rgba(255, 255, 255, 0.94);
+        .shell { max-width: 1160px; margin: 0 auto; padding: 24px 20px 64px; }
+        .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 26px; font-size: 0.94rem; }
+        .nav a { color: var(--muted); font-weight: 600; }
+        .nav a:first-child { color: var(--ink); margin-right: auto; }
+        .nav a:last-child {
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 12px;
             border: 1px solid var(--line);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
+            border-radius: 8px;
+            background: #fff;
         }
         .hero {
             display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 18px;
-            padding: 30px;
-            margin-bottom: 18px;
+            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+            gap: 34px;
+            align-items: center;
+            padding: 20px 0 24px;
+            margin-bottom: 12px;
         }
         .eyebrow {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 7px 12px;
-            border-radius: 999px;
+            border-radius: 8px;
             background: var(--blue-soft);
             color: var(--blue);
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 16px;
         }
-        h1 { font-size: 2.55rem; line-height: 1.05; letter-spacing: -0.05em; margin-bottom: 14px; }
-        .hero p { color: var(--muted); max-width: 640px; }
+        h1 { font-size: clamp(2.15rem, 5vw, 3.85rem); line-height: 1.02; letter-spacing: 0; margin-bottom: 18px; max-width: 14ch; }
+        .hero p { color: var(--muted); max-width: 680px; font-size: 1.08rem; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
         .btn {
             display: inline-flex;
@@ -95,30 +105,53 @@
             justify-content: center;
             min-height: 44px;
             padding: 0 18px;
-            border-radius: 999px;
+            border-radius: 8px;
             font-weight: 700;
             border: 1px solid transparent;
         }
-        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 10px 24px rgba(26, 92, 255, 0.22); }
+        .btn-primary:hover { background: var(--blue-strong); text-decoration: none; }
         .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-        .summary { display: grid; gap: 12px; }
-        .summary .panel { padding: 16px; }
-        .summary strong { display: block; font-size: 1.04rem; margin-bottom: 6px; }
-        .summary span { color: var(--muted); font-size: 0.92rem; }
-        .section { padding: 26px; margin-top: 18px; }
-        h2 { font-size: 1.45rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .media-panel, .trust-item, .feature, .step-card, .metric {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+        .media-panel { box-shadow: var(--shadow); overflow: hidden; padding: 18px; display: grid; gap: 14px; }
+        .form-event { padding: 14px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); }
+        .form-event strong { display: block; margin-bottom: 8px; }
+        .form-event span { display: block; color: var(--muted); font-size: 0.92rem; }
+        .mail-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+        .mail-head { padding: 12px 14px; background: var(--blue-soft); color: var(--blue); font-weight: 900; }
+        .mail-body { padding: 14px; display: grid; gap: 9px; }
+        .mail-line { height: 10px; border-radius: 99px; background: #dfe7f3; }
+        .mail-line.short { width: 58%; }
+        .mail-status { display: inline-flex; width: fit-content; padding: 6px 9px; border-radius: 8px; background: var(--green-soft); color: var(--green); font-size: 0.78rem; font-weight: 900; }
+        .trust-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0 10px; }
+        .trust-item { padding: 16px; }
+        .trust-item strong { display: block; margin-bottom: 4px; }
+        .trust-item span { color: var(--muted); font-size: 0.92rem; }
+        .section { padding: 42px 0 8px; margin-top: 14px; }
+        h2 { font-size: 1.75rem; letter-spacing: 0; margin-bottom: 8px; }
         .lead { color: var(--muted); margin-bottom: 18px; max-width: 760px; }
         .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-        .feature { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        .feature, .step-card, .metric { padding: 18px; }
         .feature strong { display: block; margin-bottom: 8px; font-size: 1.02rem; }
         .feature p { color: var(--muted); font-size: 0.94rem; }
+        .step-card .number { display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; border-radius: 8px; background: var(--blue-soft); color: var(--blue); font-weight: 900; margin-bottom: 12px; }
+        .step-card strong, .metric strong { display: block; margin-bottom: 8px; }
+        .step-card p, .metric p { color: var(--muted); font-size: 0.94rem; }
+        .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .metric { background: var(--surface); }
         .steps { padding-left: 20px; display: grid; gap: 10px; }
         .steps li { color: var(--muted); }
-        .link-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-weight: 600; }
+        .link-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; font-weight: 700; }
+        .link-bar a { display: inline-flex; min-height: 38px; align-items: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
         .note {
             margin-top: 18px;
             padding: 16px 18px;
-            border-radius: 18px;
+            border-radius: 8px;
             background: var(--green-soft);
             border: 1px solid #cde8d6;
             color: #17633f;
@@ -126,7 +159,8 @@
         }
         .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
         @media (max-width: 900px) {
-            .hero, .grid { grid-template-columns: 1fr; }
+            .hero, .grid, .workflow-grid, .trust-strip, .comparison { grid-template-columns: 1fr; }
+            .nav a:first-child { width: 100%; margin-right: 0; }
             h1 { font-size: 2.1rem; }
         }
     </style>
@@ -155,11 +189,67 @@
                     <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
                 </div>
             </div>
-            <div class="summary">
-                <div class="panel"><strong>Install path</strong><span>Open the Google Workspace Marketplace listing, click Install, then launch FormNotifier from the Add-ons icon in the Google Forms editor.</span></div>
-                <div class="panel"><strong>Best fit</strong><span>Operational alerts, intake confirmation emails, team notifications, and forms where a quick human response matters.</span></div>
-                <div class="panel"><strong>Main controls</strong><span>Recipient lists, merge fields, subject and body templates, owner alerts, and respondent confirmations.</span></div>
-                <div class="panel"><strong>Where it runs</strong><span>Inside the Google Forms editor, where the notification behavior is configured close to the form itself.</span></div>
+            <div class="media-panel" aria-label="FormNotifier email workflow preview">
+                <div class="form-event">
+                    <strong>New Google Forms submission</strong>
+                    <span>Support request - Priority: High - Email: respondent@example.com</span>
+                </div>
+                <div class="mail-card">
+                    <div class="mail-head">Owner alert</div>
+                    <div class="mail-body">
+                        <div class="mail-line"></div>
+                        <div class="mail-line"></div>
+                        <div class="mail-line short"></div>
+                        <span class="mail-status">Sent to team inbox</span>
+                    </div>
+                </div>
+                <div class="mail-card">
+                    <div class="mail-head">Respondent confirmation</div>
+                    <div class="mail-body">
+                        <div class="mail-line"></div>
+                        <div class="mail-line short"></div>
+                        <span class="mail-status">Confirmation sent</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="trust-strip" aria-label="FormNotifier trust signals">
+            <div class="trust-item"><strong>Marketplace install</strong><span>Published for Google Workspace users.</span></div>
+            <div class="trust-item"><strong>One test send</strong><span>Verify owner and respondent email before launch.</span></div>
+            <div class="trust-item"><strong>Plain permissions</strong><span>Review why Forms and Gmail access are needed.</span></div>
+            <div class="trust-item"><strong>Recent result check</strong><span>Use the send report to confirm what happened.</span></div>
+        </section>
+        <section class="section">
+            <h2>From submission to useful email</h2>
+            <p class="lead">Configure the owner alert and respondent confirmation separately, run preflight, then send a small test before the form receives real responses.</p>
+            <div class="workflow-grid">
+                <div class="step-card">
+                    <span class="number">1</span>
+                    <strong>Choose the email path</strong>
+                    <p>Decide whether the workflow needs owner alerts, respondent confirmations, shared inbox copies, or all three.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">2</span>
+                    <strong>Write templates</strong>
+                    <p>Use short subject lines and selected form answers so each email gives the right context to the right reader.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">3</span>
+                    <strong>Run a test send</strong>
+                    <p>Submit the form with your own email and confirm the owner alert, respondent confirmation, and recent send report.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="comparison">
+                <div class="metric">
+                    <strong>Before FormNotifier</strong>
+                    <p>New submissions sit in the response sheet until someone remembers to check, and respondents are unsure whether the form was received.</p>
+                </div>
+                <div class="metric">
+                    <strong>After setup</strong>
+                    <p>Owners get actionable alerts, respondents get confirmations, and operators can inspect the latest send result before launch.</p>
+                </div>
             </div>
         </section>
         <section class="section">

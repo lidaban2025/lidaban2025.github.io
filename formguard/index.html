@@ -42,68 +42,71 @@
     </script>
     <style>
         :root {
-            --ink: #17263d;
-            --muted: #5a6a83;
+            --ink: #172033;
+            --muted: #5c6b80;
             --line: #d9e2ef;
-            --blue: #1463ff;
+            --blue: #1a5cff;
+            --blue-strong: #0f4fd8;
             --blue-soft: #eef4ff;
-            --green-soft: #ebf8ef;
-            --sand-soft: #fff7e8;
-            --shadow: 0 18px 45px rgba(23, 38, 61, 0.10);
+            --green: #138a43;
+            --green-soft: #eaf8ef;
+            --amber-soft: #fff6df;
+            --panel: #ffffff;
+            --surface: #f7faff;
+            --shadow: 0 14px 36px rgba(23, 32, 51, 0.10);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
             color: var(--ink);
-            background:
-                radial-gradient(circle at top right, #eff5ff 0, #eff5ff 22%, transparent 48%),
-                linear-gradient(180deg, #fbfdff 0%, #ffffff 54%);
+            background: linear-gradient(180deg, #f7faff 0%, #ffffff 48%);
             line-height: 1.65;
         }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 24px;
-            font-size: 0.94rem;
-        }
-        .hero,
-        .section,
-        .panel {
-            background: rgba(255, 255, 255, 0.92);
+        .shell { max-width: 1160px; margin: 0 auto; padding: 24px 20px 64px; }
+        .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 26px; font-size: 0.94rem; }
+        .nav a { color: var(--muted); font-weight: 600; }
+        .nav a:first-child { color: var(--ink); margin-right: auto; }
+        .nav a:last-child {
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 12px;
             border: 1px solid var(--line);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
+            border-radius: 8px;
+            background: #fff;
         }
         .hero {
             display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 18px;
-            padding: 30px;
-            margin-bottom: 18px;
+            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+            gap: 34px;
+            align-items: center;
+            padding: 20px 0 24px;
+            margin-bottom: 12px;
         }
         .eyebrow {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 7px 12px;
-            border-radius: 999px;
+            border-radius: 8px;
             background: var(--blue-soft);
             color: var(--blue);
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 16px;
         }
         h1 {
-            font-size: 2.55rem;
-            line-height: 1.06;
-            letter-spacing: -0.05em;
-            margin-bottom: 14px;
+            font-size: clamp(2.15rem, 5vw, 3.85rem);
+            line-height: 1.02;
+            letter-spacing: 0;
+            margin-bottom: 18px;
+            max-width: 14ch;
         }
         .hero p {
             color: var(--muted);
-            max-width: 640px;
+            max-width: 680px;
+            font-size: 1.08rem;
         }
         .hero-actions {
             display: flex;
@@ -117,36 +120,37 @@
             justify-content: center;
             min-height: 44px;
             padding: 0 18px;
-            border-radius: 999px;
+            border-radius: 8px;
             font-weight: 700;
             border: 1px solid transparent;
         }
-        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 10px 24px rgba(26, 92, 255, 0.22); }
+        .btn-primary:hover { background: var(--blue-strong); text-decoration: none; }
         .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-        .summary {
-            display: grid;
-            gap: 12px;
+        .media-panel, .trust-item, .feature, .step-card, .metric {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
         }
-        .summary .panel {
-            padding: 16px;
-        }
-        .summary strong {
-            display: block;
-            font-size: 1.04rem;
-            margin-bottom: 6px;
-        }
-        .summary span {
-            color: var(--muted);
-            font-size: 0.92rem;
-        }
-        .section {
-            padding: 26px;
-            margin-top: 18px;
-        }
+        .media-panel { box-shadow: var(--shadow); overflow: hidden; padding: 18px; display: grid; gap: 14px; }
+        .rule-card { padding: 16px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); }
+        .rule-card strong { display: block; margin-bottom: 10px; }
+        .rule-list { display: grid; gap: 8px; color: var(--muted); font-size: 0.92rem; }
+        .rule-list span { display: flex; justify-content: space-between; gap: 12px; padding: 8px 10px; border-radius: 8px; background: #fff; border: 1px solid var(--line); }
+        .rule-list b { color: var(--green); }
+        .closed-message { padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+        .closed-message strong { display: block; margin-bottom: 8px; }
+        .closed-message p { color: var(--muted); font-size: 0.94rem; }
+        .status-pill { display: inline-flex; width: fit-content; margin-top: 12px; padding: 6px 9px; border-radius: 8px; background: var(--green-soft); color: var(--green); font-size: 0.78rem; font-weight: 900; }
+        .trust-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0 10px; }
+        .trust-item { padding: 16px; }
+        .trust-item strong { display: block; margin-bottom: 4px; }
+        .trust-item span { color: var(--muted); font-size: 0.92rem; }
+        .section { padding: 42px 0 8px; margin-top: 14px; }
         h2 {
-            font-size: 1.45rem;
-            letter-spacing: -0.03em;
-            margin-bottom: 10px;
+            font-size: 1.75rem;
+            letter-spacing: 0;
+            margin-bottom: 8px;
         }
         .lead {
             color: var(--muted);
@@ -158,12 +162,8 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 14px;
         }
-        .feature {
-            padding: 18px;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            background: #fff;
-        }
+        .workflow-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        .feature, .step-card, .metric { padding: 18px; }
         .feature strong {
             display: block;
             margin-bottom: 8px;
@@ -173,6 +173,11 @@
             color: var(--muted);
             font-size: 0.94rem;
         }
+        .step-card .number { display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; border-radius: 8px; background: var(--blue-soft); color: var(--blue); font-weight: 900; margin-bottom: 12px; }
+        .step-card strong, .metric strong { display: block; margin-bottom: 8px; }
+        .step-card p, .metric p { color: var(--muted); font-size: 0.94rem; }
+        .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .metric { background: var(--surface); }
         .steps {
             padding-left: 20px;
             display: grid;
@@ -182,15 +187,16 @@
         .link-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 10px;
             margin-top: 14px;
-            font-weight: 600;
+            font-weight: 700;
         }
+        .link-bar a { display: inline-flex; min-height: 38px; align-items: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
         .note {
             margin-top: 18px;
             padding: 16px 18px;
-            border-radius: 18px;
-            background: var(--sand-soft);
+            border-radius: 8px;
+            background: var(--amber-soft);
             border: 1px solid #f0d7a4;
             color: #805300;
             font-size: 0.93rem;
@@ -202,9 +208,10 @@
             font-size: 0.9rem;
         }
         @media (max-width: 900px) {
-            .hero,
-            .grid { grid-template-columns: 1fr; }
+            .hero, .grid, .workflow-grid, .trust-strip, .comparison { grid-template-columns: 1fr; }
+            .nav a:first-child { width: 100%; margin-right: 0; }
             h1 { font-size: 2.1rem; }
+            .rule-list span { display: grid; }
         }
     </style>
 </head>
@@ -232,22 +239,61 @@
                     <a class="btn btn-secondary" href="privacy-policy.html">Review data handling</a>
                 </div>
             </div>
-            <div class="summary">
-                <div class="panel">
-                    <strong>Install path</strong>
-                    <span>Open the Google Workspace Marketplace listing, click Install, then launch FormGuard from the Add-ons icon in the Google Forms editor.</span>
+            <div class="media-panel" aria-label="FormGuard capacity rule preview">
+                <div class="rule-card">
+                    <strong>Capacity rule</strong>
+                    <div class="rule-list">
+                        <span>Response cap <b>100</b></span>
+                        <span>Deadline <b>Friday 5:00 PM</b></span>
+                        <span>Owner alert <b>Enabled</b></span>
+                    </div>
                 </div>
-                <div class="panel">
-                    <strong>Best fit</strong>
-                    <span>Registration forms, sign-up forms, internal request forms, and any workflow that must stop accepting responses at the right moment.</span>
+                <div class="closed-message">
+                    <strong>Closed-form message</strong>
+                    <p>This signup is now full. Please use the waitlist link or contact the organizer if you still need help.</p>
+                    <span class="status-pill">Form closed and owner notified</span>
                 </div>
-                <div class="panel">
-                    <strong>Main controls</strong>
-                    <span>Response caps, custom close messages, scheduled availability, email notifications, and answer choice elimination.</span>
+            </div>
+        </section>
+
+        <section class="trust-strip" aria-label="FormGuard trust signals">
+            <div class="trust-item"><strong>Marketplace install</strong><span>Published for Google Workspace users.</span></div>
+            <div class="trust-item"><strong>One-form first test</strong><span>Set a cap of 1 on a disposable form.</span></div>
+            <div class="trust-item"><strong>Plain permissions</strong><span>Review why Forms and email access are needed.</span></div>
+            <div class="trust-item"><strong>Clear boundaries</strong><span>Use buffers for high-speed signups.</span></div>
+        </section>
+
+        <section class="section">
+            <h2>From open form to controlled close</h2>
+            <p class="lead">Start with one simple rule: close a test form after one response, show the right message, and confirm the owner notification before using the same pattern on a live form.</p>
+            <div class="workflow-grid">
+                <div class="step-card">
+                    <span class="number">1</span>
+                    <strong>Choose the close condition</strong>
+                    <p>Use a response cap, scheduled deadline, choice quota, or the first condition that happens in a combined setup.</p>
                 </div>
-                <div class="panel">
-                    <strong>Where it runs</strong>
-                    <span>Inside the Google Forms editor sidebar, so the operator can manage rules without switching tools.</span>
+                <div class="step-card">
+                    <span class="number">2</span>
+                    <strong>Write the fallback message</strong>
+                    <p>Tell late visitors whether the form is full, closed, or accepting waitlist/contact requests.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">3</span>
+                    <strong>Run a disposable test</strong>
+                    <p>Submit once, reopen the public link, and confirm the form state, message, and owner alert.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="comparison">
+                <div class="metric">
+                    <strong>Before FormGuard</strong>
+                    <p>Operators watch response counts manually, close forms late, and explain overbooked signups after the fact.</p>
+                </div>
+                <div class="metric">
+                    <strong>After setup</strong>
+                    <p>The form follows the configured cap or schedule, shows a planned message, and alerts the owner when the rule triggers.</p>
                 </div>
             </div>
         </section>
