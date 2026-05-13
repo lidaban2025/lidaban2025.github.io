@@ -55,52 +55,70 @@
     </script>
     <style>
         :root {
-            --ink: #182740;
-            --muted: #5a6c87;
-            --line: #d9e3f0;
-            --blue: #1760ff;
+            --ink: #172033;
+            --muted: #5c6b80;
+            --line: #d9e2ef;
+            --blue: #1a5cff;
+            --blue-strong: #0f4fd8;
             --blue-soft: #eef4ff;
+            --green: #138a43;
             --green-soft: #eaf8ef;
-            --shadow: 0 18px 44px rgba(24, 39, 64, 0.10);
+            --amber-soft: #fff6df;
+            --panel: #ffffff;
+            --surface: #f7faff;
+            --shadow: 0 14px 36px rgba(23, 32, 51, 0.10);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
             color: var(--ink);
-            background:
-                radial-gradient(circle at top left, #eef5ff 0, #eef5ff 22%, transparent 46%),
-                linear-gradient(180deg, #fbfdff 0%, #ffffff 56%);
+            background: linear-gradient(180deg, #f7faff 0%, #ffffff 48%);
             line-height: 1.65;
         }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
-        .nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.94rem; }
-        .hero, .section, .panel {
-            background: rgba(255, 255, 255, 0.94);
+        .shell { max-width: 1160px; margin: 0 auto; padding: 24px 20px 64px; }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px 18px;
+            margin-bottom: 26px;
+            font-size: 0.94rem;
+        }
+        .nav a { color: var(--muted); font-weight: 600; }
+        .nav a:first-child { color: var(--ink); margin-right: auto; }
+        .nav a:last-child {
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 12px;
             border: 1px solid var(--line);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
+            border-radius: 8px;
+            background: #fff;
         }
         .hero {
             display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 18px;
-            padding: 30px;
-            margin-bottom: 18px;
+            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+            gap: 34px;
+            align-items: center;
+            padding: 20px 0 24px;
+            margin-bottom: 12px;
         }
         .eyebrow {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 7px 12px;
-            border-radius: 999px;
+            border-radius: 8px;
             background: var(--blue-soft);
             color: var(--blue);
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 16px;
         }
-        h1 { font-size: 2.55rem; line-height: 1.05; letter-spacing: -0.05em; margin-bottom: 14px; }
-        .hero p { color: var(--muted); max-width: 640px; }
+        h1 { font-size: clamp(2.15rem, 5vw, 4rem); line-height: 1.02; letter-spacing: 0; margin-bottom: 18px; max-width: 13ch; }
+        .hero p { color: var(--muted); max-width: 680px; font-size: 1.08rem; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
         .btn {
             display: inline-flex;
@@ -108,26 +126,121 @@
             justify-content: center;
             min-height: 44px;
             padding: 0 18px;
-            border-radius: 999px;
+            border-radius: 8px;
             font-weight: 700;
             border: 1px solid transparent;
         }
-        .btn-primary { background: var(--blue); color: #fff; }
+        .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 10px 24px rgba(26, 92, 255, 0.22); }
+        .btn-primary:hover { background: var(--blue-strong); text-decoration: none; }
         .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-        .summary { display: grid; gap: 12px; }
-        .summary .panel { padding: 16px; }
-        .summary strong { display: block; font-size: 1.04rem; margin-bottom: 6px; }
-        .summary span { color: var(--muted); font-size: 0.92rem; }
-        .section { padding: 26px; margin-top: 18px; }
-        h2 { font-size: 1.45rem; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .media-panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .product-shot {
+            display: block;
+            position: relative;
+            background: #0f172a;
+            color: #fff;
+        }
+        .product-shot img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; opacity: 0.88; }
+        .play-badge {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 42px;
+            padding: 0 14px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.94);
+            color: var(--ink);
+            font-weight: 800;
+        }
+        .sheet-preview {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 18px;
+            background: #fff;
+        }
+        .sheet-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 0.72fr;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.86rem;
+        }
+        .sheet-row span {
+            padding: 10px;
+            border-right: 1px solid var(--line);
+            color: var(--muted);
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .sheet-row span:last-child { border-right: 0; color: var(--green); font-weight: 800; background: var(--green-soft); }
+        .trust-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            margin: 18px 0 10px;
+        }
+        .trust-item, .feature, .step-card, .metric, .panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+        .trust-item { padding: 16px; }
+        .trust-item strong { display: block; margin-bottom: 4px; }
+        .trust-item span { color: var(--muted); font-size: 0.92rem; }
+        .section { padding: 42px 0 8px; margin-top: 14px; }
+        .section-header { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+        h2 { font-size: 1.75rem; letter-spacing: 0; margin-bottom: 8px; }
         .lead { color: var(--muted); margin-bottom: 18px; max-width: 760px; }
         .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-        .feature { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        .feature, .step-card, .metric { padding: 18px; }
         .feature strong { display: block; margin-bottom: 8px; font-size: 1.02rem; }
         .feature p { color: var(--muted); font-size: 0.94rem; }
+        .step-card .number {
+            display: inline-flex;
+            width: 34px;
+            height: 34px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        .step-card strong { display: block; margin-bottom: 8px; }
+        .step-card p { color: var(--muted); font-size: 0.94rem; }
         .steps { padding-left: 20px; display: grid; gap: 10px; }
         .steps li { color: var(--muted); }
-        .link-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-weight: 600; }
+        .link-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; font-weight: 700; }
+        .link-bar a {
+            display: inline-flex;
+            min-height: 38px;
+            align-items: center;
+            padding: 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .metric { background: var(--surface); }
+        .metric strong { display: block; margin-bottom: 8px; }
+        .metric p { color: var(--muted); }
         .video-frame {
             position: relative;
             width: 100%;
@@ -148,7 +261,7 @@
         .note {
             margin-top: 18px;
             padding: 16px 18px;
-            border-radius: 18px;
+            border-radius: 8px;
             background: var(--green-soft);
             border: 1px solid #cde8d6;
             color: #17633f;
@@ -156,8 +269,12 @@
         }
         .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
         @media (max-width: 900px) {
-            .hero, .grid { grid-template-columns: 1fr; }
+            .hero, .grid, .workflow-grid, .trust-strip, .comparison { grid-template-columns: 1fr; }
+            .nav a:first-child { width: 100%; margin-right: 0; }
             h1 { font-size: 2.1rem; }
+            .sheet-preview { padding: 14px; }
+            .sheet-row { grid-template-columns: 0.72fr 1.16fr 0.54fr; font-size: 0.78rem; }
+            .sheet-row span { padding: 8px; }
         }
     </style>
 </head>
@@ -184,14 +301,65 @@
                     <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
                 </div>
             </div>
-            <div class="summary">
-                <div class="panel"><strong>Best fit</strong><span>Scoring sheets, enrichment workflows, lookup-heavy response tabs, and sheets where row 2 already contains the logic you want to preserve.</span></div>
-                <div class="panel"><strong>Main controls</strong><span>Formula copy-down, format propagation, row reference adjustment, and backfill for rows that already arrived before setup.</span></div>
-                <div class="panel"><strong>Where it runs</strong><span>Inside the Google Sheets file receiving form responses, so the calculation layer stays next to the raw data.</span></div>
-                <div class="panel"><strong>Install path</strong><span>Published on Google Workspace Marketplace as FormCopy Pro - Formulas for Google Sheets.</span></div>
+            <div class="media-panel">
+                <a class="product-shot" href="#demo" aria-label="Watch the FormCopy formula copy-down demo">
+                    <img src="https://i.ytimg.com/vi/CNjFgdFl52M/hqdefault.jpg" alt="FormCopy Pro demo showing formulas copied into a new Google Forms response row" loading="eager">
+                    <span class="play-badge">Watch 43s demo</span>
+                </a>
+                <div class="sheet-preview" aria-label="Formula copy-down preview">
+                    <div class="sheet-row"><span>Timestamp</span><span>Score formula</span><span>Status</span></div>
+                    <div class="sheet-row"><span>New response</span><span>=IF(E2&gt;80,"Pass","Review")</span><span>Done</span></div>
+                </div>
             </div>
         </section>
+
+        <section class="trust-strip" aria-label="FormCopy trust signals">
+            <div class="trust-item"><strong>Marketplace install</strong><span>Published for Google Workspace users.</span></div>
+            <div class="trust-item"><strong>First test in one row</strong><span>Use row 2 as the model and verify a sample response.</span></div>
+            <div class="trust-item"><strong>Plain permissions</strong><span>Review exactly why Sheets access is needed.</span></div>
+            <div class="trust-item"><strong>Launch-mode path</strong><span>Install and test before any commercial conversation.</span></div>
+        </section>
+
         <section class="section">
+            <div class="section-header">
+                <div>
+                    <h2>From raw responses to ready rows</h2>
+                    <p class="lead">Use one model row to define the formula pattern, then verify the workflow with a single sample response before relying on it for a live form.</p>
+                </div>
+            </div>
+            <div class="workflow-grid">
+                <div class="step-card">
+                    <span class="number">1</span>
+                    <strong>Prepare a model row</strong>
+                    <p>Keep the formula, format, lookup, or helper-column logic in the row you want new responses to inherit.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">2</span>
+                    <strong>Run FormCopy</strong>
+                    <p>Enable the copy workflow from the Google Sheets sidebar and confirm the detected formula pattern.</p>
+                </div>
+                <div class="step-card">
+                    <span class="number">3</span>
+                    <strong>Test one response</strong>
+                    <p>Submit one sample form response and check that only the expected row receives the copied logic.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="comparison">
+                <div class="metric">
+                    <strong>Before FormCopy</strong>
+                    <p>Operators drag formulas down, rebuild formats, and repair references after new Google Forms rows arrive.</p>
+                </div>
+                <div class="metric">
+                    <strong>After setup</strong>
+                    <p>New response rows inherit the prepared model logic, so scoring, status, and helper columns stay usable.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="demo">
             <h2>Watch the formula copy-down demo</h2>
             <p class="lead">This short demo shows the path from a model formula row to a new Google Forms response row that keeps formulas and formatting in place.</p>
             <div class="video-frame">
