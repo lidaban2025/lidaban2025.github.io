@@ -28,33 +28,48 @@
         }
     </script>
     <style>
-        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --amber-soft:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --amber-soft:#fff7e8; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
         * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 52%); line-height:1.68; }
         a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-        .hero { padding:30px; margin-bottom:18px; }
-        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.45rem; line-height:1.1; letter-spacing:-.05em; margin-bottom:14px; max-width:18ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
+        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
+        .nav a { color:var(--muted); font-weight:600; }
+        .nav a:first-child { color:var(--ink); margin-right:auto; }
+        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,.82fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
+        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
+        h1 { font-size:clamp(2.1rem,5vw,3.7rem); line-height:1.02; letter-spacing:0; margin-bottom:18px; max-width:13ch; }
+        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
         .hero p,.section p,.section li { color:var(--muted); }
+        .hero p { font-size:1.08rem; }
         .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:26px; margin-top:18px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); } .btn-primary:hover { background:var(--blue-strong); text-decoration:none; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:42px 0 8px; margin-top:14px; }
         .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
         .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
         .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
+        .rule-card { padding:16px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+        .rule-card strong { display:block; margin-bottom:10px; }
+        .rule-card span { display:flex; justify-content:space-between; gap:12px; padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--muted); margin-top:8px; }
+        .rule-card b { color:var(--green); }
+        .message-preview { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+        .message-preview strong { display:block; margin-bottom:8px; }
+        .status-pill { display:inline-flex; width:fit-content; margin-top:12px; padding:6px 9px; border-radius:8px; background:var(--green-soft); color:var(--green); font-size:.78rem; font-weight:900; }
+        .trust-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0 10px; }
+        .trust-item strong,.step-card strong { display:block; margin-bottom:6px; }
+        .trust-item span,.step-card p { color:var(--muted); font-size:.92rem; }
+        .workflow-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+        .step-card .number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-weight:900; margin-bottom:12px; }
         .steps { padding-left:20px; display:grid; gap:10px; }
-        .template { margin-top:12px; padding:16px 18px; border-radius:18px; background:var(--amber-soft); border:1px solid #efd49b; color:#6f4a12; }
+        .template { margin-top:12px; padding:16px 18px; border-radius:8px; background:var(--amber-soft); border:1px solid #efd49b; color:#6f4a12; }
         .template code { display:block; white-space:pre-wrap; font-family:Consolas,"Courier New",monospace; font-size:.92rem; line-height:1.55; color:#4c3211; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #cde8d6; background:var(--green-soft); color:#17633f; font-size:.93rem; }
-        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #edd8a7; background:var(--amber-soft); color:#7d5a00; font-size:.93rem; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:8px; border:1px solid #cde8d6; background:var(--green-soft); color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:8px; border:1px solid #edd8a7; background:var(--amber-soft); color:#7d5a00; font-size:.93rem; }
         .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.05rem; max-width:none; } }
+        @media (max-width:900px) { .hero,.grid,.trust-strip,.workflow-grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.05rem; max-width:none; } .rule-card span { display:grid; } }
     </style>
 </head>
 <body>
@@ -67,12 +82,41 @@
             <a href="./support.html">Support</a>
         </nav>
         <section class="hero">
-            <div class="eyebrow">Capacity control</div>
-            <h1>Google Forms stop responses when full</h1>
-            <p>When a signup, RSVP, workshop, or class form is full, the form should stop accepting new responses and show a message that tells late visitors what to do next.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-                <a class="btn btn-secondary" href="./google-forms-event-registration-full-message.html">Write the full message</a>
+            <div>
+                <div class="eyebrow">Capacity control</div>
+                <h1>Google Forms stop responses when full</h1>
+                <p>When a signup, RSVP, workshop, or class form is full, the form should stop accepting new responses and show a message that tells late visitors what to do next.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+                    <a class="btn btn-secondary" href="./google-forms-event-registration-full-message.html">Write the full message</a>
+                </div>
+            </div>
+            <div class="visual-panel" aria-label="Stop when full setup preview">
+                <div class="rule-card">
+                    <strong>Close rule</strong>
+                    <span>Capacity <b>100 responses</b></span>
+                    <span>Fallback <b>Waitlist link</b></span>
+                    <span>Owner alert <b>Enabled</b></span>
+                </div>
+                <div class="message-preview">
+                    <strong>Visitor sees after capacity</strong>
+                    <p>This form is now full. Please use the waitlist link or contact the organizer if you still need help.</p>
+                    <span class="status-pill">Closed and owner notified</span>
+                </div>
+            </div>
+        </section>
+        <section class="trust-strip" aria-label="Stop when full trust signals">
+            <div class="trust-item"><strong>Quick answer</strong><span>Use a cap, message, fallback path, and owner alert.</span></div>
+            <div class="trust-item"><strong>First test</strong><span>Set the cap to 1 on a disposable form.</span></div>
+            <div class="trust-item"><strong>Best link to share</strong><span>This guide fits signup and RSVP capacity questions.</span></div>
+            <div class="trust-item"><strong>Boundary</strong><span>Use buffers for high-speed signups.</span></div>
+        </section>
+        <section class="section">
+            <h2>Three-part setup</h2>
+            <div class="workflow-grid">
+                <div class="step-card"><span class="number">1</span><strong>Set the capacity</strong><p>Choose the response cap that should close the form or stop the main registration path.</p></div>
+                <div class="step-card"><span class="number">2</span><strong>Write the closed message</strong><p>Tell late visitors whether registration is full, closed, or moved to a waitlist.</p></div>
+                <div class="step-card"><span class="number">3</span><strong>Notify the owner</strong><p>Make the form operator aware when capacity triggers so shared links and event pages can be updated.</p></div>
             </div>
         </section>
         <section class="section">

@@ -28,32 +28,49 @@
         }
     </script>
     <style>
-        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
         * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 52%); line-height:1.68; }
         a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-        .hero { padding:30px; margin-bottom:18px; }
-        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:14ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
+        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
+        .nav a { color:var(--muted); font-weight:600; }
+        .nav a:first-child { color:var(--ink); margin-right:auto; }
+        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,.82fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
+        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
+        h1 { font-size:clamp(2.1rem,5vw,3.7rem); line-height:1.02; letter-spacing:0; margin-bottom:18px; max-width:13ch; }
+        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
         .hero p,.section p,.section li { color:var(--muted); }
+        .hero p { font-size:1.08rem; }
         .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:26px; margin-top:18px; }
+        .link-bar a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font-weight:700; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); } .btn-primary:hover { background:var(--blue-strong); text-decoration:none; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:42px 0 8px; margin-top:14px; }
         .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
         .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
         .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
+        .form-event { padding:14px; border-radius:8px; background:var(--surface); border:1px solid var(--line); }
+        .form-event strong { display:block; margin-bottom:8px; }
+        .mail-card { border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; }
+        .mail-head { padding:12px 14px; background:var(--blue-soft); color:var(--blue); font-weight:900; }
+        .mail-body { padding:14px; display:grid; gap:9px; }
+        .mail-line { height:10px; border-radius:99px; background:#dfe7f3; }
+        .mail-line.short { width:58%; }
+        .status-pill { display:inline-flex; width:fit-content; margin-top:4px; padding:6px 9px; border-radius:8px; background:var(--green-soft); color:var(--green); font-size:.78rem; font-weight:900; }
+        .trust-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0 10px; }
+        .trust-item strong,.step-card strong { display:block; margin-bottom:6px; }
+        .trust-item span,.step-card p { color:var(--muted); font-size:.92rem; }
+        .workflow-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+        .step-card .number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-weight:900; margin-bottom:12px; }
         .steps { padding-left:20px; display:grid; gap:10px; }
-        .note,.install-panel { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .note,.install-panel { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
         .install-panel strong { display:block; color:var(--ink); font-size:1.05rem; margin-bottom:6px; }
         .install-panel p { color:#17633f; margin-bottom:12px; }
         .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+        @media (max-width:900px) { .hero,.grid,.trust-strip,.workflow-grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.1rem; max-width:none; } }
     </style>
 </head>
 <body>
@@ -66,12 +83,43 @@
             <a href="./google-forms-email-notifications-guide.html">Workflow guide</a>
         </nav>
         <section class="hero">
-            <div class="eyebrow">Respondent confirmation</div>
-            <h1>How to send a confirmation email after a Google Form submit</h1>
-            <p>A confirmation email is one of the simplest ways to reduce uncertainty after someone submits a Google Form. FormNotifier lets you send that message directly from the Google Forms editor, using collected email or a specific email field plus merge values from the response itself.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier free</a>
-                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+            <div>
+                <div class="eyebrow">Respondent confirmation</div>
+                <h1>How to send a confirmation email after a Google Form submit</h1>
+                <p>A confirmation email is one of the simplest ways to reduce uncertainty after someone submits a Google Form. FormNotifier lets you send that message directly from the Google Forms editor, using collected email or a specific email field plus merge values from the response itself.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier free</a>
+                    <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                </div>
+            </div>
+            <div class="visual-panel" aria-label="Confirmation email workflow preview">
+                <div class="form-event">
+                    <strong>Google Forms submission</strong>
+                    <p>Email field found: respondent@example.com</p>
+                </div>
+                <div class="mail-card">
+                    <div class="mail-head">Respondent confirmation</div>
+                    <div class="mail-body">
+                        <div class="mail-line"></div>
+                        <div class="mail-line"></div>
+                        <div class="mail-line short"></div>
+                        <span class="status-pill">Test confirmation sent</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="trust-strip" aria-label="Confirmation email trust signals">
+            <div class="trust-item"><strong>Quick answer</strong><span>Use collected email or a required email field.</span></div>
+            <div class="trust-item"><strong>First test</strong><span>Submit with your own inbox before launch.</span></div>
+            <div class="trust-item"><strong>Best link to share</strong><span>This guide fits respondent confirmation questions.</span></div>
+            <div class="trust-item"><strong>Recent report</strong><span>Check the sidebar result after test send.</span></div>
+        </section>
+        <section class="section">
+            <h2>Three-part setup</h2>
+            <div class="workflow-grid">
+                <div class="step-card"><span class="number">1</span><strong>Choose email source</strong><p>Use collected email when available, or choose the required email question on the form.</p></div>
+                <div class="step-card"><span class="number">2</span><strong>Write a short template</strong><p>Confirm receipt, set expectations, and include only the useful response context.</p></div>
+                <div class="step-card"><span class="number">3</span><strong>Send one test</strong><p>Submit the form yourself and inspect the inbox result before sharing the public form.</p></div>
             </div>
         </section>
         <section class="section">
@@ -88,7 +136,7 @@
             <div class="grid">
                 <div class="feature"><strong>Applications and requests</strong><p>Confirm that an intake form was received and tell the respondent what happens next.</p></div>
                 <div class="feature"><strong>Registrations and RSVPs</strong><p>Echo the key context back to the attendee so they know the right form was submitted.</p></div>
-                <div class="feature"><strong>Support and service intake</strong><p>Reduce repeat submissions by sending a short â€œwe got itâ€?message immediately.</p></div>
+                <div class="feature"><strong>Support and service intake</strong><p>Reduce repeat submissions by sending a short "we got it" message immediately.</p></div>
                 <div class="feature"><strong>Internal workflows</strong><p>Use the same form for staff processes while still giving the submitter a consistent response.</p></div>
             </div>
         </section>
