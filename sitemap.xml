@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-sheets-document-generation-guide.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-docs-template-merge-from-google-sheets.html</loc>
@@ -46,7 +46,11 @@
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-sheets-rows-to-pdf.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/docforge/google-sheets-rows-to-printable-documents.html</loc>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/certificate-generator-from-google-sheets.html</loc>
@@ -190,7 +194,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/google-forms-rsvp-deadline-capacity-limit.html</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/google-forms-rsvp-limit-seats.html</loc>
