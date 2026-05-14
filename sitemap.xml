@@ -6,11 +6,11 @@
   </url>
   <url>
     <loc>https://formsuite.dev/install.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/choose-google-workspace-addon.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/</loc>
@@ -78,19 +78,19 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-guide.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/copy-formulas-to-new-google-forms-responses.html</loc>
-    <lastmod>2026-05-09</lastmod>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/automatically-copy-formulas-when-google-form-is-submitted.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/calculated-columns-google-forms-response-sheet.html</loc>
-    <lastmod>2026-05-09</lastmod>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-scoring-formulas.html</loc>
@@ -98,7 +98,11 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-not-copying.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-skipping-rows.html</loc>
+    <lastmod>2026-05-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/support.html</loc>
