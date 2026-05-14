@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormSuite | Google Workspace add-ons for Forms and Sheets</title>
-  <meta name="description" content="Choose and install FormSuite Google Workspace add-ons for Google Forms limits, notifications, response-sheet formulas, email merge, and document generation.">
+  <meta name="description" content="FormSuite helps Google Forms and Sheets users close forms, send confirmations, copy response formulas, run mail merge, and generate Docs/PDFs with focused Workspace Marketplace add-ons.">
   <link rel="canonical" href="https://formsuite.dev/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="FormSuite | Google Workspace add-ons for Forms and Sheets">
-  <meta property="og:description" content="Find the right FormSuite add-on for Google Forms and Google Sheets workflows.">
+  <meta property="og:description" content="Install focused Google Workspace Marketplace add-ons for Forms, Sheets, emails, and documents.">
   <meta property="og:url" content="https://formsuite.dev/">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta property="og:image:alt" content="FormSuite add-ons for Google Workspace workflows">
@@ -42,7 +42,7 @@
         },
         {
           "@type": "ItemList",
-          "name": "FormSuite add-on catalog",
+          "name": "FormSuite add-ons",
           "itemListElement": [
             { "@type": "SoftwareApplication", "position": 1, "name": "FormGuard", "url": "https://formsuite.dev/formguard/" },
             { "@type": "SoftwareApplication", "position": 2, "name": "FormNotifier", "url": "https://formsuite.dev/formnotifier/" },
@@ -58,73 +58,94 @@
   </script>
   <style>
     :root {
-      --ink: #142033;
-      --muted: #5c6a7d;
-      --soft: #f6f8fb;
+      --ink: #172033;
+      --muted: #5d6b80;
+      --paper: #fbfcfe;
       --panel: #ffffff;
-      --line: #dbe3ee;
-      --blue: #165dff;
-      --blue-soft: #eef4ff;
-      --green: #147647;
-      --green-soft: #eaf7ef;
-      --amber: #9a5a00;
-      --amber-soft: #fff5df;
-      --red: #b42318;
-      --red-soft: #fff1f0;
-      --shadow: 0 12px 32px rgba(20, 32, 51, 0.08);
+      --soft: #f4f7fb;
+      --line: #d8e1ec;
+      --blue: #185abc;
+      --blue-soft: #eaf1ff;
+      --green: #137333;
+      --green-soft: #e9f6ee;
+      --teal: #0f766e;
+      --teal-soft: #e6f5f3;
+      --amber: #a75d00;
+      --amber-soft: #fff4dc;
+      --rose: #b42318;
+      --rose-soft: #fff0ee;
+      --shadow: 0 16px 36px rgba(23, 32, 51, 0.09);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--ink);
-      background: #fbfcfe;
-      line-height: 1.55;
+      background: var(--paper);
+      line-height: 1.52;
     }
+
+    img { max-width: 100%; display: block; }
     a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .shell { max-width: 1180px; margin: 0 auto; padding: 24px 20px 64px; }
+
+    .shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 20px 54px;
+    }
+
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 22px;
+      margin-bottom: 38px;
     }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.28rem; color: var(--ink); }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-size: 1.22rem;
+      font-weight: 850;
+    }
+
+    .brand:hover { text-decoration: none; }
+
     .brand-mark {
       width: 34px;
       height: 34px;
       border-radius: 8px;
       display: grid;
       place-items: center;
-      background: var(--ink);
       color: #fff;
-      font-size: 0.9rem;
+      background: var(--ink);
+      font-size: 0.88rem;
       letter-spacing: 0;
     }
-    .nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; font-size: 0.94rem; }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 16px;
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-      gap: 18px;
-      align-items: stretch;
-      margin-bottom: 18px;
+      grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
+      gap: 34px;
+      align-items: center;
+      min-height: 520px;
+      margin-bottom: 26px;
     }
-    .hero-copy,
-    .workflow-board,
-    .section,
-    .product-card,
-    .metric,
-    .quick-card,
-    .status-row,
-    .note-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-    .hero-copy { padding: 34px; display: grid; align-content: center; }
+
     .eyebrow {
       display: inline-flex;
       width: fit-content;
@@ -132,219 +153,377 @@
       gap: 8px;
       padding: 6px 10px;
       border-radius: 999px;
-      background: var(--blue-soft);
       color: var(--blue);
+      background: var(--blue-soft);
       font-size: 0.78rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-size: clamp(2.15rem, 6vw, 4.1rem);
-      line-height: 0.98;
-      letter-spacing: 0;
-      max-width: 12ch;
+      font-weight: 850;
       margin-bottom: 18px;
     }
-    .hero-copy p { color: var(--muted); max-width: 720px; font-size: 1.05rem; }
+
+    h1 {
+      max-width: 13ch;
+      font-size: clamp(2.7rem, 7vw, 5.25rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+      margin-bottom: 20px;
+    }
+
+    .hero-copy p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
     .hero-actions,
-    .link-row,
-    .filter-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .hero-actions { margin-top: 22px; }
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-actions { margin-top: 24px; }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 42px;
       padding: 0 15px;
-      border-radius: 8px;
       border: 1px solid var(--line);
-      background: #fff;
+      border-radius: 8px;
       color: var(--ink);
-      font-weight: 750;
+      background: #fff;
       font-size: 0.94rem;
+      font-weight: 780;
       white-space: nowrap;
     }
-    .btn:hover { text-decoration: none; border-color: #b9c7da; }
-    .btn-primary { border-color: var(--blue); background: var(--blue); color: #fff; }
-    .btn-ghost { background: var(--soft); }
-    .workflow-board { padding: 18px; display: grid; gap: 10px; }
-    .board-title { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 2px; }
-    .board-title strong { font-size: 1.02rem; }
-    .board-title span { color: var(--muted); font-size: 0.86rem; }
-    .quick-card {
-      box-shadow: none;
-      padding: 14px;
-      display: grid;
-      grid-template-columns: 42px minmax(0, 1fr) auto;
-      gap: 12px;
-      align-items: center;
+
+    .btn:hover {
+      border-color: #b7c4d7;
+      text-decoration: none;
     }
-    .quick-icon,
-    .product-icon {
+
+    .btn-primary {
+      color: #fff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .btn-soft { background: var(--soft); }
+
+    .hero-media {
+      display: grid;
+      grid-template-columns: minmax(0, 1.16fr) minmax(168px, 0.84fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .preview,
+    .mini-preview,
+    .addon-card,
+    .pilot-item {
+      border: 1px solid var(--line);
       border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .preview {
+      min-height: 432px;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .preview img,
+    .mini-preview img,
+    .addon-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      background: var(--soft);
+    }
+
+    .preview-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .preview-label span {
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .mini-stack {
+      display: grid;
+      gap: 14px;
+      grid-template-rows: repeat(2, minmax(0, 1fr)) auto;
+    }
+
+    .mini-preview {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      min-height: 170px;
+      box-shadow: none;
+    }
+
+    .mini-preview strong {
+      padding: 10px;
+      border-top: 1px solid var(--line);
+      font-size: 0.88rem;
+      line-height: 1.2;
+      background: #fff;
+    }
+
+    .workflow-tags {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .workflow-tags span {
+      min-height: 38px;
       display: grid;
       place-items: center;
-      font-weight: 850;
-      letter-spacing: 0;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 830;
       color: var(--ink);
-      background: var(--blue-soft);
-      border: 1px solid #cfe0ff;
+      border: 1px solid transparent;
     }
-    .quick-icon { width: 42px; height: 42px; font-size: 0.78rem; }
-    .quick-card h2 { font-size: 1rem; margin-bottom: 2px; }
-    .quick-card p { color: var(--muted); font-size: 0.9rem; }
-    .quick-card a { font-weight: 750; font-size: 0.9rem; }
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 18px;
+
+    .tag-blue { background: var(--blue-soft); border-color: #cbdcff; }
+    .tag-teal { background: var(--teal-soft); border-color: #bde3df; }
+    .tag-amber { background: var(--amber-soft); border-color: #f4d28d; }
+    .tag-rose { background: var(--rose-soft); border-color: #ffc7c1; }
+
+    .section {
+      margin-top: 34px;
+      padding-top: 8px;
     }
-    .metric { padding: 16px; box-shadow: none; }
-    .metric strong { display: block; font-size: 1.55rem; line-height: 1; margin-bottom: 6px; }
-    .metric span { display: block; color: var(--muted); font-size: 0.9rem; }
-    .section { padding: 26px; margin-top: 18px; }
+
     .section-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-    .section-head h2,
-    .section h2 { font-size: 1.52rem; line-height: 1.12; letter-spacing: 0; }
-    .lead { color: var(--muted); max-width: 760px; }
-    .catalog-tools {
-      display: grid;
-      grid-template-columns: minmax(260px, 1fr) minmax(0, 1.4fr);
-      gap: 12px;
+      gap: 16px;
       margin-bottom: 16px;
     }
-    .search {
-      min-height: 44px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 0 14px;
-      font: inherit;
-      color: var(--ink);
-      background: #fff;
+
+    .section-head h2 {
+      font-size: clamp(1.75rem, 3vw, 2.4rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+      margin-bottom: 7px;
     }
-    .chip {
-      min-height: 36px;
-      padding: 0 12px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--ink);
-      font: inherit;
-      font-weight: 700;
-      cursor: pointer;
+
+    .section-head p {
+      max-width: 620px;
+      color: var(--muted);
     }
-    .chip[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .product-grid {
+
+    .addon-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 14px;
     }
-    .product-card {
+
+    .addon-card {
       box-shadow: none;
-      padding: 18px;
       display: grid;
-      grid-template-rows: auto auto auto 1fr auto;
-      gap: 12px;
-      min-height: 388px;
+      grid-template-rows: 140px minmax(0, 1fr) auto;
+      min-height: 376px;
     }
-    .product-top {
+
+    .addon-body {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .addon-title {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
-    .product-name { display: flex; align-items: center; gap: 10px; min-width: 0; }
-    .product-icon { width: 44px; height: 44px; flex: 0 0 44px; font-size: 0.76rem; }
-    .product-card h3 { font-size: 1.1rem; line-height: 1.2; }
-    .product-shot {
-      display: block;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      object-fit: cover;
-      object-position: top left;
+
+    .addon-title h3 {
+      font-size: 1.02rem;
+      line-height: 1.16;
     }
-    .product-shot.placeholder {
-      display: grid;
-      place-items: center;
-      padding: 16px;
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-align: center;
-    }
-    .badge {
+
+    .pill {
       display: inline-flex;
       align-items: center;
-      width: fit-content;
-      padding: 5px 8px;
+      justify-content: center;
+      min-height: 24px;
+      padding: 0 8px;
       border-radius: 999px;
+      color: var(--green);
+      background: var(--green-soft);
       font-size: 0.72rem;
-      font-weight: 800;
+      font-weight: 850;
       white-space: nowrap;
     }
-    .badge-live { background: var(--green-soft); color: var(--green); }
-    .badge-fit { background: var(--amber-soft); color: var(--amber); }
-    .product-card p { color: var(--muted); font-size: 0.94rem; }
-    .mini-grid { display: grid; gap: 8px; }
-    .mini-line {
-      display: grid;
-      grid-template-columns: 76px minmax(0, 1fr);
-      gap: 8px;
-      font-size: 0.88rem;
+
+    .addon-card p {
       color: var(--muted);
-    }
-    .mini-line strong { color: var(--ink); }
-    .link-row { align-items: center; font-size: 0.9rem; font-weight: 720; }
-    .status-list { display: grid; gap: 10px; }
-    .status-row {
-      box-shadow: none;
-      padding: 13px 14px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.9fr 0.75fr 0.75fr;
-      gap: 12px;
-      align-items: center;
       font-size: 0.92rem;
     }
-    .status-row.header { background: var(--soft); color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 800; }
-    .review-zero { color: var(--red); font-weight: 800; }
-    .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
-    .note-card { box-shadow: none; padding: 18px; display: grid; gap: 10px; }
-    .note-card h3 { font-size: 1.05rem; }
-    .note-card p { color: var(--muted); }
-    .footer { color: var(--muted); text-align: center; margin-top: 26px; font-size: 0.9rem; }
-    [hidden] { display: none !important; }
-    @media (max-width: 1040px) {
-      .hero,
-      .catalog-tools,
-      .two-col { grid-template-columns: 1fr; }
-      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .job {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 28px;
+      align-items: center;
+      padding: 0 9px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--soft);
+      font-size: 0.78rem;
+      font-weight: 800;
     }
-    @media (max-width: 720px) {
-      .shell { padding: 18px 14px 48px; }
-      .topbar { align-items: flex-start; flex-direction: column; }
+
+    .link-row {
+      padding: 0 14px 14px;
+      font-size: 0.92rem;
+      font-weight: 780;
+    }
+
+    .link-row a:first-child {
+      color: #fff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .link-row a {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .link-row a:hover { text-decoration: none; }
+
+    .pilot-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .pilot-band h2 {
+      font-size: 1.45rem;
+      line-height: 1.12;
+      margin-bottom: 8px;
+    }
+
+    .pilot-band p {
+      color: var(--muted);
+    }
+
+    .pilot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .pilot-item {
+      box-shadow: none;
+      padding: 15px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .pilot-item strong {
+      font-size: 1rem;
+    }
+
+    .pilot-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .pilot-item a {
+      width: fit-content;
+      font-weight: 800;
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1120px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .hero-media {
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 0.6fr);
+      }
+
+      .addon-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      .shell { padding: 18px 14px 46px; }
+      .topbar { align-items: flex-start; flex-direction: column; margin-bottom: 28px; }
       .nav { justify-content: flex-start; }
-      .hero-copy,
-      .section { padding: 20px; }
-      .workflow-board { padding: 14px; }
-      .quick-card { grid-template-columns: 38px minmax(0, 1fr); }
-      .quick-card > a { grid-column: 2; }
-      .product-grid,
-      .metrics { grid-template-columns: 1fr; }
-      .section-head { align-items: start; flex-direction: column; }
-      .status-row { grid-template-columns: 1fr; gap: 4px; }
-      .status-row.header { display: none; }
-      .btn { width: 100%; white-space: normal; text-align: center; }
+      .hero { gap: 24px; }
+      .hero-media,
+      .pilot-band { grid-template-columns: 1fr; }
+      .preview { min-height: 300px; }
+      .mini-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; }
+      .workflow-tags { grid-column: 1 / -1; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .addon-grid,
+      .pilot-grid { grid-template-columns: 1fr; }
+      .addon-card { grid-template-rows: 190px minmax(0, 1fr) auto; min-height: 0; }
+      .footer { flex-direction: column; }
+    }
+
+    @media (max-width: 540px) {
+      .hero-actions .btn,
+      .section-head .btn {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+
+      .mini-stack { grid-template-columns: 1fr; }
+      .mini-preview { display: none; }
+      .workflow-tags { grid-template-columns: 1fr 1fr; }
+      .preview { min-height: 250px; }
+      .addon-card { grid-template-rows: 150px minmax(0, 1fr) auto; }
     }
   </style>
 </head>
@@ -356,12 +535,10 @@
         <span>FormSuite</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="#catalog">Catalog</a>
+        <a href="#catalog">Add-ons</a>
         <a href="choose-google-workspace-addon.html">Chooser</a>
         <a href="install.html">Install</a>
         <a href="resources/index.html">Guides</a>
-        <a href="#status">Status</a>
-        <a href="#reviews">Reviews</a>
         <a href="mailto:lidaban2025@gmail.com">Support</a>
       </nav>
     </header>
@@ -369,275 +546,161 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow">Google Workspace add-on catalog</div>
-          <h1 id="hero-title">Find the right add-on for your Forms or Sheets workflow.</h1>
-          <p>Start from the task: close a form when it is full, send confirmation emails, copy formulas into new response rows, mail merge from Sheets, or generate Docs and PDFs from spreadsheet rows.</p>
+          <div class="eyebrow">Google Workspace Marketplace add-ons</div>
+          <h1 id="hero-title">Forms and Sheets work, finished faster.</h1>
+          <p>Close forms, send confirmations, copy formulas, mail merge rows, and generate Docs or PDFs.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#catalog">Browse add-ons</a>
-            <a class="btn" href="choose-google-workspace-addon.html">Use workflow chooser</a>
-            <a class="btn btn-ghost" href="install.html">Open install center</a>
+            <a class="btn btn-primary" href="#catalog">Choose an add-on</a>
+            <a class="btn" href="install.html">Install published add-ons</a>
+            <a class="btn btn-soft" href="choose-google-workspace-addon.html">Use chooser</a>
           </div>
         </div>
-        <aside class="workflow-board" aria-label="Fast workflow shortcuts">
-          <div class="board-title">
-            <strong>Start here</strong>
-            <span>Pick the problem first</span>
-          </div>
-          <article class="quick-card">
-            <div class="quick-icon">FG</div>
-            <div><h2>Limit or close a Google Form</h2><p>Caps, deadlines, time windows, choice quotas.</p></div>
-            <a href="formguard/index.html">FormGuard</a>
-          </article>
-          <article class="quick-card">
-            <div class="quick-icon">FN</div>
-            <div><h2>Send form notification emails</h2><p>Owner alerts, confirmations, test sends.</p></div>
-            <a href="formnotifier/index.html">FormNotifier</a>
-          </article>
-          <article class="quick-card">
-            <div class="quick-icon">FC</div>
-            <div><h2>Keep response-sheet formulas alive</h2><p>Model row formulas, formats, helper columns.</p></div>
-            <a href="formcopy/index.html">FormCopy</a>
-          </article>
-          <article class="quick-card">
-            <div class="quick-icon">DF</div>
-            <div><h2>Generate documents from rows</h2><p>Docs, PDFs, letters, certificates.</p></div>
-            <a href="docforge/index.html">DocForge</a>
-          </article>
-        </aside>
-      </section>
 
-      <section class="metrics" aria-label="Launch snapshot">
-        <div class="metric"><strong>5</strong><span>Published Marketplace add-ons</span></div>
-        <div class="metric"><strong>45</strong><span>Visible users across live listings on May 15</span></div>
-        <div class="metric"><strong>0</strong><span>Public review comments so far</span></div>
-        <div class="metric"><strong>2</strong><span>Pilot or fit-first products not install-first</span></div>
+        <div class="hero-media" aria-label="FormSuite product previews">
+          <article class="preview">
+            <img src="https://lh3.googleusercontent.com/qF8ILRaFc3r7xqRQ3murnZc5G7ffmo0XY9bwwgjDxBakTcOnhlw=s640-w640-h400" alt="FormGuard add-on preview">
+            <div class="preview-label">
+              <strong>Limit or close forms</strong>
+              <span>FormGuard</span>
+            </div>
+          </article>
+          <div class="mini-stack">
+            <article class="mini-preview">
+              <img src="https://lh3.googleusercontent.com/OftdmhTM9pjzfNiYMJruZ_SjmDsoz7dSmjKLtJfRqwKfujhgFPs=s640-w640-h400" alt="FormNotifier add-on preview">
+              <strong>Send confirmations</strong>
+            </article>
+            <article class="mini-preview">
+              <img src="https://lh3.googleusercontent.com/qhNcvS4dWw2A4htDDOet6Jexc8DZFRAVAB9uq7aoOHNvw3QmQ6U=s640-w640-h400" alt="DocForge add-on preview">
+              <strong>Generate files</strong>
+            </article>
+            <div class="workflow-tags" aria-label="Supported workflow areas">
+              <span class="tag-blue">Forms</span>
+              <span class="tag-teal">Sheets</span>
+              <span class="tag-amber">Email</span>
+              <span class="tag-rose">Docs/PDF</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="section" id="catalog">
         <div class="section-head">
           <div>
-            <h2>Catalog</h2>
-            <p class="lead">Filter by workflow, then install only the add-on that matches the job. FormFlow and FormRanger are intentionally kept out of public install-first promotion.</p>
+            <h2>Pick the job.</h2>
+            <p>Each published add-on solves one clear workflow and links straight to install or setup.</p>
           </div>
-          <a class="btn" href="resources/index.html">Browse setup guides</a>
-        </div>
-        <div class="catalog-tools" aria-label="Catalog filters">
-          <input class="search" id="catalog-search" type="search" placeholder="Search: formulas, confirmation email, response cap, PDF..." aria-label="Search add-ons by workflow">
-          <div class="filter-row" role="group" aria-label="Filter add-ons">
-            <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="chip" type="button" data-filter="forms" aria-pressed="false">Google Forms</button>
-            <button class="chip" type="button" data-filter="sheets" aria-pressed="false">Google Sheets</button>
-            <button class="chip" type="button" data-filter="email" aria-pressed="false">Email</button>
-            <button class="chip" type="button" data-filter="docs" aria-pressed="false">Docs/PDF</button>
-            <button class="chip" type="button" data-filter="fit" aria-pressed="false">Pilot / fit-first</button>
-          </div>
+          <a class="btn" href="resources/index.html">Browse guides</a>
         </div>
 
-        <div class="product-grid" id="product-grid">
-          <article class="product-card" data-tags="forms limits close cap quota deadline rsvp registration">
-            <div class="product-top">
-              <div class="product-name"><div class="product-icon">FG</div><h3>FormGuard</h3></div>
-              <span class="badge badge-live">Published</span>
-            </div>
-            <img class="product-shot" src="https://lh3.googleusercontent.com/qF8ILRaFc3r7xqRQ3murnZc5G7ffmo0XY9bwwgjDxBakTcOnhlw=s640-w640-h400" alt="FormGuard sidebar preview">
-            <p>Control Google Forms availability, response limits, choice quotas, close messages, and owner alerts.</p>
-            <div class="mini-grid">
-              <div class="mini-line"><strong>Use when</strong><span>A form must stop at a cap, deadline, or full session.</span></div>
-              <div class="mini-line"><strong>First test</strong><span>Close a disposable form after one response.</span></div>
+        <div class="addon-grid" aria-label="Published FormSuite add-ons">
+          <article class="addon-card">
+            <img src="https://lh3.googleusercontent.com/qF8ILRaFc3r7xqRQ3murnZc5G7ffmo0XY9bwwgjDxBakTcOnhlw=s640-w640-h400" alt="FormGuard sidebar screenshot">
+            <div class="addon-body">
+              <div class="addon-title">
+                <h3>FormGuard</h3>
+                <span class="pill">Live</span>
+              </div>
+              <span class="job">Close forms at capacity</span>
+              <p>Response caps, deadlines, time windows, and choice quotas.</p>
             </div>
             <div class="link-row">
               <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
               <a href="formguard/google-forms-limit-responses-guide.html">Guide</a>
-              <a href="formguard/permissions.html">Permissions</a>
             </div>
           </article>
 
-          <article class="product-card" data-tags="forms email notification confirmation respondent owner alert template">
-            <div class="product-top">
-              <div class="product-name"><div class="product-icon">FN</div><h3>FormNotifier</h3></div>
-              <span class="badge badge-live">Published</span>
-            </div>
-            <img class="product-shot" src="https://lh3.googleusercontent.com/OftdmhTM9pjzfNiYMJruZ_SjmDsoz7dSmjKLtJfRqwKfujhgFPs=s640-w640-h400" alt="FormNotifier sidebar preview">
-            <p>Send owner alerts and respondent confirmation emails from Google Forms submissions.</p>
-            <div class="mini-grid">
-              <div class="mini-line"><strong>Use when</strong><span>Submitters or operators need reliable email follow-up.</span></div>
-              <div class="mini-line"><strong>First test</strong><span>Save an owner-only alert and run preflight.</span></div>
+          <article class="addon-card">
+            <img src="https://lh3.googleusercontent.com/OftdmhTM9pjzfNiYMJruZ_SjmDsoz7dSmjKLtJfRqwKfujhgFPs=s640-w640-h400" alt="FormNotifier sidebar screenshot">
+            <div class="addon-body">
+              <div class="addon-title">
+                <h3>FormNotifier</h3>
+                <span class="pill">Live</span>
+              </div>
+              <span class="job">Email after submit</span>
+              <p>Owner alerts and respondent confirmations for Google Forms.</p>
             </div>
             <div class="link-row">
               <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
               <a href="formnotifier/send-google-forms-confirmation-email-after-submit.html">Guide</a>
-              <a href="formnotifier/permissions.html">Permissions</a>
             </div>
           </article>
 
-          <article class="product-card" data-tags="sheets forms formulas response rows copy formats scoring helper columns">
-            <div class="product-top">
-              <div class="product-name"><div class="product-icon">FC</div><h3>FormCopy Pro</h3></div>
-              <span class="badge badge-live">Published</span>
-            </div>
-            <img class="product-shot" src="https://lh3.googleusercontent.com/XRWA1n9eX4mOSHQvA9h7TORCQtKXg7u2ceJ1dEmhpATcNpqFP9lj=s640-w640-h400" alt="FormCopy sidebar preview">
-            <p>Copy formulas, formatting, and helper columns into new Google Forms response rows.</p>
-            <div class="mini-grid">
-              <div class="mini-line"><strong>Use when</strong><span>Response-sheet formulas keep skipping or disappearing.</span></div>
-              <div class="mini-line"><strong>First test</strong><span>Use row 2 as the model and copy formulas once.</span></div>
+          <article class="addon-card">
+            <img src="https://lh3.googleusercontent.com/XRWA1n9eX4mOSHQvA9h7TORCQtKXg7u2ceJ1dEmhpATcNpqFP9lj=s640-w640-h400" alt="FormCopy Pro sidebar screenshot">
+            <div class="addon-body">
+              <div class="addon-title">
+                <h3>FormCopy Pro</h3>
+                <span class="pill">Live</span>
+              </div>
+              <span class="job">Keep formulas copying</span>
+              <p>Copy row formulas, formats, and helper columns into new responses.</p>
             </div>
             <div class="link-row">
               <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a>
               <a href="formcopy/google-forms-response-sheet-formulas-skipping-rows.html">Guide</a>
-              <a href="https://youtu.be/CNjFgdFl52M">Demo</a>
             </div>
           </article>
 
-          <article class="product-card" data-tags="sheets email mail merge personalized gmail row status">
-            <div class="product-top">
-              <div class="product-name"><div class="product-icon">FM</div><h3>FormMerge Pro</h3></div>
-              <span class="badge badge-live">Published</span>
-            </div>
-            <img class="product-shot" src="https://lh3.googleusercontent.com/LoG_9_d6LBA2P7dkWin0QesMv9cXXImCCy2Zew6Z04IkjYI1QzI4GA=s640-w640-h400" alt="FormMerge sidebar preview">
-            <p>Send personalized operational emails from Google Sheets rows with merge tags and row status.</p>
-            <div class="mini-grid">
-              <div class="mini-line"><strong>Use when</strong><span>Spreadsheet rows need tested, tracked outbound messages.</span></div>
-              <div class="mini-line"><strong>First test</strong><span>Send one test email to yourself from one row.</span></div>
+          <article class="addon-card">
+            <img src="https://lh3.googleusercontent.com/LoG_9_d6LBA2P7dkWin0QesMv9cXXImCCy2Zew6Z04IkjYI1QzI4GA=s640-w640-h400" alt="FormMerge Pro sidebar screenshot">
+            <div class="addon-body">
+              <div class="addon-title">
+                <h3>FormMerge Pro</h3>
+                <span class="pill">Live</span>
+              </div>
+              <span class="job">Mail merge rows</span>
+              <p>Send personalized operational emails from spreadsheet rows.</p>
             </div>
             <div class="link-row">
               <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a>
               <a href="formmerge/personalized-email-from-google-sheets-guide.html">Guide</a>
-              <a href="formmerge/permissions.html">Permissions</a>
             </div>
           </article>
 
-          <article class="product-card" data-tags="sheets docs pdf document generation template merge certificate letter">
-            <div class="product-top">
-              <div class="product-name"><div class="product-icon">DF</div><h3>DocForge</h3></div>
-              <span class="badge badge-live">Published</span>
-            </div>
-            <img class="product-shot" src="https://lh3.googleusercontent.com/qhNcvS4dWw2A4htDDOet6Jexc8DZFRAVAB9uq7aoOHNvw3QmQ6U=s640-w640-h400" alt="DocForge sidebar preview">
-            <p>Generate Google Docs, PDFs, certificates, letters, and repeatable files from spreadsheet rows.</p>
-            <div class="mini-grid">
-              <div class="mini-line"><strong>Use when</strong><span>Rows need to become document output, not just data.</span></div>
-              <div class="mini-line"><strong>First test</strong><span>Generate one Doc from one sample row and template.</span></div>
+          <article class="addon-card">
+            <img src="https://lh3.googleusercontent.com/qhNcvS4dWw2A4htDDOet6Jexc8DZFRAVAB9uq7aoOHNvw3QmQ6U=s640-w640-h400" alt="DocForge sidebar screenshot">
+            <div class="addon-body">
+              <div class="addon-title">
+                <h3>DocForge</h3>
+                <span class="pill">Live</span>
+              </div>
+              <span class="job">Generate Docs/PDFs</span>
+              <p>Create documents, PDFs, letters, and certificates from Sheets rows.</p>
             </div>
             <div class="link-row">
               <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
               <a href="docforge/google-sheets-document-generation-guide.html">Guide</a>
-              <a href="docforge/permissions.html">Permissions</a>
-            </div>
-          </article>
-
-          <article class="product-card" data-tags="forms approval workflow pilot fit routing reviewer status">
-            <div class="product-top">
-              <div class="product-name"><div class="product-icon">FF</div><h3>FormFlow</h3></div>
-              <span class="badge badge-fit">Pilot-first</span>
-            </div>
-            <div class="product-shot placeholder">Approval workflow pilot</div>
-            <p>Explore approval workflows for Google Forms submissions with routing, email steps, and status tracking.</p>
-            <div class="mini-grid">
-              <div class="mini-line"><strong>Use when</strong><span>A Google Form needs a structured approval layer.</span></div>
-              <div class="mini-line"><strong>Status</strong><span>Use the pilot page instead of Marketplace install promotion.</span></div>
-            </div>
-            <div class="link-row">
-              <a href="formflow/index.html">Pilot page</a>
-              <a href="formflow/google-forms-approval-workflow-guide.html">Guide</a>
-            </div>
-          </article>
-
-          <article class="product-card" data-tags="forms sheets dropdown choices ranger fit dynamic options sync">
-            <div class="product-top">
-              <div class="product-name"><div class="product-icon">FR</div><h3>FormRanger</h3></div>
-              <span class="badge badge-fit">In review</span>
-            </div>
-            <div class="product-shot placeholder">Dynamic choices fit check</div>
-            <p>Sync Google Sheets ranges into Google Forms choices for dropdowns, checkboxes, and dynamic option lists.</p>
-            <div class="mini-grid">
-              <div class="mini-line"><strong>Use when</strong><span>Form choices should come from spreadsheet data.</span></div>
-              <div class="mini-line"><strong>Status</strong><span>Marketplace review submitted; keep fit-first until approved.</span></div>
-            </div>
-            <div class="link-row">
-              <a href="formranger/index.html">Fit check</a>
-              <a href="formranger/dynamic-google-forms-dropdown-guide.html">Guide</a>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section" id="status">
-        <div class="section-head">
+      <section class="section" aria-labelledby="pilot-title">
+        <div class="pilot-band">
           <div>
-            <h2>Marketplace status</h2>
-            <p class="lead">Current public snapshot from Google Workspace Marketplace pages checked on May 15, 2026. The review gap is visible, so the next growth work should focus on successful first-run moments and honest review requests.</p>
+            <h2 id="pilot-title">Pilot / fit-first.</h2>
+            <p>These are not public install-first yet.</p>
           </div>
-          <a class="btn" href="install.html">Install center</a>
-        </div>
-        <div class="status-list">
-          <div class="status-row header"><span>Add-on</span><span>Public listing</span><span>Visible users</span><span>Reviews</span></div>
-          <div class="status-row"><strong>FormGuard</strong><span>Published, updated May 14</span><span>31 users</span><span class="review-zero">0 comments</span></div>
-          <div class="status-row"><strong>FormNotifier</strong><span>Published, updated May 14</span><span>11 users</span><span class="review-zero">0 comments</span></div>
-          <div class="status-row"><strong>FormCopy Pro</strong><span>Published, updated May 1</span><span>No visible users yet</span><span class="review-zero">0 comments</span></div>
-          <div class="status-row"><strong>FormMerge Pro</strong><span>Published, updated May 1</span><span>2 users</span><span class="review-zero">0 comments</span></div>
-          <div class="status-row"><strong>DocForge</strong><span>Published, updated May 8</span><span>1 user</span><span class="review-zero">0 comments</span></div>
-          <div class="status-row"><strong>FormRanger</strong><span>Marketplace review submitted</span><span>Not public install-first</span><span>Wait for approval</span></div>
-        </div>
-      </section>
-
-      <section class="section" id="reviews">
-        <div class="section-head">
-          <div>
-            <h2>Why are there no reviews yet?</h2>
-            <p class="lead">The more likely cause is not one single product bug. It is an early-launch conversion gap: low visible install counts, users leaving after setup, and not enough review prompts after a successful test.</p>
+          <div class="pilot-grid">
+            <article class="pilot-item">
+              <strong>FormFlow</strong>
+              <span>Approval workflows for Google Forms submissions.</span>
+              <a href="formflow/index.html">View pilot page</a>
+            </article>
+            <article class="pilot-item">
+              <strong>FormRanger</strong>
+              <span>Dynamic Google Forms choices from Sheets ranges.</span>
+              <a href="formranger/index.html">Check fit</a>
+            </article>
           </div>
-        </div>
-        <div class="two-col">
-          <article class="note-card">
-            <h3>What the current data says</h3>
-            <p>FormGuard and FormNotifier have the strongest visible install base and both have recent smoke evidence for core first-run paths. FormMerge and DocForge have passed sidebar/first-use checks, but their user counts are still tiny. FormCopy has a public demo and guide path, but it still needs first visible users.</p>
-          </article>
-          <article class="note-card">
-            <h3>What to do next</h3>
-            <p>Ask for reviews only after a real success signal: a saved rule, passed preflight, test email, generated document, or formula copy. Do not ask for five-star reviews. Ask for a short honest review describing what worked.</p>
-          </article>
-          <article class="note-card">
-            <h3>Best first review targets</h3>
-            <p>Prioritize FormGuard and FormNotifier first because they already show the most visible users. Next, push one clear first-run path for FormMerge and DocForge. FormCopy needs install acquisition before review acquisition.</p>
-          </article>
-          <article class="note-card">
-            <h3>Product risk check</h3>
-            <p>Keep testing, but do not assume "0 reviews" means broken. A broken product usually shows support complaints, failed smoke tests, or uninstall patterns. The current signal is more about trust, traffic, and review timing.</p>
-          </article>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></p>
-      <p>&copy; 2026 FormSuite. Google Forms, Google Sheets, Google Docs, and Google Workspace are trademarks of Google LLC.</p>
+      <span>Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></span>
+      <span>&copy; 2026 FormSuite. Google Forms, Google Sheets, Google Docs, and Google Workspace are trademarks of Google LLC.</span>
     </footer>
   </div>
-
-  <script>
-    const search = document.querySelector('#catalog-search');
-    const chips = Array.from(document.querySelectorAll('.chip'));
-    const cards = Array.from(document.querySelectorAll('.product-card'));
-    let activeFilter = 'all';
-
-    function applyFilter() {
-      const query = (search.value || '').trim().toLowerCase();
-      cards.forEach((card) => {
-        const tags = card.dataset.tags || '';
-        const text = `${tags} ${card.innerText}`.toLowerCase();
-        const filterOk = activeFilter === 'all' || tags.includes(activeFilter);
-        const queryOk = !query || text.includes(query);
-        card.hidden = !(filterOk && queryOk);
-      });
-    }
-
-    chips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        activeFilter = chip.dataset.filter || 'all';
-        chips.forEach((item) => item.setAttribute('aria-pressed', item === chip ? 'true' : 'false'));
-        applyFilter();
-      });
-    });
-    search.addEventListener('input', applyFilter);
-  </script>
 </body>
 </html>
