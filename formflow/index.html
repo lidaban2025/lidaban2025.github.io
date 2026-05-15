@@ -1,370 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FormFlow | Approval workflows for Google Forms</title>
-    <meta name="description" content="FormFlow turns Google Forms submissions into approval workflows with email notifications, status tracking, and response-sheet updates.">
-    <link rel="canonical" href="https://formsuite.dev/formflow/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="FormFlow | Approval workflows for Google Forms">
-    <meta property="og:description" content="Turn Google Forms submissions into approval workflows with email notifications, reviewer routing, and Google Sheets status tracking.">
-    <meta property="og:url" content="https://formsuite.dev/formflow/">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta property="og:image:alt" content="FormFlow approval workflows for Google Forms">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FormFlow | Approval workflows for Google Forms">
-    <meta name="twitter:description" content="Turn Google Forms submissions into approval workflows with email notifications, reviewer routing, and Google Sheets status tracking.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "FormFlow",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Google Workspace",
-            "url": "https://formsuite.dev/formflow/",
-            "image": "https://formsuite.dev/social-card.svg",
-            "description": "FormFlow turns Google Forms submissions into approval workflows with email notifications, status tracking, and response-sheet updates.",
-            "featureList": [
-                "Multi-step approval routing",
-                "Email notifications to approvers",
-                "Google Sheets status tracking",
-                "Preflight checks before go-live"
-            ],
-            "provider": {
-                "@type": "Organization",
-                "name": "FormSuite"
-            }
-        }
-    </script>
-    <style>
-        :root {
-            --ink: #182740;
-            --muted: #5a6c87;
-            --line: #d9e3f0;
-            --blue: #1760ff;
-            --blue-soft: #eef4ff;
-            --green-soft: #eaf8ef;
-            --shadow: 0 18px 44px rgba(24, 39, 64, 0.10);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            color: var(--ink);
-            background:
-                radial-gradient(circle at top left, #eef5ff 0, #eef5ff 22%, transparent 46%),
-                linear-gradient(180deg, #fbfdff 0%, #ffffff 56%);
-            line-height: 1.65;
-        }
-        a { color: var(--blue); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .shell { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 24px;
-            font-size: 0.94rem;
-        }
-        .hero,
-        .section,
-        .panel {
-            background: rgba(255, 255, 255, 0.94);
-            border: 1px solid var(--line);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
-        }
-        .hero {
-            display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 18px;
-            padding: 30px;
-            margin-bottom: 18px;
-        }
-        .eyebrow {
-            display: inline-block;
-            padding: 7px 12px;
-            border-radius: 999px;
-            background: var(--blue-soft);
-            color: var(--blue);
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        h1 {
-            font-size: 2.6rem;
-            line-height: 1.05;
-            letter-spacing: -0.05em;
-            margin-bottom: 14px;
-        }
-        .hero p {
-            color: var(--muted);
-            max-width: 640px;
-        }
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 22px;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            padding: 0 18px;
-            border-radius: 999px;
-            font-weight: 700;
-            border: 1px solid transparent;
-        }
-        .btn-primary { background: var(--blue); color: #fff; }
-        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-        .summary {
-            display: grid;
-            gap: 12px;
-        }
-        .summary .panel { padding: 16px; }
-        .summary strong {
-            display: block;
-            font-size: 1.04rem;
-            margin-bottom: 6px;
-        }
-        .summary span {
-            color: var(--muted);
-            font-size: 0.92rem;
-        }
-        .section {
-            padding: 26px;
-            margin-top: 18px;
-        }
-        h2 {
-            font-size: 1.45rem;
-            letter-spacing: -0.03em;
-            margin-bottom: 10px;
-        }
-        .lead {
-            color: var(--muted);
-            margin-bottom: 18px;
-            max-width: 760px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-        }
-        .feature {
-            padding: 18px;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            background: #fff;
-        }
-        .feature strong {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1.02rem;
-        }
-        .feature p {
-            color: var(--muted);
-            font-size: 0.94rem;
-        }
-        .steps {
-            padding-left: 20px;
-            display: grid;
-            gap: 10px;
-        }
-        .steps li { color: var(--muted); }
-        .link-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 14px;
-            font-weight: 600;
-        }
-        .note {
-            margin-top: 18px;
-            padding: 16px 18px;
-            border-radius: 18px;
-            background: var(--green-soft);
-            border: 1px solid #cde8d6;
-            color: #17633f;
-            font-size: 0.93rem;
-        }
-        .footer {
-            margin-top: 24px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-        @media (max-width: 900px) {
-            .hero,
-            .grid { grid-template-columns: 1fr; }
-            h1 { font-size: 2.1rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormFlow | Approval workflows for Google Forms</title>
+  <meta name="description" content="FormFlow is a fit-first workflow concept for routing Google Forms submissions through approvals, email steps, and response-sheet status tracking.">
+  <link rel="canonical" href="https://formsuite.dev/formflow/">
+  <link rel="stylesheet" href="../product-landing.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="FormFlow | Approval workflows for Google Forms">
+  <meta property="og:description" content="Route Google Forms submissions through approvals, email steps, and linked-sheet status tracking.">
+  <meta property="og:url" content="https://formsuite.dev/formflow/">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FormFlow | Approval workflows for Google Forms">
+  <meta name="twitter:description" content="A fit-first approval workflow layer for Google Forms submissions.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FormFlow",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Google Workspace",
+      "url": "https://formsuite.dev/formflow/",
+      "image": "https://formsuite.dev/social-card.svg",
+      "description": "FormFlow routes Google Forms submissions through approval steps, email notifications, and linked-sheet status tracking.",
+      "provider": { "@type": "Organization", "name": "FormSuite" }
+    }
+  </script>
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="index.html"><strong>FormFlow</strong></a>
-            <a href="support.html">Support</a>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="FormSuite home">
+        <span class="brand-mark">FS</span>
+        <span>FormFlow</span>
+      </a>
+      <nav class="nav" aria-label="FormFlow navigation">
+        <a href="support.html">Setup</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-of-service.html">Terms</a>
+        <a href="../choose-google-workspace-addon.html">Chooser</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">Pilot / fit-first</div>
+          <h1 id="hero-title">Forms can become approval workflows.</h1>
+          <p>Route a Google Forms submission to reviewers, send the right emails, and write status back to the linked response sheet.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=FormFlow%20fit%20check">Request fit check</a>
+            <a class="btn" href="google-forms-approval-workflow-guide.html">Approval guide</a>
+          </div>
+        </div>
+        <article class="product-visual" aria-label="FormFlow workflow preview">
+          <img class="product-shot" src="../social-card.svg" alt="FormSuite workflow visual">
+          <div class="visual-caption">
+            <strong>Submission to approval status</strong>
+            <span>Fit-first</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" aria-labelledby="flow-title">
+        <div class="section-head">
+          <div>
+            <h2 id="flow-title">Start with one approval path.</h2>
+            <p>FormFlow is best evaluated against a real process that already has reviewers and decisions.</p>
+          </div>
+        </div>
+        <div class="step-grid">
+          <article class="step-card">
+            <div class="step-num">1</div>
+            <h3>Capture the submission</h3>
+            <p>Use Google Forms as the intake surface your team already understands.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-num">2</div>
+            <h3>Route the review</h3>
+            <p>Send the submission to the right approver or review step.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-num">3</div>
+            <h3>Update status</h3>
+            <p>Keep approval state visible in the linked response sheet.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="results-title">
+        <div class="section-head">
+          <div>
+            <h2 id="results-title">Good fit when review is the bottleneck.</h2>
+            <p>Use FormFlow when a raw spreadsheet is not enough structure.</p>
+          </div>
+        </div>
+        <div class="result-grid">
+          <article class="result-card"><span class="tag tag-blue">Approvals</span><strong>Route decisions</strong><p>Move submissions to reviewers instead of managing decisions manually.</p></article>
+          <article class="result-card"><span class="tag tag-teal">Email</span><strong>Notify reviewers</strong><p>Send approval steps to the people who need to act.</p></article>
+          <article class="result-card"><span class="tag tag-amber">Sheets</span><strong>Track status</strong><p>Use the response sheet as the visible workflow record.</p></article>
+          <article class="result-card"><span class="tag tag-green">Pilot</span><strong>Check fit first</strong><p>Validate one workflow before broader rollout.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="guide-title">
+        <div class="guide-panel">
+          <div>
+            <h2 id="guide-title">Use the pilot path.</h2>
+            <p>Start with fit, then decide whether a pilot conversation makes sense.</p>
+          </div>
+          <div class="link-row">
+            <a href="mailto:lidaban2025@gmail.com?subject=FormFlow%20fit%20check">Request fit check</a>
+            <a href="google-forms-approval-workflow-guide.html">Approval workflow guide</a>
+            <a href="support.html">Setup context</a>
+            <a href="../choose-google-workspace-addon.html">Compare add-ons</a>
             <a href="privacy-policy.html">Privacy</a>
             <a href="terms-of-service.html">Terms</a>
-            <a href="../index.html">FormSuite home</a>
-        </nav>
-
-        <section class="hero">
-            <div>
-                <div class="eyebrow">Google Forms add-on</div>
-                <h1>Turn form submissions into approval workflows your team can actually operate.</h1>
-                <p>FormFlow is a pilot-first Google Forms workflow concept for teams that need more than a raw response spreadsheet. It routes submissions into approval steps, sends the right emails, and writes status back to the linked response sheet so the workflow stays visible and auditable. Keep this path fit-first until a public install path is ready.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=FormFlow%20fit%20check">Request fit check</a>
-                    <a class="btn btn-secondary" href="support.html">Open setup guide</a>
-                    <a class="btn btn-secondary" href="../choose-google-workspace-addon.html">Compare add-ons</a>
-                </div>
-            </div>
-            <div class="summary">
-                <div class="panel">
-                    <strong>Best fit</strong>
-                    <span>Leave requests, access approvals, internal intake forms, and any Google Form that needs structured review before action.</span>
-                </div>
-                <div class="panel">
-                    <strong>Main layers</strong>
-                    <span>Approval routing, email notifications, linked response-sheet status tracking, and approval state updates.</span>
-                </div>
-                <div class="panel">
-                    <strong>Where it runs</strong>
-                    <span>Configured from the Google Forms editor, with the linked spreadsheet used as the workflow record.</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Core features</h2>
-            <p class="lead">FormFlow is built for teams that need to keep the submission surface simple while adding a real approval process behind it.</p>
-            <div class="grid">
-                <div class="feature">
-                    <strong>Multi-step approval routing</strong>
-                    <p>Set approver levels so submissions move through the right people in the right order.</p>
-                </div>
-                <div class="feature">
-                    <strong>Email-driven approvals</strong>
-                    <p>Send approval notifications and keep reviewers moving without forcing them into another internal tool.</p>
-                </div>
-                <div class="feature">
-                    <strong>Response-sheet status tracking</strong>
-                    <p>Use the linked Google Sheets response file as the source of truth for workflow status and audit visibility.</p>
-                </div>
-                <div class="feature">
-                    <strong>Preflight before launch</strong>
-                    <p>Check the workflow configuration before it goes live so setup mistakes are caught earlier.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Quick start</h2>
-            <p class="lead">A clear path for reviewers and operators.</p>
-            <ol class="steps">
-                <li>Open your Google Form and launch FormFlow from the Extensions menu.</li>
-                <li>Configure the approval steps and assign the approver email addresses.</li>
-                <li>Save the configuration and run preflight before sending traffic through the form.</li>
-                <li>Track the resulting workflow state in the linked Google Sheets response file.</li>
-            </ol>
-            <div class="link-bar">
-                <a href="support.html">Support and setup</a>
-                <a href="google-forms-approval-workflow-guide.html">Workflow guide</a>
-                <a href="privacy-policy.html">Privacy policy</a>
-                <a href="terms-of-service.html">Terms of service</a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Fit-first path</h2>
-            <p class="lead">Do not present FormFlow as publicly installable. Start with one approval process that already exists, confirm fit, then decide whether a pilot conversation makes sense.</p>
-            <div class="grid">
-                <div class="feature">
-                    <strong>Workflow fit</strong>
-                    <p>Best when the team already knows how to manage Google Forms and only needs to understand whether an approval layer fits.</p>
-                </div>
-                <div class="feature">
-                    <strong>FormFlow AI pilot</strong>
-                    <p>Best when the workflow needs help with setup, approval design, or rollout framing. Start with one form and one approver group.</p>
-                </div>
-                <div class="feature">
-                    <strong>Support notes</strong>
-                    <p>Keep questions tied to one form, one approver group, and one measurable approval bottleneck.</p>
-                </div>
-                <div class="feature">
-                    <strong>Best first target</strong>
-                    <p>Procurement requests, HR approvals, budget reviews, admissions routing, and other operational forms that already have a review bottleneck.</p>
-                </div>
-            </div>
-            <div class="link-bar">
-                <a href="mailto:lidaban2025@gmail.com?subject=FormFlow%20fit%20check">Request fit check</a>
-                <a href="../choose-google-workspace-addon.html">Compare add-ons</a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Typical use cases</h2>
-            <div class="grid">
-                <div class="feature">
-                    <strong>Operations requests</strong>
-                    <p>Route internal requests through manager or department approvals without building a separate portal.</p>
-                </div>
-                <div class="feature">
-                    <strong>HR and leave flows</strong>
-                    <p>Collect a request in Google Forms and move it through a defined approval chain.</p>
-                </div>
-                <div class="feature">
-                    <strong>Access and exception approvals</strong>
-                    <p>Use Forms as the intake point and the linked response sheet as the approval log.</p>
-                </div>
-                <div class="feature">
-                    <strong>Visible audit trail</strong>
-                    <p>Keep the workflow readable for operators because status changes are tied back to the spreadsheet record.</p>
-                </div>
-            </div>
-            <div class="note">
-                Google Forms, Google Sheets, and Google Workspace are trademarks of Google LLC. FormFlow is an independent add-on and is not affiliated with or endorsed by Google LLC.
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Frequently asked questions</h2>
-            <div class="grid">
-                <div class="feature">
-                    <strong>How is this different from Google Forms approvals?</strong>
-                    <p>FormFlow adds multi-step routing, email notifications, and spreadsheet tracking that native Forms doesn't have.</p>
-                </div>
-                <div class="feature">
-                    <strong>Can I try it for free?</strong>
-                    <p>Yes. FormFlow has a free tier with 20 approval runs per month.</p>
-                </div>
-                <div class="feature">
-                    <strong>Does it work with existing forms?</strong>
-                    <p>Yes. Install it on any Google Form and configure from the sidebar.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="text-align:center;">
-            <h2>Ready to try?</h2>
-            <p class="lead" style="margin-left:auto;margin-right:auto;">Install FormFlow from the Google Workspace Marketplace (coming soon) or email us for early access.</p>
-            <div class="hero-actions" style="justify-content:center;">
-                <a class="btn btn-primary" href="mailto:lidaban2025@gmail.com?subject=FormFlow%20Early%20Access">Get early access</a>
-                <a class="btn btn-secondary" href="mailto:lidaban2025@gmail.com?subject=FormFlow%20fit%20check">Request fit check</a>
-                <a class="btn btn-secondary" href="support.html">Setup guide</a>
-            </div>
-        </section>
-
-        <div class="footer">
-            Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>
-            &copy; 2026 FormFlow. All rights reserved.
+          </div>
         </div>
-    </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <div class="faq-panel">
+          <details>
+            <summary><strong>How should I start?</strong></summary>
+            <p>Start with one real approval workflow and request a fit check before planning a rollout.</p>
+          </details>
+          <details>
+            <summary><strong>What workflow should I test first?</strong></summary>
+            <p>Use one approval process with known reviewers, clear decisions, and a linked Google Sheets response file.</p>
+          </details>
+          <details>
+            <summary><strong>Do I need a separate approval system?</strong></summary>
+            <p>The goal is to keep intake in Google Forms while adding a structured approval layer around it.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></span>
+      <span>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</span>
+    </footer>
+  </div>
 </body>
 </html>

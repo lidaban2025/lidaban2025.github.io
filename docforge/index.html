@@ -1,324 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DocForge | Document generation from Google Sheets</title>
-    <meta name="description" content="DocForge turns Google Sheets rows into Google Docs, PDFs, and email-ready outputs with field mapping, template controls, and review-friendly preflight checks.">
-    <link rel="canonical" href="https://formsuite.dev/docforge/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="DocForge | Document generation from Google Sheets">
-    <meta property="og:description" content="Generate Google Docs, PDFs, and email-ready outputs from Google Sheets rows with templates, field mapping, and preflight checks.">
-    <meta property="og:url" content="https://formsuite.dev/docforge/">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta property="og:image:alt" content="DocForge document generation from Google Sheets">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DocForge | Document generation from Google Sheets">
-    <meta name="twitter:description" content="Generate Google Docs, PDFs, and email-ready outputs from Google Sheets rows with templates, field mapping, and preflight checks.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "DocForge",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Google Workspace",
-            "url": "https://formsuite.dev/docforge/",
-            "image": "https://formsuite.dev/social-card.svg",
-            "installUrl": "https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885",
-            "description": "DocForge turns Google Sheets rows into Google Docs, PDFs, and email-ready outputs with field mapping, template controls, and review-friendly preflight checks.",
-            "featureList": [
-                "Template-driven generation",
-                "Preflight before generation",
-                "Google Docs and PDF output",
-                "Optional email delivery"
-            ],
-            "provider": {
-                "@type": "Organization",
-                "name": "FormSuite"
-            }
-        }
-    </script>
-    <style>
-        :root {
-            --ink: #172033;
-            --muted: #5c6b80;
-            --line: #d9e2ef;
-            --blue: #1a5cff;
-            --blue-strong: #0f4fd8;
-            --blue-soft: #eef4ff;
-            --green: #138a43;
-            --green-soft: #eaf8ef;
-            --amber-soft: #fff6df;
-            --panel: #ffffff;
-            --surface: #f7faff;
-            --shadow: 0 14px 36px rgba(23, 32, 51, 0.10);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            color: var(--ink);
-            background: linear-gradient(180deg, #f7faff 0%, #ffffff 48%);
-            line-height: 1.65;
-        }
-        a { color: var(--blue); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .shell { max-width: 1160px; margin: 0 auto; padding: 24px 20px 64px; }
-        .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 26px; font-size: 0.94rem; }
-        .nav a { color: var(--muted); font-weight: 600; }
-        .nav a:first-child { color: var(--ink); margin-right: auto; }
-        .nav a:last-child {
-            min-height: 36px;
-            display: inline-flex;
-            align-items: center;
-            padding: 0 12px;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: #fff;
-        }
-        .hero {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
-            gap: 34px;
-            align-items: center;
-            padding: 20px 0 24px;
-            margin-bottom: 12px;
-        }
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            padding: 7px 12px;
-            border-radius: 8px;
-            background: var(--blue-soft);
-            color: var(--blue);
-            font-size: 0.8rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-        h1 { font-size: clamp(2.15rem, 5vw, 3.85rem); line-height: 1.02; letter-spacing: 0; margin-bottom: 18px; max-width: 14ch; }
-        .hero p { color: var(--muted); max-width: 680px; font-size: 1.08rem; }
-        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            padding: 0 18px;
-            border-radius: 8px;
-            font-weight: 700;
-            border: 1px solid transparent;
-        }
-        .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 10px 24px rgba(26, 92, 255, 0.22); }
-        .btn-primary:hover { background: var(--blue-strong); text-decoration: none; }
-        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-        .media-panel, .trust-item, .feature, .step-card, .metric {
-            background: var(--panel);
-            border: 1px solid var(--line);
-            border-radius: 8px;
-        }
-        .media-panel { box-shadow: var(--shadow); overflow: hidden; }
-        .sheet-mini { padding: 18px; background: var(--surface); display: grid; gap: 10px; }
-        .sheet-row { display: grid; grid-template-columns: 1fr 0.8fr 0.72fr; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; font-size: 0.86rem; background: #fff; }
-        .sheet-row span { padding: 10px; border-right: 1px solid var(--line); color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
-        .sheet-row span:last-child { border-right: 0; color: var(--green); font-weight: 800; background: var(--green-soft); }
-        .doc-preview { margin: 0 18px 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 10px 26px rgba(23, 32, 51, 0.08); }
-        .doc-title { font-weight: 900; font-size: 1.05rem; margin-bottom: 14px; }
-        .doc-line { height: 10px; border-radius: 99px; background: #dfe7f3; margin: 10px 0; }
-        .doc-line.short { width: 64%; }
-        .doc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-        .doc-tags span { padding: 6px 9px; border-radius: 8px; background: var(--blue-soft); color: var(--blue); font-size: 0.78rem; font-weight: 800; }
-        .trust-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0 10px; }
-        .trust-item { padding: 16px; }
-        .trust-item strong { display: block; margin-bottom: 4px; }
-        .trust-item span { color: var(--muted); font-size: 0.92rem; }
-        .section { padding: 42px 0 8px; margin-top: 14px; }
-        h2 { font-size: 1.75rem; letter-spacing: 0; margin-bottom: 8px; }
-        .lead { color: var(--muted); margin-bottom: 18px; max-width: 760px; }
-        .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-        .workflow-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-        .feature, .step-card, .metric { padding: 18px; }
-        .feature strong { display: block; margin-bottom: 8px; font-size: 1.02rem; }
-        .feature p { color: var(--muted); font-size: 0.94rem; }
-        .step-card .number { display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; border-radius: 8px; background: var(--blue-soft); color: var(--blue); font-weight: 900; margin-bottom: 12px; }
-        .step-card strong, .metric strong { display: block; margin-bottom: 8px; }
-        .step-card p, .metric p { color: var(--muted); font-size: 0.94rem; }
-        .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-        .metric { background: var(--surface); }
-        .steps { padding-left: 20px; display: grid; gap: 10px; }
-        .steps li { color: var(--muted); }
-        .link-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; font-weight: 700; }
-        .link-bar a { display: inline-flex; min-height: 38px; align-items: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-        .note {
-            margin-top: 18px;
-            padding: 16px 18px;
-            border-radius: 8px;
-            background: var(--green-soft);
-            border: 1px solid #cde8d6;
-            color: #17633f;
-            font-size: 0.93rem;
-        }
-        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
-        @media (max-width: 900px) {
-            .hero, .grid, .workflow-grid, .trust-strip, .comparison { grid-template-columns: 1fr; }
-            .nav a:first-child { width: 100%; margin-right: 0; }
-            h1 { font-size: 2.1rem; }
-            .sheet-mini { padding: 14px; }
-            .sheet-row { grid-template-columns: 0.92fr 0.74fr 0.62fr; font-size: 0.78rem; }
-            .sheet-row span { padding: 8px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocForge | Generate Google Docs and PDFs from Google Sheets rows</title>
+  <meta name="description" content="Install DocForge to generate Google Docs, PDFs, letters, certificates, and other files from Google Sheets rows using templates.">
+  <link rel="canonical" href="https://formsuite.dev/docforge/">
+  <link rel="stylesheet" href="../product-landing.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="DocForge | Generate Google Docs and PDFs from Google Sheets rows">
+  <meta property="og:description" content="Turn Google Sheets rows into Google Docs and PDFs with templates, field mapping, and a preflight path.">
+  <meta property="og:url" content="https://formsuite.dev/docforge/">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DocForge | Document generation from Sheets">
+  <meta name="twitter:description" content="Generate Docs and PDFs from Google Sheets rows with template-based workflows.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "DocForge",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Google Workspace",
+      "url": "https://formsuite.dev/docforge/",
+      "image": "https://formsuite.dev/social-card.svg",
+      "installUrl": "https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885",
+      "description": "DocForge generates Google Docs and PDFs from Google Sheets rows using templates, field mapping, and preflight checks.",
+      "provider": { "@type": "Organization", "name": "FormSuite" }
+    }
+  </script>
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="index.html"><strong>DocForge</strong></a>
-            <a href="support.html">Support</a>
-            <a href="permissions.html">Permissions</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
-            <a href="../install.html">Install</a>
-            <a href="../index.html">FormSuite home</a>
-        </nav>
-        <section class="hero">
-            <div>
-                <div class="eyebrow">Google Sheets add-on</div>
-                <h1>Turn spreadsheet rows into polished Google Docs and PDFs without building a custom document pipeline.</h1>
-                <p>DocForge is for teams that already operate in Google Sheets and need reliable document generation on top. It maps row data into templates, checks the setup before launch, and produces output that is ready for review, filing, or follow-up email workflows.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install free from Marketplace</a>
-                    <a class="btn btn-secondary" href="support.html">Open setup guide</a>
-                    <a class="btn btn-secondary" href="https://youtu.be/YaECjc42LFg">Watch demo</a>
-                    <a class="btn btn-secondary" href="permissions.html">Review permissions</a>
-                    <a class="btn btn-secondary" href="privacy.html">Review data handling</a>
-                </div>
-            </div>
-            <div class="media-panel" aria-label="DocForge document generation preview">
-                <div class="sheet-mini">
-                    <div class="sheet-row"><span>Name</span><span>Template</span><span>Status</span></div>
-                    <div class="sheet-row"><span>Avery Chen</span><span>Offer letter</span><span>Ready</span></div>
-                    <div class="sheet-row"><span>Mina Patel</span><span>Certificate</span><span>Ready</span></div>
-                </div>
-                <div class="doc-preview">
-                    <div class="doc-title">Generated document preview</div>
-                    <div class="doc-line"></div>
-                    <div class="doc-line"></div>
-                    <div class="doc-line short"></div>
-                    <div class="doc-tags">
-                        <span>{{Name}}</span>
-                        <span>{{Program}}</span>
-                        <span>{{Date}}</span>
-                        <span>PDF output</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="trust-strip" aria-label="DocForge trust signals">
-            <div class="trust-item"><strong>Marketplace install</strong><span>Published for Google Workspace users.</span></div>
-            <div class="trust-item"><strong>One-row first test</strong><span>Generate one document before running a batch.</span></div>
-            <div class="trust-item"><strong>Plain permissions</strong><span>Review why Sheets, Docs, and Drive access are needed.</span></div>
-            <div class="trust-item"><strong>Template workflow</strong><span>Use column headers and Docs tags your team can inspect.</span></div>
-        </section>
-        <section class="section">
-            <h2>From spreadsheet rows to generated files</h2>
-            <p class="lead">Start with one source row and one Google Docs template. Confirm the mapping, generate a sample Doc or PDF, then scale the same setup to a controlled batch.</p>
-            <div class="workflow-grid">
-                <div class="step-card">
-                    <span class="number">1</span>
-                    <strong>Prepare rows and tags</strong>
-                    <p>Keep stable column headers in Google Sheets and matching merge tags in the Google Docs template.</p>
-                </div>
-                <div class="step-card">
-                    <span class="number">2</span>
-                    <strong>Run preflight</strong>
-                    <p>Check template access, required fields, output naming, and folder settings before generating files.</p>
-                </div>
-                <div class="step-card">
-                    <span class="number">3</span>
-                    <strong>Generate one output</strong>
-                    <p>Create one Doc or PDF, inspect the file, then process more rows once the sample looks right.</p>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <div class="comparison">
-                <div class="metric">
-                    <strong>Before DocForge</strong>
-                    <p>Teams copy values from Sheets into documents by hand, rename files manually, and lose track of which rows already produced output.</p>
-                </div>
-                <div class="metric">
-                    <strong>After setup</strong>
-                    <p>Each row can generate a consistent document or PDF from the same template, with a repeatable path for review and filing.</p>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Core features</h2>
-            <p class="lead">DocForge is built for operational document work, not just one-off mail merge experiments. It focuses on visibility, repeatability, and clean outputs for every row you process.</p>
-            <div class="grid">
-                <div class="feature"><strong>Template-driven generation</strong><p>Use a Google Docs template as the source layout and populate it with sheet data using merge fields your team can understand.</p></div>
-                <div class="feature"><strong>Preflight before generation</strong><p>Catch missing templates, missing data, or mapping problems before you launch a bigger run.</p></div>
-                <div class="feature"><strong>Docs and PDF output</strong><p>Generate editable Google Docs, exportable PDFs, or both depending on the review and delivery workflow you need.</p></div>
-                <div class="feature"><strong>Batch-friendly operations</strong><p>Run multiple rows from the same sheet setup so the document workflow stays consistent from record to record.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Typical use cases</h2>
-            <div class="grid">
-                <div class="feature"><strong>Internal paperwork</strong><p>Generate request summaries, approvals, and handoff documents from structured intake sheets.</p></div>
-                <div class="feature"><strong>Education and program operations</strong><p>Create certificates, reviewer packets, or student-facing documents from response data without manual copy and paste.</p></div>
-                <div class="feature"><strong>Sales and onboarding handoffs</strong><p>Turn accepted records into branded documents that downstream teams can review or send.</p></div>
-                <div class="feature"><strong>Document preparation at scale</strong><p>Keep naming, file structure, and template usage consistent across a recurring batch process.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Quick start</h2>
-            <p class="lead">A reviewer-friendly setup path that stays inside Google Sheets.</p>
-            <ol class="steps">
-                <li>Open the source Google Sheet and launch DocForge from the Extensions menu.</li>
-                <li>Select the target sheet and connect the template you want to use.</li>
-                <li>Run preflight to confirm the mapping and required inputs are ready.</li>
-                <li>Generate the output documents and review the resulting files.</li>
-            </ol>
-            <div class="link-bar">
-                <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install free from Marketplace</a>
-                <a href="support.html">Support and setup</a>
-                <a href="permissions.html">Permissions explained</a>
-                <a href="google-sheets-document-generation-guide.html">Workflow guide</a>
-                <a href="google-docs-template-merge-from-google-sheets.html">Docs template merge guide</a>
-                <a href="google-sheets-generate-letters-from-rows.html">Letters from rows guide</a>
-                <a href="google-sheets-rows-to-pdf.html">Sheets rows to PDF guide</a>
-                <a href="google-sheets-rows-to-printable-documents.html">Rows to printable documents</a>
-                <a href="certificate-generator-from-google-sheets.html">Certificate generator guide</a>
-                <a href="privacy.html">Privacy policy</a>
-                <a href="terms.html">Terms of service</a>
-                <a href="permissions.html">Permissions</a>
-            </div>
-            <div class="note">DocForge is approved and available on Google Workspace Marketplace. Start with the install page, then use the setup guide to test a small document generation run before processing a full batch.</div>
-        </section>
-        <section class="section">
-            <h2>Frequently asked questions</h2>
-            <div class="grid">
-                <div class="feature">
-                    <strong>What does DocForge generate?</strong>
-                    <p>DocForge turns spreadsheet rows into Google Docs and PDF files using templates, field mapping, and a preflight check before generation.</p>
-                </div>
-                <div class="feature">
-                    <strong>Do I need coding experience?</strong>
-                    <p>No. Configure everything from the sidebar inside Google Sheets.</p>
-                </div>
-                <div class="feature">
-                    <strong>Can I generate PDFs?</strong>
-                    <p>Yes. DocForge generates Google Docs and PDFs from spreadsheet data.</p>
-                </div>
-                <div class="feature">
-                    <strong>Should I install before asking about plans?</strong>
-                    <p>Yes. During launch mode, install from Marketplace and test one small document-generation workflow before any commercial conversation.</p>
-                </div>
-            </div>
-        </section>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="FormSuite home">
+        <span class="brand-mark">FS</span>
+        <span>DocForge</span>
+      </a>
+      <nav class="nav" aria-label="DocForge navigation">
+        <a href="support.html">Setup</a>
+        <a href="permissions.html">Permissions</a>
+        <a href="../install.html">Install</a>
+        <a href="../choose-google-workspace-addon.html">Chooser</a>
+      </nav>
+    </header>
 
-        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 DocForge. All rights reserved.</div>
-    </div>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">Google Sheets add-on</div>
+          <h1 id="hero-title">Rows become Docs and PDFs.</h1>
+          <p>Map sheet columns into a Google Docs template, run preflight, then generate documents or PDFs from selected rows.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install from Marketplace</a>
+            <a class="btn" href="google-sheets-document-generation-guide.html">Open guide</a>
+            <a class="btn" href="https://youtu.be/YaECjc42LFg">Watch demo</a>
+          </div>
+        </div>
+        <article class="product-visual" aria-label="DocForge screenshot">
+          <img class="product-shot" src="https://lh3.googleusercontent.com/qhNcvS4dWw2A4htDDOet6Jexc8DZFRAVAB9uq7aoOHNvw3QmQ6U=s640-w640-h400" alt="DocForge sidebar screenshot">
+          <div class="visual-caption">
+            <strong>Document generation from Sheets</strong>
+            <span>Published</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" aria-labelledby="flow-title">
+        <div class="section-head">
+          <div>
+            <h2 id="flow-title">Generate one file first.</h2>
+            <p>One template and one row is enough to prove the mapping before a batch run.</p>
+          </div>
+        </div>
+        <div class="step-grid">
+          <article class="step-card">
+            <div class="step-num">1</div>
+            <h3>Prepare template tags</h3>
+            <p>Use Google Docs placeholders that match your sheet columns.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-num">2</div>
+            <h3>Run preflight</h3>
+            <p>Check template access, required fields, output folder, and naming.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-num">3</div>
+            <h3>Generate and inspect</h3>
+            <p>Create one Doc or PDF, review it, then process more rows.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="results-title">
+        <div class="section-head">
+          <div>
+            <h2 id="results-title">Document workflows that stay inside Workspace.</h2>
+            <p>Use Sheets for source data and Docs for the final layout.</p>
+          </div>
+        </div>
+        <div class="result-grid">
+          <article class="result-card"><span class="tag tag-blue">Templates</span><strong>Use Docs layouts</strong><p>Build output from the Google Docs templates your team can inspect.</p></article>
+          <article class="result-card"><span class="tag tag-teal">Fields</span><strong>Map sheet columns</strong><p>Populate placeholders with row data from Google Sheets.</p></article>
+          <article class="result-card"><span class="tag tag-amber">Output</span><strong>Create Docs or PDFs</strong><p>Generate editable documents, PDF files, or both.</p></article>
+          <article class="result-card"><span class="tag tag-green">Batch</span><strong>Repeat by row</strong><p>Scale the same checked setup across selected rows.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="guide-title">
+        <div class="guide-panel">
+          <div>
+            <h2 id="guide-title">Open the matching guide.</h2>
+            <p>Pick the output you need and start with a single-row generation test.</p>
+          </div>
+          <div class="link-row">
+            <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
+            <a href="google-sheets-document-generation-guide.html">Document generation</a>
+            <a href="google-docs-template-merge-from-google-sheets.html">Docs templates</a>
+            <a href="google-sheets-rows-to-pdf.html">Rows to PDF</a>
+            <a href="certificate-generator-from-google-sheets.html">Certificates</a>
+            <a href="permissions.html">Permissions</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <div class="faq-panel">
+          <details>
+            <summary><strong>Can DocForge generate PDFs?</strong></summary>
+            <p>Yes. DocForge can generate Google Docs and PDF output from spreadsheet rows.</p>
+          </details>
+          <details>
+            <summary><strong>Do I need a Google Docs template?</strong></summary>
+            <p>Yes. The template defines the layout, and the sheet columns provide the row data.</p>
+          </details>
+          <details>
+            <summary><strong>What should I test first?</strong></summary>
+            <p>Generate one document from one sample row, inspect the output, then run a small batch.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a></span>
+      <span>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</span>
+    </footer>
+  </div>
 </body>
 </html>
