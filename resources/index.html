@@ -113,9 +113,31 @@
         .mini { padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: #fff; }
         .mini strong { display: inline-block; margin-bottom: 8px; }
         .mini p { color: var(--muted); font-size: 0.93rem; }
+        .install-strip {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .install-pill {
+            min-height: 76px;
+            padding: 12px;
+            display: grid;
+            align-content: center;
+            gap: 5px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+            font-weight: 800;
+        }
+        .install-pill span {
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
         .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
         @media (max-width: 980px) {
-            .grid, .mini-grid { grid-template-columns: 1fr; }
+            .grid, .mini-grid, .install-strip { grid-template-columns: 1fr; }
             h1 { font-size: 2.3rem; max-width: none; }
             .topbar { flex-direction: column; align-items: flex-start; }
         }
@@ -145,6 +167,18 @@
                 <a class="btn btn-secondary" href="google-forms-add-ons-response-limits-confirmation-emails.html">Choose installable add-on</a>
                 <a class="btn btn-secondary" href="google-sheets-add-ons-formulas-mail-merge-document-generation.html">Choose Sheets add-on</a>
                 <a class="btn btn-secondary" href="../index.html">Back to FormSuite</a>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="install-now-title">
+            <h2 id="install-now-title">Ready to install?</h2>
+            <p class="lead">Skip browsing and open the matching Marketplace page.</p>
+            <div class="install-strip">
+                <a class="install-pill" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">FormGuard<span>Close forms</span></a>
+                <a class="install-pill" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">FormNotifier<span>Send confirmations</span></a>
+                <a class="install-pill" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">FormCopy Pro<span>Copy formulas</span></a>
+                <a class="install-pill" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">FormMerge Pro<span>Email rows</span></a>
+                <a class="install-pill" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">DocForge<span>Generate Docs/PDFs</span></a>
             </div>
         </section>
 
