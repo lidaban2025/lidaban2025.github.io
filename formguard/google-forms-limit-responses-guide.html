@@ -4,117 +4,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to limit responses and close Google Forms automatically | FormGuard guide</title>
-    <meta name="description" content="Learn how to limit responses, schedule form openings and closings, and control answer availability in Google Forms with FormGuard.">
+    <meta name="description" content="Limit Google Forms responses with native settings, schedules, response caps, choice quotas, and FormGuard. Watch the demo and choose the right setup path.">
     <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-limit-responses-guide.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
     <meta property="og:title" content="How to limit responses and close Google Forms automatically | FormGuard guide">
-    <meta property="og:description" content="Learn how to limit responses, schedule form openings and closings, and control answer availability in Google Forms with FormGuard.">
+    <meta property="og:description" content="A visual guide to response caps, deadlines, choice quotas, and closed-form messages for Google Forms operators.">
     <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-limit-responses-guide.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How to limit responses and close Google Forms automatically">
-    <meta name="twitter:description" content="Learn how to limit responses, schedule form openings and closings, and control answer availability in Google Forms with FormGuard.">
+    <meta name="twitter:title" content="How to limit Google Forms responses">
+    <meta name="twitter:description" content="Watch the FormGuard demo, then choose the right response limit, deadline, or choice quota setup.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "How to limit responses and close Google Forms automatically",
-            "description": "A guide to response limits, schedules, and answer controls in Google Forms with FormGuard.",
-            "author": { "@type": "Organization", "name": "FormSuite" },
-            "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-limit-responses-guide.html"
+            "@graph": [
+                {
+                    "@type": "Article",
+                    "headline": "How to limit responses and close Google Forms automatically",
+                    "description": "A visual guide to response limits, schedules, and answer controls in Google Forms with FormGuard.",
+                    "author": { "@type": "Organization", "name": "FormSuite" },
+                    "publisher": { "@type": "Organization", "name": "FormSuite" },
+                    "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-limit-responses-guide.html"
+                },
+                {
+                    "@type": "VideoObject",
+                    "name": "How to close Google Forms after a response limit | FormGuard",
+                    "description": "A short public demo showing the FormGuard setup path for response limits in Google Forms.",
+                    "thumbnailUrl": "https://img.youtube.com/vi/-llsuHT2fJI/hqdefault.jpg",
+                    "embedUrl": "https://www.youtube-nocookie.com/embed/-llsuHT2fJI",
+                    "contentUrl": "https://youtu.be/-llsuHT2fJI",
+                    "uploadDate": "2026-05-14"
+                }
+            ]
         }
     </script>
     <style>
-        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        :root {
+            --bg:#f7f9fc;
+            --panel:#ffffff;
+            --ink:#172033;
+            --muted:#5f6b7c;
+            --line:#d9e2ef;
+            --blue:#155eef;
+            --green:#0f8b55;
+            --amber:#b65c00;
+            --soft-blue:#eef4ff;
+            --soft-green:#edf8f2;
+            --soft-amber:#fff4e5;
+        }
         * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
-        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-        .hero,.section,.panel { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-        .hero { padding:30px; margin-bottom:18px; }
-        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:14ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
-        .hero p,.section p,.section li { color:var(--muted); }
-        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:26px; margin-top:18px; }
-        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
-        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
-        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-        .steps { padding-left:20px; display:grid; gap:10px; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:1100px; margin:0 auto; padding:24px 20px 56px; }
+        .nav { display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:24px; font-size:.94rem; }
+        .nav a { color:var(--muted); }
+        .nav strong { color:var(--ink); }
+        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,480px); gap:28px; align-items:center; padding:20px 0 32px; }
+        .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:var(--soft-blue); color:var(--blue); font-size:.78rem; font-weight:700; margin-bottom:14px; }
+        h1 { font-size:clamp(2.1rem,4vw,3.6rem); line-height:1.05; letter-spacing:0; max-width:12ch; margin-bottom:14px; }
+        h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
+        h3 { font-size:1.02rem; letter-spacing:0; margin-bottom:7px; }
+        p, li { color:var(--muted); }
+        .hero p { max-width:620px; font-size:1.05rem; }
+        .actions, .link-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+        .btn { display:inline-flex; min-height:42px; align-items:center; justify-content:center; padding:0 15px; border-radius:8px; border:1px solid var(--line); background:#fff; color:var(--ink); font-weight:700; }
+        .btn-primary { background:var(--blue); border-color:var(--blue); color:#fff; }
+        .video-card { background:#0f172a; border-radius:8px; overflow:hidden; box-shadow:0 18px 45px rgba(15,23,42,.18); }
+        .video-frame { position:relative; aspect-ratio:16/9; background:#0f172a; }
+        .video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+        .video-caption { display:flex; justify-content:space-between; gap:12px; align-items:center; padding:12px 14px; color:#dbeafe; font-size:.9rem; }
+        .section { padding:28px 0; border-top:1px solid var(--line); }
+        .section-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:16px; }
+        .section-head p { max-width:620px; }
+        .quick-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+        .tile { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+        .tile.blue { background:var(--soft-blue); }
+        .tile.green { background:var(--soft-green); }
+        .tile.amber { background:var(--soft-amber); }
+        .tile strong { display:block; color:var(--ink); margin-bottom:6px; }
+        .path-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+        .path { background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px; min-height:170px; display:flex; flex-direction:column; justify-content:space-between; }
+        .tag { display:inline-flex; align-self:flex-start; margin-bottom:12px; padding:5px 8px; border-radius:999px; background:#f1f5f9; color:#475569; font-size:.75rem; font-weight:700; }
+        .mini-list { display:grid; gap:9px; list-style:none; margin-top:10px; }
+        .mini-list li { display:flex; gap:9px; align-items:flex-start; }
+        .mini-list li::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--blue); margin-top:.55em; flex:0 0 auto; }
+        .source-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:14px; }
+        .official { background:#fff; border:1px solid var(--line); border-radius:8px; padding:18px; }
+        .official-links { display:grid; gap:10px; margin-top:12px; }
+        .official-links a { display:flex; justify-content:space-between; gap:14px; padding:11px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+        .official-links span { color:var(--muted); font-size:.9rem; }
+        .cta-band { display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; background:#111827; color:#fff; border-radius:8px; padding:22px; }
+        .cta-band p { color:#cbd5e1; }
+        .footer { border-top:1px solid var(--line); margin-top:20px; padding-top:20px; color:var(--muted); font-size:.9rem; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; }
+        @media (max-width:900px) {
+            .hero, .source-grid, .cta-band { grid-template-columns:1fr; }
+            .quick-grid, .path-grid { grid-template-columns:1fr; }
+            .section-head { display:block; }
+        }
     </style>
 </head>
 <body>
     <div class="shell">
-        <nav class="nav">
+        <nav class="nav" aria-label="FormGuard guide navigation">
             <a href="../index.html">FormSuite</a>
             <a href="../install.html">Install</a>
             <a href="../resources/index.html">Resources</a>
             <a href="./index.html"><strong>FormGuard</strong></a>
             <a href="./support.html">Support</a>
+            <a href="./permissions.html">Permissions</a>
         </nav>
-        <section class="hero">
-            <div class="eyebrow">Workflow guide</div>
-            <h1>How to limit responses and close Google Forms automatically</h1>
-            <p>Many teams need a Google Form to stay open only during a certain window, stop after a response cap, or hide answer options once they are no longer valid. FormGuard is built for these operational controls so you do not have to manage them manually around the form's launch and traffic period.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
-                <a class="btn btn-secondary" href="./support.html">Open FormGuard setup guide</a>
-                <a class="btn btn-secondary" href="./index.html">View FormGuard overview</a>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Where this guide fits best</h2>
-            <p class="lead">This workflow is useful anytime the form should not be permanently open to everyone forever.</p>
-            <div class="grid">
-                <div class="feature"><strong>Registration caps</strong><p>Stop accepting entries after a fixed number of submissions has been reached.</p></div>
-                <div class="feature"><strong>Timed availability</strong><p>Open a form only during a registration window, campaign period, or scheduled release.</p></div>
-                <div class="feature"><strong>Choice management</strong><p>Remove or hide options when they are exhausted, expired, or no longer relevant.</p></div>
-                <div class="feature"><strong>Operator alerts</strong><p>Notify the owner when a threshold, close event, or timing rule has been reached.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Recommended setup path</h2>
-            <ol class="steps">
-                <li>Open the Google Form in edit mode and decide whether the main constraint is a response cap, a date/time window, or answer-level control.</li>
-                <li>Launch FormGuard and enable the specific rule that matches the operating need instead of stacking unnecessary controls on the same form immediately.</li>
-                <li>Set owner notifications or close messaging so users and operators both understand what happens when the control is triggered.</li>
-                <li>Test the rule before launch, especially if the form has a hard deadline or a limited set of choices that should disappear at the right time.</li>
-            </ol>
-            <div class="note">The most stable Forms setups are the ones where the close logic is explicit, easy to explain, and visible to the operator managing traffic in real time.</div>
-        </section>
-        <section class="section">
-            <h2>Questions to answer before going live</h2>
-            <div class="grid">
-                <div class="feature"><strong>What is the true limit?</strong><p>Decide whether the form should close on a count, on a date, or on an inventory-style answer condition.</p></div>
-                <div class="feature"><strong>What should users see?</strong><p>Plan the close message or state change so respondents are not confused when the form becomes unavailable.</p></div>
-                <div class="feature"><strong>Who watches the trigger?</strong><p>If the form is operationally important, send an owner notification when the limit or schedule rule activates.</p></div>
-                <div class="feature"><strong>Do choices expire too?</strong><p>Some workflows need both a form-level rule and answer-level controls when availability changes item by item.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Next steps</h2>
-            <p class="lead">If you already know the form needs a response cap, schedule, or choice control, install FormGuard first and then use the setup guide for the exact rule.</p>
-            <div class="link-bar">
-                <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-                <a href="./support.html">FormGuard support and setup</a>
-                <a href="./privacy-policy.html">Privacy policy</a>
-                <a href="./terms-of-service.html">Terms of service</a>
-                <a href="../resources/index.html">More workflow guides</a>
-            </div>
-            <div class="note">FormGuard is published on Google Workspace Marketplace and can be installed directly into Google Forms for response limits, schedules, notifications, and choice controls.</div>
-        </section>
-        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+
+        <main>
+            <section class="hero" aria-labelledby="hero-title">
+                <div>
+                    <div class="eyebrow">FormGuard workflow guide</div>
+                    <h1 id="hero-title">Limit Google Forms without watching the form all day.</h1>
+                    <p>Use this page to choose the right control: native response settings, a response cap, a scheduled close, or a choice quota. Watch the short demo first, then install only if the add-on path fits.</p>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+                        <a class="btn" href="https://youtu.be/-llsuHT2fJI">Open YouTube demo</a>
+                        <a class="btn" href="./support.html">Setup guide</a>
+                    </div>
+                </div>
+                <aside class="video-card" aria-label="FormGuard public demo video">
+                    <div class="video-frame">
+                        <iframe src="https://www.youtube-nocookie.com/embed/-llsuHT2fJI?rel=0" title="How to close Google Forms after a response limit with FormGuard" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-caption">
+                        <strong>43s public demo</strong>
+                        <span>Response cap setup</span>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="section" aria-labelledby="quick-answer">
+                <div class="section-head">
+                    <div>
+                        <h2 id="quick-answer">Quick answer</h2>
+                        <p>Most forms need one of these three controls. Pick the smallest one that solves the workflow.</p>
+                    </div>
+                </div>
+                <div class="quick-grid">
+                    <article class="tile blue">
+                        <strong>Only need one response per person?</strong>
+                        <p>Use native Google Forms settings first. Google documents the built-in "Limit to 1 response" option in its form sharing guide.</p>
+                    </article>
+                    <article class="tile green">
+                        <strong>Need the form to stop at a cap or date?</strong>
+                        <p>Use FormGuard for response limits, scheduled close windows, closed-form messages, and owner alerts.</p>
+                    </article>
+                    <article class="tile amber">
+                        <strong>Need individual choices to disappear?</strong>
+                        <p>Use a choice quota when workshops, time slots, volunteer roles, or limited options fill separately.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="choose-path">
+                <div class="section-head">
+                    <div>
+                        <h2 id="choose-path">Choose the right path</h2>
+                        <p>Internal links should move users toward the exact workflow, not make them read the same explanation again.</p>
+                    </div>
+                </div>
+                <div class="path-grid">
+                    <article class="path">
+                        <div>
+                            <span class="tag">Response cap</span>
+                            <h3>Close after 100 responses</h3>
+                            <p>Use this when the total number of submissions is the limit.</p>
+                        </div>
+                        <a href="./google-forms-close-after-100-responses.html">Open cap guide</a>
+                    </article>
+                    <article class="path">
+                        <div>
+                            <span class="tag">Capacity</span>
+                            <h3>Stop when full</h3>
+                            <p>Best for signups, classes, workshops, or RSVP forms.</p>
+                        </div>
+                        <a href="./google-forms-stop-responses-when-full.html">Open full-form guide</a>
+                    </article>
+                    <article class="path">
+                        <div>
+                            <span class="tag">Schedule</span>
+                            <h3>Open and close by time</h3>
+                            <p>Use this when timing matters more than response count.</p>
+                        </div>
+                        <a href="./schedule-google-forms-open-close-guide.html">Open schedule guide</a>
+                    </article>
+                    <article class="path">
+                        <div>
+                            <span class="tag">Choices</span>
+                            <h3>Limit slots or options</h3>
+                            <p>Use this when each answer option has its own cap.</p>
+                        </div>
+                        <a href="./google-forms-choice-limiter-guide.html">Open choice guide</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="setup-map">
+                <div class="source-grid">
+                    <article class="official">
+                        <h2 id="setup-map">Setup map</h2>
+                        <ul class="mini-list">
+                            <li>Open the form in edit mode and confirm whether the limit is by total responses, deadline, or choice availability.</li>
+                            <li>Install FormGuard from Google Workspace Marketplace if native settings are not enough.</li>
+                            <li>Save one rule first, test it on a disposable form, then add owner notifications or a closed message.</li>
+                            <li>After the first successful setup, use the support page for troubleshooting and permissions context.</li>
+                        </ul>
+                        <div class="link-row">
+                            <a href="./support.html">FormGuard support</a>
+                            <a href="./permissions.html">Permissions explained</a>
+                            <a href="./what-to-show-when-google-form-is-full.html">Closed message examples</a>
+                        </div>
+                    </article>
+                    <article class="official">
+                        <h2>Official references</h2>
+                        <p>These external links are useful for native Google Forms behavior before choosing an add-on.</p>
+                        <div class="official-links">
+                            <a href="https://support.google.com/docs/answer/139706?hl=en-en" rel="noopener"><strong>Google Help: manage responses</strong><span>Stop accepting responses</span></a>
+                            <a href="https://support.google.com/docs/answer/2839588?hl=en-en" rel="noopener"><strong>Google Help: publish and share</strong><span>Limit to 1 response</span></a>
+                            <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423" rel="noopener"><strong>Workspace Marketplace</strong><span>Install FormGuard</span></a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="related-workflows">
+                <div class="section-head">
+                    <div>
+                        <h2 id="related-workflows">Related workflows</h2>
+                        <p>Good internal links should catch adjacent intent: full event, waitlist, response notifications, and add-on selection.</p>
+                    </div>
+                </div>
+                <div class="quick-grid">
+                    <article class="tile">
+                        <strong>Event form full?</strong>
+                        <p>Use a clear full message and route late visitors to the right next step.</p>
+                        <a href="./what-to-show-when-google-form-is-full.html">Open message guide</a>
+                    </article>
+                    <article class="tile">
+                        <strong>Need confirmations too?</strong>
+                        <p>Pair capacity control with FormNotifier when respondents also need email confirmation.</p>
+                        <a href="../resources/google-forms-registration-workflow-limits-confirmation-emails.html">Open paired workflow</a>
+                    </article>
+                    <article class="tile">
+                        <strong>Not sure which add-on?</strong>
+                        <p>Use the chooser when the problem might be limits, notifications, formulas, mail merge, or documents.</p>
+                        <a href="../choose-google-workspace-addon.html">Open add-on chooser</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="install">
+                <div class="cta-band">
+                    <div>
+                        <h2 id="install">Ready to test one rule?</h2>
+                        <p>Install FormGuard, create one small response limit or schedule rule, run a test, then expand only after the first success signal.</p>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
+                        <a class="btn" href="./support.html">Setup guide</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <span>&copy; 2026 FormSuite. FormGuard is part of the FormSuite product family.</span>
+            <span><a href="./privacy-policy.html">Privacy</a> · <a href="./terms-of-service.html">Terms</a> · <a href="../resources/index.html">Resources</a></span>
+        </footer>
     </div>
 </body>
 </html>
