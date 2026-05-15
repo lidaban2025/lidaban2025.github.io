@@ -35,7 +35,7 @@
         .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
         .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
         .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-        .hero { padding:30px; margin-bottom:18px; }
+        .hero { padding:30px; margin-bottom:18px; display:grid; grid-template-columns:minmax(0,1fr) minmax(320px,420px); gap:22px; align-items:center; }
         .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
         h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:17ch; }
         h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
@@ -44,6 +44,10 @@
         .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
         .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
         .section { padding:26px; margin-top:18px; }
+        .video-card { overflow:hidden; border:1px solid var(--line); border-radius:18px; background:#0f172a; }
+        .video-frame { position:relative; aspect-ratio:16/9; background:#0f172a; }
+        .video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+        .video-caption { display:flex; justify-content:space-between; gap:10px; padding:12px 14px; color:#dbeafe; font-size:.9rem; }
         .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
         .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
         .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
@@ -54,7 +58,7 @@
         .install-panel p { color:#17633f; margin-bottom:12px; }
         .warn { margin-top:18px; padding:16px 18px; border-radius:18px; border:1px solid #edd8a7; background:var(--amber-soft); color:#7d5a00; font-size:.93rem; }
         .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.05rem; max-width:none; } }
+        @media (max-width:900px) { .hero,.grid { grid-template-columns:1fr; } h1 { font-size:2.05rem; max-width:none; } }
     </style>
 </head>
 <body>
@@ -67,13 +71,22 @@
             <a href="./support.html">Support</a>
         </nav>
         <section class="hero">
-            <div class="eyebrow">Response limit</div>
-            <h1>Google Forms close after 100 responses</h1>
-            <p>If your Google Form should stop collecting signups after 100 responses, do not rely on checking the response sheet manually. Set a response cap, prepare the closed-form message, and test the public form before launch.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard free</a>
-                <a class="btn btn-secondary" href="./close-google-forms-after-n-responses.html">Open response cap guide</a>
+            <div>
+                <div class="eyebrow">Response limit</div>
+                <h1>Google Forms close after 100 responses</h1>
+                <p>Set a 100-response cap, write the closed-form message, and test the public form before launch.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+                    <a class="btn btn-secondary" href="https://youtu.be/-llsuHT2fJI">Watch demo</a>
+                    <a class="btn btn-secondary" href="./close-google-forms-after-n-responses.html">Open cap guide</a>
+                </div>
             </div>
+            <aside class="video-card" aria-label="FormGuard public demo">
+                <div class="video-frame">
+                    <iframe src="https://www.youtube-nocookie.com/embed/-llsuHT2fJI?rel=0" title="FormGuard response limit demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="video-caption"><strong>Response cap demo</strong><span>Watch first</span></div>
+            </aside>
         </section>
         <section class="section">
             <h2>Install the response limiter</h2>
@@ -129,7 +142,8 @@
                 <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
             </div>
         </section>
-        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+        <div class="footer"><a href="./support.html">Support</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
     </div>
+    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

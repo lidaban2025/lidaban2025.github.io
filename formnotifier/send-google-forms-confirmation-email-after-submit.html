@@ -52,6 +52,10 @@
         .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
         .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
         .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
+        .video-panel { overflow:hidden; padding:0; background:#0f172a; }
+        .video-frame { position:relative; aspect-ratio:16/9; background:#0f172a; }
+        .video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+        .video-caption { display:flex; justify-content:space-between; gap:10px; padding:12px 14px; color:#dbeafe; font-size:.9rem; }
         .form-event { padding:14px; border-radius:8px; background:var(--surface); border:1px solid var(--line); }
         .form-event strong { display:block; margin-bottom:8px; }
         .mail-card { border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; }
@@ -86,26 +90,18 @@
             <div>
                 <div class="eyebrow">Respondent confirmation</div>
                 <h1>How to send a confirmation email after a Google Form submit</h1>
-                <p>A confirmation email is one of the simplest ways to reduce uncertainty after someone submits a Google Form. FormNotifier lets you send that message directly from the Google Forms editor, using collected email or a specific email field plus merge values from the response itself.</p>
+                <p>Collect the respondent email, write one short confirmation template, and send a test before launch.</p>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier free</a>
+                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                    <a class="btn btn-secondary" href="https://youtu.be/s-VlYaC2cWw">Watch demo</a>
                     <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
                 </div>
             </div>
-            <div class="visual-panel" aria-label="Confirmation email workflow preview">
-                <div class="form-event">
-                    <strong>Google Forms submission</strong>
-                    <p>Email field found: respondent@example.com</p>
+            <div class="visual-panel video-panel" aria-label="FormNotifier public demo video">
+                <div class="video-frame">
+                    <iframe src="https://www.youtube-nocookie.com/embed/s-VlYaC2cWw?rel=0" title="FormNotifier confirmation email demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                 </div>
-                <div class="mail-card">
-                    <div class="mail-head">Respondent confirmation</div>
-                    <div class="mail-body">
-                        <div class="mail-line"></div>
-                        <div class="mail-line"></div>
-                        <div class="mail-line short"></div>
-                        <span class="status-pill">Test confirmation sent</span>
-                    </div>
-                </div>
+                <div class="video-caption"><strong>Confirmation email demo</strong><span>Watch first</span></div>
             </div>
         </section>
         <section class="trust-strip" aria-label="Confirmation email trust signals">
@@ -170,7 +166,8 @@
                 <a href="./privacy.html">Privacy policy</a>
             </div>
         </section>
-        <div class="footer">Contact: <a href="mailto:lidaban2025@gmail.com">lidaban2025@gmail.com</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+        <div class="footer"><a href="./support.html">Support</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
     </div>
+    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>
