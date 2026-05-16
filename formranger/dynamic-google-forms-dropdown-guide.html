@@ -1,116 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to populate Google Forms™ choices from Google Sheets™ | FormRanger guide</title>
-    <meta name="description" content="Learn how to populate Google Forms™ dropdowns, multiple-choice questions, and checkbox lists from Google Sheets™ with FormRanger.">
-    <link rel="canonical" href="https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="How to populate Google Forms™ choices from Google Sheets™ | FormRanger guide">
-    <meta property="og:description" content="Learn how to populate Google Forms™ dropdowns, multiple-choice questions, and checkbox lists from Google Sheets™ with FormRanger.">
-    <meta property="og:url" content="https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How to populate Google Forms™ choices from Google Sheets™">
-    <meta name="twitter:description" content="Learn how to populate Google Forms™ dropdowns, multiple-choice questions, and checkbox lists from Google Sheets™ with FormRanger.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "How to populate Google Forms™ choices from Google Sheets™",
-            "description": "A guide to spreadsheet-backed Google Forms™ question choices with FormRanger.",
-            "author": { "@type": "Organization", "name": "FormSuite" },
-            "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html"
-        }
-    </script>
-    <style>
-        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
-        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-        .hero { padding:30px; margin-bottom:18px; }
-        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:14ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
-        .hero p,.section p,.section li { color:var(--muted); }
-        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:26px; margin-top:18px; }
-        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
-        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
-        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-        .steps { padding-left:20px; display:grid; gap:10px; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to populate Google Forms choices from Google Sheets | FormRanger guide</title>
+  <meta name="description" content="Learn how to populate Google Forms dropdowns, multiple-choice questions, and checkbox lists from selected Google Sheets data with FormRanger.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="How to populate Google Forms choices from Google Sheets | FormRanger guide">
+  <meta property="og:description" content="Learn how to populate Google Forms dropdowns, multiple-choice questions, and checkbox lists from selected Google Sheets data with FormRanger.">
+  <meta property="og:url" content="https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to populate Google Forms choices from Google Sheets">
+  <meta name="twitter:description" content="Learn how to populate Google Forms dropdowns, multiple-choice questions, and checkbox lists from selected Google Sheets data with FormRanger.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to populate Google Forms choices from Google Sheets",
+      "description": "A guide to spreadsheet-backed Google Forms question choices with FormRanger.",
+      "author": { "@type": "Organization", "name": "FormSuite" },
+      "publisher": { "@type": "Organization", "name": "FormSuite" },
+      "mainEntityOfPage": "https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html"
+    }
+  </script>
+  <style>
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:18px; }
+    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:15ch; }
+    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
+    .hero p,.section p,.section li { color:var(--muted); }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:26px; margin-top:18px; }
+    .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+    .steps { padding-left:20px; display:grid; gap:10px; }
+    .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+  </style>
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="../index.html">FormSuite</a>
-            <a href="../resources/index.html">Resources</a>
-            <a href="./index.html"><strong>FormRanger</strong></a>
-            <a href="./support.html">Support</a>
-        </nav>
-        <section class="hero">
-            <div class="eyebrow">Workflow guide</div>
-            <h1>How to populate Google Forms™ choices from Google Sheets™</h1>
-            <p>When a form question depends on a roster, catalog, schedule, inventory list, or any other dataset that already lives in a spreadsheet, manual option updates become a reliability problem. FormRanger is built to keep those question choices synced from Google Sheets™ so the form stays aligned with the source data your team already maintains.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="./support.html">Open FormRanger setup guide</a>
-                <a class="btn btn-secondary" href="./index.html">View FormRanger overview</a>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Best-fit dynamic choice scenarios</h2>
-            <p class="lead">This workflow matters when the form options change often enough that manual editing creates mistakes or admin overhead.</p>
-            <div class="grid">
-                <div class="feature"><strong>Staff or location rosters</strong><p>Keep available choices synced with the current spreadsheet source of truth.</p></div>
-                <div class="feature"><strong>Product or catalog selections</strong><p>Update form options when product names, availability, or item sets change in Sheets.</p></div>
-                <div class="feature"><strong>Scheduling and event lists</strong><p>Use spreadsheet data to drive what respondents can choose without editing each question by hand.</p></div>
-                <div class="feature"><strong>Deduped option management</strong><p>Clean up repeated or sorted values before they reach the form surface.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Recommended setup path</h2>
-            <ol class="steps">
-                <li>Prepare the source sheet so each column header and value range clearly matches the question you want to power.</li>
-                <li>Open the form in Google Forms™, launch FormRanger, and select the question that should be linked to spreadsheet-backed data.</li>
-                <li>Map the question to the source sheet or range, then choose any sort or deduplication options before saving.</li>
-                <li>Refresh the mapping and inspect the live form to confirm the right options appear in the right order.</li>
-            </ol>
-            <div class="note">The cleanest dynamic forms start with a clean source sheet. If the spreadsheet headers or values are messy, the form will usually reflect that mess immediately.</div>
-        </section>
-        <section class="section">
-            <h2>What to evaluate before launch</h2>
-            <div class="grid">
-                <div class="feature"><strong>Question type support</strong><p>Check that the target question type is one of the supported dynamic choice formats before you map it.</p></div>
-                <div class="feature"><strong>Source data ownership</strong><p>Make sure someone on the team is responsible for keeping the spreadsheet source list current.</p></div>
-                <div class="feature"><strong>Refresh timing</strong><p>If your list changes often, decide how quickly the form needs to reflect those changes.</p></div>
-                <div class="feature"><strong>Validation logic</strong><p>Test the mapping after any sheet rename, header change, or question change so the form does not drift out of sync.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Next steps</h2>
-            <div class="link-bar">
-                <a href="./support.html">FormRanger support and setup</a>
-                <a href="./privacy.html">Privacy policy</a>
-                <a href="./terms.html">Terms of service</a>
-                <a href="../resources/index.html">More workflow guides</a>
-            </div>
-        </section>
-        <div class="footer">&copy; 2026 FormSuite. Google Forms™ and Google Sheets™ are trademarks of Google LLC.</div>
-    </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../resources/index.html">Resources</a>
+      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+      <a href="./support.html">Support</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Workflow guide</div>
+      <h1>How to populate Google Forms choices from Google Sheets</h1>
+      <p>When a form question depends on a roster, catalog, schedule, inventory list, or any other dataset that already lives in a spreadsheet, manual option updates become a reliability problem. FormRanger keeps those question choices synced from selected Google Sheets data so the form stays aligned with the source your team already maintains.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+        <a class="btn btn-secondary" href="./index.html">View overview</a>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Best-fit dynamic choice scenarios</h2>
+      <p class="lead">This workflow matters when the form options change often enough that manual editing creates mistakes or admin overhead.</p>
+      <div class="grid">
+        <div class="feature"><strong>Staff or location rosters</strong><p>Keep available choices synced with the current spreadsheet source of truth.</p></div>
+        <div class="feature"><strong>Product or catalog selections</strong><p>Update form options when product names, availability, or item sets change in Sheets.</p></div>
+        <div class="feature"><strong>Scheduling and event lists</strong><p>Use spreadsheet data to drive what respondents can choose without editing each question by hand.</p></div>
+        <div class="feature"><strong>Deduped option management</strong><p>Clean up repeated or sorted values before they reach the form surface.</p></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Recommended setup path</h2>
+      <ol class="steps">
+        <li>Prepare the source sheet so each column header and value range clearly matches the question you want to power.</li>
+        <li>Open the form in Google Forms, launch FormRanger, and use Google Picker to select the spreadsheet.</li>
+        <li>Map the question to the source sheet or range, then choose any sort or deduplication options before saving.</li>
+        <li>Refresh the mapping and inspect the live form to confirm the right options appear in the right order.</li>
+      </ol>
+      <div class="note">The cleanest dynamic forms start with a clean source sheet. If the spreadsheet headers or values are messy, the form will usually reflect that mess immediately.</div>
+    </section>
+    <section class="section">
+      <h2>What to evaluate before launch</h2>
+      <div class="grid">
+        <div class="feature"><strong>Question type support</strong><p>Check that the target question type is one of the supported dynamic choice formats before you map it.</p></div>
+        <div class="feature"><strong>Source data ownership</strong><p>Make sure someone on the team is responsible for keeping the spreadsheet source list current.</p></div>
+        <div class="feature"><strong>Refresh timing</strong><p>If your list changes often, decide how quickly the form needs to reflect those changes.</p></div>
+        <div class="feature"><strong>Validation logic</strong><p>Test the mapping after any sheet rename, header change, or question change so the form does not drift out of sync.</p></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Next steps</h2>
+      <div class="link-bar">
+        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
+        <a href="./support.html">FormRanger support and setup</a>
+        <a href="./permissions.html">Permissions</a>
+        <a href="./privacy.html">Privacy policy</a>
+        <a href="./terms.html">Terms of service</a>
+        <a href="../resources/index.html">More workflow guides</a>
+      </div>
+    </section>
+    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

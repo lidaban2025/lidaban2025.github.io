@@ -47,23 +47,23 @@
     <div class="container">
         <a href="index.html" class="back">&larr; Back to Home</a>
 
-        <p><strong>Last updated:</strong> March 2026</p>
+        <p><strong>Last updated:</strong> May 17, 2026</p>
 
         <h2>What FormRanger Pro Does</h2>
-        <p>FormRanger Pro is a Google Forms add-on that populates form question choices (dropdowns, multiple choice, checkboxes, grids) from Google Sheets data. It keeps your form choices in sync with your spreadsheet automatically.</p>
+        <p>FormRanger Pro is a Google Forms add-on that populates form question choices (dropdowns, multiple choice, checkboxes, grids) from selected Google Sheets data. It keeps your form choices aligned with the spreadsheet source you choose.</p>
 
         <h2>Data We Access</h2>
         <p>FormRanger Pro requests the following permissions to function:</p>
         <ul>
-            <li><strong>Form structure</strong> (<code>forms.addons</code>, <code>forms.currentonly</code>) &mdash; We read and update the question choices in the current Google Form. We do not access form responses or other forms.</li>
-            <li><strong>Spreadsheet data</strong> (<code>spreadsheets</code>) &mdash; We read column data from the linked Google Sheets spreadsheet to populate form choices. We do not modify spreadsheet data.</li>
-            <li><strong>External requests</strong> (<code>script.external_request</code>) &mdash; Used for license validation only.</li>
-            <li><strong>User email</strong> (<code>userinfo.email</code>) &mdash; We access your email address to identify your account for license and usage tracking.</li>
+            <li><strong>Form structure</strong> (<code>forms.currentonly</code>) &mdash; We read and update supported question choices in the current Google Form. We do not access form responses or other forms.</li>
+            <li><strong>Selected spreadsheet file access</strong> (<code>drive.file</code>) &mdash; We access spreadsheet files that you explicitly select through the add-on flow.</li>
+            <li><strong>User email and profile</strong> (<code>userinfo.email</code>, <code>userinfo.profile</code>) &mdash; We use account identity only for basic add-on operation, licensing, and support context.</li>
             <li><strong>Container UI</strong> (<code>script.container.ui</code>) &mdash; Used to display the add-on sidebar and configuration dialogs within Google Forms.</li>
+            <li><strong>Apps Script triggers</strong> (<code>script.scriptapp</code>) &mdash; Used to manage refresh/update automation for configured mappings.</li>
         </ul>
 
         <h2>Data We Collect</h2>
-        <p><strong>None.</strong> All data stays in your Google account. FormRanger Pro does not collect, store, or transmit any spreadsheet data, form data, or personal information to external servers.</p>
+        <p>FormRanger stores only the minimum configuration required to run the add-on inside your Google account, such as selected spreadsheet ID, sheet name, column name, question ID, and mapping preferences. We do not copy entire spreadsheet datasets into external storage.</p>
 
         <h2>Data Storage</h2>
         <p>All user settings (such as question-to-column mappings, update schedules, and usage counters) are stored exclusively in Google Apps Script's Properties Service. This data resides within Google's infrastructure, tied to your Google account.</p>

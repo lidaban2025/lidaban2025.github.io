@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormSuite | Google Workspace add-ons for Forms and Sheets</title>
-  <meta name="description" content="FormSuite helps Google Forms and Sheets users close forms, send confirmations, copy response formulas, run mail merge, and generate Docs/PDFs with focused Workspace Marketplace add-ons.">
+  <meta name="description" content="FormSuite helps Google Forms and Sheets users close forms, send confirmations, sync form choices, copy response formulas, run mail merge, and generate Docs/PDFs with focused Workspace Marketplace add-ons.">
   <link rel="canonical" href="https://formsuite.dev/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
@@ -42,8 +42,8 @@
             { "@type": "SoftwareApplication", "position": 3, "name": "FormCopy Pro", "url": "https://formsuite.dev/formcopy/" },
             { "@type": "SoftwareApplication", "position": 4, "name": "FormMerge Pro", "url": "https://formsuite.dev/formmerge/" },
             { "@type": "SoftwareApplication", "position": 5, "name": "DocForge", "url": "https://formsuite.dev/docforge/" },
-            { "@type": "SoftwareApplication", "position": 6, "name": "FormFlow", "url": "https://formsuite.dev/formflow/" },
-            { "@type": "SoftwareApplication", "position": 7, "name": "FormRanger", "url": "https://formsuite.dev/formranger/" }
+            { "@type": "SoftwareApplication", "position": 6, "name": "FormRanger", "url": "https://formsuite.dev/formranger/" },
+            { "@type": "SoftwareApplication", "position": 7, "name": "FormFlow", "url": "https://formsuite.dev/formflow/" }
           ]
         }
       ]
@@ -327,7 +327,7 @@
 
     .addon-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
 
@@ -542,7 +542,7 @@
         <div class="hero-copy">
           <div class="eyebrow">Google Workspace Marketplace add-ons</div>
           <h1 id="hero-title">Forms and Sheets work, finished faster.</h1>
-          <p>Close forms, send confirmations, copy formulas, mail merge rows, and generate Docs or PDFs.</p>
+          <p>Close forms, send confirmations, sync choices from Sheets, copy formulas, mail merge rows, and generate Docs or PDFs.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#catalog">Choose an add-on</a>
             <a class="btn" href="install.html">Install published add-ons</a>
@@ -672,6 +672,23 @@
               <a href="https://youtu.be/YaECjc42LFg">Demo</a>
             </div>
           </article>
+
+          <article class="addon-card">
+            <img src="social-card.svg" alt="FormRanger dynamic choices preview">
+            <div class="addon-body">
+              <div class="addon-title">
+                <h3>FormRanger</h3>
+                <span class="pill">Live</span>
+              </div>
+              <span class="job">Sync choices from Sheets</span>
+              <p>Populate dropdowns, checkboxes, and multiple-choice options from selected spreadsheet data.</p>
+            </div>
+            <div class="link-row">
+              <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+              <a href="formranger/dynamic-google-forms-dropdown-guide.html">Guide</a>
+              <a href="formranger/support.html">Setup</a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -679,18 +696,13 @@
         <div class="pilot-band">
           <div>
             <h2 id="pilot-title">Pilot / fit-first.</h2>
-            <p>Start with fit and setup context first.</p>
+            <p>Approval workflows still start with fit and setup context first.</p>
           </div>
           <div class="pilot-grid">
             <article class="pilot-item">
               <strong>FormFlow</strong>
               <span>Approval workflows for Google Forms submissions.</span>
               <a href="formflow/index.html">View pilot page</a>
-            </article>
-            <article class="pilot-item">
-              <strong>FormRanger</strong>
-              <span>Dynamic Google Forms choices from Sheets ranges.</span>
-              <a href="formranger/index.html">Check fit</a>
             </article>
           </div>
         </div>

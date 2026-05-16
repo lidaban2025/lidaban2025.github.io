@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormRanger permissions explained | FormSuite</title>
+  <meta name="description" content="Plain-English explanation of the Google permissions FormRanger uses to sync Google Forms choices from selected Google Sheets files.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/permissions.html">
+  <style>
+    :root{--ink:#17263d;--muted:#5a6a83;--line:#d9e2ef;--blue:#1463ff;--soft:#eef4ff;--panel:#fff;--shadow:0 18px 45px rgba(23,38,61,.1)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#f8fbff 0,#fff 60%);line-height:1.65}
+    a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+    .shell{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+    .nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:24px}
+    .hero,.section{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:28px;margin-top:18px}
+    .eyebrow{display:inline-flex;padding:7px 12px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:.8rem;font-weight:800;margin-bottom:14px}
+    h1{font-size:2.45rem;line-height:1.08;letter-spacing:0;margin-bottom:12px}
+    h2{font-size:1.35rem;margin-bottom:10px}
+    .lead,p,li,td{color:var(--muted)}
+    ul{padding-left:20px;display:grid;gap:8px}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{color:var(--ink);font-size:.82rem;text-transform:uppercase}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;border-radius:999px;font-weight:700}
+    .btn-primary{background:var(--blue);color:#fff}.btn-secondary{border:1px solid var(--line);color:var(--ink)}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../install.html">Install</a>
+      <a href="index.html">FormRanger</a>
+      <a href="support.html">Support</a>
+      <a href="../choose-google-workspace-addon.html">Choose add-on</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Permissions</div>
+      <h1>Why FormRanger asks for Google permissions</h1>
+      <p class="lead">FormRanger runs inside the Google Form you open. It needs permission to update supported form-choice questions and to read the spreadsheet file you explicitly select as the source for those choices.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="support.html">Open setup guide</a>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Permission mapping</h2>
+      <table>
+        <thead><tr><th>Scope</th><th>Plain-English use</th></tr></thead>
+        <tbody>
+          <tr><td>forms.currentonly</td><td>Lets FormRanger read and update supported choice questions in the current Google Form.</td></tr>
+          <tr><td>drive.file</td><td>Lets FormRanger access the spreadsheet file you explicitly select through the add-on flow.</td></tr>
+          <tr><td>script.scriptapp</td><td>Lets it manage update triggers for configured mappings.</td></tr>
+          <tr><td>script.container.ui</td><td>Lets it display the sidebar and picker dialogs inside Google Forms.</td></tr>
+          <tr><td>userinfo.email and userinfo.profile</td><td>Lets it identify the signed-in user for add-on operation, licensing, and support context.</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="section">
+      <h2>What FormRanger does not do</h2>
+      <ul>
+        <li>It does not ask for access to every spreadsheet in Drive.</li>
+        <li>It does not sell spreadsheet, form, or account data.</li>
+        <li>It does not change form choices until you configure and run the mapping workflow.</li>
+        <li>It does not copy entire spreadsheet datasets into an external customer database.</li>
+      </ul>
+    </section>
+    <section class="section">
+      <h2>Uninstall and support</h2>
+      <p>You can remove FormRanger from Google Workspace Marketplace's Manage Apps page. If timed updates are active, open the form and disable the workflow before uninstalling when possible.</p>
+      <p>Support: <a href="../support.html">FormSuite support</a>. Also review the <a href="privacy.html">privacy policy</a> and <a href="terms.html">terms</a>.</p>
+    </section>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
