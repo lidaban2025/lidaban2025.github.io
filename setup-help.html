@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get FormSuite setup help for your first workflow</title>
+  <meta name="description" content="Ask for first-workflow setup help after installing a FormSuite Google Workspace add-on from Marketplace.">
+  <link rel="canonical" href="https://formsuite.dev/setup-help.html">
+  <link rel="stylesheet" href="product-landing.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Get FormSuite setup help for your first workflow">
+  <meta property="og:description" content="Install one FormSuite add-on, run one small test, and send a setup note if the first workflow is unclear.">
+  <meta property="og:url" content="https://formsuite.dev/setup-help.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Get FormSuite setup help">
+  <meta name="twitter:description" content="Send a short first-workflow setup note after installing a FormSuite add-on.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <style>
+    .help-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.72fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .help-form,
+    .checklist {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 15px;
+    }
+
+    label,
+    legend {
+      font-weight: 800;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      padding: 11px 12px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .hint,
+    .status {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .consent {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      margin: 16px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .consent input {
+      width: auto;
+      margin-top: 4px;
+    }
+
+    .checklist ol {
+      display: grid;
+      gap: 10px;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .status {
+      min-height: 24px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .help-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="FormSuite home">
+        <span class="brand-mark">FS</span>
+        <span>FormSuite Setup Help</span>
+      </a>
+      <nav class="nav" aria-label="Setup help navigation">
+        <a href="install.html">Install</a>
+        <a href="choose-google-workspace-addon.html">Chooser</a>
+        <a href="resources/demo-videos.html">Demos</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">First workflow help</div>
+          <h1 id="hero-title">Install one add-on. Send one setup note.</h1>
+          <p>If you are trying FormSuite for a real Google Forms or Sheets workflow, install the matching add-on first, run the smallest test you can, then send a short setup note if the first run is unclear.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="install.html">Open install center</a>
+            <a class="btn" href="#request">Send setup note</a>
+            <a class="btn" href="resources/demo-videos.html">Watch demos</a>
+          </div>
+        </div>
+        <article class="product-visual" aria-label="First workflow setup preview">
+          <img class="product-shot" src="https://lh3.googleusercontent.com/qF8ILRaFc3r7xqRQ3murnZc5G7ffmo0XY9bwwgjDxBakTcOnhlw=s640-w640-h400" alt="FormSuite setup preview">
+          <div class="visual-caption">
+            <strong>Small first test</strong>
+            <span>Then send details</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section help-layout" id="request">
+        <form class="help-form" id="setup-help-form">
+          <h2>Send a setup note</h2>
+          <p class="lead">Use this after installing from Marketplace. Do not send real form responses, private student/customer data, health information, financial details, or passwords.</p>
+
+          <div class="field">
+            <label for="product">Add-on</label>
+            <select id="product" name="product" required>
+              <option value="">Choose one</option>
+              <option>FormGuard</option>
+              <option>FormNotifier</option>
+              <option>FormCopy Pro</option>
+              <option>FormMerge Pro</option>
+              <option>DocForge</option>
+              <option>FormRanger</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="contact_email">Reply email</label>
+            <input id="contact_email" name="contact_email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <p class="hint">Used only to reply about this setup note.</p>
+          </div>
+
+          <div class="field">
+            <label for="workflow">What are you trying to set up?</label>
+            <textarea id="workflow" name="workflow" maxlength="1200" required placeholder="Example: I need a Google Form to close after 40 event signups and show a waitlist message."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="blocker">Where did the first test get stuck?</label>
+            <textarea id="blocker" name="blocker" maxlength="1200" placeholder="Example: I installed the add-on, but I am not sure which sidebar option to use, or the test email did not arrive."></textarea>
+          </div>
+
+          <label class="consent">
+            <input id="consent" name="consent" type="checkbox" required>
+            <span>I understand this sends a setup note to FormSuite and I will not include sensitive form response data.</span>
+          </label>
+
+          <button class="btn btn-primary" type="submit">Send setup note</button>
+          <p class="status" id="setup-help-status" role="status"></p>
+        </form>
+
+        <aside class="checklist">
+          <h2>Before sending</h2>
+          <ol>
+            <li>Install the add-on from Google Workspace Marketplace.</li>
+            <li>Open it in the right Google app: Forms for FormGuard/FormNotifier/FormRanger, Sheets for FormCopy/FormMerge/DocForge.</li>
+            <li>Run one small test: one cap, one email, one copied formula, one generated file, or one synced choice list.</li>
+            <li>Send the add-on name, the workflow goal, and the first step that did not work.</li>
+          </ol>
+          <div class="hero-actions">
+            <a class="btn" href="install.html">Install center</a>
+            <a class="btn" href="support.html">Support guide</a>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="install.html">Install</a> | <a href="support.html">Support</a> | <a href="resources/index.html">Guides</a></span>
+      <span>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</span>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var endpoint = "https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec";
+      var form = document.getElementById("setup-help-form");
+      var status = document.getElementById("setup-help-status");
+
+      if (!form || !status) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var data = new FormData(form);
+        var payload = {
+          event: "setup_help_request",
+          product: data.get("product"),
+          contact_email: data.get("contact_email"),
+          workflow: data.get("workflow"),
+          blocker: data.get("blocker"),
+          consent: data.get("consent") === "on",
+          page: window.location.pathname,
+          source: "formsuite.dev/setup-help"
+        };
+
+        if (!payload.product || !payload.contact_email || !payload.workflow || !payload.consent) {
+          status.textContent = "Please complete the required fields first.";
+          return;
+        }
+
+        var body = JSON.stringify(payload);
+        var sent = false;
+
+        if (navigator.sendBeacon) {
+          sent = navigator.sendBeacon(endpoint, new Blob([body], { type: "text/plain" }));
+        }
+
+        if (!sent && window.fetch) {
+          fetch(endpoint, {
+            method: "POST",
+            mode: "no-cors",
+            body: body
+          }).catch(function () {});
+          sent = true;
+        }
+
+        status.textContent = sent
+          ? "Setup note sent. Keep your test form or sheet available so the first-run details are easy to check."
+          : "Could not send from this browser. Please try again from the support page link.";
+
+        if (sent) form.reset();
+      });
+    }());
+  </script>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
