@@ -95,8 +95,34 @@
       margin-top: 12px;
     }
 
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .fit-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .fit-card strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .fit-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
     @media (max-width: 900px) {
-      .help-layout { grid-template-columns: 1fr; }
+      .help-layout,
+      .fit-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -134,6 +160,30 @@
             <span>Then send details</span>
           </div>
         </article>
+      </section>
+
+      <section class="section" aria-labelledby="good-fit-title">
+        <div class="eyebrow">Good first tests</div>
+        <h2 id="good-fit-title">Send a setup note for one small workflow</h2>
+        <p class="lead">The clearest notes describe one add-on, one test file, and one step that blocked the first run. These workflows are a good fit for founder-led setup help.</p>
+        <div class="fit-grid">
+          <article class="fit-card">
+            <strong>FormGuard</strong>
+            <p>Close a Google Form after a response cap or deadline, show a clear full-registration message, or notify the form owner when the form closes.</p>
+          </article>
+          <article class="fit-card">
+            <strong>FormCopy Pro</strong>
+            <p>Keep response-sheet formulas, helper columns, scoring columns, or formats working when a new Google Forms submission creates a row.</p>
+          </article>
+          <article class="fit-card">
+            <strong>FormNotifier</strong>
+            <p>Send one respondent confirmation, one owner alert, or a shared-inbox notification after a Google Form submission.</p>
+          </article>
+          <article class="fit-card">
+            <strong>DocForge / FormMerge Pro</strong>
+            <p>Generate one test document from a sheet row, or send one test personalized email before moving a live workflow through the add-on.</p>
+          </article>
+        </div>
       </section>
 
       <section class="section help-layout" id="request">
