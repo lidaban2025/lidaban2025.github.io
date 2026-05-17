@@ -36,6 +36,7 @@
     var path = url.pathname.toLowerCase();
     if (host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1) return "marketplace";
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
+    if (path.indexOf("/setup-help") !== -1) return "setup_help";
     if (path.indexOf("/support") !== -1) return "support";
     if (path.indexOf("/permissions") !== -1) return "permissions";
     return "";
@@ -44,6 +45,7 @@
   function eventName(type) {
     if (type === "marketplace") return "marketplace_cta_click";
     if (type === "demo_video") return "demo_video_click";
+    if (type === "setup_help") return "setup_help_click";
     if (type === "support") return "support_click";
     if (type === "permissions") return "permissions_click";
     return "";
