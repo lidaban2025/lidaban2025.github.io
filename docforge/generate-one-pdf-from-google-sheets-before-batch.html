@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate one PDF from Google Sheets before a batch | DocForge</title>
+  <meta name="description" content="Use DocForge to generate one PDF from a Google Sheets row before running a full document merge batch.">
+  <link rel="canonical" href="https://formsuite.dev/docforge/generate-one-pdf-from-google-sheets-before-batch.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Generate one PDF from Google Sheets before a batch">
+  <meta property="og:description" content="A safe first-run workflow for checking template fields, output folders, file names, and PDF layout before generating a full batch.">
+  <meta property="og:url" content="https://formsuite.dev/docforge/generate-one-pdf-from-google-sheets-before-batch.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Generate one PDF from Google Sheets before a batch">
+  <meta name="twitter:description" content="Test one Google Sheets row before generating a full DocForge PDF batch.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Generate one PDF from Google Sheets before a batch",
+      "description": "A practical guide to generating one PDF from a Google Sheets row before running a full DocForge batch.",
+      "author": { "@type": "Organization", "name": "FormSuite" },
+      "publisher": { "@type": "Organization", "name": "FormSuite" },
+      "mainEntityOfPage": "https://formsuite.dev/docforge/generate-one-pdf-from-google-sheets-before-batch.html"
+    }
+  </script>
+  <style>
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:18px; }
+    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:18ch; }
+    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
+    .hero p,.section p,.section li { color:var(--muted); }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:26px; margin-top:18px; }
+    .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+    .steps { padding-left:20px; display:grid; gap:10px; }
+    .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+    .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../resources/index.html">Resources</a>
+      <a href="./index.html"><strong>DocForge</strong></a>
+      <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
+      <a href="./support.html">Support</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">PDF batch test guide</div>
+      <h1>Generate one PDF before a Google Sheets document batch</h1>
+      <p>A document merge should start with one row and one generated file. Use DocForge to check template fields, file naming, output folder access, and PDF layout before producing a full batch from Google Sheets.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
+        <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+        <a class="btn btn-secondary" href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Quick answer</h2>
+      <p class="lead">Before generating a batch of PDFs from Google Sheets, generate exactly one PDF from one sample row. Open the file and inspect field values, layout, file name, and destination folder before selecting more rows.</p>
+      <div class="grid">
+        <div class="feature"><strong>Template fields</strong><p>Confirm every placeholder in the Google Docs template is filled by the expected sheet column.</p></div>
+        <div class="feature"><strong>Output location</strong><p>Make sure the generated file lands in the folder you expect and can be found again.</p></div>
+        <div class="feature"><strong>File name</strong><p>Include a stable identifier such as name, ID, date, certificate number, or request number.</p></div>
+        <div class="feature"><strong>PDF layout</strong><p>Open the file and check page breaks, spacing, signature blocks, tables, and repeated fields.</p></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>First-run DocForge test</h2>
+      <ol class="steps">
+        <li>Create one sample row in Google Sheets.</li>
+        <li>Create a simple Google Docs template with a few visible fields.</li>
+        <li>Install DocForge and open the merge sidebar from Google Sheets.</li>
+        <li>Select the template, choose PDF output, and map the fields.</li>
+        <li>Run preflight and fix any missing column or template warning.</li>
+        <li>Generate one PDF, open it, and inspect the result before any batch.</li>
+      </ol>
+      <div class="note">This is the fastest way to prove the document workflow without filling a Drive folder with files you may need to delete.</div>
+    </section>
+    <section class="section">
+      <h2>Good first PDF workflows</h2>
+      <div class="grid">
+        <div class="feature"><strong>Certificates</strong><p>Generate one certificate from one roster row and verify name, course, date, and certificate ID.</p></div>
+        <div class="feature"><strong>Letters</strong><p>Generate one offer, acceptance, vendor, or notice letter before processing the full sheet.</p></div>
+        <div class="feature"><strong>Intake summaries</strong><p>Turn one form-response row into a PDF summary for review, then expand after the layout works.</p></div>
+        <div class="feature"><strong>Printable packets</strong><p>Test one document packet before generating a folder of PDFs for printing or sharing.</p></div>
+      </div>
+      <div class="warn">DocForge is for repeatable Docs/PDF generation from Sheets. It is not a full document management, contract lifecycle, or legal approval system.</div>
+    </section>
+    <section class="section">
+      <h2>Related DocForge guides</h2>
+      <div class="link-bar">
+        <a href="./google-sheets-rows-to-pdf.html">Rows to PDF</a>
+        <a href="./google-docs-template-merge-from-google-sheets.html">Docs template merge</a>
+        <a href="./certificate-generator-from-google-sheets.html">Certificate generator</a>
+        <a href="./google-sheets-document-generation-guide.html">Document generation guide</a>
+        <a href="./index.html">DocForge overview</a>
+      </div>
+    </section>
+    <div class="footer">&copy; 2026 FormSuite. Google Docs, Google Sheets, Google Drive, and Google Workspace are trademarks of Google LLC.</div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
