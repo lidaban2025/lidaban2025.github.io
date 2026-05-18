@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Populate Google Forms multiple-choice options from Google Sheets | FormRanger</title>
+  <meta name="description" content="Populate a Google Forms multiple-choice question from a Google Sheets column with FormRanger, then test one mapping before launch.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Populate Google Forms multiple-choice options from Google Sheets">
+  <meta property="og:description" content="Use FormRanger to update a Google Forms multiple-choice question from selected spreadsheet data.">
+  <meta property="og:url" content="https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Populate Google Forms multiple-choice options from Google Sheets">
+  <meta name="twitter:description" content="A first-run setup guide for spreadsheet-backed Google Forms multiple-choice options.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Populate Google Forms multiple-choice options from Google Sheets",
+      "description": "A practical guide to updating Google Forms multiple-choice options from a Google Sheets column with FormRanger.",
+      "author": { "@type": "Organization", "name": "FormSuite" },
+      "publisher": { "@type": "Organization", "name": "FormSuite" },
+      "mainEntityOfPage": "https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html"
+    }
+  </script>
+  <style>
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:18px; }
+    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:18ch; }
+    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
+    .hero p,.section p,.section li { color:var(--muted); }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:26px; margin-top:18px; }
+    .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+    .steps { padding-left:20px; display:grid; gap:10px; }
+    .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../resources/index.html">Resources</a>
+      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+      <a href="./support.html">Support</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Multiple-choice guide</div>
+      <h1>Populate Google Forms multiple-choice options from Google Sheets</h1>
+      <p>Multiple-choice questions get hard to maintain when the valid options live in a roster, class list, location list, catalog, or event sheet. FormRanger helps you map one question to a selected Google Sheets column and update the choices after a preflight check.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+        <a class="btn btn-secondary" href="./permissions.html">Review permissions</a>
+      </div>
+    </section>
+    <section class="section">
+      <h2>When this is the right workflow</h2>
+      <p class="lead">Use a spreadsheet-backed multiple-choice question when the respondent should pick exactly one option from a list your team already maintains in Google Sheets.</p>
+      <div class="grid">
+        <div class="feature"><strong>Class or staff rosters</strong><p>Let the question follow a roster column instead of editing names by hand.</p></div>
+        <div class="feature"><strong>Location lists</strong><p>Use one maintained source column for offices, rooms, sites, or pickup points.</p></div>
+        <div class="feature"><strong>Event options</strong><p>Update a list of sessions, tracks, or groups without rebuilding the question.</p></div>
+        <div class="feature"><strong>Catalog choices</strong><p>Keep product, service, or category names consistent with the spreadsheet source.</p></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>First mapping test</h2>
+      <ol class="steps">
+        <li>Start with a copied form or a disposable form.</li>
+        <li>Add one multiple-choice question with placeholder choices.</li>
+        <li>Create a small Google Sheets source column with two or three values.</li>
+        <li>Install FormRanger and select the source spreadsheet.</li>
+        <li>Map the multiple-choice question to the source column, then run Preflight.</li>
+        <li>Update the question, refresh the form preview, and confirm the choices changed.</li>
+      </ol>
+      <div class="note">A small first-run test catches permission, sheet, tab, column, and question-type issues before a live respondent sees the form.</div>
+    </section>
+    <section class="section">
+      <h2>Manual and script alternatives</h2>
+      <div class="grid">
+        <div class="feature"><strong>Manual paste</strong><p>Good for one-time lists. Copy the sheet values and paste them into the first option field in Google Forms.</p></div>
+        <div class="feature"><strong>Apps Script</strong><p>Good when you can maintain code that opens the form, finds the question, reads the sheet range, and sets choice values.</p></div>
+        <div class="feature"><strong>FormRanger</strong><p>Good when you want to map the source from a sidebar, validate the setup, and update choices without writing code.</p></div>
+        <div class="feature"><strong>Separate system</strong><p>Better when choices represent actual reservations, stock counts, payments, or approval states.</p></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Next steps</h2>
+      <div class="link-bar">
+        <a href="./auto-update-google-forms-dropdown-from-google-sheets.html">Auto update dropdowns</a>
+        <a href="./google-forms-checkbox-list-from-google-sheets.html">Checkbox list from Sheets</a>
+        <a href="./dynamic-google-forms-dropdown-guide.html">All dynamic choices</a>
+        <a href="./index.html">FormRanger overview</a>
+        <a href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
+      </div>
+    </section>
+    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>

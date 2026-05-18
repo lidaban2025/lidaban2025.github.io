@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto update a Google Forms dropdown from Google Sheets | FormRanger</title>
+  <meta name="description" content="Learn how to auto update a Google Forms dropdown from a Google Sheets column with a safe first-run test, preflight, and FormRanger.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Auto update a Google Forms dropdown from Google Sheets">
+  <meta property="og:description" content="Use FormRanger to update one Google Forms dropdown from a selected Google Sheets column, then expand after the first test works.">
+  <meta property="og:url" content="https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Auto update a Google Forms dropdown from Google Sheets">
+  <meta name="twitter:description" content="A safe setup path for spreadsheet-backed Google Forms dropdown options.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Auto update a Google Forms dropdown from Google Sheets",
+      "description": "A practical guide to updating Google Forms dropdown options from a selected Google Sheets column with FormRanger.",
+      "author": { "@type": "Organization", "name": "FormSuite" },
+      "publisher": { "@type": "Organization", "name": "FormSuite" },
+      "mainEntityOfPage": "https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html"
+    }
+  </script>
+  <style>
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --amber-soft:#fff8e7; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:18px; }
+    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:17ch; }
+    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
+    h3 { font-size:1.05rem; margin-bottom:8px; }
+    .hero p,.section p,.section li { color:var(--muted); }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:26px; margin-top:18px; }
+    .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+    .steps { padding-left:20px; display:grid; gap:10px; }
+    .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+    .caution { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--amber-soft); border:1px solid #efd98b; color:#775517; font-size:.93rem; }
+    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../resources/index.html">Resources</a>
+      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+      <a href="./support.html">Support</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Dynamic dropdown guide</div>
+      <h1>Auto update a Google Forms dropdown from Google Sheets</h1>
+      <p>Google Forms dropdown questions are useful until the option list starts changing every week. FormRanger lets you use a selected Google Sheets column as the source, run preflight, and update the dropdown without manually pasting the same list again.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+        <a class="btn btn-secondary" href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Quick answer</h2>
+      <p class="lead">A Google Forms dropdown does not behave like a Google Sheets in-cell dropdown that points directly at a range. If the form choices need to follow a spreadsheet list, use one of three paths.</p>
+      <div class="grid">
+        <div class="feature"><strong>Manual paste</strong><p>Best when the option list changes rarely and you can tolerate a manual edit before launch.</p></div>
+        <div class="feature"><strong>Apps Script</strong><p>Best when you want to own the code and are comfortable maintaining triggers, form IDs, and item IDs.</p></div>
+        <div class="feature"><strong>FormRanger</strong><p>Best when you want a setup sidebar, selected spreadsheet source, preflight checks, sorting, dedupe, and an update button.</p></div>
+        <div class="feature"><strong>Rebuild the workflow</strong><p>Best when the option list also needs payments, inventory, reservations, approvals, or other systems outside Google Forms.</p></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Safe first-run setup</h2>
+      <ol class="steps">
+        <li>Create a small test sheet column with two choices, such as Alpha and Beta.</li>
+        <li>Create or duplicate a Google Form with one dropdown question.</li>
+        <li>Install FormRanger and select the spreadsheet through Google Picker.</li>
+        <li>Map the dropdown question to the source column and run Preflight.</li>
+        <li>Use Update now, refresh the form preview, and confirm the dropdown shows the sheet values.</li>
+      </ol>
+      <div class="note">Do this on a copied form first. Once the small dropdown updates correctly, switch the mapping to your real sheet column.</div>
+    </section>
+    <section class="section">
+      <h2>Before you connect the real list</h2>
+      <div class="grid">
+        <div class="feature"><strong>Keep one clean column</strong><p>Avoid notes, blank rows, and mixed values in the same source column.</p></div>
+        <div class="feature"><strong>Use stable headers</strong><p>Renaming sheet tabs or headers can make future validation harder to reason about.</p></div>
+        <div class="feature"><strong>Decide sorting</strong><p>Alphabetical order can help respondents, but some lists need a custom order from the sheet.</p></div>
+        <div class="feature"><strong>Check duplicates</strong><p>Repeated values in the source can create confusing dropdown options unless you remove duplicates.</p></div>
+      </div>
+      <div class="caution">If the dropdown controls real seats, inventory, payments, or reservations, treat the form as an intake surface, not a full booking or stock-control system.</div>
+    </section>
+    <section class="section">
+      <h2>Related FormRanger guides</h2>
+      <div class="link-bar">
+        <a href="./dynamic-google-forms-dropdown-guide.html">Populate choices from Sheets</a>
+        <a href="./populate-google-forms-multiple-choice-from-google-sheets.html">Multiple choice from Sheets</a>
+        <a href="./google-forms-checkbox-list-from-google-sheets.html">Checkbox list from Sheets</a>
+        <a href="./permissions.html">Permissions</a>
+        <a href="./index.html">FormRanger overview</a>
+      </div>
+    </section>
+    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
