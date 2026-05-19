@@ -503,6 +503,24 @@
       font-size: 0.9rem;
     }
 
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-weight: 650;
+      line-height: 1.2;
+    }
+
+    .footer-badge:hover {
+      text-decoration: none;
+      border-color: #b7c4d7;
+    }
+
     @media (max-width: 1120px) {
       .hero {
         grid-template-columns: 1fr;
@@ -532,6 +550,7 @@
       .pilot-grid { grid-template-columns: 1fr; }
       .addon-card { grid-template-rows: 190px minmax(0, 1fr) auto; min-height: 0; }
       .footer { flex-direction: column; }
+      .footer-badge { width: 100%; justify-content: center; text-align: center; }
     }
 
     @media (max-width: 540px) {
@@ -748,6 +767,7 @@
 
     <footer class="footer">
       <span><a href="install.html">Install help</a> | <a href="resources/index.html">Guides</a> | <a href="choose-google-workspace-addon.html">Choose add-on</a></span>
+      <a class="footer-badge" href="https://saascubes.com/backlink" target="_blank" rel="noopener">Listed on SaaS Cubes</a>
       <span>&copy; 2026 FormSuite. Google Forms, Google Sheets, Google Docs, and Google Workspace are trademarks of Google LLC.</span>
     </footer>
   </div>
