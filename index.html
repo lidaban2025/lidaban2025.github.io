@@ -207,9 +207,9 @@
 
     .hero-media {
       display: grid;
-      grid-template-columns: minmax(0, 1.16fr) minmax(168px, 0.84fr);
+      grid-template-columns: minmax(0, 1.22fr) minmax(176px, 0.78fr);
       gap: 14px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .preview,
@@ -224,9 +224,8 @@
     }
 
     .preview {
-      min-height: 432px;
       display: grid;
-      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 0;
     }
 
     .preview img,
@@ -237,6 +236,39 @@
       object-fit: cover;
       object-position: top left;
       background: var(--soft);
+    }
+
+    .preview-frame,
+    .mini-frame {
+      aspect-ratio: 16 / 10;
+      padding: 12px;
+      background:
+        linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+    }
+
+    .mini-frame {
+      padding: 10px;
+    }
+
+    .preview-frame img,
+    .mini-frame img {
+      width: 100%;
+      height: 100%;
+      object-position: center;
+      display: block;
+      background: transparent;
+    }
+
+    .preview-frame img {
+      object-fit: cover;
+      object-position: center 18%;
+      transform: scale(1.06);
+      transform-origin: center center;
+    }
+
+    .mini-frame img {
+      object-fit: contain;
+      max-width: 100%;
     }
 
     .preview-label {
@@ -265,8 +297,7 @@
 
     .mini-preview {
       display: grid;
-      grid-template-rows: minmax(0, 1fr) auto;
-      min-height: 170px;
+      gap: 0;
       box-shadow: none;
     }
 
@@ -494,7 +525,6 @@
       .hero { gap: 24px; }
       .hero-media,
       .pilot-band { grid-template-columns: 1fr; }
-      .preview { min-height: 300px; }
       .mini-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; }
       .workflow-tags { grid-column: 1 / -1; }
       .section-head { align-items: flex-start; flex-direction: column; }
@@ -513,9 +543,7 @@
       }
 
       .mini-stack { grid-template-columns: 1fr; }
-      .mini-preview { display: none; }
       .workflow-tags { grid-template-columns: 1fr 1fr; }
-      .preview { min-height: 250px; }
       .addon-card { grid-template-rows: 150px minmax(0, 1fr) auto; }
     }
   </style>
@@ -533,7 +561,7 @@
         <a href="install.html">Install</a>
         <a href="resources/index.html">Guides</a>
         <a href="resources/demo-videos.html">Demos</a>
-        <a href="install.html">Support</a>
+        <a href="support.html">Support</a>
       </nav>
     </header>
 
@@ -554,7 +582,9 @@
 
         <div class="hero-media" aria-label="FormSuite product previews">
           <article class="preview">
-            <img src="https://lh3.googleusercontent.com/qF8ILRaFc3r7xqRQ3murnZc5G7ffmo0XY9bwwgjDxBakTcOnhlw=s640-w640-h400" alt="FormGuard add-on preview">
+            <div class="preview-frame">
+              <img src="https://lh3.googleusercontent.com/qF8ILRaFc3r7xqRQ3murnZc5G7ffmo0XY9bwwgjDxBakTcOnhlw=s640-w640-h400" alt="FormGuard add-on preview">
+            </div>
             <div class="preview-label">
               <strong>Limit or close forms</strong>
               <span>FormGuard</span>
@@ -562,11 +592,15 @@
           </article>
           <div class="mini-stack">
             <article class="mini-preview">
-              <img src="https://lh3.googleusercontent.com/OftdmhTM9pjzfNiYMJruZ_SjmDsoz7dSmjKLtJfRqwKfujhgFPs=s640-w640-h400" alt="FormNotifier add-on preview">
+              <div class="mini-frame">
+                <img src="https://lh3.googleusercontent.com/OftdmhTM9pjzfNiYMJruZ_SjmDsoz7dSmjKLtJfRqwKfujhgFPs=s640-w640-h400" alt="FormNotifier add-on preview">
+              </div>
               <strong>Send confirmations</strong>
             </article>
             <article class="mini-preview">
-              <img src="https://lh3.googleusercontent.com/qhNcvS4dWw2A4htDDOet6Jexc8DZFRAVAB9uq7aoOHNvw3QmQ6U=s640-w640-h400" alt="DocForge add-on preview">
+              <div class="mini-frame">
+                <img src="https://lh3.googleusercontent.com/qhNcvS4dWw2A4htDDOet6Jexc8DZFRAVAB9uq7aoOHNvw3QmQ6U=s640-w640-h400" alt="DocForge add-on preview">
+              </div>
               <strong>Generate files</strong>
             </article>
             <div class="workflow-tags" aria-label="Supported workflow areas">
