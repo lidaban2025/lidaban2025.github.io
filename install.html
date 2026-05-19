@@ -86,12 +86,31 @@
 
     .install-actions a:hover { text-decoration: none; }
 
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .proof-card {
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .proof-card .link-row {
+      margin-top: 14px;
+    }
+
     @media (max-width: 1120px) {
       .install-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 760px) {
       .install-grid { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr; }
       .install-card { grid-template-rows: 170px minmax(0, 1fr) auto; min-height: 0; }
       .install-actions a { flex: 1 1 auto; justify-content: center; }
     }
@@ -225,6 +244,88 @@
               <a href="formranger/dynamic-google-forms-dropdown-guide.html">Guide</a>
               <a href="https://youtu.be/uTK6h1AT2Cw">Demo</a>
               <a href="formranger/support.html">Setup</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="proof-title">
+        <div class="section-head">
+          <div>
+            <h2 id="proof-title">First-run proof paths.</h2>
+            <p>Install one add-on, prove one small workflow, then leave a specific Marketplace review only after the test works.</p>
+          </div>
+        </div>
+        <div class="proof-grid">
+          <article class="result-card proof-card">
+            <div>
+              <span class="tag tag-blue">FormGuard</span>
+              <strong>Close a copied form at a tiny cap.</strong>
+              <p>Set a limit of 1 or 2, submit through the public link, then confirm the closed message appears.</p>
+            </div>
+            <div class="link-row">
+              <a href="formguard/test-google-forms-response-limit-before-launch.html">Run test</a>
+              <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
+            </div>
+          </article>
+
+          <article class="result-card proof-card">
+            <div>
+              <span class="tag tag-teal">FormNotifier</span>
+              <strong>Send one safe confirmation email.</strong>
+              <p>Run preflight, submit one public-form test, and check both owner and respondent delivery.</p>
+            </div>
+            <div class="link-row">
+              <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">Run test</a>
+              <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
+            </div>
+          </article>
+
+          <article class="result-card proof-card">
+            <div>
+              <span class="tag tag-amber">FormCopy</span>
+              <strong>Copy row 2 formulas into one new row.</strong>
+              <p>Use one model row, one sample form submission, and inspect the new response row before launch.</p>
+            </div>
+            <div class="link-row">
+              <a href="formcopy/test-google-forms-response-sheet-formulas-before-launch.html">Run test</a>
+              <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a>
+            </div>
+          </article>
+
+          <article class="result-card proof-card">
+            <div>
+              <span class="tag tag-rose">FormMerge</span>
+              <strong>Preflight one row before any send.</strong>
+              <p>Use your own address in a sample row and confirm recipient, template fields, and row status.</p>
+            </div>
+            <div class="link-row">
+              <a href="formmerge/send-test-email-from-google-sheets-before-mail-merge.html">Run test</a>
+              <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a>
+            </div>
+          </article>
+
+          <article class="result-card proof-card">
+            <div>
+              <span class="tag tag-green">DocForge</span>
+              <strong>Generate or preflight one sample file.</strong>
+              <p>Use one sheet row and one template, then review fields, output name, and layout before a batch.</p>
+            </div>
+            <div class="link-row">
+              <a href="docforge/generate-one-pdf-from-google-sheets-before-batch.html">Run test</a>
+              <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
+            </div>
+          </article>
+
+          <article class="result-card proof-card">
+            <div>
+              <span class="tag tag-blue">FormRanger</span>
+              <strong>Update one choice question from Sheets.</strong>
+              <p>Map one dropdown, multiple-choice, or checkbox question to a small source column and run Preflight.</p>
+            </div>
+            <div class="link-row">
+              <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">Run test</a>
+              <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
             </div>
           </article>
         </div>
