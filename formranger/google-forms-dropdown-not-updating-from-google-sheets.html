@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Forms dropdown not updating from Google Sheets | FormRanger</title>
+  <meta name="description" content="Troubleshoot a Google Forms dropdown that is not updating from Google Sheets, including source range checks, manual paste, Apps Script, and FormRanger preflight.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Google Forms dropdown not updating from Google Sheets">
+  <meta property="og:description" content="A practical troubleshooting guide for spreadsheet-backed Google Forms dropdown options.">
+  <meta property="og:url" content="https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Forms dropdown not updating from Google Sheets">
+  <meta name="twitter:description" content="Check source data, mapping, permissions, and first-run update behavior before using a live form.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Google Forms dropdown not updating from Google Sheets",
+          "description": "A troubleshooting guide for Google Forms dropdown choices that are expected to update from Google Sheets.",
+          "author": { "@type": "Organization", "name": "FormSuite" },
+          "publisher": { "@type": "Organization", "name": "FormSuite" },
+          "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does Google Forms automatically link a dropdown to a Google Sheets range?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. A Google Forms dropdown does not natively stay linked to a Google Sheets range the way a Sheets data validation dropdown can."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I check first when a dropdown does not update?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Check the source column, spreadsheet access, question type, mapping, and whether the update action or trigger actually ran."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should I test on a live form first?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Use a copied form, one dropdown question, and two sample sheet values before applying the mapping to a live form."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green:#137333; --green-soft:#ebf8ef; --amber-soft:#fff8e7; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:18px; }
+    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:18ch; }
+    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
+    h3 { font-size:1.05rem; margin-bottom:8px; }
+    .hero p,.section p,.section li { color:var(--muted); }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:26px; margin-top:18px; }
+    .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+    .steps { padding-left:20px; display:grid; gap:10px; }
+    .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+    .caution { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--amber-soft); border:1px solid #efd98b; color:#775517; font-size:.93rem; }
+    .status { display:inline-flex; width:fit-content; padding:6px 10px; border-radius:999px; color:var(--green); background:var(--green-soft); font-size:.78rem; font-weight:800; }
+    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../resources/index.html">Resources</a>
+      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+      <a href="./support.html">Support</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Troubleshooting guide</div>
+      <h1>Google Forms dropdown not updating from Google Sheets?</h1>
+      <p>A Google Forms dropdown will not automatically stay linked to a Google Sheets range by default. If your choices are stale, missing, duplicated, or still showing old values, start by checking the source data, the mapping, and whether an update actually ran.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="./auto-update-google-forms-dropdown-from-google-sheets.html">Auto-update setup guide</a>
+        <a class="btn btn-secondary" href="./support.html">Open setup support</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="status">Quick answer</span>
+      <h2>Google Forms does not natively sync dropdown choices from Sheets</h2>
+      <p class="lead">A Sheets data validation dropdown can point at a range, but a Google Forms dropdown is a form question with its own stored choices. To keep it aligned with Sheets, you need manual copy/paste, Apps Script, or an add-on workflow that updates the question choices.</p>
+      <div class="grid">
+        <div class="feature"><strong>If the list changes rarely</strong><p>Paste the choices manually before launch and inspect the form preview.</p></div>
+        <div class="feature"><strong>If you maintain code</strong><p>Use Apps Script and be ready to manage form IDs, question item IDs, triggers, and authorization.</p></div>
+        <div class="feature"><strong>If you want a sidebar flow</strong><p>Use FormRanger to select the spreadsheet, map one question, run Preflight, and Update now.</p></div>
+        <div class="feature"><strong>If the list is mission-critical</strong><p>Do a copied-form test first and keep a manual fallback for the first launch.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What to check when choices do not update</h2>
+      <ol class="steps">
+        <li>Confirm the Google Sheet still contains the values you expect in one clean source column.</li>
+        <li>Remove blank rows, duplicate values, old notes, hidden helper text, or mixed data from that source column.</li>
+        <li>Check that the target Google Forms question is a supported choice question such as dropdown, multiple choice, or checkbox.</li>
+        <li>Confirm the spreadsheet is still accessible to the Google account running the add-on or script.</li>
+        <li>Run Preflight or your equivalent validation before updating the live form.</li>
+        <li>Use Update now, reload the form preview, and check the respondent-facing version, not only the editor.</li>
+      </ol>
+      <div class="note">For the first test, use only two obvious values such as Alpha and Beta. This makes it easy to see whether the form is truly updating from the selected sheet data.</div>
+    </section>
+
+    <section class="section">
+      <h2>Common failure patterns</h2>
+      <div class="grid">
+        <div class="feature"><strong>The sheet changed</strong><p>The tab, column, header, or data range changed after the mapping was created.</p></div>
+        <div class="feature"><strong>The form question changed</strong><p>The dropdown was deleted, duplicated, renamed, or changed to another question type.</p></div>
+        <div class="feature"><strong>The account lost access</strong><p>The selected spreadsheet moved, was shared differently, or is owned by another account.</p></div>
+        <div class="feature"><strong>The old choices are cached in your view</strong><p>Refresh the respondent preview or open the public form link in a new tab before judging the result.</p></div>
+      </div>
+      <div class="caution">If the dropdown represents real seats, inventory, payments, or reservations, do not treat Google Forms as a strict stock-control system. Use a safety buffer or a purpose-built system for high-stakes availability.</div>
+    </section>
+
+    <section class="section">
+      <h2>Safe first-run fix with FormRanger</h2>
+      <ol class="steps">
+        <li>Create a copied Google Form with one test dropdown question.</li>
+        <li>Create a small Google Sheets source column with two choices.</li>
+        <li>Install FormRanger and select the source spreadsheet through Google Picker.</li>
+        <li>Map the dropdown question to the source column.</li>
+        <li>Run Preflight, then click Update now.</li>
+        <li>Open the form preview and confirm the dropdown shows the sheet values.</li>
+      </ol>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="./support.html">Follow setup steps</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>After the test works</h2>
+      <p class="lead">If the copied form updates correctly, move the mapping to the real form and real sheet column. After a successful first run, leave a short Marketplace review or send setup feedback with the question type, source sheet pattern, and whether Preflight helped.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Leave a Marketplace review</a>
+        <a class="btn btn-secondary" href="./support.html">Send setup feedback</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Related FormRanger guides</h2>
+      <div class="link-bar">
+        <a href="./auto-update-google-forms-dropdown-from-google-sheets.html">Auto-update dropdown from Sheets</a>
+        <a href="./dynamic-google-forms-dropdown-guide.html">Populate choices from Sheets</a>
+        <a href="./populate-google-forms-multiple-choice-from-google-sheets.html">Multiple choice from Sheets</a>
+        <a href="./google-forms-checkbox-list-from-google-sheets.html">Checkbox list from Sheets</a>
+        <a href="./permissions.html">Permissions</a>
+        <a href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
+      </div>
+    </section>
+    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
