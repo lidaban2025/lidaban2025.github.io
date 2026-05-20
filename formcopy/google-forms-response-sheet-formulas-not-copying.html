@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Forms response sheet formulas not copying | FormCopy guide</title>
-    <meta name="description" content="Fix Google Forms response sheet formulas that do not copy to new rows. Learn a clean setup path for formulas, formatting, and backfill with FormCopy.">
+    <meta name="description" content="Fix Google Forms response sheet formulas that do not copy after submit or into new rows. Check row insertion, array formulas, model rows, formatting, and FormCopy backfill.">
     <link rel="canonical" href="https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-not-copying.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
     <meta property="og:title" content="Google Forms response sheet formulas not copying | FormCopy guide">
-    <meta property="og:description" content="Fix Google Forms response sheet formulas that do not copy to new rows with a repeatable Google Sheets setup path.">
+    <meta property="og:description" content="Fix Google Forms response sheet formulas that do not copy after submit, skip new rows, or leave helper columns blank.">
     <meta property="og:url" content="https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-not-copying.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Google Forms response sheet formulas not copying">
-    <meta name="twitter:description" content="A practical guide to keeping formulas and formatting alive in Google Forms response sheets.">
+    <meta name="twitter:description" content="Troubleshoot formulas that do not copy after a Google Forms submission creates a new response row.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
@@ -85,7 +85,7 @@
             <div>
                 <div class="eyebrow">Troubleshooting guide</div>
                 <h1>Google Forms response sheet formulas not copying</h1>
-                <p>Google Forms adds new submissions as fresh rows, which can leave formulas, formats, helper columns, and lookup logic behind. FormCopy helps keep the response sheet consistent by copying the row model you choose into new or existing response rows.</p>
+                <p>Google Forms adds each submission as a fresh response row, which can leave formulas, formats, helper columns, and lookup logic behind. If formulas do not copy after submit, start by checking how the new row is inserted, whether your model row is clean, and whether the formula belongs in a row-copy workflow or an array formula.</p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy from Marketplace</a>
                     <a class="btn btn-secondary" href="../setup-help.html">Get setup help</a>
@@ -122,11 +122,12 @@
 
         <section class="section">
             <h2>Quick answer</h2>
-            <p class="lead">If formulas stop copying in a Google Forms response sheet, first confirm the formula model is clean in one source row. Then use FormCopy to apply that model to future responses and, if needed, backfill rows that arrived before setup.</p>
+            <p class="lead">If formulas stop copying in a Google Forms response sheet, first confirm whether the new response row is missing the formula, the copied formula points at the wrong row, or the source value is blank. Then clean one model row and use FormCopy to apply that pattern to future responses and, if needed, backfill rows that arrived before setup.</p>
             <div class="grid">
                 <div class="feature"><strong>Best source row</strong><p>Use a row that already has the formulas, formatting, and helper columns exactly as you want them copied.</p></div>
                 <div class="feature"><strong>Best first test</strong><p>Submit one test response and check whether the new row receives the expected formulas and formats before relying on the workflow.</p></div>
             </div>
+            <div class="note">Fast diagnosis: if the new row is blank in helper columns, your formula pattern was not applied. If the formula exists but returns the wrong answer, inspect relative references, locked ranges, and the selected source row.</div>
         </section>
 
         <section class="section">
@@ -138,6 +139,19 @@
                 <div class="feature"><strong>Array formulas need care</strong><p>Some formulas are better as array formulas, while row-specific logic, formats, and backfill often still need a repeatable row model.</p></div>
                 <div class="feature"><strong>Formatting can drift</strong><p>Even if the calculation works, number formats, colors, helper columns, or validation cues may not stay consistent without a copy routine.</p></div>
             </div>
+        </section>
+
+        <section class="section">
+            <h2>What to check after a submission</h2>
+            <p class="lead">Use the newest response row as the evidence. Do not rely only on the rows above it, because Google Forms may insert the submission in a way that bypasses copied-down formulas.</p>
+            <ol class="steps">
+                <li>Submit one test response from the public Google Form link.</li>
+                <li>Open the linked response sheet and find the newly created row.</li>
+                <li>Check whether each helper cell is blank, has a formula, or has a formula result.</li>
+                <li>Click a copied formula and confirm relative references point at the same new row.</li>
+                <li>Check fixed lookup ranges for `$` anchors if they should not move.</li>
+                <li>Compare the new row against the model row that FormCopy should copy.</li>
+            </ol>
         </section>
 
         <section class="section">
