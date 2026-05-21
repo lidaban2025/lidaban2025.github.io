@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Forms dependent dropdown from Google Sheets | FormRanger</title>
+  <meta name="description" content="Learn what Google Forms can and cannot do with dependent dropdowns, spreadsheet-backed choices, and FormRanger dynamic choice syncing.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Google Forms dependent dropdown from Google Sheets">
+  <meta property="og:description" content="A practical guide to dependent dropdown expectations, Google Forms limits, and spreadsheet-backed choice syncing with FormRanger.">
+  <meta property="og:url" content="https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Forms dependent dropdown from Google Sheets">
+  <meta name="twitter:description" content="Understand the safe setup path for spreadsheet-backed Google Forms choices.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Google Forms dependent dropdown from Google Sheets",
+          "description": "A guide to Google Forms dependent dropdown limitations and spreadsheet-backed choice syncing with FormRanger.",
+          "author": { "@type": "Organization", "name": "FormSuite" },
+          "publisher": { "@type": "Organization", "name": "FormSuite" },
+          "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can Google Forms make a true dependent dropdown from Google Sheets?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Google Forms does not provide a native respondent-time dependent dropdown that filters one question based on a previous answer from a Sheets range."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What can FormRanger help with?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FormRanger can sync supported Google Forms choice questions from selected Google Sheets data, then validate and update those choices before respondents use the form."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I test first?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use one copied form, one dropdown question, and a small two-value sheet column before changing a live form."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green:#137333; --green-soft:#ebf8ef; --amber:#775517; --amber-soft:#fff8e7; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:18px; }
+    .eyebrow,.status { display:inline-flex; width:fit-content; padding:7px 12px; border-radius:999px; font-size:.8rem; font-weight:800; margin-bottom:16px; }
+    .eyebrow { background:var(--blue-soft); color:var(--blue); }
+    .status { color:var(--green); background:var(--green-soft); }
+    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:19ch; }
+    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
+    h3 { font-size:1.05rem; margin-bottom:8px; }
+    .hero p,.section p,.section li { color:var(--muted); }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; }
+    .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:26px; margin-top:18px; }
+    .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+    .steps { padding-left:20px; display:grid; gap:10px; }
+    .note,.caution { margin-top:18px; padding:16px 18px; border-radius:18px; font-size:.93rem; }
+    .note { background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; }
+    .caution { background:var(--amber-soft); border:1px solid #efd98b; color:var(--amber); }
+    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../resources/index.html">Resources</a>
+      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+      <a href="./support.html">Support</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Dynamic choices guide</div>
+      <h1>Google Forms dependent dropdown from Google Sheets</h1>
+      <p>If by dependent dropdown you mean "Question B changes instantly based on the respondent's answer to Question A," Google Forms is limited. If you mean "keep dropdown choices aligned with a Google Sheets source list before people submit," FormRanger is a good fit.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+        <a class="btn btn-secondary" href="./dynamic-google-forms-dropdown-guide.html">Populate choices from Sheets</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="status">Quick answer</span>
+      <h2>Separate two different jobs</h2>
+      <p class="lead">People use "dependent dropdown" to describe two different workflows. One is respondent-time filtering, where a later question changes based on an earlier answer. The other is spreadsheet-backed choice management, where the form owner updates choices from Sheets before the form is used.</p>
+      <div class="grid">
+        <div class="feature"><strong>Respondent-time dependent dropdown</strong><p>Google Forms does not natively filter a dropdown from Sheets during a respondent's live session based on a previous answer.</p></div>
+        <div class="feature"><strong>Spreadsheet-backed choices</strong><p>FormRanger can help keep dropdown, multiple-choice, and checkbox questions aligned with selected Google Sheets data.</p></div>
+        <div class="feature"><strong>Section branching</strong><p>Google Forms can route respondents to sections based on answers, but that is not the same as a filtered Sheets-backed dropdown.</p></div>
+        <div class="feature"><strong>High-stakes availability</strong><p>If options represent inventory, payments, or booking slots, use a buffer or a purpose-built system instead of relying only on a form choice list.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Best FormRanger fit</h2>
+      <p class="lead">Use FormRanger when your team has one source list in Google Sheets and wants Google Forms choices to reflect that list after a controlled update.</p>
+      <ol class="steps">
+        <li>Keep the valid options in one clean Google Sheets column.</li>
+        <li>Open the Google Form in edit mode and launch FormRanger.</li>
+        <li>Select the source spreadsheet through Google Picker.</li>
+        <li>Map one dropdown, multiple-choice, or checkbox question to the source column.</li>
+        <li>Run Preflight, click Update now, then inspect the public form preview.</li>
+      </ol>
+      <div class="note">For the first run, test two values such as Alpha and Beta on a copied form. That makes it obvious whether the choices are coming from the selected sheet.</div>
+    </section>
+
+    <section class="section">
+      <h2>When to use another pattern</h2>
+      <div class="grid">
+        <div class="feature"><strong>Need live filtering by previous answer?</strong><p>Consider separate form sections, separate forms, Apps Script, or a form builder designed for conditional logic.</p></div>
+        <div class="feature"><strong>Need stock or seat locking?</strong><p>Google Forms is not a transactional booking system. Add buffers, manual review, or a system that can reserve inventory.</p></div>
+        <div class="feature"><strong>Need only a rare list update?</strong><p>Manual copy/paste may be enough if the list changes once a semester or once a year.</p></div>
+        <div class="feature"><strong>Need a maintainable list source?</strong><p>Use FormRanger when the source of truth belongs in Sheets and the form should be refreshed from that source.</p></div>
+      </div>
+      <div class="caution">Do not promise respondents that a choice is still available solely because it appears in a Google Forms dropdown. Availability-sensitive workflows need extra safeguards.</div>
+    </section>
+
+    <section class="section">
+      <h2>Safe first-run test</h2>
+      <ol class="steps">
+        <li>Duplicate the live form or create a test form.</li>
+        <li>Add one dropdown question named "Test choice".</li>
+        <li>Create a source sheet with one column and two obvious options.</li>
+        <li>Install FormRanger, select the spreadsheet, and map the dropdown.</li>
+        <li>Run Preflight, update the question, and open the public preview.</li>
+      </ol>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Related FormRanger guides</h2>
+      <div class="link-bar">
+        <a href="./dynamic-google-forms-dropdown-guide.html">Populate choices from Sheets</a>
+        <a href="./auto-update-google-forms-dropdown-from-google-sheets.html">Auto-update dropdown</a>
+        <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Dropdown not updating</a>
+        <a href="./populate-google-forms-multiple-choice-from-google-sheets.html">Multiple choice from Sheets</a>
+        <a href="./google-forms-checkbox-list-from-google-sheets.html">Checkbox list from Sheets</a>
+        <a href="./permissions.html">Permissions</a>
+        <a href="./index.html">FormRanger overview</a>
+      </div>
+    </section>
+    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
