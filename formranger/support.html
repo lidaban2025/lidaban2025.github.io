@@ -74,6 +74,9 @@
     .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid var(--line); }
     .btn-primary { background:var(--brand); color:#fff; border-color:var(--brand); }
     .btn-secondary { background:#fff; color:var(--ink); }
+    .path-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .path-links a { display:inline-flex; align-items:center; justify-content:center; min-height:34px; padding:0 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--brand); text-decoration:none; font-size:14px; font-weight:600; }
+    .path-links a:hover { text-decoration:none; border-color:var(--brand); }
     .grid { display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin-top:24px; }
     .card { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:24px; box-shadow:0 10px 30px rgba(18,37,63,.04); }
     .card h2 { font-size:22px; margin-bottom:14px; }
@@ -109,7 +112,7 @@
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
         <a class="btn btn-secondary" href="./dynamic-google-forms-dropdown-guide.html">Open workflow guide</a>
         <a class="btn btn-secondary" href="../review-after-first-success.html">Review after success</a>
-        <a class="btn btn-secondary" href="../support.html">Open FormSuite support</a>
+        <a class="btn btn-secondary" href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
       </div>
     </section>
     <section class="grid">
@@ -129,6 +132,14 @@
           <li>Container UI access displays the mapping sidebar and validation flow.</li>
           <li>Start with one test question and one selected spreadsheet range before applying the setup to a live form.</li>
         </ul>
+        <h3>Pick the shortest path for your test</h3>
+        <p>Choose the guide that matches the question type you want to sync, then use the troubleshooting page only if the first update looks wrong.</p>
+        <div class="path-links">
+          <a href="dynamic-google-forms-dropdown-guide.html">Dropdown guide</a>
+          <a href="populate-google-forms-multiple-choice-from-google-sheets.html">Multiple-choice guide</a>
+          <a href="google-forms-checkbox-list-from-google-sheets.html">Checkbox guide</a>
+          <a href="google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
+        </div>
       </article>
       <aside class="card">
         <div class="pill">Need help</div>
