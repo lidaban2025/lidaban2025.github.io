@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer letter generator from Google Sheets | DocForge</title>
+    <meta name="description" content="Generate offer letters from Google Sheets rows with a Google Docs template, merge fields, preflight checks, Google Docs output, PDF export, and DocForge.">
+    <link rel="canonical" href="https://formsuite.dev/docforge/offer-letter-generator-from-google-sheets.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Offer letter generator from Google Sheets | DocForge">
+    <meta property="og:description" content="A practical workflow for turning approved offer letter templates and spreadsheet rows into Google Docs or PDFs.">
+    <meta property="og:url" content="https://formsuite.dev/docforge/offer-letter-generator-from-google-sheets.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Offer letter generator from Google Sheets">
+    <meta name="twitter:description" content="Use Google Sheets rows and a Google Docs template to generate offer letters with DocForge.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Offer letter generator from Google Sheets",
+            "description": "A guide to generating offer letters from Google Sheets rows with DocForge.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/docforge/offer-letter-generator-from-google-sheets.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
+        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
+        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
+        .hero { padding:30px; margin-bottom:18px; }
+        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:17ch; }
+        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h3 { font-size:1.04rem; margin-bottom:8px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; }
+        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:26px; margin-top:18px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .feature p { color:var(--muted); font-size:.94rem; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="../install.html">Install</a>
+            <a href="../resources/index.html">Resources</a>
+            <a href="./index.html"><strong>DocForge</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-sheets-generate-letters-from-rows.html">Letters from rows</a>
+        </nav>
+
+        <section class="hero">
+            <div class="eyebrow">Offer letters from Sheets</div>
+            <h1>Offer letter generator from Google Sheets</h1>
+            <p>When candidate, role, compensation, start date, and manager data already live in Google Sheets, DocForge can merge each approved row into a Google Docs offer letter template and generate editable Docs or final PDFs.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge from Marketplace</a>
+                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
+                <a class="btn btn-secondary" href="./google-sheets-generate-letters-from-rows.html">Letters from rows</a>
+                <a class="btn btn-secondary" href="./generate-one-pdf-from-google-sheets-before-batch.html">Generate one PDF first</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">To generate offer letters from Google Sheets, keep one candidate or offer per row, use an approved Google Docs template with placeholders, map the sheet columns to the template fields, run preflight, then generate one test offer letter before producing the full batch.</p>
+            <div class="grid">
+                <div class="feature"><strong>Best fit</strong><p>Small HR teams, schools, programs, agencies, and operations teams that already track candidates or accepted applicants in Sheets.</p></div>
+                <div class="feature"><strong>Best first test</strong><p>Generate one letter with normal values and one letter with the longest realistic job title, department, address, or compensation text.</p></div>
+            </div>
+            <div class="note">Use DocForge for repeatable document generation from approved templates. Keep compensation, legal wording, approvals, and signatures in the workflow your organization already trusts.</div>
+        </section>
+
+        <section class="section">
+            <h2>Recommended sheet columns</h2>
+            <p class="lead">Start with a narrow sheet. It is easier to audit the generated letters when every placeholder has a clear source column.</p>
+            <div class="grid">
+                <div class="feature"><strong>Candidate fields</strong><p>Name, email, address, candidate ID, role, department, manager, recruiter, and start date.</p></div>
+                <div class="feature"><strong>Offer fields</strong><p>Compensation text, employment type, location, reporting line, acceptance deadline, and custom notes.</p></div>
+                <div class="feature"><strong>Output fields</strong><p>Status, generated Doc URL, generated PDF URL, generated at, sent at, and internal reviewer.</p></div>
+                <div class="feature"><strong>Control fields</strong><p>Ready to generate, template variant, language, region, and approval status if your process needs them.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Setup pattern</h2>
+            <ol class="steps">
+                <li>Prepare the Google Sheet with one offer per row and clear headers.</li>
+                <li>Create or copy the approved Google Docs offer letter template.</li>
+                <li>Add placeholders for the fields that should change by row.</li>
+                <li>Open DocForge from the source Google Sheet and select the template.</li>
+                <li>Map placeholders to sheet columns and run preflight.</li>
+                <li>Generate one offer letter and inspect every field, page break, and output file name.</li>
+                <li>Only after review, generate more rows or export PDFs.</li>
+            </ol>
+            <div class="warn">Boundary: DocForge is not a contract lifecycle, legal review, signature, or approval system. It helps generate documents from rows after the template and row data are ready.</div>
+        </section>
+
+        <section class="section">
+            <h2>Preflight checklist</h2>
+            <div class="grid">
+                <div class="feature"><strong>Template access</strong><p>Confirm the account running DocForge can read the template and create output files in the selected folder.</p></div>
+                <div class="feature"><strong>Required fields</strong><p>Check for blank candidate names, missing start dates, incomplete compensation fields, and unapproved rows.</p></div>
+                <div class="feature"><strong>Layout stress test</strong><p>Use long names and long job titles to catch wrapping, page breaks, and signature block movement.</p></div>
+                <div class="feature"><strong>File naming</strong><p>Use a stable identifier such as candidate ID, offer ID, or candidate name plus date.</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Install DocForge for this workflow</h2>
+            <p class="lead">Install DocForge when manual copy-paste from Sheets into offer letter templates is slow, inconsistent, or risky, and your team wants a repeatable first-run test before generating a batch.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
+                <a class="btn btn-secondary" href="./permissions.html">Review permissions</a>
+                <a class="btn btn-secondary" href="../review-after-first-success.html">Review after first success</a>
+                <a class="btn btn-secondary" href="./privacy.html">Privacy policy</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Related guides</h2>
+            <div class="link-bar">
+                <a href="./google-sheets-generate-letters-from-rows.html">Generate letters from rows</a>
+                <a href="./google-docs-template-merge-from-google-sheets.html">Google Docs template merge</a>
+                <a href="./google-sheets-rows-to-pdf.html">Rows to PDF</a>
+                <a href="./generate-one-pdf-from-google-sheets-before-batch.html">Generate one PDF first</a>
+                <a href="./google-docs-template-merge-fields-not-replacing-from-google-sheets.html">Merge field troubleshooting</a>
+                <a href="./support.html">DocForge support</a>
+                <a href="../resources/index.html">More workflow guides</a>
+            </div>
+        </section>
+
+        <div class="footer"><a href="./support.html">Support</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</div>
+    </div>
+    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
