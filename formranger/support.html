@@ -125,7 +125,15 @@
           <li>Use Select spreadsheet so FormRanger can access the spreadsheet you explicitly choose.</li>
           <li>Pick the sheet tab and column you want to use as the live choice source.</li>
           <li>Save the configuration, run Preflight, and use Update now to verify the choices.</li>
+          <li>Open the public form preview and confirm the visible choices match the source column before sharing the form.</li>
         </ol>
+        <h3>First-run quality gate</h3>
+        <ul>
+          <li>Preflight should show at least one linked question and no issues.</li>
+          <li>Update now should report an updated question, not only a saved mapping.</li>
+          <li>If the update report says skipped or error, treat the setup as unfinished.</li>
+          <li>Do not ask respondents to use the form until the public preview shows the expected choices.</li>
+        </ul>
         <h3>Permissions and setup notes</h3>
         <ul>
           <li>Google Forms access is used to update supported choice-based questions in the current form.</li>
@@ -142,6 +150,7 @@
           <a href="populate-google-forms-multiple-choice-from-google-sheets.html">Multiple-choice guide</a>
           <a href="google-forms-checkbox-list-from-google-sheets.html">Checkbox guide</a>
           <a href="google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
+          <a href="auto-update-google-forms-dropdown-from-google-sheets.html">Auto-update path</a>
         </div>
       </article>
       <aside class="card">
@@ -153,6 +162,8 @@
           <li><strong>Marketplace</strong><br><a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">FormRanger listing</a></li>
           <li><strong>Response time</strong><br>Usually within 1 business day for reviewer and customer support questions.</li>
         </ul>
+        <h3>Send a useful bug report</h3>
+        <p>Include the question type, whether you used Create sample source or Google Picker, the Preflight text, the Update now report, and whether the public preview changed.</p>
       </aside>
     </section>
     <section class="card" style="margin-top:18px;">
@@ -165,7 +176,7 @@
     <section class="card" style="margin-top:18px;">
       <div class="pill">After a successful first run</div>
       <h2>Help the next Google Forms operator choose faster</h2>
-      <p>If FormRanger linked one question, passed Preflight, and updated choices correctly, a short Marketplace review helps future Google Forms users evaluate the add-on with more confidence.</p>
+      <p>If FormRanger linked one question, passed Preflight, updated choices correctly, and the public preview looked right, a short Marketplace review helps future Google Forms users evaluate the add-on with more confidence. If any step failed, send setup feedback first.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Leave a Marketplace review</a>
         <a class="btn btn-secondary" href="../support.html">Open FormSuite support</a>
