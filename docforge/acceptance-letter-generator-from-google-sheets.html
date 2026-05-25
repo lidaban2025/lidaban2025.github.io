@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offer letter generator from Google Sheets | DocForge</title>
-    <meta name="description" content="Generate offer letters from Google Sheets rows with a Google Docs template, merge fields, preflight checks, Google Docs output, PDF export, and DocForge.">
-    <link rel="canonical" href="https://formsuite.dev/docforge/offer-letter-generator-from-google-sheets.html">
+    <title>Acceptance letter generator from Google Sheets | DocForge</title>
+    <meta name="description" content="Generate acceptance letters from Google Sheets rows with a Google Docs template, merge fields, preflight checks, Google Docs output, PDF export, and DocForge.">
+    <link rel="canonical" href="https://formsuite.dev/docforge/acceptance-letter-generator-from-google-sheets.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="Offer letter generator from Google Sheets | DocForge">
-    <meta property="og:description" content="A practical workflow for turning approved offer letter templates and spreadsheet rows into Google Docs or PDFs.">
-    <meta property="og:url" content="https://formsuite.dev/docforge/offer-letter-generator-from-google-sheets.html">
+    <meta property="og:title" content="Acceptance letter generator from Google Sheets | DocForge">
+    <meta property="og:description" content="A practical workflow for turning accepted applicant, student, member, or participant rows into Google Docs or PDF acceptance letters.">
+    <meta property="og:url" content="https://formsuite.dev/docforge/acceptance-letter-generator-from-google-sheets.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Offer letter generator from Google Sheets">
-    <meta name="twitter:description" content="Use Google Sheets rows and a Google Docs template to generate offer letters with DocForge.">
+    <meta name="twitter:title" content="Acceptance letter generator from Google Sheets">
+    <meta name="twitter:description" content="Use Google Sheets rows and a Google Docs template to generate acceptance letters with DocForge.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Offer letter generator from Google Sheets",
-            "description": "A guide to generating offer letters from Google Sheets rows with DocForge.",
+            "headline": "Acceptance letter generator from Google Sheets",
+            "description": "A guide to generating acceptance letters from Google Sheets rows with DocForge.",
             "author": { "@type": "Organization", "name": "FormSuite" },
             "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/docforge/offer-letter-generator-from-google-sheets.html"
+            "mainEntityOfPage": "https://formsuite.dev/docforge/acceptance-letter-generator-from-google-sheets.html"
         }
     </script>
     <style>
@@ -38,8 +38,8 @@
         .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
         .hero { padding:30px; margin-bottom:18px; }
         .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:17ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:18ch; }
+        h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
         h3 { font-size:1.04rem; margin-bottom:8px; }
         .hero p,.section p,.section li { color:var(--muted); }
         .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
@@ -71,65 +71,65 @@
         </nav>
 
         <section class="hero">
-            <div class="eyebrow">Offer letters from Sheets</div>
-            <h1>Offer letter generator from Google Sheets</h1>
-            <p>When candidate, role, compensation, start date, and manager data already live in Google Sheets, DocForge can merge each approved row into a Google Docs offer letter template and generate editable Docs or final PDFs.</p>
+            <div class="eyebrow">Acceptance letters from Sheets</div>
+            <h1>Acceptance letter generator from Google Sheets</h1>
+            <p>When accepted applicant, student, member, volunteer, or participant data already lives in Google Sheets, DocForge can merge each approved row into a Google Docs acceptance letter template and generate editable Docs or final PDFs.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge from Marketplace</a>
                 <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-                <a class="btn btn-secondary" href="./google-sheets-generate-letters-from-rows.html">Letters from rows</a>
                 <a class="btn btn-secondary" href="./generate-one-pdf-from-google-sheets-before-batch.html">Generate one PDF first</a>
+                <a class="btn btn-secondary" href="./google-sheets-generate-letters-from-rows.html">Letters from rows</a>
             </div>
         </section>
 
         <section class="section">
             <h2>Quick answer</h2>
-            <p class="lead">To generate offer letters from Google Sheets, keep one candidate or offer per row, use an approved Google Docs template with placeholders, map the sheet columns to the template fields, run preflight, then generate one test offer letter before producing the full batch.</p>
+            <p class="lead">To generate acceptance letters from Google Sheets, keep one accepted record per row, create a Google Docs template with placeholders, map the sheet columns to template fields, run preflight, then generate one test letter before producing the full batch.</p>
             <div class="grid">
-                <div class="feature"><strong>Best fit</strong><p>Small HR teams, schools, programs, agencies, and operations teams that already track candidates or accepted applicants in Sheets.</p></div>
-                <div class="feature"><strong>Best first test</strong><p>Generate one letter with normal values and one letter with the longest realistic job title, department, address, or compensation text.</p></div>
+                <div class="feature"><strong>Best fit</strong><p>Admissions, scholarship, program enrollment, volunteer onboarding, membership approvals, and event acceptance notices that already use a spreadsheet as the source list.</p></div>
+                <div class="feature"><strong>Best first test</strong><p>Generate one normal acceptance letter and one edge-case letter with the longest name, program title, date text, address, or conditional note.</p></div>
             </div>
-            <div class="note">Use DocForge for repeatable document generation from approved templates. Keep compensation, legal wording, approvals, and signatures in the workflow your organization already trusts.</div>
+            <div class="note">Use DocForge for repeatable document generation from approved templates. Keep admissions decisions, approvals, signatures, and sensitive review logic in the workflow your organization already trusts.</div>
         </section>
 
         <section class="section">
             <h2>Recommended sheet columns</h2>
-            <p class="lead">Start with a narrow sheet. It is easier to audit the generated letters when every placeholder has a clear source column.</p>
+            <p class="lead">Start with a narrow sheet that separates decision data from generated output tracking.</p>
             <div class="grid">
-                <div class="feature"><strong>Candidate fields</strong><p>Name, email, address, candidate ID, role, department, manager, recruiter, and start date.</p></div>
-                <div class="feature"><strong>Offer fields</strong><p>Compensation text, employment type, location, reporting line, acceptance deadline, and custom notes.</p></div>
-                <div class="feature"><strong>Output fields</strong><p>Status, generated Doc URL, generated PDF URL, generated at, sent at, and internal reviewer.</p></div>
-                <div class="feature"><strong>Control fields</strong><p>Ready to generate, template variant, language, region, and approval status if your process needs them.</p></div>
+                <div class="feature"><strong>Recipient fields</strong><p>Name, email, address, application ID, program, cohort, role, school, department, or organization.</p></div>
+                <div class="feature"><strong>Acceptance fields</strong><p>Decision date, start date, orientation date, deadline to respond, contact person, next step, and custom note.</p></div>
+                <div class="feature"><strong>Output fields</strong><p>Status, generated Doc URL, generated PDF URL, generated at, reviewer, and sent at.</p></div>
+                <div class="feature"><strong>Control fields</strong><p>Ready to generate, template variant, language, approval status, and delivery status if your process needs them.</p></div>
             </div>
         </section>
 
         <section class="section">
             <h2>Setup pattern</h2>
             <ol class="steps">
-                <li>Prepare the Google Sheet with one offer per row and clear headers.</li>
-                <li>Create or copy the approved Google Docs offer letter template.</li>
-                <li>Add placeholders for the fields that should change by row.</li>
+                <li>Prepare the Google Sheet with one accepted record per row and clear headers.</li>
+                <li>Create or copy the approved Google Docs acceptance letter template.</li>
+                <li>Add placeholders for the fields that should change by row, such as recipient name, program, start date, and next steps.</li>
                 <li>Open DocForge from the source Google Sheet and select the template.</li>
                 <li>Map placeholders to sheet columns and run preflight.</li>
-                <li>Generate one offer letter and inspect every field, page break, and output file name.</li>
-                <li>Only after review, generate more rows or export PDFs.</li>
+                <li>Generate one acceptance letter and inspect every field, page break, output file name, and PDF export.</li>
+                <li>Only after review, generate the rest of the accepted rows.</li>
             </ol>
-            <div class="warn">Boundary: DocForge is not a contract lifecycle, legal review, signature, or approval system. It helps generate documents from rows after the template and row data are ready.</div>
+            <div class="warn">Boundary: DocForge is not an admissions decision system, approval workflow, signature tool, or legal review platform. It helps generate letters from rows after your decision and template are ready.</div>
         </section>
 
         <section class="section">
             <h2>Preflight checklist</h2>
             <div class="grid">
-                <div class="feature"><strong>Template access</strong><p>Confirm the account running DocForge can read the template and create output files in the selected folder.</p></div>
-                <div class="feature"><strong>Required fields</strong><p>Check for blank candidate names, missing start dates, incomplete compensation fields, and unapproved rows.</p></div>
-                <div class="feature"><strong>Layout stress test</strong><p>Use long names and long job titles to catch wrapping, page breaks, and signature block movement.</p></div>
-                <div class="feature"><strong>File naming</strong><p>Use a stable identifier such as candidate ID, offer ID, or candidate name plus date.</p></div>
+                <div class="feature"><strong>Template access</strong><p>Confirm the account running DocForge can read the template and create output files in the selected Drive folder.</p></div>
+                <div class="feature"><strong>Required fields</strong><p>Check for blank recipient names, missing program names, missing acceptance dates, and rows that are not actually approved.</p></div>
+                <div class="feature"><strong>Layout stress test</strong><p>Use long names, long program titles, and long next-step text to catch wrapping, page breaks, and signature block movement.</p></div>
+                <div class="feature"><strong>File naming</strong><p>Use a stable identifier such as application ID, recipient name plus cohort, or acceptance date.</p></div>
             </div>
         </section>
 
         <section class="section">
             <h2>Install DocForge for this workflow</h2>
-            <p class="lead">Install DocForge when manual copy-paste from Sheets into offer letter templates is slow, inconsistent, or risky, and your team wants a repeatable first-run test before generating a batch.</p>
+            <p class="lead">Install DocForge when manual copy-paste from Sheets into acceptance letter templates is slow, inconsistent, or risky, and your team wants a repeatable first-run test before generating a batch.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
                 <a class="btn btn-secondary" href="./permissions.html">Review permissions</a>
@@ -142,7 +142,7 @@
             <h2>Related guides</h2>
             <div class="link-bar">
                 <a href="./google-sheets-generate-letters-from-rows.html">Generate letters from rows</a>
-                <a href="./acceptance-letter-generator-from-google-sheets.html">Acceptance letter generator</a>
+                <a href="./offer-letter-generator-from-google-sheets.html">Offer letter generator</a>
                 <a href="./google-docs-template-merge-from-google-sheets.html">Google Docs template merge</a>
                 <a href="./google-sheets-rows-to-pdf.html">Rows to PDF</a>
                 <a href="./generate-one-pdf-from-google-sheets-before-batch.html">Generate one PDF first</a>
