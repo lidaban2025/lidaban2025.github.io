@@ -100,7 +100,7 @@
       <a href="./support.html">Support</a>
     </nav>
     <section class="hero">
-      <div class="eyebrow">Support center</div>
+      <div class="eyebrow">Support center / OAuth verified</div>
       <h1>FormFlow setup guide and support</h1>
       <p>Configure approval levels, reminders, reviewer email routing, and Google Sheets audit tracking for a live Google Forms workflow.</p>
       <div class="hero-actions">
@@ -115,7 +115,7 @@
         <h2>Get running fast</h2>
         <ol><li>Open the Google Form in edit mode and launch FormFlow from Add-ons.</li><li>Add one or more approval levels and list the approver email addresses for each stage.</li><li>Adjust subject lines, button text, and reminder settings if needed.</li><li>Save the configuration and run Preflight before using the workflow live.</li></ol>
         <h3>Permissions and reviewer notes</h3>
-        <ul><li>Google Forms access to read submissions and maintain approval state.</li><li>Google Sheets access only for the linked response sheet and approval status tracking.</li><li>Gmail or MailApp access to send approval and submitter notifications.</li></ul>
+        <ul><li>Google Forms access to read submissions and maintain approval state.</li><li>Google Sheets access only for the linked response sheet and approval status tracking.</li><li>Apps Script execution, email sending, and container UI scopes are approved for the current OAuth-verified build.</li></ul>
       </article>
       <aside class="card">
         <div class="pill">Need help</div>
@@ -130,7 +130,7 @@
     <section class="card" style="margin-top:18px;">
       <div class="pill">FAQ</div>
       <h2>Common questions</h2>
-      <div class="faq-item"><strong>How do approvals know which response to update?</strong><p>FormFlow stores approval metadata against the active form and its linked response sheet, then updates status records as decisions arrive.</p></div><div class="faq-item"><strong>Can I require comments before rejecting?</strong><p>Yes. Turn on the require comment option in Advanced Options.</p></div><div class="faq-item"><strong>What should I do before inviting reviewers?</strong><p>Run Preflight, send one internal test submission, and confirm each approver email can receive messages from the workflow.</p></div>
+      <div class="faq-item"><strong>How do approvals know which response to update?</strong><p>FormFlow stores approval metadata against the active form and its linked response sheet, then updates status records as decisions arrive.</p></div><div class="faq-item"><strong>Can I require comments before rejecting?</strong><p>Yes. Turn on the require comment option in Advanced Options.</p></div><div class="faq-item"><strong>What should I do before inviting reviewers?</strong><p>Run Preflight, send one internal test submission, and confirm each approver email can receive messages from the workflow.</p></div><div class="faq-item"><strong>What is the current OAuth verification status?</strong><p>Google approved the current FormFlow OAuth App Verification request on May 26, 2026 for Apps Script execution, email sending, and container UI scopes. Marketplace availability is a separate release step.</p></div>
     </section>
     <footer><p>&copy; 2026 FormFlow. Part of the FormSuite product family.</p></footer>
   </div>
