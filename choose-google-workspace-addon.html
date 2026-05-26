@@ -60,8 +60,20 @@
 
     .choice-row a:hover { text-decoration: none; }
 
+    .choice-links {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     @media (max-width: 760px) {
       .choice-row { grid-template-columns: 1fr; }
+      .choice-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
       .choice-row a { width: 100%; }
     }
   </style>
@@ -113,27 +125,27 @@
           <div class="choice-row">
             <div><strong>Close a Google Form when it is full or past deadline</strong><span>Response caps, deadlines, time windows, choice quotas.</span></div>
             <em>FormGuard</em>
-            <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a><a class="secondary" href="formguard/index.html">Product</a><a class="secondary" href="formguard/schedule-google-forms-open-close-guide.html">Guide</a></span>
           </div>
           <div class="choice-row">
             <div><strong>Send confirmation emails or owner alerts after submit</strong><span>Respondent confirmations, team alerts, shared inbox notifications.</span></div>
             <em>FormNotifier</em>
-            <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a><a class="secondary" href="formnotifier/index.html">Product</a><a class="secondary" href="formnotifier/send-google-forms-confirmation-email-after-submit.html">Guide</a></span>
           </div>
           <div class="choice-row">
             <div><strong>Copy formulas into new Google Forms response rows</strong><span>Model-row formulas, formats, helper columns, scoring logic.</span></div>
             <em>FormCopy Pro</em>
-            <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a><a class="secondary" href="formcopy/index.html">Product</a><a class="secondary" href="formcopy/google-forms-response-sheet-formulas-guide.html">Guide</a></span>
           </div>
           <div class="choice-row">
             <div><strong>Send personalized email from Google Sheets rows</strong><span>Operational mail merge with test sends and row status.</span></div>
             <em>FormMerge Pro</em>
-            <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a><a class="secondary" href="formmerge/index.html">Product</a><a class="secondary" href="formmerge/personalized-email-from-google-sheets-guide.html">Guide</a></span>
           </div>
           <div class="choice-row">
             <div><strong>Generate Google Docs or PDFs from spreadsheet rows</strong><span>Documents, letters, certificates, PDFs, template-based files.</span></div>
             <em>DocForge</em>
-            <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a><a class="secondary" href="docforge/index.html">Product</a><a class="secondary" href="docforge/acceptance-letter-generator-from-google-sheets.html">Guide</a></span>
           </div>
           <div class="choice-row">
             <div><strong>Route Google Forms submissions through approvals</strong><span>Approval workflow fit check for a known internal process.</span></div>
@@ -143,7 +155,7 @@
           <div class="choice-row">
             <div><strong>Sync Google Sheets ranges into Google Forms choices</strong><span>Dynamic dropdowns, checkbox lists, multiple-choice options.</span></div>
             <em>FormRanger</em>
-            <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a><a class="secondary" href="formranger/index.html">Product</a><a class="secondary" href="formranger/dynamic-google-forms-dropdown-guide.html">Guide</a></span>
           </div>
         </div>
       </section>
