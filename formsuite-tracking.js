@@ -28,6 +28,7 @@
     if (haystack.indexOf("formcopy") !== -1 || haystack.indexOf("cnjfgdfl52m") !== -1) return "FormCopy Pro";
     if (haystack.indexOf("formmerge") !== -1 || haystack.indexOf("smin_klpfky") !== -1) return "FormMerge Pro";
     if (haystack.indexOf("docforge") !== -1 || haystack.indexOf("yaecjc42lfg") !== -1) return "DocForge";
+    if (haystack.indexOf("formranger") !== -1) return "FormRanger";
     return productFromPath(window.location.pathname);
   }
 
@@ -36,6 +37,8 @@
     var path = url.pathname.toLowerCase();
     if (host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1) return "marketplace";
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
+    if (path.indexOf("/resources/google-workspace-add-ons-first-run-checklist") !== -1) return "first_run_checklist";
+    if (path.indexOf("/review-after-first-success") !== -1) return "review_after_success";
     if (path.indexOf("/setup-help") !== -1) return "setup_help";
     if (path.indexOf("/support") !== -1) return "support";
     if (path.indexOf("/permissions") !== -1) return "permissions";
@@ -45,6 +48,8 @@
   function eventName(type) {
     if (type === "marketplace") return "marketplace_cta_click";
     if (type === "demo_video") return "demo_video_click";
+    if (type === "first_run_checklist") return "first_run_checklist_click";
+    if (type === "review_after_success") return "review_after_success_click";
     if (type === "setup_help") return "setup_help_click";
     if (type === "support") return "support_click";
     if (type === "permissions") return "permissions_click";
@@ -53,10 +58,10 @@
 
   function pageViewEvent() {
     var path = window.location.pathname.toLowerCase();
-    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge)\/$/.test(path) || /\/(formguard|formnotifier|formcopy|formmerge|docforge)\/index\.html$/.test(path)) {
+    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger)\/$/.test(path) || /\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger)\/index\.html$/.test(path)) {
       return "product_page_view";
     }
-    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge)\/.+\.html$/.test(path) || path.indexOf("/resources/") !== -1) {
+    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger)\/.+\.html$/.test(path) || path.indexOf("/resources/") !== -1) {
       return "seo_page_view";
     }
     return "";
@@ -70,6 +75,7 @@
       page: window.location.pathname,
       target_type: data.target_type || "",
       destination_host: data.destination_host || "",
+      destination_path: data.destination_path || "",
       link_text: data.link_text || "",
       source: "formsuite.dev"
     };
@@ -85,6 +91,13 @@
     }
     if (endpoint && navigator.sendBeacon) {
       navigator.sendBeacon(endpoint, JSON.stringify(payload));
+    } else if (endpoint && typeof window.fetch === "function") {
+      window.fetch(endpoint, {
+        method: "POST",
+        mode: "no-cors",
+        keepalive: true,
+        body: JSON.stringify(payload)
+      }).catch(function () {});
     }
   }
 
@@ -107,6 +120,7 @@
       product: productFromUrl(url, link.textContent),
       target_type: type,
       destination_host: url.hostname,
+      destination_path: url.pathname,
       link_text: link.textContent.replace(/\s+/g, " ").trim().slice(0, 120)
     });
   }, { capture: true });
