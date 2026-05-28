@@ -4,55 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Forms grid choices from Google Sheets | FormRanger</title>
-  <meta name="description" content="Use FormRanger to populate Google Forms grid or checkbox grid row choices from a selected Google Sheets column, with a safe first-run test before launch.">
+  <meta name="description" content="Populate Google Forms grid or checkbox grid row choices from a selected Google Sheets column with FormRanger.">
   <link rel="canonical" href="https://formsuite.dev/formranger/google-forms-grid-choices-from-google-sheets.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="Google Forms grid choices from Google Sheets">
-  <meta property="og:description" content="Map a Google Forms grid or checkbox grid row list to selected spreadsheet data and update choices with FormRanger.">
+  <meta property="og:description" content="Use FormRanger to update Google Forms grid row choices from selected spreadsheet data.">
   <meta property="og:url" content="https://formsuite.dev/formranger/google-forms-grid-choices-from-google-sheets.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Google Forms grid choices from Google Sheets">
-  <meta name="twitter:description" content="A practical FormRanger guide for spreadsheet-backed Google Forms grid choices.">
+  <meta name="twitter:description" content="A concise first-run guide for spreadsheet-backed Google Forms grid choices.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Google Forms grid choices from Google Sheets",
-      "description": "A practical guide to updating Google Forms grid or checkbox grid row choices from a Google Sheets column with FormRanger.",
-      "author": { "@type": "Organization", "name": "FormSuite" },
-      "publisher": { "@type": "Organization", "name": "FormSuite" },
-      "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-grid-choices-from-google-sheets.html"
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Google Forms grid choices from Google Sheets",
+          "description": "A concise guide to updating Google Forms grid row choices from a Google Sheets column with FormRanger.",
+          "author": { "@type": "Organization", "name": "FormSuite" },
+          "publisher": { "@type": "Organization", "name": "FormSuite" },
+          "dateModified": "2026-05-28",
+          "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-grid-choices-from-google-sheets.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can Google Forms grid rows come from Google Sheets?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. FormRanger can update supported grid or checkbox grid row choices from a selected Google Sheets column."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I test first?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use a copied form, one grid question, and two or three sample row labels from Sheets before updating a live form."
+              }
+            }
+          ]
+        }
+      ]
     }
   </script>
   <style>
-    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --amber-soft:#fff7e6; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green:#17633f; --green-soft:#ebf8ef; --amber:#775517; --amber-soft:#fff8e7; --panel:#fff; --shadow:0 14px 34px rgba(23,38,61,.09); }
     * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
-    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-    .hero { padding:30px; margin-bottom:18px; }
-    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:18ch; }
-    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
-    .hero p,.section p,.section li { color:var(--muted); }
-    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-    .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-    .section { padding:26px; margin-top:18px; }
-    .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
-    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
-    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-    .steps { padding-left:20px; display:grid; gap:10px; }
-    .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-    .caution { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--amber-soft); border:1px solid #f0d79a; color:#76520d; font-size:.93rem; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#fff 58%); line-height:1.6; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 56px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:22px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:16px; }
+    .eyebrow { display:inline-block; padding:6px 11px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:14px; }
+    h1 { font-size:2.35rem; line-height:1.1; letter-spacing:0; margin-bottom:12px; max-width:18ch; }
+    h2 { font-size:1.35rem; letter-spacing:0; margin-bottom:10px; }
+    p,li { color:var(--muted); }
+    .hero p { max-width:760px; }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; }
+    .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:24px; margin-top:16px; }
+    .answer { padding:18px; border-radius:14px; background:var(--green-soft); border:1px solid #cde8d6; color:var(--green); }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .card { padding:16px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+    .card strong { display:block; margin-bottom:6px; color:var(--ink); }
+    .steps { padding-left:20px; display:grid; gap:8px; }
+    .caution { padding:16px; border-radius:14px; background:var(--amber-soft); border:1px solid #efd98b; color:var(--amber); }
     .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
+    @media (max-width:820px) { .grid { grid-template-columns:1fr; } h1 { font-size:2rem; max-width:none; } }
   </style>
 </head>
 <body>
@@ -63,81 +91,61 @@
       <a href="./index.html"><strong>FormRanger</strong></a>
       <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
       <a href="./support.html">Support</a>
+      <a href="./permissions.html">Permissions</a>
     </nav>
+
     <section class="hero">
-      <div class="eyebrow">Grid choice guide</div>
+      <div class="eyebrow">Grid choices</div>
       <h1>Populate Google Forms grid choices from Google Sheets</h1>
-      <p>FormRanger is a Google Forms add-on that helps form owners update supported choice questions from selected Google Sheets data. For grid or checkbox grid questions, use a spreadsheet-backed row list when the same set of items changes over time and should not be edited by hand in the form editor.</p>
+      <p>FormRanger updates supported Google Forms grid row choices from a selected Google Sheets column. Use it when row labels change in Sheets and should not be edited by hand.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-        <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-        <a class="btn btn-secondary" href="./permissions.html">Review permissions</a>
+        <a class="btn btn-secondary" href="./support.html">Setup guide</a>
+        <a class="btn btn-secondary" href="./permissions.html">Permissions</a>
       </div>
     </section>
+
     <section class="section">
       <h2>Quick answer</h2>
-      <p class="lead">To populate Google Forms grid choices from Google Sheets, keep the row labels in one clean sheet column, map the grid or checkbox grid question to that source in FormRanger, run a small preflight, update the form, and check the public preview before launch.</p>
-      <div class="grid">
-        <div class="feature"><strong>Best source shape</strong><p>Use one column for the row choices you want respondents to rate, rank, or select from.</p></div>
-        <div class="feature"><strong>Best first test</strong><p>Start with two or three grid rows on a copied form before touching the live version.</p></div>
-        <div class="feature"><strong>Good fit</strong><p>Course modules, checklist items, staff names, locations, or evaluation criteria that already live in Sheets.</p></div>
-        <div class="feature"><strong>Not a live lock</strong><p>This is choice syncing, not inventory locking, booking, payment, or respondent-time dependent logic.</p></div>
-      </div>
+      <p class="answer">Put grid row labels in one clean Sheets column, map one grid question, run Preflight, click Update now, then check the public preview.</p>
     </section>
+
     <section class="section">
-      <h2>Set up a first grid mapping</h2>
+      <h2>First-run path</h2>
       <ol class="steps">
-        <li>Make a copy of the Google Form or create a disposable test form.</li>
-        <li>Add a multiple-choice grid or checkbox grid question with temporary row labels.</li>
-        <li>Create a Google Sheets source column with two or three sample row labels.</li>
-        <li>Install FormRanger and open it from the Google Forms editor.</li>
-        <li>Select the spreadsheet, sheet tab, and source column for the grid row choices.</li>
-        <li>Run Preflight, update the question, and open the form preview to confirm the row labels changed.</li>
+        <li>Create a copied form with one grid or checkbox grid question.</li>
+        <li>Add two or three sample row labels in Sheets.</li>
+        <li>Select the spreadsheet and source column in FormRanger.</li>
+        <li>Run Preflight and Update now.</li>
+        <li>Confirm the preview grid rows match the sheet.</li>
       </ol>
-      <div class="note">This first-run path gives you visible proof before a real respondent sees the grid. It also catches the most common setup issues: wrong file, wrong sheet tab, blank rows, duplicates, or the wrong question selected.</div>
     </section>
+
     <section class="section">
-      <h2>When to use grid syncing</h2>
+      <h2>Good fit</h2>
       <div class="grid">
-        <div class="feature"><strong>Evaluation forms</strong><p>Keep criteria or people being evaluated in a Sheet, then update the grid rows before collecting responses.</p></div>
-        <div class="feature"><strong>Training feedback</strong><p>Refresh module names, session names, or topic lists from a maintained planning sheet.</p></div>
-        <div class="feature"><strong>Operational checklists</strong><p>Use a Sheets column as the source for checklist items that may change between events or cycles.</p></div>
-        <div class="feature"><strong>Team surveys</strong><p>Keep staff, group, or location names consistent with the source spreadsheet.</p></div>
+        <div class="card"><strong>Evaluation forms</strong><p>Criteria, people, modules, or locations.</p></div>
+        <div class="card"><strong>Training feedback</strong><p>Sessions, topics, or workshop names.</p></div>
+        <div class="card"><strong>Checklists</strong><p>Operational items that change between cycles.</p></div>
+        <div class="card"><strong>Team surveys</strong><p>Groups, offices, roles, or staff lists.</p></div>
       </div>
     </section>
+
     <section class="section">
-      <h2>Limits and cautions</h2>
-      <p class="lead">Google Forms grids can become hard to read when the row list is very long. If respondents need to evaluate many items, consider splitting the form, using a shorter filtered list, or using a spreadsheet workflow instead of one large grid.</p>
-      <div class="caution">FormRanger updates choices from your selected source data. It does not make Google Forms behave like a real-time database, reservation system, stock tracker, or payment workflow.</div>
+      <h2>Boundary</h2>
+      <p class="caution">Long grids can be hard to answer. FormRanger syncs row choices; it does not add live filtering, approvals, capacity, booking, or payment logic.</p>
     </section>
+
     <section class="section">
-      <h2>Manual and script alternatives</h2>
-      <div class="grid">
-        <div class="feature"><strong>Manual edit</strong><p>Best when the grid row list rarely changes and you can safely edit the form by hand.</p></div>
-        <div class="feature"><strong>Apps Script</strong><p>Best when you can maintain code that reads a sheet range and updates the grid item choices.</p></div>
-        <div class="feature"><strong>FormRanger</strong><p>Best when you want a sidebar-based mapping, preflight check, and no-code update path.</p></div>
-        <div class="feature"><strong>Another workflow</strong><p>Best when the problem is live selection, approvals, capacity, booking, or payments rather than choice syncing.</p></div>
-      </div>
-    </section>
-    <section class="section">
-      <h2>After the first grid test passes</h2>
-      <p class="lead">If the grid rows matched the source sheet and a sample response looked clean in the response sheet, leave a short Marketplace review or send setup feedback. Mention the question type and whether you tested a multiple-choice grid or checkbox grid.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Leave a Marketplace review</a>
-        <a class="btn btn-secondary" href="./support.html">Send setup feedback</a>
-      </div>
-    </section>
-    <section class="section">
-      <h2>Related FormRanger guides</h2>
+      <h2>Next step</h2>
       <div class="link-bar">
-        <a href="./dynamic-google-forms-dropdown-guide.html">All dynamic choices</a>
-        <a href="./populate-google-forms-multiple-choice-from-google-sheets.html">Multiple choice from Sheets</a>
-        <a href="./google-forms-checkbox-list-from-google-sheets.html">Checkbox list from Sheets</a>
-        <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Dropdown not updating</a>
-        <a href="./index.html">FormRanger overview</a>
-        <a href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
+        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
+        <a href="./support.html">Setup guide</a>
+        <a href="./google-forms-checkbox-list-from-google-sheets.html">Checkbox list</a>
+        <a href="./dynamic-google-forms-dropdown-guide.html">All choice sync</a>
       </div>
     </section>
+
     <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
