@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Google Forms dynamic choices before launch | FormRanger</title>
+  <meta name="description" content="A concise FormRanger first-run test for Google Forms dynamic choices: map one question, run Preflight, update now, and check the public preview.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Test Google Forms dynamic choices before launch">
+  <meta property="og:description" content="Use one copied form, one Sheets column, Preflight, Update now, and public preview before sending respondents to a dynamic-choice form.">
+  <meta property="og:url" content="https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Test Google Forms dynamic choices before launch">
+  <meta name="twitter:description" content="A short FormRanger first-run test for spreadsheet-backed Google Forms choices.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Test Google Forms dynamic choices before launch",
+          "description": "A short first-run test for Google Forms dynamic choices with FormRanger.",
+          "author": { "@type": "Organization", "name": "FormSuite" },
+          "publisher": { "@type": "Organization", "name": "FormSuite" },
+          "dateModified": "2026-05-28",
+          "mainEntityOfPage": "https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How should I test Google Forms dynamic choices before launch?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use a copied form, one supported choice question, one Google Sheets column with two sample values, then run FormRanger Preflight, Update now, and public preview."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When is the test successful?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The test is successful when Preflight passes, Update now reports an updated question, and the public form preview shows the expected sheet values."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green:#17633f; --green-soft:#ebf8ef; --amber:#775517; --amber-soft:#fff8e7; --panel:#fff; --shadow:0 14px 34px rgba(23,38,61,.09); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#fff 58%); line-height:1.6; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 56px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:22px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:16px; }
+    .eyebrow { display:inline-block; padding:6px 11px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:14px; }
+    h1 { font-size:2.35rem; line-height:1.1; letter-spacing:0; margin-bottom:12px; max-width:19ch; }
+    h2 { font-size:1.35rem; letter-spacing:0; margin-bottom:10px; }
+    p,li { color:var(--muted); }
+    .hero p { max-width:760px; }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; }
+    .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:24px; margin-top:16px; }
+    .answer { padding:18px; border-radius:14px; background:var(--green-soft); border:1px solid #cde8d6; color:var(--green); }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .card { padding:16px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+    .card strong { display:block; margin-bottom:6px; color:var(--ink); }
+    .steps { padding-left:20px; display:grid; gap:8px; }
+    .caution { padding:16px; border-radius:14px; background:var(--amber-soft); border:1px solid #efd98b; color:var(--amber); }
+    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+    @media (max-width:820px) { .grid { grid-template-columns:1fr; } h1 { font-size:2rem; max-width:none; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../resources/index.html">Resources</a>
+      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+      <a href="./support.html">Support</a>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">First-run test</div>
+      <h1>Test Google Forms dynamic choices before launch</h1>
+      <p>FormRanger is a Google Forms add-on for updating supported form choices from selected Google Sheets data. Before sharing a live form, test one copied form, one question, and one small source column.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+        <a class="btn btn-secondary" href="./support.html">Setup guide</a>
+        <a class="btn btn-secondary" href="./permissions.html">Permissions</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Quick answer</h2>
+      <p class="answer">Use a copied form, one dropdown or multiple-choice question, and one Sheets column with Alpha and Beta. Map it in FormRanger, run Preflight, click Update now, then open the public preview.</p>
+    </section>
+
+    <section class="section">
+      <h2>First-run path</h2>
+      <ol class="steps">
+        <li>Create or copy a Google Form with one supported choice question.</li>
+        <li>Create a Google Sheets column with two visible test choices.</li>
+        <li>Select the spreadsheet, sheet tab, column, and question in FormRanger.</li>
+        <li>Run Preflight, then use Update now.</li>
+        <li>Open the public form preview and confirm the choices match the sheet.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Pass criteria</h2>
+      <div class="grid">
+        <div class="card"><strong>Preflight passes</strong><p>The selected file, tab, column, and question mapping are valid.</p></div>
+        <div class="card"><strong>Update now reports updated</strong><p>The result says a question was updated, not only saved.</p></div>
+        <div class="card"><strong>Preview shows sheet values</strong><p>The public form shows Alpha, Beta, or your real sample values.</p></div>
+        <div class="card"><strong>Boundary is clear</strong><p>The workflow syncs choices before use; it does not reserve inventory during a response.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>If it fails</h2>
+      <p class="caution">Check the sheet tab, column header, empty rows, duplicate values, question type, and Google permissions. If Update now reports skipped or error, do not send live respondents yet.</p>
+    </section>
+
+    <section class="section">
+      <h2>Next step</h2>
+      <div class="link-bar">
+        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
+        <a href="./support.html">Setup guide</a>
+        <a href="./import-google-forms-choices-from-google-sheets.html">Import choices</a>
+        <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
+        <a href="../review-after-first-success.html">Review after first success</a>
+      </div>
+    </section>
+
+    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
