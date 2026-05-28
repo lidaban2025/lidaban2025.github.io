@@ -132,11 +132,11 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
-      gap: 34px;
+      grid-template-columns: minmax(0, 0.72fr) minmax(420px, 1.28fr);
+      gap: 24px;
       align-items: center;
-      min-height: 520px;
-      margin-bottom: 26px;
+      min-height: 380px;
+      margin-bottom: 22px;
     }
 
     .eyebrow {
@@ -155,16 +155,16 @@
 
     h1 {
       max-width: 13ch;
-      font-size: clamp(2.7rem, 7vw, 5.25rem);
-      line-height: 0.96;
+      font-size: clamp(2.6rem, 6vw, 4.7rem);
+      line-height: 0.98;
       letter-spacing: 0;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
 
     .hero-copy p {
-      max-width: 620px;
+      max-width: 560px;
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1.04rem;
     }
 
     .hero-actions,
@@ -176,6 +176,31 @@
     }
 
     .hero-actions { margin-top: 24px; }
+
+    .shortcut-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .shortcut-row a {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: #fff;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .shortcut-row a:hover {
+      border-color: #b7c4d7;
+      text-decoration: none;
+    }
 
     .btn {
       display: inline-flex;
@@ -204,6 +229,104 @@
     }
 
     .btn-soft { background: var(--soft); }
+
+    .finder-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .finder-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    .finder-head a {
+      color: var(--blue);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .finder-search {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      background: var(--soft);
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .finder-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .finder-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .finder-row:hover {
+      border-color: #b7c4d7;
+      background: #fbfdff;
+    }
+
+    .finder-copy {
+      min-width: 0;
+      color: var(--ink);
+    }
+
+    .finder-copy:hover { text-decoration: none; }
+
+    .finder-copy strong {
+      display: block;
+      font-size: 0.93rem;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+
+    .finder-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.25;
+    }
+
+    .finder-action {
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .finder-action:hover {
+      text-decoration: none;
+      background: #104aa1;
+    }
 
     .hero-media {
       display: grid;
@@ -572,6 +695,14 @@
         text-align: center;
       }
 
+      .finder-row {
+        grid-template-columns: 1fr;
+      }
+
+      .finder-action {
+        width: fit-content;
+      }
+
       .mini-stack { grid-template-columns: 1fr; }
       .workflow-tags { grid-template-columns: 1fr 1fr; }
       .addon-card { grid-template-rows: 150px minmax(0, 1fr) auto; }
@@ -600,45 +731,48 @@
         <div class="hero-copy">
           <div class="eyebrow">Google Workspace Marketplace add-ons</div>
           <h1 id="hero-title">FormSuite</h1>
-          <p>Google Workspace add-ons for Forms, Sheets, email, and documents. Install published add-ons to close forms, send confirmations, sync choices, copy formulas, mail merge rows, and generate Docs or PDFs.</p>
+          <p>Google Workspace add-ons for Forms, Sheets, email, and documents. Pick the workflow, install from Marketplace, then run one small first test.</p>
+          <div class="shortcut-row" aria-label="Workflow shortcuts">
+            <a href="formguard/index.html">Forms</a>
+            <a href="formranger/index.html">Choices</a>
+            <a href="formcopy/index.html">Sheets</a>
+            <a href="formnotifier/index.html">Email</a>
+            <a href="docforge/index.html">Docs/PDF</a>
+            <a href="formflow/index.html">Approvals</a>
+          </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#catalog">Choose an add-on</a>
-            <a class="btn" href="install.html">Install published add-ons</a>
-            <a class="btn" href="resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
             <a class="btn" href="resources/demo-videos.html">Watch demos</a>
-            <a class="btn btn-soft" href="choose-google-workspace-addon.html">Use chooser</a>
           </div>
         </div>
 
-        <div class="hero-media" aria-label="FormSuite product previews">
-          <article class="preview">
-            <div class="preview-frame">
-              <img src="https://lh3.googleusercontent.com/qF8ILRaFc3r7xqRQ3murnZc5G7ffmo0XY9bwwgjDxBakTcOnhlw=s640-w640-h400" alt="FormGuard add-on preview">
-            </div>
-            <div class="preview-label">
-              <strong>Limit or close forms</strong>
-              <span>FormGuard</span>
-            </div>
-          </article>
-          <div class="mini-stack">
-            <article class="mini-preview">
-              <div class="mini-frame">
-                <img src="https://lh3.googleusercontent.com/OftdmhTM9pjzfNiYMJruZ_SjmDsoz7dSmjKLtJfRqwKfujhgFPs=s640-w640-h400" alt="FormNotifier add-on preview">
-              </div>
-              <strong>Send confirmations</strong>
+        <div class="finder-panel" aria-label="FormSuite workflow finder">
+          <div class="finder-head">
+            <strong>Find the add-on for your job</strong>
+            <a href="choose-google-workspace-addon.html">Open chooser</a>
+          </div>
+          <div class="finder-search">Search by workflow: limits, choices, formulas, email, docs, approvals</div>
+          <div class="finder-list">
+            <article class="finder-row">
+              <a class="finder-copy" href="formguard/index.html"><strong>Close forms or limit seats</strong><span>FormGuard for caps, deadlines, choice quotas, and full messages.</span></a>
+              <a class="finder-action" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
             </article>
-            <article class="mini-preview">
-              <div class="mini-frame">
-                <img src="https://lh3.googleusercontent.com/qhNcvS4dWw2A4htDDOet6Jexc8DZFRAVAB9uq7aoOHNvw3QmQ6U=s640-w640-h400" alt="DocForge add-on preview">
-              </div>
-              <strong>Generate files</strong>
+            <article class="finder-row">
+              <a class="finder-copy" href="formranger/index.html"><strong>Sync choices from Sheets</strong><span>FormRanger for dropdowns, checkboxes, multiple choice, and grid choices.</span></a>
+              <a class="finder-action" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
             </article>
-          <div class="workflow-tags" aria-label="Supported workflow areas">
-              <span class="tag-blue">Forms</span>
-              <span class="tag-teal">Sheets</span>
-              <span class="tag-amber">Email</span>
-              <span class="tag-rose">Docs/PDF</span>
-            </div>
+            <article class="finder-row">
+              <a class="finder-copy" href="formcopy/index.html"><strong>Keep response formulas copying</strong><span>FormCopy Pro for model-row formulas, formats, and helper columns.</span></a>
+              <a class="finder-action" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a>
+            </article>
+            <article class="finder-row">
+              <a class="finder-copy" href="formnotifier/index.html"><strong>Send confirmation emails</strong><span>FormNotifier for owner alerts and respondent confirmations.</span></a>
+              <a class="finder-action" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
+            </article>
+            <article class="finder-row">
+              <a class="finder-copy" href="docforge/index.html"><strong>Generate Docs or PDFs</strong><span>DocForge for documents, PDFs, letters, and certificates from Sheets rows.</span></a>
+              <a class="finder-action" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
+            </article>
           </div>
         </div>
       </section>
