@@ -65,24 +65,63 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow">Published Google Workspace add-on / 63 users / 1 review</div>
-          <h1 id="hero-title">Form choices can come from Sheets.</h1>
-          <p>Use selected spreadsheet ranges as the source for dropdowns, checkboxes, and multiple-choice lists in Google Forms. Public Marketplace signal on May 28, 2026: 63 visible users and 1 review.</p>
+          <div class="eyebrow">Published Google Workspace add-on</div>
+          <h1 id="hero-title">Sync form choices from Sheets.</h1>
+          <p>Use FormRanger to populate Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.</p>
+          <div class="hero-proof" aria-label="Marketplace signal">
+            <span>63 visible users</span>
+            <span>1 review</span>
+            <span>First-run test path</span>
+          </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
-            <a class="btn" href="https://youtu.be/h7jBGOmMm9c">Watch demo</a>
-            <a class="btn" href="dynamic-google-forms-dropdown-guide.html">Read workflow guide</a>
-            <a class="btn" href="support.html">Open setup guide</a>
-            <a class="btn" href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
+            <a class="btn" href="dynamic-google-forms-dropdown-guide.html">See the workflow</a>
           </div>
         </div>
-        <article class="product-visual video-visual" aria-label="FormRanger public demo video">
-          <div class="video-frame">
-            <iframe src="https://www.youtube-nocookie.com/embed/h7jBGOmMm9c?rel=0" title="FormRanger public demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        <article class="product-visual workflow-preview" aria-label="FormRanger workflow preview">
+          <div class="preview-topline">
+            <strong>Sheets to Forms preview</strong>
+            <span>No Apps Script</span>
           </div>
-          <div class="visual-caption">
-            <strong>Sheets range to Forms choices</strong>
-            <span>Video walkthrough</span>
+          <div class="preview-canvas">
+            <div class="mock-stack">
+              <div class="mock-panel">
+                <div class="mock-title">
+                  <strong>Google Sheet</strong>
+                  <span>source range</span>
+                </div>
+                <div class="choice-list">
+                  <span>Workshop A</span>
+                  <span>Workshop B</span>
+                  <span>Workshop C</span>
+                </div>
+              </div>
+              <div class="mock-panel">
+                <div class="mock-title">
+                  <strong>Google Form</strong>
+                  <span>dropdown updated</span>
+                </div>
+                <div class="mock-line wide"></div>
+                <div class="choice-row"><span>Session</span><span>from Sheets</span></div>
+                <div class="mock-line short"></div>
+              </div>
+            </div>
+            <div class="mock-sidebar">
+              <div class="sidebar-product">
+                <img src="../assets/product-icons/formranger.png" alt="">
+                <div>
+                  <strong>FormRanger</strong>
+                  <span>choice sync</span>
+                </div>
+              </div>
+              <p>Map one question, run Preflight, update choices, then check the public form preview.</p>
+              <span class="status-pill">Ready to test</span>
+            </div>
+          </div>
+          <div class="preview-steps" aria-label="First-run setup path">
+            <span>1. Pick range</span>
+            <span>2. Map question</span>
+            <span>3. Update</span>
           </div>
         </article>
       </section>
@@ -128,6 +167,32 @@
             <a href="permissions.html">Review permissions</a>
             <a href="../review-after-first-success.html">Review after success</a>
           </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="demo-title">
+        <div class="section-head">
+          <div>
+            <h2 id="demo-title">See the path, then install.</h2>
+            <p>Short demo and setup pages are here if you want proof before touching a real form.</p>
+          </div>
+        </div>
+        <div class="mini-guide-grid">
+          <article class="mini-guide-card">
+            <strong>Watch the demo</strong>
+            <p>See one Sheets range update one Google Forms question.</p>
+            <a href="https://youtu.be/h7jBGOmMm9c">Open YouTube demo</a>
+          </article>
+          <article class="mini-guide-card">
+            <strong>Test safely</strong>
+            <p>Use a copied form and two sample values before launch.</p>
+            <a href="test-google-forms-dynamic-choices-before-launch.html">Open test guide</a>
+          </article>
+          <article class="mini-guide-card">
+            <strong>Review permissions</strong>
+            <p>Understand why the add-on needs Forms and Sheets access.</p>
+            <a href="permissions.html">Read permissions</a>
+          </article>
         </div>
       </section>
 
