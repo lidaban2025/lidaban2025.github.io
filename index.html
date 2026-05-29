@@ -266,8 +266,7 @@
 
     .mock-card,
     .side-product,
-    .step-strip span,
-    .focus-card {
+    .step-strip span {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
@@ -395,50 +394,6 @@
       color: var(--ink);
       font-size: 0.82rem;
       font-weight: 850;
-    }
-
-    .focus-strip {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin: 18px 0 34px;
-    }
-
-    .focus-card {
-      min-height: 122px;
-      padding: 14px;
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr) auto;
-      gap: 12px;
-      align-items: center;
-      box-shadow: none;
-    }
-
-    .focus-card img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-
-    .focus-card strong {
-      display: block;
-      font-size: 1.03rem;
-      line-height: 1.15;
-      margin-bottom: 4px;
-    }
-
-    .focus-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.3;
-    }
-
-    .focus-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: flex-end;
     }
 
     .hero-media {
@@ -789,9 +744,6 @@
       .mock-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .addon-side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .side-product p { display: none; }
-      .focus-strip { grid-template-columns: 1fr; }
-      .focus-card { grid-template-columns: auto minmax(0, 1fr); }
-      .focus-actions { grid-column: 1 / -1; justify-content: flex-start; }
       .mini-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; }
       .workflow-tags { grid-column: 1 / -1; }
       .section-head { align-items: flex-start; flex-direction: column; }
@@ -856,7 +808,8 @@
             <span>Setup guides</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#focus">Start with the popular tools</a>
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+            <a class="btn" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
             <a class="btn" href="choose-google-workspace-addon.html">Choose by task</a>
           </div>
         </div>
@@ -922,31 +875,6 @@
             <span>3. Test once</span>
           </div>
         </div>
-      </section>
-
-      <section class="focus-strip" id="focus" aria-label="Popular FormSuite add-ons">
-        <article class="focus-card">
-          <img src="assets/product-icons/formranger.png" alt="FormRanger product icon">
-          <div>
-            <strong>Need dynamic form choices?</strong>
-            <span>Use FormRanger to sync Google Sheets data into Google Forms choices.</span>
-          </div>
-          <div class="focus-actions">
-            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-            <a class="btn" href="formranger/dynamic-google-forms-dropdown-guide.html">See guide</a>
-          </div>
-        </article>
-        <article class="focus-card">
-          <img src="assets/product-icons/formguard.png" alt="FormGuard product icon">
-          <div>
-            <strong>Need to close a form on time?</strong>
-            <span>Use FormGuard for response caps, deadlines, and choice quotas.</span>
-          </div>
-          <div class="focus-actions">
-            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-            <a class="btn" href="formguard/google-forms-stop-responses-when-full.html">See guide</a>
-          </div>
-        </article>
       </section>
 
       <section class="section" id="catalog">
