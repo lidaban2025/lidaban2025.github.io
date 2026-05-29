@@ -26,7 +26,7 @@
           "description": "A visual guide to spreadsheet-backed Google Forms choices with FormRanger.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-05-28",
+          "dateModified": "2026-05-29",
           "mainEntityOfPage": "https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html"
         },
         {
@@ -91,12 +91,27 @@
     .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 15px; border-radius:8px; font-weight:750; border:1px solid var(--line); background:#fff; color:var(--ink); }
     .btn-primary { background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(20,99,255,.22); }
     .btn-primary:hover { background:var(--blue-dark); text-decoration:none; }
-    .demo-card { border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; box-shadow:var(--shadow); }
-    .demo-thumb { position:relative; display:block; aspect-ratio:16/9; background:#dfe8f8; }
-    .demo-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-    .play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:62px; height:62px; border-radius:50%; background:rgba(20,99,255,.92); color:#fff; display:grid; place-items:center; font-size:1.55rem; font-weight:900; padding-left:4px; }
-    .demo-caption { display:flex; justify-content:space-between; gap:12px; padding:14px 16px; color:var(--muted); font-size:.92rem; }
-    .demo-caption strong { color:var(--ink); }
+    .workflow-visual { border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; box-shadow:var(--shadow); padding:16px; display:grid; gap:12px; }
+    .visual-head { display:flex; justify-content:space-between; gap:12px; color:var(--muted); font-size:.84rem; font-weight:800; }
+    .visual-head strong { color:var(--ink); }
+    .visual-canvas { display:grid; grid-template-columns:minmax(0,1fr) minmax(132px,.44fr); gap:12px; padding:14px; border-radius:8px; background:var(--surface); }
+    .visual-stack,.side-card { display:grid; gap:10px; }
+    .mini-screen,.side-card,.visual-steps span { border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .mini-screen { padding:12px; display:grid; gap:9px; }
+    .mini-title { display:flex; justify-content:space-between; gap:10px; color:var(--muted); font-size:.78rem; font-weight:800; }
+    .mini-title strong { color:var(--ink); }
+    .line { height:10px; border-radius:999px; background:#dce6f3; }
+    .line.short { width:48%; }
+    .line.wide { width:88%; }
+    .choice-list { display:grid; gap:6px; }
+    .choice-list span,.sync-row { min-height:29px; display:flex; align-items:center; padding:0 9px; border-radius:7px; background:#eef3f9; color:var(--muted); font-size:.8rem; font-weight:760; }
+    .sync-row { justify-content:space-between; color:var(--ink); background:var(--blue-soft); }
+    .side-card { align-content:start; padding:12px; }
+    .side-card strong { color:var(--ink); }
+    .side-card p { font-size:.88rem; }
+    .status-pill { width:fit-content; min-height:28px; display:inline-flex; align-items:center; padding:0 9px; border-radius:999px; color:var(--green); background:var(--green-soft); font-size:.78rem; font-weight:850; }
+    .visual-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+    .visual-steps span { min-height:36px; display:grid; place-items:center; color:var(--ink); font-size:.82rem; font-weight:850; }
     .section { padding:34px 0 0; }
     .answer { padding:18px; border-radius:8px; background:var(--green-soft); border:1px solid #cde8d6; color:var(--green); font-weight:650; }
     .flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:14px; }
@@ -113,7 +128,8 @@
     summary { cursor:pointer; color:var(--ink); }
     details p { margin-top:8px; }
     .footer { margin-top:28px; text-align:center; color:var(--muted); font-size:.9rem; }
-    @media (max-width:860px) { .hero,.flow,.grid,.cta-band { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { max-width:none; } .demo-caption { display:grid; } }
+    @media (max-width:860px) { .hero,.flow,.grid,.cta-band,.visual-canvas { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { max-width:none; } }
+    @media (max-width:540px) { .visual-canvas { padding:10px; } .mini-screen:nth-child(2) { display:none; } .side-card p { display:none; } .visual-steps { grid-template-columns:1fr; } .hero-actions .btn { width:100%; } }
   </style>
 </head>
 <body>
@@ -135,18 +151,41 @@
           <p>FormRanger updates Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-            <a class="btn" href="https://youtu.be/h7jBGOmMm9c">Watch demo</a>
             <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Test first</a>
           </div>
         </div>
-        <article class="demo-card" aria-label="FormRanger demo preview">
-          <a class="demo-thumb" href="https://youtu.be/h7jBGOmMm9c">
-            <img src="https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg" alt="FormRanger demo thumbnail showing Google Forms choices from Google Sheets" loading="eager">
-            <span class="play" aria-hidden="true">▶</span>
-          </a>
-          <div class="demo-caption">
-            <strong>Sheets range -> FormRanger -> Form preview</strong>
-            <span>Short demo</span>
+        <article class="workflow-visual" aria-label="FormRanger Sheets to Forms workflow">
+          <div class="visual-head">
+            <strong>Sheets -> Form choices</strong>
+            <span>Preflight before launch</span>
+          </div>
+          <div class="visual-canvas">
+            <div class="visual-stack">
+              <div class="mini-screen">
+                <div class="mini-title"><strong>Google Sheet</strong><span>source list</span></div>
+                <div class="choice-list">
+                  <span>Alpha</span>
+                  <span>Beta</span>
+                  <span>Gamma</span>
+                </div>
+              </div>
+              <div class="mini-screen">
+                <div class="mini-title"><strong>Google Form</strong><span>choices updated</span></div>
+                <div class="line wide"></div>
+                <div class="sync-row"><span>Workshop</span><span>from Sheets</span></div>
+                <div class="line short"></div>
+              </div>
+            </div>
+            <div class="side-card">
+              <strong>FormRanger</strong>
+              <p>Map one question, run Preflight, update choices, then inspect the public preview.</p>
+              <span class="status-pill">Ready to verify</span>
+            </div>
+          </div>
+          <div class="visual-steps">
+            <span>1. List</span>
+            <span>2. Map</span>
+            <span>3. Update</span>
           </div>
         </article>
       </section>
@@ -182,6 +221,14 @@
         <div class="grid">
           <article class="card"><strong>Good fit</strong><p>Departments, locations, sessions, categories, checkbox lists, and grid rows maintained in Sheets.</p></article>
           <article class="caution"><strong>Not a fit</strong><p>Live booking, payment, inventory locking, or respondent-time dependent dropdown logic.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="demo-title">
+        <h2 id="demo-title">Need to see it once?</h2>
+        <div class="grid">
+          <article class="card"><strong>Short demo</strong><p>Watch one source range update one Google Forms question.</p><div class="link-bar"><a href="https://youtu.be/h7jBGOmMm9c">Open YouTube demo</a></div></article>
+          <article class="card"><strong>Safe test</strong><p>Use a copied form, one question, and two sheet values before editing a live form.</p><div class="link-bar"><a href="./test-google-forms-dynamic-choices-before-launch.html">Open test guide</a></div></article>
         </div>
       </section>
 
