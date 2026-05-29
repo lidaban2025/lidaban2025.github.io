@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule Google Forms to open and close automatically | FormGuard</title>
-    <meta name="description" content="Schedule Google Forms open and close windows with native settings, manual workarounds, FormGuard timer controls, first-run tests, and safe deadline messaging.">
+    <title>Plan Google Forms open and close windows | FormGuard</title>
+    <meta name="description" content="Plan Google Forms open and close windows with native settings, manual workarounds, FormGuard response caps, close messages, and safe deadline checks.">
     <link rel="canonical" href="https://formsuite.dev/formguard/schedule-google-forms-open-close-guide.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="Schedule Google Forms to open and close automatically | FormGuard">
-    <meta property="og:description" content="A practical guide to opening and closing Google Forms around fixed deadlines, intake windows, signups, and recurring request periods.">
+    <meta property="og:title" content="Plan Google Forms open and close windows | FormGuard">
+    <meta property="og:description" content="A practical guide to Google Forms deadlines, manual close workflows, response caps, and safe intake-window messaging.">
     <meta property="og:url" content="https://formsuite.dev/formguard/schedule-google-forms-open-close-guide.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Schedule Google Forms to open and close automatically">
-    <meta name="twitter:description" content="Use timer controls and a first-run test for Google Forms deadlines and intake windows.">
+    <meta name="twitter:title" content="Plan Google Forms open and close windows">
+    <meta name="twitter:description" content="Use manual close checks, response caps, and a first-run test for Google Forms deadlines and intake windows.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Schedule Google Forms to open and close automatically",
-            "description": "A guide to scheduled Google Forms open and close controls with FormGuard.",
+            "headline": "Plan Google Forms open and close windows",
+            "description": "A guide to Google Forms deadline planning, manual close workflows, response caps, and FormGuard close messages.",
             "author": { "@type": "Organization", "name": "FormSuite" },
             "publisher": { "@type": "Organization", "name": "FormSuite" },
             "mainEntityOfPage": "https://formsuite.dev/formguard/schedule-google-forms-open-close-guide.html"
@@ -71,9 +71,9 @@
         </nav>
 
         <section class="hero">
-            <div class="eyebrow">Scheduled form windows</div>
-            <h1>Schedule Google Forms to open and close automatically</h1>
-            <p>Use scheduled open and close controls when a Google Form should collect responses only during a fixed window: applications, event signups, daily intake, office-hour requests, or limited-time surveys.</p>
+            <div class="eyebrow">Deadline planning</div>
+            <h1>Plan Google Forms open and close windows</h1>
+            <p>Use a clear deadline workflow when a Google Form should collect responses only during a fixed window: applications, event signups, office-hour requests, or limited-time surveys.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard from Marketplace</a>
                 <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
@@ -84,10 +84,10 @@
 
         <section class="section">
             <h2>Quick answer</h2>
-            <p class="lead">Google Forms can be closed manually, but it does not provide a full native schedule workflow for every open and close window. If you need a repeatable timer, use a tested schedule rule, write a clear closed-form message, and verify the public form link on a disposable form before launch.</p>
+            <p class="lead">Google Forms can be closed manually, but it does not provide a full native schedule workflow for every open and close window. In the current FormGuard public build, scheduled timer controls are paused, so use manual Close/Reopen for deadline-only workflows and response caps or choice quotas when capacity matters.</p>
             <div class="grid">
                 <div class="feature"><strong>Best fit</strong><p>Application periods, RSVP deadlines, office-hour request windows, recurring intake forms, and time-boxed surveys.</p></div>
-                <div class="feature"><strong>Best first test</strong><p>Create a disposable form, set a short close window, reload the public link after the scheduled time, and confirm the closed message.</p></div>
+                <div class="feature"><strong>Best first test</strong><p>Create a disposable form, set a response cap of 1, submit a sample response, and confirm the closed message.</p></div>
             </div>
             <div class="warn">Do not use Google Forms scheduling as a second-level reservation, ticketing, payment, or inventory-locking system. For high-demand signups, leave a safety buffer and monitor the first live window.</div>
         </section>
@@ -102,7 +102,7 @@
                 <li>Turn off accepting responses and add a clear closed-form message.</li>
                 <li>Send a short note to the owner or team so everyone knows the window closed.</li>
             </ol>
-            <div class="note">Manual control is simple, but it depends on someone being available at the right time. Use an automated timer when repeated windows or late-night deadlines make manual checks unreliable.</div>
+            <div class="note">Manual control is simple, but it depends on someone being available at the right time. In the current public build, keep a human reminder for deadline-only close/reopen actions.</div>
         </section>
 
         <section class="section">
@@ -110,20 +110,20 @@
             <ol class="steps">
                 <li>Open your Google Form in edit mode.</li>
                 <li>Open FormGuard from the Google Forms add-ons menu.</li>
-                <li>Turn on the timer or schedule control.</li>
-                <li>Choose a close time, a reopen time, or both.</li>
+                <li>Use a response cap or choice quota when capacity should close the form.</li>
                 <li>Write the message late visitors should see when the form is closed.</li>
-                <li>Save settings, then test the same schedule on a disposable form before using it live.</li>
+                <li>Save settings, then test the cap or quota on a disposable form before using it live.</li>
+                <li>For deadline-only windows, use the FormGuard menu Close/Reopen actions with a calendar reminder.</li>
             </ol>
-            <div class="warn">Google Apps Script time triggers are not exact second-level schedulers. Timer actions usually run within a few minutes of the scheduled time, depending on Google's trigger scheduling. For close plus reopen chains, avoid short gaps.</div>
+            <div class="warn">Current public build note: scheduled timer controls are paused in FormGuard's narrow-permission build. This avoids adding a broader Forms permission while response caps and choice quotas are tested live.</div>
         </section>
 
         <section class="section">
             <h2>First-run test</h2>
             <div class="grid">
                 <div class="feature"><strong>Use a copy</strong><p>Duplicate the real form or create a disposable form so the test cannot affect real respondents.</p></div>
-                <div class="feature"><strong>Use a short window</strong><p>Set a close time a few minutes away and use a plain closed-form message.</p></div>
-                <div class="feature"><strong>Check the public link</strong><p>Open the respondent-facing URL after the scheduled time and confirm it no longer accepts responses.</p></div>
+                <div class="feature"><strong>Use a tiny cap</strong><p>Set a cap of 1 and use a plain closed-form message.</p></div>
+                <div class="feature"><strong>Check the public link</strong><p>Open the respondent-facing URL after the sample response and confirm it no longer accepts responses.</p></div>
                 <div class="feature"><strong>Record the result</strong><p>If owner notifications are enabled, confirm the owner received the close event before launch.</p></div>
             </div>
         </section>
@@ -141,16 +141,16 @@
         <section class="section">
             <h2>FAQ</h2>
             <div class="grid">
-                <div class="feature"><strong>Can Google Forms open automatically at a specific time?</strong><p>With FormGuard, you can configure scheduled open or close behavior from the form editor. Test the exact timing on a disposable form before relying on it for a live deadline.</p></div>
-                <div class="feature"><strong>What if the form still accepts responses after the deadline?</strong><p>Check whether the rule was saved, confirm the timezone, wait a few minutes for the time trigger, and reload the public form link.</p></div>
-                <div class="feature"><strong>Can I combine a schedule with a response cap?</strong><p>Yes. A form can use a deadline and a response cap so the earliest condition closes the form.</p></div>
-                <div class="feature"><strong>Should I use this for strict ticket inventory?</strong><p>No. Google Forms is not a strict ticketing or inventory backend. Use schedule controls for lightweight collection windows and include a safety buffer for high-demand signups.</p></div>
+                <div class="feature"><strong>Can Google Forms open automatically at a specific time?</strong><p>Native Forms does not provide a complete open/close scheduler. In FormGuard's current public build, scheduled timer controls are paused; use manual Close/Reopen for deadline-only windows.</p></div>
+                <div class="feature"><strong>What if the form still accepts responses after the deadline?</strong><p>Check whether someone manually closed the form, confirm the timezone, reload the public form link, and use a response cap when capacity is the real constraint.</p></div>
+                <div class="feature"><strong>Can I combine a deadline with a response cap?</strong><p>Yes operationally: keep a calendar deadline and use a response cap so capacity closes automatically if it fills first.</p></div>
+                <div class="feature"><strong>Should I use this for strict ticket inventory?</strong><p>No. Google Forms is not a strict ticketing or inventory backend. Use it for lightweight collection windows and include a safety buffer for high-demand signups.</p></div>
             </div>
         </section>
 
         <section class="section">
-            <h2>Install FormGuard for scheduled windows</h2>
-            <p class="lead">Install FormGuard when you want response caps, scheduled open or close windows, closed messages, and owner notifications inside the Google Forms editor.</p>
+            <h2>Install FormGuard for capacity controls</h2>
+            <p class="lead">Install FormGuard when you want response caps, choice quotas, closed messages, owner notifications, and manual Close/Reopen helpers inside the Google Forms editor.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
                 <a class="btn btn-secondary" href="./permissions.html">Review permissions</a>

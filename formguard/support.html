@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FormGuard Setup Guide and Support | Google Forms limits, schedules, and safeguards</title>
-  <meta name="description" content="Get FormGuard setup help, permissions notes, and FAQ for response limits, scheduled openings, notifications, and answer safeguards in Google Forms.">
+  <title>FormGuard Setup Guide and Support | Google Forms limits and choice quotas</title>
+  <meta name="description" content="Get FormGuard setup help, permissions notes, and FAQ for response limits, choice quotas, notifications, and close messages in Google Forms.">
   <link rel="canonical" href="https://formsuite.dev/formguard/support.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="FormGuard Setup Guide and Support | Google Forms limits, schedules, and safeguards">
-  <meta property="og:description" content="Get FormGuard setup help, permissions notes, and FAQ for response limits, scheduled openings, notifications, and answer safeguards in Google Forms.">
+  <meta property="og:title" content="FormGuard Setup Guide and Support | Google Forms limits and choice quotas">
+  <meta property="og:description" content="Get FormGuard setup help, permissions notes, and FAQ for response limits, choice quotas, notifications, and close messages in Google Forms.">
   <meta property="og:url" content="https://formsuite.dev/formguard/support.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FormGuard Setup Guide and Support">
-  <meta name="twitter:description" content="Setup help and FAQ for Google Forms limits, schedules, notifications, and answer safeguards.">
+  <meta name="twitter:description" content="Setup help and FAQ for Google Forms limits, choice quotas, notifications, and close messages.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -39,10 +39,10 @@
             },
             {
               "@type": "Question",
-              "name": "What happens when a timed close is reached?",
+              "name": "Can I use timed close in the current public build?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "FormGuard updates the form state automatically and can notify the owner if notifications are enabled."
+                "text": "Scheduled timer controls are paused in the current narrow-permission public build. Use response limits, choice quotas, owner notifications, or manual Close/Reopen from the FormGuard menu."
               }
             },
             {
@@ -50,7 +50,7 @@
               "name": "How do advanced controls work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "During the current public launch, response limits, timers, choice elimination, and notifications are available while billing stays off. Test any close plus reopen timer chain on a disposable form before using it live."
+                "text": "During the current public launch, response limits, choice elimination, notifications, close messages, and manual Close/Reopen are available while billing stays off. Scheduled timer controls are paused."
               }
             }
           ]
@@ -103,7 +103,7 @@
     <section class="hero">
       <div class="eyebrow">Support center</div>
       <h1>FormGuard setup guide and support</h1>
-      <p>Set response limits, schedule form openings and closings, manage notifications, and control answer availability directly inside Google Forms.</p>
+      <p>Set response limits, choice quotas, close messages, and owner notifications directly inside Google Forms.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
         <a class="btn btn-secondary" href="./index.html">Open product page</a>
@@ -121,7 +121,7 @@
         <h3>Permissions and reviewer notes</h3>
         <ul><li>Google Forms access to read and update form state, limits, and choice availability.</li><li>Mail access only when you enable owner notifications.</li><li>Container UI access for the sidebar experience in the Forms editor.</li></ul>
         <h3>Best starting guides</h3>
-        <ul><li><a href="./schedule-google-forms-open-close-guide.html">Schedule open and close</a></li><li><a href="./google-forms-rsvp-deadline-capacity-limit.html">RSVP deadline and capacity</a></li><li><a href="./google-forms-event-registration-full-message.html">Event full message</a></li><li><a href="./test-google-forms-response-limit-before-launch.html">Test limit first</a></li><li><a href="./google-forms-waitlist-link-in-closed-message.html">Waitlist message</a></li></ul>
+        <ul><li><a href="./google-forms-limit-responses-guide.html">Limit responses</a></li><li><a href="./google-forms-choice-limiter-guide.html">Choice quotas</a></li><li><a href="./google-forms-event-registration-full-message.html">Event full message</a></li><li><a href="./test-google-forms-response-limit-before-launch.html">Test limit first</a></li><li><a href="./google-forms-waitlist-link-in-closed-message.html">Waitlist message</a></li></ul>
       </article>
       <aside class="card">
         <div class="pill">Need help</div>
@@ -138,13 +138,13 @@
       <h2>Typical FormGuard workflows</h2>
       <div class="faq-item"><strong>Close a signup form after 50 responses</strong><p>Turn on Response limiter, set the cap to 50, add a clear closed-form message, and optionally notify the owner when the cap is reached.</p></div>
       <div class="faq-item"><strong>Retire a full workshop or volunteer role</strong><p>Use Choice eliminator when each answer option has its own capacity, such as a session, pickup window, or volunteer role.</p></div>
-      <div class="faq-item"><strong>Open and close a form on schedule</strong><p>Use Timer controls when a request window should begin and end automatically without manual checking.</p></div>
-      <div class="faq-item"><strong>Pair controls together</strong><p>FormGuard works best when you combine a form-level rule, a clear message, and owner notifications so both respondents and operators know what happens next.</p></div>
+      <div class="faq-item"><strong>Manual deadline operation</strong><p>Use the FormGuard menu Close/Reopen actions when a deadline-only workflow needs human control in the current public build.</p></div>
+      <div class="faq-item"><strong>Pair controls together</strong><p>FormGuard works best when you combine a form-level cap or choice quota, a clear message, and owner notifications so both respondents and operators know what happens next.</p></div>
     </section>
     <section class="card" style="margin-top:18px;">
       <div class="pill">After setup</div>
       <h2>Installed successfully?</h2>
-      <p>If FormGuard installed correctly and your first response limit, timer, choice quota, or notification rule saved as expected, a short review or setup note helps other Google Forms operators decide whether to try it.</p>
+      <p>If FormGuard installed correctly and your first response limit, choice quota, notification rule, or manual close test worked as expected, a short review or setup note helps other Google Forms operators decide whether to try it.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="../review-after-first-success.html">Review after first success</a>
         <a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Open Marketplace listing</a>
@@ -154,7 +154,7 @@
     <section class="card" style="margin-top:18px;">
       <div class="pill">FAQ</div>
       <h2>Common questions</h2>
-      <div class="faq-item"><strong>Can I close the form automatically after a certain number of responses?</strong><p>Yes. Turn on Response limiter and choose the maximum count.</p></div><div class="faq-item"><strong>What happens when a timed close is reached?</strong><p>FormGuard updates the form state automatically and can notify the owner if notifications are enabled.</p></div><div class="faq-item"><strong>How do advanced controls work?</strong><p>During the current public launch, response limits, timers, choice elimination, and notifications are all available while billing stays off. If you plan a close plus reopen timer chain, test that exact schedule on a disposable form before using it live.</p></div><div class="faq-item"><strong>What should I avoid promising?</strong><p>FormGuard is a practical control layer for Google Forms. It is not a strict reservation backend, an automatic waitlist promotion system, or a quantity-aware inventory engine.</p></div>
+      <div class="faq-item"><strong>Can I close the form automatically after a certain number of responses?</strong><p>Yes. Turn on Response limiter and choose the maximum count.</p></div><div class="faq-item"><strong>Can I use timed close in this build?</strong><p>Scheduled timer controls are paused in the current narrow-permission public build. Use response caps, choice quotas, notifications, or the menu Close/Reopen actions.</p></div><div class="faq-item"><strong>How do advanced controls work?</strong><p>During the current public launch, response limits, choice elimination, notifications, close messages, and manual Close/Reopen are available while billing stays off.</p></div><div class="faq-item"><strong>What should I avoid promising?</strong><p>FormGuard is a practical control layer for Google Forms. It is not a strict reservation backend, an automatic waitlist promotion system, or a quantity-aware inventory engine.</p></div>
     </section>
     <footer><p>&copy; 2026 FormGuard. Part of the FormSuite product family.</p></footer>
   </div>

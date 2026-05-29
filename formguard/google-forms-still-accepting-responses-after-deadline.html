@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Forms still accepting responses after deadline | FormGuard</title>
-    <meta name="description" content="Troubleshoot a Google Form that is still accepting responses after a deadline. Check the close time, timezone, saved schedule, trigger delay, public link, and closed message.">
+    <meta name="description" content="Troubleshoot a Google Form that is still accepting responses after a deadline. Check manual close status, timezone, public link, response caps, and closed message.">
     <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-still-accepting-responses-after-deadline.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
@@ -21,7 +21,7 @@
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Google Forms still accepting responses after deadline",
-            "description": "A troubleshooting checklist for Google Forms that continue accepting responses after a deadline or scheduled close time.",
+            "description": "A troubleshooting checklist for Google Forms that continue accepting responses after a deadline.",
             "author": { "@type": "Organization", "name": "FormSuite" },
             "publisher": { "@type": "Organization", "name": "FormSuite" },
             "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-still-accepting-responses-after-deadline.html"
@@ -91,7 +91,7 @@
             <div>
                 <div class="eyebrow">Deadline troubleshooting</div>
                 <h1>Google Forms still accepting responses after deadline</h1>
-                <p>If a Google Form should have closed at a deadline but the public link still accepts responses, check the scheduled close rule, timezone, saved settings, trigger timing, and the exact public form state before rebuilding the form.</p>
+                <p>If a Google Form should have closed at a deadline but the public link still accepts responses, check whether the form was manually closed, confirm the timezone, inspect the public link, and verify any response cap before rebuilding the form.</p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
                     <a class="btn btn-secondary" href="./close-google-forms-after-a-deadline.html">Deadline setup guide</a>
@@ -101,7 +101,7 @@
             <div class="visual-panel" aria-label="Deadline close troubleshooting preview">
                 <div class="timeline-preview">
                     <div class="timeline-row"><span>Deadline time</span><b>Check timezone</b></div>
-                    <div class="timeline-row warning"><span>Timer trigger</span><b>May lag minutes</b></div>
+                    <div class="timeline-row warning"><span>Deadline action</span><b>Manual in current build</b></div>
                     <div class="timeline-row"><span>Public form link</span><b>Test directly</b></div>
                 </div>
                 <div class="message-preview">
@@ -114,25 +114,25 @@
             </div>
         </section>
         <section class="trust-strip" aria-label="Deadline troubleshooting summary">
-            <div class="trust-item"><strong>Quick answer</strong><span>Check saved schedule and timezone first.</span></div>
+            <div class="trust-item"><strong>Quick answer</strong><span>Check accepting-responses state and timezone first.</span></div>
             <div class="trust-item"><strong>Common gap</strong><span>Testing the editor, not the public form link.</span></div>
-            <div class="trust-item"><strong>Timing note</strong><span>Apps Script timers are not second-level locks.</span></div>
+            <div class="trust-item"><strong>Build note</strong><span>FormGuard timer controls are paused.</span></div>
             <div class="trust-item"><strong>Best link to share</strong><span>This guide fits missed deadline questions.</span></div>
         </section>
 
         <section class="section">
             <h2>Check in this order</h2>
-            <p class="lead">This order separates a setup issue from a timing expectation issue. Do this before deleting the timer rule or copying the form again.</p>
+            <p class="lead">This order separates a setup issue from a workflow expectation issue. Do this before copying the form again.</p>
             <ol class="steps">
                 <li>Open the public form link in a private window or separate browser profile, not only the form editor.</li>
-                <li>Confirm the scheduled close rule is enabled and saved in the add-on sidebar.</li>
+                <li>Confirm whether the form owner manually turned off accepting responses.</li>
                 <li>Check the close date, time, and timezone used by the Google account that owns the form.</li>
-                <li>Wait a few minutes after the scheduled time if the rule depends on an Apps Script time trigger.</li>
+                <li>Use response caps when capacity should close automatically.</li>
                 <li>Reload the public form link after the deadline and confirm whether the closed message appears.</li>
                 <li>Check whether another rule, manual reopen, copied form, or old public link is the one respondents are actually using.</li>
                 <li>Run the same close rule on a disposable test form before relaunching the real link.</li>
             </ol>
-            <div class="note">A deadline close rule should always be tested from the respondent view. The editor can look healthy while the public link is the only view that proves the close behavior.</div>
+            <div class="note">A deadline close workflow should always be tested from the respondent view. The editor can look healthy while the public link is the only view that proves the close behavior.</div>
         </section>
 
         <section class="section">
@@ -140,7 +140,7 @@
             <div class="grid">
                 <div class="feature"><strong>The close rule was not saved</strong><p>Changing fields in the sidebar is not enough if the final save did not complete.</p></div>
                 <div class="feature"><strong>The timezone was different</strong><p>The operator may think the deadline is local time while the account or script trigger is using a different timezone.</p></div>
-                <div class="feature"><strong>The time trigger has not fired yet</strong><p>Google Apps Script time triggers are designed for scheduled automation, not exact second-level enforcement.</p></div>
+                <div class="feature"><strong>The form was not manually closed</strong><p>In FormGuard's current public build, scheduled timer controls are paused. Deadline-only workflows need a manual Close form action.</p></div>
                 <div class="feature"><strong>The wrong form link is being tested</strong><p>A copied form, old QR code, or old public link can make it look like the current form did not close.</p></div>
                 <div class="feature"><strong>The form was manually reopened</strong><p>Someone can turn accepting responses back on after an automated close. Check who has edit access.</p></div>
                 <div class="feature"><strong>The close message is unclear</strong><p>The form may have closed, but late respondents need a message that explains the deadline and next step.</p></div>
@@ -148,14 +148,14 @@
         </section>
 
         <section class="section">
-            <h2>Use FormGuard to test deadline behavior</h2>
-            <p class="lead">FormGuard is useful when a deadline should be paired with a clear closed message, optional owner notification, and a small pre-launch test instead of manual monitoring.</p>
+            <h2>Use FormGuard to test close behavior</h2>
+            <p class="lead">FormGuard is useful when a deadline workflow should be paired with a clear closed message, optional owner notification, response caps, and a small pre-launch test.</p>
             <div class="workflow-grid">
                 <div class="step-card"><span class="number">1</span><strong>Use a copy</strong><p>Test on a duplicate or disposable Google Form before changing a live intake form.</p></div>
-                <div class="step-card"><span class="number">2</span><strong>Set a near deadline</strong><p>Use a short test window, save the rule, and keep the timezone visible in your notes.</p></div>
-                <div class="step-card"><span class="number">3</span><strong>Reload the public link</strong><p>Confirm the respondent-facing close message after the scheduled close time passes.</p></div>
+                <div class="step-card"><span class="number">2</span><strong>Use a tiny cap</strong><p>Set the response cap to 1, save the rule, and submit a sample response.</p></div>
+                <div class="step-card"><span class="number">3</span><strong>Reload the public link</strong><p>Confirm the respondent-facing close message after the cap is reached.</p></div>
             </div>
-            <div class="warn">Boundary: FormGuard helps automate Google Forms close schedules and messages. It is not a ticketing, payment, or second-level reservation system.</div>
+            <div class="warn">Boundary: FormGuard helps with response caps, choice quotas, close messages, notifications, and manual Close/Reopen. Scheduled timer controls are paused in the current public build.</div>
         </section>
 
         <section class="section">
@@ -163,7 +163,7 @@
             <div class="faq-panel">
                 <details>
                     <summary><strong>Can Google Forms close exactly at the deadline second?</strong></summary>
-                    <p>Native Google Apps Script time triggers are not second-level schedulers. For most form deadlines, plan for a short scheduling delay and test the public form behavior.</p>
+                    <p>In the current FormGuard public build, deadline-only closing should be handled manually. Use a response cap when capacity is what should close the form automatically.</p>
                 </details>
                 <details>
                     <summary><strong>Why does the editor look closed but the public link still accepts responses?</strong></summary>
@@ -171,7 +171,7 @@
                 </details>
                 <details>
                     <summary><strong>Should I use a deadline rule or a response cap?</strong></summary>
-                    <p>Use a deadline rule when time matters. Use a response cap when capacity matters. For registration workflows, many teams use both and close on whichever happens first.</p>
+                    <p>Use a manual deadline workflow when time matters. Use a response cap when capacity matters. For registration workflows, many teams keep both a calendar deadline and a cap.</p>
                 </details>
                 <details>
                     <summary><strong>What should the closed message say?</strong></summary>
@@ -184,7 +184,7 @@
             <h2>Related guides</h2>
             <div class="link-bar">
                 <a href="./close-google-forms-after-a-deadline.html">Close after a deadline</a>
-                <a href="./schedule-google-forms-open-close-guide.html">Schedule open and close times</a>
+                <a href="./schedule-google-forms-open-close-guide.html">Plan open and close windows</a>
                 <a href="./test-google-forms-response-limit-before-launch.html">Test a limit before launch</a>
                 <a href="./google-forms-full-but-still-accepts-responses.html">Full but still accepts responses</a>
                 <a href="./google-forms-waitlist-link-in-closed-message.html">Add a waitlist link</a>
@@ -194,7 +194,7 @@
 
         <section class="section" data-install-cta="marketplace">
             <h2>Install FormGuard from Marketplace</h2>
-            <p class="lead">Install FormGuard when your Google Form needs deadline close rules, response caps, closed-form messages, owner alerts, and test-first setup inside Google Forms.</p>
+            <p class="lead">Install FormGuard when your Google Form needs response caps, choice quotas, closed-form messages, owner alerts, manual Close/Reopen, and test-first setup inside Google Forms.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
                 <a class="btn btn-secondary" href="./support.html">Open setup guide</a>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormGuard permissions explained | FormSuite</title>
-  <meta name="description" content="Plain-English explanation of the Google permissions FormGuard uses for response limits, schedules, choice quotas, and owner notifications.">
+  <meta name="description" content="Plain-English explanation of the Google permissions FormGuard uses for response limits, choice quotas, close messages, and owner notifications.">
   <link rel="canonical" href="https://formsuite.dev/formguard/permissions.html">
   <meta property="og:type" content="website"><meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="FormGuard permissions explained">
@@ -28,10 +28,10 @@
       <h2>Permission mapping</h2>
       <table><thead><tr><th>Scope</th><th>Plain-English use</th></tr></thead><tbody>
         <tr><td>forms.addons</td><td>Lets FormGuard run as a Google Forms add-on and appear from the Forms Add-ons entry point.</td></tr>
-        <tr><td>forms.currentonly</td><td>Lets FormGuard work with the current form you open, including response settings, choice options, schedules, and close messages.</td></tr>
+        <tr><td>forms.currentonly</td><td>Lets FormGuard work with the current form you open, including response settings, choice options, response caps, and close messages.</td></tr>
         <tr><td>script.send_mail</td><td>Lets FormGuard send owner notification emails when you enable close or submission alerts.</td></tr>
         <tr><td>userinfo.email</td><td>Lets FormGuard show or use the installing account email for owner notifications and support context.</td></tr>
-        <tr><td>script.scriptapp</td><td>Lets FormGuard create and manage Apps Script triggers needed for scheduled open/close checks.</td></tr>
+        <tr><td>script.scriptapp</td><td>Lets FormGuard create and manage Apps Script triggers for submit-based response limits, choice quotas, and owner notifications.</td></tr>
         <tr><td>script.container.ui</td><td>Lets FormGuard display its sidebar and UI inside the Google Forms editor.</td></tr>
       </tbody></table>
     </section>
