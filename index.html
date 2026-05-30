@@ -177,73 +177,6 @@
 
     .hero-actions { margin-top: 24px; }
 
-    .proof-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .proof-row span {
-      min-height: 34px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 10px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      color: var(--ink);
-      background: #fff;
-      font-size: 0.84rem;
-      font-weight: 800;
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .focus-card {
-      display: grid;
-      grid-template-rows: auto minmax(0, 1fr) auto;
-      gap: 10px;
-      min-height: 142px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .focus-card strong {
-      display: block;
-      font-size: 0.98rem;
-      line-height: 1.18;
-    }
-
-    .focus-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .focus-card a {
-      width: fit-content;
-      min-height: 34px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 10px;
-      border-radius: 8px;
-      color: #fff;
-      background: var(--blue);
-      font-size: 0.88rem;
-      font-weight: 820;
-    }
-
-    .focus-card a:hover {
-      text-decoration: none;
-      background: #0f4caa;
-    }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -795,14 +728,15 @@
       .workflow-tags { grid-column: 1 / -1; }
       .section-head { align-items: flex-start; flex-direction: column; }
       .addon-grid,
-      .pilot-grid,
-      .focus-grid { grid-template-columns: 1fr; }
+      .pilot-grid { grid-template-columns: 1fr; }
       .addon-card { grid-template-rows: 190px minmax(0, 1fr) auto; min-height: 0; }
       .footer { flex-direction: column; }
       .footer-badge { width: 100%; justify-content: center; text-align: center; }
     }
 
     @media (max-width: 540px) {
+      .nav a:nth-child(n+5) { display: none; }
+
       .hero-actions .btn,
       .section-head .btn {
         width: 100%;
@@ -824,8 +758,6 @@
       .mini-stack { grid-template-columns: 1fr; }
       .workflow-tags { grid-template-columns: 1fr 1fr; }
       .addon-card { grid-template-rows: 150px minmax(0, 1fr) auto; }
-      .focus-card { min-height: 0; }
-      .focus-card a { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -852,32 +784,9 @@
           <div class="eyebrow">7 live Marketplace add-ons</div>
           <h1 id="hero-title">FormSuite</h1>
           <p>Workspace add-ons for Forms, Sheets, email, docs, and approvals.</p>
-          <div class="proof-row" aria-label="FormSuite proof points">
-            <span>Install-first</span>
-            <span>Test once</span>
-            <span>Review after success</span>
-          </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-            <a class="btn" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-            <a class="btn" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
-          </div>
-          <div class="focus-grid" aria-label="Recommended FormSuite starting points">
-            <article class="focus-card">
-              <strong>Choices from Sheets</strong>
-              <p>Sync form options.</p>
-              <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">Test</a>
-            </article>
-            <article class="focus-card">
-              <strong>Signup guardrails</strong>
-              <p>Caps, quotas, alerts.</p>
-              <a href="formguard/test-google-forms-response-limit-before-launch.html">Test</a>
-            </article>
-            <article class="focus-card">
-              <strong>Confirmation emails</strong>
-              <p>Check submit emails.</p>
-              <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">Test</a>
-            </article>
+            <a class="btn btn-primary" href="#catalog">Browse add-ons</a>
+            <a class="btn" href="choose-google-workspace-addon.html">Choose add-on</a>
           </div>
         </div>
 
