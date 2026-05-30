@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Close Google Forms After N Responses | FormGuard</title>
-    <meta name="description" content="Close Google Forms after a fixed number of responses, show a clear closed-form message, and notify the owner when the limit is reached.">
+    <meta name="description" content="Close Google Forms after a fixed number of responses with native response limits first, or FormGuard for choice quotas, owner alerts, and launch checks.">
     <link rel="canonical" href="https://formsuite.dev/formguard/close-google-forms-after-n-responses.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
     <meta property="og:title" content="Close Google Forms After N Responses | FormGuard">
-    <meta property="og:description" content="A practical guide to closing Google Forms after a response cap, with notes on race conditions, testing, and notifications.">
+    <meta property="og:description" content="A practical guide to native Google Forms response limits, FormGuard choice quotas, race conditions, testing, and notifications.">
     <meta property="og:url" content="https://formsuite.dev/formguard/close-google-forms-after-n-responses.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Close Google Forms After N Responses">
-    <meta name="twitter:description" content="Set a response cap, closed-form message, and owner notification for Google Forms.">
+    <meta name="twitter:description" content="Use native response limits first, then FormGuard for choice quotas, messages, alerts, and launch checks.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
@@ -37,8 +37,8 @@
         .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
         .hero { padding:30px; margin-bottom:18px; }
         .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:14ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:14ch; }
+        h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
         .hero p,.section p,.section li { color:var(--muted); }
         .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
         .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
@@ -66,7 +66,7 @@
         <section class="hero">
             <div class="eyebrow">Google Forms response cap</div>
             <h1>Close Google Forms after N responses</h1>
-            <p>For course registrations, event seats, volunteer signups, and limited intake forms, the simplest rule is often: keep the form open until it reaches a fixed number of responses, then close it with a clear message.</p>
+            <p>For course registrations, event seats, volunteer signups, and limited intake forms, the simplest rule is often: keep the form open until it reaches a fixed number of responses, then close it with a clear message. Use the native Google Forms response limit first; add FormGuard when you also need choice quotas, owner alerts, or a guided launch test.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
                 <a class="btn btn-secondary" href="../setup-help.html">Get setup help</a>
@@ -84,12 +84,12 @@
             </div>
         </section>
         <section class="section">
-            <h2>Set the cap with FormGuard</h2>
+            <h2>Set the cap</h2>
             <ol class="steps">
-                <li>Install FormGuard from the Google Workspace Marketplace.</li>
                 <li>Open the target Google Form in edit mode.</li>
-                <li>Open FormGuard from the add-ons menu.</li>
-                <li>Turn on the response limiter and enter the response cap.</li>
+                <li>Use the native Google Forms response limit for a simple total cap.</li>
+                <li>Install FormGuard from the Google Workspace Marketplace if the workflow also needs choice quotas, owner alerts, or a guided operator setup.</li>
+                <li>Enter the cap and confirm the respondent-facing behavior on a copied form.</li>
                 <li>Add a closed-form message that tells late visitors what to do next.</li>
                 <li>Turn on a close notification if the owner should receive an email when the cap is reached.</li>
                 <li>Save settings and test the form before sending it to a large audience.</li>
@@ -107,7 +107,7 @@
         </section>
         <section class="section">
             <h2>Combine with deadlines or choices</h2>
-            <p>A response cap can run alongside a manual deadline close workflow. For session-based forms, choice quotas can also remove filled answer options while the overall form remains open.</p>
+            <p>A response cap can run alongside a native close date. For session-based forms, FormGuard choice quotas can also remove filled answer options while the overall form remains open.</p>
             <div class="link-bar">
                 <a href="./schedule-google-forms-open-close-guide.html">Plan open and close windows</a>
                 <a href="./google-forms-choice-limiter-guide.html">Choice limiter guide</a>

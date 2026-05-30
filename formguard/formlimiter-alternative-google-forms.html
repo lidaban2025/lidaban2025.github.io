@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FormLimiter Alternative for Google Forms | FormGuard</title>
-    <meta name="description" content="Looking for a FormLimiter alternative for Google Forms? Compare native settings, Apps Script, and FormGuard for response caps, manual deadline checks, choice quotas, and notifications.">
+    <meta name="description" content="Looking for a FormLimiter alternative for Google Forms? Compare native close dates and response limits, Apps Script, and FormGuard choice quotas, messages, and alerts.">
     <link rel="canonical" href="https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
     <meta property="og:title" content="FormLimiter Alternative for Google Forms | FormGuard">
-    <meta property="og:description" content="Compare native Google Forms controls, Apps Script, and FormGuard for response caps, manual deadline checks, choice quotas, and owner notifications.">
+    <meta property="og:description" content="Compare native Google Forms limits, Apps Script, and FormGuard for choice quotas, close messages, and owner notifications.">
     <meta property="og:url" content="https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html">
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FormLimiter Alternative for Google Forms">
-    <meta name="twitter:description" content="Response caps, manual deadline checks, choice quotas, and notifications for Google Forms.">
+    <meta name="twitter:description" content="Native response limits, close dates, choice quotas, and notifications for Google Forms.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "FormLimiter Alternative for Google Forms",
-            "description": "A practical guide to replacing manual Google Forms monitoring with response caps, manual deadline checks, choice quotas, and notifications.",
+            "description": "A practical guide to replacing manual Google Forms monitoring with native response limits, close dates, choice quotas, and notifications.",
             "author": { "@type": "Organization", "name": "FormSuite" },
             "publisher": { "@type": "Organization", "name": "FormSuite" },
             "mainEntityOfPage": "https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html"
@@ -37,8 +37,8 @@
         .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
         .hero { padding:30px; margin-bottom:18px; }
         .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
         .hero p,.section p,.section li { color:var(--muted); }
         .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
         .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
@@ -86,15 +86,15 @@
             <h2>Need the add-on now?</h2>
             <div class="install-panel">
                 <strong>Install FormGuard from Google Workspace Marketplace.</strong>
-                <p>Use it when you need a FormLimiter-style workflow for response caps, choice quotas, closed-form messages, owner notifications, or manual deadline operation without maintaining Apps Script across many forms.</p>
+                <p>Use it when native Google Forms limits are not enough and you need choice quotas, closed-form messages, owner notifications, or a guided operator workflow without maintaining Apps Script across many forms.</p>
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard from Marketplace</a>
             </div>
         </section>
         <section class="section">
             <h2>Start with the built-in options</h2>
-            <p class="lead">Google Forms can manually stop accepting responses. That is often enough for a small form where someone is watching the responses in real time.</p>
+            <p class="lead">Google Forms now includes native close dates and response limits. That is often enough for a simple form-level deadline or cap.</p>
             <div class="grid">
-                <div class="feature"><strong>Manual close</strong><p>Use the Responses tab when a person can check the form and turn off accepting responses at the right time.</p></div>
+                <div class="feature"><strong>Native close date and response limit</strong><p>Use built-in settings when a form only needs to close at a known date or after a total response count.</p></div>
                 <div class="feature"><strong>Response copy</strong><p>Use the response sheet when you need to review submissions, audit capacity, or handle a late edge case.</p></div>
             </div>
         </section>
@@ -114,9 +114,9 @@
                     <tbody>
                         <tr>
                             <td><strong>Native Google Forms</strong></td>
-                            <td>Small forms with manual oversight</td>
-                            <td>Fastest setup, no extra tooling, good for operators who can watch submissions live</td>
-                            <td>No automatic response cap workflow, no per-option quota controls, and deadline closes still need a human process or custom code</td>
+                            <td>Simple form-level deadlines or total response caps</td>
+                            <td>Fastest setup, no extra tooling, good for straightforward close dates and response limits</td>
+                            <td>No per-option quota controls, owner alert workflow, or broader operator checklist</td>
                         </tr>
                         <tr>
                             <td><strong>Apps Script</strong></td>
@@ -140,7 +140,7 @@
             <p class="lead">A form-control add-on is useful when the operator needs repeatable rules instead of constant manual checks.</p>
             <div class="grid">
                 <div class="feature"><strong>Close after N responses</strong><p>Set a cap for registrations, signups, surveys, or intake forms.</p></div>
-                <div class="feature"><strong>Plan deadline closes</strong><p>Use a calendar reminder plus manual Close/Reopen when the public build is used for a time-boxed form.</p></div>
+                <div class="feature"><strong>Plan deadline closes</strong><p>Use the native close date for simple deadlines, then add FormGuard when capacity, messages, or owner alerts matter.</p></div>
                 <div class="feature"><strong>Limit answer choices</strong><p>Use simple choice quotas for slots, sessions, roles, or limited options.</p></div>
                 <div class="feature"><strong>Notify the owner</strong><p>Send an email when a form closes or when submissions arrive.</p></div>
             </div>
@@ -150,7 +150,7 @@
             <ol class="steps">
                 <li>Install FormGuard from the Google Workspace Marketplace.</li>
                 <li>Open the add-on from the Google Forms editor sidebar.</li>
-                <li>Enable the rule you need: response limiter, choice eliminator, notifications, or manual Close/Reopen for deadline-only workflows.</li>
+                <li>Enable the rule you need: choice eliminator, notifications, close messages, or a guided response-cap workflow.</li>
                 <li>Test the form before using it for a live registration or deadline-driven workflow.</li>
             </ol>
             <div class="note">FormGuard is free of charge during public launch while real-world feedback is collected.</div>
@@ -158,7 +158,7 @@
         <section class="section">
             <h2>Pick the path by workflow, not by hype</h2>
             <div class="grid">
-                <div class="feature"><strong>Use native Forms when</strong><p>You only need to stop a form manually, your traffic is low, and someone can watch the response count during the live window.</p></div>
+                <div class="feature"><strong>Use native Forms when</strong><p>You only need a form-level close date or total response limit and do not need per-option quotas or owner alert workflows.</p></div>
                 <div class="feature"><strong>Use Apps Script when</strong><p>You need custom branching, sheet-driven logic, or a workflow that will be maintained by someone comfortable owning code.</p></div>
                 <div class="feature"><strong>Use FormGuard when</strong><p>You want one operator-facing setup flow for response caps, choice quotas, close messages, owner notifications, and manual Close/Reopen helpers.</p></div>
                 <div class="feature"><strong>Use a backend system when</strong><p>You need strict reservations, quantity-aware inventory, payment-confirmed seat locking, or automatic waitlist promotion.</p></div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Close Google Forms After a Deadline | FormGuard</title>
-    <meta name="description" content="Close Google Forms after a date or time deadline with manual checks, a clear closed-form message, response caps when capacity matters, and owner notifications.">
+    <meta name="description" content="Close Google Forms after a date or time deadline with the native close date setting, a clear closed-form message, response caps when capacity matters, and owner notifications.">
     <link rel="canonical" href="https://formsuite.dev/formguard/close-google-forms-after-a-deadline.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="FormSuite">
@@ -14,7 +14,7 @@
     <meta property="og:image" content="https://formsuite.dev/social-card.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Close Google Forms After a Deadline">
-    <meta name="twitter:description" content="Use manual close checks, response caps, and clear messages for Google Forms deadlines and time-boxed intake windows.">
+    <meta name="twitter:description" content="Use native close dates, response caps, and clear messages for Google Forms deadlines and time-boxed intake windows.">
     <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
     <script type="application/ld+json">
         {
@@ -37,8 +37,8 @@
         .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
         .hero { padding:30px; margin-bottom:18px; }
         .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:-.05em; margin-bottom:14px; max-width:15ch; }
-        h2 { font-size:1.45rem; letter-spacing:-.03em; margin-bottom:10px; }
+        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:15ch; }
+        h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
         .hero p,.section p,.section li { color:var(--muted); }
         .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
         .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
@@ -66,7 +66,7 @@
         <section class="hero">
             <div class="eyebrow">Deadline close workflow</div>
             <h1>Close Google Forms after a deadline</h1>
-            <p>Some forms are not about total seats. They are about a collection window that ends at a specific date and time. In the current FormGuard public build, use a calendar reminder plus the manual Close form action for deadline-only workflows, and make the late-response message explicit.</p>
+            <p>Some forms are not about total seats. They are about a collection window that ends at a specific date and time. Use the native Google Forms close date for simple deadline-only workflows, then add FormGuard when the same form also needs capacity controls, owner alerts, or a tested closed message.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
                 <a class="btn btn-secondary" href="./schedule-google-forms-open-close-guide.html">Open deadline guide</a>
@@ -74,7 +74,7 @@
         </section>
         <section class="section">
             <h2>Best-fit use cases</h2>
-            <p class="lead">Use a manual deadline close when the end time matters more than the number of responses.</p>
+            <p class="lead">Use a native close date when the end time matters more than the number of responses.</p>
             <div class="grid">
                 <div class="feature"><strong>Application deadlines</strong><p>Stop accepting responses after a published submission cutoff.</p></div>
                 <div class="feature"><strong>RSVP windows</strong><p>Close event responses at the planning deadline instead of watching the form manually.</p></div>
@@ -83,14 +83,14 @@
             </div>
         </section>
         <section class="section">
-            <h2>Simple deadline setup with FormGuard</h2>
+            <h2>Simple deadline setup</h2>
             <ol class="steps">
-                <li>Open the Google Form in edit mode and launch FormGuard from the Add-ons icon in the editor toolbar.</li>
+                <li>Open the Google Form in edit mode.</li>
+                <li>Set the native close date for the public submission deadline.</li>
                 <li>Prepare the closed-form message that late visitors should see.</li>
-                <li>Set a calendar reminder for the exact deadline you want to enforce.</li>
-                <li>Use the FormGuard menu Close form now action at the deadline.</li>
+                <li>Set a calendar reminder for the exact deadline so the owner can verify the public form state.</li>
+                <li>Use FormGuard only when you also need response caps, choice quotas, owner alerts, or an operator-facing test workflow.</li>
                 <li>Write a closed-form message that explains the deadline has passed and where late requests should go, if anywhere.</li>
-                <li>Turn on owner notifications if someone should monitor new submissions before the deadline.</li>
                 <li>Test the close behavior before publishing the form widely.</li>
             </ol>
             <div class="note">If the deadline matters publicly, include the timezone in the message or surrounding instructions so respondents are not guessing.</div>
@@ -108,7 +108,7 @@
             <h2>Combine deadlines with other controls</h2>
             <p class="lead">Many teams pair a deadline with one more rule so the form closes on whichever trigger happens first.</p>
             <div class="grid">
-                <div class="feature"><strong>Deadline plus seat cap</strong><p>Use a response cap for capacity and manually close at the deadline if the form has not filled first.</p></div>
+                <div class="feature"><strong>Deadline plus seat cap</strong><p>Use the native close date for the deadline and a response cap when capacity should close the form earlier.</p></div>
                 <div class="feature"><strong>Deadline plus notifications</strong><p>Email the owner on submissions or when capacity closes the form so the team can monitor the collection window.</p></div>
                 <div class="feature"><strong>Deadline plus waitlist</strong><p>Send late respondents to a separate path instead of leaving them with an ambiguous closed form.</p></div>
                 <div class="feature"><strong>Deadline plus staged reopen</strong><p>If you plan a second round, use the manual Reopen form action and test the respondent link before sharing it.</p></div>
