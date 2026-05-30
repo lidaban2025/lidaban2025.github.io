@@ -208,7 +208,7 @@
       display: grid;
       grid-template-rows: auto minmax(0, 1fr) auto;
       gap: 10px;
-      min-height: 168px;
+      min-height: 142px;
       padding: 14px;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -824,6 +824,7 @@
       .mini-stack { grid-template-columns: 1fr; }
       .workflow-tags { grid-template-columns: 1fr 1fr; }
       .addon-card { grid-template-rows: 150px minmax(0, 1fr) auto; }
+      .focus-card { min-height: 0; }
       .focus-card a { width: 100%; justify-content: center; }
     }
   </style>
@@ -850,10 +851,10 @@
         <div class="hero-copy">
           <div class="eyebrow">7 live Marketplace add-ons</div>
           <h1 id="hero-title">FormSuite</h1>
-          <p>Start with the workflow most likely to work in one test: sync form choices from Sheets, add guardrails around a signup form, or send confirmation emails after submit.</p>
+          <p>Workspace add-ons for Forms, Sheets, email, docs, and approvals.</p>
           <div class="proof-row" aria-label="FormSuite proof points">
             <span>Install-first</span>
-            <span>One small test</span>
+            <span>Test once</span>
             <span>Review after success</span>
           </div>
           <div class="hero-actions">
@@ -863,19 +864,19 @@
           </div>
           <div class="focus-grid" aria-label="Recommended FormSuite starting points">
             <article class="focus-card">
-              <strong>Dropdown choices from Sheets</strong>
-              <p>Use FormRanger when a form question should pull choices from a spreadsheet range.</p>
-              <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">Run first test</a>
+              <strong>Choices from Sheets</strong>
+              <p>Sync form options.</p>
+              <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">Test</a>
             </article>
             <article class="focus-card">
               <strong>Signup guardrails</strong>
-              <p>Use FormGuard when native Forms limits need choice quotas, owner alerts, or waitlist messaging.</p>
-              <a href="formguard/test-google-forms-response-limit-before-launch.html">Run first test</a>
+              <p>Caps, quotas, alerts.</p>
+              <a href="formguard/test-google-forms-response-limit-before-launch.html">Test</a>
             </article>
             <article class="focus-card">
-              <strong>Submit confirmations</strong>
-              <p>Use FormNotifier when the owner, respondent, or shared inbox needs a tested email path.</p>
-              <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">Run first test</a>
+              <strong>Confirmation emails</strong>
+              <p>Check submit emails.</p>
+              <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">Test</a>
             </article>
           </div>
         </div>
