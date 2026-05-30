@@ -244,6 +244,153 @@
       background: #0f4caa;
     }
 
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .task-card,
+    .outcome-card {
+      display: grid;
+      gap: 10px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .task-card {
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      min-height: 214px;
+    }
+
+    .task-card strong,
+    .outcome-card strong {
+      display: block;
+      font-size: 0.98rem;
+      line-height: 1.18;
+    }
+
+    .task-card p,
+    .outcome-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .task-product {
+      width: fit-content;
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 9px;
+      border-radius: 8px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .task-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .task-actions a {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .task-actions a:first-child {
+      color: #fff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .task-actions a:hover { text-decoration: none; }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .outcome-card {
+      min-height: 204px;
+    }
+
+    .outcome-pair {
+      display: grid;
+      gap: 8px;
+    }
+
+    .outcome-pair span {
+      display: grid;
+      gap: 3px;
+      min-height: 54px;
+      padding: 10px;
+      border-radius: 8px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.28;
+    }
+
+    .outcome-pair b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 16px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .trust-strip h2 {
+      font-size: 1.4rem;
+      line-height: 1.12;
+      margin-bottom: 8px;
+    }
+
+    .trust-strip p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .trust-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .trust-list span {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--soft);
+      font-size: 0.88rem;
+      font-weight: 820;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -796,7 +943,11 @@
       .section-head { align-items: flex-start; flex-direction: column; }
       .addon-grid,
       .pilot-grid,
-      .focus-grid { grid-template-columns: 1fr; }
+      .focus-grid,
+      .task-grid,
+      .outcome-grid,
+      .trust-strip,
+      .trust-list { grid-template-columns: 1fr; }
       .addon-card { grid-template-rows: 190px minmax(0, 1fr) auto; min-height: 0; }
       .footer { flex-direction: column; }
       .footer-badge { width: 100%; justify-content: center; text-align: center; }
@@ -806,6 +957,7 @@
       .hero-actions .btn,
       .section-head .btn {
         width: 100%;
+        min-height: 40px;
         white-space: normal;
         text-align: center;
       }
@@ -819,12 +971,14 @@
       .mock-card { min-height: 0; }
       .mock-card:nth-child(2) { display: none; }
       .side-product:nth-child(2) { display: none; }
+      .hero-visual { display: none; }
       .step-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .step-strip span { min-height: 34px; font-size: 0.75rem; }
       .mini-stack { grid-template-columns: 1fr; }
       .workflow-tags { grid-template-columns: 1fr 1fr; }
       .addon-card { grid-template-rows: 150px minmax(0, 1fr) auto; }
       .focus-card a { width: 100%; justify-content: center; }
+      .task-actions a { flex: 1 1 auto; justify-content: center; }
     }
   </style>
 </head>
@@ -848,35 +1002,18 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow">7 live Marketplace add-ons</div>
-          <h1 id="hero-title">FormSuite</h1>
-          <p>Start with the workflow most likely to work in one test: sync form choices from Sheets, add guardrails around a signup form, or send confirmation emails after submit.</p>
+          <div class="eyebrow">FormSuite task launcher</div>
+          <h1 id="hero-title">Start one Workspace workflow today.</h1>
+          <p>Pick the task, install the matching Marketplace add-on, and run one small first test before your form, sheet, email, or document workflow depends on it.</p>
           <div class="proof-row" aria-label="FormSuite proof points">
-            <span>Install-first</span>
-            <span>One small test</span>
+            <span>7 live Marketplace add-ons</span>
+            <span>No checkout before install</span>
             <span>Review after success</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-            <a class="btn" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-            <a class="btn" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
-          </div>
-          <div class="focus-grid" aria-label="Recommended FormSuite starting points">
-            <article class="focus-card">
-              <strong>Dropdown choices from Sheets</strong>
-              <p>Use FormRanger when a form question should pull choices from a spreadsheet range.</p>
-              <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">Run first test</a>
-            </article>
-            <article class="focus-card">
-              <strong>Signup guardrails</strong>
-              <p>Use FormGuard when native Forms limits need choice quotas, owner alerts, or waitlist messaging.</p>
-              <a href="formguard/test-google-forms-response-limit-before-launch.html">Run first test</a>
-            </article>
-            <article class="focus-card">
-              <strong>Submit confirmations</strong>
-              <p>Use FormNotifier when the owner, respondent, or shared inbox needs a tested email path.</p>
-              <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">Run first test</a>
-            </article>
+            <a class="btn btn-primary" href="#task-launcher">Choose your task</a>
+            <a class="btn" href="install.html">Open install center</a>
+            <a class="btn" href="resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
           </div>
         </div>
 
@@ -943,11 +1080,133 @@
         </div>
       </section>
 
+      <section class="section" id="task-launcher" aria-labelledby="task-launcher-title">
+        <div class="section-head">
+          <div>
+            <h2 id="task-launcher-title">What are you trying to do?</h2>
+            <p>Choose the closest job. Each path starts with Marketplace install or a short first-run test, not a generic product tour.</p>
+          </div>
+          <a class="btn" href="choose-google-workspace-addon.html">Open full chooser</a>
+        </div>
+        <div class="task-grid" aria-label="FormSuite task launcher">
+          <article class="task-card">
+            <span class="task-product">FormGuard</span>
+            <strong>Close a form when it is full</strong>
+            <p>Use response caps, deadlines, choice quotas, close messages, and owner alerts.</p>
+            <div class="task-actions">
+              <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
+              <a href="formguard/test-google-forms-response-limit-before-launch.html">First test</a>
+            </div>
+          </article>
+          <article class="task-card">
+            <span class="task-product">FormNotifier</span>
+            <strong>Send emails after a form submit</strong>
+            <p>Set up respondent confirmations, owner alerts, shared inbox notices, and test sends.</p>
+            <div class="task-actions">
+              <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
+              <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">First test</a>
+            </div>
+          </article>
+          <article class="task-card">
+            <span class="task-product">FormRanger</span>
+            <strong>Sync choices from Sheets</strong>
+            <p>Populate Google Forms dropdowns, checkboxes, and multiple-choice options from spreadsheet data.</p>
+            <div class="task-actions">
+              <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+              <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">First test</a>
+            </div>
+          </article>
+          <article class="task-card">
+            <span class="task-product">FormCopy Pro</span>
+            <strong>Copy formulas to new response rows</strong>
+            <p>Keep model-row formulas, formats, helper columns, and scoring logic working after submit.</p>
+            <div class="task-actions">
+              <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a>
+              <a href="formcopy/test-google-forms-response-sheet-formulas-before-launch.html">First test</a>
+            </div>
+          </article>
+          <article class="task-card">
+            <span class="task-product">DocForge</span>
+            <strong>Generate Docs or PDFs from rows</strong>
+            <p>Create documents, PDFs, letters, and certificates from Sheets rows and Docs templates.</p>
+            <div class="task-actions">
+              <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
+              <a href="docforge/generate-one-pdf-from-google-sheets-before-batch.html">First test</a>
+            </div>
+          </article>
+          <article class="task-card">
+            <span class="task-product">FormMerge Pro</span>
+            <strong>Send email from spreadsheet rows</strong>
+            <p>Use merge tags, test sends, batch sends, and row-level status for operational emails.</p>
+            <div class="task-actions">
+              <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a>
+              <a href="formmerge/send-test-email-from-google-sheets-before-mail-merge.html">First test</a>
+            </div>
+          </article>
+          <article class="task-card">
+            <span class="task-product">FormFlow</span>
+            <strong>Route form submissions for approval</strong>
+            <p>Send approval emails and track reviewer status in the linked response sheet.</p>
+            <div class="task-actions">
+              <a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install</a>
+              <a href="formflow/test-google-forms-approval-workflow-before-launch.html">First test</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="outcome-title">
+        <div class="section-head">
+          <div>
+            <h2 id="outcome-title">Before and after one test.</h2>
+            <p>The fastest path is a visible result: one copied form, one sample row, one test email, or one generated file.</p>
+          </div>
+        </div>
+        <div class="outcome-grid">
+          <article class="outcome-card">
+            <strong>Signup form guardrails</strong>
+            <div class="outcome-pair">
+              <span><b>Before</b> People keep submitting after the form should be closed.</span>
+              <span><b>After</b> A tiny test proves the cap, closed message, and owner alert.</span>
+            </div>
+          </article>
+          <article class="outcome-card">
+            <strong>Confirmation email path</strong>
+            <div class="outcome-pair">
+              <span><b>Before</b> Respondents and owners are not sure whether the submission email worked.</span>
+              <span><b>After</b> One safe test confirms recipients, fields, and recent send results.</span>
+            </div>
+          </article>
+          <article class="outcome-card">
+            <strong>Spreadsheet-backed choices</strong>
+            <div class="outcome-pair">
+              <span><b>Before</b> Dropdown options are pasted manually and drift from the source sheet.</span>
+              <span><b>After</b> One question is mapped to a Sheets range and refreshed before launch.</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="trust-title">
+        <div class="trust-strip">
+          <div>
+            <h2 id="trust-title">A cleaner install path.</h2>
+            <p>FormSuite stays install-first while the products are gaining usage and reviews. The review ask comes only after a real first success.</p>
+          </div>
+          <div class="trust-list" aria-label="FormSuite install trust points">
+            <span>Published on Google Workspace Marketplace</span>
+            <span>No public checkout before install</span>
+            <span>Test on a copied form or sample row first</span>
+            <span>Support and review paths stay separate</span>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="catalog">
         <div class="section-head">
           <div>
-            <h2>All add-ons.</h2>
-            <p>Each product has one job, a Marketplace install link, and a short setup path.</p>
+            <h2>Published add-ons.</h2>
+            <p>Use the catalog when you already know the product name. Otherwise, start from the task launcher above.</p>
           </div>
           <a class="btn" href="resources/demo-videos.html">Watch demos</a>
         </div>
