@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Limit Google Forms Responses | FormGuard</title>
+  <meta name="description" content="Learn how to limit Google Forms responses with FormGuard: close forms after capacity, deadlines, or launch rules and avoid overbooking.">
+  <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-response-limit.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="How to Limit Google Forms Responses | FormGuard">
+  <meta property="og:description" content="Learn how to limit Google Forms responses with FormGuard: close forms after capacity, deadlines, or launch rules and avoid overbooking.">
+  <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-response-limit.html">
+  <style>
+    :root { color-scheme: light; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:#172033; background:#f7f9fc; line-height:1.62; }
+    a { color:#2563eb; }
+    .page { max-width:1120px; margin:0 auto; padding:28px 20px 60px; }
+    .nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:44px; color:#64748b; font-size:14px; }
+    .brand { font-weight:850; color:#111827; text-decoration:none; letter-spacing:-0.02em; }
+    .hero { display:grid; grid-template-columns:1.15fr .85fr; gap:30px; align-items:center; margin-bottom:32px; }
+    .eyebrow { display:inline-flex; padding:8px 12px; border-radius:999px; background:#dbeafe; color:#1d4ed8; font-weight:800; font-size:13px; }
+    h1 { font-size:clamp(38px,6vw,66px); line-height:.95; letter-spacing:-.055em; color:#0f172a; margin:18px 0; }
+    .lead { font-size:20px; color:#475569; margin:0 0 24px; }
+    .btns { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:13px 18px; border-radius:14px; border:1px solid #cbd5e1; color:#0f172a; background:white; text-decoration:none; font-weight:850; }
+    .btn.primary { background:#2563eb; color:white; border-color:#2563eb; }
+    .card { background:white; border:1px solid #e2e8f0; border-radius:26px; padding:26px; box-shadow:0 22px 70px rgba(15,23,42,.07); }
+    .dark { background:#0f172a; color:white; }
+    .dark p,.dark li { color:#cbd5e1; }
+    .section { margin:28px 0; }
+    .section h2 { font-size:32px; line-height:1.12; letter-spacing:-.03em; color:#0f172a; margin:0 0 14px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .mini { background:white; border:1px solid #e2e8f0; border-radius:20px; padding:20px; }
+    .mini h3 { margin:0 0 8px; color:#111827; }
+    .steps li { margin:11px 0; }
+    .table { width:100%; border-collapse:collapse; background:white; border:1px solid #e2e8f0; border-radius:18px; overflow:hidden; }
+    .table th,.table td { text-align:left; vertical-align:top; padding:15px; border-bottom:1px solid #e2e8f0; }
+    .table th { background:#f8fafc; color:#334155; }
+    .note { background:#ecfeff; border:1px solid #a5f3fc; color:#155e75; border-radius:18px; padding:18px; }
+    details { background:white; border:1px solid #e2e8f0; border-radius:16px; padding:16px 18px; margin:10px 0; }
+    summary { cursor:pointer; color:#0f172a; }
+    .footer { margin-top:48px; color:#64748b; font-size:14px; }
+    @media (max-width:860px){ .hero,.grid,.grid.two{grid-template-columns:1fr;} .nav{align-items:flex-start; gap:12px; flex-direction:column;} }
+</style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Limit Google Forms Responses | FormGuard", "description": "Learn how to limit Google Forms responses with FormGuard: close forms after capacity, deadlines, or launch rules and avoid overbooking.", "datePublished": "2026-05-30", "dateModified": "2026-05-30", "author": {"@type": "Organization", "name": "FormSuite"}, "publisher": {"@type": "Organization", "name": "FormSuite"}, "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-response-limit.html"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can Google Forms limit responses by itself?", "acceptedAnswer": {"@type": "Answer", "text": "Google Forms has basic controls, but many workflows need stronger capacity rules, closed messages, and launch checks. FormGuard adds those operational controls."}}, {"@type": "Question", "name": "Can I close a Google Form after 50 responses?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use FormGuard to set a response limit and show a clear message after capacity is reached."}}, {"@type": "Question", "name": "Is this useful for event registration?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Response limits are one of the cleanest ways to prevent overbooking."}}, {"@type": "Question", "name": "Does FormGuard replace a full form builder?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is for users who want to keep Google Forms and add practical limits, quotas, notifications, and timer-style workflows."}}]}</script>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav"><a class="brand" href="../index.html">FormSuite</a><span><a href="index.html">FormGuard</a> · <a href="support.html">Support</a></span></nav>
+    <main>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Google Forms response limit</span>
+          <h1>How to limit Google Forms responses automatically</h1>
+          <p class="lead">Google Forms is great for collecting responses, but it needs help when registrations, requests, or quizzes must stop at a specific capacity.</p>
+          <div class="btns"><a class="btn primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a><a class="btn" href="index.html">View FormGuard</a></div>
+        </div>
+        <aside class="card dark"><h2>Use FormGuard when native Google Forms is not enough</h2><ul><li>Close a form after a max response count</li><li>Use clear closed-form messages</li><li>Get owner notifications</li><li>Test response-limit rules before launch</li></ul></aside>
+      </section>
+      <section class="section card"><h2>The problem</h2><p>Native Google Forms can stop accepting responses manually, but it does not give every workflow the guardrails people expect: capacity limits, safer launch checks, and operational alerts. For events, classes, internal requests, and limited signups, leaving a form open too long creates cleanup work and angry users.</p><p class="note">FormGuard is designed for Google Forms users who want practical controls without rebuilding the form in a heavier form builder.</p></section>
+      <section class="section"><h2>How to do it with FormGuard</h2><ol class="steps"><li><strong>Install FormGuard:</strong> Open the Google Workspace Marketplace listing and install the add-on for your Google account.</li><li><strong>Open the target form:</strong> Start with a test form if the registration is important.</li><li><strong>Set a response limit:</strong> Choose the maximum number of responses or capacity rule for the form.</li><li><strong>Write the closed message:</strong> Tell visitors exactly why the form is closed and what to do next.</li><li><strong>Test before sharing:</strong> Submit test responses and confirm the form closes the way you expect.</li></ol></section>
+      <section class="section"><h2>Common use cases</h2><div class="grid"><div class="mini"><h3>Event registration</h3><p>Stop signups when the room, webinar, or event reaches capacity.</p></div><div class="mini"><h3>Workshop signup</h3><p>Avoid overbooking limited seats.</p></div><div class="mini"><h3>Internal request forms</h3><p>Close intake after a quota is reached.</p></div><div class="mini"><h3>Class enrollment</h3><p>Stop collecting entries once a cohort is full.</p></div><div class="mini"><h3>Limited beta access</h3><p>Keep early-access signup volume manageable.</p></div></div></section>
+      <section class="section"><h2>What Google Forms can and cannot do</h2><table class="table"><thead><tr><th>Need</th><th>Native Google Forms</th><th>With FormGuard</th></tr></thead><tbody><tr><td>Stop after 50 responses</td><td>Manual monitoring or basic accepting responses toggle</td><td>Set a response limit and closed message.</td></tr><tr><td>Avoid overbooking</td><td>Requires checking the response sheet</td><td>Close automatically when capacity is reached.</td></tr><tr><td>Notify owner</td><td>Not enough for every workflow</td><td>Use FormGuard notifications.</td></tr><tr><td>Launch safely</td><td>Easy to misconfigure under pressure</td><td>Test rules on a disposable form first.</td></tr></tbody></table></section>
+      <section class="section card"><h2>Related guides</h2><p><a href="google-forms-response-limit.html">Google Forms response limit</a> · <a href="google-forms-choice-limit.html">Google Forms choice limit</a> · <a href="google-forms-timer-add-on.html">Google Forms timer add-on</a> · <a href="formlimiter-alternative-google-forms.html">FormLimiter alternative</a> · <a href="choice-eliminator-alternative-google-forms.html">Choice Eliminator alternative</a></p><p>Target keywords: google forms response limit, limit google form responses, close google form after responses, google forms limiter.</p></section>
+      <section class="section"><h2>FAQ</h2><details><summary><strong>Can Google Forms limit responses by itself?</strong></summary><p>Google Forms has basic controls, but many workflows need stronger capacity rules, closed messages, and launch checks. FormGuard adds those operational controls.</p></details><details><summary><strong>Can I close a Google Form after 50 responses?</strong></summary><p>Yes. Use FormGuard to set a response limit and show a clear message after capacity is reached.</p></details><details><summary><strong>Is this useful for event registration?</strong></summary><p>Yes. Response limits are one of the cleanest ways to prevent overbooking.</p></details><details><summary><strong>Does FormGuard replace a full form builder?</strong></summary><p>No. It is for users who want to keep Google Forms and add practical limits, quotas, notifications, and timer-style workflows.</p></details></section>
+    </main>
+    <footer class="footer"><p>Part of <a href="../index.html">FormSuite</a>. Google Workspace is a trademark of Google LLC.</p></footer>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Limit Choices in Google Forms | FormGuard</title>
+  <meta name="description" content="Use FormGuard to limit Google Forms choices for appointment slots, sessions, volunteer roles, class seats, and signup quotas.">
+  <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-choice-limit.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="How to Limit Choices in Google Forms | FormGuard">
+  <meta property="og:description" content="Use FormGuard to limit Google Forms choices for appointment slots, sessions, volunteer roles, class seats, and signup quotas.">
+  <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-choice-limit.html">
+  <style>
+    :root { color-scheme: light; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:#172033; background:#f7f9fc; line-height:1.62; }
+    a { color:#2563eb; }
+    .page { max-width:1120px; margin:0 auto; padding:28px 20px 60px; }
+    .nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:44px; color:#64748b; font-size:14px; }
+    .brand { font-weight:850; color:#111827; text-decoration:none; letter-spacing:-0.02em; }
+    .hero { display:grid; grid-template-columns:1.15fr .85fr; gap:30px; align-items:center; margin-bottom:32px; }
+    .eyebrow { display:inline-flex; padding:8px 12px; border-radius:999px; background:#dbeafe; color:#1d4ed8; font-weight:800; font-size:13px; }
+    h1 { font-size:clamp(38px,6vw,66px); line-height:.95; letter-spacing:-.055em; color:#0f172a; margin:18px 0; }
+    .lead { font-size:20px; color:#475569; margin:0 0 24px; }
+    .btns { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:13px 18px; border-radius:14px; border:1px solid #cbd5e1; color:#0f172a; background:white; text-decoration:none; font-weight:850; }
+    .btn.primary { background:#2563eb; color:white; border-color:#2563eb; }
+    .card { background:white; border:1px solid #e2e8f0; border-radius:26px; padding:26px; box-shadow:0 22px 70px rgba(15,23,42,.07); }
+    .dark { background:#0f172a; color:white; }
+    .dark p,.dark li { color:#cbd5e1; }
+    .section { margin:28px 0; }
+    .section h2 { font-size:32px; line-height:1.12; letter-spacing:-.03em; color:#0f172a; margin:0 0 14px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .mini { background:white; border:1px solid #e2e8f0; border-radius:20px; padding:20px; }
+    .mini h3 { margin:0 0 8px; color:#111827; }
+    .steps li { margin:11px 0; }
+    .table { width:100%; border-collapse:collapse; background:white; border:1px solid #e2e8f0; border-radius:18px; overflow:hidden; }
+    .table th,.table td { text-align:left; vertical-align:top; padding:15px; border-bottom:1px solid #e2e8f0; }
+    .table th { background:#f8fafc; color:#334155; }
+    .note { background:#ecfeff; border:1px solid #a5f3fc; color:#155e75; border-radius:18px; padding:18px; }
+    details { background:white; border:1px solid #e2e8f0; border-radius:16px; padding:16px 18px; margin:10px 0; }
+    summary { cursor:pointer; color:#0f172a; }
+    .footer { margin-top:48px; color:#64748b; font-size:14px; }
+    @media (max-width:860px){ .hero,.grid,.grid.two{grid-template-columns:1fr;} .nav{align-items:flex-start; gap:12px; flex-direction:column;} }
+</style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Limit Choices in Google Forms | FormGuard", "description": "Use FormGuard to limit Google Forms choices for appointment slots, sessions, volunteer roles, class seats, and signup quotas.", "datePublished": "2026-05-30", "dateModified": "2026-05-30", "author": {"@type": "Organization", "name": "FormSuite"}, "publisher": {"@type": "Organization", "name": "FormSuite"}, "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-choice-limit.html"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can Google Forms limit each choice natively?", "acceptedAnswer": {"@type": "Answer", "text": "Not in the way most booking or quota workflows need. FormGuard adds choice quota workflows for limited options."}}, {"@type": "Question", "name": "Can I use this for appointment slots?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Appointment slots are one of the clearest use cases for Google Forms choice limits."}}, {"@type": "Question", "name": "Can FormGuard limit both choices and total responses?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You can use choice quotas and response limits together."}}, {"@type": "Question", "name": "Is this the same as Choice Eliminator?", "acceptedAnswer": {"@type": "Answer", "text": "It is similar in intent for users who need choice limits, but FormGuard also focuses on response limits, notifications, and timer-style workflows."}}]}</script>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav"><a class="brand" href="../index.html">FormSuite</a><span><a href="index.html">FormGuard</a> · <a href="support.html">Support</a></span></nav>
+    <main>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Google Forms choice limit</span>
+          <h1>How to limit choices in Google Forms</h1>
+          <p class="lead">When each option has its own capacity, the problem is not the whole form — it is the individual choice. FormGuard helps you manage quotas for slots, sessions, roles, and limited options.</p>
+          <div class="btns"><a class="btn primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a><a class="btn" href="index.html">View FormGuard</a></div>
+        </div>
+        <aside class="card dark"><h2>Use FormGuard when native Google Forms is not enough</h2><ul><li>Limit each time slot or session</li><li>Prevent popular options from overfilling</li><li>Use quotas for roles, rooms, or classes</li><li>Combine choice limits with response limits</li></ul></aside>
+      </section>
+      <section class="section card"><h2>The problem</h2><p>Google Forms can collect multiple-choice, dropdown, and checkbox answers, but native Forms does not behave like a booking system. If each option has limited capacity, someone has to watch the spreadsheet unless you add a choice limiter workflow.</p><p class="note">FormGuard is designed for Google Forms users who want practical controls without rebuilding the form in a heavier form builder.</p></section>
+      <section class="section"><h2>How to do it with FormGuard</h2><ol class="steps"><li><strong>Install FormGuard:</strong> Add FormGuard from the Google Workspace Marketplace.</li><li><strong>Choose the question to control:</strong> Use the option list that represents slots, sessions, roles, classes, or inventory.</li><li><strong>Set quota values:</strong> Give each choice a capacity based on how many people can select it.</li><li><strong>Add backup instructions:</strong> Tell users what to do if their preferred option is full.</li><li><strong>Run a test:</strong> Submit sample responses until a choice reaches its limit.</li></ol></section>
+      <section class="section"><h2>Common use cases</h2><div class="grid"><div class="mini"><h3>Appointment slots</h3><p>Limit each time slot so two many people do not pick the same time.</p></div><div class="mini"><h3>Workshop tracks</h3><p>Cap each breakout session independently.</p></div><div class="mini"><h3>Volunteer roles</h3><p>Avoid getting too many people for one role and none for another.</p></div><div class="mini"><h3>Class selection</h3><p>Limit cohorts, sections, or class seats.</p></div><div class="mini"><h3>Limited inventory</h3><p>Treat choices like simple inventory buckets.</p></div></div></section>
+      <section class="section"><h2>What Google Forms can and cannot do</h2><table class="table"><thead><tr><th>Need</th><th>Native Google Forms</th><th>With FormGuard</th></tr></thead><tbody><tr><td>Limit one choice to 10 selections</td><td>Not supported as a native capacity workflow</td><td>Use a FormGuard choice quota.</td></tr><tr><td>Limit total form responses</td><td>Manual toggle or monitoring</td><td>Use response limits.</td></tr><tr><td>Notify when responses arrive</td><td>Basic notifications may not match workflow needs</td><td>Use FormGuard owner alerts.</td></tr><tr><td>Keep using Google Forms</td><td>Yes, but with manual work</td><td>Add quotas without switching platforms.</td></tr></tbody></table></section>
+      <section class="section card"><h2>Related guides</h2><p><a href="google-forms-response-limit.html">Google Forms response limit</a> · <a href="google-forms-choice-limit.html">Google Forms choice limit</a> · <a href="google-forms-timer-add-on.html">Google Forms timer add-on</a> · <a href="formlimiter-alternative-google-forms.html">FormLimiter alternative</a> · <a href="choice-eliminator-alternative-google-forms.html">Choice Eliminator alternative</a></p><p>Target keywords: google forms choice limit, google forms choice limiter, limit choices in google forms, choice quota.</p></section>
+      <section class="section"><h2>FAQ</h2><details><summary><strong>Can Google Forms limit each choice natively?</strong></summary><p>Not in the way most booking or quota workflows need. FormGuard adds choice quota workflows for limited options.</p></details><details><summary><strong>Can I use this for appointment slots?</strong></summary><p>Yes. Appointment slots are one of the clearest use cases for Google Forms choice limits.</p></details><details><summary><strong>Can FormGuard limit both choices and total responses?</strong></summary><p>Yes. You can use choice quotas and response limits together.</p></details><details><summary><strong>Is this the same as Choice Eliminator?</strong></summary><p>It is similar in intent for users who need choice limits, but FormGuard also focuses on response limits, notifications, and timer-style workflows.</p></details></section>
+    </main>
+    <footer class="footer"><p>Part of <a href="../index.html">FormSuite</a>. Google Workspace is a trademark of Google LLC.</p></footer>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
