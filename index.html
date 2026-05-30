@@ -73,7 +73,7 @@
     a:hover { text-decoration: underline; }
 
     .shell {
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 28px 20px 42px;
     }
@@ -83,7 +83,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 72px;
+      margin-bottom: 58px;
     }
 
     .brand {
@@ -120,7 +120,7 @@
 
     .hero {
       max-width: 720px;
-      margin-bottom: 38px;
+      margin-bottom: 34px;
     }
 
     .eyebrow {
@@ -131,38 +131,18 @@
     }
 
     h1 {
-      max-width: 11ch;
-      font-size: clamp(3rem, 8vw, 5.4rem);
+      max-width: 12ch;
+      font-size: clamp(2.8rem, 7vw, 5.1rem);
       line-height: 0.95;
       letter-spacing: 0;
       margin-bottom: 18px;
     }
 
     .hero p {
-      max-width: 620px;
+      max-width: 560px;
       color: var(--muted);
       font-size: 1.08rem;
     }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
-      font-weight: 800;
-    }
-
-    .hero-actions a:first-child {
-      min-height: 40px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 14px;
-      border-radius: 8px;
-      color: #fff;
-      background: var(--blue);
-    }
-
-    .hero-actions a:first-child:hover { text-decoration: none; }
 
     .sr-only {
       position: absolute;
@@ -176,30 +156,33 @@
       border: 0;
     }
 
-    .task-list { border-top: 1px solid var(--line); }
+    .task-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
 
     .task-row {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 132px auto;
-      gap: 14px;
-      align-items: center;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--line);
+      grid-template-rows: 58px minmax(44px, auto) auto;
+      gap: 10px;
+      min-height: 174px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
     }
 
     .task-row strong {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       line-height: 1.18;
     }
 
-    .product {
-      width: fit-content;
-      color: var(--blue);
-      background: var(--blue-soft);
-      border-radius: 8px;
-      padding: 3px 8px;
-      font-size: 0.78rem;
-      font-weight: 850;
+    .product-icon {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      object-position: center;
     }
 
     .task-actions {
@@ -227,7 +210,7 @@
       .topbar {
         align-items: flex-start;
         flex-direction: column;
-        margin-bottom: 48px;
+        margin-bottom: 38px;
       }
 
       .nav {
@@ -239,10 +222,20 @@
         font-size: clamp(2.8rem, 13vw, 4rem);
       }
 
+      .task-list { grid-template-columns: 1fr; }
+
       .task-row {
-        grid-template-columns: 1fr;
-        gap: 7px;
-        padding: 15px 0;
+        grid-template-columns: 52px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        gap: 8px 12px;
+        min-height: 0;
+        padding: 14px;
+      }
+
+      .product-icon {
+        grid-row: 1 / span 2;
+        width: 44px;
+        height: 44px;
       }
 
       .task-actions {
@@ -273,18 +266,15 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="eyebrow">FormSuite</div>
         <h1 id="hero-title">Choose the add-on for the task.</h1>
-        <p>Pick a Google Forms or Sheets workflow, install from Marketplace, and run one small test.</p>
-        <div class="hero-actions">
-          <a href="#tasks">Choose a task</a>
-        </div>
+        <p>Install from Marketplace. Test once.</p>
       </section>
 
       <section id="tasks" aria-labelledby="tasks-title">
         <h2 id="tasks-title" class="sr-only">Choose the closest job</h2>
         <div class="task-list" aria-label="FormSuite task launcher">
           <article class="task-row">
+            <img class="product-icon" src="assets/product-icons/formguard.png" alt="FormGuard icon">
             <strong>Close a form when it is full</strong>
-            <span class="product">FormGuard</span>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
               <a href="formguard/test-google-forms-response-limit-before-launch.html">Test</a>
@@ -292,8 +282,8 @@
           </article>
 
           <article class="task-row">
+            <img class="product-icon" src="assets/product-icons/formnotifier.png" alt="FormNotifier icon">
             <strong>Send emails after a form submit</strong>
-            <span class="product">FormNotifier</span>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
               <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">Test</a>
@@ -301,8 +291,8 @@
           </article>
 
           <article class="task-row">
+            <img class="product-icon" src="assets/product-icons/formranger.png" alt="FormRanger icon">
             <strong>Sync choices from Sheets</strong>
-            <span class="product">FormRanger</span>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
               <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">Test</a>
@@ -310,8 +300,8 @@
           </article>
 
           <article class="task-row">
+            <img class="product-icon" src="assets/product-icons/formcopy.png" alt="FormCopy Pro icon">
             <strong>Copy formulas to new response rows</strong>
-            <span class="product">FormCopy Pro</span>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a>
               <a href="formcopy/test-google-forms-response-sheet-formulas-before-launch.html">Test</a>
@@ -319,8 +309,8 @@
           </article>
 
           <article class="task-row">
+            <img class="product-icon" src="assets/product-icons/docforge.png" alt="DocForge icon">
             <strong>Generate Docs or PDFs from rows</strong>
-            <span class="product">DocForge</span>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
               <a href="docforge/generate-one-pdf-from-google-sheets-before-batch.html">Test</a>
@@ -328,8 +318,8 @@
           </article>
 
           <article class="task-row">
+            <img class="product-icon" src="assets/product-icons/formmerge.png" alt="FormMerge Pro icon">
             <strong>Send email from spreadsheet rows</strong>
-            <span class="product">FormMerge Pro</span>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a>
               <a href="formmerge/send-test-email-from-google-sheets-before-mail-merge.html">Test</a>
@@ -337,8 +327,8 @@
           </article>
 
           <article class="task-row">
+            <img class="product-icon" src="assets/product-icons/formflow.png" alt="FormFlow icon">
             <strong>Route form submissions for approval</strong>
-            <span class="product">FormFlow</span>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install</a>
               <a href="formflow/test-google-forms-approval-workflow-before-launch.html">Test</a>
