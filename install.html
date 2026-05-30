@@ -143,16 +143,73 @@
       margin-top: 14px;
     }
 
+    .war-room-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .war-room-card {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 10px;
+      min-height: 230px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .war-room-card strong {
+      font-size: 1.02rem;
+      line-height: 1.18;
+    }
+
+    .war-room-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .war-room-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .war-room-actions a {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 0.9rem;
+      font-weight: 760;
+    }
+
+    .war-room-actions a:first-child {
+      color: #fff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .war-room-actions a:hover { text-decoration: none; }
+
     @media (max-width: 1120px) {
       .install-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .war-room-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     @media (max-width: 760px) {
       .install-grid { grid-template-columns: 1fr; }
       .proof-grid { grid-template-columns: 1fr; }
+      .war-room-grid { grid-template-columns: 1fr; }
       .install-card { grid-template-rows: 170px minmax(0, 1fr) auto; min-height: 0; }
       .install-actions a { flex: 1 1 auto; justify-content: center; }
+      .war-room-actions a { flex: 1 1 auto; justify-content: center; }
     }
   </style>
 </head>
@@ -175,15 +232,13 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <div class="eyebrow">Google Workspace Marketplace</div>
-          <h1 id="hero-title">Pick one add-on. Install it. Test one workflow.</h1>
-          <p>Start with the exact Forms or Sheets job you need today. Each published add-on links directly to Marketplace and a first setup guide.</p>
+          <h1 id="hero-title">Install the closest working path today.</h1>
+          <p>Do not browse every add-on first. Start with the three workflows that already have the strongest public signal, then run one small test after install.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#published">Install a published add-on</a>
-            <a class="btn" href="choose-google-workspace-addon.html">Choose by workflow</a>
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+            <a class="btn" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+            <a class="btn" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
             <a class="btn" href="resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
-            <a class="btn" href="setup-help.html">Get setup help</a>
-            <a class="btn" href="review-after-first-success.html">Review after success</a>
-            <a class="btn" href="resources/demo-videos.html">Watch demos</a>
           </div>
         </div>
         <article class="product-visual" aria-label="FormSuite install preview">
@@ -222,6 +277,44 @@
             <span>Install from Marketplace</span>
           </div>
         </article>
+      </section>
+
+      <section class="section" aria-labelledby="recommended-title">
+        <div class="section-head">
+          <div>
+            <h2 id="recommended-title">Recommended starting points.</h2>
+            <p>These are the shortest install-to-test paths right now. The full catalog stays below for exact-match workflows.</p>
+          </div>
+        </div>
+        <div class="war-room-grid">
+          <article class="war-room-card">
+            <span class="tag tag-blue">Most visible installs</span>
+            <strong>FormRanger: sync choices from Sheets</strong>
+            <p>Use this when a Google Form dropdown, checkbox list, or multiple-choice question should be updated from a spreadsheet.</p>
+            <div class="war-room-actions">
+              <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
+              <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">First test</a>
+            </div>
+          </article>
+          <article class="war-room-card">
+            <span class="tag tag-green">Review gap</span>
+            <strong>FormGuard: signup guardrails</strong>
+            <p>Use this when native Forms limits are not enough and the form needs choice quotas, owner alerts, or waitlist messaging.</p>
+            <div class="war-room-actions">
+              <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
+              <a href="formguard/test-google-forms-response-limit-before-launch.html">First test</a>
+            </div>
+          </article>
+          <article class="war-room-card">
+            <span class="tag tag-teal">Review gap</span>
+            <strong>FormNotifier: confirmation emails</strong>
+            <p>Use this when the respondent, owner, or shared inbox needs one tested confirmation or alert after submit.</p>
+            <div class="war-room-actions">
+              <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
+              <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">First test</a>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="section" id="published">

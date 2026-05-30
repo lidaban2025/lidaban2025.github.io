@@ -67,8 +67,40 @@
       gap: 8px;
     }
 
+    .priority-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .priority-card {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 10px;
+      min-height: 220px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .priority-card strong {
+      font-size: 1.02rem;
+      line-height: 1.18;
+    }
+
+    .priority-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .priority-card .choice-links {
+      justify-content: flex-start;
+    }
+
     @media (max-width: 760px) {
       .choice-row { grid-template-columns: 1fr; }
+      .priority-grid { grid-template-columns: 1fr; }
       .choice-links {
         width: 100%;
         display: grid;
@@ -97,10 +129,10 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <div class="eyebrow">Choose by workflow</div>
-          <h1 id="hero-title">What are you trying to fix?</h1>
-          <p>Pick the job. The chooser sends you straight to the matching add-on or setup guide.</p>
+          <h1 id="hero-title">Pick the closest install path.</h1>
+          <p>Start with the workflows most likely to complete a first test today. Use the full chooser only when your task does not match these.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#choices">Choose now</a>
+            <a class="btn btn-primary" href="#recommended">Recommended now</a>
             <a class="btn" href="install.html">Open install center</a>
             <a class="btn" href="resources/demo-videos.html">Watch demos</a>
           </div>
@@ -112,6 +144,35 @@
             <span>One job at a time</span>
           </div>
         </article>
+      </section>
+
+      <section class="section" id="recommended">
+        <div class="section-head">
+          <div>
+            <h2>Recommended now.</h2>
+            <p>These three paths have the strongest near-term install or review signal.</p>
+          </div>
+        </div>
+        <div class="priority-grid">
+          <article class="priority-card">
+            <span class="tag tag-blue">FormRanger</span>
+            <strong>Sync Sheets ranges into form choices</strong>
+            <p>Best when the user needs dropdowns, checkbox lists, or multiple-choice options populated from Sheets.</p>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a><a class="secondary" href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">First test</a></span>
+          </article>
+          <article class="priority-card">
+            <span class="tag tag-green">FormGuard</span>
+            <strong>Add guardrails around a signup form</strong>
+            <p>Best when native Forms limits need choice quotas, owner alerts, closed messages, or waitlist handoff.</p>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a><a class="secondary" href="formguard/test-google-forms-response-limit-before-launch.html">First test</a></span>
+          </article>
+          <article class="priority-card">
+            <span class="tag tag-teal">FormNotifier</span>
+            <strong>Send confirmations after submit</strong>
+            <p>Best when a respondent, owner, team, or shared inbox needs a tested email after a Google Form submission.</p>
+            <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a><a class="secondary" href="formnotifier/test-google-forms-confirmation-email-before-launch.html">First test</a></span>
+          </article>
+        </div>
       </section>
 
       <section class="section" id="choices">

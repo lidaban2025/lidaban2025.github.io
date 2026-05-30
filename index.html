@@ -197,6 +197,53 @@
       font-weight: 800;
     }
 
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .focus-card {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 10px;
+      min-height: 168px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .focus-card strong {
+      display: block;
+      font-size: 0.98rem;
+      line-height: 1.18;
+    }
+
+    .focus-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .focus-card a {
+      width: fit-content;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--blue);
+      font-size: 0.88rem;
+      font-weight: 820;
+    }
+
+    .focus-card a:hover {
+      text-decoration: none;
+      background: #0f4caa;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -748,7 +795,8 @@
       .workflow-tags { grid-column: 1 / -1; }
       .section-head { align-items: flex-start; flex-direction: column; }
       .addon-grid,
-      .pilot-grid { grid-template-columns: 1fr; }
+      .pilot-grid,
+      .focus-grid { grid-template-columns: 1fr; }
       .addon-card { grid-template-rows: 190px minmax(0, 1fr) auto; min-height: 0; }
       .footer { flex-direction: column; }
       .footer-badge { width: 100%; justify-content: center; text-align: center; }
@@ -776,6 +824,7 @@
       .mini-stack { grid-template-columns: 1fr; }
       .workflow-tags { grid-template-columns: 1fr 1fr; }
       .addon-card { grid-template-rows: 150px minmax(0, 1fr) auto; }
+      .focus-card a { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -801,16 +850,33 @@
         <div class="hero-copy">
           <div class="eyebrow">7 live Marketplace add-ons</div>
           <h1 id="hero-title">FormSuite</h1>
-          <p>Make Google Forms and Sheets run cleaner: sync choices, close forms on time, keep formulas, send emails, and generate Docs or PDFs.</p>
+          <p>Start with the workflow most likely to work in one test: sync form choices from Sheets, add guardrails around a signup form, or send confirmation emails after submit.</p>
           <div class="proof-row" aria-label="FormSuite proof points">
-            <span>Marketplace install</span>
-            <span>Small first test</span>
-            <span>Setup guides</span>
+            <span>Install-first</span>
+            <span>One small test</span>
+            <span>Review after success</span>
           </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
             <a class="btn" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-            <a class="btn" href="choose-google-workspace-addon.html">Choose by task</a>
+            <a class="btn" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+          </div>
+          <div class="focus-grid" aria-label="Recommended FormSuite starting points">
+            <article class="focus-card">
+              <strong>Dropdown choices from Sheets</strong>
+              <p>Use FormRanger when a form question should pull choices from a spreadsheet range.</p>
+              <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">Run first test</a>
+            </article>
+            <article class="focus-card">
+              <strong>Signup guardrails</strong>
+              <p>Use FormGuard when native Forms limits need choice quotas, owner alerts, or waitlist messaging.</p>
+              <a href="formguard/test-google-forms-response-limit-before-launch.html">Run first test</a>
+            </article>
+            <article class="focus-card">
+              <strong>Submit confirmations</strong>
+              <p>Use FormNotifier when the owner, respondent, or shared inbox needs a tested email path.</p>
+              <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">Run first test</a>
+            </article>
           </div>
         </div>
 
