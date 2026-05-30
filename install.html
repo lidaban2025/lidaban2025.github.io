@@ -197,57 +197,6 @@
 
     .war-room-actions a:hover { text-decoration: none; }
 
-    .task-ribbon {
-      display: grid;
-      grid-template-columns: minmax(0, 0.52fr) minmax(0, 1.48fr);
-      gap: 14px;
-      align-items: center;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .task-ribbon h2 {
-      font-size: 1.25rem;
-      line-height: 1.15;
-      margin: 0 0 6px;
-    }
-
-    .task-ribbon p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .task-chip-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .task-chip-grid a {
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      color: var(--ink);
-      background: var(--soft);
-      font-size: 0.86rem;
-      font-weight: 800;
-      line-height: 1.15;
-    }
-
-    .task-chip-grid a:first-child {
-      color: #fff;
-      background: var(--blue);
-      border-color: var(--blue);
-    }
-
-    .task-chip-grid a:hover { text-decoration: none; }
-
     @media (max-width: 1120px) {
       .install-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -258,8 +207,6 @@
       .install-grid { grid-template-columns: 1fr; }
       .proof-grid { grid-template-columns: 1fr; }
       .war-room-grid { grid-template-columns: 1fr; }
-      .task-ribbon,
-      .task-chip-grid { grid-template-columns: 1fr; }
       .install-card { grid-template-rows: 170px minmax(0, 1fr) auto; min-height: 0; }
       .install-actions a { flex: 1 1 auto; justify-content: center; }
       .war-room-actions a { flex: 1 1 auto; justify-content: center; }
@@ -285,8 +232,8 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <div class="eyebrow">Google Workspace Marketplace</div>
-          <h1 id="hero-title">Pick a task. Install the add-on. Test once.</h1>
-          <p>Use the fastest path to a visible result: one copied form, one sample row, one test email, one synced choice list, or one generated file.</p>
+          <h1 id="hero-title">Install the closest working path today.</h1>
+          <p>Do not browse every add-on first. Start with the three workflows that already have the strongest public signal, then run one small test after install.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
             <a class="btn" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
@@ -330,25 +277,6 @@
             <span>Install from Marketplace</span>
           </div>
         </article>
-      </section>
-
-      <section class="section" aria-labelledby="task-ribbon-title">
-        <div class="task-ribbon">
-          <div>
-            <h2 id="task-ribbon-title">Start from the job, not the catalog.</h2>
-            <p>Click the thing you need working, then install only that matching Marketplace add-on.</p>
-          </div>
-          <div class="task-chip-grid" aria-label="Install by task">
-            <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Sync choices from Sheets</a>
-            <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Close forms at capacity</a>
-            <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Send submit emails</a>
-            <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Copy formulas</a>
-            <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Generate Docs/PDFs</a>
-            <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Send row emails</a>
-            <a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Route approvals</a>
-            <a href="resources/google-workspace-add-ons-first-run-checklist.html">Run first test</a>
-          </div>
-        </div>
       </section>
 
       <section class="section" aria-labelledby="recommended-title">

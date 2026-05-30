@@ -98,55 +98,9 @@
       justify-content: flex-start;
     }
 
-    .quick-picker {
-      display: grid;
-      grid-template-columns: minmax(0, 0.48fr) minmax(0, 1.52fr);
-      gap: 14px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .quick-picker h2 {
-      font-size: 1.25rem;
-      line-height: 1.15;
-      margin: 0 0 6px;
-    }
-
-    .quick-picker p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .quick-picker-links {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .quick-picker-links a {
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      color: var(--ink);
-      background: var(--soft);
-      font-size: 0.86rem;
-      font-weight: 800;
-      line-height: 1.15;
-    }
-
-    .quick-picker-links a:hover { text-decoration: none; }
-
     @media (max-width: 760px) {
       .choice-row { grid-template-columns: 1fr; }
-      .priority-grid,
-      .quick-picker,
-      .quick-picker-links { grid-template-columns: 1fr; }
+      .priority-grid { grid-template-columns: 1fr; }
       .choice-links {
         width: 100%;
         display: grid;
@@ -175,8 +129,8 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <div class="eyebrow">Choose by workflow</div>
-          <h1 id="hero-title">Find the add-on for the thing you need working.</h1>
-          <p>Choose by outcome first. The install link, product page, and guide are only there after the workflow is clear.</p>
+          <h1 id="hero-title">Pick the closest install path.</h1>
+          <p>Start with the workflows most likely to complete a first test today. Use the full chooser only when your task does not match these.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#recommended">Recommended now</a>
             <a class="btn" href="install.html">Open install center</a>
@@ -190,26 +144,6 @@
             <span>One job at a time</span>
           </div>
         </article>
-      </section>
-
-      <section class="section" aria-labelledby="quick-picker-title">
-        <div class="quick-picker">
-          <div>
-            <h2 id="quick-picker-title">What do you need done?</h2>
-            <p>Jump straight to the matching row, then install or run the first test.</p>
-          </div>
-          <div class="quick-picker-links" aria-label="Jump to task row">
-            <a href="#close-forms">Close form when full</a>
-            <a href="#submit-emails">Email after submit</a>
-            <a href="#copy-formulas">Copy formulas</a>
-            <a href="#row-email">Send row emails</a>
-            <a href="#docs-pdfs">Generate Docs/PDFs</a>
-            <a href="#approval-flow">Route approvals</a>
-            <a href="#sheet-choices">Sync form choices</a>
-            <a href="resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
-            <a href="support.html">Ask setup support</a>
-          </div>
-        </div>
       </section>
 
       <section class="section" id="recommended">
@@ -249,37 +183,37 @@
           </div>
         </div>
         <div class="choice-list">
-          <div class="choice-row" id="close-forms">
+          <div class="choice-row">
             <div><strong>Close a Google Form when it is full or past deadline</strong><span>Response caps, deadlines, time windows, choice quotas.</span></div>
             <em>FormGuard</em>
             <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a><a class="secondary" href="formguard/index.html">Product</a><a class="secondary" href="formguard/schedule-google-forms-open-close-guide.html">Guide</a></span>
           </div>
-          <div class="choice-row" id="submit-emails">
+          <div class="choice-row">
             <div><strong>Send confirmation emails or owner alerts after submit</strong><span>Respondent confirmations, team alerts, shared inbox notifications.</span></div>
             <em>FormNotifier</em>
             <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a><a class="secondary" href="formnotifier/index.html">Product</a><a class="secondary" href="formnotifier/send-google-forms-confirmation-email-after-submit.html">Guide</a></span>
           </div>
-          <div class="choice-row" id="copy-formulas">
+          <div class="choice-row">
             <div><strong>Copy formulas into new Google Forms response rows</strong><span>Model-row formulas, formats, helper columns, scoring logic.</span></div>
             <em>FormCopy Pro</em>
             <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a><a class="secondary" href="formcopy/index.html">Product</a><a class="secondary" href="formcopy/google-forms-response-sheet-formulas-guide.html">Guide</a></span>
           </div>
-          <div class="choice-row" id="row-email">
+          <div class="choice-row">
             <div><strong>Send personalized email from Google Sheets rows</strong><span>Operational mail merge with test sends and row status.</span></div>
             <em>FormMerge Pro</em>
             <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a><a class="secondary" href="formmerge/index.html">Product</a><a class="secondary" href="formmerge/personalized-email-from-google-sheets-guide.html">Guide</a></span>
           </div>
-          <div class="choice-row" id="docs-pdfs">
+          <div class="choice-row">
             <div><strong>Generate Google Docs or PDFs from spreadsheet rows</strong><span>Documents, letters, certificates, PDFs, template-based files.</span></div>
             <em>DocForge</em>
             <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a><a class="secondary" href="docforge/index.html">Product</a><a class="secondary" href="docforge/acceptance-letter-generator-from-google-sheets.html">Guide</a></span>
           </div>
-          <div class="choice-row" id="approval-flow">
+          <div class="choice-row">
             <div><strong>Route Google Forms submissions through approvals</strong><span>Approval emails, reviewer steps, and response-sheet status tracking.</span></div>
             <em>FormFlow</em>
             <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install</a><a class="secondary" href="formflow/index.html">Product</a><a class="secondary" href="formflow/google-forms-approval-workflow-guide.html">Guide</a></span>
           </div>
-          <div class="choice-row" id="sheet-choices">
+          <div class="choice-row">
             <div><strong>Sync Google Sheets ranges into Google Forms choices</strong><span>Dynamic dropdowns, checkbox lists, multiple-choice options.</span></div>
             <em>FormRanger</em>
             <span class="choice-links"><a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a><a class="secondary" href="formranger/index.html">Product</a><a class="secondary" href="resources/google-forms-choices-from-sheets-with-capacity-limits.html">Choices + limits</a></span>
