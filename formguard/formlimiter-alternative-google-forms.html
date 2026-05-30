@@ -1,193 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FormLimiter Alternative for Google Forms | FormGuard</title>
-    <meta name="description" content="Looking for a FormLimiter alternative for Google Forms? Compare native close dates and response limits, Apps Script, and FormGuard choice quotas, messages, and alerts.">
-    <link rel="canonical" href="https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="FormLimiter Alternative for Google Forms | FormGuard">
-    <meta property="og:description" content="Compare native Google Forms limits, Apps Script, and FormGuard for choice quotas, close messages, and owner notifications.">
-    <meta property="og:url" content="https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FormLimiter Alternative for Google Forms">
-    <meta name="twitter:description" content="Native response limits, close dates, choice quotas, and notifications for Google Forms.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "FormLimiter Alternative for Google Forms",
-            "description": "A practical guide to replacing manual Google Forms monitoring with native response limits, close dates, choice quotas, and notifications.",
-            "author": { "@type": "Organization", "name": "FormSuite" },
-            "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html"
-        }
-    </script>
-    <style>
-        :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
-        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-        .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-        .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-        .hero { padding:30px; margin-bottom:18px; }
-        .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-        h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:15ch; }
-        h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
-        .hero p,.section p,.section li { color:var(--muted); }
-        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:26px; margin-top:18px; }
-        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
-        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
-        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-        .compare-wrap { margin-top:18px; overflow-x:auto; }
-        .compare { width:100%; min-width:720px; border-collapse:separate; border-spacing:0; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
-        .compare th,
-        .compare td { padding:14px 16px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
-        .compare th { background:#f6f9ff; color:var(--ink); font-size:.92rem; }
-        .compare td { color:var(--muted); }
-        .compare tr:last-child td { border-bottom:none; }
-        .mini-note { margin-top:14px; color:var(--muted); font-size:.93rem; }
-        .steps { padding-left:20px; display:grid; gap:10px; }
-        .note,.install-panel { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-        .install-panel strong { display:block; color:var(--ink); font-size:1.05rem; margin-bottom:6px; }
-        .install-panel p { color:#17633f; margin-bottom:12px; }
-        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormLimiter Alternative for Google Forms | FormGuard</title>
+  <meta name="description" content="Looking for a FormLimiter alternative? FormGuard adds Google Forms response limits, choice quotas, email notifications, and timer-style workflows.">
+  <link rel="canonical" href="https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="FormLimiter Alternative for Google Forms | FormGuard">
+  <meta property="og:description" content="Looking for a FormLimiter alternative? FormGuard adds Google Forms response limits, choice quotas, email notifications, and timer-style workflows.">
+  <meta property="og:url" content="https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html">
+  <style>
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:#172033; background:#f6f8fb; line-height:1.6; }
+    a { color:#2563eb; }
+    .page { max-width:1120px; margin:0 auto; padding:28px 20px 56px; }
+    .nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:48px; color:#64748b; font-size:14px; }
+    .brand { font-weight:800; color:#111827; text-decoration:none; letter-spacing:-0.02em; }
+    .pill { display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; background:#e0f2fe; color:#0369a1; font-weight:700; font-size:13px; }
+    .hero { display:grid; grid-template-columns:1.25fr .75fr; gap:34px; align-items:center; margin-bottom:36px; }
+    .hero h1 { font-size:clamp(38px, 6vw, 68px); line-height:.95; letter-spacing:-0.055em; margin:18px 0; color:#0f172a; }
+    .hero p { font-size:20px; color:#475569; margin:0 0 24px; }
+    .card { background:white; border:1px solid #e2e8f0; border-radius:28px; padding:28px; box-shadow:0 24px 80px rgba(15,23,42,.08); }
+    .hero-card { background:#0f172a; color:white; }
+    .hero-card h2 { margin:0 0 16px; font-size:22px; }
+    .hero-card ul { margin:0; padding-left:20px; color:#cbd5e1; }
+    .btns { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:13px 18px; border-radius:14px; border:1px solid #cbd5e1; color:#0f172a; background:white; text-decoration:none; font-weight:800; }
+    .btn.primary { background:#2563eb; color:white; border-color:#2563eb; }
+    .section { margin:28px 0; }
+    .section h2 { font-size:32px; line-height:1.1; letter-spacing:-.03em; color:#0f172a; margin:0 0 14px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .mini { background:white; border:1px solid #e2e8f0; border-radius:20px; padding:20px; }
+    .mini h3 { margin:0 0 8px; color:#111827; }
+    .compare { width:100%; border-collapse:collapse; overflow:hidden; border-radius:18px; background:white; border:1px solid #e2e8f0; }
+    .compare th,.compare td { text-align:left; vertical-align:top; padding:16px; border-bottom:1px solid #e2e8f0; }
+    .compare th { background:#f8fafc; color:#334155; }
+    .steps li { margin:10px 0; }
+    details { background:white; border:1px solid #e2e8f0; border-radius:16px; padding:16px 18px; margin:10px 0; }
+    summary { cursor:pointer; color:#0f172a; }
+    .note { background:#fff7ed; border:1px solid #fed7aa; border-radius:18px; padding:18px; color:#9a3412; }
+    .footer { margin-top:48px; color:#64748b; font-size:14px; }
+    @media (max-width:800px){ .hero,.grid{grid-template-columns:1fr;} .nav{align-items:flex-start; gap:12px; flex-direction:column;} }
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"FormLimiter Alternative for Google Forms | FormGuard","description":"Looking for a FormLimiter alternative? FormGuard adds Google Forms response limits, choice quotas, email notifications, and timer-style workflows.","datePublished":"2026-05-30","dateModified":"2026-05-30","author":{"@type":"Organization","name":"FormSuite"},"publisher":{"@type":"Organization","name":"FormSuite"},"mainEntityOfPage":"https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is FormGuard a complete FormLimiter clone?","acceptedAnswer":{"@type":"Answer","text":"No. FormGuard is an alternative for users whose main need is Google Forms limits, quotas, notifications, and timer-style workflows."}},
+        {"@type":"Question","name":"Can FormGuard limit total Google Forms responses?","acceptedAnswer":{"@type":"Answer","text":"Yes. Response-limit workflows are a core FormGuard use case."}},
+        {"@type":"Question","name":"Can it limit each choice separately?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use choice quotas for appointment slots, sessions, workshops, or limited options."}},
+        {"@type":"Question","name":"Should I mention FormLimiter in Marketplace copy?","acceptedAnswer":{"@type":"Answer","text":"No. Competitor comparisons belong on owned SEO pages, not Marketplace titles."}}]}</script>
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="../index.html">FormSuite</a>
-            <a href="../install.html">Install</a>
-            <a href="../resources/index.html">Resources</a>
-            <a href="./index.html"><strong>FormGuard</strong></a>
-            <a href="./support.html">Support</a>
-        </nav>
-        <section class="hero">
-            <div class="eyebrow">Google Forms guide</div>
-            <h1>FormLimiter alternative for Google Forms</h1>
-            <p>If you are replacing FormLimiter or another older setup, the real choice is not only "which tool is cheaper" but which path actually fits the workflow: native Google Forms controls, a custom Apps Script, or a sidebar add-on like FormGuard.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard free</a>
-                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Need the add-on now?</h2>
-            <div class="install-panel">
-                <strong>Install FormGuard from Google Workspace Marketplace.</strong>
-                <p>Use it when native Google Forms limits are not enough and you need choice quotas, closed-form messages, owner notifications, or a guided operator workflow without maintaining Apps Script across many forms.</p>
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard from Marketplace</a>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Start with the built-in options</h2>
-            <p class="lead">Google Forms now includes native close dates and response limits. That is often enough for a simple form-level deadline or cap.</p>
-            <div class="grid">
-                <div class="feature"><strong>Native close date and response limit</strong><p>Use built-in settings when a form only needs to close at a known date or after a total response count.</p></div>
-                <div class="feature"><strong>Response copy</strong><p>Use the response sheet when you need to review submissions, audit capacity, or handle a late edge case.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Native Forms vs Apps Script vs FormGuard</h2>
-            <p class="lead">If you are evaluating a FormLimiter alternative, use the lightest path that still matches your actual operations.</p>
-            <div class="compare-wrap">
-                <table class="compare">
-                    <thead>
-                        <tr>
-                            <th>Path</th>
-                            <th>Best for</th>
-                            <th>Strengths</th>
-                            <th>Tradeoffs</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Native Google Forms</strong></td>
-                            <td>Simple form-level deadlines or total response caps</td>
-                            <td>Fastest setup, no extra tooling, good for straightforward close dates and response limits</td>
-                            <td>No per-option quota controls, owner alert workflow, or broader operator checklist</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Apps Script</strong></td>
-                            <td>Teams comfortable maintaining custom logic</td>
-                            <td>Flexible workflows, custom triggers, room for sheet-driven logic and bespoke notifications</td>
-                            <td>Needs script ownership, testing, debugging, and realistic expectations about trigger delay and race conditions</td>
-                        </tr>
-                        <tr>
-                            <td><strong>FormGuard</strong></td>
-                            <td>Operators who want repeatable controls from the Google Forms sidebar</td>
-                            <td>Response caps, choice quotas, close messages, owner notifications, and manual Close/Reopen helpers without building the workflow from scratch</td>
-                            <td>Not a full reservation backend, not an automatic waitlist system, and not a replacement for quantity-aware inventory systems</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="mini-note">This is the honest comparison to keep in mind: native Forms is the lightest option, Apps Script is the most flexible, and FormGuard fits the middle when you need repeatable controls without owning custom code.</p>
-        </section>
-        <section class="section">
-            <h2>When an add-on helps</h2>
-            <p class="lead">A form-control add-on is useful when the operator needs repeatable rules instead of constant manual checks.</p>
-            <div class="grid">
-                <div class="feature"><strong>Close after N responses</strong><p>Set a cap for registrations, signups, surveys, or intake forms.</p></div>
-                <div class="feature"><strong>Plan deadline closes</strong><p>Use the native close date for simple deadlines, then add FormGuard when capacity, messages, or owner alerts matter.</p></div>
-                <div class="feature"><strong>Limit answer choices</strong><p>Use simple choice quotas for slots, sessions, roles, or limited options.</p></div>
-                <div class="feature"><strong>Notify the owner</strong><p>Send an email when a form closes or when submissions arrive.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Where FormGuard fits</h2>
-            <ol class="steps">
-                <li>Install FormGuard from the Google Workspace Marketplace.</li>
-                <li>Open the add-on from the Google Forms editor sidebar.</li>
-                <li>Enable the rule you need: choice eliminator, notifications, close messages, or a guided response-cap workflow.</li>
-                <li>Test the form before using it for a live registration or deadline-driven workflow.</li>
-            </ol>
-            <div class="note">FormGuard is free of charge during public launch while real-world feedback is collected.</div>
-        </section>
-        <section class="section">
-            <h2>Pick the path by workflow, not by hype</h2>
-            <div class="grid">
-                <div class="feature"><strong>Use native Forms when</strong><p>You only need a form-level close date or total response limit and do not need per-option quotas or owner alert workflows.</p></div>
-                <div class="feature"><strong>Use Apps Script when</strong><p>You need custom branching, sheet-driven logic, or a workflow that will be maintained by someone comfortable owning code.</p></div>
-                <div class="feature"><strong>Use FormGuard when</strong><p>You want one operator-facing setup flow for response caps, choice quotas, close messages, owner notifications, and manual Close/Reopen helpers.</p></div>
-                <div class="feature"><strong>Use a backend system when</strong><p>You need strict reservations, quantity-aware inventory, payment-confirmed seat locking, or automatic waitlist promotion.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Important limits</h2>
-            <div class="grid">
-                <div class="feature"><strong>Scheduled timer paused</strong><p>Scheduled timer controls are paused in the current narrow-permission public build. Use response caps, choice quotas, notifications, or menu Close/Reopen actions.</p></div>
-                <div class="feature"><strong>Open forms near capacity</strong><p>If several people already have the form open near the cap, test the workflow before using it for high-stakes registration.</p></div>
-                <div class="feature"><strong>Daily per-account resets</strong><p>FormGuard does not reset Google Forms' built-in one-response-per-account setting each day.</p></div>
-                <div class="feature"><strong>Inventory quantities</strong><p>Simple choice quotas are different from full quantity-aware inventory tracking.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Next steps</h2>
-            <div class="link-bar">
-                <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard from Marketplace</a>
-                <a href="./google-forms-limit-responses-guide.html">Limit Google Forms responses</a>
-                <a href="./google-forms-response-limit-race-condition.html">Race condition guide</a>
-                <a href="./schedule-google-forms-open-close-guide.html">Plan open and close windows</a>
-                <a href="./google-forms-choice-limiter-guide.html">Choice limiter guide</a>
-                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
-                <a href="./google-forms-choice-quota-vs-inventory-tracking.html">Quota vs inventory</a>
-                <a href="./privacy-policy.html">Privacy policy</a>
-            </div>
-        </section>
-        <div class="footer"><a href="./support.html">Support</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
-    </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <div class="page">
+    <nav class="nav"><a class="brand" href="../index.html">FormSuite</a><span><a href="index.html">FormGuard</a> · <a href="support.html">Support</a></span></nav>
+    <main>
+      <section class="hero">
+        <div>
+          <span class="pill">FormLimiter alternative</span>
+          <h1>A FormLimiter alternative for Google Forms limits, quotas, and alerts</h1>
+          <p>If you searched for a FormLimiter alternative, you probably want Google Forms to stop accepting responses at the right time. FormGuard is built for that job — plus choice quotas and notifications.</p>
+          <div class="btns">
+            <a class="btn primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
+            <a class="btn" href="index.html">See FormGuard features</a>
+          </div>
+        </div>
+        <aside class="card hero-card">
+          <h2>Use FormGuard when you need more than a simple close rule: response limits, per-choice quotas, notifications, and safer launch controls.</h2>
+          <ul>
+            <li>Response limits for Google Forms</li>
+            <li>Choice quotas for sessions, slots, and options</li>
+            <li>Email notifications for new responses</li>
+            <li>Timer-style workflows for quizzes and launches</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section card">
+        <h2>Short answer</h2>
+        <p>FormLimiter is useful when your main job is <strong>closing a form after a deadline or response count</strong>. FormGuard is built for teams who need to control what happens after people start submitting: response caps, choice quotas, alerts, and launch rules.</p>
+        <p class="note">This page is intentionally precise: FormGuard is not claiming to copy every FormLimiter feature. It is an alternative when your real problem is Google Forms limits and operational control.</p>
+      </section>
+
+      <section class="section">
+        <h2>Why users switch to FormGuard</h2>
+        <div class="grid"><div class="mini"><h3>Response caps without babysitting</h3><p>Set a max-response rule so a registration form does not keep collecting entries after capacity is full.</p></div>
+<div class="mini"><h3>Choice quotas included</h3><p>Limit each workshop, appointment slot, class, or option instead of only closing the whole form.</p></div>
+<div class="mini"><h3>Owner alerts</h3><p>Get notified when responses arrive or when a form needs attention.</p></div>
+<div class="mini"><h3>Better fit for live operations</h3><p>Useful for events, classes, internal forms, and appointment-style signups where overbooking is expensive.</p></div></div>
+      </section>
+
+      <section class="section">
+        <h2>FormLimiter vs FormGuard</h2>
+        <table class="compare"><thead><tr><th>Need</th><th>Better fit</th><th>Why</th></tr></thead><tbody><tr><td>Close a form after 100 responses</td><td><strong>FormGuard</strong></td><td>It focuses on Google Forms response limits and launch rules.</td></tr>
+<tr><td>Close a form after a deadline</td><td><strong>FormGuard</strong></td><td>Use deadline-style workflows and clear close messages.</td></tr>
+<tr><td>Limit each appointment slot separately</td><td><strong>FormGuard</strong></td><td>Choice quotas handle per-option capacity, not just whole-form closing.</td></tr>
+<tr><td>Only need the historical FormLimiter workflow</td><td><strong>FormLimiter</strong></td><td>If an existing FormLimiter setup already works for you, you may not need to switch.</td></tr></tbody></table>
+      </section>
+
+      <section class="section card">
+        <h2>Best use cases</h2>
+        <ol class="steps"><li><strong>Event registration:</strong> stop collecting registrations after seats are full.</li>
+<li><strong>Workshop signup:</strong> limit each session independently so popular sessions do not overbook.</li>
+<li><strong>Class enrollment:</strong> cap each class, role, or cohort option.</li>
+<li><strong>Internal requests:</strong> close a request form after capacity, deadline, or owner review.</li>
+<li><strong>Quizzes:</strong> combine launch controls with timer-style workflows.</li></ol>
+      </section>
+
+      <section class="section card">
+        <h2>Related Google Forms guides</h2>
+        <p>
+          <a href="formranger-alternative-google-forms.html">FormRanger alternative</a> ·
+          <a href="formlimiter-alternative-google-forms.html">FormLimiter alternative</a> ·
+          <a href="choice-eliminator-alternative-google-forms.html">Choice Eliminator alternative</a> ·
+          <a href="google-forms-response-limit.html">Google Forms response limit</a> ·
+          <a href="google-forms-choice-limit.html">Google Forms choice limit</a>
+</p>
+        <p>Secondary keywords covered here: formlimiter alternative, formlimiter replacement, limit google form responses, google forms limiter.</p>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <details><summary><strong>Is FormGuard a complete FormLimiter clone?</strong></summary><p>No. FormGuard is an alternative for users whose main need is Google Forms limits, quotas, notifications, and timer-style workflows.</p></details>
+<details><summary><strong>Can FormGuard limit total Google Forms responses?</strong></summary><p>Yes. Response-limit workflows are a core FormGuard use case.</p></details>
+<details><summary><strong>Can it limit each choice separately?</strong></summary><p>Yes. Use choice quotas for appointment slots, sessions, workshops, or limited options.</p></details>
+<details><summary><strong>Should I mention FormLimiter in Marketplace copy?</strong></summary><p>No. Competitor comparisons belong on owned SEO pages, not Marketplace titles.</p></details>
+      </section>
+    </main>
+    <footer class="footer"><p>Part of <a href="../index.html">FormSuite</a>. Google Workspace is a trademark of Google LLC.</p></footer>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>
