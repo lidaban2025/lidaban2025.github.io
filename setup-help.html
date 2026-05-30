@@ -263,6 +263,21 @@
 
       if (!form || !status) return;
 
+      var params = new URLSearchParams(window.location.search);
+      var requestedProduct = params.get("product");
+      var sourceParam = params.get("source");
+      var productSelect = form.querySelector("[name='product']");
+
+      if (requestedProduct && productSelect) {
+        Array.prototype.some.call(productSelect.options, function (option) {
+          if (option.text === requestedProduct || option.value === requestedProduct) {
+            productSelect.value = option.value || option.text;
+            return true;
+          }
+          return false;
+        });
+      }
+
       form.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -275,7 +290,7 @@
           blocker: data.get("blocker"),
           consent: data.get("consent") === "on",
           page: window.location.pathname,
-          source: "formsuite.dev/setup-help"
+          source: sourceParam || "formsuite.dev/setup-help"
         };
 
         if (!payload.product || !payload.contact_email || !payload.workflow || !payload.consent) {
