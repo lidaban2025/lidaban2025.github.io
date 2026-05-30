@@ -47,7 +47,7 @@ img { display: block; max-width: 100%; }
   background: linear-gradient(135deg, var(--accent-2), #9aa1ff); color: white;
   font-size: 0.72rem; font-weight: 700; box-shadow: 0 0 34px rgba(124, 131, 255, 0.25);
 }
-.nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; color: var(--muted); font-size: 0.86rem; font-weight: 520; }
+.nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; color: #b7bfcc; font-size: 0.86rem; font-weight: 520; }
 .nav a { padding: 7px 0; }
 .nav a[href*="install"], .nav a:last-child { color: var(--text); }
 
@@ -86,7 +86,8 @@ h1 { max-width: 12.8ch; font-size: clamp(3rem, 7.4vw, 5.9rem); line-height: 0.92
 }
 .mock-title, .rule-row, .sidebar-product, .preview-steps { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .mock-title strong, .sidebar-product strong { font-weight: 620; }
-.mock-title span, .sidebar-product span, .rule-row span:first-child { color: var(--faint); font-size: 0.78rem; }
+.mock-title span, .sidebar-product span, .rule-row span:first-child { color: #9099a8; font-size: 0.78rem; }
+.sidebar-product div { display: grid; gap: 2px; }
 .rule-row { margin-top: 15px; color: #dfe4ef; font-size: 0.86rem; }
 .mock-line { height: 9px; border-radius: 999px; background: rgba(255,255,255,0.095); margin-top: 13px; }
 .mock-line.wide { width: 88%; } .mock-line.mid { width: 62%; } .mock-line.short { width: 42%; }
