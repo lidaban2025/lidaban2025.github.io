@@ -1,257 +1,85 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormRanger | Dynamic Google Forms choices from Google Sheets</title>
-  <meta name="description" content="Install FormRanger from Google Workspace Marketplace to sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.">
+  <meta name="description" content="Sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.">
   <link rel="canonical" href="https://formsuite.dev/formranger/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../product-landing.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="FormRanger | Dynamic Google Forms choices from Google Sheets">
-  <meta property="og:description" content="Install FormRanger to keep Google Forms dropdowns, checkbox lists, and multiple-choice options synced from spreadsheet data.">
+  <meta property="og:description" content="Sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.">
   <meta property="og:url" content="https://formsuite.dev/formranger/">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FormRanger | Dynamic Google Forms choices">
-  <meta name="twitter:description" content="Sync Google Forms choices from selected Google Sheets source data.">
+  <meta name="twitter:title" content="FormRanger | Dynamic Google Forms choices from Google Sheets">
+  <meta name="twitter:description" content="Sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "FormRanger Pro - Dynamic Choice Sync",
-      "alternateName": "FormRanger",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Google Workspace",
-      "url": "https://formsuite.dev/formranger/",
-      "image": "https://formsuite.dev/social-card.svg",
-      "description": "FormRanger syncs Google Forms question choices from selected Google Sheets ranges with sorting and deduplication.",
-      "downloadUrl": "https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524",
-      "provider": { "@type": "Organization", "name": "FormSuite" }
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      "name": "Sync Google Forms choices from Google Sheets | FormRanger",
-      "description": "A FormRanger walkthrough for selecting a spreadsheet source, mapping a Google Forms choice question, running preflight, and updating choices.",
-      "thumbnailUrl": "https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg",
-      "uploadDate": "2026-05-23",
-      "embedUrl": "https://www.youtube-nocookie.com/embed/h7jBGOmMm9c",
-      "contentUrl": "https://youtu.be/h7jBGOmMm9c"
-    }
-  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "FormRanger", "applicationCategory": "BusinessApplication", "operatingSystem": "Google Workspace", "url": "https://formsuite.dev/formranger/", "description": "Sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.", "provider": {"@type": "Organization", "name": "FormSuite"}}</script>
 </head>
 <body>
   <div class="shell">
     <header class="topbar">
-      <a class="brand" href="../index.html" aria-label="FormSuite home">
-        <span class="brand-mark">FS</span>
-        <span>FormRanger</span>
-      </a>
-      <nav class="nav" aria-label="FormRanger navigation">
-        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
-        <a href="support.html">Setup</a>
-        <a href="permissions.html">Permissions</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="../choose-google-workspace-addon.html">Chooser</a>
+      <a class="brand" href="../index.html" aria-label="FormSuite home"><span class="brand-mark">FR</span><span>FormRanger</span></a>
+      <nav class="nav" aria-label="Product navigation">
+        <a href="support.html">Setup</a><a href="permissions.html">Permissions</a><a href="../install.html">Install</a><a href="../choose-google-workspace-addon.html">Chooser</a>
       </nav>
     </header>
-
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow">Published Google Workspace add-on</div>
-          <h1 id="hero-title">Sync form choices from Sheets.</h1>
-          <p>Use FormRanger to populate Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.</p>
-          <div class="hero-proof" aria-label="Marketplace signal">
-            <span>63 visible users</span>
-            <span>1 review</span>
-            <span>First-run test path</span>
+          <div class="eyebrow">Google Forms + Sheets add-on</div>
+          <h1 id="hero-title">Keep form choices synced from Sheets.</h1>
+          <p>FormRanger turns spreadsheet ranges into live dropdown, checkbox, and multiple-choice options so teams stop copy-pasting lists into Forms.</p>
+          <div class="hero-proof" aria-label="Key capabilities">
+            <span>Sheet ranges</span>
+            <span>Dropdown sync</span>
+            <span>Checkbox options</span>
+            <span>Refresh controls</span>
           </div>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
-            <a class="btn" href="dynamic-google-forms-dropdown-guide.html">See the workflow</a>
-            <a class="btn" href="../formguard/formranger-alternative-google-forms.html">Need limits instead?</a>
-          </div>
+          <div class="hero-actions"><a class="btn btn-primary" href="../install.html">Install from Marketplace</a><a class="btn" href="support.html">Read setup guide</a></div>
         </div>
-        <article class="product-visual workflow-preview" aria-label="FormRanger workflow preview">
-          <div class="preview-topline">
-            <strong>Sheets to Forms preview</strong>
-            <span>No Apps Script</span>
-          </div>
-          <div class="preview-canvas">
-            <div class="mock-stack">
+        <article class="product-visual workflow-preview" aria-label="Product workflow preview">
+          <div class="preview-topline"><strong>Choice sync preview</strong><span>Sheets → Forms</span></div>
+          <div class="preview-canvas"><div class="mock-stack">
               <div class="mock-panel">
-                <div class="mock-title">
-                  <strong>Google Sheet</strong>
-                  <span>source range</span>
-                </div>
-                <div class="choice-list">
-                  <span>Workshop A</span>
-                  <span>Workshop B</span>
-                  <span>Workshop C</span>
-                </div>
-              </div>
-              <div class="mock-panel">
-                <div class="mock-title">
-                  <strong>Google Form</strong>
-                  <span>dropdown updated</span>
-                </div>
+                <div class="mock-title"><strong>Google Sheet</strong><span>source range</span></div>
                 <div class="mock-line wide"></div>
-                <div class="choice-row"><span>Session</span><span>from Sheets</span></div>
-                <div class="mock-line short"></div>
+                <div class="rule-row"><span>Rows found</span><span>128 choices</span></div>
+                <div class="sync-source">Workshop A, Workshop B, Workshop C</div>
               </div>
-            </div>
-            <div class="mock-sidebar">
-              <div class="sidebar-product">
-                <img src="../assets/product-icons/formranger.png" alt="">
-                <div>
-                  <strong>FormRanger</strong>
-                  <span>choice sync</span>
-                </div>
+              <div class="mock-panel">
+                <div class="mock-title"><strong>Google Form</strong><span>dropdown question</span></div>
+                <div class="mock-line wide"></div>
+                <div class="rule-row"><span>Question</span><span>Choose a session</span></div>
+                <div class="sync-source">Choices updated from sheet</div>
               </div>
-              <p>Map one question, run Preflight, update choices, then check the public form preview.</p>
-              <span class="status-pill">Ready to test</span>
-            </div>
-          </div>
-          <div class="preview-steps" aria-label="First-run setup path">
-            <span>1. Pick range</span>
-            <span>2. Map question</span>
-            <span>3. Update</span>
-          </div>
+            </div><div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formranger.png" alt=""><div><strong>FormRanger</strong><span>Workspace add-on</span></div></div><p>Pick a sheet range, map it to a question, preview the choices, and refresh when the source changes.</p><span class="status-pill">Sync ready</span></div></div>
+          <div class="preview-steps"><span>1. Configure</span><span>2. Preview</span><span>3. Launch</span></div>
         </article>
       </section>
-
-      <section class="section" aria-labelledby="flow-title">
-        <div class="section-head">
-          <div>
-            <h2 id="flow-title">Map one question first.</h2>
-            <p>Install the add-on, prove the sync on one dropdown or checkbox question, then expand to more forms.</p>
-          </div>
-        </div>
-        <div class="step-grid">
-          <article class="step-card">
-            <div class="step-num">1</div>
-            <h3>Choose the source range</h3>
-            <p>Keep the valid options in a Google Sheets column your team maintains.</p>
-          </article>
-          <article class="step-card">
-            <div class="step-num">2</div>
-            <h3>Map the question</h3>
-            <p>Connect the range to a dropdown, checkbox, or multiple-choice question.</p>
-          </article>
-          <article class="step-card">
-            <div class="step-num">3</div>
-            <h3>Refresh and verify</h3>
-            <p>Check the form preview and confirm the choices match the sheet.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="first-run-title">
-        <div class="guide-panel">
-          <div>
-            <h2 id="first-run-title">First-run proof: update one choice question.</h2>
-            <p>Use one copied form, one question, and Alpha/Beta in Sheets. Run Preflight, Update now, then check the public preview.</p>
-          </div>
-          <div class="link-row">
-            <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-            <a href="support.html">First setup guide</a>
-            <a href="import-google-forms-choices-from-google-sheets.html">Import choices from Sheets</a>
-            <a href="test-google-forms-dynamic-choices-before-launch.html">Test before launch</a>
-            <a href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
-            <a href="permissions.html">Review permissions</a>
-            <a href="../review-after-first-success.html">Review after success</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="demo-title">
-        <div class="section-head">
-          <div>
-            <h2 id="demo-title">See the path, then install.</h2>
-            <p>Short demo and setup pages are here if you want proof before touching a real form.</p>
-          </div>
-        </div>
-        <div class="mini-guide-grid">
-          <article class="mini-guide-card">
-            <strong>Watch the demo</strong>
-            <p>See one Sheets range update one Google Forms question.</p>
-            <a href="https://youtu.be/h7jBGOmMm9c">Open YouTube demo</a>
-          </article>
-          <article class="mini-guide-card">
-            <strong>Test safely</strong>
-            <p>Use a copied form and two sample values before launch.</p>
-            <a href="test-google-forms-dynamic-choices-before-launch.html">Open test guide</a>
-          </article>
-          <article class="mini-guide-card">
-            <strong>Review permissions</strong>
-            <p>Understand why the add-on needs Forms and Sheets access.</p>
-            <a href="permissions.html">Read permissions</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="guide-title">
-        <div class="guide-panel">
-          <div>
-            <h2 id="guide-title">Install and test one mapping.</h2>
-            <p>Choose the guide that matches the question type or limit concern.</p>
-          </div>
-          <div class="link-row">
-            <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
-            <a href="https://youtu.be/h7jBGOmMm9c">YouTube demo</a>
-            <a href="support.html">Setup guide</a>
-            <a href="import-google-forms-choices-from-google-sheets.html">Import choices from Sheets</a>
-            <a href="test-google-forms-dynamic-choices-before-launch.html">Test before launch</a>
-            <a href="dynamic-google-forms-dropdown-guide.html">Dynamic dropdown guide</a>
-            <a href="formranger-alternative-google-forms.html">FormRanger alternative</a>
-            <a href="google-forms-dropdown-from-google-sheets-without-apps-script.html">No-code Sheets dropdown</a>
-            <a href="google-forms-dependent-dropdown-from-google-sheets.html">Dependent dropdown limits</a>
-            <a href="../resources/google-forms-choices-from-sheets-with-capacity-limits.html">Choices + capacity limits</a>
-            <a href="auto-update-google-forms-dropdown-from-google-sheets.html">Auto-update dropdown</a>
-            <a href="google-forms-dropdown-not-updating-from-google-sheets.html">Dropdown not updating</a>
-            <a href="populate-google-forms-multiple-choice-from-google-sheets.html">Multiple choice from Sheets</a>
-            <a href="google-forms-checkbox-list-from-google-sheets.html">Checkbox list from Sheets</a>
-            <a href="google-forms-grid-choices-from-google-sheets.html">Grid choices from Sheets</a>
-            <a href="permissions.html">Permissions</a>
-            <a href="../choose-google-workspace-addon.html">Compare add-ons</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="faq-title">
-        <h2 id="faq-title">Frequently asked questions</h2>
-        <div class="faq-panel">
-          <details>
-            <summary><strong>How should I start?</strong></summary>
-            <p>Start with one dropdown question connected to one clean Google Sheets range.</p>
-          </details>
-          <details>
-            <summary><strong>What question should I test first?</strong></summary>
-            <p>Start with a low-risk dropdown or checkbox question where the source sheet is easy to inspect.</p>
-          </details>
-          <details>
-            <summary><strong>Can it work with checkboxes or multiple choice?</strong></summary>
-            <p>The intended workflow covers supported Google Forms choice questions such as dropdowns, checkboxes, multiple choice, and grid-style choice rows when a spreadsheet-backed list is the right source.</p>
-          </details>
-        </div>
-      </section>
+      <section class="section" aria-labelledby="flow-title"><div class="section-head"><div><h2 id="flow-title">A focused workflow, not another bulky form builder.</h2><p>Each FormSuite add-on does one operational job around Google Forms, Sheets, Docs, or Gmail — then gets out of the way.</p></div></div><div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>Select source data</h3><p>Choose the spreadsheet and range that owns the list.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Map to a question</h3><p>Connect the range to a dropdown, checkbox, or multiple-choice item.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Refresh safely</h3><p>Preview and update the form when the sheet changes.</p></article>
+        </div></section>
+      <section class="section" aria-labelledby="guide-title"><div class="guide-panel"><div><h2 id="guide-title">Start with the safest path.</h2><p>Install, review permissions, test on a copy or sample row, then move the workflow to production.</p></div><div class="link-row"><a href="../install.html">Install</a><a href="support.html">Setup guide</a><a href="permissions.html">Permissions</a>
+                        <a href="../resources/google-forms-choices-from-sheets-with-capacity-limits.html">Google Forms Choices From Sheets With Capacity Limits</a>
+          </div></div></section>
+      <section class="section" aria-labelledby="demo-title"><div class="section-head"><div><h2 id="demo-title">Proof before production.</h2><p>Small tests catch broken permissions, wrong mappings, and unclear messages before real users touch the workflow.</p></div></div><div class="mini-guide-grid"><article class="mini-guide-card"><strong>Install</strong><p>Add the Workspace add-on and open it from the relevant Google app.</p><a href="../install.html">Open install path</a></article><article class="mini-guide-card"><strong>Check permissions</strong><p>Review exactly why the add-on needs access to Forms, Sheets, Docs, or Gmail.</p><a href="permissions.html">Read permissions</a></article><article class="mini-guide-card"><strong>Run one test</strong><p>Use a copied form, sample row, or preview send before enabling the real workflow.</p><a href="support.html">Open setup guide</a></article></div></section>
+      <section class="section" aria-labelledby="faq-title"><h2 id="faq-title">Frequently asked questions</h2><div class="faq-panel">
+          <details><summary><strong>Does it replace FormGuard?</strong></summary><p>No. FormRanger syncs choices from Sheets. FormGuard controls limits, quotas, alerts, and close behavior.</p></details>
+          <details><summary><strong>Can it sync dropdowns and checkboxes?</strong></summary><p>Yes. It is built for Google Forms choice questions that should be maintained from spreadsheet data.</p></details>
+          <details><summary><strong>Should the sheet be the source of truth?</strong></summary><p>Yes. Keep the list in Sheets, then refresh the form choices from that source.</p></details>
+        </div></section>
     </main>
-
-    <footer class="footer">
-      <span>Contact: <a href="../support.html">FormSuite support</a></span>
-      <span>&copy; 2026 FormSuite. Google Forms, Google Sheets, and Google Workspace are trademarks of Google LLC.</span>
-    </footer>
+    <footer class="footer"><span><a href="support.html">Support</a> | <a href="permissions.html">Permissions</a> | <a href="../install.html">Install</a></span><span>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</span></footer>
   </div>
-  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>
-
