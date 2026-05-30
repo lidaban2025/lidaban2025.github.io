@@ -158,34 +158,66 @@
 
     .task-list {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 10px;
     }
 
     .task-row {
+      position: relative;
       display: grid;
-      grid-template-rows: 58px minmax(44px, auto) auto;
-      gap: 10px;
-      min-height: 174px;
-      padding: 15px;
+      grid-template-rows: 70px minmax(42px, auto) auto;
+      gap: 9px;
+      min-height: 178px;
+      padding: 12px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
+      overflow: hidden;
     }
 
-    .task-row strong {
-      font-size: 0.96rem;
-      line-height: 1.18;
+    .task-row:hover {
+      border-color: #b7c4d7;
+    }
+
+    .task-row::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 54px;
+      background: var(--blue-soft);
+      z-index: 0;
     }
 
     .product-icon {
-      width: 48px;
-      height: 48px;
+      position: relative;
+      z-index: 1;
+      width: 64px;
+      height: 64px;
       object-fit: contain;
       object-position: center;
     }
 
+    .task-copy {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 3px;
+    }
+
+    .task-copy strong {
+      font-size: 0.86rem;
+      line-height: 1.14;
+    }
+
+    .task-copy span {
+      color: var(--blue);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+
     .task-actions {
+      position: relative;
+      z-index: 1;
       display: flex;
       gap: 10px;
       font-size: 0.9rem;
@@ -222,20 +254,19 @@
         font-size: clamp(2.8rem, 13vw, 4rem);
       }
 
-      .task-list { grid-template-columns: 1fr; }
+      .task-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
       .task-row {
-        grid-template-columns: 52px minmax(0, 1fr);
-        grid-template-rows: auto auto;
-        gap: 8px 12px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px minmax(52px, auto) auto;
+        gap: 8px;
         min-height: 0;
-        padding: 14px;
+        padding: 11px;
       }
 
       .product-icon {
-        grid-row: 1 / span 2;
-        width: 44px;
-        height: 44px;
+        width: 54px;
+        height: 54px;
       }
 
       .task-actions {
@@ -274,7 +305,7 @@
         <div class="task-list" aria-label="FormSuite task launcher">
           <article class="task-row">
             <img class="product-icon" src="assets/product-icons/formguard.png" alt="FormGuard icon">
-            <strong>Close a form when it is full</strong>
+            <div class="task-copy"><span>FormGuard</span><strong>Close when full</strong></div>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
               <a href="formguard/test-google-forms-response-limit-before-launch.html">Test</a>
@@ -283,7 +314,7 @@
 
           <article class="task-row">
             <img class="product-icon" src="assets/product-icons/formnotifier.png" alt="FormNotifier icon">
-            <strong>Send emails after a form submit</strong>
+            <div class="task-copy"><span>FormNotifier</span><strong>Email after submit</strong></div>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
               <a href="formnotifier/test-google-forms-confirmation-email-before-launch.html">Test</a>
@@ -292,7 +323,7 @@
 
           <article class="task-row">
             <img class="product-icon" src="assets/product-icons/formranger.png" alt="FormRanger icon">
-            <strong>Sync choices from Sheets</strong>
+            <div class="task-copy"><span>FormRanger</span><strong>Sync choices</strong></div>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install</a>
               <a href="formranger/auto-update-google-forms-dropdown-from-google-sheets.html">Test</a>
@@ -301,7 +332,7 @@
 
           <article class="task-row">
             <img class="product-icon" src="assets/product-icons/formcopy.png" alt="FormCopy Pro icon">
-            <strong>Copy formulas to new response rows</strong>
+            <div class="task-copy"><span>FormCopy Pro</span><strong>Copy formulas</strong></div>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install</a>
               <a href="formcopy/test-google-forms-response-sheet-formulas-before-launch.html">Test</a>
@@ -310,7 +341,7 @@
 
           <article class="task-row">
             <img class="product-icon" src="assets/product-icons/docforge.png" alt="DocForge icon">
-            <strong>Generate Docs or PDFs from rows</strong>
+            <div class="task-copy"><span>DocForge</span><strong>Generate PDFs</strong></div>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
               <a href="docforge/generate-one-pdf-from-google-sheets-before-batch.html">Test</a>
@@ -319,7 +350,7 @@
 
           <article class="task-row">
             <img class="product-icon" src="assets/product-icons/formmerge.png" alt="FormMerge Pro icon">
-            <strong>Send email from spreadsheet rows</strong>
+            <div class="task-copy"><span>FormMerge Pro</span><strong>Send row email</strong></div>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a>
               <a href="formmerge/send-test-email-from-google-sheets-before-mail-merge.html">Test</a>
@@ -328,7 +359,7 @@
 
           <article class="task-row">
             <img class="product-icon" src="assets/product-icons/formflow.png" alt="FormFlow icon">
-            <strong>Route form submissions for approval</strong>
+            <div class="task-copy"><span>FormFlow</span><strong>Route approvals</strong></div>
             <div class="task-actions">
               <a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install</a>
               <a href="formflow/test-google-forms-approval-workflow-before-launch.html">Test</a>
