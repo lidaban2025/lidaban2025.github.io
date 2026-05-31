@@ -3,95 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FormRanger Setup Guide and Support | dynamic Google Forms choices</title>
-  <meta name="description" content="Get FormRanger setup help, permissions notes, and FAQ for dynamic Google Forms dropdowns, checkbox lists, and spreadsheet-backed choice syncing.">
+  <title>FormRanger Support | dynamic Google Forms choices</title>
+  <meta name="description" content="Short setup help and support links for FormRanger: sync Google Forms dropdowns, checkboxes, and multiple-choice questions from Google Sheets.">
   <link rel="canonical" href="https://formsuite.dev/formranger/support.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="FormRanger Setup Guide and Support | dynamic Google Forms choices">
-  <meta property="og:description" content="Get FormRanger setup help, permissions notes, and FAQ for dynamic Google Forms dropdowns, checkbox lists, and spreadsheet-backed choice syncing.">
+  <meta property="og:title" content="FormRanger Support | dynamic Google Forms choices">
+  <meta property="og:description" content="Short setup help and support links for FormRanger: sync Google Forms dropdowns, checkboxes, and multiple-choice questions from Google Sheets.">
   <meta property="og:url" content="https://formsuite.dev/formranger/support.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FormRanger Setup Guide and Support">
-  <meta name="twitter:description" content="Setup help and FAQ for dynamic Google Forms choices backed by selected spreadsheet data.">
+  <meta name="twitter:title" content="FormRanger Support">
+  <meta name="twitter:description" content="Short setup help and support links for FormRanger: sync Google Forms dropdowns, checkboxes, and multiple-choice questions from Google Sheets.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
-        {
-          "@type": "WebPage",
-          "name": "FormRanger setup guide and support",
-          "url": "https://formsuite.dev/formranger/support.html",
-          "description": "Setup help, permissions notes, and FAQ for FormRanger."
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
+        {"@type":"WebPage","name":"FormRanger support","url":"https://formsuite.dev/formranger/support.html","description":"Short setup help and support links for FormRanger: sync Google Forms dropdowns, checkboxes, and multiple-choice questions from Google Sheets."},
+        {"@type":"FAQPage","mainEntity":[
             {
               "@type": "Question",
-              "name": "Which question types are supported?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Multiple choice, dropdown, checkbox, grid, and checkbox grid questions."
-              }
+              "name": "Which questions work?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Dropdown, multiple choice, checkbox, grid, and checkbox grid questions."}
             },
             {
               "@type": "Question",
-              "name": "Why does a mapping fail validation?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Typical causes are a removed form question, a renamed sheet tab, or a missing column header in the source spreadsheet."
-              }
+              "name": "Why did update fail?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Usually the form question, sheet tab, or source column was renamed or removed."}
             },
             {
               "@type": "Question",
-              "name": "Can I remove duplicate choices?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. The mapping wizard includes a remove duplicates option before you save the link."
-              }
+              "name": "Can it remove duplicates?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use the remove-duplicates option before saving the mapping."}
             }
-          ]
-        }
+        ]}
       ]
     }
   </script>
-  <style>
-    :root { --bg:#f7f8fc; --panel:#ffffff; --ink:#152033; --muted:#5f6c80; --line:#d9e1f2; --brand:#2151d1; --brand-soft:#ebf1ff; --accent:#0f9d58; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:"Segoe UI",Roboto,Arial,sans-serif; background:radial-gradient(circle at top,#eef3ff 0,var(--bg) 42%); color:var(--ink); line-height:1.65; }
-    .shell { max-width:980px; margin:0 auto; padding:28px 20px 64px; }
-    .nav { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:24px; font-size:14px; }
-    .nav a { color:var(--muted); text-decoration:none; }
-    .nav a:hover { color:var(--brand); }
-    .hero { background:linear-gradient(135deg,#ffffff 0%,#eef3ff 100%); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(33,81,209,.08); }
-    .eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--brand-soft); color:var(--brand); border-radius:999px; padding:6px 12px; font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; margin-bottom:14px; }
-    h1 { font-size:clamp(30px,5vw,44px); line-height:1.08; margin-bottom:12px; }
-    .hero p { max-width:700px; color:var(--muted); font-size:17px; }
-    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid var(--line); }
-    .btn-primary { background:var(--brand); color:#fff; border-color:var(--brand); }
-    .btn-secondary { background:#fff; color:var(--ink); }
-    .path-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
-    .path-links a { display:inline-flex; align-items:center; justify-content:center; min-height:34px; padding:0 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--brand); text-decoration:none; font-size:14px; font-weight:600; }
-    .path-links a:hover { text-decoration:none; border-color:var(--brand); }
-    .grid { display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin-top:24px; }
-    .card { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:24px; box-shadow:0 10px 30px rgba(18,37,63,.04); }
-    .card h2 { font-size:22px; margin-bottom:14px; }
-    .card h3 { font-size:16px; margin:18px 0 10px; }
-    .card p, .card li { color:var(--muted); font-size:15px; }
-    .card ul, .card ol { padding-left:20px; }
-    .card li + li { margin-top:8px; }
-    .faq-item + .faq-item { margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
-    .faq-item strong { display:block; margin-bottom:6px; color:var(--ink); }
-    .meta-list { list-style:none; padding-left:0; }
-    .meta-list li + li { margin-top:10px; }
-    .pill { display:inline-flex; padding:5px 10px; border-radius:999px; background:#eef8f2; color:var(--accent); font-size:12px; font-weight:700; margin-bottom:12px; }
-    footer { margin-top:28px; color:var(--muted); font-size:13px; text-align:center; }
-    @media (max-width:860px) { .grid { grid-template-columns:1fr; } .hero { padding:22px; } }
-  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -108,89 +57,55 @@
       <a href="./terms.html">Terms</a>
       <a href="./support.html">Support</a>
     </nav>
+
     <section class="hero">
-      <div class="eyebrow">Support center</div>
-      <h1>FormRanger setup guide and support</h1>
-      <p>Connect Google Forms questions to selected Google Sheets source data, validate each mapping, and keep live dropdowns, multiple-choice lists, and checkboxes in sync.</p>
+      <div class="eyebrow">Support</div>
+      <h1>FormRanger support</h1>
+      <p>Sync Google Forms choices from selected Google Sheets data without writing Apps Script.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
-        <a class="btn btn-secondary" href="./dynamic-google-forms-dropdown-guide.html">Open workflow guide</a>
-        <a class="btn btn-secondary" href="./test-google-forms-dynamic-choices-before-launch.html">Test before launch</a>
-        <a class="btn btn-secondary" href="./google-forms-dropdown-from-google-sheets-without-apps-script.html">No-code Sheets dropdown</a>
-        <a class="btn btn-secondary" href="../review-after-first-success.html">Review after success</a>
-        <a class="btn btn-secondary" href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
+        <a class="btn btn-secondary" href="./index.html">Product page</a>
+        <a class="btn btn-secondary" href="../support.html">Contact support</a>
       </div>
     </section>
+
     <section class="grid">
       <article class="card">
         <div class="pill">Quick start</div>
-        <h2>Get running fast</h2>
+        <h2>Setup in 3 steps</h2>
         <ol>
-          <li>Open the form in Google Forms edit mode and launch FormRanger.</li>
-          <li>Use Select spreadsheet so FormRanger can access the spreadsheet you explicitly choose.</li>
-          <li>Pick the sheet tab and column you want to use as the live choice source.</li>
-          <li>Save the configuration, run Preflight, and use Update now to verify the choices.</li>
-          <li>Open the public form preview and confirm the visible choices match the source column before sharing the form.</li>
+          <li>Open the Google Form and launch FormRanger.</li>
+          <li>Select the spreadsheet, sheet tab, and column to use as choices.</li>
+          <li>Click Update now, then preview the public form before sending it.</li>
         </ol>
-        <h3>First-run quality gate</h3>
-        <ul>
-          <li>Preflight should show at least one linked question and no issues.</li>
-          <li>Update now should report an updated question, not only a saved mapping.</li>
-          <li>If the update report says skipped or error, treat the setup as unfinished.</li>
-          <li>Do not ask respondents to use the form until the public preview shows the expected choices.</li>
-        </ul>
-        <h3>Permissions and setup notes</h3>
-        <ul>
-          <li>Google Forms access is used to update supported choice-based questions in the current form.</li>
-          <li>Drive file access is used for the spreadsheet file you select through Google Picker.</li>
-          <li>Container UI access displays the mapping sidebar and validation flow.</li>
-          <li>Start with one test question and one selected spreadsheet range before applying the setup to a live form.</li>
-        </ul>
-        <h3>Pick the shortest path for your test</h3>
-        <p>Choose the guide that matches the question type you want to sync, then use the troubleshooting page only if the first update looks wrong.</p>
+        <h3>Useful guides</h3>
         <div class="path-links">
-          <a href="dynamic-google-forms-dropdown-guide.html">Dropdown guide</a>
-          <a href="formranger-alternative-google-forms.html">FormRanger alternative</a>
-          <a href="test-google-forms-dynamic-choices-before-launch.html">Test before launch</a>
-          <a href="import-google-forms-choices-from-google-sheets.html">Import choices from Sheets</a>
-          <a href="google-forms-dropdown-from-google-sheets-without-apps-script.html">No-code Sheets dropdown</a>
-          <a href="google-forms-dependent-dropdown-from-google-sheets.html">Dependent dropdown limits</a>
-          <a href="populate-google-forms-multiple-choice-from-google-sheets.html">Multiple-choice guide</a>
-          <a href="google-forms-checkbox-list-from-google-sheets.html">Checkbox guide</a>
-          <a href="google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
-          <a href="auto-update-google-forms-dropdown-from-google-sheets.html">Auto-update path</a>
+          <a href="./dynamic-google-forms-dropdown-guide.html">Dropdown guide</a>
+          <a href="./test-google-forms-dynamic-choices-before-launch.html">Test before launch</a>
+          <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix choices not updating</a>
         </div>
       </article>
       <aside class="card">
-        <div class="pill">Need help</div>
-        <h2>Contact</h2>
+        <div class="pill">Need help?</div>
+        <h2>Send this info</h2>
         <ul class="meta-list">
-          <li><strong>Support path</strong><br><a href="../support.html">FormSuite support</a></li>
-          <li><strong>Website</strong><br><a href="https://formsuite.dev/">formsuite.dev</a></li>
-          <li><strong>Marketplace</strong><br><a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">FormRanger listing</a></li>
-          <li><strong>Response time</strong><br>Usually within 1 business day for reviewer and customer support questions.</li>
+          <li><strong>Product</strong><br>FormRanger</li>
+          <li><strong>What failed</strong><br>Setup, test run, email, sync, or generated output.</li>
+          <li><strong>Screenshot</strong><br>Include the error message or the result you expected.</li>
+          <li><strong>Contact</strong><br><a href="../support.html">FormSuite support</a></li>
         </ul>
-        <h3>Send a useful bug report</h3>
-        <p>Include the question type, whether you used Create sample source or Google Picker, the Preflight text, the Update now report, and whether the public preview changed.</p>
       </aside>
     </section>
+
     <section class="card" style="margin-top:18px;">
       <div class="pill">FAQ</div>
       <h2>Common questions</h2>
-      <div class="faq-item"><strong>Which question types are supported?</strong><p>Multiple choice, dropdown, checkbox, grid, and checkbox grid questions.</p></div>
-      <div class="faq-item"><strong>Why does a mapping fail validation?</strong><p>Typical causes are a removed form question, a renamed sheet tab, or a missing column header in the source spreadsheet.</p></div>
-      <div class="faq-item"><strong>Can I remove duplicate choices?</strong><p>Yes. The mapping wizard includes a remove duplicates option before you save the link.</p></div>
+      <div class="faq-item"><strong>Which questions work?</strong><p>Dropdown, multiple choice, checkbox, grid, and checkbox grid questions.</p></div>
+        <div class="faq-item"><strong>Why did update fail?</strong><p>Usually the form question, sheet tab, or source column was renamed or removed.</p></div>
+        <div class="faq-item"><strong>Can it remove duplicates?</strong><p>Yes. Use the remove-duplicates option before saving the mapping.</p></div>
     </section>
-    <section class="card" style="margin-top:18px;">
-      <div class="pill">After a successful first run</div>
-      <h2>Help the next Google Forms operator choose faster</h2>
-      <p>If FormRanger linked one question, passed Preflight, updated choices correctly, and the public preview looked right, use the review-after-success page to leave a short, specific Marketplace review. If any step failed, send setup feedback first.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="../review-after-first-success.html">Review after first success</a>
-        <a class="btn btn-secondary" href="../support.html">Open FormSuite support</a>
-      </div>
-    </section>
-    <footer><p>&copy; 2026 FormRanger. Google Forms and Google Sheets are trademarks of Google LLC.</p></footer>
+
+    <footer><p>&copy; 2026 FormRanger. Google Workspace product names are trademarks of Google LLC.</p></footer>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>

@@ -3,92 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FormNotifier Setup Guide and Support | Google Forms email alerts and confirmations</title>
-  <meta name="description" content="Get FormNotifier setup help, permissions notes, and FAQ for Google Forms owner alerts, respondent confirmations, and email template setup.">
+  <title>FormNotifier Support | Google Forms email alerts</title>
+  <meta name="description" content="Short setup help and support links for FormNotifier: owner alerts, respondent confirmations, and Google Forms email templates.">
   <link rel="canonical" href="https://formsuite.dev/formnotifier/support.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="FormNotifier Setup Guide and Support | Google Forms email alerts and confirmations">
-  <meta property="og:description" content="Get FormNotifier setup help, permissions notes, and FAQ for Google Forms owner alerts, respondent confirmations, and email template setup.">
+  <meta property="og:title" content="FormNotifier Support | Google Forms email alerts">
+  <meta property="og:description" content="Short setup help and support links for FormNotifier: owner alerts, respondent confirmations, and Google Forms email templates.">
   <meta property="og:url" content="https://formsuite.dev/formnotifier/support.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FormNotifier Setup Guide and Support">
-  <meta name="twitter:description" content="Setup help and FAQ for Google Forms owner alerts, respondent confirmations, and email template setup.">
+  <meta name="twitter:title" content="FormNotifier Support">
+  <meta name="twitter:description" content="Short setup help and support links for FormNotifier: owner alerts, respondent confirmations, and Google Forms email templates.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
-        {
-          "@type": "WebPage",
-          "name": "FormNotifier setup guide and support",
-          "url": "https://formsuite.dev/formnotifier/support.html",
-          "description": "Setup help, permissions notes, and FAQ for FormNotifier."
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
+        {"@type":"WebPage","name":"FormNotifier support","url":"https://formsuite.dev/formnotifier/support.html","description":"Short setup help and support links for FormNotifier: owner alerts, respondent confirmations, and Google Forms email templates."},
+        {"@type":"FAQPage","mainEntity":[
             {
               "@type": "Question",
-              "name": "Can I send only selected fields in the email?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Turn off Include all form fields and choose the exact fields you want to render."
-              }
+              "name": "Why was no email sent?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Check the respondent email field, template variables, and Gmail sending limits."}
             },
             {
               "@type": "Question",
-              "name": "How do respondent confirmations find the email address?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "FormNotifier uses collected email first, then an explicit email field if you choose one."
-              }
+              "name": "Can I email the form owner?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use owner alerts for new submissions."}
             },
             {
               "@type": "Question",
-              "name": "Where can I inspect the last send result?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The sidebar keeps the latest notification report visible so you can troubleshoot quickly."
-              }
+              "name": "Can I customize the message?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use the template fields and test with one response first."}
             }
-          ]
-        }
+        ]}
       ]
     }
   </script>
-  <style>
-    :root { --bg:#f7f8fc; --panel:#ffffff; --ink:#152033; --muted:#5f6c80; --line:#d9e1f2; --brand:#2151d1; --brand-soft:#ebf1ff; --accent:#0f9d58; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:"Segoe UI",Roboto,Arial,sans-serif; background:radial-gradient(circle at top,#eef3ff 0,var(--bg) 42%); color:var(--ink); line-height:1.65; }
-    .shell { max-width:980px; margin:0 auto; padding:28px 20px 64px; }
-    .nav { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:24px; font-size:14px; }
-    .nav a { color:var(--muted); text-decoration:none; }
-    .nav a:hover { color:var(--brand); }
-    .hero { background:linear-gradient(135deg,#ffffff 0%,#eef3ff 100%); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(33,81,209,.08); }
-    .eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--brand-soft); color:var(--brand); border-radius:999px; padding:6px 12px; font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; margin-bottom:14px; }
-    h1 { font-size:clamp(30px,5vw,44px); line-height:1.08; margin-bottom:12px; }
-    .hero p { max-width:700px; color:var(--muted); font-size:17px; }
-    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid var(--line); }
-    .btn-primary { background:var(--brand); color:#fff; border-color:var(--brand); }
-    .btn-secondary { background:#fff; color:var(--ink); }
-    .grid { display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin-top:24px; }
-    .card { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:24px; box-shadow:0 10px 30px rgba(18,37,63,.04); }
-    .card h2 { font-size:22px; margin-bottom:14px; }
-    .card h3 { font-size:16px; margin:18px 0 10px; }
-    .card p, .card li { color:var(--muted); font-size:15px; }
-    .card ul, .card ol { padding-left:20px; }
-    .card li + li { margin-top:8px; }
-    .faq-item + .faq-item { margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
-    .faq-item strong { display:block; margin-bottom:6px; color:var(--ink); }
-    .meta-list { list-style:none; padding-left:0; }
-    .meta-list li + li { margin-top:10px; }
-    .pill { display:inline-flex; padding:5px 10px; border-radius:999px; background:#eef8f2; color:var(--accent); font-size:12px; font-weight:700; margin-bottom:12px; }
-    footer { margin-top:28px; color:var(--muted); font-size:13px; text-align:center; }
-    @media (max-width:860px) { .grid { grid-template-columns:1fr; } .hero { padding:22px; } }
-  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -98,64 +50,62 @@
   <div class="shell">
     <nav class="nav">
       <a href="/">FormSuite</a>
-      <a href="../install.html">Install</a>
       <a href="./index.html">FormNotifier</a>
+      <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./support.html">Support</a>
     </nav>
+
     <section class="hero">
-      <div class="eyebrow">Support center</div>
-      <h1>FormNotifier setup guide and support</h1>
-      <p>Configure owner alerts, respondent confirmations, merge fields, and template content for Google Forms email workflows without another backend. FormNotifier is now live on Google Workspace Marketplace, so the install page, setup guide, and support docs are aligned around the public release flow.</p>
+      <div class="eyebrow">Support</div>
+      <h1>FormNotifier support</h1>
+      <p>Send owner alerts and respondent confirmation emails from Google Forms submissions.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install from Marketplace</a>
-        <a class="btn btn-secondary" href="./index.html">Open product page</a>
-        <a class="btn btn-secondary" href="https://youtu.be/6ACL0zDx5ro">Watch setup demo</a>
-        <a class="btn btn-secondary" href="./google-forms-email-notifications-guide.html">Open workflow guide</a>
-        <a class="btn btn-secondary" href="./why-google-forms-notification-email-is-not-sending.html">Troubleshoot notifications</a>
-        <a class="btn btn-secondary" href="../review-after-first-success.html">Review after success</a>
-        <a class="btn btn-secondary" href="../support.html">Open support page</a>
+        <a class="btn btn-secondary" href="./index.html">Product page</a>
+        <a class="btn btn-secondary" href="../support.html">Contact support</a>
       </div>
     </section>
+
     <section class="grid">
       <article class="card">
         <div class="pill">Quick start</div>
-        <h2>Get running fast</h2>
-        <ol><li>Open the Google Form in edit mode and launch FormNotifier from the Add-ons icon in the editor toolbar.</li><li>Choose whether to notify the form owner, extra recipients, respondents, or all three.</li><li>Customize the subject line and body, then run Preflight.</li><li>Save the setup and send a test notification before going live.</li></ol>
-        <h3>Permissions used during setup</h3>
-        <ul><li>Google Forms access to read field labels and responses for message rendering.</li><li>Mail access to send notifications and respondent confirmations.</li><li>Container UI access for the Forms editor sidebar only.</li></ul>
-        <h3>Best starting guides</h3>
-        <ul><li><a href="./google-forms-registration-confirmation-email.html">Registration confirmations</a></li><li><a href="./google-forms-send-confirmation-email-to-respondent-and-owner.html">Respondent + owner</a></li><li><a href="./google-forms-preflight-email-setup-checklist.html">Preflight checklist</a></li><li><a href="./google-forms-shared-inbox-notification-setup.html">Shared inbox</a></li></ul>
-        <h3>Public install entry</h3>
-        <ul><li>Marketplace install page: <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">FormNotifier - Smart Form Notifications</a></li><li>Workflow guides: <a href="./send-google-forms-confirmation-email-after-submit.html">confirmation email</a> and <a href="./notify-team-when-google-form-is-submitted.html">team notifications</a>.</li><li>Troubleshooting guide: <a href="./why-google-forms-notification-email-is-not-sending.html">why the notification email is not sending</a>.</li></ul>
+        <h2>Setup in 3 steps</h2>
+        <ol>
+          <li>Open the Google Form and launch FormNotifier.</li>
+          <li>Choose owner alerts, respondent confirmations, or both.</li>
+          <li>Send one test response and confirm the email content before launch.</li>
+        </ol>
+        <h3>Useful guides</h3>
+        <div class="path-links">
+          <a href="./google-forms-email-notifications-guide.html">Notification guide</a>
+          <a href="./why-google-forms-notification-email-is-not-sending.html">Fix emails not sending</a>
+          <a href="./google-forms-registration-confirmation-email.html">Confirmation email guide</a>
+        </div>
       </article>
       <aside class="card">
-        <div class="pill">Need help</div>
-        <h2>Contact</h2>
+        <div class="pill">Need help?</div>
+        <h2>Send this info</h2>
         <ul class="meta-list">
-          <li><strong>Support path</strong><br><a href="../support.html">FormSuite support</a></li>
-          <li><strong>Website</strong><br><a href="https://formsuite.dev/">formsuite.dev</a></li>
-          <li><strong>Response time</strong><br>Usually within 1 business day for setup and customer support questions.</li>
+          <li><strong>Product</strong><br>FormNotifier</li>
+          <li><strong>What failed</strong><br>Setup, test run, email, sync, or generated output.</li>
+          <li><strong>Screenshot</strong><br>Include the error message or the result you expected.</li>
+          <li><strong>Contact</strong><br><a href="../support.html">FormSuite support</a></li>
         </ul>
       </aside>
     </section>
+
     <section class="card" style="margin-top:18px;">
       <div class="pill">FAQ</div>
       <h2>Common questions</h2>
-      <div class="faq-item"><strong>Can I send only selected fields in the email?</strong><p>Yes. Turn off Include all form fields and choose the exact fields you want to render.</p></div><div class="faq-item"><strong>How do respondent confirmations find the email address?</strong><p>FormNotifier uses collected email first, then an explicit email field if you choose one.</p></div><div class="faq-item"><strong>Where can I inspect the last send result?</strong><p>The sidebar keeps the latest notification report visible so you can troubleshoot quickly.</p></div>
+      <div class="faq-item"><strong>Why was no email sent?</strong><p>Check the respondent email field, template variables, and Gmail sending limits.</p></div>
+        <div class="faq-item"><strong>Can I email the form owner?</strong><p>Yes. Use owner alerts for new submissions.</p></div>
+        <div class="faq-item"><strong>Can I customize the message?</strong><p>Yes. Use the template fields and test with one response first.</p></div>
     </section>
-    <section class="card" style="margin-top:18px;">
-      <div class="pill">After setup</div>
-      <h2>Installed successfully?</h2>
-      <p>If FormNotifier installed correctly and your first owner alert, respondent confirmation, template, or test send worked as expected, use the review-after-success page to leave a short, specific Marketplace review. If any step was unclear, send setup feedback first.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="../review-after-first-success.html">Review after first success</a>
-        <a class="btn btn-secondary" href="../support.html">Send setup feedback</a>
-      </div>
-    </section>
-    <footer><p>&copy; 2026 FormNotifier. Part of the FormSuite product family.</p></footer>
+
+    <footer><p>&copy; 2026 FormNotifier. Google Workspace product names are trademarks of Google LLC.</p></footer>
   </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>
