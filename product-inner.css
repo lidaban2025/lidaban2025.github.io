@@ -195,3 +195,121 @@ code, pre {
 .tile li, .path li, .official li, .box li, .callout li, .note li {
   color: #a7afbd !important;
 }
+
+/* Broad FormSuite dark-theme normalization for legacy product/detail pages.
+   Keep this at the end so it beats old inline light cards loaded earlier. */
+.trust-strip,
+.workflow-grid,
+.step-grid,
+.mini-guide-grid,
+.features,
+.feature-grid,
+.grid,
+.cards {
+  gap: 14px !important;
+}
+.trust-item,
+.step-card,
+.mini-guide-card,
+.feature,
+.visual-panel:not(.video-panel),
+.form-event,
+.mail-card,
+.install-panel,
+.note,
+.link-bar a,
+.link-row a,
+.resource-card,
+.workflow-card,
+.comparison-card,
+.tile,
+.path,
+.official,
+.box,
+.callout,
+.panel,
+.card,
+article.card,
+aside.card,
+section:not(.hero) > article,
+main > article {
+  background: linear-gradient(180deg, rgba(255,255,255,0.060), rgba(255,255,255,0.036)) !important;
+  border: 1px solid rgba(255,255,255,0.095) !important;
+  color: #f5f7fb !important;
+  box-shadow: none !important;
+}
+.trust-item strong,
+.step-card strong,
+.step-card h3,
+.mini-guide-card strong,
+.feature strong,
+.feature h3,
+.install-panel strong,
+.note strong,
+.form-event strong,
+.mail-card strong,
+.link-bar a,
+.link-row a,
+.card strong,
+.card h2,
+.card h3,
+.panel strong,
+.panel h2,
+.panel h3 {
+  color: #f5f7fb !important;
+}
+.trust-item span,
+.step-card p,
+.mini-guide-card p,
+.feature p,
+.install-panel p,
+.note,
+.note p,
+.form-event p,
+.mail-body,
+.card p,
+.panel p {
+  color: #a7afbd !important;
+}
+.step-card .number,
+.step-num,
+.status-pill,
+.mail-head {
+  background: rgba(124, 131, 255, 0.14) !important;
+  color: #dfe3ff !important;
+  border: 1px solid rgba(124, 131, 255, 0.24) !important;
+}
+.mail-line { background: rgba(255,255,255,0.16) !important; }
+.btn,
+.button,
+.hero-actions a,
+.path-links a,
+.link-bar a,
+.link-row a,
+.card a:not(.plain),
+a.btn-primary,
+a.btn-secondary {
+  background: rgba(255,255,255,0.050) !important;
+  color: #e6eaf3 !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+.btn-primary,
+.hero-actions a:first-child,
+.path-links a:first-child,
+.link-bar a:first-child,
+.link-row a:first-child,
+a.btn-primary {
+  background: linear-gradient(135deg, #5e6ad2, #848cff) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 12px 44px rgba(94,106,210,0.30) !important;
+}
+/* Avoid light islands inside old visual mockups unless they are media embeds. */
+.product-visual [style*="background:#fff"],
+.product-visual [style*="background: #fff"],
+.product-visual [style*="background:white"],
+.product-visual [style*="background: white"] {
+  background: rgba(255,255,255,0.055) !important;
+}
+.video-panel,
+.video-frame { background: #0f172a !important; }
