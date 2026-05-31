@@ -40,4 +40,5 @@ Marketing assets:
 
 - FormSuite launch distribution pack: `marketing/formsuite-launch-pack.md`
 - Indexing and launch checklist: `marketing/indexing-checklist.md`
+- Manual distribution answers: `marketing/manual-distribution-answers.md`
 - FormGuard distribution pack: `formguard/marketing/distribution-pack.md`
