@@ -17,8 +17,8 @@ Use this after the dark redesign and inner-page cleanup. The goal is not to spam
 ## Core URLs
 
 - Product directory: https://formsuite.dev/
-- Add-on chooser: https://formsuite.dev/choose-google-workspace-addon.html
-- Install hub: https://formsuite.dev/choose-google-workspace-addon.html
+- Add-on chooser: https://formsuite.dev/#products
+- Install hub: https://formsuite.dev/#products
 - FormGuard: https://formsuite.dev/formguard/
 - FormRanger: https://formsuite.dev/formranger/
 - FormNotifier: https://formsuite.dev/formnotifier/

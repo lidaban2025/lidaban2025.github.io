@@ -16,8 +16,8 @@ Use these as human-written starting points for Reddit, Quora, Google Help Commun
 ## Priority URLs
 
 - FormSuite homepage: https://formsuite.dev/
-- Install center: https://formsuite.dev/choose-google-workspace-addon.html
-- Add-on chooser: https://formsuite.dev/choose-google-workspace-addon.html
+- Install center: https://formsuite.dev/#products
+- Add-on chooser: https://formsuite.dev/#products
 - FormGuard: https://formsuite.dev/formguard/
 - FormGuard choice quotas: https://formsuite.dev/formguard/google-forms-choice-limit.html
 - FormRanger: https://formsuite.dev/formranger/

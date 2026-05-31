@@ -12,8 +12,8 @@ _Last updated: 2026-05-30_
 ### Product directory
 
 - https://formsuite.dev/
-- https://formsuite.dev/choose-google-workspace-addon.html
-- https://formsuite.dev/choose-google-workspace-addon.html
+- https://formsuite.dev/#products
+- https://formsuite.dev/#products
 
 ### Product homepages
 

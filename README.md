@@ -25,7 +25,7 @@ Published add-ons:
 
 Install center:
 
-- https://formsuite.dev/choose-google-workspace-addon.html
+- https://formsuite.dev/#products
 
 First-workflow setup help:
 
@@ -33,7 +33,7 @@ First-workflow setup help:
 
 Product chooser:
 
-- https://formsuite.dev/choose-google-workspace-addon.html
+- https://formsuite.dev/#products
 
 
 Marketing assets:
