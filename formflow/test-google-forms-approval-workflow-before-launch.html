@@ -8,141 +8,26 @@
   <link rel="canonical" href="https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="Test a Google Forms approval workflow before launch">
-  <meta property="og:description" content="Use a disposable form, linked response sheet, one approver, and Preflight to test a Google Forms approval workflow before launch.">
+  <meta property="og:title" content="Test a Google Forms approval workflow before launch | FormFlow">
+  <meta property="og:description" content="Test one Google Forms approval workflow before launch with FormFlow, linked response spreadsheet selection, one approver, saved configuration, and Preflight.">
   <meta property="og:url" content="https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Test a Google Forms approval workflow before launch">
-  <meta name="twitter:description" content="A first-run approval workflow test for Google Forms and FormFlow.">
-  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Test a Google Forms approval workflow before launch",
-      "description": "A guide to testing a Google Forms approval workflow with FormFlow before live submissions and reviewers depend on it.",
-      "author": { "@type": "Organization", "name": "FormSuite" },
-      "publisher": { "@type": "Organization", "name": "FormSuite" },
-      "mainEntityOfPage": "https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html"
-    }
-  </script>
-  <style>
-    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
-    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-    .hero { padding:30px; margin-bottom:18px; }
-    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:17ch; }
-    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
-    .hero p,.section p,.section li { color:var(--muted); }
-    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-    .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-    .section { padding:26px; margin-top:18px; }
-    .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
-    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
-    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-    .steps { padding-left:20px; display:grid; gap:10px; }
-    .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-    .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
-    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
-  </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
   <div class="shell">
-    <nav class="nav">
-      <a href="../index.html">FormSuite</a>
-      <a href="../resources/index.html">Resources</a>
-      <a href="./index.html"><strong>FormFlow</strong></a>
-      <a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install</a>
-      <a href="./support.html">Support</a>
-    </nav>
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../install.html">Install</a><a href="../resources/index.html">Guides</a><a href="../support.html">Support</a></nav>
     <section class="hero">
-      <div class="eyebrow">Approval workflow test</div>
+      <div class="eyebrow">Guide</div>
       <h1>Test a Google Forms approval workflow before launch</h1>
-      <p>Do not make the first live submission your first approval test. Use a copied or disposable Google Form, select the linked response spreadsheet, add one known approver, save the workflow, run Preflight, and send one internal test submission before real reviewers depend on it.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install FormFlow</a>
-        <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-        <a class="btn btn-secondary" href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
-      </div>
+      <p>Test one Google Forms approval workflow before launch with FormFlow, linked response spreadsheet selection, one approver, saved configuration, and Preflight.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install</a><a class="btn btn-secondary" href="./support.html">Support</a><a class="btn btn-secondary" href="./index.html">FormFlow</a><a class="btn btn-secondary" href="./google-forms-approval-workflow-guide.html">Approval workflow guide</a><a class="btn btn-secondary" href="../resources/index.html">Resources</a></div>
     </section>
-    <section class="section">
-      <h2>Quick answer</h2>
-      <p class="lead">A safe Google Forms approval workflow test uses one form, one linked response sheet, one approval level, one approver you control, and one sample submission. The test is successful only when Preflight passes and the response sheet can show the workflow status.</p>
-      <div class="grid">
-        <div class="feature"><strong>Response sheet selected</strong><p>FormFlow should show the linked response spreadsheet and response tab before the workflow is enabled.</p></div>
-        <div class="feature"><strong>Approver configured</strong><p>Start with one reviewer email that you can inspect quickly, then add more levels later.</p></div>
-        <div class="feature"><strong>Preflight passed</strong><p>Run Preflight after saving so missing sheets, empty approvers, or quota issues are caught before launch.</p></div>
-        <div class="feature"><strong>Status visible</strong><p>Confirm the linked response sheet is the operational record for approval status and follow-up.</p></div>
-      </div>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Use this page when</div><h2>The workflow matches the title.</h2><p>This short guide points you to the fastest FormSuite path for the problem. Start with one copied form or sheet, not live production data.</p></article>
+      <article class="card"><div class="pill">Do this first</div><h2>Run one safe test.</h2><ol><li>Open the matching product page or setup guide.</li><li>Install from Google Workspace Marketplace if it fits.</li><li>Run one test record and confirm the output before sharing the workflow.</li></ol></article>
+      <aside class="card"><div class="pill">Need help?</div><h2>Send context.</h2><p>Include the product name, what you expected, what happened, and a screenshot of the setup or error.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
     </section>
-    <section class="section">
-      <h2>First-run test with FormFlow</h2>
-      <ol class="steps">
-        <li>Duplicate the Google Form or create a disposable internal test form.</li>
-        <li>Link the form to a Google Sheets response spreadsheet.</li>
-        <li>Install FormFlow and open it from the Google Forms editor add-ons menu.</li>
-        <li>Select the linked response spreadsheet with Google Picker.</li>
-        <li>Create one approval level, such as Manager Approval, and enter one approver email address you control.</li>
-        <li>Save the configuration and confirm the sidebar reports that the workflow was saved.</li>
-        <li>Run Preflight and fix any warning before inviting real reviewers.</li>
-        <li>Submit one internal response through the public form link and confirm the workflow status can be reviewed from the linked response sheet.</li>
-      </ol>
-      <div class="note">In the public first-run smoke on May 27, 2026, FormFlow installed from Marketplace, opened in Google Forms, selected the linked response spreadsheet, saved one approval level, and passed Preflight.</div>
-    </section>
-    <section class="section">
-      <h2>What to verify before launch</h2>
-      <div class="grid">
-        <div class="feature"><strong>Approver email</strong><p>Use a known inbox for the first test so approval messages and any delivery problems are visible.</p></div>
-        <div class="feature"><strong>Question quality</strong><p>Approvers should see enough form answers to make a decision without guessing.</p></div>
-        <div class="feature"><strong>Status columns</strong><p>Check that the response sheet can support the way your team will monitor approval state.</p></div>
-        <div class="feature"><strong>Reviewer handoff</strong><p>Tell reviewers what Approved, Rejected, comment, and reminder behavior should mean in your process.</p></div>
-      </div>
-      <div class="warn">FormFlow is a Google Forms approval workflow add-on, not a full enterprise procurement, expense, compliance, or ticketing platform. Keep the first launch narrow and review the linked response sheet during testing.</div>
-    </section>
-    <section class="section">
-      <h2>If Preflight fails</h2>
-      <p class="lead">Most launch blockers are setup issues, not product mysteries. Fix them before sending live traffic through the form.</p>
-      <div class="grid">
-        <div class="feature"><strong>No linked response sheet</strong><p>Create or reconnect the Google Sheets response destination, then select it from FormFlow with Picker.</p></div>
-        <div class="feature"><strong>No approver</strong><p>Add at least one valid reviewer email to the first approval level.</p></div>
-        <div class="feature"><strong>Permission prompt</strong><p>Complete the Google authorization path for the account that owns or edits the form.</p></div>
-        <div class="feature"><strong>Email quota warning</strong><p>Reduce the test scope and keep launch volume inside Google account limits.</p></div>
-      </div>
-    </section>
-    <section class="section">
-      <h2>After the first approval test works</h2>
-      <p class="lead">If the copied form passed Preflight and one internal submission produced the expected approval path, move to a small live rollout. Ask for setup help only if a specific step blocks you, and leave a Marketplace review only after the first real workflow succeeds.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="../review-after-first-success.html">Review after first success</a>
-        <a class="btn btn-secondary" href="./support.html">Send setup feedback</a>
-        <a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Open Marketplace listing</a>
-      </div>
-    </section>
-    <section class="section">
-      <h2>Related FormFlow guides</h2>
-      <div class="link-bar">
-        <a href="./google-forms-approval-workflow-guide.html">Approval workflow guide</a>
-        <a href="./support.html">Setup guide</a>
-        <a href="./index.html">FormFlow overview</a>
-        <a href="./privacy-policy.html">Privacy policy</a>
-        <a href="./terms-of-service.html">Terms of service</a>
-        <a href="../resources/google-workspace-add-ons-first-run-checklist.html">First-run checklist</a>
-      </div>
-    </section>
-    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Workspace are trademarks of Google LLC.</div>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
