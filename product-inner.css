@@ -313,3 +313,23 @@ a.btn-primary {
 }
 .video-panel,
 .video-frame { background: #0f172a !important; }
+
+
+.video-panel {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  background: #0f172a !important;
+  aspect-ratio: 16 / 9 !important;
+  margin-top: 18px !important;
+}
+.video-panel iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+}
+.compact-actions { margin-top: 16px !important; }
+.footer a[href*="index.html#products"] { color: #dfe3ff !important; }
