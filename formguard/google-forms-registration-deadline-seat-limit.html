@@ -1,221 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Forms Registration Deadline and Seat Limit | FormGuard</title>
-    <meta name="description" content="Set a Google Forms registration deadline and seat limit with native close dates, response limits, FormGuard choice quotas, waitlist messaging, and owner alerts.">
-    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-registration-deadline-seat-limit.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="Google Forms Registration Deadline and Seat Limit | FormGuard">
-    <meta property="og:description" content="A practical setup pattern for registration forms that need both a deadline and a fixed seat limit.">
-    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-registration-deadline-seat-limit.html">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Google Forms Registration Deadline and Seat Limit">
-    <meta name="twitter:description" content="How to combine a registration deadline, seat cap, closed-form message, waitlist path, and owner alert in Google Forms.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Google Forms Registration Deadline and Seat Limit",
-            "description": "How to set a Google Forms registration deadline and seat limit with native close dates, response limits, FormGuard choice quotas, full messages, waitlists, and owner notifications.",
-            "author": { "@type": "Organization", "name": "FormSuite" },
-            "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-registration-deadline-seat-limit.html"
-        }
-    </script>
-    <style>
-        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --amber:#93600c; --amber-soft:#fff7e8; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 52%); line-height:1.68; }
-        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
-        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
-        .nav a { color:var(--muted); font-weight:600; }
-        .nav a:first-child { color:var(--ink); margin-right:auto; }
-        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,.82fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
-        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
-        h1 { font-size:clamp(2.1rem,5vw,3.7rem); line-height:1.02; letter-spacing:0; margin-bottom:18px; max-width:14ch; }
-        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
-        .hero p,.section p,.section li { color:var(--muted); }
-        .hero p { font-size:1.08rem; }
-        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .link-bar a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font-weight:700; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); } .btn-primary:hover { background:var(--blue-strong); text-decoration:none; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:42px 0 8px; margin-top:14px; }
-        .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
-        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-        .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
-        .rule-card { padding:16px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
-        .rule-card strong { display:block; margin-bottom:10px; }
-        .rule-card span { display:flex; justify-content:space-between; gap:12px; padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--muted); margin-top:8px; }
-        .rule-card b { color:var(--green); }
-        .message-preview { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-        .message-preview strong { display:block; margin-bottom:8px; }
-        .status-pill { display:inline-flex; width:fit-content; margin-top:12px; padding:6px 9px; border-radius:8px; background:var(--green-soft); color:var(--green); font-size:.78rem; font-weight:900; }
-        .trust-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0 10px; }
-        .trust-item strong,.step-card strong { display:block; margin-bottom:6px; }
-        .trust-item span,.step-card p { color:var(--muted); font-size:.92rem; }
-        .workflow-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-        .step-card .number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-weight:900; margin-bottom:12px; }
-        .steps { padding-left:20px; display:grid; gap:10px; }
-        .template { margin-top:12px; padding:16px 18px; border-radius:8px; background:var(--amber-soft); border:1px solid #efd49b; color:#6f4a12; }
-        .template code { display:block; white-space:pre-wrap; font-family:Consolas,"Courier New",monospace; font-size:.92rem; line-height:1.55; color:#4c3211; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:8px; border:1px solid #cde8d6; background:var(--green-soft); color:#17633f; font-size:.93rem; }
-        .warn { margin-top:18px; padding:16px 18px; border-radius:8px; border:1px solid #edd8a7; background:var(--amber-soft); color:#7d5a00; font-size:.93rem; }
-        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .hero,.grid,.trust-strip,.workflow-grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.05rem; max-width:none; } .rule-card span { display:grid; } }
-    </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Forms Registration Deadline and Seat Limit | FormGuard</title>
+  <meta name="description" content="Set a Google Forms registration deadline and seat limit with native close dates, response limits, FormGuard choice quotas, waitlist messaging, and owner alerts.">
+  <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-registration-deadline-seat-limit.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Google Forms Registration Deadline and Seat Limit | FormGuard">
+  <meta property="og:description" content="Set a Google Forms registration deadline and seat limit with native close dates, response limits, FormGuard choice quotas, waitlist messaging, and owner alerts.">
+  <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-registration-deadline-seat-limit.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="../index.html">FormSuite</a>
-            <a href="../install.html">Install</a>
-            <a href="../resources/index.html">Resources</a>
-            <a href="./index.html"><strong>FormGuard</strong></a>
-            <a href="./support.html">Support</a>
-        </nav>
-        <section class="hero">
-            <div>
-                <div class="eyebrow">Registration control</div>
-                <h1>Google Forms registration deadline and seat limit</h1>
-                <p>A registration form often needs two rules at the same time: close after a published deadline, and close earlier if the available seats are gone. Use native Google Forms close dates and response limits for simple form-level rules, then add FormGuard when the workflow needs choice quotas, owner alerts, waitlist messaging, or a guided copied-form test.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-                    <a class="btn btn-secondary" href="./google-forms-waitlist-after-capacity.html">Plan the waitlist</a>
-                </div>
-            </div>
-            <div class="visual-panel" aria-label="Registration deadline and seat limit preview">
-                <div class="rule-card">
-                    <strong>Close rule</strong>
-                    <span>Seat cap <b>80 responses</b></span>
-                    <span>Deadline reminder <b>May 30, 5:00 PM</b></span>
-                    <span>Owner alert <b>Enabled</b></span>
-                </div>
-                <div class="message-preview">
-                    <strong>Visitor sees after closure</strong>
-                    <p>Registration is closed because the deadline passed or the available seats are full. Use the waitlist link if one is available.</p>
-                    <span class="status-pill">Cap protected, deadline planned</span>
-                </div>
-            </div>
-        </section>
-        <section class="trust-strip" aria-label="Registration control trust signals">
-            <div class="trust-item"><strong>Quick answer</strong><span>Use a cap plus a calendar deadline.</span></div>
-            <div class="trust-item"><strong>First test</strong><span>Test with a cap of 1 before launch.</span></div>
-            <div class="trust-item"><strong>Best link to share</strong><span>This guide fits event, class, and workshop registration.</span></div>
-            <div class="trust-item"><strong>Boundary</strong><span>Use buffers for high-demand signups.</span></div>
-        </section>
-        <section class="section">
-            <h2>Three-part setup</h2>
-            <div class="workflow-grid">
-                <div class="step-card"><span class="number">1</span><strong>Set the seat cap</strong><p>Pick the public capacity number that should close the main registration form.</p></div>
-                <div class="step-card"><span class="number">2</span><strong>Plan the deadline</strong><p>Add a calendar reminder and use the FormGuard menu Close form action at the published cutoff.</p></div>
-                <div class="step-card"><span class="number">3</span><strong>Write one closed message</strong><p>Use one message that covers both full capacity and deadline closure, with a waitlist path if needed.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Quick answer</h2>
-            <p class="lead">Google Forms now supports simple close dates and form-level response limits. Use those first for a registration form with one deadline and one total cap. Use FormGuard when the registration workflow also needs per-choice quotas, owner alerts, waitlist messaging, or a repeatable first-run test before launch.</p>
-            <div class="template"><code>Registration is now closed.
-
-This form has reached the registration deadline or the available seat limit. If a waitlist is available, please use this link: [waitlist link].
-
-Please wait for organizer confirmation before making travel or schedule changes.</code></div>
-        </section>
-        <section class="section">
-            <h2>When to use this pattern</h2>
-            <div class="grid">
-                <div class="feature"><strong>Classes and workshops</strong><p>Close registration when the seat count is full or when enrollment ends.</p></div>
-                <div class="feature"><strong>Community events</strong><p>Prevent late signups from looking confirmed after the event reaches capacity.</p></div>
-                <div class="feature"><strong>School and club signups</strong><p>Give students or families a clear message instead of leaving an old signup link open.</p></div>
-                <div class="feature"><strong>Internal training</strong><p>Run a predictable enrollment window for limited rooms, materials, or time slots.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Step-by-step setup</h2>
-            <ol class="steps">
-                <li>Decide the real seat limit and whether you need a buffer below that number.</li>
-                <li>Create the Google Form and collect only the fields needed for registration review.</li>
-                <li>Set the native response limit or FormGuard response cap for the public seat limit.</li>
-                <li>Set the native close date for the registration deadline and keep a calendar reminder for the organizer.</li>
-                <li>Write one closed-form message that works for both deadline and full-capacity closure.</li>
-                <li>Add a waitlist form, contact email, or final closure note.</li>
-                <li>Turn on owner notification so the organizer knows when the form closes.</li>
-                <li>Test the form with a copy before sharing the public link.</li>
-            </ol>
-            <div class="note">For high-demand launches, close below the true capacity and confirm the final attendee list manually.</div>
-        </section>
-        <section class="section">
-            <h2>Manual option</h2>
-            <p class="lead">For a small private signup, you can watch the response count and turn off "Accepting responses" manually when the seat limit or deadline arrives.</p>
-            <div class="warn">Manual closing is fragile if signups happen overnight, the link is public, or many people submit around the same time.</div>
-        </section>
-        <section class="section">
-            <h2>FormGuard option</h2>
-            <div class="grid">
-                <div class="feature"><strong>Seat limit</strong><p>Use a response cap to close the registration form when the signup count reaches your limit.</p></div>
-                <div class="feature"><strong>Deadline</strong><p>Use the native Google Forms close date for deadline-only operation, then keep an organizer reminder for live checks.</p></div>
-                <div class="feature"><strong>Full message</strong><p>Show late visitors a waitlist link, contact path, or final closure message.</p></div>
-                <div class="feature"><strong>Owner alert</strong><p>Notify the organizer when the form closes so they can update related pages and communications.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Common mistakes</h2>
-            <div class="grid">
-                <div class="feature"><strong>Using only a deadline</strong><p>A form can fill before the deadline. Capacity still needs its own rule.</p></div>
-                <div class="feature"><strong>Using only a seat cap</strong><p>A form can remain open too long if the seat limit is never reached.</p></div>
-                <div class="feature"><strong>Skipping the closed message</strong><p>Late visitors need to know whether registration is full, closed, waitlisted, or final.</p></div>
-                <div class="feature"><strong>Promising guaranteed seats too early</strong><p>Google Forms is not transactional. Confirm important registrations before treating them as final.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>When Google Forms is not enough</h2>
-            <p>Use dedicated event registration or ticketing software if you need payments, strict real-time inventory, assigned seats, cancellations, transfer rules, or legally important confirmation records.</p>
-            <div class="warn">FormGuard helps with lightweight Google Forms controls. It is not a ticketing system, reservation database, inventory system, or payment workflow.</div>
-        </section>
-        <section class="section">
-            <h2>FAQ</h2>
-            <div class="grid">
-                <div class="feature"><strong>Can Google Forms close at a deadline and seat limit?</strong><p>Yes for simple form-level rules: use the native close date and response limit. Use FormGuard for choice quotas, owner alerts, waitlist messaging, and guided testing.</p></div>
-                <div class="feature"><strong>Can I show different messages for full and deadline closure?</strong><p>Keep one message that covers both if you want the simplest operation. Use a separate waitlist path when late users still need an option.</p></div>
-                <div class="feature"><strong>Can this prevent overbooking completely?</strong><p>No. Google Forms is not transactional, so high-speed public signups still need testing, buffers, and manual confirmation.</p></div>
-                <div class="feature"><strong>Should I collect waitlist responses in the same form?</strong><p>Usually no. A separate waitlist form or contact path keeps confirmed registrations cleaner.</p></div>
-                <div class="feature"><strong>Can FormGuard notify the owner?</strong><p>Yes. Owner notifications help the organizer know when important form activity or closure happens.</p></div>
-                <div class="feature"><strong>Do I need Apps Script?</strong><p>Not for response caps, choice quotas, closed messages, owner notifications, or manual Close/Reopen in FormGuard.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Related guides</h2>
-            <div class="link-bar">
-                <a href="./google-forms-stop-responses-when-full.html">Stop responses when full</a>
-                <a href="./google-forms-rsvp-deadline-capacity-limit.html">RSVP deadline and capacity</a>
-                <a href="./google-forms-rsvp-limit-seats.html">RSVP seat limit</a>
-                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
-                <a href="./google-forms-event-registration-full-message.html">Event full message</a>
-            </div>
-        </section>
-        <section class="section" data-install-cta="marketplace">
-            <h2>Install FormGuard from Marketplace</h2>
-            <p class="lead">Install FormGuard when native Google Forms limits are not enough and the form needs choice quotas, owner alerts, waitlist messaging, or a safer first-run test workflow.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-                <a class="btn btn-secondary" href="../install.html">Compare FormSuite add-ons</a>
-            </div>
-        </section>
-        <div class="footer"><a href="./support.html">Support</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
-    </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <div class="shell">
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../install.html">Install</a><a href="../resources/index.html">Guides</a><a href="../support.html">Support</a></nav>
+    <section class="hero">
+      <div class="eyebrow">Guide</div>
+      <h1>Google Forms registration deadline and seat limit</h1>
+      <p>Set a Google Forms registration deadline and seat limit with native close dates, response limits, FormGuard choice quotas, waitlist messaging, and owner alerts.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="../index.html">FormSuite</a>
+<a class="btn btn-secondary" href="../install.html">Install</a>
+<a class="btn btn-secondary" href="../resources/index.html">Resources</a>
+<a class="btn btn-secondary" href="./index.html">FormGuard</a>
+<a class="btn btn-secondary" href="./support.html">Support</a>
+<a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a></div>
+    </section>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Short path</div><h2>What to do</h2><ol><li>Open the matching FormSuite product page.</li><li>Run one small test with copied data.</li><li>Install from Marketplace only after the test matches your workflow.</li></ol></article>
+      <aside class="card"><div class="pill">Need help?</div><h2>Send a setup note</h2><p>Include the product name, the expected result, and a screenshot of the failing step.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+    </section>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

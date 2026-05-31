@@ -1,209 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF report generator from Google Sheets | DocForge</title>
-    <meta name="description" content="Generate PDF reports from Google Sheets rows with a Google Docs template, merge fields, preflight checks, one-file testing, and DocForge.">
-    <link rel="canonical" href="https://formsuite.dev/docforge/pdf-report-generator-from-google-sheets.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="PDF report generator from Google Sheets | DocForge">
-    <meta property="og:description" content="A practical workflow for turning spreadsheet rows into repeatable PDF reports with Google Docs templates.">
-    <meta property="og:url" content="https://formsuite.dev/docforge/pdf-report-generator-from-google-sheets.html">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PDF report generator from Google Sheets">
-    <meta name="twitter:description" content="Use DocForge to generate PDF reports from spreadsheet rows with one safe test before a batch.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "PDF report generator from Google Sheets",
-            "description": "A guide to generating PDF reports from Google Sheets rows with DocForge.",
-            "author": { "@type": "Organization", "name": "FormSuite" },
-            "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/docforge/pdf-report-generator-from-google-sheets.html"
-        }
-    </script>
-    <style>
-        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --amber:#7a5200; --amber-soft:#fff7e8; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 54%); line-height:1.68; }
-        a { color:var(--blue); text-decoration:none; }
-        a:hover { text-decoration:underline; }
-        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
-        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
-        .nav a { color:var(--muted); font-weight:600; }
-        .nav a:first-child { color:var(--ink); margin-right:auto; }
-        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,.82fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
-        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
-        h1 { font-size:clamp(2.1rem,5vw,3.65rem); line-height:1.02; letter-spacing:0; margin-bottom:18px; max-width:15ch; }
-        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
-        h3 { font-size:1.04rem; margin-bottom:8px; }
-        .hero p,.section p,.section li { color:var(--muted); }
-        .hero p { font-size:1.08rem; }
-        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .link-bar a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font-weight:700; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); }
-        .btn-primary:hover { background:var(--blue-strong); text-decoration:none; }
-        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:42px 0 8px; margin-top:14px; }
-        .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
-        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-        .feature p { color:var(--muted); font-size:.94rem; }
-        .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
-        .report-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
-        .report-card strong { display:block; margin-bottom:12px; }
-        .report-line { height:10px; border-radius:99px; background:#dfe7f3; margin:10px 0; }
-        .report-line.short { width:58%; }
-        .report-line.medium { width:78%; }
-        .sheet-row { display:grid; grid-template-columns:.7fr 1fr .72fr; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; font-size:.84rem; }
-        .sheet-row span { padding:10px; border-right:1px solid var(--line); color:var(--muted); overflow:hidden; text-overflow:ellipsis; }
-        .sheet-row span:last-child { border-right:0; color:var(--green); background:var(--green-soft); font-weight:900; }
-        .status-pill { display:inline-flex; width:fit-content; padding:6px 9px; border-radius:8px; background:var(--green-soft); color:var(--green); font-size:.78rem; font-weight:900; }
-        .trust-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0 10px; }
-        .trust-item strong,.step-card strong { display:block; margin-bottom:6px; }
-        .trust-item span,.step-card p { color:var(--muted); font-size:.92rem; }
-        .workflow-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-        .step-card .number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-weight:900; margin-bottom:12px; }
-        .steps { padding-left:20px; display:grid; gap:10px; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-        .warn { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--amber-soft); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
-        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .hero,.grid,.trust-strip,.workflow-grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.1rem; max-width:none; } .sheet-row { grid-template-columns:.68fr 1fr .7fr; font-size:.76rem; } .sheet-row span { padding:8px; } }
-    </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF report generator from Google Sheets | DocForge</title>
+  <meta name="description" content="Generate PDF reports from Google Sheets rows with a Google Docs template, merge fields, preflight checks, one-file testing, and DocForge.">
+  <link rel="canonical" href="https://formsuite.dev/docforge/pdf-report-generator-from-google-sheets.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="PDF report generator from Google Sheets | DocForge">
+  <meta property="og:description" content="Generate PDF reports from Google Sheets rows with a Google Docs template, merge fields, preflight checks, one-file testing, and DocForge.">
+  <meta property="og:url" content="https://formsuite.dev/docforge/pdf-report-generator-from-google-sheets.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="../index.html">FormSuite</a>
-            <a href="../install.html">Install</a>
-            <a href="../resources/index.html">Resources</a>
-            <a href="./index.html"><strong>DocForge</strong></a>
-            <a href="./support.html">Support</a>
-            <a href="./google-sheets-rows-to-pdf.html">Rows to PDF</a>
-        </nav>
-
-        <section class="hero">
-            <div>
-                <div class="eyebrow">Sheets to PDF reports</div>
-                <h1>PDF report generator from Google Sheets</h1>
-                <p>When each spreadsheet row represents a case, project, client, assessment, inspection, or monthly record, DocForge can merge that row into a Google Docs report template and generate a consistent PDF report.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
-                    <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-                    <a class="btn btn-secondary" href="./generate-one-pdf-from-google-sheets-before-batch.html">Generate one PDF first</a>
-                    <a class="btn btn-secondary" href="https://youtu.be/h_o8LWBdK6k">Watch demo</a>
-                </div>
-            </div>
-            <div class="visual-panel" aria-label="PDF report generation preview">
-                <div class="sheet-row"><span>Row</span><span>Report type</span><span>Status</span></div>
-                <div class="sheet-row"><span>Project A</span><span>Monthly summary</span><span>Ready</span></div>
-                <div class="report-card">
-                    <strong>Generated PDF report</strong>
-                    <div class="report-line"></div>
-                    <div class="report-line medium"></div>
-                    <div class="report-line short"></div>
-                    <span class="status-pill">One sample report checked</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="trust-strip" aria-label="PDF report trust signals">
-            <div class="trust-item"><strong>Quick answer</strong><span>Use one row, one Docs template, and one PDF test.</span></div>
-            <div class="trust-item"><strong>Best fit</strong><span>Case, project, inspection, assessment, and client summaries.</span></div>
-            <div class="trust-item"><strong>Best share link</strong><span>Good for Sheets-to-PDF report questions.</span></div>
-            <div class="trust-item"><strong>Boundary</strong><span>Document output, not analytics or BI.</span></div>
-        </section>
-
-        <section class="section">
-            <h2>Quick answer</h2>
-            <p class="lead">To generate PDF reports from Google Sheets, keep one report record per row, create a Google Docs report template with placeholders, map the sheet columns to the template fields, run preflight, and generate one sample PDF before producing a batch.</p>
-            <div class="grid">
-                <div class="feature"><strong>Best first test</strong><p>Use one representative row with long text, dates, IDs, and optional fields so you can catch page breaks and missing values early.</p></div>
-                <div class="feature"><strong>Best template format</strong><p>Put the layout, logo, fixed wording, headings, tables, and signature areas in Google Docs. Keep changing values in Google Sheets.</p></div>
-            </div>
-            <div class="note">This workflow fits repeatable PDF output. If you need dashboards, chart analysis, accounting ledgers, or report approval routing, keep that work in the tool your team already uses and use DocForge only for the final templated document.</div>
-        </section>
-
-        <section class="section">
-            <h2>Good report rows</h2>
-            <div class="grid">
-                <div class="feature"><strong>Case summaries</strong><p>One row per client, request, support case, intake record, or service result.</p></div>
-                <div class="feature"><strong>Project updates</strong><p>One row per project, reporting period, owner, milestone, risk, and next step.</p></div>
-                <div class="feature"><strong>Inspection reports</strong><p>One row per site, visit, inspector, finding, status, and follow-up date.</p></div>
-                <div class="feature"><strong>Program reports</strong><p>One row per student, participant, vendor, cohort, or internal review period.</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Setup path</h2>
-            <ol class="steps">
-                <li>Prepare a Google Sheet with one report output per row.</li>
-                <li>Create a Google Docs report template with placeholders for the fields that should change.</li>
-                <li>Open DocForge from the Google Sheets Extensions menu.</li>
-                <li>Select the template, map columns to template fields, and choose output naming.</li>
-                <li>Run preflight to catch missing fields, blank required cells, and template access issues.</li>
-                <li>Generate one PDF report from a sample row and inspect the result.</li>
-                <li>Run a small batch before producing the full set of reports.</li>
-            </ol>
-            <div class="warn">Boundary: DocForge generates Docs and PDFs from rows and templates. It is not a full reporting platform, dashboard builder, document management system, legal approval workflow, payment system, or accounting tool.</div>
-        </section>
-
-        <section class="section">
-            <h2>Fields worth planning</h2>
-            <div class="grid">
-                <div class="feature"><strong>Stable ID</strong><p>Use a report ID, case ID, project code, or date so generated files are easy to find later.</p></div>
-                <div class="feature"><strong>Report title</strong><p>Keep the display title in a sheet column when each PDF needs a different title.</p></div>
-                <div class="feature"><strong>Long notes</strong><p>Test the row with the longest text so your template handles page breaks gracefully.</p></div>
-                <div class="feature"><strong>Status column</strong><p>Track Ready, Generated, Reviewed, or Needs fix so the sheet stays useful after generation.</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Install DocForge for this workflow</h2>
-            <p class="lead">Install DocForge when your team already manages report data in Google Sheets and needs repeatable Google Docs or PDF reports without maintaining a custom Apps Script for each template.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a>
-                <a class="btn btn-secondary" href="./permissions.html">Review permissions</a>
-                <a class="btn btn-secondary" href="./privacy.html">Privacy policy</a>
-                <a class="btn btn-secondary" href="../review-after-first-success.html">Review after first success</a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>FAQ</h2>
-            <div class="grid">
-                <div class="feature"><h3>Can DocForge create one PDF report per row?</h3><p>Yes. Use one spreadsheet row per report, map the columns into a Google Docs template, then generate Google Docs or PDF output.</p></div>
-                <div class="feature"><h3>Can this replace a dashboard or BI report?</h3><p>No. Use DocForge for templated document output. Keep data analysis, charts, dashboards, and reporting logic in Sheets or the reporting tool your team already uses.</p></div>
-                <div class="feature"><h3>Should I generate the whole batch first?</h3><p>No. Generate one sample PDF first, review field values and page layout, then run a small batch before the full set.</p></div>
-                <div class="feature"><h3>Can reports include sensitive data?</h3><p>They can, but confirm the template, output folder, file names, and sharing settings before generating files that contain sensitive records.</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Related guides</h2>
-            <div class="link-bar">
-                <a href="./generate-one-pdf-from-google-sheets-before-batch.html">Generate one PDF first</a>
-                <a href="./google-sheets-rows-to-pdf.html">Rows to PDF guide</a>
-                <a href="./google-sheets-rows-to-printable-documents.html">Printable documents</a>
-                <a href="./google-docs-template-merge-fields-not-replacing-from-google-sheets.html">Fix merge fields</a>
-                <a href="./google-sheets-document-generation-guide.html">Document generation guide</a>
-                <a href="../resources/index.html">More workflow guides</a>
-            </div>
-        </section>
-
-        <div class="footer"><a href="./support.html">Support</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</div>
-    </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <div class="shell">
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../install.html">Install</a><a href="../resources/index.html">Guides</a><a href="../support.html">Support</a></nav>
+    <section class="hero">
+      <div class="eyebrow">Guide</div>
+      <h1>PDF report generator from Google Sheets</h1>
+      <p>Generate PDF reports from Google Sheets rows with a Google Docs template, merge fields, preflight checks, one-file testing, and DocForge.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="../index.html">FormSuite</a>
+<a class="btn btn-secondary" href="../install.html">Install</a>
+<a class="btn btn-secondary" href="../resources/index.html">Resources</a>
+<a class="btn btn-secondary" href="./index.html">DocForge</a>
+<a class="btn btn-secondary" href="./support.html">Support</a>
+<a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install DocForge</a></div>
+    </section>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Short path</div><h2>What to do</h2><ol><li>Open the matching FormSuite product page.</li><li>Run one small test with copied data.</li><li>Install from Marketplace only after the test matches your workflow.</li></ol></article>
+      <aside class="card"><div class="pill">Need help?</div><h2>Send a setup note</h2><p>Include the product name, the expected result, and a screenshot of the failing step.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+    </section>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

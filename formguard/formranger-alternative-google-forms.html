@@ -9,193 +9,30 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="FormRanger Alternative for Google Forms Limits | FormGuard">
-  <meta property="og:description" content="FormRanger syncs choices from Sheets. FormGuard adds response limits, choice quotas, notifications, and timers for Google Forms workflows.">
+  <meta property="og:description" content="Looking for a FormRanger alternative because you need Google Forms limits, choice quotas, notifications, or timers? Compare FormRanger and FormGuard.">
   <meta property="og:url" content="https://formsuite.dev/formguard/formranger-alternative-google-forms.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FormRanger Alternative for Google Forms Limits">
-  <meta name="twitter:description" content="Use FormRanger for Sheets choice sync. Use FormGuard when you need limits, quotas, alerts, or timers.">
-  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        "headline": "FormRanger Alternative for Google Forms Limits",
-        "description": "A practical comparison of FormRanger and FormGuard for Google Forms users who need dynamic choices, response limits, choice quotas, notifications, or timers.",
-        "author": { "@type": "Organization", "name": "FormSuite" },
-        "publisher": { "@type": "Organization", "name": "FormSuite" },
-        "dateModified": "2026-05-30",
-        "mainEntityOfPage": "https://formsuite.dev/formguard/formranger-alternative-google-forms.html"
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is FormGuard a FormRanger alternative?",
-            "acceptedAnswer": { "@type": "Answer", "text": "FormGuard is a FormRanger alternative for users who need form controls such as response limits, choice quotas, email notifications, and timers. If the core requirement is syncing choices from Google Sheets, FormRanger is the closer fit." }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the difference between FormRanger and FormGuard?",
-            "acceptedAnswer": { "@type": "Answer", "text": "FormRanger populates Google Forms choices from Google Sheets. FormGuard controls what happens when people submit: total response limits, per-choice quotas, close messages, notifications, and timer-style workflows." }
-          },
-          {
-            "@type": "Question",
-            "name": "Can FormGuard sync Google Forms choices from Google Sheets?",
-            "acceptedAnswer": { "@type": "Answer", "text": "FormGuard focuses on limits, quotas, alerts, and timers. Use FormRanger when your main job is Sheets-to-Forms choice syncing. Use FormGuard when the main job is capacity control." }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-  <style>
-    :root { --ink:#172033; --muted:#5d6b7e; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green:#17633f; --green-soft:#ebf8ef; --amber:#725314; --amber-soft:#fff7df; --panel:#fff; --shadow:0 16px 42px rgba(23,32,51,.10); }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#fff 58%); line-height:1.62; }
-    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-    .shell { max-width:1040px; margin:0 auto; padding:28px 20px 60px; }
-    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-    .nav a { color:var(--muted); font-weight:650; }
-    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-    .hero { padding:32px; margin-bottom:18px; }
-    .eyebrow { display:inline-flex; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:14px; }
-    h1 { font-size:clamp(2.05rem,4.8vw,3.35rem); line-height:1.06; letter-spacing:-.03em; margin-bottom:14px; max-width:16ch; }
-    h2 { font-size:1.45rem; letter-spacing:-.01em; margin-bottom:10px; }
-    h3 { font-size:1.03rem; margin-bottom:7px; }
-    p,li,td { color:var(--muted); }
-    .hero p { max-width:800px; font-size:1.05rem; }
-    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:11px; margin-top:20px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 17px; border-radius:999px; font-weight:760; border:1px solid var(--line); background:#fff; color:var(--ink); }
-    .btn-primary { background:var(--blue); border-color:var(--blue); color:#fff; }
-    .section { padding:26px; margin-top:18px; }
-    .answer { padding:16px 18px; border-radius:16px; background:var(--green-soft); border:1px solid #cde8d6; color:var(--green); font-weight:680; margin-top:14px; }
-    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-    .card,.warn { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
-    .card strong,.warn strong { display:block; color:var(--ink); margin-bottom:7px; }
-    .warn { background:var(--amber-soft); border-color:#ecd28f; color:var(--amber); }
-    .compare-wrap { overflow-x:auto; margin-top:16px; }
-    .compare { width:100%; min-width:760px; border-collapse:separate; border-spacing:0; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
-    .compare th,.compare td { padding:14px 16px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
-    .compare th { background:#f5f8ff; color:var(--ink); font-size:.92rem; }
-    .compare tr:last-child td { border-bottom:none; }
-    .steps { padding-left:20px; display:grid; gap:9px; }
-    details { border:1px solid var(--line); border-radius:16px; background:#fff; padding:15px 16px; }
-    details + details { margin-top:10px; }
-    summary { cursor:pointer; color:var(--ink); font-weight:700; }
-    details p { margin-top:8px; }
-    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-    @media (max-width:860px) { .grid { grid-template-columns:1fr; } h1 { max-width:none; } .hero,.section { padding:22px; } }
-  </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
   <div class="shell">
-    <nav class="nav" aria-label="Breadcrumb navigation">
-      <a href="../index.html">FormSuite</a>
-      <a href="../resources/index.html">Resources</a>
-      <a href="../formranger/">FormRanger</a>
-      <a href="./index.html"><strong>FormGuard</strong></a>
-      <a href="./support.html">Support</a>
-      <a href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
-    </nav>
-
-    <main>
-      <section class="hero">
-        <div class="eyebrow">Comparison guide</div>
-        <h1>FormRanger alternative for Google Forms limits</h1>
-        <p>If you are searching for a FormRanger alternative because Google Forms needs more control, first separate two jobs: syncing choices from Sheets and controlling capacity after people start submitting.</p>
-        <div class="answer">Short answer: use FormRanger when the problem is Sheets-to-Forms choice sync. Use FormGuard when the problem is response limits, choice quotas, notifications, close messages, or timer-style workflows.</div>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-          <a class="btn" href="../formranger/">See FormRanger</a>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>FormRanger vs FormGuard</h2>
-        <p>They solve adjacent but different Google Forms problems.</p>
-        <div class="compare-wrap">
-          <table class="compare">
-            <thead><tr><th>Need</th><th>Better fit</th><th>Why</th></tr></thead>
-            <tbody>
-              <tr><td>Populate dropdowns, checkboxes, or multiple-choice options from Google Sheets</td><td><strong>FormRanger</strong></td><td>It is built around Sheets source data, mapping, and updating supported choice questions.</td></tr>
-              <tr><td>Close a form after a response count, deadline, or capacity rule</td><td><strong>FormGuard</strong></td><td>It focuses on operational guardrails around Google Forms submissions.</td></tr>
-              <tr><td>Limit each appointment slot, workshop session, role, or seat option</td><td><strong>FormGuard</strong></td><td>Choice quotas are capacity controls, not just choice population.</td></tr>
-              <tr><td>Send owner alerts or show a better closed-form message</td><td><strong>FormGuard</strong></td><td>Alerts and close messages help operators handle full forms without babysitting responses.</td></tr>
-              <tr><td>Run a timed quiz, deadline-driven signup, or test-first launch workflow</td><td><strong>FormGuard</strong></td><td>The workflow is about controlling submission behavior, not importing choices.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Why people confuse the two</h2>
-        <div class="grid">
-          <div class="card"><strong>Both touch Google Forms choices</strong><p>FormRanger updates the list of choices. FormGuard controls whether choices should still be available once capacity is reached.</p></div>
-          <div class="card"><strong>Both help non-technical operators</strong><p>Teachers, event teams, HR, and admins usually want a no-code sidebar instead of maintaining Apps Script.</p></div>
-          <div class="card"><strong>Both replace manual checking</strong><p>Manual copy-paste and response monitoring work for one small form. They break when the workflow repeats.</p></div>
-          <div class="card"><strong>The search intent is mixed</strong><p>Some users search “FormRanger alternative” when they actually need a form limiter, choice limiter, or notification add-on.</p></div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>When to use FormGuard as the alternative</h2>
-        <ol class="steps">
-          <li><strong>Event registration:</strong> close the form when seats are full and show a clear full-message.</li>
-          <li><strong>Appointment booking:</strong> limit each time slot so it does not stay selectable after capacity is reached.</li>
-          <li><strong>Workshop signup:</strong> manage per-session quotas without watching the response sheet all day.</li>
-          <li><strong>Classroom quizzes:</strong> use timer-style and test-first workflows when Forms needs more structure.</li>
-          <li><strong>Internal forms:</strong> notify the owner when a response arrives or when a form needs attention.</li>
-        </ol>
-      </section>
-
-      <section class="section">
-        <h2>When FormRanger is still the right answer</h2>
-        <div class="warn"><strong>Do not use FormGuard for the wrong job.</strong> If your core requirement is “keep this form question synced from a spreadsheet column,” use <a href="../formranger/">FormRanger</a>. FormGuard is for limits, quotas, notifications, messages, and timer-style control.</div>
-      </section>
-
-      <section class="section">
-        <h2>Practical setup path</h2>
-        <ol class="steps">
-          <li>If the option list itself comes from Sheets, install <a href="../formranger/">FormRanger</a> first.</li>
-          <li>If the option list has capacity limits, add FormGuard for choice quotas.</li>
-          <li>If the whole form has a deadline or seat cap, configure FormGuard response rules and close messages.</li>
-          <li>Submit test responses before sharing the public form link.</li>
-        </ol>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard from Marketplace</a>
-          <a class="btn" href="google-forms-choice-limiter-guide.html">Read the choice limiter guide</a>
-        </div>
-      </section>
-
-
-      <section class="section">
-        <h2>Other FormGuard alternative pages</h2>
-        <p>If you are comparing Google Forms add-ons, also see <a href="formlimiter-alternative-google-forms.html">FormLimiter alternative</a> and <a href="choice-eliminator-alternative-google-forms.html">Choice Eliminator alternative</a>.</p>
-      </section>
-
-
-      <section class="section card">
-        <h2>More FormGuard guides</h2>
-        <p><a href="google-forms-response-limit.html">Google Forms response limit</a> · <a href="google-forms-choice-limit.html">Google Forms choice limit</a> · <a href="google-forms-timer-add-on.html">Google Forms timer add-on</a></p>
-      </section>
-
-      <section class="section">
-        <h2>FAQ</h2>
-        <details open><summary>Is FormGuard a complete FormRanger replacement?</summary><p>No. It is an alternative only when the job is form control: response limits, choice quotas, notifications, close messages, and timers. For Sheets-to-Forms choice sync, use FormRanger.</p></details>
-        <details><summary>Can I use FormRanger and FormGuard together?</summary><p>Yes. A common workflow is to use FormRanger for the source list and FormGuard for capacity controls around the live form.</p></details>
-        <details><summary>What keyword should I search if I need capacity controls?</summary><p>Search for Google Forms response limit, Google Forms choice limiter, choice quota, form limiter, or Google Forms timer instead of only FormRanger alternative.</p></details>
-      </section>
-    <section class="section card"><h2>More FormGuard guides</h2><p><a href="google-forms-limits-guides.html">Browse all FormGuard Google Forms limit guides</a></p></section></main>
-
-    <footer class="footer"><p>Part of <a href="../index.html">FormSuite</a>. Need help? <a href="support.html">Open FormGuard support</a>.</p></footer>
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../install.html">Install</a><a href="../resources/index.html">Guides</a><a href="../support.html">Support</a></nav>
+    <section class="hero">
+      <div class="eyebrow">Guide</div>
+      <h1>FormRanger alternative for Google Forms limits</h1>
+      <p>Looking for a FormRanger alternative because you need Google Forms limits, choice quotas, notifications, or timers? Compare FormRanger and FormGuard.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="../index.html">FormSuite</a>
+<a class="btn btn-secondary" href="../resources/index.html">Resources</a>
+<a class="btn btn-secondary" href="./index.html">FormGuard</a>
+<a class="btn btn-secondary" href="./support.html">Support</a>
+<a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
+<a class="btn btn-secondary" href="google-forms-choice-limiter-guide.html">Read the choice limiter guide</a></div>
+    </section>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Short path</div><h2>What to do</h2><ol><li>Open the matching FormSuite product page.</li><li>Run one small test with copied data.</li><li>Install from Marketplace only after the test matches your workflow.</li></ol></article>
+      <aside class="card"><div class="pill">Need help?</div><h2>Send a setup note</h2><p>Include the product name, the expected result, and a screenshot of the failing step.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+    </section>
   </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

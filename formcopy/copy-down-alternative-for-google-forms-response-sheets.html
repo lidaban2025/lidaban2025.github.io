@@ -1,228 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copy Down alternative for Google Forms response sheets | FormCopy</title>
-    <meta name="description" content="A practical Copy Down alternative for Google Forms response sheets: array formulas, processing tabs, and a model-row workflow with FormCopy for row-specific formulas and formats.">
-    <link rel="canonical" href="https://formsuite.dev/formcopy/copy-down-alternative-for-google-forms-response-sheets.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="Copy Down alternative for Google Forms response sheets | FormCopy">
-    <meta property="og:description" content="How to handle Google Forms response-sheet formulas when manual copy-down is fragile.">
-    <meta property="og:url" content="https://formsuite.dev/formcopy/copy-down-alternative-for-google-forms-response-sheets.html">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Copy Down alternative for Google Forms response sheets">
-    <meta name="twitter:description" content="Use array formulas, processing tabs, or a FormCopy model row to keep response-sheet formulas working.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Copy Down alternative for Google Forms response sheets",
-            "description": "A guide to handling formula copy-down problems in Google Forms response sheets with native options and FormCopy.",
-            "author": { "@type": "Organization", "name": "FormSuite" },
-            "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/formcopy/copy-down-alternative-for-google-forms-response-sheets.html"
-        }
-    </script>
-    <style>
-        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --amber-soft:#fff7e8; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 52%); line-height:1.68; }
-        a { color:var(--blue); text-decoration:none; }
-        a:hover { text-decoration:underline; }
-        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
-        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
-        .nav a { color:var(--muted); font-weight:600; }
-        .nav a:first-child { color:var(--ink); margin-right:auto; }
-        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,.82fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
-        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
-        h1 { font-size:clamp(2.1rem,5vw,3.65rem); line-height:1.02; letter-spacing:0; margin-bottom:18px; max-width:13ch; }
-        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
-        h3 { font-size:1.04rem; margin-bottom:8px; }
-        .hero p,.section p,.section li { color:var(--muted); }
-        .hero p { font-size:1.08rem; }
-        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .link-bar a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font-weight:700; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); }
-        .btn-primary:hover { background:var(--blue-strong); text-decoration:none; }
-        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:42px 0 8px; margin-top:14px; }
-        .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
-        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-        .feature p { color:var(--muted); font-size:.94rem; }
-        .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
-        .formula-preview { padding:14px; border:1px solid var(--line); border-radius:8px; background:var(--surface); display:grid; gap:10px; }
-        .sheet-row { display:grid; grid-template-columns:.65fr 1.1fr .72fr; border:1px solid var(--line); border-radius:8px; overflow:hidden; font-size:.84rem; background:#fff; }
-        .sheet-row span { padding:10px; border-right:1px solid var(--line); color:var(--muted); overflow:hidden; text-overflow:ellipsis; }
-        .sheet-row span:last-child { border-right:0; color:var(--green); background:var(--green-soft); font-weight:900; }
-        .sheet-row.issue span:last-child { color:#8a5a00; background:var(--amber-soft); }
-        .status-pill { display:inline-flex; width:fit-content; padding:6px 9px; border-radius:8px; background:var(--green-soft); color:var(--green); font-size:.78rem; font-weight:900; }
-        .trust-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0 10px; }
-        .trust-item strong,.step-card strong { display:block; margin-bottom:6px; }
-        .trust-item span,.step-card p { color:var(--muted); font-size:.92rem; }
-        .workflow-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-        .step-card .number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-weight:900; margin-bottom:12px; }
-        .steps { padding-left:20px; display:grid; gap:10px; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-        .warn { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--amber-soft); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
-        .faq { display:grid; gap:12px; }
-        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .hero,.grid,.trust-strip,.workflow-grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.1rem; max-width:none; } .sheet-row { grid-template-columns:.55fr 1.1fr .7fr; font-size:.76rem; } .sheet-row span { padding:8px; } }
-    </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy Down alternative for Google Forms response sheets | FormCopy</title>
+  <meta name="description" content="A practical Copy Down alternative for Google Forms response sheets: array formulas, processing tabs, and a model-row workflow with FormCopy for row-specific formulas and formats.">
+  <link rel="canonical" href="https://formsuite.dev/formcopy/copy-down-alternative-for-google-forms-response-sheets.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Copy Down alternative for Google Forms response sheets | FormCopy">
+  <meta property="og:description" content="A practical Copy Down alternative for Google Forms response sheets: array formulas, processing tabs, and a model-row workflow with FormCopy for row-specific formulas and formats.">
+  <meta property="og:url" content="https://formsuite.dev/formcopy/copy-down-alternative-for-google-forms-response-sheets.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="../index.html">FormSuite</a>
-            <a href="../install.html">Install</a>
-            <a href="../resources/index.html">Resources</a>
-            <a href="./index.html"><strong>FormCopy</strong></a>
-            <a href="./support.html">Support</a>
-            <a href="./google-forms-response-sheet-formulas-not-copying.html">Troubleshooting</a>
-        </nav>
-
-        <section class="hero">
-            <div>
-                <div class="eyebrow">Google Forms response sheets</div>
-                <h1>Copy Down alternative for Google Forms response sheets</h1>
-                <p>Google Forms can add new response rows in ways that make manual drag-down or copy-down formulas fragile. For simple calculations, try an array formula or a separate processing tab first. If each new response row also needs row-specific formulas, formats, helper columns, or backfill, use a clean model-row workflow with FormCopy.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy from Marketplace</a>
-                    <a class="btn btn-secondary" href="./google-forms-response-sheet-formulas-guide.html">Formula guide</a>
-                    <a class="btn btn-secondary" href="./google-forms-response-sheet-row-2-model.html">Row 2 model</a>
-                    <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-                    <a class="btn btn-secondary" href="https://youtu.be/iGRtjt8ngU0">Watch demo</a>
-                </div>
-            </div>
-            <div class="visual-panel" aria-label="Copy-down alternative preview">
-                <div class="formula-preview">
-                    <div class="sheet-row"><span>Path</span><span>Good fit</span><span>Status</span></div>
-                    <div class="sheet-row"><span>Array formula</span><span>Simple calculated column</span><span>Try first</span></div>
-                    <div class="sheet-row"><span>Processing tab</span><span>Clean reporting view</span><span>Native</span></div>
-                    <div class="sheet-row issue"><span>Manual drag</span><span>Busy live response sheet</span><span>Fragile</span></div>
-                    <div class="sheet-row"><span>FormCopy</span><span>Model row plus formats</span><span>Repeatable</span></div>
-                </div>
-                <span class="status-pill">Start with one test response</span>
-            </div>
-        </section>
-
-        <section class="trust-strip" aria-label="Copy-down decision signals">
-            <div class="trust-item"><strong>Quick answer</strong><span>Use native formulas first for simple calculations.</span></div>
-            <div class="trust-item"><strong>When to install</strong><span>Use FormCopy for row-specific logic and formats.</span></div>
-            <div class="trust-item"><strong>Best first test</strong><span>One copied form, one formula, one sample response.</span></div>
-            <div class="trust-item"><strong>Safe share link</strong><span>Good for formulas-not-copying community threads.</span></div>
-        </section>
-
-        <section class="section">
-            <h2>Quick answer</h2>
-            <p class="lead">The safest Copy Down alternative depends on what your response sheet needs. If a column can calculate the whole sheet from one formula, use an array formula. If you only need a cleaner reporting view, write formulas in a separate tab that references the response tab. If the actual response rows need copied formulas, formats, validation cues, helper columns, or backfill, use a model row and FormCopy.</p>
-            <div class="grid">
-                <div class="feature"><strong>Use native formulas when possible</strong><p>Array formulas and separate processing tabs keep the original response sheet simpler and avoid unnecessary add-on setup.</p></div>
-                <div class="feature"><strong>Use FormCopy when the row itself matters</strong><p>FormCopy is for response rows that must inherit a prepared row pattern, not just display a calculated report somewhere else.</p></div>
-            </div>
-            <div class="note">Good rule of thumb: if the formula belongs in a report, keep it in a report tab. If the formula belongs beside each submitted response, use a model-row workflow.</div>
-        </section>
-
-        <section class="section">
-            <h2>Native alternatives to try first</h2>
-            <div class="workflow-grid">
-                <div class="step-card"><span class="number">1</span><strong>Array formula</strong><p>Use this when one formula can fill a whole calculated column based on submitted response values.</p></div>
-                <div class="step-card"><span class="number">2</span><strong>Processing tab</strong><p>Leave the raw form responses alone and build a second tab for reporting, lookups, scoring, or dashboards.</p></div>
-                <div class="step-card"><span class="number">3</span><strong>Manual paste before launch</strong><p>For a small one-time form, filling formulas in advance can be enough if submissions are predictable and low volume.</p></div>
-            </div>
-            <div class="warn">Manual drag-down becomes risky when the form stays open, when rows arrive while you are not watching, or when formatting and helper columns matter as much as formulas.</div>
-        </section>
-
-        <section class="section">
-            <h2>When a model-row workflow is better</h2>
-            <p class="lead">A model row is a clean row that contains the formulas, formats, and helper-column logic future response rows should inherit. FormCopy uses that pattern so each new response row can be prepared consistently.</p>
-            <div class="grid">
-                <div class="feature"><strong>Row-specific formulas</strong><p>Scores, statuses, lookup results, reviewer labels, and routing formulas often need references adjusted for each response row.</p></div>
-                <div class="feature"><strong>Formatting and helper columns</strong><p>Number formats, date formats, colors, status columns, and owner fields may need to appear on every new response row.</p></div>
-                <div class="feature"><strong>Backfill after setup</strong><p>If responses already arrived before the workflow was configured, FormCopy can apply the same pattern after you verify the source row.</p></div>
-                <div class="feature"><strong>Launch checks</strong><p>One sample submission proves whether the copied formulas and relative references work before the form goes to real respondents.</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Setup path with FormCopy</h2>
-            <ol class="steps">
-                <li>Open the Google Sheets response file linked to your Google Form.</li>
-                <li>Choose one clean source row, usually row 2, with the formulas and formats future response rows should inherit.</li>
-                <li>Install FormCopy and open it from the Google Sheets add-ons menu or side panel.</li>
-                <li>Save the copy workflow for the current response sheet and selected model range.</li>
-                <li>Submit one test response from the public form link.</li>
-                <li>Inspect the new row for formulas, relative references, helper columns, and formatting.</li>
-                <li>Only after the test looks right, use the workflow for existing rows or real submissions.</li>
-            </ol>
-            <div class="note">For important forms, duplicate the spreadsheet or use a copied test form first. A small test catches the source-row mistakes that make copy-down workflows feel unreliable.</div>
-        </section>
-
-        <section class="section">
-            <h2>What to avoid</h2>
-            <div class="grid">
-                <div class="feature"><strong>Copying a messy source row</strong><p>One-off edits, temporary notes, hidden formulas, or stale references in the model row can get repeated into future rows.</p></div>
-                <div class="feature"><strong>Hard-coded row references</strong><p>Check whether references should move with each row or stay locked to a lookup table with absolute ranges.</p></div>
-                <div class="feature"><strong>Testing only existing rows</strong><p>The real proof is a brand-new response row created by the public form submission flow.</p></div>
-                <div class="feature"><strong>Using a row workflow for reporting only</strong><p>If the formulas only serve a report, a separate processing tab may be cleaner than writing into the response sheet.</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>FAQ</h2>
-            <div class="faq">
-                <div class="feature">
-                    <h3>Is this only for people who used Copy Down before?</h3>
-                    <p>No. This page is for any Google Forms response sheet where formulas do not reliably follow new submissions.</p>
-                </div>
-                <div class="feature">
-                    <h3>Should I use an array formula instead?</h3>
-                    <p>Yes, if one formula can safely calculate the whole column. Use FormCopy when you need row-level formulas, formats, helper columns, or backfill.</p>
-                </div>
-                <div class="feature">
-                    <h3>Does FormCopy change submitted answers?</h3>
-                    <p>The intended workflow is to copy formulas and formatting around response data. Test on a copied sheet first if your spreadsheet is important.</p>
-                </div>
-                <div class="feature">
-                    <h3>What should I share in a community reply?</h3>
-                    <p>Explain the native Google Forms limitation first, suggest array formulas or a processing tab for simple cases, then share this guide only when the row-copy workflow fits.</p>
-                </div>
-            </div>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy</a>
-                <a class="btn btn-secondary" href="./test-google-forms-response-sheet-formulas-before-launch.html">Test before launch</a>
-                <a class="btn btn-secondary" href="../review-after-first-success.html">Review after first success</a>
-                <a class="btn btn-secondary" href="./privacy.html">Privacy policy</a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Related guides</h2>
-            <div class="link-bar">
-                <a href="./google-forms-response-sheet-formulas-guide.html">Formula workflow guide</a>
-                <a href="./google-forms-response-sheet-row-2-model.html">Row 2 model</a>
-                <a href="./test-google-forms-response-sheet-formulas-before-launch.html">Test before launch</a>
-                <a href="./copy-formulas-to-new-google-forms-responses.html">Copy formulas to new responses</a>
-                <a href="./automatically-copy-formulas-when-google-form-is-submitted.html">Auto-copy after submit</a>
-                <a href="./google-forms-response-sheet-formulas-not-copying.html">Formulas not copying</a>
-                <a href="./google-forms-response-sheet-formulas-skipping-rows.html">Skipped rows guide</a>
-                <a href="./google-forms-response-sheet-formulas-move-after-new-submission.html">Reference drift guide</a>
-                <a href="../resources/index.html">More workflow guides</a>
-            </div>
-        </section>
-
-        <div class="footer"><a href="./support.html">Support</a> | <a href="../setup-help.html">Setup help</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</div>
-    </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <div class="shell">
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../install.html">Install</a><a href="../resources/index.html">Guides</a><a href="../support.html">Support</a></nav>
+    <section class="hero">
+      <div class="eyebrow">Guide</div>
+      <h1>Copy Down alternative for Google Forms response sheets</h1>
+      <p>A practical Copy Down alternative for Google Forms response sheets: array formulas, processing tabs, and a model-row workflow with FormCopy for row-specific formulas and formats.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="../index.html">FormSuite</a>
+<a class="btn btn-secondary" href="../install.html">Install</a>
+<a class="btn btn-secondary" href="../resources/index.html">Resources</a>
+<a class="btn btn-secondary" href="./index.html">FormCopy</a>
+<a class="btn btn-secondary" href="./support.html">Support</a>
+<a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy from Marketplace</a></div>
+    </section>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Short path</div><h2>What to do</h2><ol><li>Open the matching FormSuite product page.</li><li>Run one small test with copied data.</li><li>Install from Marketplace only after the test matches your workflow.</li></ol></article>
+      <aside class="card"><div class="pill">Need help?</div><h2>Send a setup note</h2><p>Include the product name, the expected result, and a screenshot of the failing step.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+    </section>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

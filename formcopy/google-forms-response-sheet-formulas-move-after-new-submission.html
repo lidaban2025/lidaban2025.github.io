@@ -1,247 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Forms response sheet formulas move after a new submission | FormCopy</title>
-    <meta name="description" content="Fix formulas that move, drift, or point at the wrong row after Google Forms inserts a new response row. Learn what to lock, what to array, and when FormCopy helps.">
-    <link rel="canonical" href="https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-move-after-new-submission.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="Google Forms response sheet formulas move after a new submission | FormCopy">
-    <meta property="og:description" content="A practical guide for formulas that move, drift, or point at the wrong row after Google Forms inserts a response row.">
-    <meta property="og:url" content="https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-move-after-new-submission.html">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Google Forms response sheet formulas move after a new submission">
-    <meta name="twitter:description" content="Learn why formulas drift after Google Forms adds a response row and how to keep row references aligned.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Google Forms response sheet formulas move after a new submission",
-            "description": "A guide to fixing formulas that move, drift, or point at the wrong row after Google Forms inserts a new response row.",
-            "author": { "@type": "Organization", "name": "FormSuite" },
-            "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-move-after-new-submission.html"
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "Why do formulas move after a Google Forms submission?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "Google Forms inserts a fresh response row, so formulas that rely on fixed row positions, copied ranges, or partly relative references can shift away from the row you expected." }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Should I keep formulas in the raw response sheet?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "For simple calculations, a separate processing tab or an array formula may be cleaner. For row-specific formulas, formats, helper columns, or backfill, a model-row copy workflow is usually more reliable." }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Can FormCopy keep the row pattern aligned?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "Yes. FormCopy is designed for the model-row workflow where one clean source row is copied into new response rows and then verified with one real test submission." }
-                }
-            ]
-        }
-    </script>
-    <style>
-        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --amber:#8a5a00; --amber-soft:#fff7e8; --red:#a33b2e; --red-soft:#fff0ed; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 52%); line-height:1.68; }
-        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
-        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
-        .nav a { color:var(--muted); font-weight:600; }
-        .nav a:first-child { color:var(--ink); margin-right:auto; }
-        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,.82fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
-        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
-        h1 { font-size:clamp(2.1rem,5vw,3.7rem); line-height:1.02; letter-spacing:0; margin-bottom:18px; max-width:14ch; }
-        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
-        h3 { font-size:1.04rem; margin-bottom:8px; }
-        .hero p,.section p,.section li { color:var(--muted); }
-        .hero p { font-size:1.08rem; }
-        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .link-bar a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font-weight:700; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); }
-        .btn-primary:hover { background:var(--blue-strong); text-decoration:none; }
-        .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:42px 0 8px; margin-top:14px; }
-        .lead { color:var(--muted); margin-bottom:18px; max-width:780px; }
-        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-        .feature p { color:var(--muted); font-size:.94rem; }
-        .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
-        .formula-preview { padding:14px; border:1px solid var(--line); border-radius:8px; background:var(--surface); display:grid; gap:10px; }
-        .sheet-row { display:grid; grid-template-columns:.55fr 1.18fr .77fr; border:1px solid var(--line); border-radius:8px; overflow:hidden; font-size:.84rem; background:#fff; }
-        .sheet-row span { padding:10px; border-right:1px solid var(--line); color:var(--muted); overflow:hidden; text-overflow:ellipsis; }
-        .sheet-row span:last-child { border-right:0; color:var(--green); background:var(--green-soft); font-weight:900; }
-        .sheet-row.issue span:last-child { color:var(--amber); background:var(--amber-soft); }
-        .sheet-row.bad span:last-child { color:var(--red); background:var(--red-soft); }
-        .status-pill { display:inline-flex; width:fit-content; padding:6px 9px; border-radius:8px; background:var(--green-soft); color:var(--green); font-size:.78rem; font-weight:900; }
-        .trust-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0 10px; }
-        .trust-item strong,.step-card strong { display:block; margin-bottom:6px; }
-        .trust-item span,.step-card p { color:var(--muted); font-size:.92rem; }
-        .workflow-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-        .step-card .number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-weight:900; margin-bottom:12px; }
-        .steps { padding-left:20px; display:grid; gap:10px; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-        .warn { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--amber-soft); border:1px solid #f2dfb6; color:#7a5100; font-size:.93rem; }
-        .faq { display:grid; gap:12px; }
-        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .hero,.grid,.trust-strip,.workflow-grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.1rem; max-width:none; } .sheet-row { grid-template-columns:.5fr 1.08fr .72fr; font-size:.76rem; } .sheet-row span { padding:8px; } }
-    </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Forms response sheet formulas move after a new submission | FormCopy</title>
+  <meta name="description" content="Fix formulas that move, drift, or point at the wrong row after Google Forms inserts a new response row. Learn what to lock, what to array, and when FormCopy helps.">
+  <link rel="canonical" href="https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-move-after-new-submission.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Google Forms response sheet formulas move after a new submission | FormCopy">
+  <meta property="og:description" content="Fix formulas that move, drift, or point at the wrong row after Google Forms inserts a new response row. Learn what to lock, what to array, and when FormCopy helps.">
+  <meta property="og:url" content="https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-move-after-new-submission.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="../index.html">FormSuite</a>
-            <a href="../install.html">Install</a>
-            <a href="../resources/index.html">Resources</a>
-            <a href="./index.html"><strong>FormCopy</strong></a>
-            <a href="./support.html">Support</a>
-            <a href="./google-forms-response-sheet-formulas-not-copying.html">Troubleshooting</a>
-        </nav>
-
-        <section class="hero">
-            <div>
-                <div class="eyebrow">Formula drift guide</div>
-                <h1>Google Forms response sheet formulas move after a new submission</h1>
-                <p>When Google Forms inserts a new response row, formulas can drift, jump to the wrong row, or keep pointing at the row above. The safest fix is to separate raw response columns from a clean formula pattern, then decide whether the logic should be an array formula, a processing tab, or a model-row copy workflow.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy from Marketplace</a>
-                    <a class="btn btn-secondary" href="../setup-help.html">Get setup help</a>
-                    <a class="btn btn-secondary" href="https://youtu.be/iGRtjt8ngU0">Watch demo</a>
-                    <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-                    <a class="btn btn-secondary" href="./google-forms-response-sheet-formulas-guide.html">Formula workflow guide</a>
-                </div>
-            </div>
-            <div class="visual-panel" aria-label="Formula drift preview">
-                <div class="formula-preview">
-                    <div class="sheet-row"><span>Row</span><span>Formula</span><span>Status</span></div>
-                    <div class="sheet-row"><span>2</span><span>=IF(E2&gt;80,"Pass","Review")</span><span>Model</span></div>
-                    <div class="sheet-row issue"><span>3</span><span>=IF(E2&gt;80,"Pass","Review")</span><span>Wrong row</span></div>
-                    <div class="sheet-row bad"><span>4</span><span>blank helper cells</span><span>Moved away</span></div>
-                    <div class="sheet-row"><span>5</span><span>=IF(E5&gt;80,"Pass","Review")</span><span>Fixed</span></div>
-                </div>
-                <span class="status-pill">Clean model row, then verify one new response</span>
-            </div>
-        </section>
-
-        <section class="trust-strip" aria-label="Formula drift trust signals">
-            <div class="trust-item"><strong>Quick answer</strong><span>Lock the references that should not move.</span></div>
-            <div class="trust-item"><strong>First check</strong><span>Inspect the newest response row, not the older rows.</span></div>
-            <div class="trust-item"><strong>Manual option</strong><span>Array formulas can work for simple columns.</span></div>
-            <div class="trust-item"><strong>FormCopy option</strong><span>Use a model row when each response needs row logic.</span></div>
-        </section>
-
-        <section class="section">
-            <h2>Quick answer</h2>
-            <p class="lead">If formulas move after a new Google Forms submission, check whether the formula should be a fixed reference, an array formula, or a row-by-row copy. For row-specific logic, keep one clean model row and copy that pattern into each new response row. Then test one real submission before trusting the sheet.</p>
-            <div class="grid">
-                <div class="feature"><strong>If the row number is wrong</strong><p>The formula probably copied with the wrong relative reference, or it was placed in a row that does not match the inserted response row.</p></div>
-                <div class="feature"><strong>If blanks appear</strong><p>The new response row may not have inherited the helper-column pattern, or the copied formula may be pointing at a blank source cell.</p></div>
-            </div>
-            <div class="note">Fast diagnosis: decide which references should move with each response and which should stay fixed. Most drift problems come from mixing those two cases in the same pattern.</div>
-        </section>
-
-        <section class="section">
-            <h2>Why formulas move</h2>
-            <p class="lead">Google Forms controls where the response row lands. That means a formula that felt stable in a normal spreadsheet table can behave differently once a fresh submission inserts a row.</p>
-            <div class="grid">
-                <div class="feature"><strong>New rows are inserted, not typed</strong><p>A submission is added by the form, so the spreadsheet is not behaving like a person filled the next blank cell by hand.</p></div>
-                <div class="feature"><strong>Relative references travel</strong><p>If a copied formula uses the wrong relative row, it can keep pointing at the old row or the row above the one you expected.</p></div>
-                <div class="feature"><strong>Mixed patterns confuse the sheet</strong><p>Some rows may be manually edited, some dragged down, and some inserted by Google Forms, which makes the model hard to trust.</p></div>
-                <div class="feature"><strong>Formatting can drift too</strong><p>Even when the math still works, helper columns, colors, and validation cues can stop lining up with the newest response row.</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>What to check before launch</h2>
-            <div class="workflow-grid">
-                <div class="step-card"><span class="number">1</span><strong>Pick a source row</strong><p>Usually row 2, or the first complete row that already contains the formula pattern you want copied.</p></div>
-                <div class="step-card"><span class="number">2</span><strong>Separate fixed values</strong><p>Move thresholds, lookup tables, and constants into fixed ranges or another tab so they do not drift.</p></div>
-                <div class="step-card"><span class="number">3</span><strong>Submit one test</strong><p>Use one real form response and inspect the newest row before sharing the workflow widely.</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Manual workaround</h2>
-            <p class="lead">For simple columns, an array formula or a separate processing tab may be cleaner than copying formulas into every response row. That is often the right path when the logic is purely analytical and does not depend on per-row formatting or backfill.</p>
-            <div class="grid">
-                <div class="feature"><strong>Good fit for array formulas</strong><p>Simple calculations, text cleanup, and whole-column logic that does not depend on one row carrying its own status or formatting.</p></div>
-                <div class="feature"><strong>Good fit for a processing tab</strong><p>Dashboards, pivots, and reporting sheets that should stay separate from the raw Google Forms response tab.</p></div>
-            </div>
-            <div class="warn">If the response row itself needs formulas, formatting, helper columns, or backfill, an array formula alone usually is not enough.</div>
-        </section>
-
-        <section class="section">
-            <h2>Setup pattern with FormCopy</h2>
-            <ol class="steps">
-                <li>Open the linked Google Sheets response file for the form.</li>
-                <li>Put the formulas and formatting you want to preserve into one clean source row.</li>
-                <li>Install FormCopy and open it from the spreadsheet sidebar.</li>
-                <li>Choose the response sheet and the row pattern that should be copied into new submissions.</li>
-                <li>Run a small test before enabling the workflow for real responses.</li>
-                <li>Backfill older rows only after the source row looks correct.</li>
-            </ol>
-            <div class="note">The safest first success metric is simple: one new Google Forms submission creates one response row, and the helper formulas on that same row point at that row.</div>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy</a>
-                <a class="btn btn-secondary" href="../setup-help.html">Send setup note</a>
-                <a class="btn btn-secondary" href="https://youtu.be/iGRtjt8ngU0">Watch demo</a>
-                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-                <a class="btn btn-secondary" href="../review-after-first-success.html">Review after first success</a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>FAQ</h2>
-            <div class="faq">
-                <div class="feature">
-                    <h3>Why does the formula keep pointing at the wrong row?</h3>
-                    <p>That usually means the copied pattern used a relative reference that moved differently than you intended. Recheck the row model and the newest response row together.</p>
-                </div>
-                <div class="feature">
-                    <h3>Can I just drag formulas farther down?</h3>
-                    <p>You can for a tiny sheet, but it is fragile. New submissions can still land in a way that leaves helper cells blank or misaligned.</p>
-                </div>
-                <div class="feature">
-                    <h3>Should I use absolute references everywhere?</h3>
-                    <p>No. Use absolute references for constants and lookup ranges, but keep row-relative references where each response should evaluate its own row.</p>
-                </div>
-                <div class="feature">
-                    <h3>Can FormCopy repair rows that already drifted?</h3>
-                    <p>Yes, use backfill after the source row is verified. Start with a small range first if the sheet is important.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Related guides</h2>
-            <div class="link-bar">
-                <a href="./google-forms-response-sheet-formulas-not-copying.html">Formulas not copying</a>
-                <a href="./google-forms-response-sheet-formulas-skipping-rows.html">Formulas skipping rows</a>
-                <a href="./google-forms-response-sheet-row-2-model.html">Row 2 model</a>
-                <a href="./google-forms-response-sheet-helper-columns.html">Helper columns</a>
-                <a href="./test-google-forms-response-sheet-formulas-before-launch.html">Test before launch</a>
-                <a href="../review-after-first-success.html">Review after first success</a>
-            </div>
-        </section>
-
-        <div class="footer"><a href="./support.html">Support</a> | <a href="../setup-help.html">Setup help</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
-    </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <div class="shell">
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../install.html">Install</a><a href="../resources/index.html">Guides</a><a href="../support.html">Support</a></nav>
+    <section class="hero">
+      <div class="eyebrow">Guide</div>
+      <h1>Google Forms response sheet formulas move after a new submission</h1>
+      <p>Fix formulas that move, drift, or point at the wrong row after Google Forms inserts a new response row. Learn what to lock, what to array, and when FormCopy helps.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="../index.html">FormSuite</a>
+<a class="btn btn-secondary" href="../install.html">Install</a>
+<a class="btn btn-secondary" href="../resources/index.html">Resources</a>
+<a class="btn btn-secondary" href="./index.html">FormCopy</a>
+<a class="btn btn-secondary" href="./support.html">Support</a>
+<a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formcopy_pro_formulas_for_google_sheets/175531923564">Install FormCopy from Marketplace</a></div>
+    </section>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Short path</div><h2>What to do</h2><ol><li>Open the matching FormSuite product page.</li><li>Run one small test with copied data.</li><li>Install from Marketplace only after the test matches your workflow.</li></ol></article>
+      <aside class="card"><div class="pill">Need help?</div><h2>Send a setup note</h2><p>Include the product name, the expected result, and a screenshot of the failing step.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+    </section>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

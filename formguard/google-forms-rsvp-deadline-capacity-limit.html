@@ -1,193 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Forms RSVP Deadline and Capacity Limit | FormGuard</title>
-    <meta name="description" content="Set an RSVP deadline and capacity limit in Google Forms with native close dates, response limits, FormGuard choice quotas, closed messages, and owner alerts.">
-    <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-rsvp-deadline-capacity-limit.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="Google Forms RSVP Deadline and Capacity Limit | FormGuard">
-    <meta property="og:description" content="A practical setup pattern for RSVP forms that need both a deadline and a maximum capacity.">
-    <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-rsvp-deadline-capacity-limit.html">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Google Forms RSVP Deadline and Capacity Limit">
-    <meta name="twitter:description" content="How to combine a deadline, response cap, closed-form message, and owner notification for an RSVP Google Form.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Google Forms RSVP Deadline and Capacity Limit",
-            "description": "A practical setup pattern for RSVP forms that need both a deadline and a maximum capacity.",
-            "author": { "@type": "Organization", "name": "FormSuite" },
-            "publisher": { "@type": "Organization", "name": "FormSuite" },
-            "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-rsvp-deadline-capacity-limit.html"
-        }
-    </script>
-    <style>
-        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --amber-soft:#fff7e8; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 52%); line-height:1.68; }
-        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
-        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
-        .nav a { color:var(--muted); font-weight:600; }
-        .nav a:first-child { color:var(--ink); margin-right:auto; }
-        .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,.82fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
-        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
-        h1 { font-size:clamp(2.1rem,5vw,3.7rem); line-height:1.02; letter-spacing:0; margin-bottom:18px; max-width:13ch; }
-        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
-        .hero p,.section p,.section li { color:var(--muted); }
-        .hero p { font-size:1.08rem; }
-        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-        .link-bar a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font-weight:700; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
-        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); } .btn-primary:hover { background:var(--blue-strong); text-decoration:none; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-        .section { padding:42px 0 8px; margin-top:14px; }
-        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
-        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-        .feature,.visual-panel,.trust-item,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-        .visual-panel { box-shadow:var(--shadow); display:grid; gap:14px; background:var(--panel); }
-        .rule-card { padding:16px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
-        .rule-card strong { display:block; margin-bottom:10px; }
-        .rule-card span { display:flex; justify-content:space-between; gap:12px; padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--muted); margin-top:8px; }
-        .rule-card b { color:var(--green); }
-        .message-preview { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-        .message-preview strong { display:block; margin-bottom:8px; }
-        .status-pill { display:inline-flex; width:fit-content; margin-top:12px; padding:6px 9px; border-radius:8px; background:var(--green-soft); color:var(--green); font-size:.78rem; font-weight:900; }
-        .trust-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0 10px; }
-        .trust-item strong,.step-card strong { display:block; margin-bottom:6px; }
-        .trust-item span,.step-card p { color:var(--muted); font-size:.92rem; }
-        .workflow-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-        .step-card .number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-weight:900; margin-bottom:12px; }
-        .steps { padding-left:20px; display:grid; gap:10px; }
-        .note { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--amber-soft); border:1px solid #f0d7a4; color:#805300; font-size:.93rem; }
-        .green { background:var(--green-soft); border-color:#cde8d6; color:#17633f; }
-        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-        @media (max-width:900px) { .hero,.grid,.trust-strip,.workflow-grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.1rem; max-width:none; } .rule-card span { display:grid; } }
-    </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Forms RSVP Deadline and Capacity Limit | FormGuard</title>
+  <meta name="description" content="Set an RSVP deadline and capacity limit in Google Forms with native close dates, response limits, FormGuard choice quotas, closed messages, and owner alerts.">
+  <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-rsvp-deadline-capacity-limit.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Google Forms RSVP Deadline and Capacity Limit | FormGuard">
+  <meta property="og:description" content="Set an RSVP deadline and capacity limit in Google Forms with native close dates, response limits, FormGuard choice quotas, closed messages, and owner alerts.">
+  <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-rsvp-deadline-capacity-limit.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
-    <div class="shell">
-        <nav class="nav">
-            <a href="../index.html">FormSuite</a>
-            <a href="../install.html">Install</a>
-            <a href="../resources/index.html">Resources</a>
-            <a href="./index.html"><strong>FormGuard</strong></a>
-            <a href="./support.html">Support</a>
-        </nav>
-        <section class="hero">
-            <div>
-                <div class="eyebrow">RSVP controls</div>
-                <h1>Google Forms RSVP deadline and capacity limit</h1>
-                <p>An RSVP form often needs two safeguards at once: stop after the deadline, and stop earlier if the room, session, or event reaches capacity. Use native Google Forms close dates and response limits for simple form-level rules, then add FormGuard when the RSVP workflow needs choice quotas, owner alerts, waitlist messaging, or a guided copied-form test.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a>
-                    <a class="btn btn-secondary" href="../setup-help.html">Get setup help</a>
-                    <a class="btn btn-secondary" href="./schedule-google-forms-open-close-guide.html">Open deadline guide</a>
-                </div>
-            </div>
-            <div class="visual-panel" aria-label="RSVP deadline and capacity setup preview">
-                <div class="rule-card">
-                    <strong>RSVP close rule</strong>
-                    <span>Capacity <b>120 guests</b></span>
-                    <span>Deadline reminder <b>Friday 6:00 PM</b></span>
-                    <span>Owner alert <b>Enabled</b></span>
-                </div>
-                <div class="message-preview">
-                    <strong>Visitor sees after closure</strong>
-                    <p>RSVPs are closed because the deadline or capacity limit has been reached. Use the waitlist link if you still need help.</p>
-                    <span class="status-pill">Cap protected, deadline planned</span>
-                </div>
-            </div>
-        </section>
-        <section class="trust-strip" aria-label="RSVP control trust signals">
-            <div class="trust-item"><strong>Quick answer</strong><span>Use native close date plus a cap.</span></div>
-            <div class="trust-item"><strong>First test</strong><span>Use a disposable copy with a cap of 1.</span></div>
-            <div class="trust-item"><strong>Best link to share</strong><span>This guide fits RSVP and limited event signups.</span></div>
-            <div class="trust-item"><strong>Boundary</strong><span>Not a ticketing or reservation database.</span></div>
-        </section>
-        <section class="section">
-            <h2>Three-part setup</h2>
-            <div class="workflow-grid">
-                <div class="step-card"><span class="number">1</span><strong>Set the RSVP cap</strong><p>Choose the attendee count that should close the public RSVP form.</p></div>
-                <div class="step-card"><span class="number">2</span><strong>Plan the deadline</strong><p>Use the native close date setting and keep a calendar reminder for the organizer.</p></div>
-                <div class="step-card"><span class="number">3</span><strong>Prepare the fallback</strong><p>Write a closed message with a waitlist, contact path, or final closure note.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>When this setup fits</h2>
-            <p class="lead">Use this pattern when a form should close on whichever comes first: the date or the capacity.</p>
-            <div class="grid">
-                <div class="feature"><strong>Event RSVPs</strong><p>Close when the RSVP deadline arrives or when the attendee cap is reached.</p></div>
-                <div class="feature"><strong>Workshops and classes</strong><p>Keep a fixed seat limit while still respecting a published registration deadline.</p></div>
-                <div class="feature"><strong>Internal signups</strong><p>Control an employee session, office-hours block, or limited training window.</p></div>
-                <div class="feature"><strong>Volunteer roles</strong><p>Stop collecting signups once the role is full or the signup period has ended.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Setup pattern</h2>
-            <ol class="steps">
-                <li>Set the native response limit or FormGuard response cap for the maximum number of RSVPs.</li>
-                <li>Set the native close date for the RSVP deadline and keep a calendar reminder for the organizer.</li>
-                <li>Write one closed-form message that works for both outcomes.</li>
-                <li>Add a waitlist link, contact address, or next-step instruction if late users still need a path.</li>
-                <li>Enable owner notifications so the operator knows when the form closes.</li>
-                <li>Test the form with a small disposable copy before sharing the public link.</li>
-            </ol>
-            <div class="note green">The user-facing message should not promise a seat until your process has actually confirmed one.</div>
-        </section>
-        <section class="section">
-            <h2>Message examples</h2>
-            <p class="lead">A good closed-form message prevents late respondents from guessing what happened.</p>
-            <div class="grid">
-                <div class="feature"><strong>Deadline or capacity reached</strong><p>RSVPs are now closed because the deadline or capacity limit has been reached. If you need help, contact [email].</p></div>
-                <div class="feature"><strong>Waitlist handoff</strong><p>This session is currently full. To join the waitlist, use this form: [waitlist link].</p></div>
-                <div class="feature"><strong>Internal event</strong><p>The signup window has closed. Please contact the event owner before making travel or calendar changes.</p></div>
-                <div class="feature"><strong>Workshop caution</strong><p>If the workshop has limited materials or seats, use manual confirmation before telling users they are guaranteed a spot.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Where FormGuard helps</h2>
-            <div class="grid">
-                <div class="feature"><strong>Response limit</strong><p>Close the RSVP form after the cap you choose.</p></div>
-                <div class="feature"><strong>Deadline close</strong><p>Use the native Google Forms close date for simple deadline-only RSVP workflows.</p></div>
-                <div class="feature"><strong>Close message</strong><p>Show a clearer next step when the form stops accepting responses.</p></div>
-                <div class="feature"><strong>Owner notification</strong><p>Alert the operator when the form closes or when important submission activity happens.</p></div>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Related guides</h2>
-            <p>Most RSVP workflows also need one of these patterns.</p>
-            <div class="link-bar">
-                <a href="./close-google-forms-after-n-responses.html">Close after N responses</a>
-                <a href="./close-google-forms-after-a-deadline.html">Close after a deadline</a>
-                <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
-                <a href="./what-to-show-when-google-form-is-full.html">Full signup message</a>
-            </div>
-            <div class="note">Google Forms is not a ticketing or reservation database. For high-demand events, keep a manual review or waitlist process around the form.</div>
-        </section>
-        <section class="section" data-install-cta="marketplace">
-            <h2>Install FormGuard from Marketplace</h2>
-            <p class="lead">Install FormGuard when native Google Forms limits are not enough and the RSVP workflow needs choice quotas, owner alerts, waitlist messaging, or a safer first-run test workflow.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-                <a class="btn btn-secondary" href="../setup-help.html">Send setup note</a>
-                <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-                <a class="btn btn-secondary" href="../review-after-first-success.html">Review after first success</a>
-                <a class="btn btn-secondary" href="../install.html">Compare FormSuite add-ons</a>
-            </div>
-        </section>
-        <div class="footer"><a href="./support.html">Support</a> | <a href="../setup-help.html">Setup help</a> | <a href="./permissions.html">Permissions</a> | <a href="../install.html">Install</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
-    </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <div class="shell">
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../install.html">Install</a><a href="../resources/index.html">Guides</a><a href="../support.html">Support</a></nav>
+    <section class="hero">
+      <div class="eyebrow">Guide</div>
+      <h1>Google Forms RSVP deadline and capacity limit</h1>
+      <p>Set an RSVP deadline and capacity limit in Google Forms with native close dates, response limits, FormGuard choice quotas, closed messages, and owner alerts.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="../index.html">FormSuite</a>
+<a class="btn btn-secondary" href="../install.html">Install</a>
+<a class="btn btn-secondary" href="../resources/index.html">Resources</a>
+<a class="btn btn-secondary" href="./index.html">FormGuard</a>
+<a class="btn btn-secondary" href="./support.html">Support</a>
+<a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install from Marketplace</a></div>
+    </section>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Short path</div><h2>What to do</h2><ol><li>Open the matching FormSuite product page.</li><li>Run one small test with copied data.</li><li>Install from Marketplace only after the test matches your workflow.</li></ol></article>
+      <aside class="card"><div class="pill">Need help?</div><h2>Send a setup note</h2><p>Include the product name, the expected result, and a screenshot of the failing step.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+    </section>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

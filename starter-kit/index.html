@@ -1,337 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Workspace AI Automation Starter Kit | FormSuite</title>
-    <meta name="description" content="A lightweight starter kit for Google Forms, Gmail, Docs, and Sheets automation. Includes three workflow templates, setup notes, and operator-ready customization guidance.">
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="canonical" href="https://formsuite.dev/starter-kit/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="FormSuite">
-    <meta property="og:title" content="Google Workspace AI Automation Starter Kit | FormSuite">
-    <meta property="og:description" content="Three ready-to-adapt Google Workspace workflow templates for AI summaries, auto-replies, spreadsheet logging, and document generation.">
-    <meta property="og:url" content="https://formsuite.dev/starter-kit/">
-    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Google Workspace AI Automation Starter Kit | FormSuite">
-    <meta name="twitter:description" content="Three ready-to-adapt Google Workspace workflow templates for AI summaries, auto-replies, spreadsheet logging, and document generation.">
-    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-    <style>
-        :root {
-            --ink: #16253d;
-            --muted: #5d6f88;
-            --line: #d7e2f0;
-            --panel: rgba(255, 255, 255, 0.94);
-            --blue: #165dff;
-            --blue-soft: #eef4ff;
-            --green-soft: #eaf8ef;
-            --sand: #fff7e8;
-            --shadow: 0 22px 55px rgba(20, 35, 59, 0.10);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            color: var(--ink);
-            background:
-                radial-gradient(circle at top left, #eef6ff 0, #eef6ff 18%, transparent 42%),
-                radial-gradient(circle at top right, #fff5ea 0, #fff5ea 16%, transparent 36%),
-                linear-gradient(180deg, #f8fbff 0%, #ffffff 58%);
-            line-height: 1.62;
-        }
-        a { color: var(--blue); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .shell { max-width: 1160px; margin: 0 auto; padding: 28px 20px 64px; }
-        .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
-        .brand { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.03em; }
-        .nav { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.95rem; }
-        .hero, .section, .card, .archive-card {
-            background: var(--panel);
-            border: 1px solid var(--line);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
-        }
-        .hero {
-            display: grid;
-            grid-template-columns: 1.12fr 0.88fr;
-            gap: 18px;
-            padding: 34px;
-            margin-bottom: 18px;
-        }
-        .eyebrow {
-            display: inline-block;
-            padding: 7px 12px;
-            border-radius: 999px;
-            background: var(--blue-soft);
-            color: var(--blue);
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        h1 {
-            font-size: 2.85rem;
-            line-height: 1.04;
-            letter-spacing: -0.05em;
-            margin-bottom: 14px;
-            max-width: 10ch;
-        }
-        .hero p { color: var(--muted); font-size: 1.02rem; max-width: 720px; }
-        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            padding: 0 18px;
-            border-radius: 999px;
-            font-weight: 700;
-            border: 1px solid transparent;
-        }
-        .btn-primary { background: var(--blue); color: #fff; }
-        .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-        .side-list { display: grid; gap: 12px; }
-        .mini {
-            padding: 16px;
-            border-radius: 18px;
-            border: 1px solid var(--line);
-            background: #fff;
-        }
-        .mini strong { display: block; margin-bottom: 6px; font-size: 1rem; }
-        .mini span { color: var(--muted); font-size: 0.92rem; }
-        .section { padding: 28px; margin-top: 18px; }
-        h2 { font-size: 1.55rem; letter-spacing: -0.03em; margin-bottom: 10px; }
-        .lead { color: var(--muted); margin-bottom: 20px; max-width: 780px; }
-        .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-        .card, .archive-card { padding: 22px; display: grid; gap: 12px; }
-        .pill {
-            display: inline-flex;
-            width: fit-content;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: var(--green-soft);
-            color: #177245;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-        .card h3, .archive-card h3 { font-size: 1.12rem; letter-spacing: -0.02em; }
-        .card p, .archive-card p, .list li { color: var(--muted); font-size: 0.94rem; }
-        .list { padding-left: 18px; display: grid; gap: 8px; }
-        .archive-label { font-size: 1.35rem; font-weight: 800; letter-spacing: 0; }
-        .archive-note { color: var(--muted); font-size: 0.92rem; }
-        .compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-        .notice {
-            margin-top: 14px;
-            padding: 16px 18px;
-            border-radius: 18px;
-            background: var(--sand);
-            border: 1px solid #f1ddb6;
-            color: #8b5a00;
-            font-size: 0.93rem;
-        }
-        .footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 0.9rem; }
-        @media (max-width: 980px) {
-            .hero, .grid, .compare { grid-template-columns: 1fr; }
-            h1 { font-size: 2.3rem; max-width: none; }
-            .topbar { flex-direction: column; align-items: flex-start; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Workspace AI Automation Starter Kit | FormSuite</title>
+  <meta name="description" content="A lightweight starter kit for Google Forms, Gmail, Docs, and Sheets automation. Includes three workflow templates, setup notes, and operator-ready customization guidance.">
+  <link rel="canonical" href="https://formsuite.dev/starter-kit/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Google Workspace AI Automation Starter Kit | FormSuite">
+  <meta property="og:description" content="A lightweight starter kit for Google Forms, Gmail, Docs, and Sheets automation. Includes three workflow templates, setup notes, and operator-ready customization guidance.">
+  <meta property="og:url" content="https://formsuite.dev/starter-kit/">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
-    <div class="shell">
-        <div class="topbar">
-            <div class="brand">FormSuite</div>
-            <div class="nav">
-                <a href="../index.html">Home</a>
-                <a href="../resources/index.html">Resources</a>
-                <a href="../choose-google-workspace-addon.html">Choose add-on</a>
-            </div>
-        </div>
-
-        <section class="hero">
-            <div>
-                <div class="eyebrow">Template pack</div>
-                <h1>Ship your first Google Workspace AI workflow faster.</h1>
-                <p>The Google Workspace AI Automation Starter Kit packages the exact kind of workflows small teams ask for first: AI summaries from form responses, email drafting from spreadsheet data, and document generation from structured records. It is designed for operators, freelancers, and small internal tooling teams that need a clean starting point instead of a custom build from scratch.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="../choose-google-workspace-addon.html">Choose a published add-on</a>
-                    <a class="btn btn-secondary" href="install.html">Read installation guide</a>
-                </div>
-                <div class="notice">This older starter-kit page is no longer the public conversion path. Start with a published Marketplace add-on instead.</div>
-            </div>
-            <div class="side-list">
-                <div class="mini">
-                    <strong>3 workflow templates</strong>
-                    <span>Built around Google Forms, Gmail, Google Docs, and Google Sheets operations that are easy to explain and easy to adapt.</span>
-                </div>
-                <div class="mini">
-                    <strong>Operator-ready notes</strong>
-                    <span>Includes setup order, configuration checkpoints, and field-level guidance so the package is useful beyond raw source code.</span>
-                </div>
-                <div class="mini">
-                    <strong>Best fit</strong>
-                    <span>Freelancers, automation consultants, and small ops teams that want a fast starting point they can customize.</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>What is inside</h2>
-            <p class="lead">This is not a vague prompt bundle. It is a working starter pack centered on repeatable Google Workspace flows you can adapt for your own internal use, client delivery, or packaged automation offer.</p>
-            <div class="grid">
-                <article class="card">
-                    <div class="pill">Workflow 1</div>
-                    <h3>Form to AI summary log</h3>
-                    <p>Capture new submissions, write a compact AI summary, label the request, and store the enriched record in the response sheet for follow-up.</p>
-                    <ul class="list">
-                        <li>Form intake structure</li>
-                        <li>Summary and tagging prompts</li>
-                        <li>Sheet logging pattern</li>
-                    </ul>
-                </article>
-                <article class="card">
-                    <div class="pill">Workflow 2</div>
-                    <h3>Sheet row to email draft</h3>
-                    <p>Turn structured records into editable Gmail drafts for confirmations, follow-ups, or operator review before sending.</p>
-                    <ul class="list">
-                        <li>Draft-ready email template logic</li>
-                        <li>Prompt examples for reply tone</li>
-                        <li>Draft status tracking notes</li>
-                    </ul>
-                </article>
-                <article class="card">
-                    <div class="pill">Workflow 3</div>
-                    <h3>Sheet row to Docs output</h3>
-                    <p>Generate a Google Docs output from row data with merge variables and a predictable document handoff process.</p>
-                    <ul class="list">
-                        <li>Template mapping approach</li>
-                        <li>Generation checkpoints</li>
-                        <li>Docs or PDF handoff notes</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>How teams usually use it</h2>
-            <div class="compare">
-                <div class="card">
-                    <h3>Use it as your own internal base</h3>
-                    <p>Start from a working pattern instead of building every trigger, prompt, sheet update, and document mapping from zero.</p>
-                    <ul class="list">
-                        <li>Internal ops automation experiments</li>
-                        <li>Prototype a team workflow in a day</li>
-                        <li>Standardize repetitive setup work</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Use it as a client delivery shortcut</h3>
-                    <p>Package one of the starter workflows into a client-facing automation service, then customize only the last mile.</p>
-                    <ul class="list">
-                        <li>Google Workspace setup gigs</li>
-                        <li>Industry-tailored workflow packs</li>
-                        <li>Faster first delivery for service work</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Archived starter-kit paths</h2>
-            <p class="lead">This page is archived and no longer part of the public FormSuite conversion path. Keep evaluation focused on the published Marketplace add-ons and one small first-run test.</p>
-            <div class="grid">
-                <article class="archive-card">
-                    <div class="pill">Solo</div>
-                    <h3>Starter kit</h3>
-                    <div class="archive-label">Archived</div>
-                    <p class="archive-note">Package archive, setup notes, and the installation guide are not a public order path right now.</p>
-                </article>
-                <article class="archive-card">
-                    <div class="pill">Recommended</div>
-                    <h3>Starter kit plus walkthrough</h3>
-                    <div class="archive-label">Paused</div>
-                    <p class="archive-note">Walkthrough-style help should start from a real installed add-on and first-run result.</p>
-                </article>
-                <article class="archive-card">
-                    <div class="pill">Done with you</div>
-                    <h3>Guided setup</h3>
-                    <div class="archive-label">After install</div>
-                    <p class="archive-note">Setup conversations belong after Marketplace install, a small workflow test, and a clear support need.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Before you use this archive</h2>
-            <p class="lead">This package is intentionally narrow. It is best for people who already know they want to automate around Google Forms, Gmail, Google Docs, and Sheets.</p>
-            <div class="compare">
-                <div class="card">
-                    <h3>Good fit</h3>
-                    <ul class="list">
-                        <li>You already work inside Google Workspace.</li>
-                        <li>You want a starting point, not a full product.</li>
-                        <li>You are comfortable making small adjustments yourself.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Not the best fit</h3>
-                    <ul class="list">
-                        <li>You need a polished SaaS with account management.</li>
-                        <li>You need Slack, Shopify, or CRM integrations on day one.</li>
-                        <li>You need a full custom workflow without any operator setup.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Recommended next step</h2>
-            <p class="lead">Use the published add-on chooser instead of this archived starter-kit path.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="../choose-google-workspace-addon.html">Choose a published add-on</a>
-                <a class="btn btn-secondary" href="install.html">Installation guide</a>
-                <a class="btn btn-secondary" href="../resources/index.html">Browse resources</a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>FAQ</h2>
-            <div class="compare">
-                <div class="card">
-                    <h3>Do I get a hosted app?</h3>
-                    <p>No. This is a starter package with workflows, notes, and setup guidance. If you want a workflow configured for you, use the setup service.</p>
-                </div>
-                <div class="card">
-                    <h3>Can I use it for client work?</h3>
-                    <p>Yes. The package is written to be a useful base for internal use or small client delivery, especially if you already work in Google Workspace.</p>
-                </div>
-            </div>
-            <div class="compare" style="margin-top:16px;">
-                <div class="card">
-                    <h3>What do I get?</h3>
-                    <p>3 Google Workspace workflow templates with setup notes and customization guidance.</p>
-                </div>
-                <div class="card">
-                    <h3>Do I need an OpenAI API key?</h3>
-                    <p>Optional. The AI features work with or without an external API key.</p>
-                </div>
-            </div>
-            <div class="compare" style="margin-top:16px;">
-                <div class="card">
-                    <h3>Can I customize the templates?</h3>
-                    <p>Yes. All templates are Google Apps Script files you can modify.</p>
-                </div>
-                <div class="card">
-                    <h3>Is installation support included?</h3>
-                    <p>This archived kit is not the current support path. Install a published add-on first, test one small workflow, then email the add-on name and first-run result.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="footer">
-            Contact: <a href="../support.html">FormSuite support</a><br>
-            &copy; 2026 FormSuite. All rights reserved.
-        </div>
-    </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <div class="shell">
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../install.html">Install</a><a href="../resources/index.html">Guides</a><a href="../support.html">Support</a></nav>
+    <section class="hero">
+      <div class="eyebrow">Guide</div>
+      <h1>Ship your first Google Workspace AI workflow faster.</h1>
+      <p>A lightweight starter kit for Google Forms, Gmail, Docs, and Sheets automation. Includes three workflow templates, setup notes, and operator-ready customization guidance.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="../index.html">Home</a>
+<a class="btn btn-secondary" href="../resources/index.html">Resources</a>
+<a class="btn btn-secondary" href="install.html">Read installation guide</a>
+<a class="btn btn-secondary" href="../support.html">FormSuite support</a></div>
+    </section>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Short path</div><h2>What to do</h2><ol><li>Open the matching FormSuite product page.</li><li>Run one small test with copied data.</li><li>Install from Marketplace only after the test matches your workflow.</li></ol></article>
+      <aside class="card"><div class="pill">Need help?</div><h2>Send a setup note</h2><p>Include the product name, the expected result, and a screenshot of the failing step.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+    </section>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>
