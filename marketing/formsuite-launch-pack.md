@@ -6,7 +6,7 @@ Use this after the dark redesign and inner-page cleanup. The goal is not to spam
 
 ## Product map
 
-- **FormGuard** — Google Forms limits, choice quotas, close messages, notifications, timer-style workflows.
+- **FormGuard** — Google Forms capacity controls, per-choice quotas, time-slot limits, close messages, and launch checks.
 - **FormRanger** — sync Google Forms dropdowns, checkboxes, multiple-choice, and grid choices from Google Sheets.
 - **FormNotifier** — owner alerts and respondent confirmation emails for Google Forms.
 - **FormCopy Pro** — keep Google Forms response-sheet formulas and helper columns working.
@@ -31,7 +31,7 @@ Use this after the dark redesign and inner-page cleanup. The goal is not to spam
 
 **Short version**
 
-FormSuite is a set of focused Google Workspace add-ons for people who already use Google Forms and Sheets, but need the missing operational layer: limits, synced choices, email notifications, formula copy-down, approvals, mail merge, and document generation.
+FormSuite is a set of focused Google Workspace add-ons for people who already use Google Forms and Sheets, but need the missing operational layer: per-choice capacity controls, synced choices, email notifications, formula copy-down, approvals, mail merge, and document generation.
 
 **Safe claim**
 
@@ -212,6 +212,36 @@ Track:
 
 Double down on pages with impressions but low CTR: rewrite title/meta/intro.
 
+
+## Updated FormGuard angle after Google native response limits
+
+Google Forms now has a native way to stop accepting responses by date/time or total response count. Do **not** lead with “total response limit” in community replies unless the thread specifically asks for testing, close messages, or extra guardrails.
+
+Lead with the gaps that still matter:
+
+- each workshop/session/time slot needs its own cap,
+- one option should close while the rest of the form stays open,
+- the full option needs a clear close/waitlist message,
+- the organizer wants alerts and a test-before-launch workflow,
+- the choice list may also need to come from Google Sheets via FormRanger.
+
+Safe one-line positioning:
+
+> FormGuard is for Google Forms capacity workflows where individual options, sessions, or appointment slots need quotas — not just a simple total response cap.
+
+Forum answer variant:
+
+> If you only need to stop the whole form after N responses, try Google Forms’ native response limit first. If your real problem is “each workshop/time slot/role has its own capacity,” then you need a per-choice quota workflow. That’s the use case I’m building FormGuard around: option-level limits, full messages, alerts, and test-before-launch checks.
+>
+> Relevant guide: https://formsuite.dev/formguard/google-forms-choice-limit.html
+
+FormRanger bridge variant:
+
+> If the list of choices lives in Google Sheets, use a Sheets-to-Forms sync workflow first. If those choices also need capacity limits, combine dynamic choices with a quota workflow.
+>
+> Dynamic choices guide: https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html
+> Capacity/choice quota guide: https://formsuite.dev/formguard/google-forms-choice-limit.html
+
 ---
 
 # Reddit / forum answer templates
@@ -335,7 +365,7 @@ I built FormSuite because a lot of Google Workspace workflows start simple, then
 
 The first products are focused add-ons:
 
-- FormGuard — response limits, choice quotas, notifications, and timer-style workflows for Google Forms.
+- FormGuard — per-choice quotas, time-slot limits, close messages, notifications, and launch checks for Google Forms.
 - FormRanger — sync Google Forms choices from Google Sheets.
 - FormNotifier — confirmation emails and owner alerts for form submissions.
 - FormCopy Pro — keep Google Forms response-sheet formulas working.
@@ -383,7 +413,7 @@ Curious if anyone else has tried a portfolio of small marketplace-distributed pr
 
 I’m building FormSuite: small Google Workspace add-ons for the annoying workflows that sit just beyond native Google Forms/Sheets.
 
-Limits, synced choices, confirmation emails, formula copy-down, approvals, mail merge, Docs/PDF generation.
+Per-choice quotas, synced choices, confirmation emails, formula copy-down, approvals, mail merge, Docs/PDF generation.
 
 https://formsuite.dev/
 
@@ -427,7 +457,7 @@ Hi {{Name}},
 
 I noticed a lot of classes/workshops still use Google Forms for signup and quizzes.
 
-I’m building FormSuite, a set of small Google Workspace add-ons. The first one, FormGuard, helps with response limits, per-session choice quotas, closed messages, notifications, and timer-style quiz workflows.
+I’m building FormSuite, a set of small Google Workspace add-ons. The first one, FormGuard, helps with per-session choice quotas, time-slot capacity, closed messages, notifications, and safe launch checks.
 
 If you use Google Forms for registrations or classes, this might save some manual cleanup:
 
@@ -445,7 +475,7 @@ I’m building FormSuite — focused Google Workspace add-ons for the small oper
 
 Examples:
 
-- limit Google Forms after capacity,
+- control Google Forms option/time-slot capacity,
 - sync form choices from Google Sheets,
 - send confirmation emails,
 - keep response-sheet formulas working,

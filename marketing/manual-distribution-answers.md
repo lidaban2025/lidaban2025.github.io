@@ -19,6 +19,7 @@ Use these as human-written starting points for Reddit, Quora, Google Help Commun
 - Install center: https://formsuite.dev/install.html
 - Add-on chooser: https://formsuite.dev/choose-google-workspace-addon.html
 - FormGuard: https://formsuite.dev/formguard/
+- FormGuard choice quotas: https://formsuite.dev/formguard/google-forms-choice-limit.html
 - FormRanger: https://formsuite.dev/formranger/
 - FormNotifier: https://formsuite.dev/formnotifier/
 - FormCopy: https://formsuite.dev/formcopy/
@@ -28,19 +29,29 @@ Use these as human-written starting points for Reddit, Quora, Google Help Commun
 
 ---
 
-## FormGuard — Google Forms limits, capacity, deadlines
+## FormGuard — Google Forms choice quotas, capacity, deadlines
 
 ### 1. Query: google forms limit responses
 
-If you only need a hard total cap, Google Forms can stop accepting responses manually, but it does not give much control around capacity, messages, or testing.
+If you only need a total cap, start with Google Forms’ native response limit. The bigger gap is usually capacity per option: each workshop, appointment slot, or role needs its own quota while the rest of the form stays open.
 
-The usual options are:
+For that workflow, I’d use per-choice quotas, test the public form with small sample limits, and write a clear full-message before sharing it.
 
-1. watch the response count and close the form manually,
-2. write an Apps Script trigger,
-3. use a Forms add-on that handles the limit for you.
+I’m building FormGuard around that capacity workflow: https://formsuite.dev/formguard/google-forms-choice-limit.html
 
-If you want the add-on route, I’m building FormGuard. It adds response limits, choice quotas, close messages, and a test-first workflow for Google Forms: https://formsuite.dev/formguard/google-forms-limit-responses-guide.html
+
+### 1A. Query: google forms limit each option or time slot
+
+For total responses, Google Forms now has a native response limit. For event signups, the harder case is usually option-level capacity: Workshop A has 12 seats, Workshop B has 20, the 10am slot has 8, etc.
+
+The clean setup is:
+
+1. make each session/slot/role a choice option,
+2. assign a quota to each option,
+3. write the “full” message,
+4. test the public form with small sample limits before sharing it.
+
+I’m building FormGuard for this per-choice quota workflow: https://formsuite.dev/formguard/google-forms-choice-limit.html
 
 ### 2. Query: google forms close after 100 responses
 
@@ -84,7 +95,7 @@ The clean workflow is:
 2. assign a capacity to each option,
 3. test with a copied form before publishing.
 
-FormGuard handles this as choice quotas: https://formsuite.dev/formguard/google-forms-limit-signups-per-time-slot.html
+FormGuard handles this as choice quotas: https://formsuite.dev/formguard/google-forms-choice-limit.html
 
 ---
 
