@@ -34,3 +34,10 @@ First-workflow setup help:
 Product chooser:
 
 - https://formsuite.dev/choose-google-workspace-addon.html
+
+
+Marketing assets:
+
+- FormSuite launch distribution pack: `marketing/formsuite-launch-pack.md`
+- Indexing and launch checklist: `marketing/indexing-checklist.md`
+- FormGuard distribution pack: `formguard/marketing/distribution-pack.md`
