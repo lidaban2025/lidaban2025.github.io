@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add a waitlist link to a Google Forms closed message | FormGuard</title>
-  <meta name="description" content="Add a waitlist link to a Google Forms closed message after a form is full, with FormGuard setup tips and message examples.">
+  <meta name="description" content="A short FormGuard pattern for adding a waitlist link after a Google Form reaches capacity.">
   <link rel="canonical" href="https://formsuite.dev/formguard/google-forms-waitlist-link-in-closed-message.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
@@ -17,50 +17,6 @@
   <meta property="og:description" content="Show late visitors a clear waitlist handoff after a Google Form reaches capacity.">
   <meta property="og:url" content="https://formsuite.dev/formguard/google-forms-waitlist-link-in-closed-message.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Add a waitlist link to a Google Forms closed message">
-  <meta name="twitter:description" content="A practical waitlist-link pattern for Google Forms that reach capacity.">
-  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Add a waitlist link to a Google Forms closed message",
-      "description": "A guide to using a Google Forms closed message as a waitlist handoff after capacity is reached.",
-      "author": { "@type": "Organization", "name": "FormSuite" },
-      "publisher": { "@type": "Organization", "name": "FormSuite" },
-      "mainEntityOfPage": "https://formsuite.dev/formguard/google-forms-waitlist-link-in-closed-message.html"
-    }
-  </script>
-  <style>
-    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green-soft:#ebf8ef; --warn:#fff7e8; --panel:#ffffff; --shadow:0 18px 45px rgba(23,38,61,.10); }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#ffffff 56%); line-height:1.68; }
-    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
-    .shell { max-width:980px; margin:0 auto; padding:28px 20px 60px; }
-    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; font-size:.94rem; }
-    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); }
-    .hero { padding:30px; margin-bottom:18px; }
-    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:16px; }
-    h1 { font-size:2.55rem; line-height:1.08; letter-spacing:0; margin-bottom:14px; max-width:18ch; }
-    h2 { font-size:1.45rem; letter-spacing:0; margin-bottom:10px; }
-    .hero p,.section p,.section li { color:var(--muted); }
-    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; font-weight:700; border:1px solid transparent; }
-    .btn-primary { background:var(--blue); color:#fff; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
-    .section { padding:26px; margin-top:18px; }
-    .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
-    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-    .feature { padding:18px; border:1px solid var(--line); border-radius:18px; background:#fff; }
-    .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
-    .steps { padding-left:20px; display:grid; gap:10px; }
-    .template { margin-top:12px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; }
-    .template code { display:block; white-space:pre-wrap; font-family:Consolas,"Courier New",monospace; font-size:.92rem; line-height:1.55; color:#4c3211; }
-    .note { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
-    .warn { margin-top:18px; padding:16px 18px; border-radius:18px; background:var(--warn); border:1px solid #f0d9aa; color:#6f4a12; font-size:.93rem; }
-    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-    @media (max-width:900px) { .grid { grid-template-columns:1fr; } h1 { font-size:2.1rem; max-width:none; } }
-  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -68,85 +24,28 @@
 </head>
 <body>
   <div class="shell">
-    <nav class="nav">
-      <a href="../index.html">FormSuite</a>
-      <a href="../resources/index.html">Resources</a>
-      <a href="./index.html"><strong>FormGuard</strong></a>
-      
-      <a href="./support.html">Support</a>
-    </nav>
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="./index.html">FormGuard</a><a href="./support.html">Support</a></nav>
     <section class="hero">
-      <div class="eyebrow">Waitlist message guide</div>
-      <h1>Add a waitlist link to a Google Forms closed message</h1>
-      <p>When a capped Google Form is full, the closed message can do useful work: explain the status, link to a waitlist, and tell late visitors what happens next. The trick is to write the message before launch and test the handoff.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install FormGuard</a>
-        <a class="btn btn-secondary" href="./support.html">Open setup guide</a>
-        <a class="btn btn-secondary" href="./test-google-forms-response-limit-before-launch.html">Test the cap first</a>
-      </div>
+      <div class="eyebrow">Waitlist message</div>
+      <h1>Add a waitlist link after the form is full.</h1>
+      <p>Use one separate waitlist form or contact page. Put that single link in the closed message shown after FormGuard closes the main form.</p>
     </section>
     <section class="section">
-      <h2>Quick answer</h2>
-      <p class="lead">Use a separate waitlist path and put that link in the closed-form message shown after the main form reaches capacity. Keep the message honest: joining a waitlist is not the same as a confirmed seat.</p>
-      <div class="template"><code>Registration is currently full.
-
-If you would like to join the waitlist, please use this form:
-[waitlist link]
-
-We will contact waitlist respondents only if space becomes available.</code></div>
+      <h2>Message template</h2>
+      <div class="card"><p><strong>Registration is currently full.</strong><br>If you want to join the waitlist, use this form: [waitlist link].<br>We will contact waitlist respondents only if space becomes available.</p></div>
     </section>
     <section class="section">
-      <h2>Setup pattern</h2>
+      <h2>Setup</h2>
       <ol class="steps">
-        <li>Create the main Google Form for confirmed registration or intake.</li>
-        <li>Create a separate waitlist form, contact page, or email path.</li>
-        <li>Install FormGuard and set a response cap on the main form.</li>
-        <li>Write a closed message with one waitlist link and clear expectation-setting language.</li>
-        <li>Enable owner notification so someone knows the main form has closed.</li>
-        <li>Test the full path on a copied form before launch.</li>
+        <li>Create the main registration form.</li>
+        <li>Create a separate waitlist form or contact page.</li>
+        <li>Set the response cap in FormGuard.</li>
+        <li>Paste the waitlist link into the closed message.</li>
+        <li>Test once on a copied form before launch.</li>
       </ol>
-      <div class="note">A separate waitlist path keeps confirmed registrations and late requests easier to review.</div>
+      <div class="hero-actions"><a class="btn btn-primary" href="./google-forms-response-limit.html">Response limit guide</a></div>
     </section>
-    <section class="section">
-      <h2>Good waitlist message rules</h2>
-      <div class="grid">
-        <div class="feature"><strong>State the form is full</strong><p>Do not make visitors infer whether the deadline passed, the cap was reached, or the form is paused.</p></div>
-        <div class="feature"><strong>Use one next step</strong><p>One waitlist link is easier to manage than multiple informal follow-up channels.</p></div>
-        <div class="feature"><strong>Avoid seat promises</strong><p>Say you will contact waitlist respondents if space becomes available, not that they are automatically registered.</p></div>
-        <div class="feature"><strong>Tell the owner</strong><p>An owner alert helps the operator update websites, shared links, or internal instructions.</p></div>
-      </div>
-    </section>
-    <section class="section">
-      <h2>When not to use this pattern</h2>
-      <p class="lead">A waitlist link in a Google Forms closed message is a lightweight handoff. It is not a complete registration, ticketing, payment, or seat-management workflow.</p>
-      <div class="grid">
-        <div class="feature"><strong>Use a fuller system</strong><p>If you need automatic seat promotion, payment capture, cancellations, assigned seats, or strict ordering.</p></div>
-        <div class="feature"><strong>Use manual review</strong><p>If demand is high enough that several people may submit at nearly the same time near capacity.</p></div>
-      </div>
-      <div class="warn">For high-demand forms, use a buffer cap and manually confirm the final list before telling people they have a spot.</div>
-    </section>
-    <section class="section">
-      <h2>After the waitlist handoff works</h2>
-      <p class="lead">If the main form closed cleanly and the waitlist link opened the right next step, use the review-after-success page while the result is fresh. If anything felt unclear, send the exact blocked step instead.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="../review-after-first-success.html">Review after first success</a>
-        <a class="btn btn-secondary" href="./support.html">Send setup feedback</a>
-        <a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Open Marketplace listing</a>
-      </div>
-    </section>
-    <section class="section">
-      <h2>Related FormGuard guides</h2>
-      <div class="link-bar">
-        <a href="./google-forms-waitlist-after-capacity.html">Waitlist after capacity</a>
-        <a href="./google-forms-event-registration-full-message.html">Full message templates</a>
-        <a href="./google-forms-stop-responses-when-full.html">Stop responses when full</a>
-        <a href="./what-to-show-when-google-form-is-full.html">What to show when full</a>
-        <a href="../resources/google-forms-choices-from-sheets-with-capacity-limits.html">Choices from Sheets + limits</a>
-        <a href="../review-after-first-success.html">Review after first success</a>
-        <a href="./permissions.html">Permissions</a>
-      </div>
-    </section>
-    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Workspace are trademarks of Google LLC.</div>
+    <footer><p><a href="./google-forms-limits-guides.html">FormGuard guides</a> · <a href="./support.html">Support</a><br>&copy; 2026 FormSuite.</p></footer>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
