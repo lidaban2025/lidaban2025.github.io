@@ -13,7 +13,7 @@ _Last updated: 2026-05-30_
 
 - https://formsuite.dev/
 - https://formsuite.dev/choose-google-workspace-addon.html
-- https://formsuite.dev/install.html
+- https://formsuite.dev/choose-google-workspace-addon.html
 
 ### Product homepages
 

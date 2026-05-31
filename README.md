@@ -25,7 +25,7 @@ Published add-ons:
 
 Install center:
 
-- https://formsuite.dev/install.html
+- https://formsuite.dev/choose-google-workspace-addon.html
 
 First-workflow setup help:
 

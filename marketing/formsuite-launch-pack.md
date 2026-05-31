@@ -4,7 +4,7 @@ _Last updated: 2026-05-30_
 
 Use this after the dark redesign and inner-page cleanup. The goal is not to spam every community. The goal is to answer high-intent questions with the most relevant FormSuite guide, then send people to the right product page.
 
-## Product map
+## Add-on map
 
 - **FormGuard** — Google Forms capacity controls, per-choice quotas, time-slot limits, close messages, and launch checks.
 - **FormRanger** — sync Google Forms dropdowns, checkboxes, multiple-choice, and grid choices from Google Sheets.
@@ -18,7 +18,7 @@ Use this after the dark redesign and inner-page cleanup. The goal is not to spam
 
 - Product directory: https://formsuite.dev/
 - Add-on chooser: https://formsuite.dev/choose-google-workspace-addon.html
-- Install hub: https://formsuite.dev/install.html
+- Install hub: https://formsuite.dev/choose-google-workspace-addon.html
 - FormGuard: https://formsuite.dev/formguard/
 - FormRanger: https://formsuite.dev/formranger/
 - FormNotifier: https://formsuite.dev/formnotifier/
@@ -52,7 +52,7 @@ Not a form builder replacement. FormSuite is for teams that want to keep using G
 
 - Submit `https://formsuite.dev/sitemap.xml` in Google Search Console.
 - Submit sitemap in Bing Webmaster Tools.
-- Check that the homepage, product pages, and support pages render dark style.
+- Check that the homepage, add-on pages, and support pages render dark style.
 - Post one concise product update on personal LinkedIn/X if available.
 
 ## Day 2 — Google Forms limits threads
