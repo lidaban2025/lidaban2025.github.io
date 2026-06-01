@@ -29,6 +29,7 @@
     if (haystack.indexOf("formmerge") !== -1 || haystack.indexOf("smin_klpfky") !== -1) return "FormMerge Pro";
     if (haystack.indexOf("docforge") !== -1 || haystack.indexOf("yaecjc42lfg") !== -1) return "DocForge";
     if (haystack.indexOf("formranger") !== -1) return "FormRanger";
+    if (haystack.indexOf("formflow") !== -1 || haystack.indexOf("1082615279531") !== -1) return "FormFlow";
     return productFromPath(window.location.pathname);
   }
 
@@ -58,10 +59,13 @@
 
   function pageViewEvent() {
     var path = window.location.pathname.toLowerCase();
-    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger)\/$/.test(path) || /\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger)\/index\.html$/.test(path)) {
+    if (path === "/" || path === "/index.html") {
+      return "homepage_view";
+    }
+    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/$/.test(path) || /\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/index\.html$/.test(path)) {
       return "product_page_view";
     }
-    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger)\/.+\.html$/.test(path) || path.indexOf("/resources/") !== -1) {
+    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/.+\.html$/.test(path) || path.indexOf("/resources/") !== -1) {
       return "seo_page_view";
     }
     return "";
