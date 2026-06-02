@@ -1,1 +1,6 @@
 date,platform,query_or_thread,product,url_used,posted_reply_url,status,clicks_or_replies,notes
+2026-06-02,Google Search Console,sitemap.xml,FormSuite,https://formsuite.dev/sitemap.xml,,submitted/success,,Ownership auto verified; sitemap Success; 147 discovered pages; last read Jun 2 2026
+2026-06-02,Google Search Console,URL inspection,FormRanger,https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html,,request-indexing-started,,URL was discovered-currently not indexed; Request indexing clicked; live URL test still processing at interruption
+2026-06-02,Reddit,network security block,FormRanger,https://www.reddit.com/r/GoogleForms/comments/11omudd/populate_google_form_drop_down_from_google_sheet/,,blocked,,Reddit blocks agent browser; Google OAuth login did not bypass network block; cannot post from this environment
+2026-06-02,Google Docs Help,locked thread,FormRanger,https://support.google.com/docs/thread/188086454/can-you-have-a-drop-down-list-in-google-forms-that-comes-from-a-google-spreadsheet?hl=en,,locked,,High intent but replying disabled
+2026-06-02,Google Docs Help,locked thread,FormGuard,https://support.google.com/docs/thread/,,locked,,Found ECA/class-size capacity thread but replying disabled; useful for keyword angle
