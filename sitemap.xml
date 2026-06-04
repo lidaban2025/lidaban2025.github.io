@@ -588,4 +588,29 @@
     <loc>https://formsuite.dev/formranger/google-forms-choice-list-from-google-sheets.html</loc>
     <lastmod>2026-06-03</lastmod>
   </url>
+  <url>
+    <loc>https://formsuite.dev/formguard/google-forms-option-full-but-still-selectable.html</loc>
+    <lastmod>2026-06-04</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formguard/google-forms-hide-choice-after-limit-reached.html</loc>
+    <lastmod>2026-06-04</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formguard/google-forms-waitlist-when-session-is-full.html</loc>
+    <lastmod>2026-06-04</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formranger/google-forms-dropdown-not-showing-new-sheet-values.html</loc>
+    <lastmod>2026-06-04</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formranger/auto-refresh-google-forms-choices-from-sheets.html</loc>
+    <lastmod>2026-06-04</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formranger/google-forms-dropdown-from-google-sheets-not-apps-script.html</loc>
+    <lastmod>2026-06-04</lastmod>
+  </url>
 </urlset>
+

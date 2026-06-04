@@ -225,3 +225,18 @@ Next promotion actions:
 2. Use these URLs as safer one-link answers when Reddit/Quora/Google Help sessions are usable again.
 3. Turn recurring blocked community questions into owned FAQ/guide pages instead of repeatedly fighting platform security pages.
 
+
+
+## 2026-06-04 exposure expansion
+
+Added six more high-intent owned pages to increase Google exposure while Reddit/Quora remain unstable:
+
+- `/formguard/google-forms-option-full-but-still-selectable.html`
+- `/formguard/google-forms-hide-choice-after-limit-reached.html`
+- `/formguard/google-forms-waitlist-when-session-is-full.html`
+- `/formranger/google-forms-dropdown-not-showing-new-sheet-values.html`
+- `/formranger/auto-refresh-google-forms-choices-from-sheets.html`
+- `/formranger/google-forms-dropdown-from-google-sheets-not-apps-script.html`
+
+These target problem phrases users search after a form fails: full options still selectable, hiding choices after quota, waitlists, dropdown values not updating, auto-refreshing choices from Sheets, and avoiding Apps Script maintenance.
+
