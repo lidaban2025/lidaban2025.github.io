@@ -207,3 +207,21 @@ Checked one high-priority FormRanger guide:
 
 `marketing/promotion-tracker.csv` now records the Search Console indexing checks, Quora block, and Google Help soft-lock status.
 
+
+
+## 2026-06-03 additional promotion pivot
+
+Reddit and Quora direct posting hit platform friction again, so the next low-risk promotion move is to capture the same high-intent searches on owned pages that can be indexed and shared later. Added three compact long-tail pages:
+
+- `/formguard/google-forms-capacity-limit-per-choice.html` — targets "Google Forms capacity limit per choice" and related event/session/role seat cap queries.
+- `/formranger/google-forms-dropdown-from-spreadsheet.html` — targets "Google Forms dropdown from spreadsheet".
+- `/formranger/google-forms-choice-list-from-google-sheets.html` — targets "Google Forms choice list from Google Sheets".
+
+Also linked the pages from `/resources/` and added them to `sitemap.xml`.
+
+Next promotion actions:
+
+1. Submit/request indexing for the three new URLs after deploy.
+2. Use these URLs as safer one-link answers when Reddit/Quora/Google Help sessions are usable again.
+3. Turn recurring blocked community questions into owned FAQ/guide pages instead of repeatedly fighting platform security pages.
+
