@@ -240,3 +240,9 @@ Added six more high-intent owned pages to increase Google exposure while Reddit/
 
 These target problem phrases users search after a form fails: full options still selectable, hiding choices after quota, waitlists, dropdown values not updating, auto-refreshing choices from Sheets, and avoiding Apps Script maintenance.
 
+
+
+### Indexing push
+
+Created an IndexNow key file and submitted 9 FormSuite promotion URLs to IndexNow/Bing endpoints. Both `api.indexnow.org/indexnow` and `www.bing.com/indexnow` returned HTTP 202. Google sitemap ping is deprecated, so Google discovery remains sitemap + Search Console URL Inspection.
+
