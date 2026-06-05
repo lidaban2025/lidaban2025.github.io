@@ -64,8 +64,8 @@ Use:
 - "works with Google Forms workflows"
 
 Avoid:
-- "official Google replacement"
-- "guaranteed to prevent every overbooking edge case"
+- "Google-owned replacement"
+- "prevents every overbooking edge case"
 - fake usage/review numbers
 
 ## FormRanger listing
