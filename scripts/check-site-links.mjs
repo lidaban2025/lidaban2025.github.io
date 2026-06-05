@@ -42,6 +42,7 @@ function resolveHref(htmlFile, href) {
   // Strip anchor and query
   const clean = href.split('#')[0].split('?')[0];
   if (!clean) return null; // pure anchor
+  if (clean.startsWith('/')) return resolve(ROOT, clean.slice(1));
   const base = dirname(htmlFile);
   return resolve(base, clean);
 }

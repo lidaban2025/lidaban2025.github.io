@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://formsuite.dev/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/support.html</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/resources/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/demo-videos.html</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-sheets-rows-to-pdf.html</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/pdf-report-generator-from-google-sheets.html</loc>
@@ -154,7 +154,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-not-copying.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formcopy/google-forms-response-sheet-formulas-move-after-new-submission.html</loc>
@@ -182,11 +182,11 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/google-forms-approval-workflow-guide.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/approve-reject-google-forms-responses-by-email.html</loc>
@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/formlimiter-alternative-google-forms.html</loc>
@@ -382,7 +382,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/google-forms-email-notifications-guide.html</loc>
@@ -394,7 +394,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/google-forms-send-confirmation-email-to-respondent-and-owner.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formnotifier/google-forms-custom-confirmation-email-with-form-answers.html</loc>
@@ -502,7 +502,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/formranger-alternative-google-forms.html</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html</loc>
@@ -542,7 +542,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/google-forms-response-limit.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formguard/google-forms-choice-limit.html</loc>
@@ -576,4 +576,30 @@
     <loc>https://formsuite.dev/formguard/google-forms-limits-guides.html</loc>
     <lastmod>2026-05-30</lastmod>
   </url>
-<url><loc>https://formsuite.dev/formguard/google-forms-limit-each-option.html</loc><lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url><url><loc>https://formsuite.dev/formranger/google-forms-dynamic-choices-with-capacity.html</loc><lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url><url><loc>https://formsuite.dev/resources/google-forms-workshop-registration-from-sheets.html</loc><lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url></urlset>
+  <url>
+    <loc>https://formsuite.dev/formguard/google-forms-limit-each-option.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formranger/google-forms-dynamic-choices-with-capacity.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/resources/google-forms-workshop-registration-from-sheets.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/install.html</loc>
+    <lastmod>2026-06-06</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/choose-google-workspace-addon.html</loc>
+    <lastmod>2026-06-06</lastmod>
+  </url>
+</urlset>
