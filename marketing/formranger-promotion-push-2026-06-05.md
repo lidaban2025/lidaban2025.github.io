@@ -140,3 +140,115 @@ Sync Google Sheets data into Google Forms dropdowns, multiple choice, checkboxes
 
 ### Founder note for communities
 I built FormRanger because many Google Forms users end up maintaining fragile Apps Script just to keep dropdowns or multiple-choice lists updated from a Sheet. The product focuses on one job: Sheets → Forms choice sync, then public respondent-view testing before launch.
+
+
+## Execution update — 2026-06-06
+
+### WebApps.SE exact dropdown thread — postability check
+- URL: https://webapps.stackexchange.com/questions/137212/how-can-i-get-data-from-google-sheets-to-a-google-forms-dropdown-list
+- Result: page is accessible and the answer editor is visible, but the session is not logged in.
+- Status: `login_required_before_posting`
+- Note: Do not publish through an anonymous/throwaway flow. Use the user's normal Stack Exchange account/browser session, because Stack Exchange self-promotion rules are strict and the answer must be attributable.
+
+Improved answer draft, safer for Stack Exchange:
+```text
+Google Forms does not keep dropdown choices live-linked to a Sheet by default. The usual solution is to push the latest Sheet values into the Form item with Apps Script.
+
+A minimal pattern is:
+
+1. Keep the source choices in one clean Sheet column.
+2. Read that range and filter out blank values.
+3. Open the Form by ID.
+4. Find the target dropdown item.
+5. Call setChoiceValues(values).
+6. Run the function manually or from a time-driven trigger.
+
+Example shape:
+
+function updateDropdown() {
+  const form = FormApp.openById('FORM_ID');
+  const sheet = SpreadsheetApp.openById('SHEET_ID').getSheetByName('Choices');
+  const values = sheet.getRange('A2:A')
+    .getValues()
+    .flat()
+    .filter(String);
+
+  const item = form.getItems(FormApp.ItemType.LIST)[0].asListItem();
+  item.setChoiceValues(values);
+}
+
+The important caveat is that this is not a live binding. The script or trigger has to update the form choices whenever the Sheet list changes. Also test the public/respondent view after updating, not only the editor.
+
+If you do not want to maintain Apps Script and triggers, I am building FormRanger for this exact workflow: syncing Google Sheets rows into Google Forms dropdown / multiple-choice / checkbox choices.
+https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html?utm_source=webapps_stackexchange&utm_medium=answer&utm_campaign=formranger_push_20260605
+```
+
+### Additional Stack Exchange candidates found via API
+
+#### 6. StackOverflow — dynamic forms with dropdown / multiple choice from Google Sheets — candidate_with_policy_risk
+- Title: Can I make dynamic forms with dropdown or multiple choice options from Google sheets?
+- URL: https://stackoverflow.com/questions/74529492/can-i-make-dynamic-forms-with-dropdown-or-multiple-choice-options-from-google-sh
+- Score / views / answers: 0 / 774 / 1
+- Why it matters: exact FormRanger wording: dynamic forms + dropdown/multiple choice + Google Sheets.
+- Recommended link: https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html?utm_source=stackoverflow&utm_medium=answer&utm_campaign=formranger_push_20260606
+
+Draft answer:
+```text
+Yes, but Google Forms will not read the Sheet range live. You need a process that pushes the current Sheet values into the Form question.
+
+For Apps Script, the pattern is:
+
+1. Store the options in a Sheet range.
+2. Read the range with getValues().
+3. Filter blanks / duplicates if needed.
+4. Open the Form with FormApp.openById().
+5. Get the target ListItem or MultipleChoiceItem.
+6. Update it with setChoiceValues(values).
+7. Add a time-driven trigger if the source list changes often.
+
+If you prefer not to maintain that Apps Script/triggers layer, I am building FormRanger for this Sheet-to-Google-Forms choices workflow:
+https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html?utm_source=stackoverflow&utm_medium=answer&utm_campaign=formranger_push_20260606
+```
+
+#### 7. StackOverflow — populate form options from spreadsheet — candidate_with_policy_risk
+- Title: Google Spreadsheet Form, populate form options based on a spreadsheet
+- URL: https://stackoverflow.com/questions/8084953/google-spreadsheet-form-populate-form-options-based-on-a-spreadsheet
+- Score / views / answers: 20 / 26704 / 3
+- Why it matters: high-view evergreen query for populating Google Form options from a spreadsheet.
+- Recommended link: https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html?utm_source=stackoverflow&utm_medium=answer&utm_campaign=formranger_push_20260606
+
+Draft answer:
+```text
+The durable way is to treat the spreadsheet as the source of truth and periodically push its values into the Google Form question. Google Forms does not maintain a native live relationship with a Sheet range.
+
+In Apps Script, use setChoiceValues() for list / multiple-choice style items. Keep the spreadsheet range simple, remove blanks, and run the update from a trigger if the options change over time.
+
+If you want a no-maintenance add-on route, I am building FormRanger for this exact use case: Sheet values into Google Forms dropdowns, multiple choice, checkboxes, and grid choices.
+https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html?utm_source=stackoverflow&utm_medium=answer&utm_campaign=formranger_push_20260606
+```
+
+#### 8. StackOverflow — automatically update dropdown from Sheets range — candidate_with_policy_risk
+- Title: How to automatically update dropdown in a Google Form based on range in Google Sheets?
+- URL: https://stackoverflow.com/questions/60805150/how-to-automatically-update-dropdown-in-a-google-form-based-on-range-in-google-s
+- Score / views / answers: 0 / 3799 / 1
+- Why it matters: exact auto-update dropdown query.
+- Recommended link: https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html?utm_source=stackoverflow&utm_medium=answer&utm_campaign=formranger_push_20260606
+
+Draft answer:
+```text
+The missing piece is that Google Forms dropdowns are not automatically bound to Google Sheets ranges. You can automate it, but the automation has to update the Form item.
+
+Use Apps Script to:
+
+- read the source Sheet range,
+- flatten and filter the values,
+- open the Form,
+- find the dropdown/ListItem,
+- call setChoiceValues(values),
+- run the update on a time-driven trigger.
+
+Then always preview the respondent form after the update, because checking only the editor can miss stale public choices.
+
+If you do not want to maintain Apps Script and triggers, I am building FormRanger around this workflow:
+https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html?utm_source=stackoverflow&utm_medium=answer&utm_campaign=formranger_push_20260606
+```
