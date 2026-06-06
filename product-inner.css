@@ -269,59 +269,95 @@ li + li {
 
 .btn,
 .button,
-.hero-actions a,
-.path-links a,
-.link-bar a,
-.link-row a,
-.card a:not(.plain),
 a.btn-primary,
-a.btn-secondary {
+.hero-actions a:first-child,
+.path-links a:first-child,
+.link-bar a:first-child,
+.link-row a:first-child {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   min-height: 40px !important;
   padding: 0 14px !important;
   border-radius: 8px !important;
-  border: 1px solid var(--fs-line) !important;
-  background: var(--fs-panel) !important;
-  color: var(--fs-ink) !important;
+  border: 1px solid var(--fs-brand) !important;
+  background: var(--fs-brand) !important;
+  color: #ffffff !important;
   font-size: 14px !important;
   font-weight: 760 !important;
   text-decoration: none !important;
-  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.02) !important;
+  box-shadow: 0 8px 20px rgba(36, 87, 214, 0.16) !important;
 }
 .btn:hover,
 .button:hover,
-.hero-actions a:hover,
-.path-links a:hover,
-.link-bar a:hover,
-.link-row a:hover,
-.card a:not(.plain):hover {
-  border-color: #c3cede !important;
-  color: var(--fs-brand) !important;
-  text-decoration: none !important;
-}
-.btn-primary,
-.hero-actions a:first-child,
-.path-links a:first-child,
-.link-bar a:first-child,
-.link-row a:first-child,
-a.btn-primary,
-.card-actions a.install {
-  background: var(--fs-brand) !important;
-  color: #ffffff !important;
-  border-color: var(--fs-brand) !important;
-  box-shadow: 0 8px 20px rgba(36, 87, 214, 0.16) !important;
-}
 .btn-primary:hover,
 .hero-actions a:first-child:hover,
 .path-links a:first-child:hover,
 .link-bar a:first-child:hover,
 .link-row a:first-child:hover,
-a.btn-primary:hover,
-.card-actions a.install:hover {
+a.btn-primary:hover {
   background: var(--fs-brand-dark) !important;
   color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.btn-secondary,
+a.btn-secondary,
+.hero-actions a:not(:first-child),
+.path-links a:not(:first-child),
+.link-bar a:not(:first-child),
+.link-row a:not(:first-child),
+.card a:not(.btn):not(.plain),
+.card .btn-secondary,
+.mini-guide-card a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: 0 !important;
+  width: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--fs-brand) !important;
+  font-size: 14px !important;
+  font-weight: 760 !important;
+  text-decoration: none !important;
+}
+.btn-secondary:hover,
+a.btn-secondary:hover,
+.hero-actions a:not(:first-child):hover,
+.path-links a:not(:first-child):hover,
+.link-bar a:not(:first-child):hover,
+.link-row a:not(:first-child):hover,
+.card a:not(.btn):not(.plain):hover,
+.card .btn-secondary:hover,
+.mini-guide-card a:hover {
+  color: var(--fs-brand-dark) !important;
+  text-decoration: underline !important;
+}
+.card > a.btn:first-of-type:not([href*="workspace.google.com"]),
+.card > a.btn-primary:first-of-type:not([href*="workspace.google.com"]) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: 0 !important;
+  width: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--fs-brand) !important;
+  font-size: 14px !important;
+  font-weight: 760 !important;
+  text-decoration: none !important;
+}
+.card > a.btn:first-of-type:not([href*="workspace.google.com"]):hover,
+.card > a.btn-primary:first-of-type:not([href*="workspace.google.com"]):hover {
+  color: var(--fs-brand-dark) !important;
+  text-decoration: underline !important;
 }
 .hero-actions,
 .path-links,
@@ -331,7 +367,8 @@ a.btn-primary:hover,
 .card-actions {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 10px !important;
+  align-items: center !important;
+  gap: 14px !important;
   margin-top: 18px !important;
 }
 
@@ -449,11 +486,16 @@ footer a,
   .features {
     grid-template-columns: 1fr !important;
   }
-  .hero-actions .btn,
-  .hero-actions a,
-  .path-links a,
-  .link-bar a,
-  .link-row a {
+  .hero-actions a:first-child,
+  .path-links a:first-child,
+  .link-bar a:first-child,
+  .link-row a:first-child {
     width: 100% !important;
+  }
+  .hero-actions a:not(:first-child),
+  .path-links a:not(:first-child),
+  .link-bar a:not(:first-child),
+  .link-row a:not(:first-child) {
+    width: auto !important;
   }
 }

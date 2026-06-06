@@ -147,26 +147,46 @@ h1 {
   margin-top: 22px;
 }
 .btn,
-.link-row a,
-.mini-guide-card a {
+.btn-primary,
+.hero-actions a:first-child,
+.link-row a:first-child {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 40px;
   padding: 0 14px;
   border-radius: 8px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  color: var(--text);
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+  font-weight: 760;
+  box-shadow: 0 8px 20px rgba(36, 87, 214, 0.16);
+}
+.btn-secondary,
+.hero-actions a:not(:first-child),
+.link-row a:not(:first-child),
+.mini-guide-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 0;
+  width: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--accent);
   font-size: 14px;
   font-weight: 760;
 }
-.btn-primary,
-.link-row a:first-child {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: white;
-  box-shadow: 0 8px 20px rgba(36, 87, 214, 0.16);
+.btn-secondary:hover,
+.hero-actions a:not(:first-child):hover,
+.link-row a:not(:first-child):hover,
+.mini-guide-card a:hover {
+  color: var(--accent-2);
+  text-decoration: underline;
 }
 
 .product-visual,
@@ -333,7 +353,7 @@ h3 {
 }
 .guide-panel .link-row { margin-top: 0; justify-content: flex-start; }
 .mini-guide-card strong { display: block; font-weight: 760; margin-bottom: 8px; }
-.mini-guide-card a { margin-top: 16px; min-height: 38px; padding: 0 12px; }
+.mini-guide-card a { margin-top: 16px; }
 .faq-panel { padding: 8px; box-shadow: none; }
 details {
   padding: 16px;
@@ -378,9 +398,12 @@ details p { margin-top: 10px; }
   h2 { font-size: 26px; }
   .nav { gap: 10px; font-size: 13px; }
   .mock-sidebar { min-height: 180px; }
-  .hero-actions .btn,
-  .hero-actions a,
-  .link-row a {
+  .hero-actions a:first-child,
+  .link-row a:first-child {
     width: 100%;
+  }
+  .hero-actions a:not(:first-child),
+  .link-row a:not(:first-child) {
+    width: auto;
   }
 }
