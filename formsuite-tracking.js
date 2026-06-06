@@ -62,6 +62,12 @@
     if (path === "/" || path === "/index.html") {
       return "homepage_view";
     }
+    if (path === "/install.html") {
+      return "install_center_view";
+    }
+    if (path === "/choose-google-workspace-addon.html") {
+      return "chooser_view";
+    }
     if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/$/.test(path) || /\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/index\.html$/.test(path)) {
       return "product_page_view";
     }
@@ -71,12 +77,155 @@
     return "";
   }
 
+  function storageGet(storage, key) {
+    try {
+      return storage ? storage.getItem(key) || "" : "";
+    } catch (err) {
+      return "";
+    }
+  }
+
+  function storageSet(storage, key, value) {
+    try {
+      if (storage) storage.setItem(key, value);
+    } catch (err) {}
+  }
+
+  function randomId(prefix) {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return prefix + "_" + window.crypto.randomUUID();
+    }
+    return prefix + "_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 12);
+  }
+
+  function getStableId(storage, key, prefix) {
+    var existing = storageGet(storage, key);
+    if (existing) return existing;
+    var value = randomId(prefix);
+    storageSet(storage, key, value);
+    return value;
+  }
+
+  function currentUrlWithoutHash() {
+    return window.location.origin + window.location.pathname;
+  }
+
+  function attributionFromSearch(search) {
+    var output = {
+      utm_source: "",
+      utm_medium: "",
+      utm_campaign: "",
+      utm_content: "",
+      utm_term: "",
+      source_param: "",
+      ref_param: "",
+      signin: ""
+    };
+    var params;
+    try {
+      params = new URLSearchParams(search || "");
+    } catch (err) {
+      return output;
+    }
+
+    Object.keys(output).forEach(function (key) {
+      var paramName = key;
+      if (key === "source_param") paramName = "source";
+      if (key === "ref_param") paramName = "ref";
+      output[key] = (params.get(paramName) || "").slice(0, 160);
+    });
+    return output;
+  }
+
+  function attributionSearch(search) {
+    var attribution = attributionFromSearch(search);
+    var params = new URLSearchParams();
+    Object.keys(attribution).forEach(function (key) {
+      if (!attribution[key]) return;
+      var paramName = key;
+      if (key === "source_param") paramName = "source";
+      if (key === "ref_param") paramName = "ref";
+      params.set(paramName, attribution[key]);
+    });
+    return params.toString() ? "?" + params.toString() : "";
+  }
+
+  function referrerInfo() {
+    if (!document.referrer) {
+      return { referrer_host: "", referrer_path: "" };
+    }
+    try {
+      var url = new URL(document.referrer);
+      return {
+        referrer_host: url.hostname,
+        referrer_path: url.pathname
+      };
+    } catch (err) {
+      return { referrer_host: "", referrer_path: "" };
+    }
+  }
+
+  function getLandingInfo() {
+    var key = "formsuite_landing";
+    var stored = storageGet(window.sessionStorage, key);
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (err) {}
+    }
+
+    var attribution = attributionFromSearch(window.location.search);
+    var referrer = referrerInfo();
+    var landing = {
+      landing_path: window.location.pathname,
+      landing_search: attributionSearch(window.location.search),
+      landing_utm_source: attribution.utm_source,
+      landing_utm_medium: attribution.utm_medium,
+      landing_utm_campaign: attribution.utm_campaign,
+      landing_utm_content: attribution.utm_content,
+      landing_utm_term: attribution.utm_term,
+      landing_referrer_host: referrer.referrer_host,
+      landing_referrer_path: referrer.referrer_path
+    };
+    storageSet(window.sessionStorage, key, JSON.stringify(landing));
+    return landing;
+  }
+
   function send(name, data) {
     if (!name) return;
+    var attribution = attributionFromSearch(window.location.search);
+    var referrer = referrerInfo();
+    var landing = getLandingInfo();
     var payload = {
       event: name,
       product: data.product || productFromPath(window.location.pathname),
       page: window.location.pathname,
+      path: window.location.pathname,
+      url: currentUrlWithoutHash(),
+      search: attributionSearch(window.location.search),
+      referrer_host: referrer.referrer_host,
+      referrer_path: referrer.referrer_path,
+      visitor_id: getStableId(window.localStorage, "formsuite_visitor_id", "v"),
+      session_id: getStableId(window.sessionStorage, "formsuite_session_id", "s"),
+      timestamp: new Date().toISOString(),
+      timezone_offset_minutes: String(new Date().getTimezoneOffset()),
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      utm_content: attribution.utm_content,
+      utm_term: attribution.utm_term,
+      source_param: attribution.source_param,
+      ref_param: attribution.ref_param,
+      signin: attribution.signin,
+      landing_path: landing.landing_path || "",
+      landing_search: landing.landing_search || "",
+      landing_utm_source: landing.landing_utm_source || "",
+      landing_utm_medium: landing.landing_utm_medium || "",
+      landing_utm_campaign: landing.landing_utm_campaign || "",
+      landing_utm_content: landing.landing_utm_content || "",
+      landing_utm_term: landing.landing_utm_term || "",
+      landing_referrer_host: landing.landing_referrer_host || "",
+      landing_referrer_path: landing.landing_referrer_path || "",
       target_type: data.target_type || "",
       destination_host: data.destination_host || "",
       destination_path: data.destination_path || "",
