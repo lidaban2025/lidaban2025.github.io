@@ -8,86 +8,218 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FormRanger | Dynamic Google Forms choices from Google Sheets</title>
-  <meta name="description" content="Sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.">
+  <title>FormRanger | Sync Google Forms choices from Sheets</title>
+  <meta name="description" content="Sync selected Sheets columns into Google Forms dropdown, multiple-choice, checkbox, and grid choices. Test one mapping, run Preflight, and verify the public form preview.">
   <link rel="canonical" href="https://formsuite.dev/formranger/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../product-landing.css">
+  <link rel="stylesheet" href="../product-inner.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="FormRanger | Dynamic Google Forms choices from Google Sheets">
-  <meta property="og:description" content="Sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.">
+  <meta property="og:title" content="FormRanger | Sync Google Forms choices from Sheets">
+  <meta property="og:description" content="Sync selected Sheets columns into Forms dropdowns, multiple choice, checkboxes, and grid choices without maintaining Apps Script.">
   <meta property="og:url" content="https://formsuite.dev/formranger/">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FormRanger | Dynamic Google Forms choices from Google Sheets">
-  <meta name="twitter:description" content="Sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.">
+  <meta name="twitter:title" content="FormRanger | Sync Google Forms choices from Sheets">
+  <meta name="twitter:description" content="Map one Sheets column to one Forms choice question, run Preflight, update, and check the public preview.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "FormRanger", "applicationCategory": "BusinessApplication", "operatingSystem": "Google Workspace", "url": "https://formsuite.dev/formranger/", "description": "Sync Google Forms dropdowns, checkboxes, and multiple-choice options from selected Google Sheets data.", "provider": {"@type": "Organization", "name": "FormSuite"}}</script>
-  <link rel="stylesheet" href="../product-inner.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "FormRanger",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Google Workspace",
+          "url": "https://formsuite.dev/formranger/",
+          "description": "Sync selected Sheets columns into Google Forms dropdown, multiple-choice, checkbox, and grid choices.",
+          "provider": {"@type": "Organization", "name": "FormSuite"}
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Which Google Forms question types does FormRanger support?",
+              "acceptedAnswer": {"@type": "Answer", "text": "FormRanger supports dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices."}
+            },
+            {
+              "@type": "Question",
+              "name": "What should I test first?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Use one copied form, one supported question, and one Sheets column with two obvious values. Run Preflight, Update now, and check the public respondent preview."}
+            },
+            {
+              "@type": "Question",
+              "name": "Is FormRanger a booking or inventory system?",
+              "acceptedAnswer": {"@type": "Answer", "text": "No. FormRanger updates choices from selected spreadsheet data. It does not reserve inventory, process payments, or filter choices while a respondent is filling out the form."}
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <div class="shell">
     <header class="topbar">
-      <a class="brand" href="../index.html" aria-label="FormSuite home"><span class="brand-mark">FR</span><span>FormRanger</span></a>
-      <nav class="nav" aria-label="Product navigation"><a href="../index.html#products">Add-ons</a><a href="support.html">Support</a></nav>
+      <a class="brand" href="../index.html" aria-label="FormSuite home">
+        <span class="brand-mark">FR</span><span>FormRanger</span>
+      </a>
+      <nav class="nav" aria-label="Product navigation">
+        <a href="../index.html#products">Add-ons</a>
+        <a href="support.html">Support</a>
+        <a href="permissions.html">Permissions</a>
+      </nav>
     </header>
+
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <div class="eyebrow">Google Forms + Sheets add-on</div>
           <h1 id="hero-title">Sync Google Forms choices from Sheets.</h1>
-          <p>FormRanger updates Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets ranges so you stop copy-pasting changing lists.</p>
+          <p>FormRanger maps selected Sheets columns into Google Forms dropdown, multiple-choice, checkbox, and grid choices. Start with one question, run Preflight, update once, then check the public respondent preview.</p>
           <div class="hero-proof" aria-label="Key capabilities">
-            <span>112 installs and growing</span>
-            <span>Dropdowns from Sheets</span>
-            <span>Checkbox + multiple choice</span>
+            <span>Dropdown</span>
+            <span>Multiple choice</span>
+            <span>Checkbox</span>
             <span>Grid choices</span>
+            <span>Preflight</span>
           </div>
-          <div class="hero-actions"><a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a><a class="btn" href="dynamic-google-forms-dropdown-guide.html">Read setup guide</a><a class="btn" href="#demo-title">Watch demo</a></div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
+            <a class="btn btn-secondary" href="test-google-forms-dynamic-choices-before-launch.html">Read setup guide</a>
+            <a class="btn btn-secondary" href="#demo">Watch demo</a>
+          </div>
         </div>
-        <article class="product-visual workflow-preview" aria-label="Product workflow preview">
-          <div class="preview-topline"><strong>Choice sync preview</strong><span>Sheets → Forms</span></div>
-          <div class="preview-canvas"><div class="mock-stack">
+        <article class="product-visual workflow-preview" aria-label="FormRanger first-run workflow preview">
+          <div class="preview-topline"><strong>First-run path</strong><span>Sheets to Forms</span></div>
+          <div class="preview-canvas">
+            <div class="mock-stack">
               <div class="mock-panel">
-                <div class="mock-title"><strong>Google Sheet</strong><span>source range</span></div>
+                <div class="mock-title"><strong>Google Sheet</strong><span>source column</span></div>
                 <div class="mock-line wide"></div>
-                <div class="rule-row"><span>Rows found</span><span>128 choices</span></div>
-                <div class="sync-source">Workshop A, Workshop B, Workshop C</div>
+                <div class="rule-row"><span>Header</span><span>Session</span></div>
+                <div class="sync-source">Alpha, Beta, Workshop A</div>
               </div>
               <div class="mock-panel">
-                <div class="mock-title"><strong>Google Form</strong><span>dropdown question</span></div>
+                <div class="mock-title"><strong>Google Form</strong><span>choice question</span></div>
                 <div class="mock-line wide"></div>
                 <div class="rule-row"><span>Question</span><span>Choose a session</span></div>
-                <div class="sync-source">Choices updated from sheet</div>
+                <div class="sync-source">Choices updated from the selected column</div>
               </div>
-            </div><div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formranger.png" alt=""><div><strong>FormRanger</strong><span>Workspace add-on</span></div></div><p>Pick a sheet range, map it to a question, preview the choices, and refresh when the source changes.</p><span class="status-pill">Sync ready</span></div></div>
-          <div class="preview-steps"><span>1. Configure</span><span>2. Preview</span><span>3. Launch</span></div>
+            </div>
+            <div class="mock-sidebar">
+              <div class="sidebar-product">
+                <img src="../assets/product-icons/formranger.png" alt="">
+                <div><strong>FormRanger</strong><span>Workspace add-on</span></div>
+              </div>
+              <p>Link one question, run Preflight, update choices, and verify the respondent-facing form before launch.</p>
+              <span class="status-pill">Update verified</span>
+            </div>
+          </div>
+          <div class="preview-steps"><span>1. Select source</span><span>2. Preflight</span><span>3. Update</span><span>4. Public preview</span></div>
         </article>
       </section>
-      <section class="section" aria-labelledby="flow-title"><div class="section-head"><div><h2 id="flow-title">A focused workflow, not another bulky form builder.</h2><p>Each FormSuite add-on does one operational job around Google Forms, Sheets, Docs, or Gmail — then gets out of the way.</p></div></div><div class="step-grid">
-          <article class="step-card"><div class="step-num">1</div><h3>Select source data</h3><p>Choose the spreadsheet and range that owns the list.</p></article>
-          <article class="step-card"><div class="step-num">2</div><h3>Map to a question</h3><p>Connect the range to a dropdown, checkbox, multiple-choice, or grid item.</p></article>
-          <article class="step-card"><div class="step-num">3</div><h3>Refresh safely</h3><p>Preview and update the form when the sheet changes.</p></article>
-        </div></section>
-      <section class="section" aria-labelledby="use-cases-title"><div class="section-head"><div><h2 id="use-cases-title">Built for lists that keep changing.</h2><p>FormRanger is strongest when Google Sheets is already the source of truth and Google Forms only needs the current choices.</p></div></div><div class="step-grid">
-          <article class="step-card"><div class="step-num">A</div><h3>Class rosters and groups</h3><p>Keep student, team, or department choices in Sheets, then refresh the matching form question.</p></article>
-          <article class="step-card"><div class="step-num">B</div><h3>Sessions and locations</h3><p>Update event sessions, appointment locations, workshop names, or room lists without editing every choice by hand.</p></article>
-          <article class="step-card"><div class="step-num">C</div><h3>Inventory-style options</h3><p>Use Sheets for product, asset, equipment, or resource lists that change before the form goes live.</p></article>
-        </div></section>
-      <section class="section" aria-labelledby="demo-title"><div class="section-head"><div><h2 id="demo-title">Watch the demo.</h2><p>Watch the workflow once, then run a small test in your own Google file.</p></div></div><div class="video-panel"><iframe src="https://www.youtube.com/embed/h7jBGOmMm9c" title="formranger demo video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></section>
-      <section class="section" aria-labelledby="review-title"><div class="guide-panel"><div><h2 id="review-title">Already installed?</h2><p>If FormRanger helped you avoid copy-pasting Google Forms choices, a short Marketplace review helps the next Google Forms user trust it faster.</p></div><div class="link-row"><a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Open Marketplace listing</a><a href="support.html">Need support first?</a></div></div></section>
-      <section class="section" aria-labelledby="faq-title"><h2 id="faq-title">Frequently asked questions</h2><div class="faq-panel">
-          <details><summary><strong>Does it replace FormGuard?</strong></summary><p>No. FormRanger syncs choices from Sheets. FormGuard controls limits, quotas, alerts, and close behavior.</p></details>
-          <details><summary><strong>Can it sync dropdowns and checkboxes?</strong></summary><p>Yes. It is built for Google Forms choice questions that should be maintained from spreadsheet data, including dropdown, checkbox, multiple-choice, and grid choices.</p></details>
-          <details><summary><strong>Should the sheet be the source of truth?</strong></summary><p>Yes. Keep the list in Sheets, then refresh the form choices from that source.</p></details>
-          <details><summary><strong>What should I test before launch?</strong></summary><p>Use a copied form first, refresh one question from a small Sheet range, then open the public respondent view to confirm the choices are visible.</p></details>
-        </div></section>
+      <section class="section" aria-labelledby="use-title">
+        <div class="section-head">
+          <div>
+            <h2 id="use-title">Built for changing choice lists.</h2>
+            <p>Use FormRanger when the list belongs in Sheets but respondents choose from a Google Form.</p>
+          </div>
+        </div>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>Class rosters and groups</h3><p>Keep student, group, team, or department lists in one sheet column.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Sessions and locations</h3><p>Refresh workshop sessions, office locations, or internal routing options.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Product and item lists</h3><p>Sync product, SKU, item, or catalog-style choices without editing each form by hand.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="first-run-title">
+        <div class="guide-panel">
+          <div>
+            <div class="mini-label">First-run proof</div>
+            <h2 id="first-run-title">Do one small update before trusting a live form.</h2>
+            <p>Use a copied form, one supported choice question, and one Sheets column with Alpha and Beta. A successful first run means Preflight passes, Update now reports an updated question, and the public preview shows the expected values.</p>
+          </div>
+          <div class="mini-guide-grid" style="grid-template-columns:1fr;">
+            <article class="mini-guide-card"><strong>Install</strong><p>Open the add-on inside the Google Form you want to update.</p></article>
+            <article class="mini-guide-card"><strong>Preflight</strong><p>Check file access, sheet tab, column, and question mapping before changing choices.</p></article>
+            <article class="mini-guide-card"><strong>Preview</strong><p>Open the respondent-facing preview after Update now, not only the editor.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="demo" aria-labelledby="demo-title">
+        <div class="section-head">
+          <div>
+            <h2 id="demo-title">Watch the setup once.</h2>
+            <p>The demo path is the same one you should run before launch: selected spreadsheet, question mapping, Preflight, update report, and public preview.</p>
+          </div>
+        </div>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>Select a source column</h3><p>Choose the spreadsheet, sheet tab, and column that owns the choice list.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Run Preflight</h3><p>Confirm the file, tab, column, and question mapping before changing the form.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Check public preview</h3><p>After Update now, open the respondent-facing form and verify the choices.</p></article>
+        </div>
+        <div class="link-row">
+          <a href="https://youtu.be/h7jBGOmMm9c">Watch demo on YouTube</a>
+          <a href="test-google-forms-dynamic-choices-before-launch.html">Run the checklist</a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="boundary-title">
+        <div class="guide-panel">
+          <div>
+            <div class="mini-label">Boundary</div>
+            <h2 id="boundary-title">Not a booking or inventory lock.</h2>
+            <p>FormRanger updates Google Forms choices from selected spreadsheet data. It does not reserve seats, process payments, or change choices while a respondent is already filling out the form.</p>
+          </div>
+          <div class="link-row">
+            <a href="google-forms-dropdown-not-updating-from-google-sheets.html">Fix dropdown not updating</a>
+            <a href="formranger-alternative-google-forms.html">Compare alternatives</a>
+            <a href="permissions.html">Read permissions</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="review-title">
+        <div class="guide-panel">
+          <div>
+            <div class="mini-label">Review timing</div>
+            <h2 id="review-title">Already updated one form successfully?</h2>
+            <p>If Preflight passed, Update now reported an updated question, and the public respondent preview shows the expected choices, an honest Marketplace review helps the next Google Forms operator decide faster.</p>
+          </div>
+          <div class="link-row">
+            <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Open Marketplace listing</a>
+            <a href="support.html">Need support first?</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <div class="faq-panel">
+          <details><summary><strong>Which question types work?</strong></summary><p>Dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices.</p></details>
+          <details><summary><strong>When should I ask for a review?</strong></summary><p>Only after a real update succeeds and the public respondent preview shows the expected choices.</p></details>
+          <details><summary><strong>Can it handle dependent dropdowns?</strong></summary><p>Use FormRanger for spreadsheet-backed choice refresh before respondents use the form. It is not respondent-time conditional filtering.</p></details>
+        </div>
+        <div class="link-row">
+          <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
+          <a href="support.html">Setup support</a>
+          <a href="../review-after-first-success.html">Review after first success</a>
+        </div>
+      </section>
     </main>
-    <footer class="footer"><span><a href="../index.html#products">Add-ons</a> | <a href="support.html">Support</a></span><span>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</span></footer>
+
+    <footer class="footer">
+      <span><a href="../index.html#products">Add-ons</a> | <a href="support.html">Support</a> | <a href="permissions.html">Permissions</a></span>
+      <span>&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</span>
+    </footer>
   </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

@@ -31,7 +31,7 @@
           "description": "A visual troubleshooting checklist for Google Forms dropdown choices that are expected to update from Google Sheets.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-05-29",
+          "dateModified": "2026-06-07",
           "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html"
         },
         {
@@ -115,12 +115,13 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <div class="eyebrow">Troubleshooting checklist</div>
+          <div class="eyebrow">Troubleshooting + install path</div>
           <h1 id="hero-title">Dropdown not updating?</h1>
-          <p>Google Forms dropdowns do not stay linked to a Sheets range by default. Check the source, mapping, update action, and public preview.</p>
+          <p>Google Forms dropdowns do not stay linked to a Sheets range by default. Check the source column, mapping, Preflight result, Update now report, and public respondent preview.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-            <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Test first</a>
+            <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+            <a class="btn" href="./permissions.html">Read permissions</a>
           </div>
         </div>
         <article class="diagnostic" aria-label="Dropdown update diagnostic path">
@@ -133,15 +134,27 @@
 
       <section class="section" aria-labelledby="answer-title">
         <h2 id="answer-title">Quick answer</h2>
-        <p class="answer">If the dropdown is stale, test one copied form with Alpha/Beta in Sheets, run Preflight, click Update now, then inspect the respondent-facing preview.</p>
+        <p class="answer">If the dropdown is stale, test one copied form with Alpha/Beta in Sheets, run Preflight, click Update now, then inspect the respondent-facing preview. A saved mapping is not enough; the update report must say a question was updated.</p>
       </section>
 
       <section class="section" aria-labelledby="fix-title">
-        <h2 id="fix-title">Three common causes</h2>
+        <h2 id="fix-title">Common causes</h2>
         <div class="flow">
           <article class="card"><strong>Source changed</strong><p>The tab, header, column, blanks, or duplicate values changed after setup.</p></article>
           <article class="card"><strong>Question changed</strong><p>The dropdown was deleted, duplicated, renamed, or changed to another type.</p></article>
           <article class="card"><strong>Preview was not refreshed</strong><p>The editor can mislead you. Open the public form preview after updating.</p></article>
+          <article class="card"><strong>Header row shifted</strong><p>Blank or renamed headers can point a mapping at the wrong column. Re-select the column and run Preflight.</p></article>
+          <article class="card"><strong>No usable values</strong><p>Empty rows, whitespace-only values, or filtered-out duplicates can leave nothing to update.</p></article>
+          <article class="card"><strong>Permissions changed</strong><p>If the selected source file is no longer accessible, select it again from the add-on flow.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="install-title">
+        <h2 id="install-title">FormRanger fix path</h2>
+        <div class="flow">
+          <article class="card"><strong>1. Use a copied form</strong><p>Do not troubleshoot directly on a live respondent form.</p></article>
+          <article class="card"><strong>2. Link one dropdown</strong><p>Select the spreadsheet, sheet tab, source column, and dropdown question.</p></article>
+          <article class="card"><strong>3. Prove the result</strong><p>Preflight must pass, Update now must update, and the public preview must show the new choices.</p></article>
         </div>
       </section>
 
@@ -165,6 +178,7 @@
           <a href="./auto-update-google-forms-dropdown-from-google-sheets.html">Auto-update dropdown</a>
           <a href="./google-forms-dropdown-from-google-sheets-without-apps-script.html">No-code dropdown</a>
           <a href="./permissions.html">Permissions</a>
+          <a href="../review-after-first-success.html">Review after first success</a>
         </div>
       </section>
 
@@ -176,7 +190,7 @@
         </details>
         <details>
           <summary><strong>What should I check first?</strong></summary>
-          <p>Check the source column, mapping, access, Preflight result, Update now action, and public preview.</p>
+          <p>Check the source column, mapping, access, Preflight result, Update now action, last update report, and public preview.</p>
         </details>
         <details>
           <summary><strong>Should I fix the live form first?</strong></summary>

@@ -9,23 +9,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormRanger Support | dynamic Google Forms choices</title>
-  <meta name="description" content="Short setup help and support links for FormRanger: sync Google Forms dropdowns, checkboxes, and multiple-choice questions from Google Sheets.">
+  <meta name="description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data.">
   <link rel="canonical" href="https://formsuite.dev/formranger/support.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="FormRanger Support | dynamic Google Forms choices">
-  <meta property="og:description" content="Short setup help and support links for FormRanger: sync Google Forms dropdowns, checkboxes, and multiple-choice questions from Google Sheets.">
+  <meta property="og:description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data.">
   <meta property="og:url" content="https://formsuite.dev/formranger/support.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FormRanger Support">
-  <meta name="twitter:description" content="Short setup help and support links for FormRanger: sync Google Forms dropdowns, checkboxes, and multiple-choice questions from Google Sheets.">
+  <meta name="twitter:description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
-        {"@type":"WebPage","name":"FormRanger support","url":"https://formsuite.dev/formranger/support.html","description":"Short setup help and support links for FormRanger: sync Google Forms dropdowns, checkboxes, and multiple-choice questions from Google Sheets."},
+        {"@type":"WebPage","name":"FormRanger support","url":"https://formsuite.dev/formranger/support.html","description":"Setup help and first-run checks for FormRanger: sync Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data."},
         {"@type":"FAQPage","mainEntity":[
             {
               "@type": "Question",
@@ -66,10 +66,11 @@
     <section class="hero">
       <div class="eyebrow">Support</div>
       <h1>FormRanger support</h1>
-      <p>Sync Google Forms choices from selected Google Sheets data without writing Apps Script.</p>
+      <p>Sync Google Forms choices from selected Google Sheets data without writing Apps Script. For the first run, prove one copied form before changing a live form.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
         <a class="btn btn-secondary" href="./index.html">Product page</a>
+        <a class="btn btn-secondary" href="./test-google-forms-dynamic-choices-before-launch.html">First-run test</a>
         <a class="btn btn-secondary" href="../support.html">Contact support</a>
       </div>
     </section>
@@ -79,14 +80,14 @@
         <div class="pill">Quick start</div>
         <h2>Setup in 3 steps</h2>
         <ol>
-          <li>Open the Google Form and launch FormRanger.</li>
+          <li>Open a copied Google Form and launch FormRanger.</li>
           <li>Select the spreadsheet, sheet tab, and column to use as choices.</li>
-          <li>Click Update now, then preview the public form before sending it.</li>
+          <li>Run Preflight, click Update now, then preview the public form before sending it.</li>
         </ol>
         <h3>Useful guides</h3>
         <div class="path-links">
+          <a href="./test-google-forms-dynamic-choices-before-launch.html">First-run test</a>
           <a href="./dynamic-google-forms-dropdown-guide.html">Dropdown guide</a>
-          <a href="./test-google-forms-dynamic-choices-before-launch.html">Test before launch</a>
           <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix choices not updating</a>
         </div>
       </article>
@@ -95,11 +96,22 @@
         <h2>Send this info</h2>
         <ul class="meta-list">
           <li><strong>Product</strong><br>FormRanger</li>
-          <li><strong>What failed</strong><br>Setup, test run, email, sync, or generated output.</li>
-          <li><strong>Screenshot</strong><br>Include the error message or the result you expected.</li>
+          <li><strong>What failed</strong><br>Install, source selection, mapping, Preflight, Update now, or public preview.</li>
+          <li><strong>Screenshot</strong><br>Include the Preflight text, last update report, and the public preview if choices look wrong.</li>
           <li><strong>Contact</strong><br><a href="../support.html">FormSuite support</a></li>
         </ul>
       </aside>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <div class="pill">First-run quality gate</div>
+      <h2>Do not launch until these pass</h2>
+      <ul class="meta-list">
+        <li><strong>Preflight</strong><br>It says the mapping is valid and shows the expected mapping count.</li>
+        <li><strong>Update report</strong><br>It says at least one question was updated. Skipped or error is not a successful run.</li>
+        <li><strong>Public respondent preview</strong><br>The public form shows the choices from the selected Sheets column.</li>
+        <li><strong>Review timing</strong><br>Only leave a Marketplace review after the setup succeeds in the public preview.</li>
+      </ul>
     </section>
 
     <section class="card" style="margin-top:18px;">

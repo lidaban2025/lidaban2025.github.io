@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormRanger alternative for Google Forms | Sheets choice sync</title>
-  <meta name="description" content="Compare manual paste, Apps Script, and FormRanger for syncing Google Forms dropdown, checkbox, and multiple-choice options from Google Sheets.">
+  <meta name="description" content="Compare manual paste, Apps Script, and FormRanger for syncing Google Forms dropdown, multiple-choice, checkbox, and grid choices from Sheets.">
   <link rel="canonical" href="https://formsuite.dev/formranger/formranger-alternative-google-forms.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
@@ -31,7 +31,7 @@
           "description": "A concise comparison of manual paste, Apps Script, and FormRanger for updating Google Forms choices from Google Sheets.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-05-29",
+          "dateModified": "2026-06-07",
           "mainEntityOfPage": "https://formsuite.dev/formranger/formranger-alternative-google-forms.html"
         },
         {
@@ -122,19 +122,28 @@
 
     <main>
       <section class="hero">
-        <div class="eyebrow">Comparison guide</div>
+        <div class="eyebrow">High-intent comparison</div>
         <h1>FormRanger alternative for Google Forms</h1>
-        <p>FormRanger is a Google Forms add-on for syncing dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data.</p>
+        <p>If you are looking for a FormRanger alternative, first decide whether you need manual paste, Apps Script, or a no-code sidebar that syncs selected Sheets columns into Forms choices.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-          <a class="btn" href="./dynamic-google-forms-dropdown-guide.html">See the workflow</a>
-          <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Test first</a>
+          <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Test first-run path</a>
+          <a class="btn" href="./permissions.html">Read permissions</a>
         </div>
       </section>
 
       <section class="section">
         <h2>Quick answer</h2>
-        <p class="answer">If your Google Forms choices live in Sheets, choose between manual paste, Apps Script, or a no-code add-on. FormRanger fits when you want mapping, Preflight, and Update now from a sidebar.</p>
+        <p class="answer">If your Google Forms choices live in Sheets and change often, FormRanger fits when you want a no-code mapping, Preflight, Update now, and public-preview check instead of maintaining Apps Script.</p>
+      </section>
+
+      <section class="section">
+        <h2>Fast install path</h2>
+        <div class="grid">
+          <article class="card"><strong>Install</strong><p>Open the Marketplace listing and add FormRanger to the Google account that owns the form.</p></article>
+          <article class="card"><strong>Link one question</strong><p>Use a copied form, one supported question, and one Sheets source column.</p></article>
+          <article class="card"><strong>Verify public preview</strong><p>Run Preflight, Update now, then inspect the respondent-facing form.</p></article>
+        </div>
       </section>
 
       <section class="section">
@@ -179,6 +188,18 @@
       </section>
 
       <section class="section">
+        <h2>Supported choice types</h2>
+        <div class="grid">
+          <article class="card"><strong>Dropdown</strong><p>Use a Sheets column as the source for a list question.</p></article>
+          <article class="card"><strong>Multiple choice</strong><p>Refresh single-answer options from selected spreadsheet data.</p></article>
+          <article class="card"><strong>Checkbox</strong><p>Maintain multi-select options in Sheets before publishing the form.</p></article>
+          <article class="card"><strong>Grid choices</strong><p>Update grid rows or columns from a selected source column.</p></article>
+          <article class="card"><strong>Checkbox grid</strong><p>Use the same mapped-choice pattern for checkbox grid rows or columns.</p></article>
+          <article class="card"><strong>Preflight</strong><p>Check the source, mapping, and usable values before updating.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
         <h2>Safe migration path</h2>
         <ol class="steps">
           <li>Copy the live form before changing anything.</li>
@@ -198,11 +219,12 @@
         <h2>Next step</h2>
         <div class="link-bar">
           <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
-          <a href="./dynamic-google-forms-dropdown-guide.html">Visual workflow</a>
-          <a href="./google-forms-dropdown-from-google-sheets-without-apps-script.html">No-code dropdown</a>
+          <a href="./test-google-forms-dynamic-choices-before-launch.html">First-run test</a>
           <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
+          <a href="./dynamic-google-forms-dropdown-guide.html">Visual workflow</a>
           <a href="./support.html">Setup guide</a>
           <a href="./permissions.html">Permissions</a>
+          <a href="../review-after-first-success.html">Review after first success</a>
         </div>
       </section>
 

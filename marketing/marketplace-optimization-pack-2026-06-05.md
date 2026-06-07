@@ -71,10 +71,10 @@ Avoid:
 ## FormRanger listing
 
 ### Recommended Marketplace title
-FormRanger: Dynamic Choices from Google Sheets for Google Forms
+FormRanger Pro - Dynamic Choice Sync
 
 ### Short description
-Sync Google Sheets data into Google Forms dropdowns, multiple choice, checkboxes, and grid choices without maintaining Apps Script.
+Sync selected Sheets columns into Forms dropdowns, multiple choice, checkboxes, and grid choices without maintaining Apps Script.
 
 ### Category keywords
 - Google Forms dropdown from Google Sheets
@@ -86,10 +86,10 @@ Sync Google Sheets data into Google Forms dropdowns, multiple choice, checkboxes
 - auto update Google Forms options
 
 ### First-screen value proposition
-Stop manually editing long dropdowns in Google Forms. FormRanger keeps form choices synced from Google Sheets so lists stay easier to maintain.
+Stop manually editing long dropdowns in Google Forms. FormRanger updates supported form choices from selected Google Sheets columns so changing lists are easier to maintain.
 
 ### Long description draft
-FormRanger helps you keep Google Forms choices updated from a Google Sheet.
+FormRanger helps you keep Google Forms choices updated from selected Google Sheets data.
 
 Use it when you need to:
 - populate a dropdown from Google Sheets
@@ -101,7 +101,7 @@ Use it when you need to:
 Common examples:
 - class rosters
 - event/session lists
-- product or inventory lists
+- product, SKU, or item lists
 - department/team lists
 - location or appointment options
 - any form where choices change often
@@ -111,11 +111,11 @@ FormRanger is for teams that want the flexibility of Google Sheets and the simpl
 Docs: https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html
 
 ### Screenshot sequence
-1. Google Sheet source range
-2. FormRanger sidebar mapping sheet range to form question
-3. Google Forms dropdown updated with sheet values
-4. Public respondent view test
-5. Auto-update/sync settings
+1. Add-on sidebar opened in Google Forms
+2. Selected spreadsheet source
+3. FormRanger sidebar mapping a sheet column to a form question
+4. Preflight check before updating
+5. Update success report and public respondent view test
 
 ### Review-safe claims
 Use:
@@ -135,9 +135,9 @@ Avoid:
 - FormGuard: Capacity Limits for Google Forms Registrations
 
 ### FormRanger title tests
-- FormRanger: Dynamic Choices from Google Sheets for Google Forms
-- FormRanger: Sync Google Forms Choices from Google Sheets
-- FormRanger: Google Sheets Dropdowns for Google Forms
+- FormRanger Pro - Dynamic Choice Sync
+- FormRanger Pro - Sheets Choice Sync
+- FormRanger Pro - Choice List Sync
 
 ## Measurement
 
