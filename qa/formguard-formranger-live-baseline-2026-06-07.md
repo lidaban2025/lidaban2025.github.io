@@ -214,6 +214,8 @@ Observed run:
 4. `Preflight` executed and returned: `Preflight passed. Mappings: 1. Next: Update now.`
 5. `Update now` executed and returned: `Update finished with 0 updated, 0 skipped, and 0 error(s). No choices changed. Run Preflight and check the source column.`
 6. Google Forms editor still showed the choices `Alpha` and `Beta`; no actual choice mutation occurred.
+7. Follow-up classification test: clicked the linked card `Remove` button multiple times at the visible button center and nearby offsets.
+8. Result after repeated `Remove` attempts: the linked question card `Sheet1 -> Timestamp` remained visible; there was no deletion, confirmation dialog, success message, or visible state change.
 
 Runtime verdict:
 
@@ -223,11 +225,18 @@ Runtime verdict:
 - Preflight action: PASS.
 - Update now action execution: PASS.
 - Actual Sheet-to-Form choice sync: FAIL / NOT VERIFIED, because the active saved mapping still points to `Sheet1 -> Timestamp` instead of the intended option source column.
+- Mapping management: FAIL / PRODUCT-SIDE DEFECT SUSPECTED. The visible `Remove` control did not remove the stale mapping after repeated clicks, so the tester could not cleanly replace the bad source column with `Order` from the sidebar.
 - Public respondent preview verification: NOT RUN, because the editor choices did not change after Update now.
+
+Defect classification:
+
+- This is not yet proof that the core sync engine is broken, because the only executed update used the wrong saved source column.
+- It is, however, a product-side functional/UX defect in mapping management: a stale mapping can remain stuck on `Sheet1 -> Timestamp`, the visible `Remove` action does not clear it, and the user cannot reliably replace it with the intended `Order` column through the observed sidebar workflow.
+- Severity: P1 for FormRanger launch quality, because first-run users who choose the wrong column or inherit a stale mapping can reach a state where Preflight passes but Update makes no changes.
 
 Follow-up required before marking FormRanger fully passed:
 
-1. Remove or edit the stale `Sheet1 -> Timestamp` mapping.
+1. Fix or verify the `Remove` / edit mapping flow so stale mappings can be cleared.
 2. Save a mapping to the real option source column, expected to be `Order` in the current sample sheet selector.
 3. Rerun `Preflight` and `Update now`.
 4. Confirm the editor choices change from `Alpha` / `Beta` to the source column values.
@@ -240,8 +249,8 @@ Follow-up required before marking FormRanger fully passed:
 - Key public links and Marketplace install paths: PASS.
 - Product pages render and carry correct core positioning: PASS.
 - SEO/canonical/Open Graph/JSON-LD smoke checks: PASS for main product pages.
-- FormRanger runtime behavior inside Google Forms/Sheets: PARTIAL. Launch, Save, Preflight, and Update now executed; actual choice sync did not pass because the saved mapping pointed to `Sheet1 -> Timestamp` and produced `No choices changed`.
+- FormRanger runtime behavior inside Google Forms/Sheets: FAIL/PARTIAL. Launch, Save, Preflight, and Update now executed, but actual choice sync did not pass because the saved mapping pointed to `Sheet1 -> Timestamp`; repeated attempts to remove that stale mapping did not change the sidebar state.
 
 ## Recommended next step
 
-Fix the stale FormRanger source-column mapping and rerun the FormRanger sync test until editor and respondent preview choices actually change. Then run the remaining FormGuard runtime tests in the same logged-in Google account.
+Fix FormRanger mapping management first: the stale `Sheet1 -> Timestamp` linked question must be removable or editable before retesting the sync path. Then rerun the FormRanger sync test until editor and respondent preview choices actually change, and run the remaining FormGuard runtime tests in the same logged-in Google account.
