@@ -8,7 +8,7 @@
 - Commit tested: `2f89572` — `Unify FormSuite guide styling and remove duplicate guide section`
 - Production host: `https://formsuite.dev/`
 - Scope: public production pages, install links, Marketplace listing reachability, metadata/schema, declared feature inventory, and support/compliance pages.
-- Not in scope: logged-in Google Forms/Sheets add-on execution, because this QA session did not have an authenticated Google Workspace browser session.
+- Runtime update: a logged-in Google Forms browser session was later used for FormRanger manual smoke testing; results are recorded below. FormGuard runtime testing remains pending.
 
 ## Current declared feature inventory
 
@@ -194,20 +194,45 @@ The following cannot be honestly marked as passed without a logged-in Google Wor
 9. Test manual Close and Reopen actions.
 10. Confirm a copied form with tiny quotas passes before applying to a real form.
 
-### FormRanger manual smoke tests
+### FormRanger runtime smoke test — attempted
 
-1. Create a Google Sheet with a clean source column: `Alpha`, `Beta`.
-2. Create a copied Google Form with one dropdown question.
-3. Open FormRanger inside the form.
-4. Select spreadsheet, sheet tab, and source column.
-5. Map the source column to the dropdown question.
-6. Run Preflight and confirm it passes.
-7. Run Update now.
-8. Open public respondent preview and confirm `Alpha` and `Beta` appear.
-9. Repeat for multiple choice and checkbox.
-10. Repeat at least one grid type: multiple-choice grid or checkbox grid.
-11. Add `Gamma` to the source column, update again, and confirm public preview changes.
-12. Confirm boundary behavior: no respondent-time dependent dropdown filtering and no seat/inventory reservation claim.
+Environment:
+
+- Test form: `QA Runtime Test FormGuard FormRanger 2026-06-07`
+- Test form ID: `1UlmYMYWCK_kZdkK4LVo516JZb-lk-B3GLy7tjI-inDQ`
+- Question tested: `Choose a sessionUntitled Question`
+- Starting visible choices: `Alpha`, `Beta`
+- Add-on opened from Google Forms Add-ons menu: PASS
+- FormRanger sidebar loaded: PASS
+- Source spreadsheet picker state visible in sidebar: PASS
+
+Observed run:
+
+1. Existing linked question card was visible in FormRanger.
+2. Mapping shown by the linked question card: `Sheet1 -> Timestamp`.
+3. `Save` executed and status changed to `Saved. Run Preflight.`
+4. `Preflight` executed and returned: `Preflight passed. Mappings: 1. Next: Update now.`
+5. `Update now` executed and returned: `Update finished with 0 updated, 0 skipped, and 0 error(s). No choices changed. Run Preflight and check the source column.`
+6. Google Forms editor still showed the choices `Alpha` and `Beta`; no actual choice mutation occurred.
+
+Runtime verdict:
+
+- Add-on launch inside Google Forms: PASS.
+- Sidebar render and mapping visibility: PASS.
+- Save action: PASS.
+- Preflight action: PASS.
+- Update now action execution: PASS.
+- Actual Sheet-to-Form choice sync: FAIL / NOT VERIFIED, because the active saved mapping still points to `Sheet1 -> Timestamp` instead of the intended option source column.
+- Public respondent preview verification: NOT RUN, because the editor choices did not change after Update now.
+
+Follow-up required before marking FormRanger fully passed:
+
+1. Remove or edit the stale `Sheet1 -> Timestamp` mapping.
+2. Save a mapping to the real option source column, expected to be `Order` in the current sample sheet selector.
+3. Rerun `Preflight` and `Update now`.
+4. Confirm the editor choices change from `Alpha` / `Beta` to the source column values.
+5. Confirm the public respondent preview shows the same updated choices.
+6. Repeat for checkbox and at least one grid type before claiming full supported-type coverage.
 
 ## Current release baseline conclusion
 
@@ -215,8 +240,8 @@ The following cannot be honestly marked as passed without a logged-in Google Wor
 - Key public links and Marketplace install paths: PASS.
 - Product pages render and carry correct core positioning: PASS.
 - SEO/canonical/Open Graph/JSON-LD smoke checks: PASS for main product pages.
-- Plugin runtime behavior inside Google Forms/Sheets: BLOCKED until tested in an authenticated Google Workspace session.
+- FormRanger runtime behavior inside Google Forms/Sheets: PARTIAL. Launch, Save, Preflight, and Update now executed; actual choice sync did not pass because the saved mapping pointed to `Sheet1 -> Timestamp` and produced `No choices changed`.
 
 ## Recommended next step
 
-Run the manual smoke tests above in a logged-in Google account, then create a follow-up report named `qa/formguard-formranger-manual-smoke-YYYY-MM-DD.md` with pass/fail evidence for each runtime feature.
+Fix the stale FormRanger source-column mapping and rerun the FormRanger sync test until editor and respondent preview choices actually change. Then run the remaining FormGuard runtime tests in the same logged-in Google account.
