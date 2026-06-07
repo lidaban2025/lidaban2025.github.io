@@ -1,21 +1,22 @@
-/* Shared clean style for FormSuite inner pages. Loaded after older inline CSS. */
+/* Shared FormSuite style for product, guide, and support pages. Loaded after older inline CSS. */
 :root {
-  --fs-bg: #f6f8fb !important;
-  --fs-bg-soft: #eef2f7 !important;
-  --fs-panel: #ffffff !important;
-  --fs-panel-soft: #f9fbfe !important;
-  --fs-ink: #111827 !important;
-  --fs-muted: #566174 !important;
-  --fs-faint: #7b8494 !important;
-  --fs-line: #dbe3ee !important;
-  --fs-line-soft: #e8edf4 !important;
-  --fs-brand: #2457d6 !important;
-  --fs-brand-dark: #183f9d !important;
-  --fs-brand-soft: #eef4ff !important;
-  --fs-green: #167247 !important;
-  --fs-green-soft: #e8f7ee !important;
-  --fs-amber: #7b5700 !important;
-  --fs-amber-soft: #fff7df !important;
+  --fs-bg: #08090a !important;
+  --fs-bg-soft: #0f1011 !important;
+  --fs-panel: rgba(255, 255, 255, 0.035) !important;
+  --fs-panel-solid: #0f1011 !important;
+  --fs-panel-soft: rgba(255, 255, 255, 0.055) !important;
+  --fs-ink: #f7f8f8 !important;
+  --fs-muted: #b7bec9 !important;
+  --fs-faint: #8b93a0 !important;
+  --fs-line: rgba(255, 255, 255, 0.08) !important;
+  --fs-line-soft: rgba(255, 255, 255, 0.05) !important;
+  --fs-brand: #5e6ad2 !important;
+  --fs-brand-dark: #828fff !important;
+  --fs-brand-soft: rgba(94, 106, 210, 0.13) !important;
+  --fs-green: #10b981 !important;
+  --fs-green-soft: rgba(16, 185, 129, 0.12) !important;
+  --fs-amber: #fbbf24 !important;
+  --fs-amber-soft: rgba(251, 191, 36, 0.13) !important;
 
   --bg: var(--fs-bg) !important;
   --bg-2: var(--fs-bg) !important;
@@ -25,7 +26,7 @@
   --line: var(--fs-line) !important;
   --brand: var(--fs-brand) !important;
   --brand-soft: var(--fs-brand-soft) !important;
-  --accent: var(--fs-green) !important;
+  --accent: var(--fs-brand) !important;
 }
 
 * { box-sizing: border-box; }
@@ -36,7 +37,10 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
   font-feature-settings: normal !important;
   color: var(--fs-ink) !important;
-  background: var(--fs-bg) !important;
+  background:
+    radial-gradient(circle at 20% -10%, rgba(94, 106, 210, 0.24), transparent 30%),
+    radial-gradient(circle at 85% 5%, rgba(16, 185, 129, 0.10), transparent 24%),
+    var(--fs-bg) !important;
   line-height: 1.6 !important;
 }
 
@@ -69,10 +73,10 @@ nav.nav {
   align-items: center !important;
   flex-wrap: wrap !important;
   gap: 14px !important;
-  margin: -24px -20px 28px !important;
-  padding: 14px 20px !important;
-  background: rgba(246, 248, 251, 0.94) !important;
-  border-bottom: 1px solid var(--fs-line-soft) !important;
+  margin: 0 0 28px !important;
+  padding: 12px 0 24px !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
   color: var(--fs-muted) !important;
   backdrop-filter: blur(14px) !important;
   font-size: 14px !important;
@@ -96,11 +100,11 @@ nav.nav {
 .hero,
 header.hero,
 section.hero {
-  background: var(--fs-panel) !important;
-  border: 1px solid var(--fs-line) !important;
-  border-radius: 8px !important;
-  padding: 28px !important;
-  box-shadow: 0 12px 36px rgba(17, 24, 39, 0.06) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 34px 0 28px !important;
+  box-shadow: none !important;
 }
 
 .eyebrow,
@@ -117,9 +121,9 @@ section.hero {
   min-height: 28px !important;
   padding: 0 10px !important;
   border-radius: 8px !important;
-  color: var(--fs-brand) !important;
+  color: #d7dcff !important;
   background: var(--fs-brand-soft) !important;
-  border: 1px solid #cddaff !important;
+  border: 1px solid var(--fs-line) !important;
   font-size: 12px !important;
   font-weight: 800 !important;
   letter-spacing: 0 !important;
@@ -169,7 +173,12 @@ th {
 }
 
 .section {
-  margin-top: 28px !important;
+  margin-top: 34px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 .section-head {
   display: flex !important;
@@ -256,7 +265,7 @@ li + li {
 .mail-head {
   background: var(--fs-green-soft) !important;
   color: var(--fs-green) !important;
-  border: 1px solid #bfe4cf !important;
+  border: 1px solid rgba(16, 185, 129, 0.26) !important;
   border-radius: 8px !important;
 }
 .caution,
@@ -372,6 +381,33 @@ a.btn-secondary:hover,
   margin-top: 18px !important;
 }
 
+.plain-links {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  padding-left: 0 !important;
+  margin-top: 16px !important;
+  list-style: none !important;
+}
+.plain-links li {
+  min-height: 76px !important;
+  margin-top: 0 !important;
+  padding: 16px !important;
+  border: 1px solid var(--fs-line) !important;
+  border-radius: 8px !important;
+  background: var(--fs-panel) !important;
+}
+.plain-links a {
+  color: var(--fs-brand-dark) !important;
+  font-weight: 760 !important;
+}
+.plain-links span {
+  display: block !important;
+  margin-top: 4px !important;
+  color: var(--fs-muted) !important;
+  font-size: 13px !important;
+}
+
 details {
   background: var(--fs-panel) !important;
   border: 1px solid var(--fs-line) !important;
@@ -408,7 +444,7 @@ th {
 code,
 pre {
   color: var(--fs-ink) !important;
-  background: var(--fs-bg-soft) !important;
+  background: rgba(0, 0, 0, 0.22) !important;
   border: 1px solid var(--fs-line) !important;
   border-radius: 8px !important;
 }
@@ -416,7 +452,7 @@ pre {
 .product-visual,
 .video-panel,
 .video-frame {
-  background: var(--fs-panel) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)) !important;
   border: 1px solid var(--fs-line) !important;
   border-radius: 8px !important;
   overflow: hidden !important;
@@ -461,8 +497,8 @@ footer a,
   .shell > .nav,
   body > .nav,
   nav.nav {
-    margin-left: -16px !important;
-    margin-right: -16px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .hero,
   header.hero,
@@ -483,7 +519,8 @@ footer a,
   .workflow-grid,
   .step-grid,
   .mini-guide-grid,
-  .features {
+  .features,
+  .plain-links {
     grid-template-columns: 1fr !important;
   }
   .hero-actions a:first-child,
