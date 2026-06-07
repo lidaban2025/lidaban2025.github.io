@@ -243,14 +243,47 @@ Follow-up required before marking FormRanger fully passed:
 5. Confirm the public respondent preview shows the same updated choices.
 6. Repeat for checkbox and at least one grid type before claiming full supported-type coverage.
 
+### FormRanger runtime retest after Remove fix deployment — 2026-06-07
+
+Environment:
+
+- Source directory: `/home/ubuntu/forms_source_code/FormRanger/deploy`
+- Apps Script deployment checked with `clasp deployments`
+- Production versioned deployment observed: `@28 - Remove mapping UI fix`
+- Code path checked: `Sidebar.html` no longer contains the previous native `confirm()` path in `removeMapping(idx)`; it calls `removeMapping(parsedIdx)` and refreshes mappings/quota after success.
+- Test form reopened: `QA Runtime Test FormGuard FormRanger 2026-06-07` / `1UlmYMYWCK_kZdkK4LVo516JZb-lk-B3GLy7tjI-inDQ`
+
+Observed retest:
+
+1. Google Forms editor loaded in the logged-in browser session.
+2. Add-ons menu exposed `FormGuard - Response Limits for Google Forms™` and `FormRanger Pro - Google Sheets™ Choices`.
+3. Clicking the visible `FormRanger Pro - Google Sheets™ Choices` add-on entry did not render the expected Workspace add-on card/sidebar in the accessible tree or screenshot during this retest.
+4. Existing Apps Script iframe targets from earlier sessions were visible in CDP target listing, but the active foreground editor did not show the FormRanger card or sidebar after the new launch attempt.
+5. Because the sidebar could not be relaunched, the tester could not safely click the stale mapping `Remove` button again in the real runtime.
+
+Retest verdict:
+
+- Production deployment of the Remove fix: PASS / VERIFIED BY `clasp deployments` and source inspection.
+- Real runtime Remove behavior after deployment: BLOCKED / NOT VERIFIED, because the add-on card/sidebar did not relaunch in the active Google Forms editor session.
+- Sheet-to-Form choice sync after corrected mapping: NOT RUN, because the stale mapping could not be removed or edited in this retest session.
+- FormGuard runtime quota/close behavior: NOT RUN in this retest session.
+
+Revised follow-up required:
+
+1. Relaunch FormRanger from a clean Google Forms editor session or after clearing stale add-on iframes/cache.
+2. Confirm the `@28` sidebar opens, then remove the stale `Sheet1 -> Timestamp` mapping.
+3. Create a mapping to the real option column and rerun `Preflight` / `Update now`.
+4. Verify editor choices and public preview choices actually change.
+5. Only then mark FormRanger runtime sync as passed.
+
 ## Current release baseline conclusion
 
 - Public production site health: PASS.
 - Key public links and Marketplace install paths: PASS.
 - Product pages render and carry correct core positioning: PASS.
 - SEO/canonical/Open Graph/JSON-LD smoke checks: PASS for main product pages.
-- FormRanger runtime behavior inside Google Forms/Sheets: FAIL/PARTIAL. Launch, Save, Preflight, and Update now executed, but actual choice sync did not pass because the saved mapping pointed to `Sheet1 -> Timestamp`; repeated attempts to remove that stale mapping did not change the sidebar state.
+- FormRanger runtime behavior inside Google Forms/Sheets: FAIL/PARTIAL. Initial launch, Save, Preflight, and Update now executed, but actual choice sync did not pass because the saved mapping pointed to `Sheet1 -> Timestamp`; repeated attempts to remove that stale mapping did not change the sidebar state. A later Remove fix was deployed to Apps Script `@28`, but the active Google Forms retest session did not relaunch the FormRanger card/sidebar, so real runtime Remove behavior after the fix remains blocked/not verified.
 
 ## Recommended next step
 
-Fix FormRanger mapping management first: the stale `Sheet1 -> Timestamp` linked question must be removable or editable before retesting the sync path. Then rerun the FormRanger sync test until editor and respondent preview choices actually change, and run the remaining FormGuard runtime tests in the same logged-in Google account.
+Fix FormRanger runtime launch/mapping management first: the stale `Sheet1 -> Timestamp` linked question must be removable or editable in a clean Google Forms session before retesting the sync path. Then rerun the FormRanger sync test until editor and respondent preview choices actually change, and run the remaining FormGuard runtime tests in the same logged-in Google account.
