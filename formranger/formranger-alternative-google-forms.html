@@ -66,45 +66,6 @@
       ]
     }
   </script>
-  <style>
-    :root { --ink:#172033; --muted:#5d6b7e; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green:#17633f; --green-soft:#ebf8ef; --amber:#725314; --amber-soft:#fff7df; --panel:#fff; --shadow:0 14px 34px rgba(23,32,51,.09); }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#fff 58%); line-height:1.58; }
-    a { color:var(--blue); text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    .shell { max-width:1000px; margin:0 auto; padding:28px 20px 56px; }
-    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:22px; font-size:.94rem; }
-    .nav a { color:var(--muted); font-weight:650; }
-    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); }
-    .hero { padding:30px; margin-bottom:16px; }
-    .eyebrow { display:inline-flex; padding:6px 10px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:14px; }
-    h1 { font-size:clamp(2rem,4.8vw,3.35rem); line-height:1.05; letter-spacing:0; margin-bottom:12px; max-width:15ch; }
-    h2 { font-size:1.35rem; letter-spacing:0; margin-bottom:10px; }
-    h3 { font-size:1rem; margin-bottom:6px; }
-    p,li { color:var(--muted); }
-    .hero p { max-width:760px; font-size:1.04rem; }
-    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 15px; border-radius:8px; font-weight:750; border:1px solid var(--line); background:#fff; color:var(--ink); }
-    .btn-primary { background:var(--blue); border-color:var(--blue); color:#fff; }
-    .section { padding:24px; margin-top:16px; }
-    .answer { padding:16px; border-radius:8px; background:var(--green-soft); border:1px solid #cde8d6; color:var(--green); font-weight:650; }
-    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
-    .card,.warn { padding:16px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-    .card strong,.warn strong { display:block; color:var(--ink); margin-bottom:6px; }
-    .steps { padding-left:20px; display:grid; gap:8px; }
-    .compare { width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid var(--line); border-radius:8px; }
-    .compare th,.compare td { padding:13px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
-    .compare th { background:#f5f8ff; color:var(--ink); font-size:.9rem; }
-    .compare td { color:var(--muted); }
-    .compare tr:last-child td { border-bottom:none; }
-    .warn { background:var(--amber-soft); border-color:#ecd28f; color:var(--amber); }
-    details { border:1px solid var(--line); border-radius:8px; background:#fff; padding:14px 16px; }
-    details + details { margin-top:10px; }
-    summary { cursor:pointer; color:var(--ink); }
-    details p { margin-top:8px; }
-    .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
-    @media (max-width:840px) { .grid { grid-template-columns:1fr; } .compare { min-width:680px; } .table-wrap { overflow-x:auto; } h1 { max-width:none; } }
-  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -115,141 +76,51 @@
     <nav class="nav">
       <a href="../index.html">FormSuite</a>
       <a href="./index.html"><strong>FormRanger</strong></a>
-      
       <a href="./support.html">Support</a>
-      <a href="./permissions.html">Permissions</a>
     </nav>
 
     <main>
       <section class="hero">
-        <div class="eyebrow">High-intent comparison</div>
+        <div class="eyebrow">FormRanger guide</div>
         <h1>FormRanger alternative for Google Forms</h1>
-        <p>If you are looking for a FormRanger alternative, first decide whether you need manual paste, Apps Script, or a no-code sidebar that syncs selected Sheets columns into Forms choices.</p>
+        <p>Use this when your dropdown, checkbox, multiple-choice, or grid options live in Google Sheets and need a no-code refresh path into Google Forms.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-          <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Test first-run path</a>
-          <a class="btn" href="./permissions.html">Read permissions</a>
+          <a class="btn btn-secondary" href="./index.html">FormRanger overview</a>
         </div>
       </section>
 
       <section class="section">
         <h2>Quick answer</h2>
-        <p class="answer">If your Google Forms choices live in Sheets and change often, FormRanger fits when you want a no-code mapping, Preflight, Update now, and public-preview check instead of maintaining Apps Script.</p>
-      </section>
-
-      <section class="section">
-        <h2>Fast install path</h2>
         <div class="grid">
-          <article class="card"><strong>Install</strong><p>Open the Marketplace listing and add FormRanger to the Google account that owns the form.</p></article>
-          <article class="card"><strong>Link one question</strong><p>Use a copied form, one supported question, and one Sheets source column.</p></article>
-          <article class="card"><strong>Verify public preview</strong><p>Run Preflight, Update now, then inspect the respondent-facing form.</p></article>
+          <article class="card"><div class="pill">Manual paste</div><h3>Best for rare changes.</h3><p>Fast for a one-time list, but easy to forget and hard to audit.</p></article>
+          <article class="card"><div class="pill">Apps Script</div><h3>Best when someone owns code.</h3><p>Flexible, but your team maintains triggers, permissions, and breakage.</p></article>
+          <article class="card"><div class="pill">FormRanger</div><h3>Best for no-code choice sync.</h3><p>Map one question to one Sheets column, run Preflight, then update the public form choices.</p></article>
+          <article class="card"><div class="pill">Boundary</div><h3>Not live inventory locking.</h3><p>It refreshes choices from Sheets. It does not reserve seats while a respondent is filling the form.</p></article>
         </div>
       </section>
 
       <section class="section">
-        <h2>Pick the lightest path</h2>
-        <div class="table-wrap">
-          <table class="compare">
-            <thead>
-              <tr>
-                <th>Path</th>
-                <th>Best for</th>
-                <th>Tradeoff</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Manual paste</strong></td>
-                <td>Lists that rarely change</td>
-                <td>Fast, but easy to forget and hard to audit.</td>
-              </tr>
-              <tr>
-                <td><strong>Apps Script</strong></td>
-                <td>Teams that can maintain code, IDs, triggers, and permissions</td>
-                <td>Flexible, but someone owns breakage and authorization.</td>
-              </tr>
-              <tr>
-                <td><strong>FormRanger</strong></td>
-                <td>No-code choice sync from selected Google Sheets data</td>
-                <td>Not live booking, inventory locking, payment, or respondent-time filtering.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Use FormRanger when</h2>
-        <div class="grid">
-          <article class="card"><strong>The list is maintained in Sheets</strong><p>Departments, locations, sessions, roles, categories, or roster values.</p></article>
-          <article class="card"><strong>You want a first-run check</strong><p>Map one question, run Preflight, update choices, then check the public preview.</p></article>
-          <article class="card"><strong>You do not want custom code</strong><p>Keep setup in a sidebar instead of maintaining Apps Script.</p></article>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Supported choice types</h2>
-        <div class="grid">
-          <article class="card"><strong>Dropdown</strong><p>Use a Sheets column as the source for a list question.</p></article>
-          <article class="card"><strong>Multiple choice</strong><p>Refresh single-answer options from selected spreadsheet data.</p></article>
-          <article class="card"><strong>Checkbox</strong><p>Maintain multi-select options in Sheets before publishing the form.</p></article>
-          <article class="card"><strong>Grid choices</strong><p>Update grid rows or columns from a selected source column.</p></article>
-          <article class="card"><strong>Checkbox grid</strong><p>Use the same mapped-choice pattern for checkbox grid rows or columns.</p></article>
-          <article class="card"><strong>Preflight</strong><p>Check the source, mapping, and usable values before updating.</p></article>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Safe migration path</h2>
-        <ol class="steps">
+        <h2>Safe first test</h2>
+        <ol>
           <li>Copy the live form before changing anything.</li>
-          <li>Create one test sheet column with two values: Alpha and Beta.</li>
-          <li>Install FormRanger and map one dropdown or checkbox question.</li>
-          <li>Run Preflight, click Update now, and inspect the public preview.</li>
-          <li>Move to the live form only after the copied form behaves correctly.</li>
+          <li>Create a tiny source column in Sheets, such as Alpha and Beta.</li>
+          <li>Map one supported question to that column.</li>
+          <li>Run Preflight, update now, and inspect the respondent preview.</li>
         </ol>
       </section>
 
       <section class="section">
-        <h2>Boundary</h2>
-        <p class="warn"><strong>Important:</strong> FormRanger updates choices from Sheets. It does not reserve seats, lock inventory, process payments, or change choices while a respondent is already filling the form.</p>
-      </section>
-
-      <section class="section">
-        <h2>Next step</h2>
-        <div class="link-bar">
-          <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
-          <a href="./test-google-forms-dynamic-choices-before-launch.html">First-run test</a>
-          <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
-          <a href="./dynamic-google-forms-dropdown-guide.html">Visual workflow</a>
-          <a href="./support.html">Setup guide</a>
-          <a href="./permissions.html">Permissions</a>
-          <a href="../review-after-first-success.html">Review after first success</a>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>FAQ</h2>
-        <details>
-          <summary><strong>What is a FormRanger alternative?</strong></summary>
-          <p>It is any path for keeping Google Forms choices aligned with Sheets data: manual paste, Apps Script, or a sidebar add-on such as FormRanger.</p>
-        </details>
-        <details>
-          <summary><strong>Should I use Apps Script instead?</strong></summary>
-          <p>Use Apps Script if someone will maintain the code. Use FormRanger if the operator needs a no-code mapping and update workflow.</p>
-        </details>
-        <details>
-          <summary><strong>Can this handle dependent dropdowns?</strong></summary>
-          <p>Only for spreadsheet-backed choice refresh before respondents use the form. It is not respondent-time conditional filtering.</p>
-        </details>
-      </section>
-      <section class="section">
-        <h2>Need limits, quotas, or alerts instead?</h2>
-        <p>FormRanger is for syncing Google Forms choices from Google Sheets. If your real need is response limits, per-choice quotas, owner notifications, close messages, or timer-style controls, compare <a href="../formguard/formranger-alternative-google-forms.html">FormGuard as a FormRanger alternative for form control</a>.</p>
+        <h2>Next steps</h2>
+        <ul class="plain-links">
+          <li><a href="./index.html">FormRanger overview</a><span>Install path, supported choice types, and setup notes.</span></li>
+          <li><a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Dropdown not updating</a><span>Troubleshoot the common high-intent failure path.</span></li>
+          <li><a href="./support.html">FormRanger support</a><span>Send source sheet, question type, and public preview result.</span></li>
+        </ul>
       </section>
     </main>
 
-    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
+    <div class="footer"><a href="../index.html#products">Add-ons</a> | <a href="./index.html">FormRanger</a> | <a href="../support.html">Support</a><br>&copy; 2026 FormSuite. Google Workspace trademarks belong to Google LLC.</div>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
