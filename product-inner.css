@@ -280,9 +280,7 @@ li + li {
 .button,
 a.btn-primary,
 .hero-actions a:first-child,
-.path-links a:first-child,
-.link-bar a:first-child,
-.link-row a:first-child {
+.path-links a:first-child {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -302,8 +300,6 @@ a.btn-primary,
 .btn-primary:hover,
 .hero-actions a:first-child:hover,
 .path-links a:first-child:hover,
-.link-bar a:first-child:hover,
-.link-row a:first-child:hover,
 a.btn-primary:hover {
   background: var(--fs-brand-dark) !important;
   color: #ffffff !important;
@@ -314,8 +310,6 @@ a.btn-primary:hover {
 a.btn-secondary,
 .hero-actions a:not(:first-child),
 .path-links a:not(:first-child),
-.link-bar a:not(:first-child),
-.link-row a:not(:first-child),
 .card a:not(.btn):not(.plain),
 .card .btn-secondary,
 .mini-guide-card a {
@@ -338,8 +332,6 @@ a.btn-secondary,
 a.btn-secondary:hover,
 .hero-actions a:not(:first-child):hover,
 .path-links a:not(:first-child):hover,
-.link-bar a:not(:first-child):hover,
-.link-row a:not(:first-child):hover,
 .card a:not(.btn):not(.plain):hover,
 .card .btn-secondary:hover,
 .mini-guide-card a:hover {
@@ -379,6 +371,34 @@ a.btn-secondary:hover,
   align-items: center !important;
   gap: 14px !important;
   margin-top: 18px !important;
+}
+.hero-actions a:nth-child(n+3),
+.path-links a:nth-child(n+3),
+.actions a:nth-child(n+3),
+.card-actions a:nth-child(n+3) {
+  display: none !important;
+}
+.link-row a,
+.link-bar a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: 0 !important;
+  width: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--fs-brand) !important;
+  font-size: 14px !important;
+  font-weight: 760 !important;
+  text-decoration: none !important;
+}
+.link-row a:hover,
+.link-bar a:hover {
+  color: var(--fs-brand-dark) !important;
+  text-decoration: underline !important;
 }
 
 .plain-links {
@@ -457,6 +477,65 @@ pre {
   border-radius: 8px !important;
   overflow: hidden !important;
 }
+.workflow-visual,
+.diagnostic,
+.visual-canvas,
+.mini-screen,
+.side-card,
+.flow-card,
+.cta-band,
+.check-row,
+.visual-steps span {
+  background: var(--fs-panel) !important;
+  border: 1px solid var(--fs-line) !important;
+  border-radius: 8px !important;
+  color: var(--fs-ink) !important;
+  box-shadow: none !important;
+}
+.workflow-visual,
+.diagnostic,
+.cta-band {
+  padding: 18px !important;
+}
+.visual-canvas,
+.mini-screen,
+.side-card,
+.flow-card,
+.check-row {
+  padding: 14px !important;
+}
+.check-row b,
+.flow-card span:first-child {
+  background: var(--fs-brand-soft) !important;
+  color: var(--fs-brand-dark) !important;
+  border: 1px solid var(--fs-line) !important;
+}
+.line,
+.mock-line {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+.choice-list span,
+.sync-row {
+  background: var(--fs-panel-soft) !important;
+  color: var(--fs-muted) !important;
+}
+.visual-head,
+.mini-title,
+.visual-steps,
+.check-row span,
+.check-row em {
+  color: var(--fs-muted) !important;
+}
+.warn {
+  background: var(--fs-amber-soft) !important;
+  border: 1px solid rgba(251, 191, 36, 0.30) !important;
+  border-radius: 8px !important;
+  color: var(--fs-amber) !important;
+}
+.warn p,
+.warn strong {
+  color: var(--fs-amber) !important;
+}
 .video-panel,
 .video-frame {
   position: relative !important;
@@ -524,15 +603,11 @@ footer a,
     grid-template-columns: 1fr !important;
   }
   .hero-actions a:first-child,
-  .path-links a:first-child,
-  .link-bar a:first-child,
-  .link-row a:first-child {
+  .path-links a:first-child {
     width: 100% !important;
   }
   .hero-actions a:not(:first-child),
-  .path-links a:not(:first-child),
-  .link-bar a:not(:first-child),
-  .link-row a:not(:first-child) {
+  .path-links a:not(:first-child) {
     width: auto !important;
   }
 }

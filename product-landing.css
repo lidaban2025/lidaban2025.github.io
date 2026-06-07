@@ -152,8 +152,7 @@ h1 {
 }
 .btn,
 .btn-primary,
-.hero-actions a:first-child,
-.link-row a:first-child {
+.hero-actions a:first-child {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -169,7 +168,6 @@ h1 {
 }
 .btn-secondary,
 .hero-actions a:not(:first-child),
-.link-row a:not(:first-child),
 .mini-guide-card a {
   display: inline-flex;
   align-items: center;
@@ -187,8 +185,30 @@ h1 {
 }
 .btn-secondary:hover,
 .hero-actions a:not(:first-child):hover,
-.link-row a:not(:first-child):hover,
 .mini-guide-card a:hover {
+  color: var(--accent-2);
+  text-decoration: underline;
+}
+.hero-actions a:nth-child(n+3) {
+  display: none;
+}
+.link-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 0;
+  width: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 760;
+  text-decoration: none;
+}
+.link-row a:hover {
   color: var(--accent-2);
   text-decoration: underline;
 }
@@ -403,11 +423,10 @@ details p { margin-top: 10px; }
   .nav { gap: 10px; font-size: 13px; }
   .mock-sidebar { min-height: 180px; }
   .hero-actions a:first-child,
-  .link-row a:first-child {
+  .hero-actions a:first-child {
     width: 100%;
   }
-  .hero-actions a:not(:first-child),
-  .link-row a:not(:first-child) {
+  .hero-actions a:not(:first-child) {
     width: auto;
   }
 }
