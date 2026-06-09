@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/resources/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-09</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/demo-videos.html</loc>
@@ -43,6 +43,10 @@
   <url>
     <loc>https://formsuite.dev/resources/google-forms-choices-from-sheets-with-capacity-limits.html</loc>
     <lastmod>2026-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/resources/google-forms-choices-from-google-sheets.html</loc>
+    <lastmod>2026-06-09</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/google-sheets-add-ons-formulas-mail-merge-document-generation.html</loc>
@@ -470,7 +474,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-09</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html</loc>
@@ -498,11 +502,11 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-09</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/formranger-alternative-google-forms.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-09</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html</loc>

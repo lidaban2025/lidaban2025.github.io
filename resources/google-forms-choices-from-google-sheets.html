@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#5e6ad2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Forms choices from Google Sheets | FormRanger guide</title>
+  <meta name="description" content="Use Google Sheets as the source for Google Forms dropdown, multiple-choice, checkbox, and grid choices. Compare manual paste, Apps Script, and FormRanger.">
+  <link rel="canonical" href="https://formsuite.dev/resources/google-forms-choices-from-google-sheets.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Google Forms choices from Google Sheets">
+  <meta property="og:description" content="A practical guide to keeping Google Forms choice lists aligned with Google Sheets source data.">
+  <meta property="og:url" content="https://formsuite.dev/resources/google-forms-choices-from-google-sheets.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Forms choices from Google Sheets">
+  <meta name="twitter:description" content="Manual paste, Apps Script, or FormRanger: choose the right path for Sheets-backed form choices.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Google Forms choices from Google Sheets",
+          "description": "A practical guide to using Google Sheets as the source for Google Forms dropdown, multiple-choice, checkbox, and grid choices.",
+          "author": {"@type": "Organization", "name": "FormSuite"},
+          "publisher": {"@type": "Organization", "name": "FormSuite"},
+          "dateModified": "2026-06-09",
+          "mainEntityOfPage": "https://formsuite.dev/resources/google-forms-choices-from-google-sheets.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can Google Forms choices come from Google Sheets?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Yes, but Google Forms does not keep a dropdown or multiple-choice question automatically linked to a spreadsheet range by default. Use manual copy, Apps Script, or an add-on update workflow such as FormRanger."}
+            },
+            {
+              "@type": "Question",
+              "name": "What should I test first?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Use a copied Google Form, one supported choice question, and one Google Sheets column with two obvious values. Run Preflight, update the form, and check the public respondent preview."}
+            },
+            {
+              "@type": "Question",
+              "name": "Is this the same as live inventory or booking?",
+              "acceptedAnswer": {"@type": "Answer", "text": "No. Updating Google Forms choices from Sheets is not the same as reserving seats, locking inventory, taking payment, or changing options while a respondent is filling out the form."}
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../product-inner.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a href="../index.html">FormSuite</a>
+      <a href="../formranger/index.html">FormRanger</a>
+      <a href="../formranger/support.html">Support</a>
+      <a href="../formranger/permissions.html">Permissions</a>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Google Forms choice sync</div>
+        <h1>Google Forms choices from Google Sheets</h1>
+        <p>Google Forms choice questions can be updated from Google Sheets, but they are not live-linked by default. Use this guide to choose between manual paste, Apps Script, and FormRanger for dropdown, multiple-choice, checkbox, and grid choices.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+          <a class="btn btn-secondary" href="../formranger/test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Quick answer</h2>
+        <article class="card">
+          <p><strong>To use Google Sheets as the source for Google Forms choices, keep one clean source column in Sheets, map that column to a supported Forms choice question, update the form, and verify the respondent-facing preview.</strong></p>
+          <p>Do not stop at the form editor. The final check is the public preview that respondents see.</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2>Choose the right method</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="pill">Manual paste</div>
+            <h3>Best for one-time lists</h3>
+            <p>Copy values from Sheets and paste them into the form question. This is simple, but easy to forget when the spreadsheet changes.</p>
+          </article>
+          <article class="card">
+            <div class="pill">Apps Script</div>
+            <h3>Best when someone owns code</h3>
+            <p>Apps Script can update choices, but your team must maintain form IDs, spreadsheet IDs, triggers, authorization, and error handling.</p>
+          </article>
+          <article class="card">
+            <div class="pill">FormRanger</div>
+            <h3>Best for a no-code update path</h3>
+            <p>FormRanger provides a sidebar workflow for selecting the source, mapping a question, running Preflight, and updating choices.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Safe first-run checklist</h2>
+        <ol>
+          <li>Copy the live form before changing anything.</li>
+          <li>Create one Sheets column with two obvious values, such as Alpha and Beta.</li>
+          <li>Use one supported question type: dropdown, multiple choice, checkbox, or grid choices.</li>
+          <li>Run Preflight before changing the form.</li>
+          <li>Click Update now and read the update result.</li>
+          <li>Open the public respondent preview and confirm the visible choices.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>Common mistakes</h2>
+        <div class="grid">
+          <article class="card"><div class="pill">Blank headers</div><h3>Column selection gets confusing</h3><p>Keep the header row clean and re-select the intended source column if columns moved.</p></article>
+          <article class="card"><div class="pill">Wrong preview</div><h3>The editor is not enough</h3><p>Always check the public preview after updating choices.</p></article>
+          <article class="card"><div class="pill">No usable values</div><h3>Empty or duplicate rows can hide options</h3><p>Trim blanks and use a small obvious test list before a real list.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>When FormRanger fits</h2>
+        <p>Use FormRanger when your team maintains choices in Google Sheets and wants a repeatable update path for Google Forms without maintaining Apps Script.</p>
+        <ul class="plain-links">
+          <li><a href="../formranger/index.html">FormRanger overview</a><span>Supported question types, setup flow, and install path.</span></li>
+          <li><a href="../formranger/google-forms-dropdown-not-updating-from-google-sheets.html">Dropdown not updating</a><span>Troubleshoot stale choices and mapping problems.</span></li>
+          <li><a href="../formranger/formranger-alternative-google-forms.html">FormRanger alternative guide</a><span>Compare manual paste, Apps Script, and FormRanger.</span></li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Boundary</h2>
+        <article class="card">
+          <p>Spreadsheet-backed choices are not a booking system, inventory lock, payment flow, or live respondent-time conditional dropdown. If you need reservation guarantees, use a system designed for that job.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p><a href="../resources/">Resources</a> | <a href="../formranger/support.html">FormRanger support</a> | <a href="../choose-google-workspace-addon.html">Choose add-on</a></p>
+      <p>&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</p>
+    </footer>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
