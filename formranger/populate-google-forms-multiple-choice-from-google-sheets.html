@@ -8,18 +8,18 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Populate Google Forms multiple-choice options from Google Sheets | FormRanger</title>
-  <meta name="description" content="Populate a Google Forms multiple-choice question from a selected Google Sheets column with FormRanger after a short first-run test.">
+  <title>Google Forms multiple choice from Google Sheets | FormRanger</title>
+  <meta name="description" content="Use Google Sheets as the source for a Google Forms multiple-choice question. Compare manual paste, Apps Script, and FormRanger's no-code Preflight and update path.">
   <link rel="canonical" href="https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="Populate Google Forms multiple-choice options from Google Sheets">
-  <meta property="og:description" content="Use FormRanger to update one Google Forms multiple-choice question from selected spreadsheet data.">
+  <meta property="og:title" content="Google Forms multiple choice from Google Sheets">
+  <meta property="og:description" content="A practical first-run guide for updating Google Forms multiple-choice options from a selected Google Sheets column.">
   <meta property="og:url" content="https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Populate Google Forms multiple-choice options from Google Sheets">
-  <meta name="twitter:description" content="A concise first-run guide for spreadsheet-backed Google Forms multiple-choice options.">
+  <meta name="twitter:title" content="Google Forms multiple choice from Google Sheets">
+  <meta name="twitter:description" content="Map one Sheets column to one Google Forms multiple-choice question, run Preflight, update, and check the public preview.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -27,11 +27,11 @@
       "@graph": [
         {
           "@type": "Article",
-          "headline": "Populate Google Forms multiple-choice options from Google Sheets",
-          "description": "A concise guide to updating Google Forms multiple-choice options from a Google Sheets column with FormRanger.",
-          "author": { "@type": "Organization", "name": "FormSuite" },
-          "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-05-28",
+          "headline": "Google Forms multiple choice from Google Sheets",
+          "description": "A practical guide to updating Google Forms multiple-choice options from a Google Sheets column with FormRanger.",
+          "author": {"@type": "Organization", "name": "FormSuite"},
+          "publisher": {"@type": "Organization", "name": "FormSuite"},
+          "dateModified": "2026-06-10",
           "mainEntityOfPage": "https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html"
         },
         {
@@ -39,18 +39,34 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Can a multiple-choice question use options from Google Sheets?",
+              "name": "Can a Google Forms multiple-choice question use options from Google Sheets?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. FormRanger can update supported Google Forms multiple-choice options from a selected Google Sheets column."
+                "text": "Yes. Google Forms does not keep a native live link to a Sheets range, but you can copy values manually, maintain Apps Script, or use FormRanger to update supported multiple-choice options from a selected Sheets column."
               }
             },
             {
               "@type": "Question",
-              "name": "What should I test first?",
+              "name": "Should I use multiple choice, dropdown, or checkbox?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Start with one copied form, one multiple-choice question, and two or three sample sheet values."
+                "text": "Use multiple choice when respondents should pick one visible option. Use dropdown for a longer single-choice list, and checkbox when respondents may select more than one option."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I test before updating a live form?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use one copied form, one multiple-choice question, and a small Sheets column with values such as Alpha and Beta. Run Preflight, update the form, and check the public respondent preview."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this reserve seats or lock inventory?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Updating multiple-choice options from Sheets is not a booking, payment, inventory lock, or respondent-time filtering system."
               }
             }
           ]
@@ -69,10 +85,11 @@
     .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); }
     .hero { padding:30px; margin-bottom:16px; }
     .eyebrow { display:inline-block; padding:6px 11px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:14px; }
-    h1 { font-size:2.35rem; line-height:1.1; letter-spacing:0; margin-bottom:12px; max-width:18ch; }
+    h1 { font-size:2.35rem; line-height:1.1; letter-spacing:0; margin-bottom:12px; max-width:19ch; }
     h2 { font-size:1.35rem; letter-spacing:0; margin-bottom:10px; }
+    h3 { font-size:1rem; letter-spacing:0; margin-bottom:6px; }
     p,li { color:var(--muted); }
-    .hero p { max-width:760px; }
+    .hero p { max-width:780px; }
     .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
     .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font-weight:700; border:1px solid transparent; }
     .btn-primary { background:var(--blue); color:#fff; }
@@ -97,62 +114,122 @@
     <nav class="nav">
       <a href="../index.html">FormSuite</a>
       <a href="./index.html"><strong>FormRanger</strong></a>
-      
       <a href="./support.html">Support</a>
       <a href="./permissions.html">Permissions</a>
     </nav>
 
-    <section class="hero">
-      <div class="eyebrow">Multiple choice</div>
-      <h1>Populate Google Forms multiple-choice options from Google Sheets</h1>
-      <p>FormRanger updates a supported Google Forms multiple-choice question from a selected Google Sheets column. Use it when respondents should pick one option from a list your team already maintains in Sheets.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-        <a class="btn btn-secondary" href="./support.html">Setup guide</a>
-        <a class="btn btn-secondary" href="./permissions.html">Permissions</a>
-      </div>
-    </section>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Multiple choice from Sheets</div>
+        <h1>Google Forms multiple choice from Google Sheets</h1>
+        <p>Google Forms multiple-choice options can come from a Google Sheets source list, but Forms does not keep them live-linked by default. Use this page to choose between manual paste, Apps Script, and FormRanger's no-code update path.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+          <a class="btn btn-secondary" href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+          <a class="btn btn-secondary" href="./permissions.html">Permissions</a>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Quick answer</h2>
-      <p class="answer">Use one clean Sheets column, map one multiple-choice question, run Preflight, click Update now, then check the public preview.</p>
-    </section>
+      <section class="section">
+        <h2>Quick answer</h2>
+        <p class="answer">Put the options in one clean Sheets column, map that column to one Google Forms multiple-choice question, run Preflight, click Update now, and check the respondent-facing preview before sharing the form.</p>
+      </section>
 
-    <section class="section">
-      <h2>First-run path</h2>
-      <ol class="steps">
-        <li>Create a copied form with one multiple-choice question.</li>
-        <li>Add two or three sample values in Sheets.</li>
-        <li>Select the spreadsheet and source column in FormRanger.</li>
-        <li>Run Preflight and Update now.</li>
-        <li>Confirm the preview options match the sheet.</li>
-      </ol>
-    </section>
+      <section class="section">
+        <h2>When multiple choice is the right field</h2>
+        <div class="grid">
+          <article class="card"><strong>One visible answer</strong><p>Use multiple choice when respondents should select exactly one option and the list is short enough to show on the page.</p></article>
+          <article class="card"><strong>Operational lists</strong><p>Good examples include class rosters, teams, locations, departments, sessions, categories, products, or program names.</p></article>
+          <article class="card"><strong>Better than dropdown for short lists</strong><p>Multiple choice keeps the options visible, which helps when respondents need to compare a few choices quickly.</p></article>
+          <article class="card"><strong>Different from checkboxes</strong><p>If respondents can select several values, use a checkbox question instead of multiple choice.</p></article>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Good fit</h2>
-      <div class="grid">
-        <div class="card"><strong>Rosters</strong><p>Class, staff, team, or applicant lists.</p></div>
-        <div class="card"><strong>Locations</strong><p>Offices, rooms, sites, or pickup points.</p></div>
-        <div class="card"><strong>Events</strong><p>Sessions, groups, tracks, or categories.</p></div>
-        <div class="card"><strong>Catalogs</strong><p>Products, services, programs, or package names.</p></div>
-      </div>
-    </section>
+      <section class="section">
+        <h2>Three ways to update the options</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="pill">Manual paste</div>
+            <h3>Simple, but easy to forget</h3>
+            <p>Copy values from Sheets and paste them into the multiple-choice question. This works for one-time forms, but every spreadsheet change requires another manual edit.</p>
+          </article>
+          <article class="card">
+            <div class="pill">Apps Script</div>
+            <h3>Flexible, but needs an owner</h3>
+            <p>A script can update choices, but someone must maintain spreadsheet IDs, form IDs, authorization, triggers, and error handling.</p>
+          </article>
+          <article class="card">
+            <div class="pill">FormRanger</div>
+            <h3>No-code update path</h3>
+            <p>FormRanger lets you select the source spreadsheet, choose the sheet tab and column, link a question, run Preflight, and update the choices.</p>
+          </article>
+          <article class="card">
+            <div class="pill">First-run proof</div>
+            <h3>Verify before production</h3>
+            <p>Use a copied form first. A good test ends with the public preview showing the expected sheet values, not just a saved mapping.</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Boundary</h2>
-      <p class="caution">Use multiple choice when respondents should choose one option. If choices represent capacity, reservations, or inventory, add a separate control workflow.</p>
-    </section>
+      <section class="section">
+        <h2>FormRanger first-run path</h2>
+        <ol class="steps">
+          <li>Create a copied Google Form with one multiple-choice question.</li>
+          <li>Create one Google Sheets column with obvious values such as Alpha and Beta.</li>
+          <li>Open FormRanger in the Google Forms editor and select the spreadsheet source.</li>
+          <li>Choose the sheet tab, source column, and multiple-choice question.</li>
+          <li>Run Preflight and fix any source, access, empty-column, or question-type warning.</li>
+          <li>Click Update now and confirm the report says the question was updated.</li>
+          <li>Open the public respondent preview and verify the choices match the sheet values.</li>
+        </ol>
+      </section>
 
-    <section class="section">
-      <h2>Next step</h2>
-      <div class="link-bar">
-        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
-        <a href="./support.html">Setup guide</a>
-        <a href="./google-forms-checkbox-list-from-google-sheets.html">Checkbox list</a>
-        <a href="./dynamic-google-forms-dropdown-guide.html">All choice sync</a>
-      </div>
-    </section>
+      <section class="section">
+        <h2>Troubleshooting checklist</h2>
+        <div class="grid">
+          <article class="card"><strong>Options did not change</strong><p>Check whether Update now actually ran. A saved mapping does not update the form by itself.</p></article>
+          <article class="card"><strong>Wrong values appeared</strong><p>Re-select the sheet tab and source column, especially if columns moved or the header row changed.</p></article>
+          <article class="card"><strong>Question is missing</strong><p>Confirm the question is still multiple choice and was not deleted, duplicated, or changed to another type.</p></article>
+          <article class="card"><strong>Preview is stale</strong><p>Open the public respondent preview after the update. The editor view is not the final proof.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Limits and cautions</h2>
+        <p class="caution">FormRanger updates owner-controlled Google Forms choice lists. It is not a booking system, inventory lock, payment flow, or respondent-time dependent dropdown engine. If each option has a hard capacity, pair the choice list with a separate capacity-control workflow.</p>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <details>
+          <summary><strong>Can Google Forms automatically sync multiple-choice options from Sheets?</strong></summary>
+          <p>Not natively as a live link. You can copy values manually, maintain Apps Script, or use FormRanger to run a controlled update from a selected Sheets column.</p>
+        </details>
+        <details>
+          <summary><strong>What is the safest first test?</strong></summary>
+          <p>Use a copied form, one multiple-choice question, and a Sheets column with Alpha and Beta. Run Preflight, update, then check the public respondent preview.</p>
+        </details>
+        <details>
+          <summary><strong>Can I use the same sheet for dropdowns and checkboxes too?</strong></summary>
+          <p>Yes. FormRanger supports dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices.</p>
+        </details>
+        <details>
+          <summary><strong>Should I ask users to review the add-on after installing?</strong></summary>
+          <p>Wait until one real update succeeds and the public preview shows the expected choices. Successful setup is the right moment for an honest Marketplace review.</p>
+        </details>
+      </section>
+
+      <section class="section">
+        <h2>Next step</h2>
+        <div class="link-bar">
+          <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
+          <a href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run checklist</a>
+          <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix choices not updating</a>
+          <a href="./google-forms-checkbox-list-from-google-sheets.html">Checkbox list from Sheets</a>
+          <a href="../resources/google-forms-choices-from-google-sheets.html">All choices from Sheets</a>
+        </div>
+      </section>
+    </main>
 
     <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
   </div>
