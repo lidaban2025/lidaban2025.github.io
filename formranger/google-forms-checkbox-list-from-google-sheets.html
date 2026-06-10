@@ -9,17 +9,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Forms checkbox list from Google Sheets | FormRanger</title>
-  <meta name="description" content="Populate a Google Forms checkbox list from a selected Google Sheets column with FormRanger after a short first-run test.">
+  <meta name="description" content="Use Google Sheets as the source for a Google Forms checkbox list. Compare manual paste, Apps Script, and FormRanger's no-code Preflight and update path.">
   <link rel="canonical" href="https://formsuite.dev/formranger/google-forms-checkbox-list-from-google-sheets.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="Google Forms checkbox list from Google Sheets">
-  <meta property="og:description" content="Use FormRanger to update a Google Forms checkbox question from selected spreadsheet data.">
+  <meta property="og:description" content="A practical first-run guide for updating Google Forms checkbox options from a selected Google Sheets column.">
   <meta property="og:url" content="https://formsuite.dev/formranger/google-forms-checkbox-list-from-google-sheets.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Google Forms checkbox list from Google Sheets">
-  <meta name="twitter:description" content="A concise first-run guide for spreadsheet-backed checkbox options in Google Forms.">
+  <meta name="twitter:description" content="Map one Sheets column to one Google Forms checkbox question, run Preflight, update, and check the public preview.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -28,10 +28,10 @@
         {
           "@type": "Article",
           "headline": "Google Forms checkbox list from Google Sheets",
-          "description": "A concise guide to updating Google Forms checkbox options from a Google Sheets column with FormRanger.",
-          "author": { "@type": "Organization", "name": "FormSuite" },
-          "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-05-28",
+          "description": "A practical guide to updating Google Forms checkbox options from a Google Sheets column with FormRanger.",
+          "author": {"@type": "Organization", "name": "FormSuite"},
+          "publisher": {"@type": "Organization", "name": "FormSuite"},
+          "dateModified": "2026-06-10",
           "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-checkbox-list-from-google-sheets.html"
         },
         {
@@ -39,18 +39,34 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Can a Google Forms checkbox list come from Google Sheets?",
+              "name": "Can a Google Forms checkbox list use options from Google Sheets?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. FormRanger can update supported Google Forms checkbox options from a selected Google Sheets column."
+                "text": "Yes. Google Forms does not keep a native live link to a Sheets range, but you can copy values manually, maintain Apps Script, or use FormRanger to update supported checkbox options from a selected Sheets column."
               }
             },
             {
               "@type": "Question",
-              "name": "When should I use checkboxes?",
+              "name": "When should I use checkboxes instead of multiple choice?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Use checkboxes when respondents may select more than one option. Use multiple choice or dropdown when they should select only one."
+                "text": "Use checkboxes when respondents may select more than one option. Use multiple choice or dropdown when each respondent should choose only one option."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I test before updating a live checkbox list?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use one copied form, one checkbox question, and a small Sheets column with values such as Alpha, Beta, and Gamma. Run Preflight, update the form, and check the public respondent preview."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does a checkbox list enforce capacity per option?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Updating checkbox options from Sheets does not enforce capacity, reservations, stock counts, payment, or respondent-time option locking."
               }
             }
           ]
@@ -69,10 +85,11 @@
     .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); }
     .hero { padding:30px; margin-bottom:16px; }
     .eyebrow { display:inline-block; padding:6px 11px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:14px; }
-    h1 { font-size:2.35rem; line-height:1.1; letter-spacing:0; margin-bottom:12px; max-width:18ch; }
+    h1 { font-size:2.35rem; line-height:1.1; letter-spacing:0; margin-bottom:12px; max-width:19ch; }
     h2 { font-size:1.35rem; letter-spacing:0; margin-bottom:10px; }
+    h3 { font-size:1rem; letter-spacing:0; margin-bottom:6px; }
     p,li { color:var(--muted); }
-    .hero p { max-width:760px; }
+    .hero p { max-width:780px; }
     .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
     .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font-weight:700; border:1px solid transparent; }
     .btn-primary { background:var(--blue); color:#fff; }
@@ -97,64 +114,122 @@
     <nav class="nav">
       <a href="../index.html">FormSuite</a>
       <a href="./index.html"><strong>FormRanger</strong></a>
-      
       <a href="./support.html">Support</a>
       <a href="./permissions.html">Permissions</a>
     </nav>
 
-    <section class="hero">
-      <div class="eyebrow">Checkbox list</div>
-      <h1>Populate a Google Forms checkbox list from Google Sheets</h1>
-      <p>FormRanger updates a supported Google Forms checkbox question from a selected Google Sheets column. Use it when respondents can choose several options from a list maintained in Sheets.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
-        <a class="btn btn-secondary" href="./support.html">Setup guide</a>
-        <a class="btn btn-secondary" href="./permissions.html">Permissions</a>
-        <a class="btn btn-secondary" href="../resources/google-forms-choices-from-sheets-with-capacity-limits.html">Choices + limits</a>
-      </div>
-    </section>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Checkbox list from Sheets</div>
+        <h1>Google Forms checkbox list from Google Sheets</h1>
+        <p>Google Forms checkbox options can come from a Google Sheets source list, but Forms does not keep them live-linked by default. Use this page when respondents may select more than one option and the list is maintained in Sheets.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install FormRanger</a>
+          <a class="btn btn-secondary" href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+          <a class="btn btn-secondary" href="./permissions.html">Permissions</a>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Quick answer</h2>
-      <p class="answer">Use one clean Sheets column, map one checkbox question, run Preflight, click Update now, then check the public preview and a sample response.</p>
-    </section>
+      <section class="section">
+        <h2>Quick answer</h2>
+        <p class="answer">Put checkbox options in one clean Sheets column, map that column to one Google Forms checkbox question, run Preflight, click Update now, and check the respondent-facing preview before sharing the form.</p>
+      </section>
 
-    <section class="section">
-      <h2>First-run path</h2>
-      <ol class="steps">
-        <li>Create a copied form with one checkbox question.</li>
-        <li>Add three sample values in Sheets.</li>
-        <li>Select the spreadsheet and source column in FormRanger.</li>
-        <li>Run Preflight and Update now.</li>
-        <li>Submit one sample response to inspect checkbox output.</li>
-      </ol>
-    </section>
+      <section class="section">
+        <h2>When a checkbox list is the right field</h2>
+        <div class="grid">
+          <article class="card"><strong>More than one answer</strong><p>Use checkboxes when respondents can select several options from the same list.</p></article>
+          <article class="card"><strong>Visible comparison</strong><p>Checkboxes keep every option visible, which helps for interests, roles, services, skills, and preferences.</p></article>
+          <article class="card"><strong>Different from multiple choice</strong><p>Use multiple choice or dropdown when respondents should pick only one answer.</p></article>
+          <article class="card"><strong>Not a quota system</strong><p>A checkbox list lets users select options. It does not stop an option from being chosen after a limit is reached.</p></article>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Good fit</h2>
-      <div class="grid">
-        <div class="card"><strong>Interests</strong><p>Topics, skills, tracks, or preference lists.</p></div>
-        <div class="card"><strong>Roles</strong><p>Volunteer roles, groups, committees, or services.</p></div>
-        <div class="card"><strong>Programs</strong><p>Support categories, program options, or internal lists.</p></div>
-        <div class="card"><strong>Multi-select forms</strong><p>Any case where more than one option may be selected.</p></div>
-      </div>
-    </section>
+      <section class="section">
+        <h2>Three ways to update the checkbox options</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="pill">Manual paste</div>
+            <h3>Good for one-time forms</h3>
+            <p>Copy values from Sheets and paste them into the checkbox question. This is quick, but every source-list change requires another manual edit.</p>
+          </article>
+          <article class="card">
+            <div class="pill">Apps Script</div>
+            <h3>Good when someone owns code</h3>
+            <p>A script can rewrite checkbox options, but someone must maintain IDs, triggers, authorization, cleanup rules, and failure handling.</p>
+          </article>
+          <article class="card">
+            <div class="pill">FormRanger</div>
+            <h3>No-code update path</h3>
+            <p>FormRanger lets you select the spreadsheet, choose a sheet tab and column, link the checkbox question, run Preflight, and update options.</p>
+          </article>
+          <article class="card">
+            <div class="pill">Preview proof</div>
+            <h3>Verify what respondents see</h3>
+            <p>The useful proof is the public respondent preview after Update now, not only the saved mapping inside the editor.</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Boundary</h2>
-      <p class="caution">Checkbox syncing does not enforce capacity, reservations, stock counts, or payment. Use another control workflow when each option has a hard limit.</p>
-    </section>
+      <section class="section">
+        <h2>FormRanger first-run path</h2>
+        <ol class="steps">
+          <li>Create a copied Google Form with one checkbox question.</li>
+          <li>Create one Google Sheets column with obvious values such as Alpha, Beta, and Gamma.</li>
+          <li>Open FormRanger in the Google Forms editor and select the spreadsheet source.</li>
+          <li>Choose the sheet tab, source column, and checkbox question.</li>
+          <li>Run Preflight and fix any file access, empty-column, or question-type warning.</li>
+          <li>Click Update now and confirm the report says the checkbox question was updated.</li>
+          <li>Open the public respondent preview and verify the checkbox options match the sheet values.</li>
+        </ol>
+      </section>
 
-    <section class="section">
-      <h2>Next step</h2>
-      <div class="link-bar">
-        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
-        <a href="./support.html">Setup guide</a>
-        <a href="./populate-google-forms-multiple-choice-from-google-sheets.html">Multiple choice</a>
-        <a href="../resources/google-forms-choices-from-sheets-with-capacity-limits.html">Choices + limits</a>
-        <a href="./dynamic-google-forms-dropdown-guide.html">All choice sync</a>
-      </div>
-    </section>
+      <section class="section">
+        <h2>Troubleshooting checklist</h2>
+        <div class="grid">
+          <article class="card"><strong>Options did not update</strong><p>Confirm Update now actually ran. Saving a mapping does not update the form by itself.</p></article>
+          <article class="card"><strong>Wrong options appeared</strong><p>Re-select the sheet tab and source column if rows, columns, or headers moved.</p></article>
+          <article class="card"><strong>Question disappeared</strong><p>Check whether the checkbox question was deleted, duplicated, or changed to another question type.</p></article>
+          <article class="card"><strong>Respondent output matters</strong><p>Submit one test response if downstream Sheets formulas, notifications, or exports depend on checkbox values.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Limits and cautions</h2>
+        <p class="caution">Checkbox syncing does not enforce option capacity, reservations, stock counts, payment, or respondent-time option locking. If each checkbox option has a hard limit, use a separate capacity-control workflow and test that workflow independently.</p>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <details>
+          <summary><strong>Can Google Forms automatically sync checkbox options from Sheets?</strong></summary>
+          <p>Not natively as a live link. You can copy values manually, maintain Apps Script, or use FormRanger to run a controlled update from a selected Sheets column.</p>
+        </details>
+        <details>
+          <summary><strong>What is the safest first test?</strong></summary>
+          <p>Use a copied form, one checkbox question, and a Sheets column with Alpha, Beta, and Gamma. Run Preflight, update, then check the public respondent preview.</p>
+        </details>
+        <details>
+          <summary><strong>Can I remove duplicate or blank checkbox options?</strong></summary>
+          <p>Use a clean source column for the first test. FormRanger's update flow is designed around usable sheet values, with setup checks before updating.</p>
+        </details>
+        <details>
+          <summary><strong>Should I use checkbox if users can choose only one option?</strong></summary>
+          <p>No. Use multiple choice or dropdown when each respondent should choose only one option.</p>
+        </details>
+      </section>
+
+      <section class="section">
+        <h2>Next step</h2>
+        <div class="link-bar">
+          <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524">Install from Marketplace</a>
+          <a href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run checklist</a>
+          <a href="./populate-google-forms-multiple-choice-from-google-sheets.html">Multiple choice from Sheets</a>
+          <a href="../resources/google-forms-choices-from-sheets-with-capacity-limits.html">Choices + limits</a>
+          <a href="../resources/google-forms-choices-from-google-sheets.html">All choices from Sheets</a>
+        </div>
+      </section>
+    </main>
 
     <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
   </div>
