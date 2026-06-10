@@ -482,11 +482,15 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/import-google-forms-choices-from-google-sheets.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formranger/review-after-first-success.html</loc>
+    <lastmod>2026-06-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html</loc>
@@ -522,7 +526,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/support.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-10</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/permissions.html</loc>
