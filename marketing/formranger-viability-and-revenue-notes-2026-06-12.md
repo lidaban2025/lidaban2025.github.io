@@ -72,3 +72,15 @@ Updated the existing FormRanger homepage only — no new pages — to strengthen
 - target buyer/use-case clarity,
 - no-code admin positioning,
 - education/events/operations use cases.
+
+## 2026-06-12 simplification follow-up
+
+Reduced the FormRanger homepage back down to a shorter product page:
+
+- one hero
+- three core capability bullets
+- one first-run proof block
+- one boundary block
+- one FAQ block
+
+Removed the extra buyer/use-case sections and the large guide shortcut sections because the site should stay simple.
