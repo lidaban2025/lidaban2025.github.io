@@ -257,3 +257,17 @@ Rule kept: only `ActiveSearchResults` is counted as confirmed. CAPTCHA or unclea
 - Confirmed FormRanger promotion status: real Google Forms add-on runtime path previously passed, but wording should remain careful and avoid universal/bug-free claims.
 - Removed stale untracked 2026-06-07 FormRanger drafts that still said `Configure FormRanger` was unreliable, so future promotion work does not pick up obsolete blocked status.
 - Added missing UTM params to remaining FormRanger and FormGuard Marketplace install links across existing pages only. No new pages were created.
+
+## 2026-06-12 follow-up — promotion-only next-channel probe
+
+User explicitly said not to keep changing the website. No HTML/site files were modified in this batch.
+
+Checked external launch/directory candidates for non-website promotion:
+
+- DevHunt submit page reachable; candidate for manual review.
+- Microlaunch submission/pricing page reachable; candidate only if a free or meaningful path exists.
+- BetaList probe timed out; unclear.
+- SaaSHub, TinyStartups, Uneed show login/payment/sign-in friction; not attempted.
+- AlternativeTo returned 403 and StartupBase showed login/sign-in friction in probe; not attempted.
+
+Created `marketing/formranger-next-promo-actions-2026-06-12.md` as the next promotion-only plan.
