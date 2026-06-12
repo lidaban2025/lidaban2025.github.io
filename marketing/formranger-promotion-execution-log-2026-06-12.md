@@ -216,3 +216,30 @@ The existing `formsuite-tracking.js` already records marketplace CTA clicks as `
 - `marketing/formranger-review-request-templates-2026-06-12.md`
 
 These are execution assets only. They do not publish external posts and do not create new site pages.
+
+
+## Marketplace console attempt and fallback distribution — 2026-06-12
+
+### Marketplace console
+
+Attempted to open the Google Cloud Marketplace SDK configuration page for project `formguard-489511`:
+
+- URL: `https://console.cloud.google.com/apis/api/appsmarket-component.googleapis.com/googleapps_sdk?project=formguard-489511`
+- Browser account/session: Google account was present and project switched to FormGuard.
+- Result: Google Cloud Console page repeatedly showed `Failed to load` with retry not recovering.
+- Tracking number shown by Cloud Console: `c7339001810207383`.
+
+No Marketplace listing changes were saved from the console in this batch. Use `marketing/formranger-marketplace-listing-optimization-2026-06-12.md` as the prepared copy pack when the console is accessible.
+
+### Additional no-login directory checks
+
+Checked/attempted additional channels after console was blocked:
+
+- `ActiveSearchResults` — already confirmed earlier with `Added Web Site Confirmation` for the FormRanger homepage, dynamic guide, and import guide.
+- `ExactSeek` — submit form exists, but real action requires CAPTCHA; not submitted.
+- `SonicRun` — submit form exists, but real action requires CAPTCHA; not submitted.
+- `SoMuch` — reached link-information form and queue language, but no final submitted/thank-you confirmation; not counted as submitted.
+- `Jayde` — form is large business-directory style; skipped to avoid low-quality/overbroad submission without a reliable confirmation path.
+- `Anoox` — login/register style fields present; skipped.
+
+Rule kept: only `ActiveSearchResults` is counted as confirmed. CAPTCHA or unclear flows are recorded as blocked/unclear, not success.

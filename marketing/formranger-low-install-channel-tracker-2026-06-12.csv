@@ -22,3 +22,9 @@ activesearchresults,submitted_confirmation,P1,No-login directory,"Submitted Form
 marketplace_cta_utm,completed,P0,Existing FormRanger pages,Added UTM params to existing FormRanger Marketplace links,formranger/*.html,18 pages / 29 links updated; no new pages
 marketplace_listing_pack,draft_ready,P0,Workspace Marketplace listing,"Title, short description, long description, screenshot order, keywords",marketing/formranger-marketplace-listing-optimization-2026-06-12.md,Requires console update when admin access is available
 review_request_templates,draft_ready,P0,Successful FormRanger users,Review request email/DM/in-app templates,marketing/formranger-review-request-templates-2026-06-12.md,Use only after real sync success
+marketplace_console,blocked_console_failed_load,P0,Google Cloud Marketplace SDK,Console page failed to load repeatedly for project formguard-489511,marketing/formranger-marketplace-listing-optimization-2026-06-12.md,Tracking number c7339001810207383; no listing changes saved
+exactseek,blocked_captcha,P2,No-login directory,Submit form exists but real action requires CAPTCHA,marketing/formranger-promotion-execution-log-2026-06-12.md,Not counted as submitted
+sonicrun,blocked_captcha,P2,No-login directory,Submit form exists but real action requires CAPTCHA,marketing/formranger-promotion-execution-log-2026-06-12.md,Not counted as submitted
+somuch,unclear_no_confirmation,P2,No-login directory,Reached link information form/queue language but no final confirmation,marketing/formranger-promotion-execution-log-2026-06-12.md,Not counted as submitted
+jayde,skipped_low_confidence,P3,Business directory,Large business directory form; skipped to avoid overbroad low-quality submission,marketing/formranger-promotion-execution-log-2026-06-12.md,No action taken
+anoox,blocked_login_like,P3,Search/social directory,Login/register style fields present,marketing/formranger-promotion-execution-log-2026-06-12.md,No action taken
