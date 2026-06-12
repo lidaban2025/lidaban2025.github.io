@@ -156,3 +156,30 @@ Recommended posting order if manually posting with an owned account:
 1. WebApps high-intent Forms-from-Sheets questions first.
 2. Stack Overflow only when the answer includes working Apps Script details before any product mention.
 3. Never post duplicate promotional answers across multiple questions.
+
+
+## No-login follow-up — internal links and discovery
+
+Because manual Search Console operation is unavailable, the fallback was executed without adding new pages:
+
+- Added a direct homepage card linking to `https://formsuite.dev/formranger/import-google-forms-choices-from-google-sheets.html`.
+- Added a support-page utility link to the same import guide.
+- Resubmitted the core FormRanger URLs to IndexNow endpoints:
+  - `https://api.indexnow.org/indexnow` — HTTP 200
+  - `https://www.bing.com/indexnow` — HTTP 200
+- Tried legacy sitemap ping endpoints:
+  - Google sitemap ping — HTTP 404
+  - Bing sitemap ping — HTTP 410
+
+The sitemap ping endpoints are deprecated/unsupported responses, so rely on sitemap availability plus IndexNow/Bing discovery rather than claiming a Google manual request.
+
+## Off-site answer pack created
+
+Created `marketing/formranger-offsite-answer-pack-2026-06-12.md` with reusable Apps-Script-first answers for:
+
+- Google Forms dropdown from Google Sheets
+- Choices not updating
+- No Apps Script option
+- Grid choices from Sheets
+
+Use disclosure when mentioning FormRanger. Do not paste the same answer repeatedly.
