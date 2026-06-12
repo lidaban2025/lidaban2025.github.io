@@ -1,0 +1,12 @@
+channel,status,priority,target,query_or_url,recommended_asset,notes
+owned_homepage,optimized,P0,FormRanger homepage,https://formsuite.dev/formranger/,formranger/index.html,Use existing page; no new pages
+search_console,queued,P0,URL inspection,https://formsuite.dev/formranger/,marketing/formranger-low-install-push-2026-06-12.md,Request indexing for homepage and existing top guides only
+search_console,queued,P0,URL inspection,https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html,marketing/formranger-low-install-push-2026-06-12.md,Existing high-intent guide
+search_console,queued,P1,URL inspection,https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html,marketing/formranger-low-install-push-2026-06-12.md,Existing auto-update guide
+marketplace,needs_review,P0,Workspace Marketplace listing,https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524,marketing/formranger-promotion-pack-2026-06-12.md,Check title/screenshots emphasize Sheet source -> mapping -> preview
+google_help,candidate,P1,Google Help Community,Google Forms dropdown from Google Sheets,marketing/formranger-low-install-push-2026-06-12.md,Answer only matching threads; one existing guide link
+reddit,candidate_with_friction,P1,Reddit search,auto update Google Forms dropdown from sheet,marketing/formranger-low-install-push-2026-06-12.md,Use only communities allowing self-promotion or disclose clearly
+webapps_stackexchange,candidate_with_policy_risk,P1,WebApps StackExchange,Google Forms dropdown from Google Sheets,marketing/formranger-low-install-push-2026-06-12.md,Prefer native/Apps Script answer first; add FormRanger only if acceptable
+stackoverflow,candidate_with_policy_risk,P2,Stack Overflow,Apps Script populate Google Forms from Sheets,marketing/formranger-low-install-push-2026-06-12.md,Developer audience; do not spam no-code link
+quora,candidate_with_friction,P2,Quora,Google Forms choices from Google Sheets,marketing/formranger-low-install-push-2026-06-12.md,Manual answer only if login works
+review_requests,draft_ready,P0,successful FormRanger users,Marketplace review request,marketing/formranger-promotion-pack-2026-06-12.md,Ask only after a successful sync

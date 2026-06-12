@@ -1,0 +1,8 @@
+channel,status,priority,target_url_or_query,asset,notes
+owned_site,ready,P0,https://formsuite.dev/formranger/,marketing/formranger-promotion-pack-2026-06-12.md,Core landing page ready after real runtime loop pass
+marketplace,ready_to_optimize,P0,https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524,marketing/formranger-promotion-pack-2026-06-12.md,Title/short description should emphasize Google Sheets + Google Forms choices
+search_console,queued,P1,https://formsuite.dev/formranger/,marketing/formranger-promotion-pack-2026-06-12.md,Request indexing after copy/screenshots are stable
+google_help,draft_ready,P1,"Google Forms dropdown from Google Sheets",marketing/formranger-promotion-pack-2026-06-12.md,Use educational answer; one guide link maximum
+reddit_indiehackers,draft_ready,P2,"Google Forms / no-code ops / spreadsheets communities",marketing/formranger-promotion-pack-2026-06-12.md,Soft launch allowed; disclose building it when appropriate
+user_reviews,draft_ready,P0,successful_users_only,marketing/formranger-promotion-pack-2026-06-12.md,Ask only users who successfully synced at least one question
+qa_status,passed,P0,real Google Forms add-on runtime,qa/formranger-runtime-qa-pass-2026-06-12.md,Configure/sidebar/mapping/save/preflight/update/public preview passed
