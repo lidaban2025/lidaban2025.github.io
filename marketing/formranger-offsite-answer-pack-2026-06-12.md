@@ -72,3 +72,52 @@ Main guide: https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide
 - Use only one link per answer unless the thread explicitly asks for alternatives.
 - Always include the disclosure line if mentioning FormRanger.
 - Skip old/answered threads unless the answer adds a materially new workflow.
+
+## Candidate answer — Stack Overflow 74529492
+
+Thread: https://stackoverflow.com/questions/74529492/can-i-make-dynamic-forms-with-dropdown-or-multiple-choice-options-from-google-sh
+
+Status: drafted only. Browser posting is blocked by Cloudflare security verification in the agent browser. Do not claim this was posted.
+
+Suggested answer:
+
+Google Forms choices are not live-linked to Sheets. You need to run an update step that reads the Sheet values and writes them into the question.
+
+Two important fixes for your script:
+
+1. `FormApp.getActiveForm()` only works when the Apps Script project is bound to the Form. If the script is bound to the Sheet or standalone, use `FormApp.openById(formId)` instead.
+2. Filter blank rows and duplicates before calling `setChoiceValues()`. With ~2,000 rows, you should also avoid `getDataRange()` if only one column is needed.
+
+Example for a dropdown question:
+
+```js
+function updateDropdownChoices() {
+  const sheet = SpreadsheetApp.openById('SPREADSHEET_ID').getSheetByName('Sheet1');
+  const form = FormApp.openById('FORM_ID');
+
+  const values = sheet
+    .getRange('A2:A')
+    .getValues()
+    .flat()
+    .map(String)
+    .map(value => value.trim())
+    .filter(Boolean);
+
+  const uniqueValues = [...new Set(values)];
+
+  const item = form.getItems(FormApp.ItemType.LIST)[0].asListItem();
+  item.setChoiceValues(uniqueValues);
+}
+```
+
+For multiple choice, change the item type and cast:
+
+```js
+const item = form.getItems(FormApp.ItemType.MULTIPLE_CHOICE)[0].asMultipleChoiceItem();
+item.setChoiceValues(uniqueValues);
+```
+
+After running it, open the respondent-facing preview of the form, not just the editor, and confirm the dropdown shows the new choices.
+
+Disclosure: I’m building FormRanger, a no-code add-on for this owner-run workflow. If you do not want to maintain Apps Script/triggers yourself, it maps a Google Sheets column to a Google Forms dropdown/multiple-choice/checkbox/grid question, runs a setup check, then updates the form choices. Guide: https://formsuite.dev/formranger/import-google-forms-choices-from-google-sheets.html
+

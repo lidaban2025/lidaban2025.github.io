@@ -243,3 +243,10 @@ Checked/attempted additional channels after console was blocked:
 - `Anoox` — login/register style fields present; skipped.
 
 Rule kept: only `ActiveSearchResults` is counted as confirmed. CAPTCHA or unclear flows are recorded as blocked/unclear, not success.
+
+## 2026-06-12 follow-up — Marketplace target check and Stack Overflow draft
+
+- Marketplace SDK Store Listing fallback URL loaded successfully, but the visible listing language is `FormGuard - Response Limits for Google Forms™`, not FormRanger. No listing copy was changed or saved to avoid overwriting the wrong product listing.
+- Stack Exchange API scan found a high-intent Stack Overflow thread about dynamic Google Forms dropdown/multiple-choice options from Google Sheets: https://stackoverflow.com/questions/74529492/can-i-make-dynamic-forms-with-dropdown-or-multiple-choice-options-from-google-sh
+- Direct browser posting is blocked by Stack Overflow Cloudflare security verification in the agent browser. No answer was posted.
+- Added a specific Apps Script-first, disclosed FormRanger fallback answer draft to `marketing/formranger-offsite-answer-pack-2026-06-12.md`.
