@@ -183,3 +183,36 @@ Created `marketing/formranger-offsite-answer-pack-2026-06-12.md` with reusable A
 - Grid choices from Sheets
 
 Use disclosure when mentioning FormRanger. Do not paste the same answer repeatedly.
+
+
+## Direct promotion batch — 2026-06-12 no-login execution
+
+Completed without requiring user manual login and without adding new website pages.
+
+### ActiveSearchResults submissions
+
+Submitted and received `Added Web Site Confirmation` for:
+
+- `https://formsuite.dev/formranger/`
+- `https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html`
+- `https://formsuite.dev/formranger/import-google-forms-choices-from-google-sheets.html`
+
+### Marketplace CTA tracking
+
+Updated existing FormRanger Marketplace links to include UTM parameters:
+
+- `utm_source=formsuite`
+- `utm_medium=site_cta`
+- `utm_campaign=formranger_low_install`
+- `utm_content=<page>`
+
+Scope: 18 existing FormRanger HTML pages, 29 FormRanger Marketplace links.
+
+The existing `formsuite-tracking.js` already records marketplace CTA clicks as `marketplace_cta_click` and identifies FormRanger from the destination URL/text.
+
+### Assets created
+
+- `marketing/formranger-marketplace-listing-optimization-2026-06-12.md`
+- `marketing/formranger-review-request-templates-2026-06-12.md`
+
+These are execution assets only. They do not publish external posts and do not create new site pages.
