@@ -4,9 +4,7 @@
 
 Existing FormRanger URLs found in sitemap: 18.
 
-IndexNow key file verified live:
-
-- `https://formsuite.dev/ebdc364a-9593-459c-8910-c241045202a8.txt`
+IndexNow key file verified live: `[REDACTED]`
 
 Submitted all existing FormRanger sitemap URLs to:
 
@@ -110,3 +108,51 @@ https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html
 2. Check Marketplace listing screenshots: source Sheet → mapping sidebar → Preflight → Update now → public preview.
 3. If logged in to Stack Exchange, answer only one highly relevant question first and disclose ownership.
 4. Ask successful FormRanger users for reviews only after a real sync succeeds.
+
+
+## Search Console check — 2026-06-12 follow-up
+
+Checked through the verified `https://formsuite.dev/` URL-prefix property.
+
+- `https://formsuite.dev/formranger/` — URL is on Google; Page is indexed.
+- `https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html` — URL is on Google; Page is indexed; FAQ and video enhancements detected.
+- `https://formsuite.dev/formranger/import-google-forms-choices-from-google-sheets.html` — URL is not on Google; URL is unknown to Google. Request indexing was attempted, but the Search Console flow did not reach the final `Indexing requested` confirmation in the agent browser, likely due to invisible reCAPTCHA/session friction.
+
+Do not claim Google indexing for the import page yet. Retry manually from a normal local browser if needed.
+
+## Expanded Stack Exchange lead scan — 2026-06-12 follow-up
+
+Source: Stack Exchange API advanced search across WebApps and Stack Overflow. Saved raw expanded CSV locally during execution as `/tmp/formranger-stackexchange-expanded-leads.csv`.
+
+High-signal candidates to review manually:
+
+1. `Dynamically edit multiple choice options in live Google Form using Apps Script`
+   - URL: `https://stackoverflow.com/questions/18645999/dynamically-edit-multiple-choice-options-in-live-google-form-using-apps-script`
+   - Score: 9; Answers: 3; Status: answered.
+   - Use: keyword/FAQ inspiration or a careful Apps Script-first answer only if a genuinely new no-code option is allowed.
+
+2. `Multiple Selection Dropdown List in Google Forms`
+   - URL: `https://stackoverflow.com/questions/55857940/multiple-selection-dropdown-list-in-google-forms`
+   - Score: 5; Answers: 0; Status: unanswered.
+   - Use: relevant but may be product-mismatch if the asker needs multi-select dropdown rather than synced choices.
+
+3. `How do I create a multiple choice question in Google Forms based on spreadsheet data?`
+   - URL: `https://webapps.stackexchange.com/questions/53383/how-do-i-create-a-multiple-choice-question-in-google-forms-based-on-spreadsheet`
+   - Score: 4; Answers: 3; Status: answered.
+   - Use: very high-intent; only contribute if adding a materially updated no-code workflow.
+
+4. `Is there a script to draw a list of variables from a table to Google Forms?`
+   - URL: `https://webapps.stackexchange.com/questions/94519/is-there-a-script-to-draw-a-list-of-variables-from-a-table-to-google-forms`
+   - Score: 2; Answers: 1; Status: answered.
+   - Use: good Apps Script-first angle; FormRanger can be disclosed as a no-code alternative.
+
+5. `How to set the answer key for a Forms Griditem using Google Apps Script?`
+   - URL: `https://stackoverflow.com/questions/68422724/how-to-set-the-answer-key-for-a-forms-griditem-using-google-apps-script`
+   - Score: 2; Answers: 0; Status: unanswered.
+   - Use: grid-specific keyword/support-content angle; do not force FormRanger if answer-key behavior is outside product scope.
+
+Recommended posting order if manually posting with an owned account:
+
+1. WebApps high-intent Forms-from-Sheets questions first.
+2. Stack Overflow only when the answer includes working Apps Script details before any product mention.
+3. Never post duplicate promotional answers across multiple questions.
