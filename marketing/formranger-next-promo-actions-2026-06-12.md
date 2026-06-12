@@ -39,8 +39,8 @@ This is a promotion-only plan. Do not modify website HTML from this document.
 
 These were probed and may be worth further manual review if they fit the product and allow submission without account friction:
 
-- **DevHunt** — submit page exists and appears reachable.
-- **Microlaunch** — submit/pricing page reachable; verify whether a free or meaningful submission path exists.
+- **DevHunt** — checked: submit route requires GitHub/Google login; manual-only, not submitted.
+- **Microlaunch** — checked: submit route redirects to premium/pricing; no free direct form found; manual/paid-only, not submitted.
 - **BetaList** — probe timed out; may need a direct browser/manual check.
 
 Lower priority / friction-heavy:
@@ -54,13 +54,13 @@ Lower priority / friction-heavy:
 
 ### C. What to do next if you want more installs without touching the website
 
-1. **Check DevHunt submission flow**
-   - Verify whether it needs login, approval, or a public launch date.
-   - If submission is possible, use the existing product summary and the Marketplace/guide links only.
+1. **DevHunt manual-only**
+   - Requires GitHub/Google login before submission.
+   - If 大板 wants to use it, log in personally and use the existing product summary and Marketplace/guide links only.
 
-2. **Check Microlaunch submission flow**
-   - See whether it accepts a tool listing and what fields are required.
-   - Use the marketplace URL as the canonical conversion target if they allow it.
+2. **Microlaunch manual/paid-only**
+   - Submission path redirects to premium/pricing; no free direct form was found.
+   - Only continue if paying for a launch is acceptable.
 
 3. **Re-check BetaList**
    - Only if it has a non-login submission path.

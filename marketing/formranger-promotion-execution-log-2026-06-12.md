@@ -271,3 +271,11 @@ Checked external launch/directory candidates for non-website promotion:
 - AlternativeTo returned 403 and StartupBase showed login/sign-in friction in probe; not attempted.
 
 Created `marketing/formranger-next-promo-actions-2026-06-12.md` as the next promotion-only plan.
+## 2026-06-12 follow-up — DevHunt and Microlaunch submission verification
+
+No website HTML/site files were modified. This batch only verified external promotion submission paths.
+
+- DevHunt: `https://devhunt.org/submit` initially rendered a 404 state, then clicking `Submit your Dev Tool` showed `Log in to your account` with GitHub/Google login providers. No FormRanger submission was made. Status: `blocked_login_required`.
+- Microlaunch: `https://microlaunch.net/submit` redirects to `https://microlaunch.net/premium#pricing`; `New Launch`/`Launch Now` stays in the premium/pricing launch flow. Visible Pro Launch price was `$39` / `$49`, and signup is present. No free direct submission form was found. Status: `blocked_paid_or_signup_flow`.
+
+Conclusion: neither channel is usable by the agent without account/payment/user-side action. Keep both as manual-only candidates, not completed submissions.
