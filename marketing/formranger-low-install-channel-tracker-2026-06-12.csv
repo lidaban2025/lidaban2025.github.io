@@ -10,3 +10,6 @@ webapps_stackexchange,candidate_with_policy_risk,P1,WebApps StackExchange,Google
 stackoverflow,candidate_with_policy_risk,P2,Stack Overflow,Apps Script populate Google Forms from Sheets,marketing/formranger-low-install-push-2026-06-12.md,Developer audience; do not spam no-code link
 quora,candidate_with_friction,P2,Quora,Google Forms choices from Google Sheets,marketing/formranger-low-install-push-2026-06-12.md,Manual answer only if login works
 review_requests,draft_ready,P0,successful FormRanger users,Marketplace review request,marketing/formranger-promotion-pack-2026-06-12.md,Ask only after a successful sync
+indexnow,completed,P0,Existing FormRanger sitemap URLs,18 existing URLs,marketing/formranger-promotion-execution-log-2026-06-12.md,Submitted to api.indexnow.org and bing.com; both HTTP 200
+stackexchange_leads,researched,P1,WebApps/Stack Overflow,Google Forms dropdown from Sheets,marketing/formranger-promotion-execution-log-2026-06-12.md,Found high-intent candidates; answer with disclosure and Apps Script-first framing
+search_console,next_manual,P0,URL Inspection,Existing FormRanger homepage and guides,marketing/formranger-promotion-execution-log-2026-06-12.md,Manual browser action needed; do not claim indexed yet
