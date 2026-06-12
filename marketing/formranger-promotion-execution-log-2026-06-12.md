@@ -250,3 +250,10 @@ Rule kept: only `ActiveSearchResults` is counted as confirmed. CAPTCHA or unclea
 - Stack Exchange API scan found a high-intent Stack Overflow thread about dynamic Google Forms dropdown/multiple-choice options from Google Sheets: https://stackoverflow.com/questions/74529492/can-i-make-dynamic-forms-with-dropdown-or-multiple-choice-options-from-google-sh
 - Direct browser posting is blocked by Stack Overflow Cloudflare security verification in the agent browser. No answer was posted.
 - Added a specific Apps Script-first, disclosed FormRanger fallback answer draft to `marketing/formranger-offsite-answer-pack-2026-06-12.md`.
+
+## 2026-06-12 follow-up — cross-product CTA attribution cleanup
+
+- Stack Overflow direct posting is currently not usable because the user also hits IP restrictions. No public answer was posted.
+- Confirmed FormRanger promotion status: real Google Forms add-on runtime path previously passed, but wording should remain careful and avoid universal/bug-free claims.
+- Removed stale untracked 2026-06-07 FormRanger drafts that still said `Configure FormRanger` was unreliable, so future promotion work does not pick up obsolete blocked status.
+- Added missing UTM params to remaining FormRanger and FormGuard Marketplace install links across existing pages only. No new pages were created.
