@@ -9,30 +9,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test a Google Forms approval workflow before launch | FormFlow</title>
-  <meta name="description" content="Test one Google Forms approval workflow before launch with FormFlow, linked response spreadsheet selection, one approver, saved configuration, and Preflight.">
+  <meta name="description" content="Test one Google Forms approval workflow before launch with FormFlow: select the linked response sheet, add one approver, run Preflight, and submit one internal response.">
   <link rel="canonical" href="https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="Test a Google Forms approval workflow before launch | FormFlow">
-  <meta property="og:description" content="Test one Google Forms approval workflow before launch with FormFlow, linked response spreadsheet selection, one approver, saved configuration, and Preflight.">
+  <meta property="og:description" content="Use one linked response sheet, one approver, Preflight, and one internal test response before launching an approval workflow.">
   <meta property="og:url" content="https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <link rel="stylesheet" href="../product-inner.css">
 </head>
 <body>
   <div class="shell">
-    <nav class="nav"><a href="../index.html">FormSuite</a><a href="../support.html">Support</a></nav>
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="./index.html">FormFlow</a><a href="./support.html">Support</a></nav>
+
     <section class="hero">
-      <div class="eyebrow">Guide</div>
-      <h1>Test a Google Forms approval workflow before launch</h1>
-      <p>Test one Google Forms approval workflow before launch with FormFlow, linked response spreadsheet selection, one approver, saved configuration, and Preflight.</p>
-      <div class="hero-actions"><a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install</a><a class="btn btn-secondary" href="./support.html">Support</a><a class="btn btn-secondary" href="./index.html">FormFlow</a><a class="btn btn-secondary" href="./google-forms-approval-workflow-guide.html">Approval workflow guide</a><a class="btn btn-secondary" href="../resources/index.html">Resources</a></div>
+      <div class="eyebrow">First-run test</div>
+      <h1>Test one approval workflow before launch.</h1>
+      <p>Use a copied or internal Google Form, select the linked response sheet, add one approver, run Preflight, submit one response, and confirm the reviewer email plus Sheet status.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install FormFlow</a>
+        <a class="btn btn-secondary" href="./google-forms-approval-workflow-guide.html">Approval workflow guide</a>
+      </div>
     </section>
-    <section class="grid" style="margin-top:18px;">
-      <article class="card"><div class="pill">Use this page when</div><h2>The workflow matches the title.</h2><p>This short guide points you to the fastest FormSuite path for the problem. Start with one copied form or sheet, not live production data.</p></article>
-      <article class="card"><div class="pill">Do this first</div><h2>Run one safe test.</h2><ol><li>Open the matching product page or setup guide.</li><li>Install from Google Workspace Marketplace if it fits.</li><li>Run one test record and confirm the output before sharing the workflow.</li></ol></article>
-      <aside class="card"><div class="pill">Need help?</div><h2>Send context.</h2><p>Include the product name, what you expected, what happened, and a screenshot of the setup or error.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+
+    <section class="section">
+      <h2>Pass condition</h2>
+      <p class="answer">The test passes when Preflight succeeds, the reviewer email arrives, the approver can approve or reject, and the linked Google Sheet shows the expected approval status.</p>
     </section>
+
+    <section class="section">
+      <h2>First-run checklist</h2>
+      <ol>
+        <li>Use a copied form or an internal test form, not a live production form.</li>
+        <li>Confirm the form is linked to a Google Sheets response spreadsheet.</li>
+        <li>Install FormFlow from Google Workspace Marketplace.</li>
+        <li>Open the FormFlow sidebar from the Google Forms editor.</li>
+        <li>Select the linked response spreadsheet through the Picker flow.</li>
+        <li>Add one internal approver email address.</li>
+        <li>Save the configuration.</li>
+        <li>Run Preflight and resolve any warning before launch.</li>
+        <li>Submit one internal test response.</li>
+        <li>Open the reviewer email, make one approve or reject decision, and check the Sheet status.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>What to inspect</h2>
+      <div class="grid">
+        <article class="card"><div class="pill">Sheet</div><h3>Correct response spreadsheet</h3><p>The selected spreadsheet should be the form's linked response sheet, not a duplicate or stale test sheet.</p></article>
+        <article class="card"><div class="pill">Email</div><h3>Reviewer receives the request</h3><p>Check the inbox and spam folder for the internal approver account before adding more reviewers.</p></article>
+        <article class="card"><div class="pill">Decision</div><h3>Approve/reject link works</h3><p>The reviewer should be able to open the decision page and submit one approval or rejection.</p></article>
+        <article class="card"><div class="pill">Status</div><h3>Sheet status updates</h3><p>The linked response sheet should show the final decision state so the operator can audit what happened.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>If the test fails</h2>
+      <div class="grid">
+        <article class="card"><h3>Preflight warning</h3><p>Re-check linked Sheet access, saved approver email, and the form-to-sheet connection before submitting another response.</p></article>
+        <article class="card"><h3>No reviewer email</h3><p>Confirm the approver address is internal and valid, then check spam and Workspace mail restrictions.</p></article>
+        <article class="card"><h3>Decision link issue</h3><p>Use the same Google account as the intended reviewer and send the exact screenshot to support.</p></article>
+        <article class="card"><h3>Status not updated</h3><p>Confirm the selected response sheet is the sheet connected to the tested form submission.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>After it works</h2>
+      <p>If the first internal approval works end to end, you can move the workflow toward production and leave an honest Marketplace review. If any step is unclear, use support first.</p>
+      <ul class="plain-links">
+        <li><a href="./review-after-first-success.html">Review after first success</a><span>Leave an honest review only after the approval test works.</span></li>
+        <li><a href="./support.html">FormFlow support</a><span>Send the failing step, screenshot, and expected result.</span></li>
+        <li><a href="./approve-reject-google-forms-responses-by-email.html">Approve by email</a><span>Review the email decision path and linked-sheet status behavior.</span></li>
+      </ul>
+    </section>
+
+    <footer class="footer"><a href="../index.html#products">Add-ons</a> | <a href="./index.html">FormFlow</a> | <a href="./support.html">Support</a><br>&copy; 2026 FormSuite. Google Workspace trademarks belong to Google LLC.</footer>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>

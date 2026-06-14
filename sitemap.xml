@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://formsuite.dev/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/support.html</loc>
@@ -14,11 +14,11 @@
   </url>
   <url>
     <loc>https://formsuite.dev/review-after-first-success.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/demo-videos.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/resources/google-workspace-add-ons-first-run-checklist.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/find-google-workspace-add-on-after-install.html</loc>
@@ -186,19 +186,23 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/google-forms-approval-workflow-guide.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/approve-reject-google-forms-responses-by-email.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-14</lastmod>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formflow/review-after-first-success.html</loc>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/support.html</loc>
@@ -604,10 +608,10 @@
   </url>
   <url>
     <loc>https://formsuite.dev/install.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/choose-google-workspace-addon.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
 </urlset>
