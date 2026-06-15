@@ -9,23 +9,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormFlow Support | Google Forms approval workflows</title>
-  <meta name="description" content="Short setup help and support links for FormFlow: approval routing, reviewer emails, reminders, and Google Sheets status tracking.">
+  <meta name="description" content="Short setup help for FormFlow: Preflight, reviewer emails, approve/reject links, linked Google Sheet status, and review after one successful approval test.">
   <link rel="canonical" href="https://formsuite.dev/formflow/support.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="FormFlow Support | Google Forms approval workflows">
-  <meta property="og:description" content="Short setup help and support links for FormFlow: approval routing, reviewer emails, reminders, and Google Sheets status tracking.">
+  <meta property="og:description" content="Short setup help for FormFlow: Preflight, reviewer emails, approve/reject links, linked Google Sheet status, and review after one successful approval test.">
   <meta property="og:url" content="https://formsuite.dev/formflow/support.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FormFlow Support">
-  <meta name="twitter:description" content="Short setup help and support links for FormFlow: approval routing, reviewer emails, reminders, and Google Sheets status tracking.">
+  <meta name="twitter:description" content="Short setup help for FormFlow: Preflight, reviewer emails, approve/reject links, linked Google Sheet status, and review after one successful approval test.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
-        {"@type":"WebPage","name":"FormFlow support","url":"https://formsuite.dev/formflow/support.html","description":"Short setup help and support links for FormFlow: approval routing, reviewer emails, reminders, and Google Sheets status tracking."},
+        {"@type":"WebPage","name":"FormFlow support","url":"https://formsuite.dev/formflow/support.html","description":"Short setup help for FormFlow: Preflight, reviewer emails, approve/reject links, linked Google Sheet status, and review after one successful approval test."},
         {"@type":"FAQPage","mainEntity":[
             {
               "@type": "Question",
@@ -35,7 +35,7 @@
             {
               "@type": "Question",
               "name": "What should I test?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Check one approve path, one reject path, and the final sheet status."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Check that Preflight passes, the approval email arrives, the approve/reject link works, and the linked Google Sheet status updates."}
             },
             {
               "@type": "Question",
@@ -65,10 +65,11 @@
     <section class="hero">
       <div class="eyebrow">Support</div>
       <h1>FormFlow support</h1>
-      <p>Route Google Forms submissions for lightweight approve/reject workflows.</p>
+      <p>Use support to diagnose a first-run approval test, or leave a review only after the approval email, decision link, and linked Sheet status all work.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install from Marketplace</a>
-        <a class="btn btn-secondary" href="./index.html">Product page</a>
+        <a class="btn btn-secondary" href="./test-google-forms-approval-workflow-before-launch.html">First-run test</a>
+        <a class="btn btn-secondary" href="./review-after-first-success.html">Review after success</a>
         <a class="btn btn-secondary" href="../support.html">Contact support</a>
       </div>
     </section>
@@ -76,11 +77,13 @@
     <section class="grid">
       <article class="card">
         <div class="pill">Quick start</div>
-        <h2>Setup in 3 steps</h2>
+        <h2>First-run test path</h2>
         <ol>
-          <li>Open the form or linked sheet and launch FormFlow.</li>
-          <li>Set reviewer email addresses and approval status fields.</li>
-          <li>Submit a test request and confirm the reviewer email plus sheet status update.</li>
+          <li>Use a copied or internal Google Form, not the live production form.</li>
+          <li>Select the response spreadsheet linked to that form.</li>
+          <li>Add one internal approver and save the configuration.</li>
+          <li>Run Preflight and resolve any warning before launch.</li>
+          <li>Submit one test response, then confirm the approval email, approve/reject link, and linked Sheet status.</li>
         </ol>
         <h3>Useful guides</h3>
         <div class="path-links">
@@ -91,21 +94,39 @@
       </article>
       <aside class="card">
         <div class="pill">Need help?</div>
-        <h2>Send this info</h2>
+        <h2>Send these four checks</h2>
         <ul class="meta-list">
           <li><strong>Product</strong><br>FormFlow</li>
-          <li><strong>What failed</strong><br>Setup, test run, email, sync, or generated output.</li>
-          <li><strong>Screenshot</strong><br>Include the error message or the result you expected.</li>
+          <li><strong>Preflight</strong><br>Did Preflight pass, fail, or show a warning?</li>
+          <li><strong>Approval email</strong><br>Did the reviewer email arrive in the intended inbox?</li>
+          <li><strong>Decision link</strong><br>Did approve or reject work for the intended reviewer?</li>
+          <li><strong>Sheet status</strong><br>Did the linked response sheet update after the decision?</li>
+          <li><strong>Screenshot</strong><br>Include the sidebar, email, decision page, or Sheet status that failed.</li>
           <li><strong>Contact</strong><br><a href="../support.html">FormSuite support</a></li>
         </ul>
       </aside>
+    </section>
+
+    <section class="grid" style="margin-top:18px;">
+      <article class="card">
+        <div class="pill">It worked</div>
+        <h2>Review after a real success</h2>
+        <p>If Preflight passed, the reviewer email arrived, the approve/reject link worked, and the linked Sheet status updated, an honest Marketplace review helps the next operator trust the setup.</p>
+        <a href="./review-after-first-success.html">Open the review checklist</a>
+      </article>
+      <article class="card">
+        <div class="pill">It failed</div>
+        <h2>Use support before reviewing</h2>
+        <p>If any step failed, send the four checks above first. The useful next move is to identify whether the issue is linked Sheet access, reviewer email delivery, account identity, or Sheet status writing.</p>
+        <a href="../support.html">Contact FormSuite support</a>
+      </article>
     </section>
 
     <section class="card" style="margin-top:18px;">
       <div class="pill">FAQ</div>
       <h2>Common questions</h2>
       <div class="faq-item"><strong>Is this for complex enterprise workflows?</strong><p>No. It is for lightweight Forms-to-Sheets approval flows.</p></div>
-        <div class="faq-item"><strong>What should I test?</strong><p>Check one approve path, one reject path, and the final sheet status.</p></div>
+        <div class="faq-item"><strong>What should I test?</strong><p>Check that Preflight passes, the approval email arrives, the approve/reject link works, and the linked Google Sheet status updates.</p></div>
         <div class="faq-item"><strong>What if reviewers do not get emails?</strong><p>Check reviewer addresses, Gmail limits, and spam folders.</p></div>
     </section>
 
