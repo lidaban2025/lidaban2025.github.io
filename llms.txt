@@ -9,6 +9,7 @@
 - [FormFlow guide](https://formsuite.dev/formflow/google-forms-approval-workflow-guide.html): Guide to planning a Google Forms approval workflow.
 - [Form Approvals alternative](https://formsuite.dev/formflow/form-approvals-alternative-google-forms.html): Comparison page for users who want a lightweight alternative to a broader Google Forms approval platform.
 - [Form Approvals pricing alternative](https://formsuite.dev/formflow/form-approvals-pricing-alternative.html): Pricing-intent page for users deciding whether they need a full approval platform or a lightweight approve/reject workflow.
+- [Free Google Forms approval workflow](https://formsuite.dev/formflow/free-google-forms-approval-workflow.html): Free-intent guide for starting with one form, one approver, one decision email, and linked-Sheet status tracking.
 - [Power Automate alternative](https://formsuite.dev/formflow/power-automate-approval-workflow-alternative-google-forms.html): Migration guide for lightweight Microsoft Forms or Power Automate approval workflows moving to Google Forms.
 - [Approve/reject by email](https://formsuite.dev/formflow/approve-reject-google-forms-responses-by-email.html): Explains reviewer email decision links and Sheet writeback.
 - [Approval status in Google Sheets](https://formsuite.dev/formflow/google-forms-approval-status-in-google-sheets.html): Explains Pending, Approved, and Rejected status tracking in the linked response Sheet.
