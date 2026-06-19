@@ -1,0 +1,29 @@
+# FormSuite
+
+> FormSuite builds lightweight Google Workspace add-ons for Google Forms and Google Sheets operators.
+
+## Core Pages
+
+- [FormSuite homepage](https://formsuite.dev/): Product index for FormSuite Google Workspace add-ons.
+- [FormFlow](https://formsuite.dev/formflow/): Google Forms approval workflow add-on for reviewer emails, approve/reject links, and linked Google Sheets status tracking.
+- [FormFlow guide](https://formsuite.dev/formflow/google-forms-approval-workflow-guide.html): Guide to planning a Google Forms approval workflow.
+- [Form Approvals alternative](https://formsuite.dev/formflow/form-approvals-alternative-google-forms.html): Comparison page for users who want a lightweight alternative to a broader Google Forms approval platform.
+- [Power Automate alternative](https://formsuite.dev/formflow/power-automate-approval-workflow-alternative-google-forms.html): Migration guide for lightweight Microsoft Forms or Power Automate approval workflows moving to Google Forms.
+- [Approve/reject by email](https://formsuite.dev/formflow/approve-reject-google-forms-responses-by-email.html): Explains reviewer email decision links and Sheet writeback.
+- [Approval status in Google Sheets](https://formsuite.dev/formflow/google-forms-approval-status-in-google-sheets.html): Explains Pending, Approved, and Rejected status tracking in the linked response Sheet.
+- [First workflow test](https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html): Checklist for testing one internal approval workflow before launch.
+
+## Key Facts
+
+- FormFlow is a Google Workspace Marketplace add-on for Google Forms approval workflows.
+- FormFlow focuses on lightweight approve/reject workflows, not full procurement, ticketing, CRM, or compliance systems.
+- FormFlow sends reviewer emails, captures approve/reject decisions, and writes approval status back to the linked Google Sheets response file.
+- FormFlow is positioned as a lightweight option for users who find broader approval platforms too heavy for a simple Google Forms workflow.
+- Google Workspace, Google Forms, and Google Sheets are trademarks of Google LLC.
+
+## Contact
+
+- Website: https://formsuite.dev/
+- Support: https://formsuite.dev/formflow/support.html
+
+Last updated: 2026-06-19
