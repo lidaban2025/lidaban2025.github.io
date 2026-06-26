@@ -55,15 +55,15 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow">Google Sheets first</div>
-          <h1 id="hero-title">Fix formulas. Explain formulas. Generate formulas.</h1>
-          <p>Sheet Formula Helper is the Formula Fixer / Explainer / Generator direction from the PRD: make broken formulas understandable, repair them, and return copy-ready output for Sheets and Excel.</p>
+          <div class="eyebrow">Google Sheets & Excel</div>
+          <h1 id="hero-title">Paste a formula. Get the fix.</h1>
+          <p>Fix broken formulas, explain confusing formulas, or generate a new one from plain English.</p>
           <div class="hero-proof" aria-label="Core modes">
             <span>Fix</span><span>Explain</span><span>Generate</span><span>Google Sheets</span><span>Excel</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#formula-tool">Try the formula tool</a>
-            <a class="btn btn-secondary" href="support.html">Read support</a>
+            <a class="btn btn-primary" href="#formula-tool">Start now</a>
+            <a class="btn btn-secondary" href="#how-it-works">How it works</a>
           </div>
         </div>
         <article class="product-visual workflow-preview" aria-label="Formula helper preview">
@@ -74,23 +74,23 @@
                 <div class="mock-title"><strong>Broken formula</strong><span>Sheet</span></div>
                 <div class="mock-line wide"></div>
                 <div class="rule-row"><span>Issue</span><span>#VALUE!</span></div>
-                <div class="sync-source">Explain what failed and why</div>
+                <div class="sync-source">Paste the formula and error</div>
               </div>
               <div class="mock-panel">
                 <div class="mock-title"><strong>Suggested fix</strong><span>copy-ready</span></div>
                 <div class="mock-line wide"></div>
                 <div class="rule-row"><span>Formula</span><span>=IFERROR(...)</span></div>
-                <div class="sync-source">Return the corrected formula and assumptions</div>
+                <div class="sync-source">Copy the fixed formula</div>
               </div>
             </div>
-            <div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formcopy.png" alt=""><div><strong>Sheet Formula Helper</strong><span>workspace tool</span></div></div><p>Use one page for fixing, one for explaining, and one for generating formulas from plain English.</p><span class="status-pill">Browser tool live</span></div>
+            <div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formcopy.png" alt=""><div><strong>Sheet Formula Helper</strong><span>formula tool</span></div></div><p>No setup. No spreadsheet upload. Just paste and copy.</p><span class="status-pill">AI powered</span></div>
           </div>
           <div class="preview-steps"><span>1. Paste formula</span><span>2. Review fix</span><span>3. Copy result</span></div>
         </article>
       </section>
 
       <section class="section" id="formula-tool" aria-labelledby="tool-title">
-        <div class="section-head"><div><h2 id="tool-title">Try the formula helper.</h2><p>First version tries a private /api/formula endpoint when available, then falls back to local browser rules. No API key is exposed in the browser.</p></div></div>
+        <div class="section-head"><div><h2 id="tool-title">Fix your formula.</h2><p>Choose a mode, paste the formula or goal, then copy the result.</p></div></div>
         <div class="formula-tool">
           <div class="tool-tabs" role="tablist" aria-label="Formula helper mode">
             <button class="tool-tab active" type="button" data-mode="fix">Fix</button>
@@ -100,7 +100,7 @@
           <div class="tool-grid">
             <form id="formulaForm">
               <div class="tool-field">
-                <label for="platform">Platform</label>
+                <label for="platform">App</label>
                 <select id="platform"><option>Google Sheets</option><option>Excel</option></select>
               </div>
               <div class="tool-field">
@@ -108,11 +108,11 @@
                 <textarea id="formulaInput" placeholder='Example: =VLOOKUP(A2, Products!A:C, 3)'></textarea>
               </div>
               <div class="tool-field">
-                <label id="contextLabel" for="contextInput">Error or intended result</label>
+                <label id="contextLabel" for="contextInput">What should happen?</label>
                 <textarea id="contextInput" placeholder='Example: It returns #N/A, but I want the price from column C when SKU matches.'></textarea>
               </div>
               <div class="tool-actions">
-                <button class="tool-button" type="submit">Generate result</button>
+                <button class="tool-button" type="submit">Fix it</button>
                 <button class="tool-button secondary" type="button" id="copyResult">Copy result</button>
               </div>
               <div class="example-row" aria-label="Examples">
@@ -121,45 +121,26 @@
                 <button class="example-chip" type="button" data-example="generate-if">IF generator</button>
               </div>
             </form>
-            <output id="formulaResult" class="tool-result">Choose a mode, paste a formula or goal, then generate a copy-ready result.</output>
+            <output id="formulaResult" class="tool-result">Paste your formula and click Fix it.</output>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="modes-title">
-        <div class="section-head"><div><h2 id="modes-title">Three useful modes, not a generic AI spreadsheet blob.</h2><p>The PRD deliberately cuts the scope to formula help first, because that is the highest-intent wedge.</p></div></div>
+      <section class="section" id="how-it-works" aria-labelledby="modes-title">
+        <div class="section-head"><div><h2 id="modes-title">What it does</h2><p>Three quick jobs. Pick one and move on.</p></div></div>
         <div class="step-grid">
-          <article class="step-card"><div class="step-num">1</div><h3>Fix</h3><p>Take a formula, error message, and target result. Return a corrected formula, likely issue, and assumptions.</p></article>
-          <article class="step-card"><div class="step-num">2</div><h3>Explain</h3><p>Translate a formula into plain English with function and range breakdowns.</p></article>
-          <article class="step-card"><div class="step-num">3</div><h3>Generate</h3><p>Turn a plain-English goal or sample data into a copy-ready formula for Sheets or Excel.</p></article>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="next-title">
-        <div class="guide-panel">
-          <div>
-            <div class="mini-label">Next step</div>
-            <h2 id="next-title">The product now has a working browser-based first version.</h2>
-            <p>The page now has the API handoff built in: it calls /api/formula when deployed with a Worker, and falls back to browser rules if the endpoint is not available.</p>
-            <div class="link-row">
-              <a href="./support.html">Read setup notes</a>
-              <a href="../index.html#products">Browse FormSuite</a>
-            </div>
-          </div>
-          <div class="mini-guide-grid" style="grid-template-columns:1fr;">
-            <article class="mini-guide-card"><strong>SEO page</strong><p>Target formula fixer, explainer, and generator queries.</p></article>
-            <article class="mini-guide-card"><strong>Conversion path</strong><p>Start with Sheets users who need a quick fix, then expand to Excel.</p></article>
-            <article class="mini-guide-card"><strong>Build next</strong><p>Deploy the Worker API, set the AI provider secret, then add usage limits and dedicated SEO pages.</p></article>
-          </div>
+          <article class="step-card"><div class="step-num">1</div><h3>Fix</h3><p>Paste a broken formula and the error. Get a corrected formula.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Explain</h3><p>Paste a formula. Get a plain-English explanation.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Generate</h3><p>Describe what you need. Get a starter formula.</p></article>
         </div>
       </section>
 
       <section class="section" aria-labelledby="faq-title">
-        <h2 id="faq-title">Frequently asked questions</h2>
+        <h2 id="faq-title">Quick answers</h2>
         <div class="faq-panel">
-          <details><summary><strong>Is this a generic spreadsheet AI?</strong></summary><p>No. The positioning is formula helper first, especially fix and explain.</p></details>
-          <details><summary><strong>What platform comes first?</strong></summary><p>Google Sheets comes first because that is where the wedge is strongest.</p></details>
-          <details><summary><strong>Can Excel come later?</strong></summary><p>Yes. The PRD explicitly includes Excel, but the first build should stay narrow.</p></details>
+          <details><summary><strong>Do I need to upload a spreadsheet?</strong></summary><p>No. Paste only the formula or describe the result you want.</p></details>
+          <details><summary><strong>Does it work with Google Sheets and Excel?</strong></summary><p>Yes. Choose the app before generating the result.</p></details>
+          <details><summary><strong>Can I copy the result?</strong></summary><p>Yes. Use Copy result after the answer appears.</p></details>
         </div>
       </section>
     </main>
