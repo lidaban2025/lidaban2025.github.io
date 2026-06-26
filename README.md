@@ -6,6 +6,12 @@ Website:
 
 - https://formsuite.dev/
 
+Cloudflare Worker deploy:
+
+- `npm run cf:check` builds `_site` and verifies the Worker/assets bundle.
+- `wrangler secret put OPENAI_API_KEY` enables the Sheet Formula Helper AI endpoint.
+- `npm run deploy` deploys the static site plus `/api/formula` Worker route.
+
 Demo videos:
 
 - https://formsuite.dev/resources/demo-videos.html

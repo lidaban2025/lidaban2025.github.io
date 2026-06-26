@@ -29,3 +29,10 @@
 - Support: https://formsuite.dev/formflow/support.html
 
 Last updated: 2026-06-19
+## Sheet Formula Helper
+
+- Sheet Formula Helper: https://formsuite.dev/sheetformula/
+- Support: https://formsuite.dev/sheetformula/support.html
+- Privacy: https://formsuite.dev/sheetformula/privacy.html
+- Terms: https://formsuite.dev/sheetformula/terms.html
+

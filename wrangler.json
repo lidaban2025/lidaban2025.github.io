@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "formsuite-site",
+  "main": "worker.js",
+  "compatibility_date": "2026-06-25",
+  "assets": {
+    "directory": "_site",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "vars": {
+    "OPENAI_MODEL": "gpt-4o-mini"
+  }
+}

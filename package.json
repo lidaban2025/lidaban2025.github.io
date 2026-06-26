@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build:site": "node scripts/build-site.js",
+    "cf:check": "npm run build:site && wrangler deploy --dry-run",
+    "deploy": "npm run build:site && wrangler deploy"
+  },
+  "dependencies": {
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.22.0"
+  }
+}

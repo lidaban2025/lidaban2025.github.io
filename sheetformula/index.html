@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#5e6ad2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheet Formula Helper | Fix, explain, and generate formulas</title>
+  <meta name="description" content="Fix broken Google Sheets and Excel formulas, explain existing formulas, and generate formulas from plain English.">
+  <link rel="canonical" href="https://formsuite.dev/sheetformula/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../product-landing.css">
+  <link rel="stylesheet" href="../product-inner.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Sheet Formula Helper | Fix, explain, and generate formulas">
+  <meta property="og:description" content="Fix broken Google Sheets and Excel formulas, explain existing formulas, and generate formulas from plain English.">
+  <meta property="og:url" content="https://formsuite.dev/sheetformula/">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sheet Formula Helper | Fix, explain, and generate formulas">
+  <meta name="twitter:description" content="A Google Sheets-first formula helper for fixing, explaining, and generating formulas.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sheet Formula Helper","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://formsuite.dev/sheetformula/","description":"Fix broken Google Sheets and Excel formulas, explain existing formulas, and generate formulas from plain English.","provider":{"@type":"Organization","name":"FormSuite"}}</script>
+  <style>
+    .formula-tool { margin-top: 24px; padding: 18px; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; background: rgba(255,255,255,.035); }
+    .tool-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .tool-tab { min-height: 38px; padding: 0 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; color: #b7bec9; background: rgba(255,255,255,.035); cursor: pointer; font-weight: 760; }
+    .tool-tab.active { color: #fff; background: #5e6ad2; border-color: #5e6ad2; }
+    .tool-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 14px; }
+    .tool-field { display: grid; gap: 7px; margin-bottom: 12px; }
+    .tool-field label { color: #f7f8f8; font-size: 13px; font-weight: 760; }
+    .tool-field textarea, .tool-field input, .tool-field select { width: 100%; min-height: 42px; padding: 11px 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; color: #f7f8f8; background: rgba(0,0,0,.24); font: inherit; }
+    .tool-field textarea { min-height: 118px; resize: vertical; }
+    .tool-result { min-height: 320px; padding: 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 12px; background: rgba(0,0,0,.22); white-space: pre-wrap; color: #dbe1ea; overflow-wrap: anywhere; }
+    .tool-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .tool-button { min-height: 40px; padding: 0 14px; border: 1px solid #5e6ad2; border-radius: 8px; background: #5e6ad2; color: #fff; cursor: pointer; font-weight: 760; }
+    .tool-button.secondary { border-color: rgba(255,255,255,.1); background: transparent; color: #d7dcff; }
+    .example-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .example-chip { padding: 6px 9px; border: 1px solid rgba(255,255,255,.08); border-radius: 999px; color: #d7dcff; background: rgba(94,106,210,.12); cursor: pointer; font-size: 13px; }
+    @media (max-width: 760px) { .tool-grid { grid-template-columns: 1fr; } .tool-result { min-height: 220px; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="FormSuite home"><span class="brand-mark">SF</span><span>Sheet Formula Helper</span></a>
+      <nav class="nav" aria-label="Product navigation"><a href="../index.html#products">Add-ons</a><a href="support.html">Support</a></nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">Google Sheets first</div>
+          <h1 id="hero-title">Fix formulas. Explain formulas. Generate formulas.</h1>
+          <p>Sheet Formula Helper is the Formula Fixer / Explainer / Generator direction from the PRD: make broken formulas understandable, repair them, and return copy-ready output for Sheets and Excel.</p>
+          <div class="hero-proof" aria-label="Core modes">
+            <span>Fix</span><span>Explain</span><span>Generate</span><span>Google Sheets</span><span>Excel</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#formula-tool">Try the formula tool</a>
+            <a class="btn btn-secondary" href="support.html">Read support</a>
+          </div>
+        </div>
+        <article class="product-visual workflow-preview" aria-label="Formula helper preview">
+          <div class="preview-topline"><strong>Formula helper preview</strong><span>copy-ready</span></div>
+          <div class="preview-canvas">
+            <div class="mock-stack">
+              <div class="mock-panel">
+                <div class="mock-title"><strong>Broken formula</strong><span>Sheet</span></div>
+                <div class="mock-line wide"></div>
+                <div class="rule-row"><span>Issue</span><span>#VALUE!</span></div>
+                <div class="sync-source">Explain what failed and why</div>
+              </div>
+              <div class="mock-panel">
+                <div class="mock-title"><strong>Suggested fix</strong><span>copy-ready</span></div>
+                <div class="mock-line wide"></div>
+                <div class="rule-row"><span>Formula</span><span>=IFERROR(...)</span></div>
+                <div class="sync-source">Return the corrected formula and assumptions</div>
+              </div>
+            </div>
+            <div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formcopy.png" alt=""><div><strong>Sheet Formula Helper</strong><span>workspace tool</span></div></div><p>Use one page for fixing, one for explaining, and one for generating formulas from plain English.</p><span class="status-pill">Browser tool live</span></div>
+          </div>
+          <div class="preview-steps"><span>1. Paste formula</span><span>2. Review fix</span><span>3. Copy result</span></div>
+        </article>
+      </section>
+
+      <section class="section" id="formula-tool" aria-labelledby="tool-title">
+        <div class="section-head"><div><h2 id="tool-title">Try the formula helper.</h2><p>First version tries a private /api/formula endpoint when available, then falls back to local browser rules. No API key is exposed in the browser.</p></div></div>
+        <div class="formula-tool">
+          <div class="tool-tabs" role="tablist" aria-label="Formula helper mode">
+            <button class="tool-tab active" type="button" data-mode="fix">Fix</button>
+            <button class="tool-tab" type="button" data-mode="explain">Explain</button>
+            <button class="tool-tab" type="button" data-mode="generate">Generate</button>
+          </div>
+          <div class="tool-grid">
+            <form id="formulaForm">
+              <div class="tool-field">
+                <label for="platform">Platform</label>
+                <select id="platform"><option>Google Sheets</option><option>Excel</option></select>
+              </div>
+              <div class="tool-field">
+                <label id="formulaLabel" for="formulaInput">Formula to fix</label>
+                <textarea id="formulaInput" placeholder='Example: =VLOOKUP(A2, Products!A:C, 3)'></textarea>
+              </div>
+              <div class="tool-field">
+                <label id="contextLabel" for="contextInput">Error or intended result</label>
+                <textarea id="contextInput" placeholder='Example: It returns #N/A, but I want the price from column C when SKU matches.'></textarea>
+              </div>
+              <div class="tool-actions">
+                <button class="tool-button" type="submit">Generate result</button>
+                <button class="tool-button secondary" type="button" id="copyResult">Copy result</button>
+              </div>
+              <div class="example-row" aria-label="Examples">
+                <button class="example-chip" type="button" data-example="fix-vlookup">VLOOKUP fix</button>
+                <button class="example-chip" type="button" data-example="explain-query">QUERY explain</button>
+                <button class="example-chip" type="button" data-example="generate-if">IF generator</button>
+              </div>
+            </form>
+            <output id="formulaResult" class="tool-result">Choose a mode, paste a formula or goal, then generate a copy-ready result.</output>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="modes-title">
+        <div class="section-head"><div><h2 id="modes-title">Three useful modes, not a generic AI spreadsheet blob.</h2><p>The PRD deliberately cuts the scope to formula help first, because that is the highest-intent wedge.</p></div></div>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>Fix</h3><p>Take a formula, error message, and target result. Return a corrected formula, likely issue, and assumptions.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Explain</h3><p>Translate a formula into plain English with function and range breakdowns.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Generate</h3><p>Turn a plain-English goal or sample data into a copy-ready formula for Sheets or Excel.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="next-title">
+        <div class="guide-panel">
+          <div>
+            <div class="mini-label">Next step</div>
+            <h2 id="next-title">The product now has a working browser-based first version.</h2>
+            <p>The page now has the API handoff built in: it calls /api/formula when deployed with a Worker, and falls back to browser rules if the endpoint is not available.</p>
+            <div class="link-row">
+              <a href="../marketing/sheet-formula-helper-prd-2026-06-23.md">Read PRD</a>
+              <a href="../marketing/sheet-formula-helper-build-brief-2026-06-23.md">Read build brief</a>
+            </div>
+          </div>
+          <div class="mini-guide-grid" style="grid-template-columns:1fr;">
+            <article class="mini-guide-card"><strong>SEO page</strong><p>Target formula fixer, explainer, and generator queries.</p></article>
+            <article class="mini-guide-card"><strong>Conversion path</strong><p>Start with Sheets users who need a quick fix, then expand to Excel.</p></article>
+            <article class="mini-guide-card"><strong>Build next</strong><p>Deploy the Worker API, set the AI provider secret, then add usage limits and dedicated SEO pages.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <div class="faq-panel">
+          <details><summary><strong>Is this a generic spreadsheet AI?</strong></summary><p>No. The positioning is formula helper first, especially fix and explain.</p></details>
+          <details><summary><strong>What platform comes first?</strong></summary><p>Google Sheets comes first because that is where the wedge is strongest.</p></details>
+          <details><summary><strong>Can Excel come later?</strong></summary><p>Yes. The PRD explicitly includes Excel, but the first build should stay narrow.</p></details>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><span><a href="../index.html#products">Add-ons</a> | <a href="support.html">Support</a></span><span>&copy; 2026 FormSuite. Spreadsheet product names are trademarks of their owners.</span></footer>
+  </div>
+
+  <script>
+    (() => {
+      const state = { mode: 'fix' };
+      const tabs = [...document.querySelectorAll('.tool-tab')];
+      const form = document.getElementById('formulaForm');
+      const platform = document.getElementById('platform');
+      const formula = document.getElementById('formulaInput');
+      const context = document.getElementById('contextInput');
+      const result = document.getElementById('formulaResult');
+      const formulaLabel = document.getElementById('formulaLabel');
+      const contextLabel = document.getElementById('contextLabel');
+      const examples = {
+        'fix-vlookup': { mode: 'fix', formula: '=VLOOKUP(A2, Products!A:C, 3)', context: 'It returns #N/A. I want the price from column C when the SKU in A2 matches Products column A.' },
+        'explain-query': { mode: 'explain', formula: `=QUERY(A1:D, "select A, sum(D) where B = 'Paid' group by A", 1)`, context: 'Explain this to a beginner.' },
+        'generate-if': { mode: 'generate', formula: '', context: 'If the due date in C2 is before today and the status in D2 is not Done, show Overdue. Otherwise show OK.' }
+      };
+      function setMode(mode) {
+        state.mode = mode;
+        tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.mode === mode));
+        formulaLabel.textContent = mode === 'generate' ? 'Existing formula or sample headers (optional)' : mode === 'explain' ? 'Formula to explain' : 'Formula to fix';
+        contextLabel.textContent = mode === 'generate' ? 'Describe the formula you need' : mode === 'explain' ? 'What you want explained (optional)' : 'Error or intended result';
+        formula.placeholder = mode === 'generate' ? 'Optional: columns are A=Name, B=Status, C=Due Date' : '=IF(A2="", "", VLOOKUP(A2, Products!A:C, 3, FALSE))';
+        context.placeholder = mode === 'generate' ? 'Example: show Overdue when due date is before today and status is not Done.' : 'Example: It returns #N/A but I want a blank instead.';
+      }
+      function normalizeFormula(value) {
+        const trimmed = value.trim();
+        if (!trimmed) return '';
+        return trimmed.startsWith('=') ? trimmed : '=' + trimmed;
+      }
+      function detectFunctions(value) {
+        const matches = value.toUpperCase().match(/[A-Z][A-Z0-9_.]*(?=\()/g) || [];
+        return [...new Set(matches)];
+      }
+      function fixFormula(raw, note, app) {
+        const input = normalizeFormula(raw);
+        if (!input) return 'Paste the broken formula first. Add the error message or intended result for a better fix.';
+        let fixed = input;
+        const issues = [];
+        if (/VLOOKUP\(/i.test(fixed) && !/VLOOKUP\([^)]*,[^)]*,[^)]*,\s*(FALSE|0)\s*\)/i.test(fixed)) {
+          fixed = fixed.replace(/VLOOKUP\((.*)\)$/i, (m, args) => `VLOOKUP(${args}, FALSE)`);
+          issues.push('VLOOKUP usually needs exact match mode for IDs, SKUs, names, and codes. Added FALSE.');
+        }
+        if (/#N\/A|not found|blank/i.test(note) && !/^=IFERROR\(/i.test(fixed)) {
+          fixed = `=IFERROR(${fixed.replace(/^=/, '')}, "")`;
+          issues.push('Wrapped the formula in IFERROR so lookup failures return a blank instead of an error.');
+        }
+        if (/parse|comma|semicolon/i.test(note)) {
+          issues.push(`${app} may require commas or semicolons depending on locale. If this still gives a parse error, swap commas for semicolons.`);
+        }
+        if (/date|today/i.test(note) && /TODAY\(\)/i.test(fixed) === false) {
+          issues.push('For date checks, use TODAY() for a dynamic current date instead of typing a fixed date.');
+        }
+        if (!issues.length) issues.push('No obvious syntax pattern was detected. Check ranges, exact sheet names, separators, and whether text values need quotes.');
+        return `Corrected formula:
+${fixed}
+
+Likely issue:
+- ${issues.join('\n- ')}
+
+Assumptions:
+- Platform: ${app}
+- Formula ranges and sheet names are correct.
+- Test on one row before filling the whole column.`;
+      }
+      function explainFormula(raw, app) {
+        const input = normalizeFormula(raw);
+        if (!input) return 'Paste a formula to explain.';
+        const functions = detectFunctions(input);
+        const lines = [`Plain-English summary:
+This ${app} formula uses ${functions.length ? functions.join(', ') : 'basic operators'} to calculate a result from the referenced cells or ranges.`];
+        if (/IF\(/i.test(input)) lines.push('IF checks a condition, returns one value when true, and another value when false.');
+        if (/IFERROR\(/i.test(input)) lines.push('IFERROR catches an error and returns a fallback value instead.');
+        if (/VLOOKUP\(/i.test(input)) lines.push('VLOOKUP searches the first column of a range and returns a value from another column in the same row.');
+        if (/XLOOKUP\(/i.test(input)) lines.push('XLOOKUP searches one range and returns a matching value from another range.');
+        if (/QUERY\(/i.test(input)) lines.push('QUERY runs a SQL-like query against a range; check selected columns, where filters, grouping, and header count.');
+        if (/FILTER\(/i.test(input)) lines.push('FILTER returns rows that match one or more conditions.');
+        if (/SUMIF|SUMIFS/i.test(input)) lines.push('SUMIF/SUMIFS adds numbers only when matching criteria are true.');
+        if (/COUNTIF|COUNTIFS/i.test(input)) lines.push('COUNTIF/COUNTIFS counts rows that match criteria.');
+        lines.push(`
+Functions detected:
+${functions.length ? functions.map(x => '- ' + x).join('\n') : '- None detected'}`);
+        lines.push('\nThings to verify:\n- Ranges point to the intended rows and columns.\n- Text criteria are wrapped in quotes.\n- Sheet names with spaces use single quotes.\n- Lookup formulas use exact match when matching IDs or names.');
+        return lines.join('\n\n');
+      }
+      async function callAiFormula({ mode, app, formulaText, contextText }) {
+        const response = await fetch('/api/formula', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ mode, platform: app, formula: formulaText, context: contextText })
+        });
+        if (!response.ok) throw new Error(`API returned ${response.status}`);
+        const data = await response.json();
+        if (!data || !data.result) throw new Error('API returned no result');
+        return `${data.result}\n\nSource: AI API`;
+      }
+      function localFormulaResult(mode, app, formulaText, contextText) {
+        return mode === 'fix'
+          ? fixFormula(formulaText, contextText, app)
+          : mode === 'explain'
+            ? explainFormula(formulaText, app)
+            : generateFormula(contextText, formulaText, app);
+      }
+      function generateFormula(goal, sample, app) {
+        const text = `${goal} ${sample}`.toLowerCase();
+        let generated = '';
+        if (/overdue|before today|due date/.test(text)) generated = '=IF(AND(C2<TODAY(), D2<>"Done"), "Overdue", "OK")';
+        else if (/contains|text contains/.test(text)) generated = '=IF(ISNUMBER(SEARCH("text", A2)), "Yes", "No")';
+        else if (/count.*if|how many|count rows/.test(text)) generated = '=COUNTIF(A:A, "criteria")';
+        else if (/sum.*if|total.*where|sum rows/.test(text)) generated = '=SUMIF(A:A, "criteria", B:B)';
+        else if (/lookup|find.*price|sku|match/.test(text)) generated = app === 'Excel' ? '=XLOOKUP(A2, Products!A:A, Products!C:C, "")' : '=IFERROR(VLOOKUP(A2, Products!A:C, 3, FALSE), "")';
+        else if (/join|combine|concat/.test(text)) generated = '=TEXTJOIN(" ", TRUE, A2:C2)';
+        else if (/unique/.test(text)) generated = '=UNIQUE(A2:A)';
+        else if (/filter/.test(text)) generated = '=FILTER(A2:D, B2:B="Paid")';
+        else generated = '=IF(condition, value_if_true, value_if_false)';
+        return `Suggested starter formula:
+${generated}
+
+How to adapt it:
+- Replace sample columns like A2, B:B, C2, or Products!A:C with your real ranges.
+- Replace placeholder text like "criteria", "text", "Done", or "Paid".
+- Test on one row first, then fill down or use an array formula if needed.
+
+Platform: ${app}`;
+      }
+      tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.mode)));
+      document.querySelectorAll('.example-chip').forEach(chip => chip.addEventListener('click', () => {
+        const ex = examples[chip.dataset.example];
+        setMode(ex.mode);
+        formula.value = ex.formula;
+        context.value = ex.context;
+        form.dispatchEvent(new Event('submit', { cancelable: true }));
+      }));
+      form.addEventListener('submit', async event => {
+        event.preventDefault();
+        const app = platform.value;
+        const formulaText = formula.value;
+        const contextText = context.value;
+        result.textContent = 'Working...';
+        try {
+          result.textContent = await callAiFormula({ mode: state.mode, app, formulaText, contextText });
+        } catch (error) {
+          const fallback = localFormulaResult(state.mode, app, formulaText, contextText);
+          result.textContent = `${fallback}
+
+Source: local browser rules. AI endpoint was unavailable (${error.message}).`;
+        }
+      });
+      document.getElementById('copyResult').addEventListener('click', async () => {
+        const text = result.textContent.trim();
+        if (!text) return;
+        await navigator.clipboard.writeText(text);
+        result.textContent = text + '\n\nCopied to clipboard.';
+      });
+      setMode('fix');
+    })();
+  </script>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
