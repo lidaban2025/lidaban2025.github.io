@@ -57,9 +57,9 @@
         <div class="hero-copy">
           <div class="eyebrow">Google Sheets & Excel</div>
           <h1 id="hero-title">Paste a formula. Get the fix.</h1>
-          <p>Fix broken formulas, explain confusing formulas, or generate a new one from plain English.</p>
+          <p>Fix, explain, or generate spreadsheet formulas in seconds.</p>
           <div class="hero-proof" aria-label="Core modes">
-            <span>Fix</span><span>Explain</span><span>Generate</span><span>Google Sheets</span><span>Excel</span>
+            <span>Fix</span><span>Explain</span><span>Generate</span>
           </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#formula-tool">Start now</a>
@@ -74,23 +74,23 @@
                 <div class="mock-title"><strong>Broken formula</strong><span>Sheet</span></div>
                 <div class="mock-line wide"></div>
                 <div class="rule-row"><span>Issue</span><span>#VALUE!</span></div>
-                <div class="sync-source">Paste the formula and error</div>
+                <div class="sync-source">Paste formula</div>
               </div>
               <div class="mock-panel">
                 <div class="mock-title"><strong>Suggested fix</strong><span>copy-ready</span></div>
                 <div class="mock-line wide"></div>
                 <div class="rule-row"><span>Formula</span><span>=IFERROR(...)</span></div>
-                <div class="sync-source">Copy the fixed formula</div>
+                <div class="sync-source">Copy fix</div>
               </div>
             </div>
-            <div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formcopy.png" alt=""><div><strong>Sheet Formula Helper</strong><span>formula tool</span></div></div><p>No setup. No spreadsheet upload. Just paste and copy.</p><span class="status-pill">AI powered</span></div>
+            <div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formcopy.png" alt=""><div><strong>Sheet Formula Helper</strong><span>formula tool</span></div></div><p>No setup. Paste and copy.</p><span class="status-pill">AI powered</span></div>
           </div>
           <div class="preview-steps"><span>1. Paste formula</span><span>2. Review fix</span><span>3. Copy result</span></div>
         </article>
       </section>
 
       <section class="section" id="formula-tool" aria-labelledby="tool-title">
-        <div class="section-head"><div><h2 id="tool-title">Fix your formula.</h2><p>Choose a mode, paste the formula or goal, then copy the result.</p></div></div>
+        <div class="section-head"><div><h2 id="tool-title">Try it</h2><p>Paste. Click. Copy.</p></div></div>
         <div class="formula-tool">
           <div class="tool-tabs" role="tablist" aria-label="Formula helper mode">
             <button class="tool-tab active" type="button" data-mode="fix">Fix</button>
@@ -108,7 +108,7 @@
                 <textarea id="formulaInput" placeholder='Example: =VLOOKUP(A2, Products!A:C, 3)'></textarea>
               </div>
               <div class="tool-field">
-                <label id="contextLabel" for="contextInput">What should happen?</label>
+                <label id="contextLabel" for="contextInput">Goal or error</label>
                 <textarea id="contextInput" placeholder='Example: It returns #N/A, but I want the price from column C when SKU matches.'></textarea>
               </div>
               <div class="tool-actions">
@@ -127,20 +127,11 @@
       </section>
 
       <section class="section" id="how-it-works" aria-labelledby="modes-title">
-        <div class="section-head"><div><h2 id="modes-title">What it does</h2><p>Three quick jobs. Pick one and move on.</p></div></div>
+        <div class="section-head"><div><h2 id="modes-title">Three modes</h2></div></div>
         <div class="step-grid">
-          <article class="step-card"><div class="step-num">1</div><h3>Fix</h3><p>Paste a broken formula and the error. Get a corrected formula.</p></article>
-          <article class="step-card"><div class="step-num">2</div><h3>Explain</h3><p>Paste a formula. Get a plain-English explanation.</p></article>
-          <article class="step-card"><div class="step-num">3</div><h3>Generate</h3><p>Describe what you need. Get a starter formula.</p></article>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="faq-title">
-        <h2 id="faq-title">Quick answers</h2>
-        <div class="faq-panel">
-          <details><summary><strong>Do I need to upload a spreadsheet?</strong></summary><p>No. Paste only the formula or describe the result you want.</p></details>
-          <details><summary><strong>Does it work with Google Sheets and Excel?</strong></summary><p>Yes. Choose the app before generating the result.</p></details>
-          <details><summary><strong>Can I copy the result?</strong></summary><p>Yes. Use Copy result after the answer appears.</p></details>
+          <article class="step-card"><div class="step-num">1</div><h3>Fix</h3><p>Repair broken formulas.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Explain</h3><p>Understand what a formula does.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Generate</h3><p>Create formulas from plain English.</p></article>
         </div>
       </section>
     </main>
