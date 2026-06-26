@@ -1,0 +1,38 @@
+URL_STATUS
+https://formsuite.dev/sheetformula/ 200 text/html; charset=utf-8 https://formsuite.dev/sheetformula/
+https://formsuite.dev/sheetformula/support.html 200 text/html; charset=utf-8 https://formsuite.dev/sheetformula/support.html
+https://formsuite.dev/sheetformula/privacy.html 200 text/html; charset=utf-8 https://formsuite.dev/sheetformula/privacy.html
+https://formsuite.dev/sheetformula/terms.html 200 text/html; charset=utf-8 https://formsuite.dev/sheetformula/terms.html
+https://formsuite.dev/robots.txt 200 text/plain; charset=utf-8 https://formsuite.dev/robots.txt
+https://formsuite.dev/sitemap.xml 200 application/xml https://formsuite.dev/sitemap.xml
+https://formsuite.dev/llms.txt 200 text/plain; charset=utf-8 https://formsuite.dev/llms.txt
+http://formsuite.dev/sheetformula/ 200 text/html; charset=utf-8 https://formsuite.dev/sheetformula/
+SEO_META
+SEO_META_RETRY
+title= Sheet Formula Helper | Fix, explain, and generate formulas
+description= Fix broken Google Sheets and Excel formulas, explain existing formulas, and generate formulas from plain English.
+canonical= https://formsuite.dev/sheetformula/
+h1= ['Fix formulas. Explain formulas. Generate formulas.']
+og_title= Sheet Formula Helper | Fix, explain, and generate formulas
+schema_count= 1
+has_formula_form= True
+has_api_handoff= True
+SECRET_SCAN
+SECRET_SCAN_OK
+SITEMAP_LLMS
+646:    <loc>https://formsuite.dev/sheetformula/</loc>
+650:    <loc>https://formsuite.dev/sheetformula/support.html</loc>
+654:    <loc>https://formsuite.dev/sheetformula/privacy.html</loc>
+658:    <loc>https://formsuite.dev/sheetformula/terms.html</loc>
+34:- Sheet Formula Helper: https://formsuite.dev/sheetformula/
+35:- Support: https://formsuite.dev/sheetformula/support.html
+36:- Privacy: https://formsuite.dev/sheetformula/privacy.html
+37:- Terms: https://formsuite.dev/sheetformula/terms.html
+API_STATUS
+405 
+<html>
+<head><title>405 Not Allowed</title></head>
+<body bgcolor="white">
+<center><h1>405 Not Allowed</h1></center>
+</body>
+</html>
