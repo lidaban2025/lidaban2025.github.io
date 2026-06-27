@@ -39,6 +39,7 @@
     if (host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1) return "marketplace";
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
     if (path.indexOf("/resources/google-workspace-add-ons-first-run-checklist") !== -1) return "first_run_checklist";
+    if (path.indexOf("/test-google-forms-") !== -1 && path.indexOf("-before-launch") !== -1) return "first_run_checklist";
     if (path.indexOf("/review-after-first-success") !== -1) return "review_after_success";
     if (path.indexOf("/setup-help") !== -1) return "setup_help";
     if (path.indexOf("/support") !== -1) return "support";
@@ -229,6 +230,12 @@
       target_type: data.target_type || "",
       destination_host: data.destination_host || "",
       destination_path: data.destination_path || "",
+      destination_search: data.destination_search || "",
+      destination_utm_source: data.destination_utm_source || "",
+      destination_utm_medium: data.destination_utm_medium || "",
+      destination_utm_campaign: data.destination_utm_campaign || "",
+      destination_utm_content: data.destination_utm_content || "",
+      destination_utm_term: data.destination_utm_term || "",
       link_text: data.link_text || "",
       source: "formsuite.dev"
     };
@@ -268,12 +275,19 @@
     var type = targetType(url);
     var name = eventName(type);
     if (!name) return;
+    var destinationAttribution = attributionFromSearch(url.search);
 
     send(name, {
       product: productFromUrl(url, link.textContent),
       target_type: type,
       destination_host: url.hostname,
       destination_path: url.pathname,
+      destination_search: attributionSearch(url.search),
+      destination_utm_source: destinationAttribution.utm_source,
+      destination_utm_medium: destinationAttribution.utm_medium,
+      destination_utm_campaign: destinationAttribution.utm_campaign,
+      destination_utm_content: destinationAttribution.utm_content,
+      destination_utm_term: destinationAttribution.utm_term,
       link_text: link.textContent.replace(/\s+/g, " ").trim().slice(0, 120)
     });
   }, { capture: true });
