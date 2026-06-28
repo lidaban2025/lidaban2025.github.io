@@ -129,14 +129,66 @@
       <section class="section" aria-labelledby="updates-title">
         <div class="section-head">
           <div>
-            <h2 id="updates-title">Keep form choices in sync with a Sheet.</h2>
-            <p>Use FormRanger when Google Sheets is the source list for a Google Forms question.</p>
+            <h2 id="updates-title">Google Forms choices from Sheets, not a brand-name shortcut.</h2>
+            <p>Use FormRanger when the real job is keeping Google Forms dropdown, multiple-choice, checkbox, or grid choices aligned with a Google Sheets source list. The search intent is the task: make the form show the current spreadsheet values before respondents use it.</p>
           </div>
         </div>
         <div class="step-grid">
-          <article class="step-card"><div class="step-num">1</div><h3>Dropdown and multiple choice</h3><p>Refresh sessions, departments, locations, products, or categories from Google Sheets.</p></article>
-          <article class="step-card"><div class="step-num">2</div><h3>Checkbox lists</h3><p>Update multi-select choices without maintaining Apps Script.</p></article>
-          <article class="step-card"><div class="step-num">3</div><h3>Grid choices</h3><p>Keep row or column choices aligned before sharing the form.</p></article>
+          <article class="step-card"><div class="step-num">1</div><h3>Dropdown and multiple choice</h3><p>Refresh sessions, departments, locations, products, or categories from one clean Google Sheets column.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Checkbox lists</h3><p>Update multi-select choices before launch without maintaining Apps Script triggers, form IDs, or custom authorization.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Grid choices</h3><p>Keep grid row or column labels aligned with the spreadsheet source before sharing the form link.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="why-fail-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Failure causes</div>
+            <h2 id="why-fail-title">Why Google Forms choices from Sheets usually fail.</h2>
+            <p>Most failed first runs are not mysterious. They come from a stale mapping, a changed Sheet column, a copied form, or checking the editor instead of the respondent-facing preview.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="pill">Source list</div><h3>The Sheet column moved or changed.</h3><p>A renamed header, inserted blank row, duplicate-only values, hidden cleanup column, or changed sheet tab can make the mapping point at the wrong data.</p></article>
+          <article class="card"><div class="pill">Question</div><h3>The form question no longer matches.</h3><p>If the dropdown was duplicated, deleted, renamed, or changed from dropdown to another question type, re-select the exact question before updating.</p></article>
+          <article class="card"><div class="pill">Action</div><h3>A saved mapping is not an update.</h3><p>The useful result is Update now reporting that a question changed. Saving configuration only proves the setup was stored.</p></article>
+          <article class="card"><div class="pill">Preview</div><h3>The editor is not the final proof.</h3><p>Always open the public respondent preview after Update now. That is the surface respondents will see.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="evidence-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Real setup screens</div>
+            <h2 id="evidence-title">What the first-run path looks like.</h2>
+            <p>These screenshots are from the FormRanger setup flow: open the add-on, select the Sheet source, map one question, run Preflight, and update the form choices.</p>
+          </div>
+        </div>
+        <div class="evidence-grid">
+          <figure class="evidence-shot"><img src="../assets/formranger/open-sidebar.png" alt="FormRanger sidebar opened in Google Forms"><figcaption>Open the FormRanger sidebar from the Google Forms add-ons menu before editing a live workflow.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/map-question-column.png" alt="FormRanger maps a Google Forms question to a Google Sheets column"><figcaption>Map one supported question to one Google Sheets source column so the first test is easy to verify.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormRanger Preflight check before updating choices"><figcaption>Run Preflight before changing choices. It should catch file, range, and mapping issues before the update.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormRanger update success screen after syncing choices"><figcaption>After Update now, open the public preview and confirm the form shows the expected Sheet values.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="compare-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Choose the path</div>
+            <h2 id="compare-title">Manual paste vs Apps Script vs FormRanger.</h2>
+            <p>The right option depends on how often the list changes and who is responsible for maintaining the workflow.</p>
+          </div>
+        </div>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>Path</th><th>Good when</th><th>Main risk</th></tr></thead>
+            <tbody>
+              <tr><td>Manual paste</td><td>The list changes rarely and one owner can update it before launch.</td><td>Easy to forget, no repeatable check, and no source-of-truth proof.</td></tr>
+              <tr><td>Apps Script</td><td>You have someone who will own code, triggers, IDs, permissions, and errors.</td><td>Breaks quietly when form IDs, question IDs, or authorization change.</td></tr>
+              <tr><td>FormRanger</td><td>Sheets is the source list and the owner wants a no-code update flow with Preflight.</td><td>Still needs a copied-form first run and public preview check before launch.</td></tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -207,7 +259,7 @@
           <div>
             <div class="mini-label">Boundary</div>
             <h2 id="boundary-title">Not a booking or inventory lock.</h2>
-            <p>FormRanger updates Google Forms choices from selected spreadsheet data. It does not reserve seats, process payments, or change choices while a respondent is already filling out the form.</p>
+            <p>FormRanger updates Google Forms choices from selected spreadsheet data before respondents use the form. It does not reserve seats, process payments, lock inventory, or filter options while a respondent is already filling out the form. If you need live respondent-time logic, a Google Form is usually the wrong surface.</p>
           </div>
           <div class="link-row">
             <a href="google-forms-dropdown-not-updating-from-google-sheets.html">Fix dropdown not updating</a>
@@ -222,6 +274,8 @@
           <details><summary><strong>Which question types work?</strong></summary><p>Dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices.</p></details>
           <details><summary><strong>What should I test first?</strong></summary><p>Use one copied form, one supported question, and one Sheets column with Alpha and Beta. Run Preflight, update, then check the public respondent preview.</p></details>
           <details><summary><strong>Can it handle dependent dropdowns?</strong></summary><p>Use FormRanger for spreadsheet-backed choice refresh before respondents use the form. It is not respondent-time conditional filtering.</p></details>
+          <details><summary><strong>Why did the choices not change after setup?</strong></summary><p>Most often the mapping was saved but Update now was not run, the source column moved, the question was changed or duplicated, or the public preview was not refreshed after the update.</p></details>
+          <details><summary><strong>Should I use this on a live form first?</strong></summary><p>No. Use a copied form first so you can verify Preflight, Update now, and public preview without risking real respondents.</p></details>
         </div>
         <div class="link-row">
           <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install from Marketplace</a>

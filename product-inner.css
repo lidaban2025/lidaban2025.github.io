@@ -428,6 +428,44 @@ a.btn-secondary:hover,
   font-size: 13px !important;
 }
 
+.evidence-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  margin-top: 16px !important;
+}
+.evidence-shot {
+  margin: 0 !important;
+  padding: 14px !important;
+  background: var(--fs-panel) !important;
+  border: 1px solid var(--fs-line) !important;
+  border-radius: 8px !important;
+}
+.evidence-shot img {
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--fs-line-soft) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+.evidence-shot figcaption {
+  margin-top: 10px !important;
+  color: var(--fs-muted) !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+.compact-table {
+  overflow-x: auto !important;
+  margin-top: 14px !important;
+  border: 1px solid var(--fs-line) !important;
+  border-radius: 8px !important;
+}
+.compact-table table {
+  margin-top: 0 !important;
+}
+
 details {
   background: var(--fs-panel) !important;
   border: 1px solid var(--fs-line) !important;
@@ -660,6 +698,7 @@ footer a,
   .step-grid,
   .mini-guide-grid,
   .features,
+  .evidence-grid,
   .plain-links {
     grid-template-columns: 1fr !important;
   }

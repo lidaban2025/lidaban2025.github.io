@@ -34,13 +34,22 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Pass condition</h2>
-      <p class="answer">The test passes when Preflight succeeds, the reviewer email arrives, the approver can approve or reject, and the linked Google Sheet shows the expected approval status.</p>
-    </section>
+      <section class="section">
+        <h2>Pass condition</h2>
+        <p class="answer">The test passes when Preflight succeeds, the reviewer email arrives, the approver can approve or reject, and the linked Google Sheet shows the expected approval status.</p>
+      </section>
 
-    <section class="section">
-      <h2>First-run checklist</h2>
+      <section class="section">
+        <h2>Why this test is the product</h2>
+        <p>For a lightweight Google Forms approval add-on, the first real success is not a complex workflow. It is one internal request proving the full chain: linked response Sheet selected, reviewer email delivered, decision link works, and status writes back. This is the check that turns a silent failed install into a diagnosable setup issue.</p>
+        <div class="grid">
+          <article class="card"><div class="pill">Good first workflow</div><h3>One form, one approver</h3><p>Use a copied or internal form and one reviewer email. Add complexity only after the basic approval chain works.</p></article>
+          <article class="card"><div class="pill">Bad first workflow</div><h3>Multi-step live production approval</h3><p>Do not start with several approvers, real money, compliance routing, or live respondents before the first chain is proven.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>First-run checklist</h2>
       <ol>
         <li>Use a copied form or an internal test form, not a live production form.</li>
         <li>Confirm the form is linked to a Google Sheets response spreadsheet.</li>
@@ -51,12 +60,22 @@
         <li>Save the configuration.</li>
         <li>Run Preflight and resolve any warning before launch.</li>
         <li>Submit one internal test response.</li>
-        <li>Open the reviewer email, make one approve or reject decision, and check the Sheet status.</li>
-      </ol>
-    </section>
+          <li>Open the reviewer email, make one approve or reject decision, and check the Sheet status.</li>
+        </ol>
+      </section>
 
-    <section class="section">
-      <h2>What to inspect</h2>
+      <section class="section">
+        <h2>Visual pass points</h2>
+        <div class="evidence-grid">
+          <figure class="evidence-shot"><img src="../assets/formflow/sidebar-setup.png" alt="FormFlow sidebar setup before approval workflow test"><figcaption>Sidebar setup should point at the response Sheet linked to the tested Google Form.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formflow/reviewer-email.png" alt="Reviewer email for FormFlow first-run test"><figcaption>The reviewer email confirms the workflow reached the approver inbox.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formflow/approval-page.png" alt="Approve or reject decision page during FormFlow test"><figcaption>The decision page confirms the approver can act from the email link.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formflow/approval-history.png" alt="Approval history after FormFlow first-run test"><figcaption>The linked Sheet or history view confirms the status write-back happened.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What to inspect</h2>
       <div class="grid">
         <article class="card"><div class="pill">Sheet</div><h3>Correct response spreadsheet</h3><p>The selected spreadsheet should be the form's linked response sheet, not a duplicate or stale test sheet.</p></article>
         <article class="card"><div class="pill">Email</div><h3>Reviewer receives the request</h3><p>Check the inbox and spam folder for the internal approver account before adding more reviewers.</p></article>
@@ -65,8 +84,8 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>If the test fails</h2>
+      <section class="section">
+        <h2>If the test fails</h2>
       <div class="grid">
         <article class="card"><h3>Preflight warning</h3><p>Re-check linked Sheet access, saved approver email, and the form-to-sheet connection before submitting another response.</p></article>
         <article class="card"><h3>No reviewer email</h3><p>Confirm the approver address is internal and valid, then check spam and Workspace mail restrictions.</p></article>
@@ -77,10 +96,34 @@
         <li><a href="../setup-help.html?product=FormFlow&source=formflow-first-run-failed">Send a FormFlow setup note</a><span>Include the failing step, Preflight result, reviewer email status, decision link result, and linked Sheet status.</span></li>
         <li><a href="./support.html">Open FormFlow support</a><span>Use the support checklist to collect the four checks before launch.</span></li>
       </ul>
-    </section>
+      </section>
 
-    <section class="section">
-      <h2>After it works</h2>
+      <section class="section">
+        <h2>Report the failing step, not the whole workflow</h2>
+        <p>A useful setup note should name the exact step where the chain stopped. That makes it possible to separate Marketplace install issues, Google account issues, mail delivery issues, decision-link issues, and linked Sheet status issues.</p>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>Failed step</th><th>Evidence to send</th><th>Likely next action</th></tr></thead>
+            <tbody>
+              <tr><td>Cannot select Sheet</td><td>Form URL, response Sheet name, and sidebar screenshot.</td><td>Confirm the form is linked to a response spreadsheet.</td></tr>
+              <tr><td>Preflight warning</td><td>Exact Preflight text and saved approver address.</td><td>Fix configuration before submitting a new response.</td></tr>
+              <tr><td>Email missing</td><td>Approver address, inbox/spam check, and Workspace mail context.</td><td>Check delivery and send-mail readiness.</td></tr>
+              <tr><td>Status not updated</td><td>Decision page result and linked Sheet screenshot.</td><td>Confirm the selected Sheet belongs to the tested form.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <details><summary><strong>Can I test without real respondents?</strong></summary><p>Yes. Use an internal test response. The first-run proof should happen before real respondents use the approval form.</p></details>
+        <details><summary><strong>What is the minimum approval workflow?</strong></summary><p>One Google Form, one linked response Sheet, one approver email, one test submission, and one approve or reject decision.</p></details>
+        <details><summary><strong>When should I add more approvers?</strong></summary><p>After the one-approver test passes. Multi-reviewer routing is harder to debug if the basic chain is not proven first.</p></details>
+        <details><summary><strong>When should I leave a review?</strong></summary><p>Only after Preflight, reviewer email, decision link, and linked Sheet status all work for your test.</p></details>
+      </section>
+
+      <section class="section">
+        <h2>After it works</h2>
       <p>If Preflight passes, the reviewer email arrives, the approve or reject link works, and the linked Sheet status updates, you can move the workflow toward production or leave an honest Marketplace review. If any step is unclear, use support first.</p>
       <ul class="plain-links">
         <li><a href="./review-after-first-success.html">Review after first success</a><span>Use the checklist only after Preflight, reviewer email, decision link, and linked Sheet status all work.</span></li>

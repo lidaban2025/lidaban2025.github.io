@@ -114,25 +114,76 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Quick answer</h2>
-      <p class="answer">Put choices in one clean Sheets column, map one form question in FormRanger, run Preflight, click Update now, then check the public preview.</p>
-    </section>
+      <section class="section">
+        <h2>Quick answer</h2>
+        <p class="answer">Put choices in one clean Sheets column, map one form question in FormRanger, run Preflight, click Update now, then check the public preview.</p>
+      </section>
 
-    <section class="section">
-      <h2>First-run path</h2>
-      <ol class="steps">
-        <li>Create a copied form with one choice question.</li>
+      <section class="section">
+        <h2>Import does not mean a live native link</h2>
+        <p>Google Forms stores its own choices inside the form. A Sheets column can be the source of truth, but the form still needs an owner-controlled update step. FormRanger is for that repeatable import/update path: select the source spreadsheet, map a supported choice question, run Preflight, then update the form choices.</p>
+        <div class="grid">
+          <div class="card"><strong>Good import source</strong><p>One visible column with a stable header, clean values, and no hidden manual edits between the source and final list.</p></div>
+          <div class="card"><strong>Weak import source</strong><p>A mixed sheet with helper formulas, blank rows, renamed tabs, or values that are still being edited during the test.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>First-run path</h2>
+        <ol class="steps">
+          <li>Create a copied form with one choice question.</li>
         <li>Use a small Sheets column with values like Alpha and Beta.</li>
         <li>Select the spreadsheet, sheet tab, and column in FormRanger.</li>
         <li>Run Preflight and Update now.</li>
-        <li>Open the public preview and confirm the choices changed.</li>
-      </ol>
-    </section>
+          <li>Open the public preview and confirm the choices changed.</li>
+        </ol>
+      </section>
 
-    <section class="section">
-      <h2>Good fit</h2>
-      <div class="grid">
+      <section class="section">
+        <h2>What to verify before using a real form</h2>
+        <div class="evidence-grid">
+          <figure class="evidence-shot"><img src="../assets/formranger/select-sheet-range.png" alt="FormRanger spreadsheet and range selection"><figcaption>Confirm the selected spreadsheet, tab, and column are the actual list you want to import into the Google Form.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormRanger update success after importing choices"><figcaption>After Update now, the success state must be followed by a respondent-facing preview check.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Common import failure causes</h2>
+        <div class="grid">
+          <div class="card"><strong>Header row changed</strong><p>If the source header moved or was renamed, re-select the column and run Preflight again.</p></div>
+          <div class="card"><strong>Form was copied</strong><p>Mappings belong to a specific form context. If you copied the form, open FormRanger inside the copy and map the question again.</p></div>
+          <div class="card"><strong>Unsupported expectation</strong><p>The import updates choices before respondents answer. It does not hide choices per respondent or enforce live capacity.</p></div>
+          <div class="card"><strong>Preview skipped</strong><p>Do not rely on the editor. Open the public preview after each import to verify what respondents will see.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Import checklist for common list types</h2>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>List type</th><th>What to clean first</th><th>Best first test</th></tr></thead>
+            <tbody>
+              <tr><td>Event sessions</td><td>Remove canceled sessions and make names unique enough for respondents.</td><td>Import two fake sessions into a copied form and preview the dropdown.</td></tr>
+              <tr><td>Departments or teams</td><td>Use a stable department name column rather than an internal code column.</td><td>Import one dropdown question and confirm the order is readable.</td></tr>
+              <tr><td>Product or service options</td><td>Separate display labels from price, stock, or internal SKU helper columns.</td><td>Import labels only, then check that respondents do not see helper data.</td></tr>
+              <tr><td>Checkbox lists</td><td>Remove blank values and duplicate wording before the update.</td><td>Import two or three values so the multi-select preview is easy to inspect.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>How to keep imported choices trustworthy</h2>
+        <p>After the first import works, treat the source Sheet as the operational record. Use one final display column for the options that respondents should see, and keep helper notes, internal IDs, pricing, stock counts, and cleanup formulas outside that mapped column. When someone edits the list, run Update now again and check the public preview before telling users the form has been refreshed.</p>
+        <div class="grid">
+          <div class="card"><strong>Before every import</strong><p>Check whether the source tab, column header, and question still match the mapping created during the first-run test.</p></div>
+          <div class="card"><strong>After every import</strong><p>Open the public respondent preview, not only the editor, and confirm the visible choices match the cleaned Sheet list.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Good fit</h2>
+        <div class="grid">
         <div class="card"><strong>Rosters</strong><p>Staff, locations, rooms, departments, or team lists.</p></div>
         <div class="card"><strong>Events</strong><p>Sessions, tracks, workshops, or categories that change before launch.</p></div>
         <div class="card"><strong>Catalogs</strong><p>Product names, item labels, package types, or service options.</p></div>
@@ -140,13 +191,24 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Boundary</h2>
-      <p class="caution">FormRanger updates choice lists. It is not a booking system, payment workflow, inventory lock, or live dependent-dropdown engine.</p>
-    </section>
+      <section class="section">
+        <h2>Boundary</h2>
+        <p class="caution">FormRanger updates choice lists from selected Sheets data. It is not a booking system, payment workflow, inventory lock, or live dependent-dropdown engine. If the option must disappear the moment someone chooses it, use a different workflow.</p>
+      </section>
 
-    <section class="section">
-      <h2>Next step</h2>
+      <section class="section">
+        <h2>FAQ</h2>
+        <details><summary><strong>Can Google Forms import choices from Sheets natively?</strong></summary><p>Google Forms does not keep a native live link to a Sheets range. You can paste manually, write Apps Script, or use an add-on update flow.</p></details>
+        <details><summary><strong>Which question should I import first?</strong></summary><p>Use one copied form with one dropdown or multiple-choice question and two test values such as Alpha and Beta.</p></details>
+        <details><summary><strong>Why did only some choices import?</strong></summary><p>Check blanks, duplicate values, whitespace, formula output, and whether the selected column is the final cleaned list.</p></details>
+        <details><summary><strong>When should I ask for support?</strong></summary><p>Ask after you know the selected spreadsheet, tab, column, mapped question type, Preflight result, Update now result, and public preview result.</p></details>
+        <details><summary><strong>Can I import from multiple columns?</strong></summary><p>For the first run, use one final display column. If you need several lists, prove one mapping first, then add more questions one at a time.</p></details>
+        <details><summary><strong>Can I import a formula-generated list?</strong></summary><p>Yes, if the mapped column shows the final clean values. Avoid mapping helper formulas that still contain blanks, codes, or intermediate calculations.</p></details>
+        <details><summary><strong>Should I update while people are answering?</strong></summary><p>Do not rely on mid-response changes. Update before launch or between response windows, then verify the public preview before sending people back to the form.</p></details>
+      </section>
+
+      <section class="section">
+        <h2>Next step</h2>
       <div class="link-bar">
         <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=import-google-forms-choices-from-google-sheets">Install from Marketplace</a>
         <a href="./support.html">Setup guide</a>

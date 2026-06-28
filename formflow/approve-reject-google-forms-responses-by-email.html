@@ -33,50 +33,109 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Quick answer</h2>
-      <p class="answer">To approve or reject Google Forms responses by email, collect the request in Google Forms, connect the linked response sheet, add approvers in FormFlow, run Preflight, and confirm one reviewer decision updates the sheet.</p>
-    </section>
+      <section class="section">
+        <h2>Quick answer</h2>
+        <p class="answer">To approve or reject Google Forms responses by email, collect the request in Google Forms, connect the linked response sheet, add approvers in FormFlow, run Preflight, and confirm one reviewer decision updates the sheet.</p>
+      </section>
 
-    <section class="section">
-      <h2>Email decision path</h2>
+      <section class="section">
+        <h2>When email approval is the right shape</h2>
+        <p>Email approval is useful when reviewers already live in their inbox and the workflow needs a simple decision, not a full workflow dashboard. The Google Form collects the request, the email gives the reviewer context, and the linked response Sheet becomes the audit record.</p>
+        <div class="grid">
+          <article class="card"><div class="pill">Good fit</div><h3>Simple approve/reject decisions</h3><p>Leave requests, access requests, event applications, resource requests, and internal operational approvals.</p></article>
+          <article class="card"><div class="pill">Weak fit</div><h3>Complex routed approvals</h3><p>Procurement, expense systems, legal review, ticket queues, compliance workflows, or anything needing a full dashboard and SLA rules.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Email decision path</h2>
       <div class="grid">
         <article class="card"><div class="pill">1</div><h3>Submission arrives</h3><p>A respondent submits the Google Form and the response lands in the linked Google Sheet.</p></article>
         <article class="card"><div class="pill">2</div><h3>Reviewer gets an email</h3><p>FormFlow sends the approval request to the configured reviewer email address.</p></article>
         <article class="card"><div class="pill">3</div><h3>Reviewer decides</h3><p>The reviewer opens the decision link and chooses approve or reject.</p></article>
         <article class="card"><div class="pill">4</div><h3>Status is recorded</h3><p>The linked response sheet shows the decision status so operators can track the request.</p></article>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Before adding real approvers</h2>
+      <section class="section">
+        <h2>Email and decision screenshots</h2>
+        <div class="evidence-grid">
+          <figure class="evidence-shot"><img src="../assets/formflow/reviewer-email.png" alt="Approval email sent by FormFlow for a Google Forms response"><figcaption>The reviewer email should contain enough request context and a clear path to approve or reject.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formflow/approval-page.png" alt="FormFlow approval page opened from reviewer email"><figcaption>The decision page should work for the intended reviewer account and capture the final decision.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Before adding real approvers</h2>
       <ol>
         <li>Use one internal approver account first.</li>
         <li>Submit one internal test response with obvious request details.</li>
         <li>Check that the reviewer email includes enough context to decide.</li>
         <li>Click approve or reject from the reviewer account.</li>
         <li>Verify the linked Sheet status changed.</li>
-        <li>Only then add additional approvers or route a live form.</li>
-      </ol>
-    </section>
+          <li>Only then add additional approvers or route a live form.</li>
+        </ol>
+      </section>
 
-    <section class="section">
-      <h2>Common issues</h2>
+      <section class="section">
+        <h2>What the approval email needs to include</h2>
+        <div class="grid">
+          <article class="card"><strong>Requester context</strong><p>Name, email, team, or other identifier so the reviewer knows who submitted the form.</p></article>
+          <article class="card"><strong>Decision context</strong><p>The amount, date, access request, event choice, document, or reason that makes the decision possible.</p></article>
+          <article class="card"><strong>Decision action</strong><p>A clear approve or reject path for the intended reviewer account.</p></article>
+          <article class="card"><strong>Status record</strong><p>A linked response Sheet status so operators can see Pending, Approved, or Rejected after the email action.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Common issues</h2>
       <div class="grid">
         <article class="card"><h3>Email did not arrive</h3><p>Check the approver address, spam folder, Workspace mail restrictions, and whether Preflight showed any send-mail warning.</p></article>
         <article class="card"><h3>Wrong Sheet updated</h3><p>Re-select the linked response spreadsheet in FormFlow. Duplicated test files can make this easy to miss.</p></article>
         <article class="card"><h3>Reviewer cannot decide</h3><p>Ask the reviewer to use the intended Google account and send the decision-link error screenshot to support.</p></article>
         <article class="card"><h3>Need multi-step approval</h3><p>Start with one reviewer first. Add more levels after the simple path is proven end to end.</p></article>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>What FormFlow is not</h2>
-      <p>FormFlow is a focused Google Forms approval add-on. It is not a procurement platform, expense system, CRM, ticketing system, or legal workflow suite. Keep the first workflow small and easy to audit.</p>
-    </section>
+      <section class="section">
+        <h2>Email approval troubleshooting</h2>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>Problem</th><th>Check first</th><th>Evidence for support</th></tr></thead>
+            <tbody>
+              <tr><td>Email did not arrive</td><td>Approver address, spam folder, Workspace mail restrictions, and Preflight result.</td><td>Preflight text plus inbox/spam search result.</td></tr>
+              <tr><td>Email has wrong context</td><td>Whether the Google Form collects enough fields for the reviewer to decide.</td><td>Example test submission and email screenshot.</td></tr>
+              <tr><td>Decision link fails</td><td>Reviewer is signed into the intended Google account.</td><td>Decision page screenshot and reviewer account context.</td></tr>
+              <tr><td>Sheet status does not change</td><td>The selected response Sheet belongs to the tested form.</td><td>Linked Sheet name, decision result, and status column screenshot.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Next steps</h2>
+      <section class="section">
+        <h2>How to design the first email test</h2>
+        <p>Use a test request that is obvious to the reviewer: a fake requester, a clear item, and a decision that does not require policy judgment. The goal is not to approve a real business case. The goal is to prove email delivery, decision link behavior, and Sheet status write-back in one controlled run.</p>
+        <div class="grid">
+          <article class="card"><strong>Good test submission</strong><p>Requester: Test User. Request: Access to Demo Folder. Reason: First-run approval test. Reviewer: one internal account you can check.</p></article>
+          <article class="card"><strong>Bad test submission</strong><p>A real purchase, confidential HR request, or multi-person decision before you know whether the approval email and Sheet status work.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What FormFlow is not</h2>
+        <p>FormFlow is a focused Google Forms approval add-on. It is not a procurement platform, expense system, CRM, ticketing system, compliance system, or legal workflow suite. Keep the first workflow small and easy to audit.</p>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <details><summary><strong>Can reviewers approve directly from email?</strong></summary><p>FormFlow sends a reviewer email with a decision path. Test with one internal reviewer first to confirm the link and account context work.</p></details>
+        <details><summary><strong>Where is the final decision stored?</strong></summary><p>The final approval status should be written to the linked Google Sheets response file so the operator has a visible record.</p></details>
+        <details><summary><strong>What if the email is blocked?</strong></summary><p>Check Preflight, the reviewer address, spam folder, and Workspace mail restrictions before adding more approvers.</p></details>
+        <details><summary><strong>Can this run a multi-department approval system?</strong></summary><p>Start with one small approval workflow first. If you need procurement, ticketing, SLA, or compliance features, use a broader workflow platform.</p></details>
+      </section>
+
+      <section class="section">
+        <h2>Next steps</h2>
       <ul class="plain-links">
         <li><a href="./google-forms-approval-workflow-guide.html">Approval workflow guide</a><span>Build the whole request-to-review path.</span></li>
         <li><a href="./test-google-forms-approval-workflow-before-launch.html">First-run checklist</a><span>Prove Preflight, email delivery, decision link, and Sheet status.</span></li>

@@ -136,6 +136,22 @@
         <p class="answer">If the dropdown is stale, test one copied form with Alpha/Beta in Sheets, run Preflight, click Update now, then inspect the respondent-facing preview. A saved mapping is not enough; the update report must say a question was updated.</p>
       </section>
 
+      <section class="section" aria-labelledby="triage-title">
+        <h2 id="triage-title">Triage the failure in order</h2>
+        <p>Do not jump straight to reinstalling. Most stale dropdown cases can be separated into source, mapping, update action, or preview problems.</p>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>Symptom</th><th>Likely cause</th><th>Next check</th></tr></thead>
+            <tbody>
+              <tr><td>Preflight fails</td><td>File, tab, column, or question mapping is invalid.</td><td>Re-select the source and mapped question.</td></tr>
+              <tr><td>Preflight passes but nothing changes</td><td>Update now was not run, source values are empty, or the wrong form copy is open.</td><td>Check the update report and form URL.</td></tr>
+              <tr><td>Editor looks right but public link is stale</td><td>Preview window is old or the wrong form link is being checked.</td><td>Open a fresh respondent preview from the tested form.</td></tr>
+              <tr><td>Only some values appear</td><td>Blank rows, duplicate cleanup, formula output, or whitespace in the source column.</td><td>Clean the source column and run one copied-form update again.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="section" aria-labelledby="fix-title">
         <h2 id="fix-title">Common causes</h2>
         <div class="flow">
@@ -145,6 +161,15 @@
           <article class="card"><strong>Header row shifted</strong><p>Blank or renamed headers can point a mapping at the wrong column. Re-select the column and run Preflight.</p></article>
           <article class="card"><strong>No usable values</strong><p>Empty rows, whitespace-only values, or filtered-out duplicates can leave nothing to update.</p></article>
           <article class="card"><strong>Permissions changed</strong><p>If the selected source file is no longer accessible, select it again from the add-on flow.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="screens-title">
+        <h2 id="screens-title">Screens to compare against</h2>
+        <p>If your setup is stuck before these screens, collect a screenshot of the last screen you reached and send it with the source column and mapped question type.</p>
+        <div class="evidence-grid">
+          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormRanger Preflight screen for dropdown update troubleshooting"><figcaption>Preflight should validate the source and mapping before choices are changed.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormRanger update success screen for Google Forms dropdown"><figcaption>Update now should report a real update. Then check the respondent-facing preview.</figcaption></figure>
         </div>
       </section>
 
@@ -165,6 +190,22 @@
           <article class="card"><strong>Sidebar workflow</strong><p>FormRanger gives a mapped update flow with Preflight and Update now.</p></article>
         </div>
         <p class="warn"><strong>Boundary</strong> Do not use a visible dropdown as proof of live inventory, paid booking, or reserved seats.</p>
+      </section>
+
+      <section class="section" aria-labelledby="support-title">
+        <h2 id="support-title">What support needs to diagnose it</h2>
+        <p>A useful setup-help request should make the failing step obvious. Send the smallest evidence that proves where the chain broke.</p>
+        <div class="grid">
+          <article class="card"><strong>Source context</strong><p>Spreadsheet tab name, source column header, and two visible values from the column.</p></article>
+          <article class="card"><strong>Mapping context</strong><p>Mapped question title and type, plus whether the form was copied after setup.</p></article>
+          <article class="card"><strong>Run context</strong><p>Preflight result and Update now message, especially whether it says updated, skipped, or error.</p></article>
+          <article class="card"><strong>Preview context</strong><p>Whether the public respondent preview shows the old choices, new choices, or a different form.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="dont-title">
+        <h2 id="dont-title">What not to do first</h2>
+        <p>Do not immediately rebuild the form, reinstall every add-on, or edit the live respondent form while people are using it. First reduce the problem to one copied form and two values. If Alpha and Beta do not update correctly in that copied form, the failing step is easier to find. If the copied form works, the live form likely has a mapping, source, or preview mismatch.</p>
       </section>
 
       <section class="section" aria-labelledby="proof-title">
@@ -199,6 +240,18 @@
         <details>
           <summary><strong>Should I fix the live form first?</strong></summary>
           <p>No. Start with a copied form and two obvious sheet values.</p>
+        </details>
+        <details>
+          <summary><strong>Why did FormRanger say saved but my dropdown did not change?</strong></summary>
+          <p>Saving configuration does not update choices by itself. Run Preflight, click Update now, and then verify the public preview.</p>
+        </details>
+        <details>
+          <summary><strong>Can stale choices come from checking the wrong form?</strong></summary>
+          <p>Yes. Copied forms and duplicated response sheets are common. Confirm the form editor, add-on sidebar, and public preview are all for the same form.</p>
+        </details>
+        <details>
+          <summary><strong>Should I reinstall if the dropdown is stale?</strong></summary>
+          <p>Usually not first. Re-select the source, run Preflight, update one copied form, and only then use support if the result still fails.</p>
         </details>
       </section>
     </main>

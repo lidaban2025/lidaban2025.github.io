@@ -194,15 +194,21 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/google-forms-approval-workflow-guide.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/approve-reject-google-forms-responses-by-email.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/google-forms-approval-status-in-google-sheets.html</loc>
@@ -234,7 +240,9 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/review-after-first-success.html</loc>
@@ -514,19 +522,27 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/import-google-forms-choices-from-google-sheets.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/review-after-first-success.html</loc>
@@ -538,7 +554,9 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/google-forms-dropdown-from-google-sheets-without-apps-script.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html</loc>
@@ -546,7 +564,9 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/formranger-alternative-google-forms.html</loc>

@@ -27,6 +27,7 @@ const includeFiles = [
   'privacy.html',
   'product-inner.css',
   'product-landing.css',
+  'review-after-first-success.html',
   'robots.txt',
   'setup-help.html',
   'site.webmanifest',

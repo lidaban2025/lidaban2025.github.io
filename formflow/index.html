@@ -99,14 +99,30 @@
       <section class="section" aria-labelledby="fit-title">
         <div class="section-head">
           <div>
-            <h2 id="fit-title">Use FormFlow for focused approval routing.</h2>
-            <p>Keep the workflow small: one form, one linked response sheet, one approval process, and a clear decision result.</p>
+            <h2 id="fit-title">Use FormFlow for scene-first approval routing.</h2>
+            <p>Do not start with the broad phrase approval workflow. Start with a concrete Google Forms scenario: leave request, access request, purchase request, event application, resource request, or another small workflow that needs one clear reviewer decision.</p>
           </div>
         </div>
         <div class="step-grid">
           <article class="step-card"><div class="step-num">1</div><h3>Internal requests</h3><p>Route leave, purchase, event, or operations requests to a reviewer.</p></article>
           <article class="step-card"><div class="step-num">2</div><h3>Reviewer decisions</h3><p>Send an email with approve/reject actions instead of forwarding each response by hand.</p></article>
           <article class="step-card"><div class="step-num">3</div><h3>Sheet status</h3><p>Keep the linked Google Sheet as the record of request status and review history.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="scenes-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Use cases</div>
+            <h2 id="scenes-title">Approval scenarios that match a small Google Forms workflow.</h2>
+            <p>These are the pages and community questions FormFlow should target before competing for broad workflow terms.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="pill">School or team</div><h3>Leave or absence request</h3><p>A respondent submits dates and reason, one reviewer receives the approval email, and the linked Sheet records Approved or Rejected.</p></article>
+          <article class="card"><div class="pill">Operations</div><h3>Purchase or resource request</h3><p>Use a Google Form to collect amount, item, department, and reason, then route the request to one internal approver.</p></article>
+          <article class="card"><div class="pill">Admin</div><h3>Access request</h3><p>Collect the requester, system, justification, and manager context, then capture the reviewer decision by email.</p></article>
+          <article class="card"><div class="pill">Programs</div><h3>Event or application review</h3><p>Review simple submissions where a final approve/reject decision needs to be visible in the response Sheet.</p></article>
         </div>
       </section>
 
@@ -123,6 +139,38 @@
           <article class="card"><div class="pill">Configure</div><h3>Add one approver first.</h3><p>Start with one internal reviewer email and a simple approve/reject status before adding more people.</p></article>
           <article class="card"><div class="pill">Prove</div><h3>Run Preflight and submit one test response.</h3><p>Confirm the reviewer email arrives, the decision link works, and the linked Sheet status updates.</p></article>
           <article class="card"><div class="pill">Verified</div><h3>Final approval loop checked on v51.</h3><p>Production smoke covered Preflight, reviewer email, approve and reject decisions, final status pages, and review/support prompts after the linked Sheet status path works.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="evidence-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Real setup screens</div>
+            <h2 id="evidence-title">What the first approval test looks like.</h2>
+            <p>The important proof is not that a page exists. The proof is that the sidebar setup, reviewer email, decision page, and approval history are all visible in one small workflow.</p>
+          </div>
+        </div>
+        <div class="evidence-grid">
+          <figure class="evidence-shot"><img src="../assets/formflow/sidebar-setup.png" alt="FormFlow approval workflow setup sidebar"><figcaption>Start with one form, select the linked response Sheet, and save one internal approver.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formflow/reviewer-email.png" alt="FormFlow reviewer email with approval decision actions"><figcaption>The reviewer email is the operational handoff: the approver needs enough context to decide without manual forwarding.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formflow/approval-page.png" alt="FormFlow approval decision page"><figcaption>The reviewer opens the decision page and chooses approve or reject with the intended Google account.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formflow/approval-history.png" alt="FormFlow approval history and linked sheet status"><figcaption>The linked response Sheet and history view should show the decision result after the test.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="failure-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Failure causes</div>
+            <h2 id="failure-title">Where first approval tests usually break.</h2>
+            <p>If a user installs but does not succeed, the failure usually happens in one of four places. This is the support path before asking for a review.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="pill">Sheet</div><h3>Wrong response spreadsheet selected</h3><p>Duplicated forms often create duplicated response Sheets. Select the Sheet linked to the exact form being tested.</p></article>
+          <article class="card"><div class="pill">Email</div><h3>Reviewer email not delivered</h3><p>Check Preflight, approver address, spam folder, and Workspace mail restrictions before adding more reviewers.</p></article>
+          <article class="card"><div class="pill">Account</div><h3>Reviewer account mismatch</h3><p>The person clicking approve or reject should use the intended reviewer Google account, especially in multi-account browsers.</p></article>
+          <article class="card"><div class="pill">Status</div><h3>Decision did not write back</h3><p>Re-check the linked Sheet selection and send the decision page plus Sheet status screenshot to support.</p></article>
         </div>
       </section>
 
@@ -149,7 +197,7 @@
         <div class="section-head">
           <div>
             <h2 id="boundaries-title">Boundaries</h2>
-            <p>FormFlow is for lightweight Google Forms approval workflows. It is not a full procurement system, ticketing platform, CRM, or enterprise compliance suite.</p>
+            <p>FormFlow is for lightweight Google Forms approval workflows. It is not a full procurement system, expense platform, ticketing platform, CRM, legal approval platform, or enterprise compliance suite. Keep the first workflow small enough to audit in one linked Sheet.</p>
           </div>
         </div>
         <ul class="plain-links">
@@ -187,6 +235,8 @@
           <details><summary><strong>Can Google Forms approve submissions natively?</strong></summary><p>Google Forms can collect requests, but it does not provide a full approve/reject workflow with reviewer emails and linked-sheet approval status by itself.</p></details>
           <details><summary><strong>Where does FormFlow store approval status?</strong></summary><p>FormFlow writes status to the linked Google Sheet so operators can review the workflow record next to the form responses.</p></details>
           <details><summary><strong>What should I test first?</strong></summary><p>Use one copied form, select the linked response sheet, add one internal approver, run Preflight, and submit one test response.</p></details>
+          <details><summary><strong>What workflow should I try first?</strong></summary><p>Try a small internal workflow such as leave request, access request, event application, or resource request before adding multiple reviewers or complex routing.</p></details>
+          <details><summary><strong>What evidence matters before a review?</strong></summary><p>Preflight passed, reviewer email arrived, decision link worked, and the linked Sheet status updated. If any of those fail, use support first.</p></details>
         </div>
       </section>
     </main>

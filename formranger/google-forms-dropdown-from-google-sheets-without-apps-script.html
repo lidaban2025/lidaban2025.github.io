@@ -113,31 +113,64 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Quick answer</h2>
-      <p class="answer">Google Forms does not natively link a dropdown to a Sheets range. For rare updates, paste choices manually. For repeatable no-code updates, use FormRanger.</p>
-    </section>
+      <section class="section">
+        <h2>Quick answer</h2>
+        <p class="answer">Google Forms does not natively link a dropdown to a Sheets range. For rare updates, paste choices manually. For repeatable no-code updates, use FormRanger.</p>
+      </section>
 
-    <section class="section">
-      <h2>First-run path</h2>
-      <ol class="steps">
+      <section class="section">
+        <h2>Why people avoid Apps Script here</h2>
+        <p>Apps Script can update a Google Forms dropdown from a Sheet, but it adds hidden maintenance work: form IDs, item IDs, triggers, authorization, error handling, and someone responsible when Google permissions or the form structure changes. If the user is a form owner rather than a developer, a no-code sidebar workflow is usually easier to operate.</p>
+        <div class="grid">
+          <div class="card"><strong>Script maintenance</strong><p>Someone must maintain trigger timing, source range logic, duplicate handling, and what happens when the form is copied.</p></div>
+          <div class="card"><strong>Owner-controlled update</strong><p>FormRanger keeps the workflow visible: select a source, map a question, run Preflight, update, and preview.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>First-run path</h2>
+        <ol class="steps">
         <li>Put valid choices in one Sheets column.</li>
         <li>Create a copied form with one dropdown.</li>
         <li>Install FormRanger and select the spreadsheet.</li>
         <li>Map the dropdown, run Preflight, then Update now.</li>
-        <li>Confirm the public preview shows the sheet values.</li>
-      </ol>
-    </section>
+          <li>Confirm the public preview shows the sheet values.</li>
+        </ol>
+      </section>
 
-    <section class="section">
-      <h2>Choose the right path</h2>
-      <div class="grid">
-        <div class="card"><strong>Manual paste</strong><p>Best when the list rarely changes.</p></div>
-        <div class="card"><strong>FormRanger</strong><p>Best when Sheets is the source and the form needs repeatable refreshes.</p></div>
-        <div class="card"><strong>Apps Script</strong><p>Best only when someone owns the code and triggers.</p></div>
-        <div class="card"><strong>Different tool</strong><p>Better for live dependent filtering, payments, bookings, or inventory locks.</p></div>
-      </div>
-    </section>
+      <section class="section">
+        <h2>No-code setup screenshots</h2>
+        <div class="evidence-grid">
+          <figure class="evidence-shot"><img src="../assets/formranger/open-sidebar.png" alt="Opening FormRanger sidebar without Apps Script"><figcaption>Open the add-on from Google Forms instead of creating a script project and trigger manually.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/select-sheet-range.png" alt="Selecting a Sheets source for a Google Forms dropdown"><figcaption>Select the spreadsheet source in the sidebar so the form owner can see what list is being used.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Choose the right path</h2>
+        <div class="grid">
+        <div class="card"><strong>Manual paste</strong><p>Best when the list rarely changes and there is no need to prove a repeatable update path.</p></div>
+        <div class="card"><strong>FormRanger</strong><p>Best when Sheets is the source and the form needs repeatable owner-controlled refreshes.</p></div>
+        <div class="card"><strong>Apps Script</strong><p>Best only when someone owns the code, triggers, authorization, and future debugging.</p></div>
+        <div class="card"><strong>Different tool</strong><p>Better for live dependent filtering, payments, bookings, inventory locks, or respondent-time logic.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What no-code still requires</h2>
+        <p>No-code does not mean no checks. The form owner still needs a clean source column, a supported question type, a successful Preflight result, and a public preview check after each update.</p>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>Check</th><th>What to look for</th><th>What to do if wrong</th></tr></thead>
+            <tbody>
+              <tr><td>Source column</td><td>One clean list with a stable header.</td><td>Clean blanks, duplicates, and helper-column noise.</td></tr>
+              <tr><td>Question type</td><td>Dropdown, multiple choice, checkbox, or grid choice question.</td><td>Use a supported question or simplify the form.</td></tr>
+              <tr><td>Preflight</td><td>File, tab, column, and question mapping pass.</td><td>Fix warnings before clicking Update now.</td></tr>
+              <tr><td>Public preview</td><td>Respondent view shows the Sheet values.</td><td>Re-check mapping and update result before sharing.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
     <section class="section">
       <h2>No-code checklist</h2>
@@ -146,16 +179,35 @@
         <div class="card"><strong>Keep the owner in control</strong><p>Run updates from the add-on sidebar before sharing the form or after temporarily pausing responses.</p></div>
         <div class="card"><strong>Cross-check public preview</strong><p>Open the respondent view after each update; the form editor is not the final proof.</p></div>
         <div class="card"><strong>Escalate only when needed</strong><p>Use Apps Script only if you truly need custom triggers, transformations, or non-standard logic.</p></div>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Boundary</h2>
-      <p class="caution">Do not treat a visible dropdown option as a reserved seat or guaranteed availability. FormRanger updates choices; it does not lock resources while respondents answer.</p>
-    </section>
+      <section class="section">
+        <h2>What you are avoiding by not writing code</h2>
+        <p>A custom Apps Script solution usually needs to store the form ID, find the target item, read a range, convert values into choices, decide what to do with blanks and duplicates, and run under an authorized account. That can be fine for a developer-owned workflow, but it is fragile for a non-technical form owner who mainly wants the dropdown to match a Sheet before launch.</p>
+        <div class="grid">
+          <div class="card"><strong>Form IDs and item IDs</strong><p>Scripts often break when a form or question is copied because the stored IDs no longer point at the new object.</p></div>
+          <div class="card"><strong>Trigger ownership</strong><p>Scheduled or installable triggers depend on the account that created them and can fail when ownership or permissions change.</p></div>
+          <div class="card"><strong>Error visibility</strong><p>When code fails, the form owner may not know whether the source range, authorization, or question ID caused it.</p></div>
+          <div class="card"><strong>Preview proof</strong><p>Even without code, the final check stays the same: open the respondent preview and confirm the dropdown shows the Sheet values.</p></div>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>Next step</h2>
+      <section class="section">
+        <h2>Boundary</h2>
+        <p class="caution">Do not treat a visible dropdown option as a reserved seat or guaranteed availability. FormRanger updates choices; it does not lock resources while respondents answer. Test first.</p>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <details><summary><strong>Can I do this without writing Apps Script?</strong></summary><p>Yes. Use a no-code add-on workflow if you want to select a Sheets source and update supported Google Forms choices from the sidebar.</p></details>
+        <details><summary><strong>When should I still use Apps Script?</strong></summary><p>Use Apps Script when you need custom transformations, scheduled triggers, or logic that a form owner is willing to maintain as code.</p></details>
+        <details><summary><strong>Does FormRanger automatically update every second?</strong></summary><p>No. Treat it as an owner-controlled choice update workflow. Run updates before sharing the form or after changing the source list.</p></details>
+        <details><summary><strong>Can it replace a booking app?</strong></summary><p>No. A no-code dropdown update is not a booking, payment, inventory, or reservation system.</p></details>
+      </section>
+
+      <section class="section">
+        <h2>Next step</h2>
       <p>Use the no-code path on a copied form first. After Preflight passes, Update now reports a changed question, and the public preview shows the Sheets values, use the review checklist or support path based on the result.</p>
       <div class="link-bar">
         <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=google-forms-dropdown-from-google-sheets-without-apps-script">Install from Marketplace</a>

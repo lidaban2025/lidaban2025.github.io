@@ -113,24 +113,70 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Quick answer</h2>
-      <p class="answer">Use a copied form, one dropdown or multiple-choice question, and one Sheets column with Alpha and Beta. Map it in FormRanger, run Preflight, click Update now, then open the public preview.</p>
-    </section>
+      <section class="section">
+        <h2>Quick answer</h2>
+        <p class="answer">Use a copied form, one dropdown or multiple-choice question, and one Sheets column with Alpha and Beta. Map it in FormRanger, run Preflight, click Update now, then open the public preview.</p>
+      </section>
 
-    <section class="section">
-      <h2>First-run path</h2>
-      <ol class="steps">
+      <section class="section">
+        <h2>Why this test matters</h2>
+        <p>If installs are not turning into successful use, the first question is whether users can complete one safe first run. This page is the handoff from install anxiety to proof: one copied form, one source column, one supported question, one update, and one public preview check.</p>
+        <div class="grid">
+          <div class="card"><strong>What this test proves</strong><p>FormRanger can read the selected Sheet source, validate the mapping, update the selected question, and show the changed choices to respondents.</p></div>
+          <div class="card"><strong>What it does not prove</strong><p>It does not prove booking capacity, payment logic, live dependent dropdown behavior, or every mapping in a complex production form.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>First-run path</h2>
+        <ol class="steps">
         <li>Create or copy a Google Form with one supported choice question.</li>
         <li>Create a Google Sheets column with two visible test choices.</li>
         <li>Select the spreadsheet, sheet tab, column, and question in FormRanger.</li>
         <li>Run Preflight, then use Update now.</li>
-        <li>Open the public form preview and confirm the choices match the sheet.</li>
-      </ol>
-    </section>
+          <li>Open the public form preview and confirm the choices match the sheet.</li>
+        </ol>
+      </section>
 
-    <section class="section">
-      <h2>Pass criteria</h2>
+      <section class="section">
+        <h2>Use this exact test data first</h2>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>Part</th><th>Recommended first value</th><th>Why</th></tr></thead>
+            <tbody>
+              <tr><td>Google Form</td><td>A copied or internal form</td><td>Prevents an unfinished test from affecting real respondents.</td></tr>
+              <tr><td>Question type</td><td>One dropdown or multiple-choice question</td><td>Easiest choice type to inspect in the public preview.</td></tr>
+              <tr><td>Sheet column</td><td>Header: Test choice; values: Alpha, Beta</td><td>Obvious values make it clear whether the update actually happened.</td></tr>
+              <tr><td>Success proof</td><td>Preflight passed, Update now updated, public preview changed</td><td>All three are needed; one missing step means the test is incomplete.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Visual proof points</h2>
+        <div class="evidence-grid">
+          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormRanger Preflight before updating Google Forms choices"><figcaption>Preflight should be clean before the update. If it warns about file, tab, column, or question mapping, stop there.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormRanger update success before public preview check"><figcaption>Update success is the middle step. The final proof is still the public respondent preview.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Run the same test after each important change</h2>
+        <p>Repeat the copied-form check when you copy the form, change the Sheet tab, rename a source column, change a question type, or replace the public form link in a campaign. Those are the moments where a setup can look saved but no longer point at the thing respondents will use.</p>
+        <div class="grid">
+          <div class="card"><strong>Before launch</strong><p>Run the test before you post the form link, email respondents, or add the form to a website.</p></div>
+          <div class="card"><strong>After source edits</strong><p>Run it again after major list cleanup, renamed headers, formula changes, or tab changes.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Record the result for support and reviews</h2>
+        <p>Write down the date of the test, the copied form name, the source tab, the source column, the mapped question, the Preflight result, the Update now result, and what the public preview showed. If the test fails, this becomes a support note. If it succeeds, it becomes the proof that a Marketplace review is based on real use rather than hope.</p>
+      </section>
+
+      <section class="section">
+        <h2>Pass criteria</h2>
       <div class="grid">
         <div class="card"><strong>Preflight passes</strong><p>The selected file, tab, column, and question mapping are valid.</p></div>
         <div class="card"><strong>Update now reports updated</strong><p>The result says a question was updated, not only saved.</p></div>
@@ -139,17 +185,31 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>If it fails</h2>
-      <p class="caution">Check the sheet tab, column header, empty rows, duplicate values, question type, and Google permissions. If Update now reports skipped or error, do not send live respondents yet.</p>
-      <div class="link-bar">
-        <a href="../setup-help.html?product=FormRanger&source=formranger-first-run-failed">Send a FormRanger setup note</a>
-        <a href="./support.html">Open FormRanger support</a>
-      </div>
-    </section>
+      <section class="section">
+        <h2>If it fails</h2>
+        <p class="caution">Check the sheet tab, column header, empty rows, duplicate values, question type, and Google permissions. If Update now reports skipped or error, do not send live respondents yet.</p>
+        <div class="grid">
+          <div class="card"><strong>Preflight warning</strong><p>Re-select the spreadsheet, confirm the sheet tab, and make sure the mapped question still exists in this form.</p></div>
+          <div class="card"><strong>Update skipped</strong><p>Look for empty source values, duplicate-only values, an unsupported question type, or a mapping saved against a copied form.</p></div>
+          <div class="card"><strong>Preview unchanged</strong><p>Open a fresh public preview window after the update. If it still shows old choices, send the update result and preview screenshot to support.</p></div>
+          <div class="card"><strong>Wrong form changed</strong><p>Confirm you opened FormRanger inside the same Google Form whose public link you are checking.</p></div>
+        </div>
+        <div class="link-bar">
+          <a href="../setup-help.html?product=FormRanger&source=formranger-first-run-failed">Send a FormRanger setup note</a>
+          <a href="./support.html">Open FormRanger support</a>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>After the preview check</h2>
+      <section class="section">
+        <h2>FAQ</h2>
+        <details><summary><strong>Can I skip the copied-form test?</strong></summary><p>No. The copied-form test is the fastest way to separate install/setup issues from production form risk.</p></details>
+        <details><summary><strong>What should I include in a setup-help request?</strong></summary><p>Include the source tab name, source column header, mapped question type, Preflight result, Update now result, and whether the public preview changed.</p></details>
+        <details><summary><strong>When is it safe to leave a review?</strong></summary><p>After Preflight passes, Update now reports at least one updated question, and the public preview shows the expected Sheet values.</p></details>
+        <details><summary><strong>Does the test cover live capacity?</strong></summary><p>No. FormRanger updates choices; it does not reserve inventory, sell seats, or remove a choice while someone is filling out the form.</p></details>
+      </section>
+
+      <section class="section">
+        <h2>After the preview check</h2>
       <p>If Preflight passes, Update now reports at least one updated question, and the public preview shows the expected sheet values, that is the right moment to leave an honest Marketplace review. If any step is still unclear, use support first.</p>
       <div class="link-bar">
         <a href="./review-after-first-success.html">Review after first success</a>
