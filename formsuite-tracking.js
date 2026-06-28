@@ -3,6 +3,8 @@
 
   var script = document.currentScript;
   var endpoint = script && script.dataset ? script.dataset.endpoint || "" : "";
+  var plausibleDomain = script && script.dataset ? script.dataset.plausibleDomain || "formsuite.dev" : "formsuite.dev";
+  var plausibleSrc = script && script.dataset ? script.dataset.plausibleSrc || "https://plausible.io/js/script.js" : "https://plausible.io/js/script.js";
   var products = [
     ["formguard", "FormGuard"],
     ["formnotifier", "FormNotifier"],
@@ -20,6 +22,44 @@
       if (lower.indexOf("/" + products[i][0] + "/") !== -1) return products[i][1];
     }
     return "FormSuite";
+  }
+
+  function loadPlausible() {
+    if (!plausibleDomain || window.__formsuitePlausibleLoaded) return;
+    var host = window.location.hostname.toLowerCase();
+    var domain = plausibleDomain.toLowerCase();
+    if (host !== domain && host !== "www." + domain) return;
+
+    window.__formsuitePlausibleLoaded = true;
+    window.plausible = window.plausible || function () {
+      (window.plausible.q = window.plausible.q || []).push(arguments);
+    };
+
+    var existing = document.querySelector('script[data-domain="' + plausibleDomain + '"][src*="plausible"]');
+    if (existing) return;
+
+    var tag = document.createElement("script");
+    tag.defer = true;
+    tag.src = plausibleSrc;
+    tag.setAttribute("data-domain", plausibleDomain);
+    document.head.appendChild(tag);
+  }
+
+  function plausibleProps(payload) {
+    return {
+      product: payload.product || "",
+      page: payload.page || "",
+      target_type: payload.target_type || "",
+      destination_host: payload.destination_host || "",
+      destination_path: payload.destination_path || "",
+      utm_source: payload.utm_source || "",
+      utm_medium: payload.utm_medium || "",
+      utm_campaign: payload.utm_campaign || "",
+      utm_content: payload.utm_content || "",
+      source_param: payload.source_param || "",
+      link_text: payload.link_text || "",
+      source: payload.source || ""
+    };
   }
 
   function productFromUrl(url, text) {
@@ -250,7 +290,7 @@
       window.gtag("event", name, payload);
     }
     if (typeof window.plausible === "function") {
-      window.plausible(name, { props: payload });
+      window.plausible(name, { props: plausibleProps(payload) });
     }
     if (window.umami && typeof window.umami.track === "function") {
       window.umami.track(name, payload);
@@ -272,6 +312,7 @@
       send(name, data || {});
     }
   };
+  loadPlausible();
   (window.formsuiteTrackQueue || []).forEach(function (queued) {
     if (!queued || !queued.name) return;
     send(queued.name, queued.data || {});
