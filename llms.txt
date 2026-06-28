@@ -28,11 +28,24 @@
 - Website: https://formsuite.dev/
 - Support: https://formsuite.dev/formflow/support.html
 
-Last updated: 2026-06-19
+Last updated: 2026-06-28
 ## Sheet Formula Helper
 
-- Sheet Formula Helper: https://formsuite.dev/sheetformula/
+- Sheet Formula Helper: https://formsuite.dev/sheetformula/ — Online tool for fixing, explaining, and generating Google Sheets and Excel formulas.
+- Google Sheets Formula Fixer: https://formsuite.dev/sheetformula/google-sheets-formula-fixer.html — Fix #N/A, parse errors, wrong ranges, lookup mode, and IFERROR patterns in Google Sheets formulas.
+- Excel Formula Fixer: https://formsuite.dev/sheetformula/excel-formula-fixer.html — Fix Excel formulas with lookup, reference, separator, and error-handling problems.
+- VLOOKUP Formula Fixer: https://formsuite.dev/sheetformula/vlookup-formula-fixer.html — Fix VLOOKUP exact-match, #N/A, return-column, and lookup-left issues.
+- Google Sheets Formula Generator: https://formsuite.dev/sheetformula/google-sheets-formula-generator.html — Generate starter formulas from plain English rules.
+- Formula Explainer: https://formsuite.dev/sheetformula/formula-explainer.html — Explain Google Sheets and Excel formulas in plain English.
 - Support: https://formsuite.dev/sheetformula/support.html
 - Privacy: https://formsuite.dev/sheetformula/privacy.html
 - Terms: https://formsuite.dev/sheetformula/terms.html
+
+## FormRanger Dropdown Guides
+
+- FormRanger: https://formsuite.dev/formranger/ — Google Forms add-on for syncing dropdown, multiple-choice, checkbox, and grid choices from selected Google Sheets data.
+- Auto update Google Forms dropdown from Google Sheets: https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html
+- Google Forms dropdown from Google Sheets without Apps Script: https://formsuite.dev/formranger/google-forms-dropdown-from-google-sheets-without-apps-script.html
+- Google Forms dropdown not updating from Google Sheets: https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html
+- Google Forms dependent dropdown from Sheets: https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html
 

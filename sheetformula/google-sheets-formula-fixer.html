@@ -67,6 +67,24 @@
         </div>
       </section>
       <section class="section">
+        <h2>Common Google Sheets errors this helps with</h2>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>#N/A lookup errors</h3><p>Add exact match mode, check whether the lookup value exists, and decide whether missing matches should return blank.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Formula parse error</h3><p>Check commas vs semicolons, quotes around text, sheet names with spaces, and unclosed parentheses.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>#VALUE! or wrong result</h3><p>Check whether the formula mixes text and numbers, uses the wrong range size, or references shifted columns.</p></article>
+        </div>
+      </section>
+      <section class="section">
+        <div class="guide-panel">
+          <div><div class="mini-label">FAQ</div><h2>Google Sheets formula fixer FAQ</h2><p>Paste the formula, the error text, and the intended result. The more context you provide, the safer the suggested fix.</p></div>
+          <div class="mini-guide-grid" style="grid-template-columns:1fr;">
+            <article class="mini-guide-card"><strong>Can it see my spreadsheet?</strong><p>No. It works from the formula text and the context you paste, so avoid private data and describe ranges generically.</p></article>
+            <article class="mini-guide-card"><strong>Should I fill the whole column immediately?</strong><p>No. Test the corrected formula in one row first, then fill down after the result is correct.</p></article>
+            <article class="mini-guide-card"><strong>What is the fastest useful prompt?</strong><p>Paste the formula, the visible error, and one sentence like “I want column C returned when A2 matches Products column A.”</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
         <h2>Related formula tools</h2>
         <div class="link-row">
           <a href="./google-sheets-formula-fixer.html">Google Sheets formula fixer</a>

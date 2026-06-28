@@ -67,6 +67,24 @@
         </div>
       </section>
       <section class="section">
+        <h2>VLOOKUP troubleshooting checklist</h2>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>#N/A</h3><p>The lookup value may not exist, may contain extra spaces, or may be stored as text while the source is numeric.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Wrong row</h3><p>The fourth argument may be missing. Use FALSE for exact match unless approximate matching is intentional.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Cannot look left</h3><p>VLOOKUP only returns values to the right of the lookup column. Use XLOOKUP or INDEX/MATCH for lookup-left cases.</p></article>
+        </div>
+      </section>
+      <section class="section">
+        <div class="guide-panel">
+          <div><div class="mini-label">FAQ</div><h2>VLOOKUP formula fixer FAQ</h2><p>Most VLOOKUP fixes come down to exact match, range position, missing values, and whether missing matches should be blank.</p></div>
+          <div class="mini-guide-grid" style="grid-template-columns:1fr;">
+            <article class="mini-guide-card"><strong>Should VLOOKUP use FALSE?</strong><p>For IDs, emails, names, SKUs, and exact text matches, yes. FALSE avoids approximate-match surprises.</p></article>
+            <article class="mini-guide-card"><strong>Why wrap VLOOKUP in IFERROR?</strong><p>IFERROR is useful when a missing match should show a blank or friendly message instead of #N/A.</p></article>
+            <article class="mini-guide-card"><strong>When should I replace VLOOKUP?</strong><p>Use XLOOKUP or INDEX/MATCH when the return column is left of the lookup column or when the table structure changes often.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
         <h2>Related formula tools</h2>
         <div class="link-row">
           <a href="./google-sheets-formula-fixer.html">Google Sheets formula fixer</a>

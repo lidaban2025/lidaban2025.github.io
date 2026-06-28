@@ -67,6 +67,24 @@
         </div>
       </section>
       <section class="section">
+        <h2>Common Excel formula fixes</h2>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>Wrong lookup result</h3><p>Use exact match for IDs, SKUs, and names, and confirm the return column points to the intended field.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Broken references</h3><p>Check locked references like $A$2:$C$100, renamed worksheets, table names, and filled-down ranges.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Locale separators</h3><p>Some Excel locales use semicolons instead of commas. If the logic is right but parsing fails, test separators.</p></article>
+        </div>
+      </section>
+      <section class="section">
+        <div class="guide-panel">
+          <div><div class="mini-label">FAQ</div><h2>Excel formula fixer FAQ</h2><p>The fixer gives a copy-ready formula plus likely causes to verify in the workbook.</p></div>
+          <div class="mini-guide-grid" style="grid-template-columns:1fr;">
+            <article class="mini-guide-card"><strong>Does it open my workbook?</strong><p>No. It cannot inspect hidden sheets, named ranges, or table structure unless you describe them.</p></article>
+            <article class="mini-guide-card"><strong>Can it fix XLOOKUP?</strong><p>Yes for common argument, missing-match, and fallback patterns when you paste the formula and expected result.</p></article>
+            <article class="mini-guide-card"><strong>What should I check after copying?</strong><p>Verify the formula in one cell, then check filled-down references before applying it broadly.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
         <h2>Related formula tools</h2>
         <div class="link-row">
           <a href="./google-sheets-formula-fixer.html">Google Sheets formula fixer</a>
