@@ -21,6 +21,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="product-inner.css">
+  <style>
+    .chooser-card {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) 180px !important;
+      gap: 18px !important;
+      align-items: stretch !important;
+    }
+    .chooser-card figure {
+      margin: 0 !important;
+      min-height: 100% !important;
+      border: 1px solid var(--fs-line-soft) !important;
+      border-radius: 8px !important;
+      overflow: hidden !important;
+      background: rgba(0,0,0,.18) !important;
+    }
+    .chooser-card img {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 150px !important;
+      object-fit: cover !important;
+    }
+    .chooser-card .card-copy {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+    }
+    .chooser-card .card-copy h2,
+    .chooser-card .card-copy p {
+      margin: 0 !important;
+    }
+    @media (max-width: 760px) {
+      .chooser-card {
+        grid-template-columns: 1fr !important;
+      }
+      .chooser-card img {
+        aspect-ratio: 16 / 9 !important;
+        height: auto !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="shell">
@@ -32,13 +74,14 @@
       <div class="hero-actions"><a class="btn btn-primary" href="install.html">Open install center</a></div>
     </section>
     <section class="grid" style="margin-top:18px;">
-      <article class="card"><div class="pill">Approvals</div><h2>Route Google Forms submissions to approvers</h2><p>Use FormFlow when each form submission needs reviewer emails, approve/reject decisions, and response-sheet status tracking.</p><a class="btn btn-primary" href="formflow/index.html">Use FormFlow</a></article>
+      <article class="card chooser-card"><div class="card-copy"><div class="pill">Approvals</div><h2>Route Google Forms submissions to approvers</h2><p>Use FormFlow when each form submission needs reviewer emails, approve/reject decisions, and response-sheet status tracking.</p><a class="btn btn-primary" href="formflow/index.html">Use FormFlow</a></div><figure><img src="assets/formflow/reviewer-email.png" alt="FormFlow reviewer email preview"></figure></article>
+      <article class="card chooser-card"><div class="card-copy"><div class="pill">Choice sync</div><h2>Sync Google Forms dropdowns from Sheets</h2><p>Use FormRanger when dropdown, checkbox, or multiple-choice lists should be refreshed from selected Sheets data.</p><a class="btn btn-primary" href="formranger/index.html">Use FormRanger</a></div><figure><img src="assets/formranger/map-question-column.png" alt="FormRanger maps a Forms question to a Sheets column"></figure></article>
+      <article class="card chooser-card"><div class="card-copy"><div class="pill">Formula help</div><h2>Fix or explain a spreadsheet formula</h2><p>Use Sheet Formula Helper when you need a browser-based formula fix, explanation, or starter formula before installing an add-on.</p><a class="btn btn-primary" href="sheetformula/index.html#formula-tool">Use Sheet Formula</a></div><figure><img src="assets/sheetformula/formula-tool-preview.png" alt="Sheet Formula Helper tool preview"></figure></article>
       <article class="card"><div class="pill">Response limits</div><h2>Limit responses, deadlines, seats, or choice quotas</h2><p>Use FormGuard when a Google Form should close after a capacity rule, session quota, or launch limit.</p><a class="btn btn-primary" href="formguard/index.html">Use FormGuard</a></article>
       <article class="card"><div class="pill">Confirmation emails</div><h2>Send email to respondent and owner after submit</h2><p>Use FormNotifier when each submission should trigger tested confirmation and owner alert emails.</p><a class="btn btn-primary" href="formnotifier/index.html">Use FormNotifier</a></article>
       <article class="card"><div class="pill">Response-sheet formulas</div><h2>Copy formulas into new Google Forms response rows</h2><p>Use FormCopy Pro when helper columns, scoring formulas, or formats stop copying into new rows.</p><a class="btn btn-primary" href="formcopy/index.html">Use FormCopy</a></article>
       <article class="card"><div class="pill">Email merge</div><h2>Send operational emails from Google Sheets rows</h2><p>Use FormMerge Pro when rows need personalized status, event, or follow-up emails.</p><a class="btn btn-primary" href="formmerge/index.html">Use FormMerge</a></article>
       <article class="card"><div class="pill">Docs and PDFs</div><h2>Turn Google Sheets rows into Docs or PDFs</h2><p>Use DocForge when a spreadsheet row should become a document, PDF, certificate, or letter.</p><a class="btn btn-primary" href="docforge/index.html">Use DocForge</a></article>
-      <article class="card"><div class="pill">Choice sync</div><h2>Sync Google Forms dropdowns from Sheets</h2><p>Use FormRanger when dropdown, checkbox, or multiple-choice lists should be refreshed from selected Sheets data.</p><a class="btn btn-primary" href="formranger/index.html">Use FormRanger</a></article>
     </section>
     <footer><p>&copy; 2026 FormSuite. Google Workspace product names are trademarks of Google LLC.</p></footer>
   </div>

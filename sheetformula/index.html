@@ -43,6 +43,9 @@
     .tool-button.secondary { border-color: rgba(255,255,255,.1); background: transparent; color: #d7dcff; }
     .example-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .example-chip { padding: 6px 9px; border: 1px solid rgba(255,255,255,.08); border-radius: 999px; color: #d7dcff; background: rgba(94,106,210,.12); cursor: pointer; font-size: 13px; }
+    .tool-evidence { margin-top: 18px; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; overflow: hidden; background: rgba(0,0,0,.22); }
+    .tool-evidence img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .tool-evidence figcaption { padding: 12px 14px; color: #b7bec9; font-size: 13px; line-height: 1.55; }
     @media (max-width: 760px) { .tool-grid { grid-template-columns: 1fr; } .tool-result { min-height: 220px; } }
   </style>
 </head>
@@ -124,6 +127,10 @@
             <output id="formulaResult" class="tool-result">Paste your formula and click Fix it.</output>
           </div>
         </div>
+        <figure class="tool-evidence">
+          <img src="../assets/sheetformula/formula-tool-preview.png" alt="Sheet Formula Helper tool with formula input and result panel">
+          <figcaption>The tool is designed for a small first test: paste a simplified formula, add the visible error or goal, then copy the suggested result after checking it on one row.</figcaption>
+        </figure>
       </section>
 
       <section class="section" id="how-it-works" aria-labelledby="modes-title">
