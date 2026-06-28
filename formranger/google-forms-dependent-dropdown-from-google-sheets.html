@@ -8,13 +8,13 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Forms dependent dropdown from Sheets | FormRanger</title>
-  <meta name="description" content="A concise visual guide to Google Forms dependent dropdown limits, spreadsheet-backed choice syncing, and when FormRanger is the right fit.">
+  <title>Google Forms dependent dropdown from Sheets | State, city, theatre limits</title>
+  <meta name="description" content="Can Google Forms show city and theatre dropdowns from Sheets after a state choice? Learn the dependent dropdown limit, alternatives, and when FormRanger fits.">
   <link rel="canonical" href="https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="Google Forms dependent dropdown from Sheets">
-  <meta property="og:description" content="Separate live respondent-time filtering from owner-controlled Google Sheets choice syncing.">
+  <meta property="og:description" content="Separate State -> City live filtering from owner-controlled Google Sheets choice syncing.">
   <meta property="og:url" content="https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html">
   <meta property="og:image" content="https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -28,10 +28,10 @@
         {
           "@type": "Article",
           "headline": "Google Forms dependent dropdown from Sheets",
-          "description": "A concise guide to Google Forms dependent dropdown limits and spreadsheet-backed choice syncing with FormRanger.",
+          "description": "A concise guide to Google Forms dependent dropdown limits, State -> City examples, and spreadsheet-backed choice syncing with FormRanger.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-05-29",
+          "dateModified": "2026-06-28",
           "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html"
         },
         {
@@ -41,6 +41,11 @@
               "@type": "Question",
               "name": "Can Google Forms make a live dependent dropdown from Sheets?",
               "acceptedAnswer": { "@type": "Answer", "text": "Google Forms does not provide a native respondent-time dropdown that filters from Sheets based on a previous answer." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can a Google Form show cities after a state is selected?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Not as a live dropdown filtered from Sheets. Google Forms can route respondents to sections, but it does not provide a native State to City to Theatre dropdown chain from a spreadsheet." }
             },
             {
               "@type": "Question",
@@ -118,7 +123,7 @@
         <div>
           <div class="eyebrow">Decision guide</div>
           <h1 id="hero-title">Dependent dropdown or synced choices?</h1>
-          <p>These are different jobs. Google Forms is limited for live respondent-time filtering. FormRanger fits owner-controlled choice updates from Sheets.</p>
+          <p>These are different jobs. A State -> City -> Theatre dropdown chain needs live respondent-time filtering. FormRanger fits owner-controlled choice updates from Sheets before respondents use the form.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=google-forms-dependent-dropdown-from-google-sheets">Install FormRanger</a>
             <a class="btn" href="./dynamic-google-forms-dropdown-guide.html">Visual workflow</a>
@@ -132,7 +137,17 @@
 
       <section class="section" aria-labelledby="answer-title">
         <h2 id="answer-title">Quick answer</h2>
-        <p class="answer">Use FormRanger when Sheets is the source list and the form owner controls updates. Use another conditional-logic pattern when respondents need live filtering.</p>
+        <p class="answer">Google Forms cannot natively show a city dropdown from Sheets after a respondent chooses a state. Use FormRanger only when you need the form owner to refresh choice lists from Sheets before the form is shared.</p>
+      </section>
+
+      <section class="section" aria-labelledby="state-city-title">
+        <h2 id="state-city-title">For a State -> City -> Theatre form</h2>
+        <div class="grid">
+          <article class="card"><strong>What the user expects</strong><p>The respondent chooses State, then the City dropdown instantly shows only cities in that state, then the Theatre dropdown instantly shows only theatres in that city.</p></article>
+          <article class="card"><strong>What Google Forms provides</strong><p>Google Forms can route to sections based on a previous answer, but it does not provide a native spreadsheet-backed live filtering dropdown chain.</p></article>
+          <article class="card"><strong>Where FormRanger fits</strong><p>FormRanger can refresh separate owner-controlled choice lists from Sheets, such as a State list or a Theatre list, before respondents use the form.</p></article>
+          <article class="card"><strong>Where it does not fit</strong><p>FormRanger does not filter City choices live after each respondent chooses a State. That needs branching, Apps Script, AppSheet, or another form experience.</p></article>
+        </div>
       </section>
 
       <section class="section" aria-labelledby="path-title">
@@ -147,7 +162,7 @@
       <section class="section" aria-labelledby="patterns-title">
         <h2 id="patterns-title">Choose another pattern when needed</h2>
         <div class="grid">
-          <article class="card"><strong>Live filtering by answer</strong><p>Use sections, separate forms, Apps Script, or a form tool built for conditional dropdowns.</p></article>
+          <article class="card"><strong>Live filtering by answer</strong><p>Use sections, separate forms, Apps Script, AppSheet, or a form tool built for conditional dropdowns.</p></article>
           <article class="card"><strong>Seats or inventory</strong><p>Use buffers, manual review, or a system that can reserve availability.</p></article>
         </div>
       </section>
@@ -189,8 +204,12 @@
           <p>Not natively. Google Forms does not provide respondent-time filtering from a Sheets range.</p>
         </details>
         <details>
+          <summary><strong>Can I build State -> City -> Theatre dropdowns from one Sheet?</strong></summary>
+          <p>Not as a native live dropdown chain in Google Forms. You can use section routing for simple branching, or use Apps Script, AppSheet, or a different form tool for live filtering.</p>
+        </details>
+        <details>
           <summary><strong>What can FormRanger help with?</strong></summary>
-          <p>It can update supported Google Forms choice questions from selected Sheets data before respondents use the form.</p>
+          <p>It can update supported Google Forms choice questions from selected Sheets data before respondents use the form. It is useful for owner-controlled choice refreshes, not respondent-time filtering.</p>
         </details>
         <details>
           <summary><strong>What should I test first?</strong></summary>
