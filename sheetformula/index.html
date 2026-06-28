@@ -165,6 +165,24 @@
         'explain-query': { mode: 'explain', formula: `=QUERY(A1:D, "select A, sum(D) where B = 'Paid' group by A", 1)`, context: 'Explain this to a beginner.' },
         'generate-if': { mode: 'generate', formula: '', context: 'If the due date in C2 is before today and the status in D2 is not Done, show Overdue. Otherwise show OK.' }
       };
+      function trackFormulaEvent(name, detail = {}) {
+        const payload = {
+          product: 'Sheet Formula Helper',
+          target_type: 'formula_tool',
+          source: 'sheetformula_tool',
+          link_text: state.mode,
+          destination_path: '/sheetformula/#formula-tool',
+          destination_search: `?mode=${encodeURIComponent(state.mode)}`,
+          destination_utm_content: state.mode,
+          ...detail
+        };
+        if (window.FormSuiteTrack && typeof window.FormSuiteTrack.event === 'function') {
+          window.FormSuiteTrack.event(name, payload);
+        } else {
+          window.formsuiteTrackQueue = window.formsuiteTrackQueue || [];
+          window.formsuiteTrackQueue.push({ name, data: payload });
+        }
+      }
       function setMode(mode) {
         state.mode = mode;
         tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.mode === mode));
@@ -304,19 +322,35 @@ Platform: ${app}`;
         const formulaText = formula.value;
         const contextText = context.value;
         result.textContent = 'Working...';
+        trackFormulaEvent('formula_tool_start', {
+          link_text: `${state.mode}:${app}`,
+          destination_utm_content: `${state.mode}_${app.toLowerCase().replace(/\s+/g, '_')}`
+        });
         try {
           result.textContent = await callAiFormula({ mode: state.mode, app, formulaText, contextText });
+          trackFormulaEvent('formula_tool_success', {
+            link_text: `${state.mode}:${app}:api`,
+            destination_utm_content: `${state.mode}_api_success`
+          });
         } catch (error) {
           const fallback = localFormulaResult(state.mode, app, formulaText, contextText);
           result.textContent = `${fallback}
 
 Source: local browser rules. AI endpoint was unavailable (${error.message}).`;
+          trackFormulaEvent('formula_tool_error', {
+            link_text: `${state.mode}:${app}:fallback`,
+            destination_utm_content: `${state.mode}_fallback`
+          });
         }
       });
       document.getElementById('copyResult').addEventListener('click', async () => {
         const text = result.textContent.trim();
         if (!text) return;
         await navigator.clipboard.writeText(text);
+        trackFormulaEvent('formula_copy_result', {
+          link_text: state.mode,
+          destination_utm_content: `${state.mode}_copy_result`
+        });
         result.textContent = text + '\n\nCopied to clipboard.';
       });
       setMode('fix');

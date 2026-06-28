@@ -10,7 +10,8 @@
     ["formmerge", "FormMerge Pro"],
     ["docforge", "DocForge"],
     ["formflow", "FormFlow"],
-    ["formranger", "FormRanger"]
+    ["formranger", "FormRanger"],
+    ["sheetformula", "Sheet Formula Helper"]
   ];
 
   function productFromPath(pathname) {
@@ -30,6 +31,7 @@
     if (haystack.indexOf("docforge") !== -1 || haystack.indexOf("yaecjc42lfg") !== -1) return "DocForge";
     if (haystack.indexOf("formranger") !== -1) return "FormRanger";
     if (haystack.indexOf("formflow") !== -1 || haystack.indexOf("1082615279531") !== -1) return "FormFlow";
+    if (haystack.indexOf("sheetformula") !== -1 || haystack.indexOf("sheet formula") !== -1) return "Sheet Formula Helper";
     return productFromPath(window.location.pathname);
   }
 
@@ -68,6 +70,9 @@
     }
     if (path === "/choose-google-workspace-addon.html") {
       return "chooser_view";
+    }
+    if (path === "/sheetformula/" || path === "/sheetformula/index.html" || /^\/sheetformula\/.+\.html$/.test(path)) {
+      return "sheetformula_page_view";
     }
     if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/$/.test(path) || /\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/index\.html$/.test(path)) {
       return "product_page_view";
@@ -194,6 +199,7 @@
 
   function send(name, data) {
     if (!name) return;
+    data = data || {};
     var attribution = attributionFromSearch(window.location.search);
     var referrer = referrerInfo();
     var landing = getLandingInfo();
@@ -237,7 +243,7 @@
       destination_utm_content: data.destination_utm_content || "",
       destination_utm_term: data.destination_utm_term || "",
       link_text: data.link_text || "",
-      source: "formsuite.dev"
+      source: data.source || "formsuite.dev"
     };
 
     if (typeof window.gtag === "function") {
@@ -260,6 +266,17 @@
       }).catch(function () {});
     }
   }
+
+  window.FormSuiteTrack = {
+    event: function (name, data) {
+      send(name, data || {});
+    }
+  };
+  (window.formsuiteTrackQueue || []).forEach(function (queued) {
+    if (!queued || !queued.name) return;
+    send(queued.name, queued.data || {});
+  });
+  window.formsuiteTrackQueue = [];
 
   document.addEventListener("click", function (event) {
     var link = event.target && event.target.closest ? event.target.closest("a[href]") : null;
