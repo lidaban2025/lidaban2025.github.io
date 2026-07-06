@@ -1,51 +1,71 @@
 # FormSuite
 
-> FormSuite builds lightweight Google Workspace add-ons for Google Forms and Google Sheets operators.
+FormSuite is the official website for a portfolio of lightweight Google Workspace add-ons for Google Forms and Google Sheets operators.
 
-## Core Pages
+Production site:
 
-- [FormSuite homepage](https://formsuite.dev/): Product index for FormSuite Google Workspace add-ons.
-- [FormFlow](https://formsuite.dev/formflow/): Google Forms approval workflow add-on for reviewer emails, approve/reject links, and linked Google Sheets status tracking.
-- [FormFlow guide](https://formsuite.dev/formflow/google-forms-approval-workflow-guide.html): Guide to planning a Google Forms approval workflow.
-- [Form Approvals alternative](https://formsuite.dev/formflow/form-approvals-alternative-google-forms.html): Comparison page for users who want a lightweight alternative to a broader Google Forms approval platform.
-- [Form Approvals pricing alternative](https://formsuite.dev/formflow/form-approvals-pricing-alternative.html): Pricing-intent page for users deciding whether they need a full approval platform or a lightweight approve/reject workflow.
-- [Free Google Forms approval workflow](https://formsuite.dev/formflow/free-google-forms-approval-workflow.html): Free-intent guide for starting with one form, one approver, one decision email, and linked-Sheet status tracking.
-- [Power Automate alternative](https://formsuite.dev/formflow/power-automate-approval-workflow-alternative-google-forms.html): Migration guide for lightweight Microsoft Forms or Power Automate approval workflows moving to Google Forms.
-- [Approve/reject by email](https://formsuite.dev/formflow/approve-reject-google-forms-responses-by-email.html): Explains reviewer email decision links and Sheet writeback.
-- [Approval status in Google Sheets](https://formsuite.dev/formflow/google-forms-approval-status-in-google-sheets.html): Explains Pending, Approved, and Rejected status tracking in the linked response Sheet.
-- [First workflow test](https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html): Checklist for testing one internal approval workflow before launch.
+https://formsuite.dev/
 
-## Key Facts
+## Published install-first add-ons
 
-- FormFlow is a Google Workspace Marketplace add-on for Google Forms approval workflows.
-- FormFlow focuses on lightweight approve/reject workflows, not full procurement, ticketing, CRM, or compliance systems.
-- FormFlow sends reviewer emails, captures approve/reject decisions, and writes approval status back to the linked Google Sheets response file.
-- FormFlow is positioned as a lightweight option for users who find broader approval platforms too heavy for a simple Google Forms workflow.
-- Google Workspace, Google Forms, and Google Sheets are trademarks of Google LLC.
+- FormGuard: response limits, close dates, choice quotas, and form availability controls.
+- FormNotifier: Google Forms confirmation emails and owner notifications.
+- FormCopy Pro: copy formulas, formats, and helper columns into new response rows.
+- FormMerge Pro: personalized operational email merge from Google Sheets rows.
+- DocForge: generate Google Docs and PDFs from Google Sheets rows and Google Docs templates.
+- FormRanger: sync Google Forms choices from selected Google Sheets data.
+- FormFlow: lightweight Google Forms approval workflows with reviewer emails and linked Sheet status.
+
+## Priority pages
+
+- FormSuite homepage: https://formsuite.dev/
+- Product chooser: https://formsuite.dev/choose-google-workspace-addon.html
+- FormRanger: https://formsuite.dev/formranger/
+- FormFlow: https://formsuite.dev/formflow/
+- FormRanger first-run checklist: https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html
+- FormFlow first-run checklist: https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html
+
+## FormRanger choice-sync guides
+
+Use FormRanger when a form owner needs owner-controlled Google Sheets to Google Forms choice refresh before respondents use the form.
+
+- Auto update Google Forms dropdown from Google Sheets: https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html
+- Google Forms dropdown from Google Sheets without Apps Script: https://formsuite.dev/formranger/google-forms-dropdown-from-google-sheets-without-apps-script.html
+- Google Forms dropdown not updating from Google Sheets: https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html
+- Google Forms dependent dropdown limits: https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html
+- FormRanger support: https://formsuite.dev/formranger/support.html
+- FormRanger permissions: https://formsuite.dev/formranger/permissions.html
+
+FormRanger supports dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices. It is not a live respondent-time dependent dropdown system, inventory lock, booking system, or payment workflow.
+
+## FormFlow approval workflow guides
+
+Use FormFlow when a form owner needs a lightweight Google Forms approval workflow with one or more reviewer decisions and linked Google Sheets status.
+
+- Google Forms approval workflow guide: https://formsuite.dev/formflow/google-forms-approval-workflow-guide.html
+- Test a Google Forms approval workflow before launch: https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html
+- Approve or reject Google Forms responses by email: https://formsuite.dev/formflow/approve-reject-google-forms-responses-by-email.html
+- Track approval status in Google Sheets: https://formsuite.dev/formflow/google-forms-approval-status-in-google-sheets.html
+- Google Forms approval workflow without Apps Script: https://formsuite.dev/formflow/google-forms-approval-workflow-without-apps-script.html
+- Free Google Forms approval workflow: https://formsuite.dev/formflow/free-google-forms-approval-workflow.html
+- FormFlow support: https://formsuite.dev/formflow/support.html
+- FormFlow permissions and privacy: https://formsuite.dev/formflow/privacy-policy.html
+
+FormFlow focuses on small Google Forms approval workflows: select the linked response Sheet, add one approver, run Preflight, submit one internal test response, confirm the reviewer email, approve or reject, and verify the linked Sheet status. It is not a full procurement platform, ticketing system, CRM, legal approval platform, or enterprise compliance suite.
+
+## Public funnel
+
+1. Choose the right add-on.
+2. Install from Google Workspace Marketplace.
+3. Run one small first-use test.
+4. Use support or feedback if setup fails.
+5. Request a review only after a successful first-run outcome.
 
 ## Contact
 
 - Website: https://formsuite.dev/
-- Support: https://formsuite.dev/formflow/support.html
+- General support: https://formsuite.dev/support.html
+- Privacy: https://formsuite.dev/privacy.html
+- Terms: https://formsuite.dev/terms.html
 
-Last updated: 2026-06-28
-## Sheet Formula Helper
-
-- Sheet Formula Helper: https://formsuite.dev/sheetformula/ — Online tool for fixing, explaining, and generating Google Sheets and Excel formulas.
-- Google Sheets Formula Fixer: https://formsuite.dev/sheetformula/google-sheets-formula-fixer.html — Fix #N/A, parse errors, wrong ranges, lookup mode, and IFERROR patterns in Google Sheets formulas.
-- Excel Formula Fixer: https://formsuite.dev/sheetformula/excel-formula-fixer.html — Fix Excel formulas with lookup, reference, separator, and error-handling problems.
-- VLOOKUP Formula Fixer: https://formsuite.dev/sheetformula/vlookup-formula-fixer.html — Fix VLOOKUP exact-match, #N/A, return-column, and lookup-left issues.
-- Google Sheets Formula Generator: https://formsuite.dev/sheetformula/google-sheets-formula-generator.html — Generate starter formulas from plain English rules.
-- Formula Explainer: https://formsuite.dev/sheetformula/formula-explainer.html — Explain Google Sheets and Excel formulas in plain English.
-- Support: https://formsuite.dev/sheetformula/support.html
-- Privacy: https://formsuite.dev/sheetformula/privacy.html
-- Terms: https://formsuite.dev/sheetformula/terms.html
-
-## FormRanger Dropdown Guides
-
-- FormRanger: https://formsuite.dev/formranger/ — Google Forms add-on for syncing dropdown, multiple-choice, checkbox, and grid choices from selected Google Sheets data.
-- Auto update Google Forms dropdown from Google Sheets: https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html
-- Google Forms dropdown from Google Sheets without Apps Script: https://formsuite.dev/formranger/google-forms-dropdown-from-google-sheets-without-apps-script.html
-- Google Forms dropdown not updating from Google Sheets: https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html
-- Google Forms dependent dropdown from Sheets: https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html
-
+Last updated: 2026-07-07
