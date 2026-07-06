@@ -9,28 +9,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormRanger Support | dynamic Google Forms choices</title>
-  <meta name="description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data.">
+  <meta name="description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, multiple-choice, checkbox, and grid choices from selected Google Sheets data.">
   <link rel="canonical" href="https://formsuite.dev/formranger/support.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="FormRanger Support | dynamic Google Forms choices">
-  <meta property="og:description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data.">
+  <meta property="og:description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, multiple-choice, checkbox, and grid choices from selected Google Sheets data.">
   <meta property="og:url" content="https://formsuite.dev/formranger/support.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FormRanger Support">
-  <meta name="twitter:description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data.">
+  <meta name="twitter:description" content="Setup help and first-run checks for FormRanger: sync Google Forms dropdown, multiple-choice, checkbox, and grid choices from selected Google Sheets data.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
-        {"@type":"WebPage","name":"FormRanger support","url":"https://formsuite.dev/formranger/support.html","description":"Setup help and first-run checks for FormRanger: sync Google Forms dropdown, checkbox, multiple-choice, and grid choices from selected Google Sheets data."},
+        {"@type":"WebPage","name":"FormRanger support","url":"https://formsuite.dev/formranger/support.html","description":"Setup help and first-run checks for FormRanger: sync Google Forms dropdown, multiple-choice, checkbox, and grid choices from selected Google Sheets data."},
         {"@type":"FAQPage","mainEntity":[
             {
               "@type": "Question",
               "name": "Which questions work?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Dropdown, multiple choice, checkbox, grid, and checkbox grid questions."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid questions."}
             },
             {
               "@type": "Question",
@@ -41,6 +41,16 @@
               "@type": "Question",
               "name": "Can it remove duplicates?",
               "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use the remove-duplicates option before saving the mapping."}
+            },
+            {
+              "@type": "Question",
+              "name": "Can FormRanger create dependent dropdowns?",
+              "acceptedAnswer": {"@type": "Answer", "text": "FormRanger is for owner-controlled refreshes from Sheets before respondents use the form. It does not filter one dropdown in real time while a respondent is filling out the form."}
+            },
+            {
+              "@type": "Question",
+              "name": "Is FormRanger a booking or inventory system?",
+              "acceptedAnswer": {"@type": "Answer", "text": "No. FormRanger updates form choices from selected spreadsheet data. It does not reserve seats, process payments, or lock inventory."}
             }
         ]}
       ]
@@ -91,6 +101,7 @@
           <a href="./dynamic-google-forms-dropdown-guide.html">Dropdown guide</a>
           <a href="./import-google-forms-choices-from-google-sheets.html">Import choices from Sheets</a>
           <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix choices not updating</a>
+          <a href="./google-forms-dependent-dropdown-from-google-sheets.html">Dependent dropdown limits</a>
         </div>
       </article>
       <aside class="card">
@@ -120,9 +131,11 @@
     <section class="card" style="margin-top:18px;">
       <div class="pill">FAQ</div>
       <h2>Common questions</h2>
-      <div class="faq-item"><strong>Which questions work?</strong><p>Dropdown, multiple choice, checkbox, grid, and checkbox grid questions.</p></div>
+      <div class="faq-item"><strong>Which questions work?</strong><p>Dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid questions.</p></div>
         <div class="faq-item"><strong>Why did update fail?</strong><p>Usually the form question, sheet tab, or source column was renamed or removed.</p></div>
         <div class="faq-item"><strong>Can it remove duplicates?</strong><p>Yes. Use the remove-duplicates option before saving the mapping.</p></div>
+        <div class="faq-item"><strong>Can FormRanger create dependent dropdowns?</strong><p>Use FormRanger for owner-controlled Sheets-to-Forms choice refresh before respondents use the form. It is not respondent-time filtering where one answer instantly changes the next dropdown.</p></div>
+        <div class="faq-item"><strong>Is it a booking or inventory system?</strong><p>No. FormRanger updates choices from a selected spreadsheet source. It does not reserve seats, process payments, or lock inventory while respondents are submitting.</p></div>
     </section>
 
     <footer><p>&copy; 2026 FormRanger. Google Workspace product names are trademarks of Google LLC.</p></footer>
