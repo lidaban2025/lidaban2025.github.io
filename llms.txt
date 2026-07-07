@@ -30,9 +30,13 @@ https://formsuite.dev/
 Use FormRanger when a form owner needs owner-controlled Google Sheets to Google Forms choice refresh before respondents use the form.
 
 - Auto update Google Forms dropdown from Google Sheets: https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html
+- Import Google Forms choices from Google Sheets: https://formsuite.dev/formranger/import-google-forms-choices-from-google-sheets.html
+- Populate Google Forms multiple-choice options from Google Sheets: https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html
+- Google Forms checkbox list from Google Sheets: https://formsuite.dev/formranger/google-forms-checkbox-list-from-google-sheets.html
+- Google Forms grid choices from Google Sheets: https://formsuite.dev/formranger/google-forms-grid-choices-from-google-sheets.html
 - Google Forms dropdown from Google Sheets without Apps Script: https://formsuite.dev/formranger/google-forms-dropdown-from-google-sheets-without-apps-script.html
 - Google Forms dropdown not updating from Google Sheets: https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html
-- Google Forms dependent dropdown limits: https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html
+- Dynamic drop down lists from Google Sheets into Google Forms / dependent dropdown limits: https://formsuite.dev/formranger/google-forms-dependent-dropdown-from-google-sheets.html
 - FormRanger support: https://formsuite.dev/formranger/support.html
 - FormRanger permissions: https://formsuite.dev/formranger/permissions.html
 
@@ -68,4 +72,4 @@ FormFlow focuses on small Google Forms approval workflows: select the linked res
 - Privacy: https://formsuite.dev/privacy.html
 - Terms: https://formsuite.dev/terms.html
 
-Last updated: 2026-07-07
+Last updated: 2026-07-08
