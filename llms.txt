@@ -30,6 +30,7 @@ https://formsuite.dev/
 Use FormRanger when a form owner needs owner-controlled Google Sheets to Google Forms choice refresh before respondents use the form.
 
 - Auto update Google Forms dropdown from Google Sheets: https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html
+- Google Forms long dropdown list from Google Sheets: https://formsuite.dev/formranger/google-forms-long-dropdown-list-from-google-sheets.html
 - Import Google Forms choices from Google Sheets: https://formsuite.dev/formranger/import-google-forms-choices-from-google-sheets.html
 - Populate Google Forms multiple-choice options from Google Sheets: https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html
 - Google Forms checkbox list from Google Sheets: https://formsuite.dev/formranger/google-forms-checkbox-list-from-google-sheets.html

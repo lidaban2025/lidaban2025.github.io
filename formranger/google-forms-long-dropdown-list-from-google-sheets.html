@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#5e6ad2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Forms long dropdown list from Google Sheets | FormRanger</title>
+  <meta name="description" content="Use Google Sheets as the source for a long Google Forms dropdown list. Keep the list outside the form editor, run Preflight, update choices, and verify public preview.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/google-forms-long-dropdown-list-from-google-sheets.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="Google Forms long dropdown list from Google Sheets">
+  <meta property="og:description" content="A safer way to maintain large Google Forms dropdown option lists from a Google Sheets source column.">
+  <meta property="og:url" content="https://formsuite.dev/formranger/google-forms-long-dropdown-list-from-google-sheets.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Forms long dropdown list from Google Sheets">
+  <meta name="twitter:description" content="Keep long Google Forms dropdown choices in Sheets, then update and verify the respondent preview.">
+  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Google Forms long dropdown list from Google Sheets",
+          "description": "A practical guide for maintaining a long Google Forms dropdown list from a Google Sheets source column.",
+          "author": { "@type": "Organization", "name": "FormSuite" },
+          "publisher": { "@type": "Organization", "name": "FormSuite" },
+          "dateModified": "2026-07-08",
+          "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-long-dropdown-list-from-google-sheets.html"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I manage a long Google Forms dropdown list?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Keep the source options in one clean Google Sheets column, update the Google Forms dropdown from that column, and verify the public respondent preview after the update."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I hide a long option list while editing a Google Form?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Google Forms still stores the options in the question, but using Sheets as the source list lets the owner maintain the long list in a spreadsheet and update the form only when ready."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this a live dependent dropdown or inventory system?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This is an owner-controlled choice refresh workflow. It does not filter choices while a respondent is filling the form, reserve inventory, process payments, or lock seats."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root { --ink:#17263d; --muted:#5a6a83; --line:#d9e2ef; --blue:#1463ff; --blue-soft:#eef4ff; --green:#17633f; --green-soft:#ebf8ef; --amber:#775517; --amber-soft:#fff8e7; --panel:#fff; --shadow:0 14px 34px rgba(23,38,61,.09); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7fbff 0%,#fff 58%); line-height:1.6; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .shell { max-width:980px; margin:0 auto; padding:28px 20px 56px; }
+    .nav { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:22px; font-size:.94rem; }
+    .hero,.section { background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); }
+    .hero { padding:30px; margin-bottom:16px; }
+    .eyebrow { display:inline-block; padding:6px 11px; border-radius:999px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:700; margin-bottom:14px; }
+    h1 { font-size:2.25rem; line-height:1.1; letter-spacing:0; margin-bottom:12px; max-width:20ch; }
+    h2 { font-size:1.35rem; letter-spacing:0; margin-bottom:10px; }
+    p,li { color:var(--muted); }
+    .hero p { max-width:780px; }
+    .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn-primary { background:var(--blue); color:#fff; }
+    .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .section { padding:24px; margin-top:16px; }
+    .answer { padding:14px 16px; background:var(--green-soft); border:1px solid rgba(23,99,63,.18); border-radius:14px; color:var(--green); font-weight:700; }
+    .caution { padding:14px 16px; background:var(--amber-soft); border:1px solid rgba(119,85,23,.22); border-radius:14px; color:var(--amber); font-weight:700; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:14px; }
+    .card { border:1px solid var(--line); border-radius:14px; padding:16px; background:#fff; }
+    .steps { padding-left:22px; display:grid; gap:8px; }
+    .table-wrap { overflow:auto; border:1px solid var(--line); border-radius:14px; margin-top:14px; }
+    table { width:100%; border-collapse:collapse; background:#fff; }
+    th,td { padding:12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--ink); background:#f3f7fc; }
+    details { border:1px solid var(--line); border-radius:14px; padding:14px 16px; background:#fff; }
+    details + details { margin-top:10px; }
+    summary { cursor:pointer; color:var(--ink); }
+    .footer { margin-top:22px; color:var(--muted); font-size:.9rem; }
+    @media (max-width:720px){ h1{font-size:1.85rem;} .hero,.section{padding:20px;} .grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav" aria-label="Breadcrumb">
+      <a href="../index.html">FormSuite</a>
+      <a href="./index.html">FormRanger</a>
+      <a href="../resources/">Guides</a>
+      <a href="./support.html">Support</a>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">Long dropdown list</div>
+      <h1>Google Forms long dropdown list from Google Sheets</h1>
+      <p>Long Google Forms dropdowns are painful to maintain inside the form editor. A safer pattern is to keep the source list in Google Sheets, clean it there, update the dropdown when ready, and then check the public respondent preview.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_long_dropdown_20260708&utm_content=long-dropdown-list">Install FormRanger</a>
+        <a class="btn btn-secondary" href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+        <a class="btn btn-secondary" href="./permissions.html">Read permissions</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Quick answer</h2>
+      <p class="answer">For a long Google Forms dropdown, maintain the options in one clean Google Sheets column. Use FormRanger to map that column to the dropdown, run Preflight, update choices, and verify the respondent-facing preview before sharing the form.</p>
+    </section>
+
+    <section class="section">
+      <h2>When this page is the right fit</h2>
+      <div class="grid">
+        <div class="card"><strong>The dropdown has too many options</strong><p>The form editor is hard to scan because the question contains dozens or hundreds of choices.</p></div>
+        <div class="card"><strong>The list changes in Sheets</strong><p>Departments, names, products, locations, sessions, or IDs are already maintained in a spreadsheet.</p></div>
+        <div class="card"><strong>You want a review step</strong><p>The owner wants to clean, sort, or dedupe choices before respondents see them.</p></div>
+        <div class="card"><strong>You do not want Apps Script ownership</strong><p>No one wants to maintain form IDs, item IDs, triggers, authorization, or error handling.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>First-run path for a long list</h2>
+      <ol class="steps">
+        <li>Copy the live form or create a test form with one dropdown question.</li>
+        <li>Create a Sheet tab with one header and a short sample list first, such as Alpha and Beta.</li>
+        <li>Open FormRanger in the copied form and select the spreadsheet source.</li>
+        <li>Map the Sheets column to the dropdown question.</li>
+        <li>Run Preflight before changing choices.</li>
+        <li>Click Update now and confirm the success message.</li>
+        <li>Open the public respondent preview and verify the dropdown values there.</li>
+        <li>Only then replace the sample list with the real long list.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Manual paste vs Sheets source list</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Path</th><th>Good when</th><th>Risk</th></tr></thead>
+          <tbody>
+            <tr><td>Manual paste</td><td>The list is short and rarely changes.</td><td>Long lists are easy to paste with blanks, duplicates, stale values, or the wrong sort order.</td></tr>
+            <tr><td>Apps Script</td><td>A technical owner can maintain triggers, IDs, permissions, and logs.</td><td>The workflow can break when the form is copied, questions change, or authorization expires.</td></tr>
+            <tr><td>FormRanger</td><td>The list lives in Sheets and the form owner wants a no-code update plus Preflight.</td><td>The owner still needs to run and verify the update before respondents use the form.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Clean the source column first</h2>
+      <div class="grid">
+        <div class="card"><strong>One header row</strong><p>Keep the source values under one obvious header so the mapping is easy to recognize.</p></div>
+        <div class="card"><strong>No blank rows</strong><p>Remove empty rows and invisible spacing before updating the form.</p></div>
+        <div class="card"><strong>Dedupe before launch</strong><p>Duplicate choices make the respondent experience confusing and can hide source-list errors.</p></div>
+        <div class="card"><strong>Preview after every major change</strong><p>The final proof is the public form preview, not only the editor or saved mapping.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Boundary</h2>
+      <p class="caution">This workflow maintains a long option list before respondents use the form. It does not hide choices dynamically while someone is filling out the form, reserve inventory, process payments, lock seats, or run a booking system.</p>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+      <details><summary><strong>Can Google Forms handle a long dropdown list?</strong></summary><p>Yes, but long lists are hard to maintain directly in the form editor. A Sheets source list gives the owner a cleaner place to sort, clean, and review choices before updating the form.</p></details>
+      <details><summary><strong>Can I keep the long list hidden while editing the form?</strong></summary><p>Google Forms still stores the choices in the dropdown question after update. The advantage is that day-to-day maintenance happens in Sheets, and the form is updated only when the owner is ready.</p></details>
+      <details><summary><strong>Does this update choices while a respondent is filling out the form?</strong></summary><p>No. Use it as an owner-controlled refresh before sharing the form or between response windows.</p></details>
+      <details><summary><strong>What proves the update worked?</strong></summary><p>Run Preflight, click Update now, then open the public respondent preview and confirm that the dropdown shows the expected Sheet values.</p></details>
+    </section>
+
+    <section class="section">
+      <h2>Next step</h2>
+      <p>Install only if your workflow matches this boundary. Start with a copied form and a tiny source column, then scale to the real long list after the public preview is correct.</p>
+      <div class="link-bar">
+        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_long_dropdown_20260708&utm_content=long-dropdown-list">Install from Marketplace</a>
+        <a href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run checklist</a>
+        <a href="./auto-update-google-forms-dropdown-from-google-sheets.html">Dropdown update guide</a>
+        <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix dropdown not updating</a>
+        <a href="./google-forms-dependent-dropdown-from-google-sheets.html">Dependent dropdown limits</a>
+        <a href="./support.html">Setup support</a>
+      </div>
+    </section>
+
+    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
