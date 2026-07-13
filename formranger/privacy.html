@@ -61,7 +61,7 @@
 
   <div class="container">
     <a href="index.html" class="back">&larr; Back to FormRanger</a>
-    <p><strong>Last updated:</strong> May 17, 2026</p>
+    <p><strong>Last updated:</strong> July 13, 2026</p>
     <div class="actions">
       <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=privacy">Install from Marketplace</a>
       <a href="permissions.html">Permissions explained</a>
@@ -96,6 +96,10 @@
       <li>Only lightweight mapping configuration is persisted; raw spreadsheet rows are not retained outside Google services.</li>
       <li>Support requests are handled through email; users should avoid sending unnecessary sensitive sheet data in support messages.</li>
     </ul>
+
+    <h2>Diagnostic Logging</h2>
+    <p>FormRanger records limited operational events in Google Cloud Logging so we can measure whether setup, preflight checks, spreadsheet selection, and choice updates succeed or fail. These events use coarse count and duration ranges plus standardized error categories.</p>
+    <p>Diagnostic events do not include email addresses, form IDs, spreadsheet IDs, question titles, sheet names, column names, cell values, or raw error messages. Logs remain within the add-on's Google Cloud project and are used only for reliability, troubleshooting, and product improvement.</p>
 
     <h2>Data Sharing</h2>
     <p>We do <strong>not</strong> share, sell, rent, or disclose user data to third parties for advertising or marketing. Your form and spreadsheet data remains within the Google ecosystem while the add-on runs.</p>
