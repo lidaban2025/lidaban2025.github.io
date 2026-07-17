@@ -15,6 +15,20 @@
     ["formranger", "FormRanger"],
     ["sheetformula", "Sheet Formula Helper"]
   ];
+  var workflowStates = ["not-installed", "testing", "successful"];
+  var workflowSteps = ["select-source", "map-question", "preflight", "update-preview"];
+
+  function approvedValue(value, allowed) {
+    return allowed.indexOf(value) !== -1 ? value : "";
+  }
+
+  function approvedProgress(value) {
+    return typeof value === "number" && isFinite(value) && value >= 0 && value <= 4 ? Math.floor(value) : "";
+  }
+
+  function approvedComplete(value) {
+    return value === true || value === false ? value : "";
+  }
 
   function productFromPath(pathname) {
     var lower = String(pathname || "").toLowerCase();
@@ -58,7 +72,12 @@
       utm_content: payload.utm_content || "",
       source_param: payload.source_param || "",
       link_text: payload.link_text || "",
-      source: payload.source || ""
+      source: payload.source || "",
+      state: payload.state || "",
+      step: payload.step || "",
+      complete: payload.complete,
+      progress_complete: payload.progress_complete,
+      confirmation: payload.confirmation || ""
     };
   }
 
@@ -283,7 +302,12 @@
       destination_utm_content: data.destination_utm_content || "",
       destination_utm_term: data.destination_utm_term || "",
       link_text: data.link_text || "",
-      source: data.source || "formsuite.dev"
+      source: data.source || "formsuite.dev",
+      state: approvedValue(data.state, workflowStates),
+      step: approvedValue(data.step, workflowSteps),
+      complete: approvedComplete(data.complete),
+      progress_complete: approvedProgress(data.progress_complete),
+      confirmation: data.confirmation === "Alpha|Beta" ? "Alpha|Beta" : ""
     };
 
     if (typeof window.gtag === "function") {

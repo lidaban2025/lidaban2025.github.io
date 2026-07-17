@@ -130,15 +130,30 @@
         </div>
       </section>
 
-      <section class="section">
-        <h2>First-run path</h2>
-        <ol class="steps">
-        <li>Create or copy a Google Form with one supported choice question.</li>
-        <li>Create a Google Sheets column with two visible test choices.</li>
-        <li>Select the spreadsheet, sheet tab, column, and question in FormRanger.</li>
-        <li>Run Preflight, then use Update now.</li>
-          <li>Open the public form preview and confirm the choices match the sheet.</li>
+      <section class="section first-run-workspace" data-formranger-first-run id="preview-success">
+        <h2>Complete one Alpha/Beta update</h2>
+        <p>Use a copied form and mark each step as you verify it. This checklist is saved in this browser.</p>
+        <div class="first-run-progress" aria-live="polite">
+          <span data-first-run-progress>0/4 complete</span>
+        </div>
+        <ol class="first-run-steps">
+          <li><label><input type="checkbox" data-first-run-step="select-source"> <span>Select the Sheet, tab, and Alpha/Beta column.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="map-question"> <span>Map one supported choice question.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="preflight"> <span>Run Preflight and resolve every warning.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="update-preview"> <span>Run Update now and open the public respondent preview.</span></label></li>
         </ol>
+        <label class="preview-confirm">
+          <input type="checkbox" data-preview-confirm>
+          <span>The public respondent preview shows Alpha and Beta.</span>
+        </label>
+        <div class="outcome support-outcome" data-support-outcome>
+          <p>Not all checks passed yet? Use the focused troubleshooting path before touching a live form.</p>
+          <a class="btn btn-secondary" href="../setup-help.html?product=FormRanger&amp;source=formranger-first-run-failed">Troubleshoot this test</a>
+        </div>
+        <div class="outcome review-outcome" data-review-outcome hidden>
+          <p>Your public preview is the success proof. An honest Marketplace review is now appropriate.</p>
+          <a class="btn btn-primary" href="review-after-first-success.html">Open the review-after-success page</a>
+        </div>
       </section>
 
       <section class="section">
@@ -212,20 +227,10 @@
         <details><summary><strong>Does the test cover live capacity?</strong></summary><p>No. FormRanger updates choices; it does not reserve inventory, sell seats, or remove a choice while someone is filling out the form.</p></details>
       </section>
 
-      <section class="section">
-        <h2>After the preview check</h2>
-      <p>If Preflight passes, Update now reports at least one updated question, and the public preview shows the expected sheet values, that is the right moment to leave an honest Marketplace review. If any step is still unclear, use support first.</p>
-      <div class="link-bar">
-        <a href="./review-after-first-success.html">Review after first success</a>
-        <a href="../setup-help.html?product=FormRanger&source=formranger-after-preview-check">Support first</a>
-        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=test-google-forms-dynamic-choices-before-launch">Open Marketplace</a>
-        <a href="./import-google-forms-choices-from-google-sheets.html">Import choices</a>
-        <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
-      </div>
-    </section>
-
     <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
   </div>
+  <script src="/formranger/first-success-state.js?v=20260718a" defer></script>
+  <script src="/formranger/first-success.js?v=20260718a" defer></script>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

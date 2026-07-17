@@ -1,8 +1,11 @@
 {
   "scripts": {
+    "test": "npm run test:formranger && npm run check:links",
+    "test:formranger": "node --test tests/formranger-first-success.test.cjs",
+    "check:links": "node scripts/check-site-links.mjs",
     "build:site": "node scripts/build-site.js",
-    "cf:check": "npm run build:site && wrangler deploy --dry-run",
-    "deploy": "npm run build:site && wrangler deploy"
+    "cf:check": "npm run build:site && npx wrangler deploy --dry-run",
+    "deploy": "npm run build:site && npx wrangler deploy"
   },
   "dependencies": {
     "ws": "^8.21.0"

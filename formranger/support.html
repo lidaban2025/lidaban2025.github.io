@@ -97,7 +97,7 @@
         <h3>Useful guides</h3>
         <div class="path-links">
           <a href="./test-google-forms-dynamic-choices-before-launch.html">First-run test</a>
-          <a href="./review-after-first-success.html">Review after success</a>
+          <a href="./permissions.html">Permissions explained</a>
           <a href="./dynamic-google-forms-dropdown-guide.html">Dropdown guide</a>
           <a href="./import-google-forms-choices-from-google-sheets.html">Import choices from Sheets</a>
           <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix choices not updating</a>
@@ -117,6 +117,19 @@
       </aside>
     </section>
 
+    <section class="section" aria-labelledby="focused-fixes-title">
+      <div class="pill">Focused fixes</div>
+      <h2 id="focused-fixes-title">Open the check that matches the failure</h2>
+      <p>Start with the smallest failed step so the support note stays specific and useful.</p>
+      <ul class="plain-links">
+        <li><a id="selected-file" href="../setup-help.html?product=FormRanger&amp;source=formranger-selected-file">Selected file</a><span>The wrong spreadsheet opens or no source is available.</span></li>
+        <li><a id="tab-column" href="../setup-help.html?product=FormRanger&amp;source=formranger-tab-column">Sheet tab or column</a><span>The expected tab, header, or Alpha/Beta values are missing.</span></li>
+        <li><a id="question-mapping" href="../setup-help.html?product=FormRanger&amp;source=formranger-question-mapping">Question mapping</a><span>The form question cannot be selected or was renamed.</span></li>
+        <li><a id="preflight-warning" href="../setup-help.html?product=FormRanger&amp;source=formranger-preflight-warning">Preflight warning</a><span>Preflight reports an invalid or incomplete mapping.</span></li>
+        <li><a id="update-preview" href="../setup-help.html?product=FormRanger&amp;source=formranger-update-preview">Update or public preview</a><span>Update now runs, but respondent-facing choices stay unchanged.</span></li>
+      </ul>
+    </section>
+
     <section class="card" style="margin-top:18px;">
       <div class="pill">First-run quality gate</div>
       <h2>Do not launch until these pass</h2>
@@ -124,7 +137,7 @@
         <li><strong>Preflight</strong><br>It says the mapping is valid and shows the expected mapping count.</li>
         <li><strong>Update report</strong><br>It says at least one question was updated. Skipped or error is not a successful run.</li>
         <li><strong>Public respondent preview</strong><br>The public form shows the choices from the selected Sheets column.</li>
-        <li><strong>Review timing</strong><br>Only leave a Marketplace review after the setup succeeds in the public preview. Use the <a href="./review-after-first-success.html">FormRanger review-after-success page</a> when it works.</li>
+        <li><strong>Review timing</strong><br>Only leave a Marketplace review after the setup succeeds in the public preview. The <a href="./test-google-forms-dynamic-choices-before-launch.html#preview-success">first-run checklist</a> reveals that next step after all four checks and the preview confirmation pass.</li>
       </ul>
     </section>
 
