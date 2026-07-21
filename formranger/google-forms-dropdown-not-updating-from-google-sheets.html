@@ -16,11 +16,11 @@
   <meta property="og:title" content="Google Forms dropdown not updating from Sheets">
   <meta property="og:description" content="Check the source column, mapping, Preflight, Update now, and public preview before changing a live form.">
   <meta property="og:url" content="https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html">
-  <meta property="og:image" content="https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg">
+  <meta property="og:image" content="https://img.youtube.com/vi/RE8HR9t9n_0/hqdefault.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Google Forms dropdown not updating from Sheets">
   <meta name="twitter:description" content="A short FormRanger troubleshooting path for stale Google Forms dropdown choices.">
-  <meta name="twitter:image" content="https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg">
+  <meta name="twitter:image" content="https://img.youtube.com/vi/RE8HR9t9n_0/hqdefault.jpg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -94,8 +94,15 @@
     summary { cursor:pointer; color:var(--ink); }
     details p { margin-top:8px; }
     .footer { margin-top:28px; text-align:center; color:var(--muted); font-size:.9rem; }
-    @media (max-width:860px) { .hero,.flow { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { max-width:none; } .check-row { grid-template-columns:34px 1fr; } .check-row .status { grid-column:2; } }
-    @media (max-width:540px) { .hero-actions .btn { width:100%; } }
+    .video-proof { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr); gap:22px; align-items:center; }
+    .video-proof-media { display:block; aspect-ratio:16 / 9; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#101826; }
+    .video-proof-media img { display:block; width:100%; height:100%; object-fit:cover; }
+    .video-proof-copy .eyebrow { margin-bottom:10px; }
+    .video-proof-copy p { max-width:650px; }
+    .video-proof-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .video-proof-note { margin-top:10px; font-size:.9rem; }
+    @media (max-width:860px) { .hero,.flow,.video-proof { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { max-width:none; } .check-row { grid-template-columns:34px 1fr; } .check-row .status { grid-column:2; } }
+    @media (max-width:540px) { .hero-actions .btn,.video-proof-actions .btn { width:100%; } }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,6 +141,22 @@
       <section class="section" aria-labelledby="answer-title">
         <h2 id="answer-title">Quick answer</h2>
         <p class="answer">If the dropdown is stale, test one copied form with Alpha/Beta in Sheets, run Preflight, click Update now, then inspect the respondent-facing preview. A saved mapping is not enough; the update report must say a question was updated.</p>
+      </section>
+
+      <section class="section video-proof" aria-labelledby="video-proof-title">
+        <a class="video-proof-media" href="https://youtu.be/RE8HR9t9n_0" target="_blank" rel="noopener noreferrer" aria-label="Watch the verified FormRanger 60-second first-run test on YouTube">
+          <img src="https://img.youtube.com/vi/RE8HR9t9n_0/hqdefault.jpg" alt="FormRanger 60-second first-run test showing the Google Sheets to Google Forms dropdown update path" loading="lazy">
+        </a>
+        <div class="video-proof-copy">
+          <div class="eyebrow">60-second verified test</div>
+          <h2 id="video-proof-title">See the first-run pass before touching a live form</h2>
+          <p>The test passes only when Preflight succeeds, Update now reports at least one updated question, and the public respondent preview shows the expected Google Sheets values.</p>
+          <div class="video-proof-actions">
+            <a class="btn btn-primary" href="https://youtu.be/RE8HR9t9n_0" target="_blank" rel="noopener noreferrer">Watch the 60-second test</a>
+            <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Run the Alpha/Beta checklist</a>
+          </div>
+          <p class="video-proof-note">FormRanger refreshes owner-controlled choices before respondents use the form. It is not respondent-time dependent-dropdown, booking, inventory, or payment software.</p>
+        </div>
       </section>
 
       <section class="section" aria-labelledby="triage-title">
