@@ -8,21 +8,21 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FormSuite | Google Forms limits, emails, PDFs, approvals</title>
-  <meta name="description" content="Install FormSuite add-ons for Google Forms response limits, confirmation emails, Sheets choice sync, formulas, document PDFs, and approval workflows.">
+  <title>FormRanger | Sync Google Forms choices from Google Sheets | FormSuite</title>
+  <meta name="description" content="Keep Google Forms dropdown, checkbox, and multiple-choice options synced from Google Sheets with FormRanger, then prove one update before launch.">
   <link rel="canonical" href="https://formsuite.dev/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="FormSuite | Google Forms limits, emails, PDFs, approvals">
-  <meta property="og:description" content="Install focused FormSuite add-ons for response limits, confirmation emails, choice sync, formulas, PDFs, and approvals.">
+  <meta property="og:title" content="FormRanger | Sync Google Forms choices from Google Sheets | FormSuite">
+  <meta property="og:description" content="Keep Google Forms choices synced from Google Sheets, test one update, and send respondents to a form that shows the expected options.">
   <meta property="og:url" content="https://formsuite.dev/">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FormSuite | Google Forms limits, emails, PDFs, approvals">
-  <meta name="twitter:description" content="Choose and install focused FormSuite add-ons from Google Workspace Marketplace.">
+  <meta name="twitter:title" content="FormRanger | Sync Google Forms choices from Google Sheets | FormSuite">
+  <meta name="twitter:description" content="A focused FormSuite add-on for refreshing Google Forms choices from a selected Google Sheets source.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -38,14 +38,14 @@
           "@type": "WebSite",
           "name": "FormSuite",
           "url": "https://formsuite.dev/",
-          "description": "Google Workspace add-ons for Google Forms response limits, confirmation emails, Sheets choice sync, formulas, PDFs, and approvals."
+          "description": "FormRanger keeps Google Forms choices synced from Google Sheets, as part of the FormSuite collection of focused Google Workspace add-ons."
         },
         {
           "@type": "ItemList",
           "name": "FormSuite add-ons",
           "itemListElement": [
-            { "@type": "SoftwareApplication", "position": 1, "name": "FormFlow", "url": "https://formsuite.dev/formflow/" },
-            { "@type": "SoftwareApplication", "position": 2, "name": "FormRanger", "url": "https://formsuite.dev/formranger/" },
+            { "@type": "SoftwareApplication", "position": 1, "name": "FormRanger", "url": "https://formsuite.dev/formranger/" },
+            { "@type": "SoftwareApplication", "position": 2, "name": "FormFlow", "url": "https://formsuite.dev/formflow/" },
             { "@type": "SoftwareApplication", "position": 3, "name": "FormGuard", "url": "https://formsuite.dev/formguard/" },
             { "@type": "SoftwareApplication", "position": 4, "name": "FormNotifier", "url": "https://formsuite.dev/formnotifier/" },
             { "@type": "SoftwareApplication", "position": 5, "name": "FormCopy Pro", "url": "https://formsuite.dev/formcopy/" },
@@ -70,7 +70,7 @@
               "name": "Which FormSuite add-on should I install first?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Install the add-on that matches the job: FormGuard for limits and quotas, FormNotifier for confirmation emails, FormRanger for choices from Sheets, FormCopy Pro for formulas, FormMerge Pro for row emails, DocForge for Docs and PDFs, and FormFlow for approvals."
+                "text": "Start with FormRanger when your Google Forms choices come from Sheets. Choose FormGuard for limits and quotas, FormNotifier for confirmation emails, FormCopy Pro for formulas, FormMerge Pro for row emails, DocForge for Docs and PDFs, or FormFlow for approvals."
               }
             },
             {
@@ -132,7 +132,7 @@
     .nav a.cta { min-height: 34px; display: inline-flex; align-items: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); background: rgba(255,255,255,.04); }
     .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr); gap: 44px; align-items: center; min-height: 560px; padding: 38px 0 28px; }
     .eyebrow { display: inline-flex; width: fit-content; align-items: center; gap: 8px; min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; color: #d7dcff; background: rgba(94,106,210,.13); font-size: 12px; font-weight: 510; }
-    h1 { max-width: 11ch; margin: 18px 0 18px; color: var(--text); font-size: clamp(54px, 8vw, 92px); line-height: .92; letter-spacing: -2.2px; font-weight: 510; }
+    h1 { max-width: 15ch; margin: 18px 0 18px; color: var(--text); font-size: clamp(54px, 8vw, 92px); line-height: .92; letter-spacing: 0; font-weight: 510; }
     .hero-copy p { max-width: 610px; color: var(--muted); font-size: clamp(18px, 2vw, 22px); line-height: 1.55; letter-spacing: -.2px; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .btn { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 16px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.035); color: #e8ebef; font-size: 14px; font-weight: 510; }
@@ -222,22 +222,22 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow">7 focused Workspace add-ons</div>
-          <h1 id="hero-title">Google Forms, without the manual cleanup.</h1>
-          <p>FormSuite is an install-first Google Workspace add-on suite for response limits, confirmation emails, choice sync from Sheets, response-sheet formulas, PDFs, and approval workflows.</p>
+          <div class="eyebrow">Featured FormSuite add-on · FormRanger</div>
+          <h1 id="hero-title">Keep Google Forms choices synced from Google Sheets.</h1>
+          <p>Refresh dropdown, checkbox, and multiple-choice options from a selected Sheet before respondents use your form. Prove one copied-form update first; this is owner-controlled refresh, not respondent-time dependent logic.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#products">Browse add-ons</a>
-            <a class="btn" href="choose-google-workspace-addon.html">Choose the right add-on</a>
+            <a class="btn btn-primary" href="formranger/test-google-forms-dynamic-choices-before-launch.html?utm_source=formsuite&amp;utm_medium=homepage_hero&amp;utm_campaign=formranger_homepage_first_success_20260805&amp;utm_content=hero_checklist">Run the first-success test</a>
+            <a class="btn" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=homepage_hero&amp;utm_campaign=formranger_homepage_first_success_20260805&amp;utm_content=marketplace_install">Install FormRanger</a>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="FormSuite add-on preview">
-          <div class="visual-top"><div class="dots"><span></span><span></span><span></span></div><strong>Workspace control layer</strong><span>live</span></div>
+        <div class="hero-visual" aria-label="FormRanger first-success preview">
+          <div class="visual-top"><div class="dots"><span></span><span></span><span></span></div><strong>FormRanger first run</strong><span>ready</span></div>
           <div class="console">
-            <div class="rule"><img src="assets/product-icons/formguard.png" alt="FormGuard icon"><div><strong>Limit each workshop slot</strong><small>FormGuard - choice quotas</small></div><em>ready</em></div>
-            <div class="rule"><img src="assets/product-icons/formflow.png" alt="FormFlow icon"><div><strong>Route approval emails</strong><small>FormFlow - reviewer decisions</small></div><em>growing</em></div>
-            <div class="rule"><img src="assets/product-icons/docforge.png" alt="DocForge icon"><div><strong>Generate PDF from row</strong><small>DocForge - documents and certificates</small></div><em>ready</em></div>
-            <div class="workflow"><span>Install</span><span>Configure</span><span>Test once</span></div>
+            <div class="rule"><img src="assets/formranger/select-sheet-range.png" alt="FormRanger select Sheet source"><div><strong>Select source</strong><small>Choose the Sheet column with your choices</small></div><em>1</em></div>
+            <div class="rule"><img src="assets/formranger/map-question-column.png" alt="FormRanger map a question to a Sheet column"><div><strong>Map question</strong><small>Link one supported Google Forms choice question</small></div><em>2</em></div>
+            <div class="rule"><img src="assets/formranger/update-success.png" alt="FormRanger update success"><div><strong>Update and preview</strong><small>Confirm the public form shows Alpha and Beta</small></div><em>3</em></div>
+            <div class="workflow"><span>Preflight</span><span>Update now</span><span>Public preview</span></div>
           </div>
         </div>
       </section>
@@ -249,25 +249,8 @@
         <div class="product-grid" aria-label="Published FormSuite add-ons">
           <article class="product-card featured">
             <div class="product-top">
-              <img src="assets/product-icons/formflow.png" alt="FormFlow icon">
-              <span>Breakout</span>
-            </div>
-            <div class="product-shot"><img src="assets/formflow/reviewer-email.png" alt="FormFlow reviewer email preview"></div>
-            <div>
-              <p class="kicker">Forms - Approval workflow</p>
-              <h3>FormFlow</h3>
-              <p>Route submissions to approvers, send decision emails, and track status in Sheets.</p>
-            </div>
-            <div class="card-actions">
-              <a class="install" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formflow_activation_reviews&utm_content=homepage_featured">Install</a>
-              <a href="formflow/test-google-forms-approval-workflow-before-launch.html">First test</a>
-            </div>
-          </article>
-
-          <article class="product-card ">
-            <div class="product-top">
               <img src="assets/product-icons/formranger.png" alt="FormRanger icon">
-              <span>Popular</span>
+              <span>Featured</span>
             </div>
             <div class="product-shot"><img src="assets/formranger/map-question-column.png" alt="FormRanger question mapping preview"></div>
             <div>
@@ -276,8 +259,25 @@
               <p>Keep dropdowns, checkboxes, and multiple choice options synced from Sheets.</p>
             </div>
             <div class="card-actions">
-              <a class="install" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=homepage_product_card">Install</a>
-              <a href="formranger/test-google-forms-dynamic-choices-before-launch.html">First test</a>
+              <a class="install" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=homepage_product_card&amp;utm_campaign=formranger_homepage_first_success_20260805&amp;utm_content=marketplace_install">Install</a>
+              <a href="formranger/test-google-forms-dynamic-choices-before-launch.html?utm_source=formsuite&amp;utm_medium=homepage_product_card&amp;utm_campaign=formranger_homepage_first_success_20260805&amp;utm_content=card_checklist">First test</a>
+            </div>
+          </article>
+
+          <article class="product-card ">
+            <div class="product-top">
+              <img src="assets/product-icons/formflow.png" alt="FormFlow icon">
+              <span>Approval workflow</span>
+            </div>
+            <div class="product-shot"><img src="assets/formflow/reviewer-email.png" alt="FormFlow reviewer email preview"></div>
+            <div>
+              <p class="kicker">Forms - Approval workflow</p>
+              <h3>FormFlow</h3>
+              <p>Route submissions to approvers, send decision emails, and track status in Sheets.</p>
+            </div>
+            <div class="card-actions">
+              <a class="install" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=formflow_activation_reviews&amp;utm_content=homepage_secondary">Install</a>
+              <a href="formflow/test-google-forms-approval-workflow-before-launch.html">First test</a>
             </div>
           </article>
 
@@ -484,7 +484,7 @@
           </article>
           <article class="faq-item">
             <h3>Which add-on should I install first?</h3>
-            <p>Install the add-on that matches the immediate job: FormGuard for limits, FormNotifier for confirmation emails, FormRanger for choices from Sheets, FormCopy Pro for formulas, FormMerge Pro for row emails, DocForge for Docs and PDFs, and FormFlow for approvals.</p>
+            <p>Start with FormRanger when your Google Forms choices come from Sheets. Choose FormGuard for limits, FormNotifier for confirmation emails, FormCopy Pro for formulas, FormMerge Pro for row emails, DocForge for Docs and PDFs, or FormFlow for approvals.</p>
           </article>
           <article class="faq-item">
             <h3>Is FormSuite a paid checkout site?</h3>
