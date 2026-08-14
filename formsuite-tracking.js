@@ -97,6 +97,8 @@
   function targetType(url) {
     var host = url.hostname.toLowerCase();
     var path = url.pathname.toLowerCase();
+    if (url.protocol === "mailto:" && path === "support@formsuite.dev" &&
+        url.search.toLowerCase().indexOf("choice%20sync%20paid%20team%20pilot") !== -1) return "paid_pilot";
     if (host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1) return "marketplace";
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
     if (path.indexOf("/resources/google-workspace-add-ons-first-run-checklist") !== -1) return "first_run_checklist";
@@ -109,6 +111,7 @@
   }
 
   function eventName(type) {
+    if (type === "paid_pilot") return "paid_pilot_click";
     if (type === "marketplace") return "marketplace_cta_click";
     if (type === "demo_video") return "demo_video_click";
     if (type === "first_run_checklist") return "first_run_checklist_click";

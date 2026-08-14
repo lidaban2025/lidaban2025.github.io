@@ -9,17 +9,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FormRanger alternative for Google Forms | Sheets choice sync</title>
-  <meta name="description" content="Compare manual paste, Apps Script, and FormRanger for syncing Google Forms dropdown, multiple-choice, checkbox, and grid choices from Sheets.">
+  <meta name="description" content="Move a Sheets-backed Google Forms choice workflow from the legacy Form Ranger path to FormSuite Choice Sync with a copied-form test, Preflight, update report, and public preview check.">
   <link rel="canonical" href="https://formsuite.dev/formranger/formranger-alternative-google-forms.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="FormRanger alternative for Google Forms">
-  <meta property="og:description" content="A concise comparison for Google Forms choice lists backed by Google Sheets data.">
+  <meta property="og:description" content="An independent Form Ranger alternative with a copied-form migration test, Preflight checks, and a visible update report.">
   <meta property="og:url" content="https://formsuite.dev/formranger/formranger-alternative-google-forms.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FormRanger alternative for Google Forms">
-  <meta name="twitter:description" content="Manual paste, Apps Script, or FormRanger: choose the right Sheets-to-Forms choice sync path.">
+  <meta name="twitter:description" content="Migrate one copied form safely, then verify the public respondent preview before touching a live workflow.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -28,7 +28,7 @@
         {
           "@type": "Article",
           "headline": "FormRanger alternative for Google Forms",
-          "description": "A concise comparison of manual paste, Apps Script, and FormRanger for updating Google Forms choices from Google Sheets.",
+          "description": "A migration-focused comparison of the legacy Form Ranger workflow, Apps Script, and FormSuite Choice Sync for updating Google Forms choices from Google Sheets.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
           "dateModified": "2026-06-09",
@@ -47,18 +47,18 @@
             },
             {
               "@type": "Question",
-              "name": "When should I use FormRanger instead of Apps Script?",
+              "name": "When should I use FormSuite Choice Sync instead of Apps Script?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Use FormRanger when you want a no-code sidebar workflow with mapping, Preflight, and Update now. Use Apps Script when someone can own and maintain code."
+                "text": "Use FormSuite Choice Sync when you want a no-code sidebar workflow with mapping, Preflight, an update report, and a public preview check. Use Apps Script when someone can own and maintain code."
               }
             },
             {
               "@type": "Question",
-              "name": "Is FormRanger a booking or inventory system?",
+              "name": "Is FormSuite Choice Sync a booking or inventory system?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. FormRanger updates supported Google Forms choices from spreadsheet data. It does not lock inventory or reserve options while a respondent is filling out a form."
+                "text": "No. FormSuite Choice Sync updates supported Google Forms choices from spreadsheet data. It does not lock inventory or reserve options while a respondent is filling out a form."
               }
             }
           ]
@@ -75,28 +75,31 @@
   <div class="shell">
     <nav class="nav">
       <a href="../index.html">FormSuite</a>
-      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="./index.html"><strong>FormSuite Choice Sync</strong></a>
       <a href="./support.html">Support</a>
     </nav>
 
     <main>
       <section class="hero">
-        <div class="eyebrow">FormRanger guide</div>
-        <h1>FormRanger alternative for Google Forms</h1>
-        <p>Use this when your dropdown, checkbox, multiple-choice, or grid options live in Google Sheets and need a no-code refresh path into Google Forms.</p>
+        <div class="eyebrow">Independent migration guide</div>
+        <h1>A safer Form Ranger alternative for Google Forms</h1>
+        <p>If an existing Form Ranger workflow no longer gives you a result you can trust, move one copied form to FormSuite Choice Sync first. Check the source and mapping with Preflight, update one question, then verify the public respondent preview.</p>
+        <p><strong>Independent product:</strong> FormSuite Choice Sync was previously listed as FormRanger Pro. It is not affiliated with New Visions Cloudlab's Form Ranger.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=formranger-alternative-google-forms">Install FormRanger</a>
-          <a class="btn btn-secondary" href="./index.html">FormRanger overview</a>
-          <a class="btn btn-secondary" href="./support.html">Fast install path</a>
+          <a class="btn btn-primary" href="./test-google-forms-dynamic-choices-before-launch.html">Run the copied-form test</a>
+          <a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=choice_sync_migration&utm_content=formranger-alternative-google-forms">Install FormSuite Choice Sync</a>
+          <a class="btn btn-secondary" href="./support.html">Migration support</a>
         </div>
       </section>
 
       <section class="section">
-        <h2>Fast install path</h2>
+        <h2>Safe migration path</h2>
         <ol>
-          <li>Install FormRanger from Google Workspace Marketplace.</li>
-          <li>Open the Google Form that owns the choice question.</li>
-          <li>Launch FormRanger, select one Sheets column, run Preflight, and update one copied form first.</li>
+          <li>Copy the Google Form before changing its existing add-on setup.</li>
+          <li>Keep the original Google Sheets source column unchanged.</li>
+          <li>Install FormSuite Choice Sync and link only one copied-form question.</li>
+          <li>Run Preflight. Stop if the file, tab, column, or question check fails.</li>
+          <li>Run Update now and confirm the public respondent preview shows the expected values.</li>
         </ol>
       </section>
 
@@ -105,14 +108,14 @@
         <div class="grid">
           <article class="card"><div class="pill">Manual paste</div><h3>Best for rare changes.</h3><p>Fast for a one-time list, but easy to forget and hard to audit.</p></article>
           <article class="card"><div class="pill">Apps Script</div><h3>Best when someone owns code.</h3><p>Flexible, but your team maintains triggers, permissions, and breakage.</p></article>
-          <article class="card"><div class="pill">FormRanger</div><h3>Best for no-code choice sync.</h3><p>Map one question to one Sheets column, run Preflight, then update the public form choices.</p></article>
+          <article class="card"><div class="pill">FormSuite Choice Sync</div><h3>Best when you want a visible safety check.</h3><p>Map one question to one selected Sheets column, run Preflight, inspect the update report, then verify the public form choices.</p></article>
           <article class="card"><div class="pill">Boundary</div><h3>Not live inventory locking.</h3><p>It refreshes choices from Sheets. It does not reserve seats while a respondent is filling the form.</p></article>
         </div>
       </section>
 
       <section class="section">
         <h2>Supported choice types</h2>
-        <p>FormRanger supports dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices. It is designed for owner-controlled updates before respondents use the form.</p>
+        <p>FormSuite Choice Sync supports dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices. It is designed for owner-controlled updates before respondents use the form.</p>
       </section>
 
       <section class="section">
@@ -128,15 +131,15 @@
       <section class="section">
         <h2>Next steps</h2>
         <ul class="plain-links">
-          <li><a href="./index.html">FormRanger overview</a><span>Install path, supported choice types, and setup notes.</span></li>
+          <li><a href="./index.html">FormSuite Choice Sync overview</a><span>Install path, supported choice types, and setup notes.</span></li>
           <li><a href="../resources/google-forms-choices-from-google-sheets.html">Google Forms choices from Sheets</a><span>Start from the broader choice-sync workflow and choose the right method.</span></li>
           <li><a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Dropdown not updating</a><span>Troubleshoot the common high-intent failure path.</span></li>
-          <li><a href="./support.html">FormRanger support</a><span>Send source sheet, question type, and public preview result.</span></li>
+          <li><a href="./support.html">Migration support</a><span>Send the failed stage, source sheet context, question type, and public preview result.</span></li>
         </ul>
       </section>
     </main>
 
-    <div class="footer"><a href="../index.html#products">Add-ons</a> | <a href="./index.html">FormRanger</a> | <a href="../support.html">Support</a><br>&copy; 2026 FormSuite. Google Workspace trademarks belong to Google LLC.</div>
+    <div class="footer"><a href="../index.html#products">Add-ons</a> | <a href="./index.html">FormSuite Choice Sync</a> | <a href="../support.html">Support</a><br>&copy; 2026 FormSuite. Google Workspace trademarks belong to Google LLC.</div>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
