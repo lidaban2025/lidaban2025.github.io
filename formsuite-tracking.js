@@ -159,6 +159,20 @@
     } catch (err) {}
   }
 
+  function isQaSession() {
+    var key = "formsuite_qa_session";
+    if (storageGet(window.sessionStorage, key) === "1") return true;
+
+    try {
+      var params = new URLSearchParams(window.location.search || "");
+      if (!params.has("qa")) return false;
+      storageSet(window.sessionStorage, key, "1");
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
   function randomId(prefix) {
     if (window.crypto && typeof window.crypto.randomUUID === "function") {
       return prefix + "_" + window.crypto.randomUUID();
@@ -305,7 +319,7 @@
       destination_utm_content: data.destination_utm_content || "",
       destination_utm_term: data.destination_utm_term || "",
       link_text: data.link_text || "",
-      source: data.source || "formsuite.dev",
+      source: isQaSession() ? "codex_smoke_test" : data.source || "formsuite.dev",
       state: approvedValue(data.state, workflowStates),
       step: approvedValue(data.step, workflowSteps),
       complete: approvedComplete(data.complete),
