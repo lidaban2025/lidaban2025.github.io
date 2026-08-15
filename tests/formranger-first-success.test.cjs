@@ -26,6 +26,19 @@ test("first-run page hides the review outcome by default", () => {
   assert.match(html, /data-preview-confirm/);
 });
 
+test("first-run page includes a measurable Alpha/Beta starter pack", () => {
+  const html = fs.readFileSync(path.join(root, "formranger", "test-google-forms-dynamic-choices-before-launch.html"), "utf8");
+  const source = fs.readFileSync(path.join(root, "formranger", "first-success.js"), "utf8");
+  const csv = fs.readFileSync(path.join(root, "formranger", "choice-sync-alpha-beta.csv"), "utf8").replace(/\r\n/g, "\n");
+
+  assert.match(html, /data-copy-starter-values/);
+  assert.match(html, /data-copy-starter-status aria-live="polite"/);
+  assert.match(html, /href="\.\/choice-sync-alpha-beta\.csv" download data-download-starter-values/);
+  assert.match(source, /formranger_starter_values_copied/);
+  assert.match(source, /formranger_starter_csv_click/);
+  assert.equal(csv, "Test choice\nAlpha\nBeta\n");
+});
+
 test("first-run review links are contained by the gated outcome", () => {
   const html = fs.readFileSync(path.join(root, "formranger", "test-google-forms-dynamic-choices-before-launch.html"), "utf8");
   const block = html.match(/<div class="outcome review-outcome"[\s\S]*?<\/div>/);

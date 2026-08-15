@@ -74,7 +74,7 @@
     p,li { color:var(--muted); }
     .hero p { max-width:760px; }
     .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font:inherit; font-weight:700; border:1px solid transparent; cursor:pointer; }
     .btn-primary { background:var(--blue); color:#fff; }
     .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
     .section { padding:24px; margin-top:16px; }
@@ -82,6 +82,8 @@
     .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
     .card { padding:16px; border:1px solid var(--line); border-radius:14px; background:#fff; }
     .card strong { display:block; margin-bottom:6px; color:var(--ink); }
+    .starter-values { margin:12px 0 16px; padding:14px 16px; overflow:auto; border:1px solid var(--line); border-radius:12px; background:#f7f9fc; color:var(--ink); font:600 .95rem/1.65 ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .copy-status { display:block; min-height:1.5em; margin-top:10px; color:var(--green); font-size:.9rem; }
     .steps { padding-left:20px; display:grid; gap:8px; }
     .caution { padding:16px; border-radius:14px; background:var(--amber-soft); border:1px solid #efd98b; color:var(--amber); }
     .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
@@ -128,6 +130,28 @@
         <div class="grid">
           <div class="card"><strong>What this test proves</strong><p>FormSuite Choice Sync can read the selected Sheet source, validate the mapping, update the selected question, and show the changed choices to respondents.</p></div>
           <div class="card"><strong>What it does not prove</strong><p>It does not prove booking capacity, payment logic, live dependent dropdown behavior, or every mapping in a complex production form.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="starter-column">
+        <h2>Paste a ready-made test column</h2>
+        <p>Start with the same obvious values used in the verified test. Paste this into cell A1 of a blank Google Sheet, then select that column in FormSuite Choice Sync.</p>
+        <div class="grid">
+          <div class="card">
+            <strong>Copy the three-cell column</strong>
+            <pre class="starter-values" data-starter-values>Test choice
+Alpha
+Beta</pre>
+            <button class="btn btn-primary" type="button" data-copy-starter-values>Copy starter column</button>
+            <span class="copy-status" data-copy-starter-status aria-live="polite"></span>
+          </div>
+          <div class="card">
+            <strong>Prefer a file?</strong>
+            <p>Download the same values as a small CSV, open it in Google Sheets, and use the first column as the source.</p>
+            <div class="hero-actions">
+              <a class="btn btn-secondary" href="./choice-sync-alpha-beta.csv" download data-download-starter-values>Download Alpha/Beta CSV</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -231,7 +255,7 @@
     <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
   </div>
   <script src="/formranger/first-success-state.js?v=20260718a" defer></script>
-  <script src="/formranger/first-success.js?v=20260718a" defer></script>
+  <script src="/formranger/first-success.js?v=20260815a" defer></script>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

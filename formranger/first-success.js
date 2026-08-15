@@ -77,6 +77,57 @@
     renderHome(root);
   });
 
+  var starterText = "Test choice\nAlpha\nBeta";
+  var starterCopy = document.querySelector("[data-copy-starter-values]");
+  var starterStatus = document.querySelector("[data-copy-starter-status]");
+  var starterDownload = document.querySelector("[data-download-starter-values]");
+
+  function setStarterStatus(message, isError) {
+    if (!starterStatus) return;
+    starterStatus.textContent = message;
+    starterStatus.style.color = isError ? "#8a2d20" : "";
+  }
+
+  function copyStarterText() {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(starterText);
+    }
+
+    return new Promise(function (resolve, reject) {
+      var area = document.createElement("textarea");
+      area.value = starterText;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      var copied = false;
+      try {
+        copied = document.execCommand("copy");
+      } catch (err) {}
+      document.body.removeChild(area);
+      if (copied) resolve();
+      else reject(new Error("copy unavailable"));
+    });
+  }
+
+  if (starterCopy) {
+    starterCopy.addEventListener("click", function () {
+      copyStarterText().then(function () {
+        setStarterStatus("Copied. Paste into cell A1 of a blank Google Sheet.", false);
+        track("formranger_starter_values_copied", { source: "alpha_beta_starter" });
+      }).catch(function () {
+        setStarterStatus("Copy was blocked. Select the three lines above or download the CSV.", true);
+      });
+    });
+  }
+
+  if (starterDownload) {
+    starterDownload.addEventListener("click", function () {
+      track("formranger_starter_csv_click", { source: "alpha_beta_starter" });
+    });
+  }
+
   var workspace = document.querySelector("[data-formranger-first-run]");
   if (!workspace) return;
 
