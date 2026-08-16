@@ -8,21 +8,21 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FormSuite Choice Sync | Sync Google Forms choices from Google Sheets | FormSuite</title>
-  <meta name="description" content="Keep Google Forms dropdown, checkbox, and multiple-choice options synced from Google Sheets with FormSuite Choice Sync, then prove one update before launch.">
+  <title>FormSuite | Safer Google Forms and Google Sheets workflow add-ons</title>
+  <meta name="description" content="Install focused Google Workspace add-ons for safer Forms choice sync, duplicate-aware Sheets mail merge, and Docs or PDF generation from spreadsheet rows.">
   <link rel="canonical" href="https://formsuite.dev/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="FormSuite Choice Sync | Sync Google Forms choices from Google Sheets | FormSuite">
-  <meta property="og:description" content="Keep Google Forms choices synced from Google Sheets, test one update, and send respondents to a form that shows the expected options.">
+  <meta property="og:title" content="FormSuite | Safer Google Forms and Google Sheets workflow add-ons">
+  <meta property="og:description" content="Start with a copied file, inspect the exact change, run one controlled action, and verify the result before touching a live workflow.">
   <meta property="og:url" content="https://formsuite.dev/">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FormSuite Choice Sync | Sync Google Forms choices from Google Sheets | FormSuite">
-  <meta name="twitter:description" content="A focused FormSuite add-on for refreshing Google Forms choices from a selected Google Sheets source.">
+  <meta name="twitter:title" content="FormSuite | Safer Google Workspace workflow add-ons">
+  <meta name="twitter:description" content="Choice sync, operational mail merge, and document generation with copied-file first-run checks.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -38,19 +38,19 @@
           "@type": "WebSite",
           "name": "FormSuite",
           "url": "https://formsuite.dev/",
-          "description": "FormSuite Choice Sync keeps Google Forms choices synced from Google Sheets, as part of the FormSuite collection of focused Google Workspace add-ons."
+          "description": "FormSuite is the official install and support hub for focused Google Forms and Google Sheets workflow add-ons with copied-file first-run checks."
         },
         {
           "@type": "ItemList",
           "name": "FormSuite add-ons",
           "itemListElement": [
             { "@type": "SoftwareApplication", "position": 1, "name": "FormSuite Choice Sync", "url": "https://formsuite.dev/formranger/" },
-            { "@type": "SoftwareApplication", "position": 2, "name": "FormFlow", "url": "https://formsuite.dev/formflow/" },
-            { "@type": "SoftwareApplication", "position": 3, "name": "FormGuard", "url": "https://formsuite.dev/formguard/" },
+            { "@type": "SoftwareApplication", "position": 2, "name": "FormMerge Pro", "url": "https://formsuite.dev/formmerge/" },
+            { "@type": "SoftwareApplication", "position": 3, "name": "DocForge", "url": "https://formsuite.dev/docforge/" },
             { "@type": "SoftwareApplication", "position": 4, "name": "FormNotifier", "url": "https://formsuite.dev/formnotifier/" },
             { "@type": "SoftwareApplication", "position": 5, "name": "FormCopy Pro", "url": "https://formsuite.dev/formcopy/" },
-            { "@type": "SoftwareApplication", "position": 6, "name": "FormMerge Pro", "url": "https://formsuite.dev/formmerge/" },
-            { "@type": "SoftwareApplication", "position": 7, "name": "DocForge", "url": "https://formsuite.dev/docforge/" },
+            { "@type": "SoftwareApplication", "position": 6, "name": "FormFlow", "url": "https://formsuite.dev/formflow/" },
+            { "@type": "SoftwareApplication", "position": 7, "name": "FormGuard", "url": "https://formsuite.dev/formguard/" },
             { "@type": "SoftwareApplication", "position": 8, "name": "Sheet Formula Helper", "url": "https://formsuite.dev/sheetformula/" }
           ]
         },
@@ -70,7 +70,7 @@
               "name": "Which FormSuite add-on should I install first?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Start with FormSuite Choice Sync when your Google Forms choices come from Sheets. Choose FormGuard for limits and quotas, FormNotifier for confirmation emails, FormCopy Pro for formulas, FormMerge Pro for row emails, DocForge for Docs and PDFs, or FormFlow for approvals."
+                "text": "Start with FormSuite Choice Sync for spreadsheet-backed Google Forms choices, FormMerge Pro for duplicate-aware operational mail merge, or DocForge for Docs and PDF generation. The chooser also routes notification, formula, approval, and limited quota workflows."
               }
             },
             {
@@ -196,6 +196,7 @@
     .proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
     .proof-shot { border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.028); overflow: hidden; }
     .proof-shot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-bottom: 1px solid var(--line-soft); }
+    .proof-shot img[src*="product-icons"] { object-fit: contain; padding: 54px; background: rgba(0,0,0,.22); }
     .proof-shot div { padding: 16px; }
     .proof-shot span { color: var(--accent-2); font-size: 12px; font-weight: 590; }
     .proof-shot h3 { margin: 8px 0; color: var(--text); font-size: 18px; line-height: 1.25; font-weight: 590; }
@@ -214,7 +215,7 @@
     <header class="topbar">
       <a class="brand" href="index.html" aria-label="FormSuite home"><span class="brand-mark">FS</span><span>FormSuite</span></a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="#products">Add-ons</a>
+        <a href="#priority-addons">Add-ons</a>
         <a class="cta" href="support.html">Support</a>
       </nav>
     </header>
@@ -222,35 +223,36 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow">Featured FormSuite add-on · FormSuite Choice Sync</div>
-          <h1 id="hero-title">FormSuite Choice Sync</h1>
-          <p>Refresh dropdown, checkbox, and multiple-choice options from a selected Sheet before respondents use your form. Prove one copied-form update first; this is owner-controlled refresh, not respondent-time dependent logic.</p>
+          <div class="eyebrow">Google Workspace add-ons · copied-file first</div>
+          <h1 id="hero-title">Safer workflow changes before live files.</h1>
+          <p>FormSuite helps Google Forms and Sheets operators inspect a choice update, an operational email batch, or a document merge before it changes a live workflow. Start small, verify the exact result, and keep unsupported real-time or transactional jobs out.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="formranger/test-google-forms-dynamic-choices-before-launch.html?utm_source=formsuite&amp;utm_medium=homepage_hero&amp;utm_campaign=formranger_homepage_first_success_20260805&amp;utm_content=hero_checklist">Run the first-success test</a>
-            <a class="btn" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=homepage_hero&amp;utm_campaign=formranger_homepage_first_success_20260805&amp;utm_content=marketplace_install">Install FormSuite Choice Sync</a>
+            <a class="btn btn-primary" href="#priority-addons">Compare the three priority add-ons</a>
+            <a class="btn" href="choose-google-workspace-addon.html">Choose by workflow</a>
+            <a class="btn" href="safe-migration-google-forms-sheets-addons.html">Safe migration protocol</a>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="FormSuite Choice Sync first-success preview">
-          <div class="visual-top"><div class="dots"><span></span><span></span><span></span></div><strong>FormSuite Choice Sync first run</strong><span>ready</span></div>
+        <div class="hero-visual" aria-label="FormSuite safe migration workflow">
+          <div class="visual-top"><div class="dots"><span></span><span></span><span></span></div><strong>FormSuite safe migration protocol</strong><span>3 workflows</span></div>
           <div class="console">
-            <div class="rule"><img src="assets/formranger/select-sheet-range.png" alt="FormSuite Choice Sync select Sheet source"><div><strong>Select source</strong><small>Choose the Sheet column with your choices</small></div><em>1</em></div>
-            <div class="rule"><img src="assets/formranger/map-question-column.png" alt="FormSuite Choice Sync map a question to a Sheet column"><div><strong>Map question</strong><small>Link one supported Google Forms choice question</small></div><em>2</em></div>
-            <div class="rule"><img src="assets/formranger/update-success.png" alt="FormSuite Choice Sync update success"><div><strong>Update and preview</strong><small>Confirm the public form shows Alpha and Beta</small></div><em>3</em></div>
-            <div class="workflow"><span>Preflight</span><span>Update now</span><span>Public preview</span></div>
+            <div class="rule"><img src="assets/product-icons/formranger.png" alt="FormSuite Choice Sync icon"><div><strong>Choice Sync</strong><small>Diagnose, diff, approve, update, public preview</small></div><em>Forms</em></div>
+            <div class="rule"><img src="assets/product-icons/formmerge.png" alt="FormMerge Pro icon"><div><strong>Operational mail merge</strong><small>Exact pending preview, duplicate blocker, send status</small></div><em>Email</em></div>
+            <div class="rule"><img src="assets/product-icons/docforge.png" alt="DocForge icon"><div><strong>Document merge</strong><small>Template scan, one-row proof, output verification</small></div><em>Docs</em></div>
+            <div class="workflow"><span>Copy</span><span>Preflight</span><span>Verify output</span></div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="products">
+      <section class="section" id="priority-addons">
         <div class="section-head">
-          <div><h2>Pick the add-on by job.</h2><p>Each add-on solves one Workspace workflow and links straight to Marketplace.</p></div>
+          <div><h2>Start with the three strongest workflows.</h2><p>These products combine the clearest task demand with a testable copied-file success path. The remaining published add-ons stay available in the full chooser.</p></div>
         </div>
         <div class="product-grid" aria-label="Published FormSuite add-ons">
           <article class="product-card featured">
             <div class="product-top">
               <img src="assets/product-icons/formranger.png" alt="FormSuite Choice Sync icon">
-              <span>Featured</span>
+              <span>Priority 1</span>
             </div>
             <div class="product-shot"><img src="assets/formranger/map-question-column.png" alt="FormSuite Choice Sync question mapping preview"></div>
             <div>
@@ -264,36 +266,35 @@
             </div>
           </article>
 
-          <article class="product-card ">
+          <article class="product-card featured">
             <div class="product-top">
-              <img src="assets/product-icons/formflow.png" alt="FormFlow icon">
-              <span>Approval workflow</span>
+              <img src="assets/product-icons/formmerge.png" alt="FormMerge Pro icon">
+              <span>Priority 2</span>
             </div>
-            <div class="product-shot"><img src="assets/formflow/reviewer-email.png" alt="FormFlow reviewer email preview"></div>
             <div>
-              <p class="kicker">Forms - Approval workflow</p>
-              <h3>FormFlow</h3>
-              <p>Route submissions to approvers, send decision emails, and track status in Sheets.</p>
+              <p class="kicker">Sheets - Duplicate-aware mail merge</p>
+              <h3>FormMerge Pro</h3>
+              <p>Preview exact operational emails, block duplicate payloads, approve once, and write a visible row status.</p>
             </div>
             <div class="card-actions">
-              <a class="install" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=formflow_activation_reviews&amp;utm_content=homepage_secondary">Install</a>
-              <a href="formflow/test-google-forms-approval-workflow-before-launch.html">First test</a>
+              <a class="install" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118?utm_source=formsuite&amp;utm_medium=homepage_product_card&amp;utm_campaign=formsuite_top3_20260816&amp;utm_content=formmerge_install">Install</a>
+              <a href="formmerge/form-mule-alternative-google-sheets.html">Safe migration</a>
             </div>
           </article>
 
-          <article class="product-card ">
+          <article class="product-card featured">
             <div class="product-top">
-              <img src="assets/product-icons/formguard.png" alt="FormGuard icon">
-              <span>Primary</span>
+              <img src="assets/product-icons/docforge.png" alt="DocForge icon">
+              <span>Priority 3</span>
             </div>
             <div>
-              <p class="kicker">Forms - Choice quotas, timers</p>
-              <h3>FormGuard</h3>
-              <p>Limit sessions, roles, and time slots when each option has its own capacity.</p>
+              <p class="kicker">Sheets - Docs and PDF generation</p>
+              <h3>DocForge</h3>
+              <p>Map one Google Docs template, inspect its fields, and generate one verifiable document before a batch.</p>
             </div>
             <div class="card-actions">
-              <a class="install" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
-              <a href="formguard/index.html">Details</a>
+              <a class="install" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885?utm_source=formsuite&amp;utm_medium=homepage_product_card&amp;utm_campaign=formsuite_top3_20260816&amp;utm_content=docforge_install">Install</a>
+              <a href="docforge/generate-one-pdf-from-google-sheets-before-batch.html">First document</a>
             </div>
           </article>
 
@@ -331,33 +332,33 @@
 
           <article class="product-card ">
             <div class="product-top">
-              <img src="assets/product-icons/formmerge.png" alt="FormMerge Pro icon">
-              <span>Live</span>
+              <img src="assets/product-icons/formflow.png" alt="FormFlow icon">
+              <span>Published</span>
             </div>
             <div>
-              <p class="kicker">Sheets - Email merge</p>
-              <h3>FormMerge Pro</h3>
-              <p>Send personalized operational emails from spreadsheet rows.</p>
+              <p class="kicker">Forms - Lightweight approval</p>
+              <h3>FormFlow</h3>
+              <p>Test one approver email, one decision, and one linked-Sheet status update.</p>
             </div>
             <div class="card-actions">
-              <a class="install" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118">Install</a>
-              <a href="formmerge/index.html">Details</a>
+              <a class="install" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">Install</a>
+              <a href="formflow/test-google-forms-approval-workflow-before-launch.html">First test</a>
             </div>
           </article>
 
           <article class="product-card ">
             <div class="product-top">
-              <img src="assets/product-icons/docforge.png" alt="DocForge icon">
-              <span>Live</span>
+              <img src="assets/product-icons/formguard.png" alt="FormGuard icon">
+              <span>Limited fit</span>
             </div>
             <div>
-              <p class="kicker">Docs - Docs and PDFs</p>
-              <h3>DocForge</h3>
-              <p>Generate documents, PDFs, letters, and certificates from Sheets rows.</p>
+              <p class="kicker">Forms - Choice quotas and warnings</p>
+              <h3>FormGuard</h3>
+              <p>Use quota helpers and owner alerts only when Google Forms native response closing is not enough. Not a booking or inventory lock.</p>
             </div>
             <div class="card-actions">
-              <a class="install" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install</a>
-              <a href="docforge/index.html">Details</a>
+              <a class="install" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423">Install</a>
+              <a href="formguard/index.html">Check fit</a>
             </div>
           </article>
 
@@ -381,9 +382,9 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="proof-title">
+      <section class="section" aria-labelledby="proof-title" id="products">
         <div class="section-head">
-          <div><h2 id="proof-title">Screens that show the first run.</h2><p>These are the states a user should reach before deciding whether the add-on actually works for their workflow.</p></div>
+          <div><h2 id="proof-title">Three proofs that matter more than an install.</h2><p>Each priority add-on has a different observable result. Internal QA does not count as user success.</p></div>
         </div>
         <div class="proof-grid">
           <article class="proof-shot">
@@ -391,12 +392,12 @@
             <div><span>FormSuite Choice Sync</span><h3>Update choices, then check the public preview.</h3><p>The useful proof is not the install click. It is one mapped question, one clean update, and visible choices in the respondent form.</p></div>
           </article>
           <article class="proof-shot">
-            <img src="assets/formflow/approval-page.png" alt="FormFlow approval decision page">
-            <div><span>FormFlow</span><h3>Approve or reject from a real reviewer email.</h3><p>The first-run test should prove that the email arrives, the decision page opens, and the linked Sheet status changes.</p></div>
+            <img src="assets/product-icons/formmerge.png" alt="FormMerge Pro icon for duplicate-aware mail merge">
+            <div><span>FormMerge Pro</span><h3>Approve the exact pending emails, then inspect row status.</h3><p>A copied-sheet test must catch exact duplicate payloads, invalidate changed previews, and finish with SENT or a fail-closed uncertainty state.</p></div>
           </article>
           <article class="proof-shot">
-            <img src="assets/sheetformula/formula-tool-preview.png" alt="Sheet Formula Helper browser tool">
-            <div><span>Sheet Formula</span><h3>Paste a formula and get to a copy-ready result.</h3><p>The single-page tool should be judged by page view to tool start to copy, not by another content page.</p></div>
+            <img src="assets/product-icons/docforge.png" alt="DocForge icon for document merge from Google Sheets">
+            <div><span>DocForge</span><h3>Generate one document and inspect every mapped field.</h3><p>The first proof is one selected template, one source row, one exact preview, and one output file—not a blind batch.</p></div>
           </article>
         </div>
       </section>
@@ -408,23 +409,24 @@
         <div class="answer-band">
           <article class="answer-copy">
             <h3>FormSuite is a Google Workspace add-on suite for Forms and Sheets workflows.</h3>
-            <p>It helps small teams keep Google Forms and Google Sheets usable after the basic form is built: close forms at the right time, cap choices, send confirmation emails, copy formulas into new response rows, sync choices from Sheets, generate Docs or PDFs, and route simple approvals.</p>
+            <p>It helps small teams keep Google Forms and Google Sheets workflows observable after the basic file is built: inspect choice updates, prevent duplicate operational sends, generate one document safely, send confirmation emails, copy formulas, and route simple approvals.</p>
             <p>FormSuite does not replace Google Forms, Google Sheets, Gmail, or Google Docs. It adds focused controls around those products so an operations workflow can be tested once before it is shared with respondents.</p>
             <div class="answer-links">
               <a href="install.html">Open install center</a>
               <a href="choose-google-workspace-addon.html">Compare add-ons</a>
               <a href="resources/">Read guides</a>
+              <a href="safe-migration-google-forms-sheets-addons.html">Safe migration protocol</a>
             </div>
           </article>
 
           <div class="decision-list" aria-label="FormSuite add-on decision guide">
-            <div class="decision-row"><strong>Limit responses, deadlines, or choice quotas</strong><a href="formguard/">FormGuard</a></div>
-            <div class="decision-row"><strong>Send confirmation email after submit</strong><a href="formnotifier/">FormNotifier</a></div>
             <div class="decision-row"><strong>Sync dropdown or checkbox choices from Sheets</strong><a href="formranger/">FormSuite Choice Sync</a></div>
-            <div class="decision-row"><strong>Copy formulas into new response rows</strong><a href="formcopy/">FormCopy Pro</a></div>
             <div class="decision-row"><strong>Send row-level operational emails</strong><a href="formmerge/">FormMerge Pro</a></div>
             <div class="decision-row"><strong>Generate Docs or PDFs from rows</strong><a href="docforge/">DocForge</a></div>
+            <div class="decision-row"><strong>Send confirmation email after submit</strong><a href="formnotifier/">FormNotifier</a></div>
+            <div class="decision-row"><strong>Copy formulas into new response rows</strong><a href="formcopy/">FormCopy Pro</a></div>
             <div class="decision-row"><strong>Route Google Forms submissions for approval</strong><a href="formflow/">FormFlow</a></div>
+            <div class="decision-row"><strong>Check a choice-quota or owner-alert fit</strong><a href="formguard/">FormGuard</a></div>
           </div>
         </div>
       </section>
@@ -484,7 +486,7 @@
           </article>
           <article class="faq-item">
             <h3>Which add-on should I install first?</h3>
-            <p>Start with FormSuite Choice Sync when your Google Forms choices come from Sheets. Choose FormGuard for limits, FormNotifier for confirmation emails, FormCopy Pro for formulas, FormMerge Pro for row emails, DocForge for Docs and PDFs, or FormFlow for approvals.</p>
+            <p>Start with FormSuite Choice Sync for spreadsheet-backed choices, FormMerge Pro for duplicate-aware row emails, or DocForge for Docs and PDFs. Use the chooser for notifications, formulas, lightweight approvals, and narrow quota helpers.</p>
           </article>
           <article class="faq-item">
             <h3>Is FormSuite a paid checkout site?</h3>
@@ -500,7 +502,7 @@
     </main>
 
     <footer class="footer">
-      <span><a href="index.html#products">Add-ons</a> | <a href="install.html">Install</a> | <a href="choose-google-workspace-addon.html">Chooser</a> | <a href="resources/">Resources</a> | <a href="support.html">Support</a></span>
+      <span><a href="index.html#priority-addons">Add-ons</a> | <a href="install.html">Install</a> | <a href="choose-google-workspace-addon.html">Chooser</a> | <a href="resources/">Resources</a> | <a href="support.html">Support</a></span>
       <span>&copy; 2026 FormSuite. Google Workspace trademarks belong to Google LLC.</span>
     </footer>
   </div>

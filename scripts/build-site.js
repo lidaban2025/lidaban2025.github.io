@@ -29,6 +29,7 @@ const includeFiles = [
   'product-landing.css',
   'review-after-first-success.html',
   'robots.txt',
+  'safe-migration-google-forms-sheets-addons.html',
   'setup-help.html',
   'site.webmanifest',
   'sitemap.xml',
