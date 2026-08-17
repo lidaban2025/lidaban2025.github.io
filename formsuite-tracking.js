@@ -103,6 +103,7 @@
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
     if (path.indexOf("/resources/google-workspace-add-ons-first-run-checklist") !== -1) return "first_run_checklist";
     if (path.indexOf("/test-google-forms-") !== -1 && path.indexOf("-before-launch") !== -1) return "first_run_checklist";
+    if (path.indexOf("/formmerge/test-mail-merge-on-a-copied-sheet-before-sending") !== -1) return "first_run_checklist";
     if (path.indexOf("/review-after-first-success") !== -1) return "review_after_success";
     if (path.indexOf("/setup-help") !== -1) return "setup_help";
     if (path.indexOf("/support") !== -1) return "support";

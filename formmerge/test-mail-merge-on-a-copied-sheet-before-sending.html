@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Test a Google Sheets Mail Merge Before Sending | FormMerge</title>
+  <meta name="description" content="Run a five-minute FormMerge test on a copied Google Sheet: trigger the duplicate blocker, inspect the exact pending emails, approve once, send to controlled test inboxes, and verify row and trigger status.">
+  <link rel="canonical" href="https://formsuite.dev/formmerge/test-mail-merge-on-a-copied-sheet-before-sending.html">
+  <link rel="stylesheet" href="../product-inner.css">
+  <style>
+    :root{--ink:#17263d;--muted:#5a6a83;--line:#d9e2ef;--blue:#1463ff;--soft:#eef4ff;--ok:#eaf8ef;--warn:#fff7e8}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#f8fbff;line-height:1.65}a{color:var(--blue)}
+    .shell{max-width:920px;margin:auto;padding:28px 20px 60px}.nav,.actions{display:flex;gap:14px;flex-wrap:wrap}.hero,.section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;margin-top:18px}
+    .eyebrow{display:inline-block;background:var(--soft);color:var(--blue);padding:6px 11px;border-radius:99px;font-weight:700}h1{font-size:2.35rem;line-height:1.08;margin:14px 0}h2{font-size:1.4rem}p,li{color:var(--muted)}
+    .note{background:var(--warn);border:1px solid #efd49b;border-radius:16px;padding:15px 17px}.checklist{display:grid;gap:12px;margin:18px 0}.check{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:16px}.check input{width:20px;height:20px;margin-top:3px}.check strong{display:block}.check span{color:var(--muted)}
+    .button{display:inline-block;border-radius:999px;padding:11px 17px;font-weight:700;text-decoration:none;border:1px solid var(--blue)}.primary{background:var(--blue);color:#fff}.secondary{background:#fff}.confirm{font:inherit;cursor:pointer}.confirm:disabled{cursor:not-allowed;opacity:.45}.success{display:none;background:var(--ok);border:1px solid #a9d7b9;border-radius:16px;padding:15px 17px;margin-top:14px}.footer{text-align:center;color:var(--muted);margin-top:24px}
+    @media(max-width:700px){h1{font-size:2rem}.hero,.section{padding:22px}}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Test a Google Sheets mail merge before sending","description":"Use a copied spreadsheet and controlled test inboxes to verify FormMerge duplicate blocking, exact preview, one-time approval, row status, and trigger health.","step":[{"@type":"HowToStep","name":"Copy the spreadsheet","text":"Use a copied Sheet and two rows addressed only to inboxes you control."},{"@type":"HowToStep","name":"Trigger the duplicate blocker","text":"Make the two resolved outgoing payloads identical and confirm Preflight blocks them."},{"@type":"HowToStep","name":"Fix and preview","text":"Change one row and inspect the exact pending recipients, subjects, and bodies."},{"@type":"HowToStep","name":"Approve and send once","text":"Approve the unchanged preview once and send only to controlled test inboxes."},{"@type":"HowToStep","name":"Verify status","text":"Check SENT or SEND_UNCERTAIN row state and inspect trigger health."}]}</script>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav"><a href="../index.html">FormSuite</a><a href="./index.html"><strong>FormMerge</strong></a><a href="./support.html">Support</a></nav>
+    <main>
+      <section class="hero">
+        <span class="eyebrow">Five-minute first-success test</span>
+        <h1>Test the mail merge on a copied Sheet before sending.</h1>
+        <p>This test proves the safety path without touching a live recipient list. Use two rows and inboxes you control, deliberately create one duplicate outgoing payload, then verify the blocker, exact preview, approval, send state, and trigger health.</p>
+        <div class="note"><strong>Do not use customer or prospect addresses for this test.</strong> FormMerge is for small operational messages, not cold email, newsletters, CRM, or marketing automation. Gmail and Apps Script quotas still apply.</div>
+        <div class="actions" style="margin-top:18px"><a class="button primary" href="https://workspace.google.com/marketplace/app/formmerge_pro_email_merge_for_google_she/565235225118?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=formmerge_first_success&amp;utm_content=copied_sheet_test">Install FormMerge Pro</a><a class="button secondary" href="./prevent-duplicate-mail-merge-emails-google-sheets.html">Read the duplicate-safety details</a></div>
+      </section>
+      <section class="section" aria-labelledby="checklist-title">
+        <h2 id="checklist-title">Copied-sheet checklist</h2>
+        <div class="checklist" id="first-success-checklist">
+          <label class="check"><input type="checkbox"><span><strong>1. Work only in a copy</strong>Create a copy of the Sheet and keep the first test to two pending rows using inboxes you control.</span></label>
+          <label class="check"><input type="checkbox"><span><strong>2. Confirm the duplicate blocker</strong>Give both rows the same resolved recipient, subject, body, CC, and BCC. Preflight should block the exact duplicate payload instead of allowing approval.</span></label>
+          <label class="check"><input type="checkbox"><span><strong>3. Fix one row and inspect the exact preview</strong>Change the second message, rerun Preflight, and read every pending recipient, subject, and body. Do not approve if the output differs from what you intend to send.</span></label>
+          <label class="check"><input type="checkbox"><span><strong>4. Approve the unchanged preview and send once</strong>Approve only after inspection. If a row becomes <code>SEND_UNCERTAIN:</code>, check the controlled inbox before retrying; do not send blindly.</span></label>
+          <label class="check"><input type="checkbox"><span><strong>5. Verify the evidence</strong>Confirm the expected test inbox received the message, inspect the row state, and check trigger presence, duplicates, last success, and last error.</span></label>
+        </div>
+        <button class="button primary confirm" id="confirm-success" type="button" disabled>I completed all five checks</button>
+        <div class="success" id="success-message" role="status"><strong>Copied-sheet test confirmed.</strong> Keep the copy as evidence. If anything was unclear, <a href="./support.html">send the exact blocked state or row status to support</a> before using a live Sheet.</div>
+      </section>
+      <section class="section">
+        <h2>What this test does—and does not—prove</h2>
+        <p>It proves that your copied file can reach the reviewed path: duplicate block → corrected exact preview → one-time approval → one send attempt → row and trigger inspection. It does not prove provider-level exactly-once delivery. An ambiguous provider result must remain fail-closed as <code>SEND_UNCERTAIN:</code>.</p>
+        <div class="actions"><a href="./form-mule-alternative-google-sheets.html">Check Form Mule migration fit</a><a href="./form-mule-not-sending-emails.html">Use the not-sending checklist</a><a href="./permissions.html">Review permissions</a></div>
+      </section>
+    </main>
+    <div class="footer"><a href="./support.html">Support</a> | <a href="./privacy.html">Privacy</a> | <a href="./terms.html">Terms</a></div>
+  </div>
+  <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+  <script>
+    (function(){
+      var boxes=Array.prototype.slice.call(document.querySelectorAll('#first-success-checklist input[type="checkbox"]'));
+      var button=document.getElementById('confirm-success');
+      var message=document.getElementById('success-message');
+      function refresh(){button.disabled=!boxes.every(function(box){return box.checked;});}
+      boxes.forEach(function(box){box.addEventListener('change',refresh);});
+      button.addEventListener('click',function(){
+        if(button.disabled)return;
+        message.style.display='block';
+        button.disabled=true;
+        button.textContent='Test confirmed';
+        if(window.FormSuiteTrack){window.FormSuiteTrack.event('formmerge_copied_sheet_success_confirmed',{product:'FormMerge Pro',state:'successful',complete:true,source:'formsuite.dev'});}
+      });
+      refresh();
+    }());
+  </script>
+</body>
+</html>
