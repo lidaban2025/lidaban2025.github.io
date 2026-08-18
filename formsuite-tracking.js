@@ -77,7 +77,9 @@
       step: payload.step || "",
       complete: payload.complete,
       progress_complete: payload.progress_complete,
-      confirmation: payload.confirmation || ""
+      confirmation: payload.confirmation || "",
+      video_id: payload.video_id || "",
+      proof_type: payload.proof_type || ""
     };
   }
 
@@ -163,6 +165,10 @@
   function isQaSession() {
     var key = "formsuite_qa_session";
     if (storageGet(window.sessionStorage, key) === "1") return true;
+    if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+      storageSet(window.sessionStorage, key, "1");
+      return true;
+    }
 
     try {
       var params = new URLSearchParams(window.location.search || "");
@@ -325,7 +331,9 @@
       step: approvedValue(data.step, workflowSteps),
       complete: approvedComplete(data.complete),
       progress_complete: approvedProgress(data.progress_complete),
-      confirmation: data.confirmation === "Alpha|Beta" ? "Alpha|Beta" : ""
+      confirmation: data.confirmation === "Alpha|Beta" ? "Alpha|Beta" : "",
+      video_id: typeof data.video_id === "string" ? data.video_id.slice(0, 20) : "",
+      proof_type: typeof data.proof_type === "string" ? data.proof_type.slice(0, 80) : ""
     };
 
     if (typeof window.gtag === "function") {
@@ -362,6 +370,31 @@
   window.formsuiteTrackQueue = [];
 
   document.addEventListener("click", function (event) {
+    var playButton = event.target && event.target.closest ? event.target.closest("[data-video-proof] .video-proof-play") : null;
+    if (playButton) {
+      var proof = playButton.closest("[data-video-proof]");
+      var iframe = proof ? proof.querySelector("iframe") : null;
+      var videoId = proof ? proof.getAttribute("data-video-id") || "" : "";
+      var proofType = proof ? proof.getAttribute("data-video-proof") || "" : "";
+      if (!iframe || !/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
+
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + videoId + "?autoplay=1&rel=0";
+      iframe.hidden = false;
+      playButton.hidden = true;
+      iframe.focus();
+
+      send("video_proof_play", {
+        product: productFromPath(window.location.pathname),
+        target_type: "video_proof",
+        destination_host: "www.youtube-nocookie.com",
+        destination_path: "/embed/" + videoId,
+        link_text: (playButton.textContent || "").replace(/\s+/g, " ").trim().slice(0, 120),
+        video_id: videoId,
+        proof_type: proofType
+      });
+      return;
+    }
+
     var link = event.target && event.target.closest ? event.target.closest("a[href]") : null;
     if (!link) return;
 

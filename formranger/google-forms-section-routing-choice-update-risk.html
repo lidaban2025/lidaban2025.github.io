@@ -15,7 +15,8 @@
   {
     "@context":"https://schema.org",
     "@graph":[
-      {"@type":"Article","headline":"Google Forms section routing breaks after a choice update","description":"Why replacing Google Forms choices can erase Go to section based on answer behavior and how to prevent the unsafe write.","author":{"@type":"Organization","name":"FormSuite"},"publisher":{"@type":"Organization","name":"FormSuite"},"dateModified":"2026-08-16","mainEntityOfPage":"https://formsuite.dev/formranger/google-forms-section-routing-choice-update-risk.html"},
+      {"@type":"Article","headline":"Google Forms section routing breaks after a choice update","description":"Why replacing Google Forms choices can erase Go to section based on answer behavior and how to prevent the unsafe write.","author":{"@type":"Organization","name":"FormSuite"},"publisher":{"@type":"Organization","name":"FormSuite"},"dateModified":"2026-08-18","mainEntityOfPage":"https://formsuite.dev/formranger/google-forms-section-routing-choice-update-risk.html"},
+      {"@type":"VideoObject","name":"Google Forms section routing risk: block the choice update first","description":"A 30-second controlled proof showing FormSuite Choice Sync detect a routed Google Forms choice and refuse the unsafe update.","thumbnailUrl":"https://i.ytimg.com/vi/CrQfguq0MEQ/hqdefault.jpg","uploadDate":"2026-08-18","duration":"PT31S","contentUrl":"https://youtube.com/shorts/CrQfguq0MEQ","embedUrl":"https://www.youtube-nocookie.com/embed/CrQfguq0MEQ"},
       {"@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":"Why did Google Forms stop going to the correct section?","acceptedAnswer":{"@type":"Answer","text":"If an add-on or script replaces the question's choices, the new choices may no longer carry the original Go to section based on answer destinations."}},
         {"@type":"Question","name":"Can FormSuite Choice Sync preserve section routing while refreshing labels?","acceptedAnswer":{"@type":"Answer","text":"No. It detects an existing routed choice and blocks the update instead of claiming it can safely preserve routing."}},
@@ -35,6 +36,23 @@
         <h1>Google Forms section routing can break when choices are replaced</h1>
         <p>“Go to section based on answer” belongs to the existing answer choices. A bulk refresh can rebuild those choices without their destinations. The safe default is to detect routing and refuse the update.</p>
         <div class="hero-actions"><a class="btn btn-primary" href="./test-google-forms-dynamic-choices-before-launch.html">Test a safe question</a><a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=choice_routing_safety&amp;utm_content=section-routing-risk">Install Choice Sync</a></div>
+      </section>
+
+      <section class="section" aria-labelledby="routing-proof-title">
+        <h2 id="routing-proof-title">Watch the routing blocker work</h2>
+        <p>This controlled 31-second proof shows the destructive-risk condition being detected before any choice write. It does not claim to preserve routing.</p>
+        <div class="video-proof-shell">
+          <div class="video-proof" data-video-proof="routing_blocker" data-video-id="CrQfguq0MEQ">
+            <button class="video-proof-play" type="button" aria-label="Play the Choice Sync routing blocker proof">
+              <span class="video-proof-kicker">31-second proof</span>
+              <span class="video-proof-title">Routing found. Update blocked.</span>
+              <span class="video-proof-icon" aria-hidden="true">▶</span>
+            </button>
+            <iframe title="Choice Sync routing blocker proof" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
+          </div>
+          <p class="video-proof-caption">The YouTube player loads only after you press play. Controlled regression proof with synthetic data.</p>
+          <noscript><p class="video-proof-caption"><a href="https://youtube.com/shorts/CrQfguq0MEQ">Watch the routing blocker proof on YouTube</a>.</p></noscript>
+        </div>
       </section>
 
       <section class="section">

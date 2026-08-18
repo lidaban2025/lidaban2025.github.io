@@ -1,0 +1,3 @@
+_site/
+.wrangler/
+local-preview*.log

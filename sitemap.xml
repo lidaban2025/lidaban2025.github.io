@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/generate-one-pdf-from-google-sheets-before-batch.html</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-08-18</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-sheets-rows-to-printable-documents.html</loc>
@@ -401,6 +401,12 @@
     <lastmod>2026-08-16</lastmod>
   </url>
   <url>
+    <loc>https://formsuite.dev/formmerge/prevent-duplicate-mail-merge-emails-google-sheets.html</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://formsuite.dev/formmerge/personalized-email-from-google-sheets-guide.html</loc>
     <lastmod>2026-04-04</lastmod>
   </url>
@@ -565,6 +571,12 @@
   <url>
     <loc>https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html</loc>
     <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formranger/google-forms-section-routing-choice-update-risk.html</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
