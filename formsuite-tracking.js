@@ -99,9 +99,13 @@
   function targetType(url) {
     var host = url.hostname.toLowerCase();
     var path = url.pathname.toLowerCase();
+    var sourcePath = window.location.pathname.toLowerCase();
+    var marketplaceTarget = host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1;
+    var reviewMedium = url.searchParams && url.searchParams.get("utm_medium") === "review_after_success";
     if (url.protocol === "mailto:" && path === "support@formsuite.dev" &&
         url.search.toLowerCase().indexOf("choice%20sync%20paid%20team%20pilot") !== -1) return "paid_pilot";
-    if (host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1) return "marketplace";
+    if (marketplaceTarget && (reviewMedium || sourcePath.indexOf("/review-after-first-success") !== -1)) return "review_after_success";
+    if (marketplaceTarget) return "marketplace";
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
     if (path.indexOf("/resources/google-workspace-add-ons-first-run-checklist") !== -1) return "first_run_checklist";
     if (path.indexOf("/test-google-forms-") !== -1 && path.indexOf("-before-launch") !== -1) return "first_run_checklist";
