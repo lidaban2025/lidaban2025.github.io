@@ -8,8 +8,8 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FormRanger | Sync Google Forms choices from Sheets</title>
-  <meta name="description" content="Sync selected Sheets columns into Google Forms dropdown, multiple-choice, checkbox, and grid choices. Test one mapping, run Preflight, and verify the public form preview.">
+  <title>Google Forms Dropdown from Google Sheets | FormSuite Choice Sync</title>
+  <meta name="description" content="Sync Google Forms dropdown, multiple-choice, checkbox, and grid choices from selected Google Sheets data. Run Preflight, review the exact diff, update, and verify the public preview.">
   <link rel="canonical" href="https://formsuite.dev/formranger/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,13 +18,13 @@
   <link rel="stylesheet" href="../product-inner.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="FormRanger | Sync Google Forms choices from Sheets">
-  <meta property="og:description" content="Sync selected Sheets columns into Forms dropdowns, multiple choice, checkboxes, and grid choices without maintaining Apps Script.">
+  <meta property="og:title" content="Google Forms dropdown from Google Sheets with Choice Sync Preflight">
+  <meta property="og:description" content="Inspect the selected Sheet, risks, and exact choice diff before updating a copied Google Form.">
   <meta property="og:url" content="https://formsuite.dev/formranger/">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FormRanger | Sync Google Forms choices from Sheets">
-  <meta name="twitter:description" content="Map one Sheets column to one Forms choice question, run Preflight, update, and check the public preview.">
+  <meta name="twitter:title" content="Google Forms dropdown from Google Sheets with Choice Sync Preflight">
+  <meta name="twitter:description" content="Selected-file access, duplicate diagnostics, routing guards, exact diff, one recovery, and public preview proof.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -32,11 +32,11 @@
       "@graph": [
         {
           "@type": "SoftwareApplication",
-          "name": "FormRanger",
+          "name": "FormSuite Choice Sync",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Google Workspace",
           "url": "https://formsuite.dev/formranger/",
-          "description": "Sync selected Sheets columns into Google Forms dropdown, multiple-choice, checkbox, and grid choices.",
+          "description": "Safely migrate spreadsheet-backed Google Forms choices with selected-file access, Choice Sync Preflight, routing and scoring guards, exact before/after diff, one recovery, trigger health, and public preview proof.",
           "provider": {"@type": "Organization", "name": "FormSuite"}
         },
         {
@@ -44,18 +44,23 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Which Google Forms question types does FormRanger support?",
-              "acceptedAnswer": {"@type": "Answer", "text": "FormRanger supports dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices."}
+              "name": "Which Google Forms question types does FormSuite Choice Sync support?",
+              "acceptedAnswer": {"@type": "Answer", "text": "FormSuite Choice Sync supports dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices."}
             },
             {
               "@type": "Question",
               "name": "What should I test first?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Use one copied form, one supported question, and one Sheets column with two obvious values. Run Preflight, Update now, and check the public respondent preview."}
+              "acceptedAnswer": {"@type": "Answer", "text": "Use one copied form, one supported question, and one Sheets column with two obvious values. Run Preflight, approve the exact choice preview, use Update now, and check the public respondent preview."}
             },
             {
               "@type": "Question",
-              "name": "Is FormRanger a booking or inventory system?",
-              "acceptedAnswer": {"@type": "Answer", "text": "No. FormRanger updates choices from selected spreadsheet data. It does not reserve inventory, process payments, or filter choices while a respondent is filling out the form."}
+              "name": "Is FormSuite Choice Sync a booking or inventory system?",
+              "acceptedAnswer": {"@type": "Answer", "text": "No. FormSuite Choice Sync updates choices from selected spreadsheet data. It does not reserve inventory, process payments, or filter choices while a respondent is filling out the form."}
+            },
+            {
+              "@type": "Question",
+              "name": "Does Choice Hygiene change my source Sheet?",
+              "acceptedAnswer": {"@type": "Answer", "text": "No. It shows duplicate and look-alike groups, recommends consistent labels, and requires a separate preview approval before Update now. It never edits the source Sheet automatically."}
             }
           ]
         }
@@ -67,7 +72,7 @@
   <div class="shell">
     <header class="topbar">
       <a class="brand" href="../index.html" aria-label="FormSuite home">
-        <span class="brand-mark">FR</span><span>FormRanger</span>
+        <span class="brand-mark">CS</span><span>FormSuite Choice Sync</span>
       </a>
       <nav class="nav" aria-label="Product navigation">
         <a href="../index.html#products">Add-ons</a>
@@ -79,9 +84,10 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow">Google Forms + Sheets add-on</div>
-          <h1 id="hero-title">Sync Google Forms choices from Sheets.</h1>
-          <p>FormRanger maps selected Sheets columns into Google Forms dropdown, multiple-choice, checkbox, and grid choices. Start with one question, run Preflight, update once, then check the public respondent preview.</p>
+          <div class="eyebrow">Google Forms dropdown from Google Sheets</div>
+          <h1 id="hero-title">Sync Google Forms choices from Google Sheets—safely</h1>
+          <p>FormSuite Choice Sync checks the selected file, empty and duplicate values, section-routing and quiz risks, choice-count limits, and the exact before/after diff before Update now can change a copied form.</p>
+          <p class="hero-note"><strong>Previously FormRanger Pro.</strong> FormSuite Choice Sync is an independent FormSuite add-on and is not affiliated with New Visions Cloudlab's Form Ranger.</p>
           <p class="hero-note">Free during public launch. Tested on the real Google Forms add-on path: sidebar mapping, save, Preflight, Update now, and respondent preview.</p>
           <p class="hero-note">If you are deciding whether to install, use the copied-form first-run test before touching a live form. The useful proof is simple: Preflight passes, Update now reports a changed question, and the public preview shows the expected Sheet values.</p>
           <div class="hero-proof" aria-label="Key capabilities">
@@ -89,15 +95,18 @@
             <span>Multiple choice</span>
             <span>Checkbox</span>
             <span>Grid choices</span>
-            <span>Preflight</span>
+            <span>Choice Hygiene</span>
+            <span>Review before update</span>
+            <span>One recovery</span>
+            <span>Trigger health</span>
             <span>Free launch</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install from Marketplace</a>
-            <a class="btn btn-secondary" href="test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+            <a class="btn btn-primary" href="test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+            <a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install from Marketplace</a>
           </div>
         </div>
-        <article class="product-visual workflow-preview" aria-label="FormRanger first-run workflow preview">
+        <article class="product-visual workflow-preview" aria-label="FormSuite Choice Sync first-run workflow preview">
           <div class="preview-topline"><strong>First-run path</strong><span>Sheets to Forms</span></div>
           <div class="preview-canvas">
             <div class="mock-stack">
@@ -117,20 +126,76 @@
             <div class="mock-sidebar">
               <div class="sidebar-product">
                 <img src="../assets/product-icons/formranger.png" alt="">
-                <div><strong>FormRanger</strong><span>Workspace add-on</span></div>
+                <div><strong>FormSuite Choice Sync</strong><span>Workspace add-on</span></div>
               </div>
-              <p>Link one question, run Preflight, update choices, and verify the respondent-facing form before launch.</p>
-              <span class="status-pill">Update verified</span>
+              <p>Link one question, run Choice Sync Preflight, review the diff, then verify the public form.</p>
+              <span class="status-pill">Preview approved</span>
             </div>
           </div>
-          <div class="preview-steps"><span>1. Select source</span><span>2. Preflight</span><span>3. Update</span><span>4. Public preview</span></div>
+          <div class="preview-steps"><span>1. Select file</span><span>2. Map</span><span>3. Preflight</span><span>4. Diff</span><span>5. Public preview</span></div>
         </article>
       </section>
+
+      <section class="section formranger-success-center" data-formranger-success-center data-storage-key="formsuite.formranger.firstSuccess.v1" aria-labelledby="formranger-state-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">First successful update</div>
+            <h2 id="formranger-state-title">Where are you now?</h2>
+            <p>Choose the current state and continue with one safe next action. Troubleshooting users stay on the test path; the review path is never shown here.</p>
+          </div>
+        </div>
+        <div class="state-segments" role="tablist" aria-label="FormSuite Choice Sync setup state">
+          <button type="button" role="tab" data-formranger-state="not-installed">Not installed</button>
+          <button type="button" role="tab" data-formranger-state="testing">Installed, not working yet</button>
+          <button type="button" role="tab" data-formranger-state="successful">Public preview updated</button>
+        </div>
+        <div class="state-action" data-formranger-state-action aria-live="polite">
+          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=formranger_low_install&amp;utm_content=first_success_state">Install FormSuite Choice Sync</a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="quick-paths-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Start from the problem</div>
+            <h2 id="quick-paths-title">Pick the Google Forms choices issue you actually have.</h2>
+            <p>External questions rarely start with a product name. They usually start with a dropdown, a Sheet source list, a stale form preview, or a dependent-dropdown expectation. Use the matching path before installing anything on a live form.</p>
+          </div>
+        </div>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>Dropdown from a Sheet</h3><p>You have one Google Sheets column and want one Google Forms dropdown or multiple-choice question to use those values.</p><p><a href="auto-update-google-forms-dropdown-from-google-sheets.html">Open the dropdown sync guide</a></p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>No Apps Script owner</h3><p>You need a repeatable no-code path instead of maintaining triggers, form IDs, question IDs, and permissions yourself.</p><p><a href="google-forms-dropdown-from-google-sheets-without-apps-script.html">Open the no-code guide</a></p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Choices not updating</h3><p>A mapping was saved, but the public respondent preview still shows old values or no values.</p><p><a href="google-forms-dropdown-not-updating-from-google-sheets.html">Open the troubleshooting guide</a></p></article>
+          <article class="step-card"><div class="step-num">4</div><h3>Dependent dropdowns</h3><p>You need to separate owner-controlled choice refresh from respondent-time filtering while someone is filling out the form.</p><p><a href="google-forms-dependent-dropdown-from-google-sheets.html">Open the limits guide</a></p></article>
+          <article class="step-card"><div class="step-num">5</div><h3>Long dropdown list</h3><p>The form editor is hard to manage because a dropdown has dozens or hundreds of options that should live in Sheets.</p><p><a href="google-forms-long-dropdown-list-from-google-sheets.html">Open the long-list guide</a></p></article>
+          <article class="step-card"><div class="step-num">6</div><h3>No data in column</h3><p>The legacy mapping cannot find usable values, or its saved file, tab, or header no longer matches.</p><p><a href="form-ranger-no-data-in-column.html">Open the source recovery guide</a></p></article>
+          <article class="step-card"><div class="step-num">7</div><h3>Duplicate choices</h3><p>The source contains exact repeats, case variants, extra spaces, or labels that look almost identical.</p><p><a href="form-ranger-duplicate-choices.html">Open the choice hygiene guide</a></p></article>
+          <article class="step-card"><div class="step-num">8</div><h3>Section routing risk</h3><p>The target question sends respondents to different sections or contains a quiz answer key that must not be erased.</p><p><a href="google-forms-section-routing-choice-update-risk.html">Open the routing safety guide</a></p></article>
+          <article class="step-card"><div class="step-num">9</div><h3>Compare alternatives</h3><p>Choose between narrow migration safety, broader data-source automation, or branded form embedding.</p><p><a href="form-ranger-vs-dynamic-fields-vs-formfacade.html">Open the factual comparison</a></p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="question-type-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Match the question type</div>
+            <h2 id="question-type-title">Send each searcher to the exact choice-sync guide.</h2>
+            <p>FormSuite Choice Sync traffic usually arrives with a question type, not the product name. Start with the matching guide, then run the copied-form first-run test before installing on a live form.</p>
+          </div>
+        </div>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">A</div><h3>Import any choice list</h3><p>Use this when the intent is broad: Google Forms choices from a Google Sheets source list.</p><p><a href="import-google-forms-choices-from-google-sheets.html">Open the import guide</a></p></article>
+          <article class="step-card"><div class="step-num">B</div><h3>Multiple choice from Sheets</h3><p>Map one Sheet column to one single-choice Google Forms question and verify the public preview.</p><p><a href="populate-google-forms-multiple-choice-from-google-sheets.html">Open the multiple-choice guide</a></p></article>
+          <article class="step-card"><div class="step-num">C</div><h3>Checkbox list from Sheets</h3><p>Use a spreadsheet column as the source for a respondent-facing multi-select checkbox list.</p><p><a href="google-forms-checkbox-list-from-google-sheets.html">Open the checkbox guide</a></p></article>
+          <article class="step-card"><div class="step-num">D</div><h3>Grid choices from Sheets</h3><p>Refresh grid row or column labels from Sheets before respondents use the form.</p><p><a href="google-forms-grid-choices-from-google-sheets.html">Open the grid guide</a></p></article>
+        </div>
+      </section>
+
       <section class="section" aria-labelledby="updates-title">
         <div class="section-head">
           <div>
             <h2 id="updates-title">Google Forms choices from Sheets, not a brand-name shortcut.</h2>
-            <p>Use FormRanger when the real job is keeping Google Forms dropdown, multiple-choice, checkbox, or grid choices aligned with a Google Sheets source list. The search intent is the task: make the form show the current spreadsheet values before respondents use it.</p>
+            <p>Use FormSuite Choice Sync when the real job is keeping Google Forms dropdown, multiple-choice, checkbox, or grid choices aligned with a Google Sheets source list. The search intent is the task: make the form show the current spreadsheet values before respondents use it.</p>
           </div>
         </div>
         <div class="step-grid">
@@ -149,10 +214,28 @@
           </div>
         </div>
         <div class="grid">
-          <article class="card"><div class="pill">Source list</div><h3>The Sheet column moved or changed.</h3><p>A renamed header, inserted blank row, duplicate-only values, hidden cleanup column, or changed sheet tab can make the mapping point at the wrong data.</p></article>
+          <article class="card"><div class="pill">Source list</div><h3>The source contains labels that look the same.</h3><p>Case-only duplicates, extra spaces, punctuation variants, and labels such as “North America” versus “north-america” can create confusing respondent choices. Choice Hygiene surfaces these groups before update.</p></article>
           <article class="card"><div class="pill">Question</div><h3>The form question no longer matches.</h3><p>If the dropdown was duplicated, deleted, renamed, or changed from dropdown to another question type, re-select the exact question before updating.</p></article>
           <article class="card"><div class="pill">Action</div><h3>A saved mapping is not an update.</h3><p>The useful result is Update now reporting that a question changed. Saving configuration only proves the setup was stored.</p></article>
           <article class="card"><div class="pill">Preview</div><h3>The editor is not the final proof.</h3><p>Always open the public respondent preview after Update now. That is the surface respondents will see.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="hygiene-title">
+        <div class="guide-panel">
+          <div>
+            <div class="mini-label">Private choice review</div>
+            <h2 id="hygiene-title">See the final list before it reaches respondents.</h2>
+            <p>Preflight returns the exact choices each linked question will receive, identifies duplicate and look-alike groups, and recommends one consistent label. Suggestions do not edit the source Sheet. Update now stays disabled until you approve the current preview.</p>
+            <div class="link-row">
+              <a href="test-google-forms-dynamic-choices-before-launch.html">Run the copied-form test</a>
+              <a href="mailto:support@formsuite.dev?subject=FormSuite%20Choice%20Sync%20paid%20team%20pilot&amp;body=Organization%3A%0D%0ANumber%20of%20forms%3A%0D%0ANumber%20of%20choice%20questions%3A%0D%0ACurrent%20duplicate%20or%20label%20problem%3A%0D%0ATarget%20rollout%20date%3A" data-track="choice_sync_team_pilot">Request a paid team pilot</a>
+            </div>
+          </div>
+          <div class="mini-guide-grid" style="grid-template-columns:1fr;">
+            <article class="mini-guide-card"><strong>Free add-on</strong><p>Run private duplicate checks, label suggestions, and an exact pre-update preview on your linked questions during launch.</p></article>
+            <article class="mini-guide-card"><strong>Paid team pilot</strong><p>For multi-form rollout planning, custom label rules, and a human-reviewed migration report. Scope and fee are confirmed by email before work starts; this is not an instant checkout.</p></article>
+          </div>
         </div>
       </section>
 
@@ -161,14 +244,14 @@
           <div>
             <div class="mini-label">Real setup screens</div>
             <h2 id="evidence-title">What the first-run path looks like.</h2>
-            <p>These screenshots are from the FormRanger setup flow: open the add-on, select the Sheet source, map one question, run Preflight, and update the form choices.</p>
+            <p>These screenshots are from the FormSuite Choice Sync setup flow: open the add-on, select the Sheet source, map one question, run Preflight, and update the form choices.</p>
           </div>
         </div>
         <div class="evidence-grid">
-          <figure class="evidence-shot"><img src="../assets/formranger/open-sidebar.png" alt="FormRanger sidebar opened in Google Forms"><figcaption>Open the FormRanger sidebar from the Google Forms add-ons menu before editing a live workflow.</figcaption></figure>
-          <figure class="evidence-shot"><img src="../assets/formranger/map-question-column.png" alt="FormRanger maps a Google Forms question to a Google Sheets column"><figcaption>Map one supported question to one Google Sheets source column so the first test is easy to verify.</figcaption></figure>
-          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormRanger Preflight check before updating choices"><figcaption>Run Preflight before changing choices. It should catch file, range, and mapping issues before the update.</figcaption></figure>
-          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormRanger update success screen after syncing choices"><figcaption>After Update now, open the public preview and confirm the form shows the expected Sheet values.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/open-sidebar.png" alt="FormSuite Choice Sync sidebar opened in Google Forms"><figcaption>Open the FormSuite Choice Sync sidebar from the Google Forms add-ons menu before editing a live workflow.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/map-question-column.png" alt="FormSuite Choice Sync maps a Google Forms question to a Google Sheets column"><figcaption>Map one supported question to one Google Sheets source column so the first test is easy to verify.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormSuite Choice Sync Preflight check before updating choices"><figcaption>Run Preflight before changing choices. It should catch file, range, and mapping issues before the update.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormSuite Choice Sync update success screen after syncing choices"><figcaption>After Update now, open the public preview and confirm the form shows the expected Sheet values.</figcaption></figure>
         </div>
       </section>
 
@@ -176,7 +259,7 @@
         <div class="section-head">
           <div>
             <div class="mini-label">Choose the path</div>
-            <h2 id="compare-title">Manual paste vs Apps Script vs FormRanger.</h2>
+            <h2 id="compare-title">Manual paste vs Apps Script vs FormSuite Choice Sync.</h2>
             <p>The right option depends on how often the list changes and who is responsible for maintaining the workflow.</p>
           </div>
         </div>
@@ -186,7 +269,7 @@
             <tbody>
               <tr><td>Manual paste</td><td>The list changes rarely and one owner can update it before launch.</td><td>Easy to forget, no repeatable check, and no source-of-truth proof.</td></tr>
               <tr><td>Apps Script</td><td>You have someone who will own code, triggers, IDs, permissions, and errors.</td><td>Breaks quietly when form IDs, question IDs, or authorization change.</td></tr>
-              <tr><td>FormRanger</td><td>Sheets is the source list and the owner wants a no-code update flow with Preflight.</td><td>Still needs a copied-form first run and public preview check before launch.</td></tr>
+              <tr><td>FormSuite Choice Sync</td><td>Sheets is the source list and the owner wants a no-code update flow with Preflight.</td><td>Still needs a copied-form first run and public preview check before launch.</td></tr>
             </tbody>
           </table>
         </div>
@@ -197,15 +280,15 @@
           <div>
             <div class="mini-label">First-run proof</div>
             <h2 id="first-run-title">Do one small update before trusting a live form.</h2>
-            <p>Use a copied form, one supported choice question, and one Sheets column with Alpha and Beta. A successful first run means Preflight passes, Update now reports an updated question, and the public preview shows the expected values.</p>
-            <div class="link-row">
-              <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install FormRanger</a>
-              <a href="test-google-forms-dynamic-choices-before-launch.html">Open first-run checklist</a>
-            </div>
+            <p>Use a copied form, one supported choice question, and one Sheets column with Alpha and Beta. A successful first run means Preflight passes, you approve the exact choice preview, Update now reports an updated question, and the public preview shows the expected values.</p>
+          <div class="link-row">
+            <a href="test-google-forms-dynamic-choices-before-launch.html">Open first-run checklist</a>
+            <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install FormSuite Choice Sync</a>
+          </div>
           </div>
           <div class="mini-guide-grid" style="grid-template-columns:1fr;">
             <article class="mini-guide-card"><strong>Install</strong><p>Open the add-on inside the Google Form you want to update.</p></article>
-            <article class="mini-guide-card"><strong>Preflight</strong><p>Check file access, sheet tab, column, and question mapping before changing choices.</p></article>
+            <article class="mini-guide-card"><strong>Preflight + hygiene</strong><p>Check access and mappings, review duplicate and look-alike labels, then approve the exact output.</p></article>
             <article class="mini-guide-card"><strong>Preview</strong><p>Open the respondent-facing preview after Update now, not only the editor.</p></article>
           </div>
           <div class="link-row">
@@ -226,7 +309,7 @@
           </div>
         </div>
         <div class="step-grid">
-          <article class="step-card"><div class="step-num">1</div><h3>Selected-file access</h3><p>FormRanger uses a user-selected spreadsheet flow for mappings, then reads that selected source when you update choices.</p></article>
+          <article class="step-card"><div class="step-num">1</div><h3>Selected-file access</h3><p>FormSuite Choice Sync uses a user-selected spreadsheet flow for mappings, then reads that selected source when you update choices.</p></article>
           <article class="step-card"><div class="step-num">2</div><h3>Preflight before update</h3><p>Check the file, sheet tab, source column, and supported question type before changing the form choices.</p></article>
           <article class="step-card"><div class="step-num">3</div><h3>Respondent preview proof</h3><p>The useful success signal is not a saved mapping. It is the public preview showing the expected Sheet values after Update now.</p></article>
         </div>
@@ -251,6 +334,8 @@
           <article class="step-card"><div class="step-num">2</div><h3>No Apps Script</h3><p>Use when you want Sheets-backed choices without maintaining triggers, form IDs, or script permissions.</p><p><a href="google-forms-dropdown-from-google-sheets-without-apps-script.html">Open no-code guide</a></p></article>
           <article class="step-card"><div class="step-num">3</div><h3>Not updating</h3><p>Use when a saved mapping exists but the respondent-facing dropdown still shows old choices.</p><p><a href="google-forms-dropdown-not-updating-from-google-sheets.html">Open troubleshooting guide</a></p></article>
           <article class="step-card"><div class="step-num">4</div><h3>Dependent dropdown limits</h3><p>Use when you need to separate live respondent-time filtering from owner-controlled Sheets choice sync.</p><p><a href="google-forms-dependent-dropdown-from-google-sheets.html">Open dependent dropdown guide</a></p></article>
+          <article class="step-card"><div class="step-num">5</div><h3>Long dropdown list</h3><p>Use when the editor becomes hard to manage because the option list is large and better maintained in Sheets.</p><p><a href="google-forms-long-dropdown-list-from-google-sheets.html">Open long-list guide</a></p></article>
+          <article class="step-card"><div class="step-num">6</div><h3>Legacy source and choice failures</h3><p>Use when you see no data, duplicate labels, or a routed question that must not be overwritten.</p><p><a href="formranger-alternative-google-forms.html">Open migration safety comparison</a></p></article>
         </div>
       </section>
 
@@ -259,7 +344,7 @@
           <div>
             <div class="mini-label">Boundary</div>
             <h2 id="boundary-title">Not a booking or inventory lock.</h2>
-            <p>FormRanger updates Google Forms choices from selected spreadsheet data before respondents use the form. It does not reserve seats, process payments, lock inventory, or filter options while a respondent is already filling out the form. If you need live respondent-time logic, a Google Form is usually the wrong surface.</p>
+            <p>FormSuite Choice Sync updates Google Forms choices from selected spreadsheet data before respondents use the form. It does not reserve seats, process payments, lock inventory, or filter options while a respondent is already filling out the form. If you need live respondent-time logic, a Google Form is usually the wrong surface.</p>
           </div>
           <div class="link-row">
             <a href="google-forms-dropdown-not-updating-from-google-sheets.html">Fix dropdown not updating</a>
@@ -272,14 +357,15 @@
         <h2 id="faq-title">Frequently asked questions</h2>
         <div class="faq-panel">
           <details><summary><strong>Which question types work?</strong></summary><p>Dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices.</p></details>
-          <details><summary><strong>What should I test first?</strong></summary><p>Use one copied form, one supported question, and one Sheets column with Alpha and Beta. Run Preflight, update, then check the public respondent preview.</p></details>
-          <details><summary><strong>Can it handle dependent dropdowns?</strong></summary><p>Use FormRanger for spreadsheet-backed choice refresh before respondents use the form. It is not respondent-time conditional filtering.</p></details>
+          <details><summary><strong>What should I test first?</strong></summary><p>Use one copied form, one supported question, and one Sheets column with Alpha and Beta. Run Preflight, approve the exact choice preview, update, then check the public respondent preview.</p></details>
+          <details><summary><strong>Does Choice Hygiene change my source Sheet?</strong></summary><p>No. It reads the selected source values, shows duplicate and look-alike groups, and recommends consistent labels. You decide whether to edit the Sheet, and Update now remains a separate approved action.</p></details>
+          <details><summary><strong>Can it handle dependent dropdowns?</strong></summary><p>Use FormSuite Choice Sync for spreadsheet-backed choice refresh before respondents use the form. It is not respondent-time conditional filtering.</p></details>
           <details><summary><strong>Why did the choices not change after setup?</strong></summary><p>Most often the mapping was saved but Update now was not run, the source column moved, the question was changed or duplicated, or the public preview was not refreshed after the update.</p></details>
           <details><summary><strong>Should I use this on a live form first?</strong></summary><p>No. Use a copied form first so you can verify Preflight, Update now, and public preview without risking real respondents.</p></details>
         </div>
         <div class="link-row">
-          <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install from Marketplace</a>
           <a href="support.html">Setup support</a>
+          <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install from Marketplace</a>
         </div>
       </section>
     </main>
@@ -289,6 +375,8 @@
       <span>&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</span>
     </footer>
   </div>
+  <script src="/formranger/first-success-state.js?v=20260717a" defer></script>
+  <script src="/formranger/first-success.js?v=20260717a" defer></script>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>
