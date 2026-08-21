@@ -5,6 +5,8 @@ const test = require("node:test");
 
 const root = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "formmerge", "test-mail-merge-on-a-copied-sheet-before-sending.html"), "utf8");
+const migrationHtml = fs.readFileSync(path.join(root, "formmerge", "form-mule-alternative-google-sheets.html"), "utf8");
+const duplicateHtml = fs.readFileSync(path.join(root, "formmerge", "prevent-duplicate-mail-merge-emails-google-sheets.html"), "utf8");
 
 test("FormMerge keeps review and feedback actions inside the completed-test outcome", () => {
   const outcome = html.match(/<div class="success" id="success-message"[\s\S]*?<\/div>\s*<\/div>/);
@@ -27,4 +29,11 @@ test("FormMerge successful confirmation remains explicitly controlled-test evide
   assert.match(html, /formmerge_copied_sheet_success_confirmed/);
   assert.match(html, /inboxes you control/);
   assert.match(html, /SEND_UNCERTAIN/);
+});
+
+test("FormMerge migration and duplicate-fault pages route directly to the copied-sheet test", () => {
+  const route = /href="\.\/test-mail-merge-on-a-copied-sheet-before-sending\.html"/;
+  assert.match(migrationHtml, route);
+  assert.match(migrationHtml, /Run the copied-sheet test/);
+  assert.match(duplicateHtml, route);
 });
