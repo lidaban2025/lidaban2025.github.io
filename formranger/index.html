@@ -24,7 +24,7 @@
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Google Forms dropdown from Google Sheets with Choice Sync Preflight">
-  <meta name="twitter:description" content="Selected-file access, duplicate diagnostics, routing guards, exact diff, one recovery, and public preview proof.">
+  <meta name="twitter:description" content="Selected-file access, routing guards, exact diff, every-6-hour or daily safe sync, per-mapping health, and five-version recovery.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -36,7 +36,7 @@
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Google Workspace",
           "url": "https://formsuite.dev/formranger/",
-          "description": "Sync selected Sheets columns into Google Forms choices with duplicate detection, label suggestions, and an exact review-before-update preview.",
+          "description": "Sync selected Sheets columns into Google Forms choices with Preflight, exact diff, every-6-hour or daily safe scheduling, per-mapping health, and five-version recovery.",
           "provider": {"@type": "Organization", "name": "FormSuite"}
         },
         {
@@ -75,7 +75,7 @@
         <span class="brand-mark">CS</span><span>FormSuite Choice Sync</span>
       </a>
       <nav class="nav" aria-label="Product navigation">
-        <a href="../index.html#priority-addons">Add-ons</a>
+        <a href="../index.html#products">Add-ons</a>
         <a href="support.html">Support</a>
         <a href="permissions.html">Permissions</a>
       </nav>
@@ -97,6 +97,8 @@
             <span>Grid choices</span>
             <span>Choice Hygiene</span>
             <span>Review before update</span>
+            <span>Every 6 hours or daily</span>
+            <span>Five-version recovery</span>
             <span>Free launch</span>
           </div>
           <div class="hero-actions">
@@ -132,6 +134,16 @@
           </div>
           <div class="preview-steps"><span>1. Select source</span><span>2. Hygiene preview</span><span>3. Approve + update</span><span>4. Public preview</span></div>
         </article>
+      </section>
+
+      <section class="section" aria-labelledby="scheduled-sync-title">
+        <div class="section-head"><div><div class="mini-label">Safe Scheduled Sync</div><h2 id="scheduled-sync-title">Automation uses the same fail-closed guards.</h2><p>Choose every 6 hours or daily, test the configured path immediately, and inspect the last attempt, update, skip, or safe error for each mapping. Successful writes keep up to five bounded recovery versions inside Google Apps Script properties.</p></div></div>
+        <div class="step-grid">
+          <article class="step-card"><div class="step-num">1</div><h3>Test before enabling</h3><p>The test path reuses duplicate, routing, quiz, question-type, and 1,000-choice checks.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Read mapping-level health</h3><p>See attempted, updated, skipped, or error without storing Sheet values or Google Form content.</p></article>
+          <article class="step-card"><div class="step-num">3</div><h3>Restore a bounded version</h3><p>Choose one of the latest five snapshots. Restore refuses changed, routed, scored, or type-mismatched questions.</p></article>
+        </div>
+        <div class="link-row"><a href="https://youtube.com/shorts/CrQfguq0MEQ">Watch the routing blocker proof</a><a href="test-google-forms-dynamic-choices-before-launch.html">Run the copied-form test</a></div>
       </section>
 
       <section class="section formranger-success-center" data-formranger-success-center data-storage-key="formsuite.formranger.firstSuccess.v1" aria-labelledby="formranger-state-title">
