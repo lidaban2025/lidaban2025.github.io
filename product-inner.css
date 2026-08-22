@@ -372,6 +372,30 @@ a.btn-secondary:hover,
   gap: 14px !important;
   margin-top: 18px !important;
 }
+.triage-actions {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin-top: 18px !important;
+}
+.triage-actions .btn {
+  justify-content: flex-start !important;
+  min-height: 52px !important;
+  padding: 10px 14px !important;
+  border: 1px solid var(--fs-line) !important;
+  border-radius: 10px !important;
+  background: var(--fs-brand-soft) !important;
+  box-shadow: none !important;
+  color: var(--fs-ink) !important;
+  text-align: left !important;
+}
+.triage-actions .btn:hover,
+.triage-actions .btn:focus-visible {
+  border-color: var(--fs-brand) !important;
+  background: rgba(95, 111, 255, 0.22) !important;
+  color: var(--fs-ink) !important;
+  text-decoration: none !important;
+}
 .hero-actions a:nth-child(n+3),
 .path-links a:nth-child(n+3),
 .actions a:nth-child(n+3),
@@ -900,6 +924,9 @@ footer a,
   .hero-actions a:not(:first-child),
   .path-links a:not(:first-child) {
     width: auto !important;
+  }
+  .triage-actions {
+    grid-template-columns: 1fr !important;
   }
   .workflow-visual > .visual-head {
     align-items: flex-start !important;

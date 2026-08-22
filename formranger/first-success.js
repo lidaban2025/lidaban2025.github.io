@@ -128,6 +128,20 @@
     });
   }
 
+  var helpMessages = {
+    "help-preflight": "Stay on the copied form. Resolve the visible Preflight category before enabling updates.",
+    "help-update": "Confirm the mapping is saved and enabled, the selected column still has Alpha and Beta, then run Update now again.",
+    "help-preview": "Open the public respondent preview in a fresh window and reload it. Do not rely only on the form editor."
+  };
+  var helpStatus = document.querySelector("[data-first-run-help-status]");
+  document.querySelectorAll("[data-first-run-help-stage]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var stage = button.dataset.firstRunHelpStage;
+      if (helpStatus) helpStatus.textContent = helpMessages[stage] || "Open support with the checkpoint number.";
+      track("formranger_first_run_help_stage", { state: "testing", step: stage });
+    });
+  });
+
   var workspace = document.querySelector("[data-formranger-first-run]");
   if (!workspace) return;
 

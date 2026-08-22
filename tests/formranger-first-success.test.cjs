@@ -39,6 +39,20 @@ test("first-run page includes a measurable Alpha/Beta starter pack", () => {
   assert.equal(csv, "Test choice\nAlpha\nBeta\n");
 });
 
+test("first-run page exposes privacy-safe three-stage recovery", () => {
+  const html = fs.readFileSync(path.join(root, "formranger", "test-google-forms-dynamic-choices-before-launch.html"), "utf8");
+  const source = fs.readFileSync(path.join(root, "formranger", "first-success.js"), "utf8");
+  const tracking = fs.readFileSync(path.join(root, "formsuite-tracking.js"), "utf8");
+
+  for (const stage of ["help-preflight", "help-update", "help-preview"]) {
+    assert.match(html, new RegExp(`data-first-run-help-stage="${stage}"`));
+    assert.match(tracking, new RegExp(`"${stage}"`));
+  }
+  assert.match(html, /do not send a form ID, spreadsheet ID, question text, source values, or respondent data/i);
+  assert.match(source, /formranger_first_run_help_stage/);
+  assert.match(source, /public respondent preview in a fresh window/i);
+});
+
 test("first-run review links are contained by the gated outcome", () => {
   const html = fs.readFileSync(path.join(root, "formranger", "test-google-forms-dynamic-choices-before-launch.html"), "utf8");
   const block = html.match(/<div class="outcome review-outcome"[\s\S]*?<\/div>/);
@@ -120,4 +134,13 @@ test("tracking keeps approved workflow fields and drops arbitrary custom data", 
   assert.equal(payload.progress_complete, 3);
   assert.equal(payload.confirmation, "Alpha|Beta");
   assert.equal(Object.hasOwn(payload, "private_note"), false);
+
+  window.FormSuiteTrack.event("formranger_first_run_help_stage", {
+    state: "testing",
+    step: "help-update",
+    private_note: "still-do-not-send"
+  });
+  const helpPayload = JSON.parse(sent.at(-1).body);
+  assert.equal(helpPayload.step, "help-update");
+  assert.equal(Object.hasOwn(helpPayload, "private_note"), false);
 });

@@ -16,7 +16,7 @@
     ["sheetformula", "Sheet Formula Helper"]
   ];
   var workflowStates = ["not-installed", "testing", "successful"];
-  var workflowSteps = ["select-source", "map-question", "preflight", "update-preview"];
+  var workflowSteps = ["select-source", "map-question", "preflight", "update-preview", "help-preflight", "help-update", "help-preview"];
 
   function approvedValue(value, allowed) {
     return allowed.indexOf(value) !== -1 ? value : "";

@@ -92,7 +92,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../product-inner.css">
+  <link rel="stylesheet" href="../product-inner.css?v=20260822-triage">
 </head>
 <body>
   <div class="shell">
@@ -181,6 +181,21 @@ Beta</pre>
         </div>
       </section>
 
+      <section class="section" id="first-run-triage" data-first-run-triage>
+        <h2>Where did the first test stop?</h2>
+        <p>Choose the first checkpoint that does not match what you see. This records only the checkpoint label, not any form, spreadsheet, question, or choice content.</p>
+        <div class="triage-actions" aria-label="Choose the first failed checkpoint">
+          <button class="btn btn-secondary" type="button" data-first-run-help-stage="help-preflight">1. Preflight warning</button>
+          <button class="btn btn-secondary" type="button" data-first-run-help-stage="help-update">2. Update now changed 0 questions</button>
+          <button class="btn btn-secondary" type="button" data-first-run-help-stage="help-preview">3. Public preview is stale</button>
+        </div>
+        <p class="answer" data-first-run-help-status aria-live="polite">Select one checkpoint to see the next safe action.</p>
+        <p class="caution"><strong>Keep private data private:</strong> do not send a form ID, spreadsheet ID, question text, source values, or respondent data. A stage number and the non-sensitive warning/result label are enough.</p>
+        <div class="link-bar">
+          <a href="./support.html?utm_source=first_run_triage&amp;utm_medium=help_first&amp;utm_campaign=choice_sync_first_success&amp;utm_content=stage_confirmation">Open stage-specific support</a>
+        </div>
+      </section>
+
       <section class="section">
         <h2>Use this exact test data first</h2>
         <div class="compact-table">
@@ -216,7 +231,7 @@ Beta</pre>
 
       <section class="section">
         <h2>Record the result for support and reviews</h2>
-        <p>Write down the date of the test, the copied form name, the source tab, the source column, the mapped question, the Preflight result, the Update now result, and what the public preview showed. If the test fails, this becomes a support note. If it succeeds, it becomes the proof that a Marketplace review is based on real use rather than hope.</p>
+        <p>For your own private note, record the test date and whether Preflight, Update now, and public preview passed. For support, share only checkpoint 1, 2, or 3 plus the non-sensitive warning/result label. If it succeeds, the three completed checks become the proof that a Marketplace review is based on real use rather than hope.</p>
       </section>
 
       <section class="section">
@@ -235,7 +250,7 @@ Beta</pre>
         <div class="grid">
           <div class="card"><strong>Preflight warning</strong><p>Re-select the spreadsheet, confirm the sheet tab, and make sure the mapped question still exists in this form.</p></div>
           <div class="card"><strong>Update skipped</strong><p>Look for empty source values, duplicate-only values, an unsupported question type, or a mapping saved against a copied form.</p></div>
-          <div class="card"><strong>Preview unchanged</strong><p>Open a fresh public preview window after the update. If it still shows old choices, send the update result and preview screenshot to support.</p></div>
+          <div class="card"><strong>Preview unchanged</strong><p>Open a fresh public preview window after the update. If it still shows old choices, report checkpoint 3 and the non-sensitive result label; do not send respondent data or source values.</p></div>
           <div class="card"><strong>Wrong form changed</strong><p>Confirm you opened FormSuite Choice Sync inside the same Google Form whose public link you are checking.</p></div>
         </div>
         <div class="link-bar">
@@ -247,7 +262,7 @@ Beta</pre>
       <section class="section">
         <h2>FAQ</h2>
         <details><summary><strong>Can I skip the copied-form test?</strong></summary><p>No. The copied-form test is the fastest way to separate install/setup issues from production form risk.</p></details>
-        <details><summary><strong>What should I include in a setup-help request?</strong></summary><p>Include the source tab name, source column header, mapped question type, Preflight result, Update now result, and whether the public preview changed.</p></details>
+        <details><summary><strong>What should I include in a setup-help request?</strong></summary><p>Reply with checkpoint 1, 2, or 3 plus the non-sensitive warning/result label. Do not include a form ID, spreadsheet ID, question text, source values, or respondent data.</p></details>
         <details><summary><strong>When is it safe to leave a review?</strong></summary><p>After Preflight passes, Update now reports at least one updated question, and the public preview shows the expected Sheet values.</p></details>
         <details><summary><strong>Does the test cover live capacity?</strong></summary><p>No. FormSuite Choice Sync updates choices; it does not reserve inventory, sell seats, or remove a choice while someone is filling out the form.</p></details>
       </section>
