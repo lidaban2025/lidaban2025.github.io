@@ -8,18 +8,18 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Forms dropdown from Google Sheets | FormSuite Choice Sync</title>
-  <meta name="description" content="Sync a Google Forms dropdown from Google Sheets with FormSuite Choice Sync. Map one source column, run Preflight, update choices, and check the public preview.">
+  <title>Google Forms Choice Update Preflight Guide | FormSuite Choice Sync</title>
+  <meta name="description" content="Preflight Google Forms choice updates from Sheets: check file access, duplicates, routing risk, exact diffs, and the public respondent preview before launch.">
   <link rel="canonical" href="https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="Google Forms dropdown from Google Sheets | FormSuite Choice Sync">
-  <meta property="og:description" content="See the simple FormSuite Choice Sync path: Sheets list, Preflight, Update now, then check the Google Forms preview.">
+  <meta property="og:title" content="Google Forms Choice Update Preflight Guide | FormSuite Choice Sync">
+  <meta property="og:description" content="Check access, duplicate labels, routing risk, the exact choice diff, and the respondent preview before updating a form.">
   <meta property="og:url" content="https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html">
   <meta property="og:image" content="https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Google Forms dropdown from Google Sheets | FormSuite Choice Sync">
-  <meta name="twitter:description" content="Sync Google Forms choices from selected Google Sheets data with one small FormSuite Choice Sync first-run test.">
+  <meta name="twitter:title" content="Google Forms Choice Update Preflight Guide | FormSuite Choice Sync">
+  <meta name="twitter:description" content="A copied-form Preflight workflow for checking Sheets-backed Google Forms choice updates before launch.">
   <meta name="twitter:image" content="https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg">
   <script type="application/ld+json">
     {
@@ -27,11 +27,11 @@
       "@graph": [
         {
           "@type": "Article",
-          "headline": "Google Forms dropdown from Google Sheets",
-          "description": "A visual guide to spreadsheet-backed Google Forms choices with FormSuite Choice Sync.",
+          "headline": "Google Forms choice update Preflight guide",
+          "description": "A copied-form Preflight guide for reviewing spreadsheet-backed Google Forms choice updates before launch.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-05-29",
+          "dateModified": "2026-08-22",
           "mainEntityOfPage": "https://formsuite.dev/formranger/dynamic-google-forms-dropdown-guide.html"
         },
         {
@@ -324,9 +324,9 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <div class="eyebrow">Visual workflow guide</div>
-          <h1 id="hero-title">Sync a Google Forms dropdown from Google Sheets.</h1>
-          <p>Use one clean Google Sheets column as the source for a Google Forms dropdown, checkbox, multiple-choice, or grid question. Start with a copied form, run Preflight, then update choices only after the public preview looks right.</p>
+          <div class="eyebrow">Preflight and launch guide</div>
+          <h1 id="hero-title">Preflight Google Forms choice updates before they go live.</h1>
+          <p>Use a copied form to check selected-file access, duplicate labels, routing risk, the exact added/removed diff, and the respondent-facing output before any Google Sheets-backed choice update reaches a live form.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=dynamic-google-forms-dropdown-guide">Install FormSuite Choice Sync</a>
             <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Test first</a>
@@ -369,13 +369,13 @@
       </section>
 
       <section class="section" aria-labelledby="answer-title">
-        <h2 id="answer-title">The whole setup in one line</h2>
-        <p class="answer">Put choices in one clean Sheets column, map one form question, run Preflight, click Update now, then check the public preview.</p>
+        <h2 id="answer-title">The safe update rule in one line</h2>
+        <p class="answer">Copy the form, map one supported question, inspect the exact Preflight diff, update only after approval, then verify Alpha/Beta in the public respondent preview.</p>
       </section>
 
       <section class="section" aria-labelledby="intent-title">
-        <h2 id="intent-title">What this guide is actually for</h2>
-        <p>This page is for the task query: Google Forms choices from Google Sheets. It covers owner-controlled choice refreshes before respondents answer. It is not about live dependent dropdowns, payment inventory, booking seats, or filtering choices while a respondent is already inside the form.</p>
+        <h2 id="intent-title">What this Preflight guide is actually for</h2>
+        <p>This page covers the safety check around owner-controlled choice refreshes before respondents answer. The main product page explains the broader Sheets-to-Forms task; this guide focuses on preventing a bad update. It is not about live dependent dropdowns, payment inventory, booking seats, or filtering choices while a respondent is already inside the form.</p>
         <div class="grid">
           <article class="card"><strong>Use it for</strong><p>Departments, locations, session lists, class groups, products, categories, checkbox options, and grid labels that are maintained in Sheets.</p></article>
           <article class="card"><strong>Do not use it for</strong><p>Seat reservations, live stock control, payment logic, or choices that must change differently for each respondent during the same form session.</p></article>

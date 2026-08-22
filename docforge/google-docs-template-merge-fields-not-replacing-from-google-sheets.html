@@ -8,34 +8,97 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Docs merge fields not replacing from Sheets | DocForge</title>
-  <meta name="description" content="Troubleshoot Google Docs template merge fields that stay blank or do not replace from Google Sheets. Check placeholders, sheet headers, row data, template access, and DocForge preflight.">
+  <title>Autocrat Not Working? Fix Merge Fields from Google Sheets | DocForge</title>
+  <meta name="description" content="Autocrat not working or merge fields staying blank? Check tags, Sheet headers, row data, access, and prove one generated file before restarting a batch.">
   <link rel="canonical" href="https://formsuite.dev/docforge/google-docs-template-merge-fields-not-replacing-from-google-sheets.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="Google Docs merge fields not replacing from Sheets | DocForge">
-  <meta property="og:description" content="Troubleshoot Google Docs template merge fields that stay blank or do not replace from Google Sheets. Check placeholders, sheet headers, row data, template access, and DocForge preflight.">
+  <meta property="og:title" content="Autocrat Not Working? Fix Merge Fields from Google Sheets | DocForge">
+  <meta property="og:description" content="Diagnose blank merge fields and prove one generated file from one copied Sheet row before restarting a batch.">
   <meta property="og:url" content="https://formsuite.dev/docforge/google-docs-template-merge-fields-not-replacing-from-google-sheets.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <link rel="stylesheet" href="../product-inner.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is Autocrat not replacing merge fields?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common causes are a tag that does not exactly match the Google Sheets header, a blank source cell, the wrong template or Sheet tab, or lost file access. Test one copied row and one duplicated template before restarting the batch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I rerun the whole document merge batch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. First preview one source row, generate one file, open it, and confirm the expected values. A full rerun can create duplicates without proving the setup is fixed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is DocForge an official Autocrat replacement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. DocForge is an independent FormSuite add-on and is not affiliated with Autocrat or New Visions Cloudlab. It is a narrow option for copied-Sheet, single-template, one-row testing before a batch."
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <div class="shell">
     <nav class="nav"><a href="../index.html">FormSuite</a><a href="../support.html">Support</a></nav>
     <section class="hero">
-      <div class="eyebrow">Guide</div>
-      <h1>Google Docs merge fields not replacing from Sheets?</h1>
-      <p>Troubleshoot Google Docs template merge fields that stay blank or do not replace from Google Sheets. Check placeholders, sheet headers, row data, template access, and DocForge preflight.</p>
-      <div class="hero-actions"><a class="btn btn-secondary" href="../index.html">FormSuite</a>
-<a class="btn btn-secondary" href="../index.html#products">Install</a>
-<a class="btn btn-secondary" href="../resources/index.html">Resources</a>
-<a class="btn btn-secondary" href="./index.html">DocForge</a>
-<a class="btn btn-secondary" href="./support.html">Support</a>
-<a class="btn btn-secondary" href="./google-docs-template-merge-from-google-sheets.html">Template merge guide</a></div>
+      <div class="eyebrow">Autocrat failure and migration guide</div>
+      <h1>Autocrat not working or merge fields not replacing?</h1>
+      <p>Do not restart the full batch yet. Use a copied Google Sheet, a duplicated template, and one source row to isolate whether the failure is the tag, header, row data, file access, or output step.</p>
+      <p><strong>Independent-product disclosure:</strong> DocForge is a FormSuite add-on. It is not affiliated with Autocrat or New Visions Cloudlab, and it does not claim full Autocrat feature parity.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="./generate-one-pdf-from-google-sheets-before-batch.html">Run the one-row, one-file test</a>
+        <a class="btn btn-secondary" href="./index.html">See DocForge</a>
+        <a class="btn btn-secondary" href="./support.html">Support</a>
+      </div>
     </section>
     <section class="grid" style="margin-top:18px;">
-      <article class="card"><div class="pill">Short path</div><h2>What to do</h2><ol><li>Open the matching FormSuite product page.</li><li>Run one small test with copied data.</li><li>Install from Marketplace only after the test matches your workflow.</li></ol></article>
-      <aside class="card"><div class="pill">Need help?</div><h2>Send a setup note</h2><p>Include the product name, the expected result, and a screenshot of the failing step.</p><a class="btn btn-primary" href="../support.html">Support</a></aside>
+      <article class="card"><div class="pill">1. Tag match</div><h2>Compare every merge tag with its Sheet header</h2><p>Spaces, punctuation, capitalization, and hidden trailing characters can make a tag look correct while it points to no column. Copy the header text directly into the template tag for the one-row test.</p></article>
+      <article class="card"><div class="pill">2. Row data</div><h2>Inspect the exact source row</h2><p>Confirm the test row is not filtered out, the required cells are not blank, and formulas have finished calculating. Do not infer the result from a different row.</p></article>
+      <article class="card"><div class="pill">3. Files</div><h2>Verify the selected template and access</h2><p>Open the exact Google Docs template and output folder from the same account running the merge. A moved, deleted, or inaccessible file can look like a placeholder problem.</p></article>
+      <article class="card"><div class="pill">4. Scope</div><h2>Duplicate the Sheet and template</h2><p>Keep the live job unchanged. A copied-Sheet test removes the risk of duplicate production files while you isolate the failing mapping.</p></article>
+    </section>
+    <section class="section">
+      <h2>One-row recovery sequence</h2>
+      <ol>
+        <li>Copy the Google Sheet and duplicate the Google Docs template.</li>
+        <li>Keep one synthetic source row with obvious values such as Alpha, Project A, and 100.</li>
+        <li>Map every required template tag and run Preflight.</li>
+        <li>Preview that exact row and confirm the output name and mapped values.</li>
+        <li>Generate one file, open it, and compare every expected field.</li>
+        <li>Only then move the corrected mapping back to the production workflow.</li>
+      </ol>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="./generate-one-pdf-from-google-sheets-before-batch.html">Open the one-file proof checklist</a>
+        <a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=docforge_autocrat_failure&amp;utm_content=one_row_recovery">Install DocForge</a>
+      </div>
+    </section>
+    <section class="grid" style="margin-top:18px;">
+      <article class="card"><div class="pill">Use DocForge when</div><h2>The migration slice is narrow</h2><p>You have one Google Docs template, stable Sheet headers, a copied file for testing, and you want an exact one-row preview before generating one output.</p></article>
+      <article class="card"><div class="pill">Do not use it when</div><h2>You need full workflow parity</h2><p>Do not assume support for every Autocrat trigger, multi-template job, attachment, conditional route, approval, or distribution feature. Keep the existing workflow until the narrow copied-file test succeeds.</p></article>
+    </section>
+    <section class="section">
+      <h2>What counts as fixed?</h2>
+      <p>A sidebar message alone is not proof. The generated file must open, the expected fields must contain the copied-row values, and only one output should exist for the test row. Internal QA is evidence of product behavior, not evidence that a real customer succeeded.</p>
+    </section>
+    <section class="section">
+      <h2>FAQ</h2>
+      <details><summary><strong>Why is Autocrat not replacing merge fields?</strong></summary><p>Check exact tag-to-header matching, the selected Sheet tab, blank source cells, template access, and the specific row being merged. Test one copied row before changing the live job.</p></details>
+      <details><summary><strong>Should I rerun the whole batch?</strong></summary><p>No. Generate and open one file first. A full rerun can create duplicates without proving the mapping is fixed.</p></details>
+      <details><summary><strong>Is DocForge an official Autocrat replacement?</strong></summary><p>No. DocForge is independent and is positioned for a narrow single-template, one-row proof—not universal feature parity.</p></details>
     </section>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>

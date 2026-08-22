@@ -63,6 +63,16 @@ test("FormRanger support exposes focused fixes without bypassing the review gate
   assert.doesNotMatch(html, /href="\.\/review-after-first-success\.html"/);
 });
 
+test("Choice Sync product and Preflight guide target distinct search intents", () => {
+  const product = fs.readFileSync(path.join(root, "formranger", "index.html"), "utf8");
+  const guide = fs.readFileSync(path.join(root, "formranger", "dynamic-google-forms-dropdown-guide.html"), "utf8");
+
+  assert.match(product, /<title>Google Forms Dropdown from Google Sheets \| FormSuite Choice Sync<\/title>/);
+  assert.match(guide, /<title>Google Forms Choice Update Preflight Guide \| FormSuite Choice Sync<\/title>/);
+  assert.match(guide, /Preflight Google Forms choice updates before they go live/);
+  assert.notEqual(product.match(/<title>(.*?)<\/title>/)[1], guide.match(/<title>(.*?)<\/title>/)[1]);
+});
+
 test("tracking keeps approved workflow fields and drops arbitrary custom data", () => {
   const source = fs.readFileSync(path.join(root, "formsuite-tracking.js"), "utf8");
   const sent = [];

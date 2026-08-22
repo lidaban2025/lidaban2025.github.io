@@ -80,3 +80,17 @@ test("review-after-success Marketplace clicks are separate from install clicks",
   assert.equal(install.event, "marketplace_cta_click");
   assert.equal(install.target_type, "marketplace");
 });
+
+test("existing DocForge fault page covers Autocrat failure without claiming parity", () => {
+  const faultHtml = fs.readFileSync(
+    path.join(root, "docforge", "google-docs-template-merge-fields-not-replacing-from-google-sheets.html"),
+    "utf8"
+  );
+
+  assert.match(faultHtml, /<title>Autocrat Not Working\? Fix Merge Fields from Google Sheets \| DocForge<\/title>/);
+  assert.match(faultHtml, /Autocrat not working or merge fields not replacing\?/);
+  assert.match(faultHtml, /one-row, one-file test/);
+  assert.match(faultHtml, /not affiliated with Autocrat or New Visions Cloudlab/);
+  assert.match(faultHtml, /does not claim full Autocrat feature parity/);
+  assert.match(faultHtml, /rel="canonical" href="https:\/\/formsuite\.dev\/docforge\/google-docs-template-merge-fields-not-replacing-from-google-sheets\.html"/);
+});
