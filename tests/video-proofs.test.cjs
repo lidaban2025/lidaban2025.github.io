@@ -19,6 +19,21 @@ const proofs = [
     file: "docforge/generate-one-pdf-from-google-sheets-before-batch.html",
     id: "dk0Cbncsn5E",
     type: "one_row_one_file"
+  },
+  {
+    file: "formranger/google-forms-dropdown-not-updating-from-google-sheets.html",
+    id: "il0ZJYrp9UA",
+    type: "safe_scheduled_sync"
+  },
+  {
+    file: "formmerge/form-mule-not-sending-emails.html",
+    id: "xXX9I7bkL3M",
+    type: "protected_operational_automation"
+  },
+  {
+    file: "docforge/google-docs-template-merge-fields-not-replacing-from-google-sheets.html",
+    id: "0KmBS2EKxAk",
+    type: "verified_batch"
   }
 ];
 
