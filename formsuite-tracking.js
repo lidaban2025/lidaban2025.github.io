@@ -104,6 +104,8 @@
     var reviewMedium = url.searchParams && url.searchParams.get("utm_medium") === "review_after_success";
     if (url.protocol === "mailto:" && path === "support@formsuite.dev" &&
         url.search.toLowerCase().indexOf("choice%20sync%20paid%20team%20pilot") !== -1) return "paid_pilot";
+    if (url.protocol === "mailto:" && path === "support@formsuite.dev" &&
+        url.search.toLowerCase().indexOf("pilot") !== -1) return "pilot_interest";
     if (marketplaceTarget && (reviewMedium || sourcePath.indexOf("/review-after-first-success") !== -1)) return "review_after_success";
     if (marketplaceTarget) return "marketplace";
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
@@ -120,6 +122,7 @@
 
   function eventName(type) {
     if (type === "paid_pilot") return "paid_pilot_click";
+    if (type === "pilot_interest") return "pilot_interest_click";
     if (type === "marketplace") return "marketplace_cta_click";
     if (type === "demo_video") return "demo_video_click";
     if (type === "first_run_checklist") return "first_run_checklist_click";
