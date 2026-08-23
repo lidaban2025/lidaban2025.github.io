@@ -25,6 +25,7 @@ for (const page of pages) {
     for (const term of page.terms) assert.match(html, new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
     assert.match(html, /<link rel="canonical" href="https:\/\/formsuite\.dev\//);
     assert.match(html, /https:\/\/workspace\.google\.com\/marketplace\/app\//);
+    assert.match(html, /utm_campaign=/);
     assert.doesNotMatch(html, /full (Form Ranger|Form Mule|Autocrat) replacement/i);
   });
 }
