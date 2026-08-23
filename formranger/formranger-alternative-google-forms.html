@@ -31,8 +31,18 @@
           "description": "A migration-focused comparison of the legacy Form Ranger workflow, Apps Script, and FormSuite Choice Sync for updating Google Forms choices from Google Sheets.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-06-09",
+          "dateModified": "2026-08-23",
           "mainEntityOfPage": "https://formsuite.dev/formranger/formranger-alternative-google-forms.html"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Google Forms Dropdown from Google Sheets: Safe Scheduled Sync + Recovery",
+          "description": "A controlled Choice Sync tutorial covering copied-form Preflight, exact diff approval, public preview, scheduled sync, mapping health, trigger repair, and bounded recovery.",
+          "thumbnailUrl": "https://img.youtube.com/vi/tGH7qXetLTU/hqdefault.jpg",
+          "uploadDate": "2026-08-23",
+          "duration": "PT3M1S",
+          "contentUrl": "https://youtu.be/tGH7qXetLTU",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/tGH7qXetLTU"
         },
         {
           "@type": "FAQPage",
@@ -110,6 +120,32 @@
           <article class="card"><div class="pill">Apps Script</div><h3>Best when someone owns code.</h3><p>Flexible, but your team maintains triggers, permissions, and breakage.</p></article>
           <article class="card"><div class="pill">FormSuite Choice Sync</div><h3>Best when you want a visible safety check.</h3><p>Map one question to one selected Sheets column, run Preflight, inspect the update report, then verify the public form choices.</p></article>
           <article class="card"><div class="pill">Boundary</div><h3>Not live inventory locking.</h3><p>It refreshes choices from Sheets. It does not reserve seats while a respondent is filling the form.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="choice-comparison-title">
+        <h2 id="choice-comparison-title">Form Ranger-style workflow vs Choice Sync vs custom Apps Script</h2>
+        <p>This comparison is for migration decisions, not a claim that every legacy setup behaves the same. Keep the original workflow until one copied-form path succeeds.</p>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>Decision point</th><th>Legacy Form Ranger-style workflow</th><th>FormSuite Choice Sync</th><th>Custom Apps Script</th></tr></thead>
+            <tbody>
+              <tr><td>Before writing choices</td><td>Recheck the selected source and existing mapping manually.</td><td>Selected-file access, duplicate/blank diagnostics, exact added/removed/unchanged diff, and explicit approval.</td><td>You design and maintain every validation.</td></tr>
+              <tr><td>Routing and quiz risk</td><td>Test the copied form and confirm how the existing setup treats routed or quiz questions.</td><td>Detected section-routing or quiz risk blocks the update instead of attempting to preserve unknown behavior.</td><td>Your code must detect and fail closed.</td></tr>
+              <tr><td>Large choice lists</td><td>Confirm practical limits before touching a live question.</td><td>Warns at 900 choices and blocks at 1,000.</td><td>Your code owns limits, errors, and reporting.</td></tr>
+              <tr><td>Scheduled updates</td><td>Verify the existing trigger and result directly; do not assume it ran.</td><td>Every 6 hours or Daily, test-the-scheduled-path action, and per-mapping attempt/success/error health.</td><td>You own triggers, permissions, monitoring, and repair.</td></tr>
+              <tr><td>Recovery</td><td>Keep a copied form and manual rollback plan.</td><td>Five bounded recovery versions with live-drift checks before restore.</td><td>You build and store snapshots safely.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="choice-tutorial-title">
+        <h2 id="choice-tutorial-title">Watch the complete copied-form migration path</h2>
+        <p>The controlled tutorial shows Preflight, exact diff approval, Update now, public respondent preview, scheduled-path testing, mapping health, trigger repair, and bounded recovery with synthetic Alpha/Beta data.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://youtu.be/tGH7qXetLTU" target="_blank" rel="noopener noreferrer">Watch the 3-minute tutorial</a>
+          <a class="btn btn-secondary" href="./google-forms-dropdown-not-updating-from-google-sheets.html">Open the failure checklist</a>
         </div>
       </section>
 

@@ -1,11 +1,12 @@
 {
   "scripts": {
-    "test": "npm run test:formranger && npm run test:formmerge-first-success && npm run test:docforge-first-success && npm run test:homepage-first-success && npm run test:video-proofs && npm run check:links",
+    "test": "npm run test:formranger && npm run test:formmerge-first-success && npm run test:docforge-first-success && npm run test:homepage-first-success && npm run test:video-proofs && npm run test:competitor-migrations && npm run check:links",
     "test:formranger": "node --test tests/formranger-first-success.test.cjs",
     "test:formmerge-first-success": "node --test tests/formmerge-first-success.test.cjs",
     "test:docforge-first-success": "node --test tests/docforge-first-success.test.cjs",
     "test:homepage-first-success": "node --test tests/homepage-first-success.test.cjs",
     "test:video-proofs": "node --test tests/video-proofs.test.cjs",
+    "test:competitor-migrations": "node --test tests/competitor-migration-pages.test.cjs",
     "check:links": "node scripts/check-site-links.mjs",
     "build:site": "node scripts/build-site.js",
     "cf:check": "npm run build:site && npx wrangler deploy --dry-run",
