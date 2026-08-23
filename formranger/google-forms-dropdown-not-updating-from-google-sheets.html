@@ -45,6 +45,16 @@
           "embedUrl": "https://www.youtube-nocookie.com/embed/il0ZJYrp9UA"
         },
         {
+          "@type": "VideoObject",
+          "name": "Google Forms Dropdown from Google Sheets: Safe Scheduled Sync + Recovery",
+          "description": "A controlled full tutorial for diagnosing stale Google Forms choices, approving an exact diff, testing scheduled sync, reading mapping health, and using bounded recovery.",
+          "thumbnailUrl": "https://img.youtube.com/vi/tGH7qXetLTU/hqdefault.jpg",
+          "uploadDate": "2026-08-23",
+          "duration": "PT3M1S",
+          "contentUrl": "https://youtu.be/tGH7qXetLTU",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/tGH7qXetLTU"
+        },
+        {
           "@type": "FAQPage",
           "mainEntity": [
             {
@@ -110,8 +120,9 @@
     details p { margin-top:8px; }
     .footer { margin-top:28px; text-align:center; color:var(--muted); font-size:.9rem; }
     .video-proof { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr); gap:22px; align-items:center; }
-    .video-proof-media { display:block; aspect-ratio:16 / 9; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#101826; }
-    .video-proof-media img { display:block; width:100%; height:100%; object-fit:cover; }
+    .search-tutorial-player { position:relative; aspect-ratio:16 / 9; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#101826; }
+    .search-tutorial-player iframe,.search-tutorial-player .video-proof-play { width:100%; height:100%; border:0; }
+    .search-tutorial-player iframe[hidden],.search-tutorial-player .video-proof-play[hidden] { display:none; }
     .video-proof-copy .eyebrow { margin-bottom:10px; }
     .video-proof-copy p { max-width:650px; }
     .video-proof-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
@@ -176,18 +187,24 @@
       </section>
 
       <section class="section video-proof" aria-labelledby="video-proof-title">
-        <a class="video-proof-media" href="https://youtu.be/RE8HR9t9n_0" target="_blank" rel="noopener noreferrer" aria-label="Watch the verified FormSuite Choice Sync 60-second first-run test on YouTube">
-          <img src="https://img.youtube.com/vi/RE8HR9t9n_0/hqdefault.jpg" alt="FormSuite Choice Sync 60-second first-run test showing the Google Sheets to Google Forms dropdown update path" loading="lazy">
-        </a>
+        <div class="search-tutorial-player" data-video-proof="choice_full_tutorial" data-video-id="tGH7qXetLTU">
+          <button class="video-proof-play" type="button" aria-label="Play the complete Choice Sync troubleshooting tutorial">
+            <span class="video-proof-kicker">3-minute search tutorial</span>
+            <span class="video-proof-title">Fix stale choices, test scheduling, recover safely.</span>
+            <span class="video-proof-icon" aria-hidden="true">▶</span>
+          </button>
+          <iframe title="Choice Sync complete dropdown troubleshooting tutorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
+        </div>
         <div class="video-proof-copy">
-          <div class="eyebrow">60-second verified test</div>
-          <h2 id="video-proof-title">See the first-run pass before touching a live form</h2>
-          <p>The test passes only when Preflight succeeds, Update now reports at least one updated question, and the public respondent preview shows the expected Google Sheets values.</p>
+          <div class="eyebrow">Complete search tutorial</div>
+          <h2 id="video-proof-title">Fix the failure, then prove scheduled sync and recovery</h2>
+          <p>Follow the copied-form path from source selection and Preflight through exact diff approval, public respondent preview, scheduled-path testing, mapping health, trigger repair, and five bounded recovery versions.</p>
           <div class="video-proof-actions">
-            <a class="btn btn-primary" href="https://youtu.be/RE8HR9t9n_0" target="_blank" rel="noopener noreferrer">Watch the 60-second test</a>
+            <a class="btn btn-primary" href="https://youtu.be/tGH7qXetLTU" target="_blank" rel="noopener noreferrer">Watch the full tutorial</a>
             <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Run the Alpha/Beta checklist</a>
           </div>
           <p class="video-proof-note">FormSuite Choice Sync refreshes owner-controlled choices before respondents use the form. It is not respondent-time dependent-dropdown, booking, inventory, or payment software.</p>
+          <noscript><p class="video-proof-note"><a href="https://youtu.be/tGH7qXetLTU">Watch the complete Choice Sync tutorial on YouTube</a>.</p></noscript>
         </div>
       </section>
 

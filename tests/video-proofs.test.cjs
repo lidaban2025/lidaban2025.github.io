@@ -34,6 +34,21 @@ const proofs = [
     file: "docforge/google-docs-template-merge-fields-not-replacing-from-google-sheets.html",
     id: "0KmBS2EKxAk",
     type: "verified_batch"
+  },
+  {
+    file: "formranger/google-forms-dropdown-not-updating-from-google-sheets.html",
+    id: "tGH7qXetLTU",
+    type: "choice_full_tutorial"
+  },
+  {
+    file: "formmerge/form-mule-not-sending-emails.html",
+    id: "YF0AZtQvAt0",
+    type: "formmerge_full_tutorial"
+  },
+  {
+    file: "docforge/google-docs-template-merge-fields-not-replacing-from-google-sheets.html",
+    id: "bIxylBLI_nY",
+    type: "docforge_full_tutorial"
   }
 ];
 
