@@ -39,6 +39,18 @@ test("first-run page includes a measurable Alpha/Beta starter pack", () => {
   assert.equal(csv, "Test choice\nAlpha\nBeta\n");
 });
 
+test("owned promotion surfaces converge on the copied-form Alpha/Beta test", () => {
+  const expectedPath = "formranger/test-google-forms-dynamic-choices-before-launch.html";
+  for (const relativePath of ["index.html", "install.html", "choose-google-workspace-addon.html", "resources/demo-videos.html"]) {
+    const html = fs.readFileSync(path.join(root, relativePath), "utf8");
+    assert.match(html, new RegExp(expectedPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+  for (const relativePath of ["index.html", "install.html", "choose-google-workspace-addon.html"]) {
+    const html = fs.readFileSync(path.join(root, relativePath), "utf8");
+    assert.match(html, /choice_sync_copied_form_first_success/);
+  }
+});
+
 test("first-run page exposes privacy-safe three-stage recovery", () => {
   const html = fs.readFileSync(path.join(root, "formranger", "test-google-forms-dynamic-choices-before-launch.html"), "utf8");
   const source = fs.readFileSync(path.join(root, "formranger", "first-success.js"), "utf8");

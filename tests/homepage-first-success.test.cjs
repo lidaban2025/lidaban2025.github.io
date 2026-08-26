@@ -16,7 +16,7 @@ const firstSuccessRoutes = [
 
 test("homepage routes each priority add-on into its smallest first-success test", () => {
   for (const [route, label] of firstSuccessRoutes) {
-    assert.match(homepage, new RegExp(`href="${route.replaceAll("/", "\\/")}"[^>]*>${label}`));
+    assert.match(homepage, new RegExp(`href="${route.replaceAll("/", "\\/")}(?:\\?[^\"]*)?"[^>]*>${label}`));
   }
   assert.doesNotMatch(homepage, /Watch (routing|duplicate|one-file) proof/);
 });
