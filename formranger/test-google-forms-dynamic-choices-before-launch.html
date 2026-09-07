@@ -8,8 +8,8 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Google Forms dynamic choices before launch | FormRanger</title>
-  <meta name="description" content="A concise FormRanger first-run test for Google Forms dynamic choices: map one question, run Preflight, update now, and check the public preview.">
+  <title>Test Google Forms dynamic choices before launch | FormSuite Choice Sync</title>
+  <meta name="description" content="A concise FormSuite Choice Sync first-run test for Google Forms dynamic choices: map one question, run Preflight, update now, and check the public preview.">
   <link rel="canonical" href="https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Test Google Forms dynamic choices before launch">
-  <meta name="twitter:description" content="A short FormRanger first-run test for spreadsheet-backed Google Forms choices.">
+  <meta name="twitter:description" content="A short FormSuite Choice Sync first-run test for spreadsheet-backed Google Forms choices.">
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -28,10 +28,10 @@
         {
           "@type": "Article",
           "headline": "Test Google Forms dynamic choices before launch",
-          "description": "A short first-run test for Google Forms dynamic choices with FormRanger.",
+          "description": "A short first-run test for Google Forms dynamic choices with FormSuite Choice Sync.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-06-10",
+          "dateModified": "2026-09-06",
           "mainEntityOfPage": "https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html"
         },
         {
@@ -42,7 +42,7 @@
               "name": "How should I test Google Forms dynamic choices before launch?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Use a copied form, one supported choice question, one Google Sheets column with two sample values, then run FormRanger Preflight, Update now, and public preview."
+                "text": "Use a copied form, one supported choice question, one Google Sheets column with two sample values, then run FormSuite Choice Sync Preflight, Update now, and public preview."
               }
             },
             {
@@ -51,6 +51,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "The test is successful when Preflight passes, Update now reports an updated question, and the public form preview shows the expected sheet values."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I test duplicate and routing safety?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the dirty-column starter to inspect duplicate warnings on a copied form. Test routing separately on a copied routed question and confirm Choice Sync blocks the update without changing its destinations."
               }
             }
           ]
@@ -74,7 +82,7 @@
     p,li { color:var(--muted); }
     .hero p { max-width:760px; }
     .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font-weight:700; border:1px solid transparent; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 16px; border-radius:999px; font:inherit; font-weight:700; border:1px solid transparent; cursor:pointer; }
     .btn-primary { background:var(--blue); color:#fff; }
     .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
     .section { padding:24px; margin-top:16px; }
@@ -82,6 +90,8 @@
     .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
     .card { padding:16px; border:1px solid var(--line); border-radius:14px; background:#fff; }
     .card strong { display:block; margin-bottom:6px; color:var(--ink); }
+    .starter-values { margin:12px 0 16px; padding:14px 16px; overflow:auto; border:1px solid var(--line); border-radius:12px; background:#f7f9fc; color:var(--ink); font:600 .95rem/1.65 ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .copy-status { display:block; min-height:1.5em; margin-top:10px; color:var(--green); font-size:.9rem; }
     .steps { padding-left:20px; display:grid; gap:8px; }
     .caution { padding:16px; border-radius:14px; background:var(--amber-soft); border:1px solid #efd98b; color:var(--amber); }
     .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
@@ -96,28 +106,43 @@
   <div class="shell">
     <nav class="nav">
       <a href="../index.html">FormSuite</a>
-      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="./index.html"><strong>FormSuite Choice Sync</strong></a>
       
       <a href="./support.html">Support</a>
     </nav>
 
     <section class="hero">
-      <div class="eyebrow">First-run test</div>
-      <h1>Test Google Forms dynamic choices before launch</h1>
-      <p>FormRanger is a Google Forms add-on for updating supported form choices from selected Google Sheets data. Before sharing a live form, test one copied form, one question, and one small source column.</p>
+      <div class="eyebrow">5-minute owner test</div>
+      <h1>Install, open one copied Form, then create Alpha/Beta</h1>
+      <p>Do the first test inside a Google Form you own: install Choice Sync, open a blank or copied Form, create the synthetic Alpha/Beta Sheet from the sidebar, then map one choice question. The public form below is proof to view, not a file you can configure.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=test-google-forms-dynamic-choices-before-launch">Install FormRanger</a>
-        <a class="btn btn-secondary" href="./support.html">Setup guide</a>
-        <a class="btn btn-secondary" href="../setup-help.html?product=FormRanger&source=formranger-first-run-test">Send setup note</a>
-        <a class="btn btn-secondary" href="./permissions.html">Permissions</a>
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=choice_sync_activation_7day_20260907&utm_content=tutorial_copied_form_install" target="_blank" rel="noopener">Install Choice Sync, then return here</a>
+        <a class="btn btn-secondary" href="https://forms.new" target="_blank" rel="noopener">Open a blank Google Form</a>
+        <a class="btn btn-secondary" href="#owner-path">See the exact owner path</a>
+        <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdIm8jMfnQp_1HJY-x4hA4KhpgKZSFLETyTKI2rH5gv5brq-Q/viewform" target="_blank" rel="noopener" data-track="formranger_public_test_form">View public Alpha/Beta proof</a>
       </div>
+      <p><strong>Keep this guide tab open.</strong> After Marketplace installation finishes, return here, open a blank or copied Google Form, and continue with the owner path below.</p>
     </section>
+
+      <section class="section" id="owner-path">
+        <h2>Do this in your own Form — no source Sheet required</h2>
+        <div class="grid">
+          <div class="card"><strong>1. Install and open a copied or blank Form</strong><p>Return to Google Forms after installing. Do not try to configure the public verification form.</p></div>
+          <div class="card"><strong>2. Open Choice Sync and choose “Create Alpha/Beta Sheet”</strong><p>The sidebar creates a small synthetic Sheet in your Drive, so you do not need to prepare a spreadsheet first.</p></div>
+          <div class="card"><strong>3. Link one dropdown, then run Preflight</strong><p>Review the exact Alpha/Beta diff and approve it before Update now becomes available.</p></div>
+          <div class="card"><strong>4. Update, then check the respondent preview</strong><p>Open the public preview of your own Form. Only this proves that respondents will see the new choices.</p></div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-secondary" href="./support.html#selected-file">Can’t see the Alpha/Beta Sheet action?</a>
+          <a class="btn btn-secondary" href="./permissions.html">Why the add-on asks for file access</a>
+        </div>
+      </section>
 
       <section class="section">
         <h2>Quick answer</h2>
-        <p class="answer">Use a copied form, one dropdown or multiple-choice question, and one Sheets column with Alpha and Beta. Map it in FormRanger, run Preflight, click Update now, then open the public preview.</p>
+        <p class="answer">Open Choice Sync inside a copied or blank Form, choose “Create Alpha/Beta Sheet,” link one dropdown or multiple-choice question, run Preflight, click Update now, then open that Form’s public preview.</p>
         <div class="hero-actions">
-          <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdIm8jMfnQp_1HJY-x4hA4KhpgKZSFLETyTKI2rH5gv5brq-Q/viewform" data-track="formranger_public_test_form">Open the verified Alpha/Beta test form</a>
+          <a class="btn btn-secondary" href="#preview-success">Start the four-step checklist</a>
         </div>
       </section>
 
@@ -125,20 +150,67 @@
         <h2>Why this test matters</h2>
         <p>A saved mapping is not enough evidence that respondents received the intended choices. Use one copied form, one source column, one supported question, one update, and one public preview check to verify the complete path safely.</p>
         <div class="grid">
-          <div class="card"><strong>What this test proves</strong><p>FormRanger can read the selected Sheet source, validate the mapping, update the selected question, and show the changed choices to respondents.</p></div>
+          <div class="card"><strong>What this test proves</strong><p>FormSuite Choice Sync can read the selected Sheet source, validate the mapping, update the selected question, and show the changed choices to respondents.</p></div>
           <div class="card"><strong>What it does not prove</strong><p>It does not prove booking capacity, payment logic, live dependent dropdown behavior, or every mapping in a complex production form.</p></div>
         </div>
       </section>
 
-      <section class="section">
-        <h2>First-run path</h2>
-        <ol class="steps">
-        <li>Create or copy a Google Form with one supported choice question.</li>
-        <li>Create a Google Sheets column with two visible test choices.</li>
-        <li>Select the spreadsheet, sheet tab, column, and question in FormRanger.</li>
-        <li>Run Preflight, then use Update now.</li>
-          <li>Open the public form preview and confirm the choices match the sheet.</li>
+      <section class="section" id="starter-column">
+        <h2>Paste a ready-made test column</h2>
+        <p>Start with the same obvious values used in the verified test. Paste this into cell A1 of a blank Google Sheet, then select that column in FormSuite Choice Sync.</p>
+        <div class="grid">
+          <div class="card">
+            <strong>Copy the three-cell column</strong>
+            <pre class="starter-values" data-starter-values>Test choice
+Alpha
+Beta</pre>
+            <button class="btn btn-primary" type="button" data-copy-starter-values>Copy starter column</button>
+            <span class="copy-status" data-copy-starter-status aria-live="polite"></span>
+          </div>
+          <div class="card">
+            <strong>Prefer a file?</strong>
+            <p>Download the same values as a small CSV, open it in Google Sheets, and use the first column as the source.</p>
+            <div class="hero-actions">
+              <a class="btn btn-secondary" href="./choice-sync-alpha-beta.csv" download data-download-starter-values>Download Alpha/Beta CSV</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="dirty-column-test">
+        <h2>Test Choice Sync Preflight with a dirty source column</h2>
+        <p>This separate starter intentionally contains exact duplicates, extra spacing, case variants, a blank row, and look-alike labels. Use it only on a copied form to confirm Preflight exposes the problem before Update now.</p>
+        <div class="grid">
+          <div class="card"><strong>Expected findings</strong><p>Duplicate Beta and EMEA values, spacing/case variants, a blank value that is ignored, and North America labels that require human review.</p></div>
+          <div class="card"><strong>Do not auto-clean meaning</strong><p>Preflight can recommend cleanup, but it does not rewrite the source Sheet or guess whether near-duplicate labels mean the same thing.</p><div class="hero-actions"><a class="btn btn-secondary" href="./choice-sync-dirty-column-starter.csv" download>Download dirty-column CSV</a></div></div>
+        </div>
+        <div class="hero-actions"><a class="btn btn-secondary" href="./safe-migration-proof-pack.html">Open the five-card migration proof pack</a></div>
+      </section>
+
+      <section class="section first-run-workspace" data-formranger-first-run id="preview-success">
+        <h2>Complete one Alpha/Beta update</h2>
+        <p>Use a copied form and mark each step as you verify it. This checklist is saved in this browser.</p>
+        <div class="first-run-progress" aria-live="polite">
+          <span data-first-run-progress>0/4 complete</span>
+        </div>
+        <ol class="first-run-steps">
+          <li><label><input type="checkbox" data-first-run-step="select-source"> <span>Select the Sheet, tab, and Alpha/Beta column.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="map-question"> <span>Map one supported choice question.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="preflight"> <span>Run Preflight and resolve every warning.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="update-preview"> <span>Run Update now and open the public respondent preview.</span></label></li>
         </ol>
+        <label class="preview-confirm">
+          <input type="checkbox" data-preview-confirm>
+          <span>The public respondent preview shows Alpha and Beta.</span>
+        </label>
+        <div class="outcome support-outcome" data-support-outcome>
+          <p>Not all checks passed yet? Use the focused troubleshooting path before touching a live form.</p>
+          <a class="btn btn-secondary" href="../setup-help.html?product=FormRanger&amp;source=formranger-first-run-failed">Troubleshoot this test</a>
+        </div>
+        <div class="outcome review-outcome" data-review-outcome hidden>
+          <p>Your public preview is the success proof. An honest Marketplace review is now appropriate.</p>
+          <a class="btn btn-primary" href="review-after-first-success.html">Open the review-after-success page</a>
+        </div>
       </section>
 
       <section class="section">
@@ -160,8 +232,8 @@
         <h2>Visual proof points</h2>
         <p>The public Alpha/Beta test form was verified on July 12, 2026: Preflight passed, Update now reported one updated question with two choices, and the respondent-facing dropdown displayed Alpha and Beta.</p>
         <div class="evidence-grid">
-          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormRanger Preflight before updating Google Forms choices"><figcaption>Preflight should be clean before the update. If it warns about file, tab, column, or question mapping, stop there.</figcaption></figure>
-          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormRanger update success before public preview check"><figcaption>Update success is the middle step. The final proof is still the public respondent preview.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormSuite Choice Sync Preflight before updating Google Forms choices"><figcaption>Preflight should be clean before the update. If it warns about file, tab, column, or question mapping, stop there.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormSuite Choice Sync update success before public preview check"><figcaption>Update success is the middle step. The final proof is still the public respondent preview.</figcaption></figure>
         </div>
       </section>
 
@@ -196,11 +268,11 @@
           <div class="card"><strong>Preflight warning</strong><p>Re-select the spreadsheet, confirm the sheet tab, and make sure the mapped question still exists in this form.</p></div>
           <div class="card"><strong>Update skipped</strong><p>Look for empty source values, duplicate-only values, an unsupported question type, or a mapping saved against a copied form.</p></div>
           <div class="card"><strong>Preview unchanged</strong><p>Open a fresh public preview window after the update. If it still shows old choices, send the update result and preview screenshot to support.</p></div>
-          <div class="card"><strong>Wrong form changed</strong><p>Confirm you opened FormRanger inside the same Google Form whose public link you are checking.</p></div>
+          <div class="card"><strong>Wrong form changed</strong><p>Confirm you opened FormSuite Choice Sync inside the same Google Form whose public link you are checking.</p></div>
         </div>
         <div class="link-bar">
-          <a href="../setup-help.html?product=FormRanger&source=formranger-first-run-failed">Send a FormRanger setup note</a>
-          <a href="./support.html">Open FormRanger support</a>
+          <a href="../setup-help.html?product=FormRanger&source=formranger-first-run-failed">Send a FormSuite Choice Sync setup note</a>
+          <a href="./support.html">Open FormSuite Choice Sync support</a>
         </div>
       </section>
 
@@ -209,23 +281,13 @@
         <details><summary><strong>Can I skip the copied-form test?</strong></summary><p>No. The copied-form test is the fastest way to separate install/setup issues from production form risk.</p></details>
         <details><summary><strong>What should I include in a setup-help request?</strong></summary><p>Include the source tab name, source column header, mapped question type, Preflight result, Update now result, and whether the public preview changed.</p></details>
         <details><summary><strong>When is it safe to leave a review?</strong></summary><p>After Preflight passes, Update now reports at least one updated question, and the public preview shows the expected Sheet values.</p></details>
-        <details><summary><strong>Does the test cover live capacity?</strong></summary><p>No. FormRanger updates choices; it does not reserve inventory, sell seats, or remove a choice while someone is filling out the form.</p></details>
+        <details><summary><strong>Does the test cover live capacity?</strong></summary><p>No. FormSuite Choice Sync updates choices; it does not reserve inventory, sell seats, or remove a choice while someone is filling out the form.</p></details>
       </section>
-
-      <section class="section">
-        <h2>After the preview check</h2>
-      <p>If Preflight passes, Update now reports at least one updated question, and the public preview shows the expected sheet values, that is the right moment to leave an honest Marketplace review. If any step is still unclear, use support first.</p>
-      <div class="link-bar">
-        <a href="./review-after-first-success.html">Review after first success</a>
-        <a href="../setup-help.html?product=FormRanger&source=formranger-after-preview-check">Support first</a>
-        <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=test-google-forms-dynamic-choices-before-launch">Open Marketplace</a>
-        <a href="./import-google-forms-choices-from-google-sheets.html">Import choices</a>
-        <a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
-      </div>
-    </section>
 
     <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
   </div>
+  <script src="/formranger/first-success-state.js?v=20260718a" defer></script>
+  <script src="/formranger/first-success.js?v=20260815a" defer></script>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>
