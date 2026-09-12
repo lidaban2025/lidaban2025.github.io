@@ -59,6 +59,24 @@
     document.head.appendChild(tag);
   }
 
+  function loadClarity() {
+    if (window.__formsuiteClarityLoaded) return;
+    var host = window.location.hostname.toLowerCase();
+    if (host !== "formsuite.dev" && host !== "www.formsuite.dev") return;
+    try {
+      var params = new URLSearchParams(window.location.search || "");
+      if (params.has("qa") || params.has("internal") || params.has("smoke")) return;
+    } catch (err) {}
+    window.__formsuiteClarityLoaded = true;
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+    var tag = document.createElement("script");
+    tag.async = true;
+    tag.src = "https://www.clarity.ms/tag/yh90bljfgj";
+    document.head.appendChild(tag);
+  }
+
   function plausibleProps(payload) {
     return {
       product: payload.product || "",
@@ -371,6 +389,7 @@
     }
   };
   loadPlausible();
+  loadClarity();
   (window.formsuiteTrackQueue || []).forEach(function (queued) {
     if (!queued || !queued.name) return;
     send(queued.name, queued.data || {});
