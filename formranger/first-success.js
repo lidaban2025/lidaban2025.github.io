@@ -81,6 +81,7 @@
   var starterCopy = document.querySelector("[data-copy-starter-values]");
   var starterStatus = document.querySelector("[data-copy-starter-status]");
   var starterDownload = document.querySelector("[data-download-starter-values]");
+  var schoolStarterDownload = document.querySelector("[data-download-school-starter]");
 
   function setStarterStatus(message, isError) {
     if (!starterStatus) return;
@@ -125,6 +126,12 @@
   if (starterDownload) {
     starterDownload.addEventListener("click", function () {
       track("formranger_starter_csv_click", { source: "alpha_beta_starter" });
+    });
+  }
+
+  if (schoolStarterDownload) {
+    schoolStarterDownload.addEventListener("click", function () {
+      track("formranger_starter_csv_click", { source: "school_course_options" });
     });
   }
 
