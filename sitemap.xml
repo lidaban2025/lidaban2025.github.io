@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://formsuite.dev/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-06-28</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/support.html</loc>
@@ -26,13 +26,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/resources/</loc>
-    <lastmod>2026-08-16</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/safe-migration-google-forms-sheets-addons.html</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/resources/demo-videos.html</loc>
@@ -68,13 +62,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/</loc>
-    <lastmod>2026-08-16</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/docforge/autocrat-alternative-google-sheets-document-merge.html</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-05-28</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-sheets-document-generation-guide.html</loc>
@@ -110,7 +98,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/generate-one-pdf-from-google-sheets-before-batch.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-05-18</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/docforge/google-sheets-rows-to-printable-documents.html</loc>
@@ -398,13 +386,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formmerge/</loc>
-    <lastmod>2026-08-16</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/formmerge/prevent-duplicate-mail-merge-emails-google-sheets.html</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-05-28</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formmerge/personalized-email-from-google-sheets-guide.html</loc>
@@ -433,18 +415,6 @@
   <url>
     <loc>https://formsuite.dev/formmerge/mail-merge-from-google-sheets-with-gmail.html</loc>
     <lastmod>2026-05-08</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/formmerge/form-mule-alternative-google-sheets.html</loc>
-    <lastmod>2026-08-16</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/formmerge/form-mule-not-sending-emails.html</loc>
-    <lastmod>2026-08-16</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/formmerge/prevent-duplicate-mail-merge-emails-google-sheets.html</loc>
-    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formmerge/support.html</loc>
@@ -552,7 +522,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -575,12 +545,6 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://formsuite.dev/formranger/google-forms-section-routing-choice-update-risk.html</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://formsuite.dev/formranger/review-after-first-success.html</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
@@ -590,7 +554,7 @@
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/google-forms-long-dropdown-list-from-google-sheets.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -631,6 +595,12 @@
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formranger/form-ranger-vs-dynamic-fields-vs-formfacade.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://formsuite.dev/formranger/populate-google-forms-multiple-choice-from-google-sheets.html</loc>
@@ -727,8 +697,14 @@
     <lastmod>2026-06-14</lastmod>
   </url>
   <url>
+    <loc>https://formsuite.dev/seo-rapid-index-checker/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://formsuite.dev/choose-google-workspace-addon.html</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-06-14</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/sheetformula/</loc>
@@ -765,9 +741,5 @@
   <url>
     <loc>https://formsuite.dev/sheetformula/formula-explainer.html</loc>
     <lastmod>2026-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://formsuite.dev/formmerge/test-mail-merge-on-a-copied-sheet-before-sending.html</loc>
-    <lastmod>2026-08-17</lastmod>
   </url>
 </urlset>

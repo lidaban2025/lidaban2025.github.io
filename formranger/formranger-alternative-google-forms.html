@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< Updated upstream
   <title>Form Ranger Alternative: Migrate Google Forms Choices Safely</title>
   <meta name="description" content="A practical Form Ranger migration checklist: test one copied form, run Preflight, inspect the choice diff, then confirm the public respondent preview before changing live forms.">
   <link rel="canonical" href="https://formsuite.dev/formranger/formranger-alternative-google-forms.html">
@@ -20,6 +21,20 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Form Ranger Alternative: Safe Google Forms Migration">
   <meta name="twitter:description" content="Test one copied form first; only then verify the public respondent preview on your live workflow.">
+=======
+  <title>FormRanger alternative for Google Forms | Sheets choice sync</title>
+  <meta name="description" content="Move a Sheets-backed Google Forms choice workflow from the legacy Form Ranger path to FormSuite Choice Sync with a copied-form test, Preflight, update report, and public preview check.">
+  <link rel="canonical" href="https://formsuite.dev/formranger/formranger-alternative-google-forms.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="FormRanger alternative for Google Forms">
+  <meta property="og:description" content="An independent Form Ranger alternative with a copied-form migration test, Preflight checks, and a visible update report.">
+  <meta property="og:url" content="https://formsuite.dev/formranger/formranger-alternative-google-forms.html">
+  <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FormRanger alternative for Google Forms">
+  <meta name="twitter:description" content="Migrate one copied form safely, then verify the public respondent preview before touching a live workflow.">
+>>>>>>> Stashed changes
   <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
   <script type="application/ld+json">
     {
@@ -31,7 +46,11 @@
           "description": "A migration-focused comparison of the legacy Form Ranger workflow, Apps Script, and FormSuite Choice Sync for updating Google Forms choices from Google Sheets.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
+<<<<<<< Updated upstream
           "dateModified": "2026-08-23",
+=======
+          "dateModified": "2026-08-16",
+>>>>>>> Stashed changes
           "mainEntityOfPage": "https://formsuite.dev/formranger/formranger-alternative-google-forms.html"
         },
         {
@@ -152,6 +171,34 @@
       <section class="section">
         <h2>Supported choice types</h2>
         <p>FormSuite Choice Sync supports dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices. It is designed for owner-controlled updates before respondents use the form.</p>
+<<<<<<< Updated upstream
+=======
+      </section>
+
+      <section class="section">
+        <h2>Safety checks that matter during a legacy migration</h2>
+        <div class="grid">
+          <article class="card"><div class="pill">Routing guard</div><h3>Do not erase answer-based sections.</h3><p>Questions using “Go to section based on answer” are detected and blocked before mapping or writing.</p></article>
+          <article class="card"><div class="pill">Quiz guard</div><h3>Do not erase the answer key.</h3><p>Scored choice questions are blocked rather than rebuilt as unscored labels.</p></article>
+          <article class="card"><div class="pill">Choice limit</div><h3>Warn before a long list becomes unsafe.</h3><p>Preflight warns at 900 incoming choices and blocks updates above the 1,000-choice safety limit.</p></article>
+          <article class="card"><div class="pill">Before/after diff</div><h3>See what will change.</h3><p>Review added, removed, unchanged, duplicate, and look-alike labels before Update now is enabled.</p></article>
+          <article class="card"><div class="pill">One recovery</div><h3>Restore the previous choices once.</h3><p>A last-known-good snapshot is created before a successful update. Recovery refuses to run if the question changed again.</p></article>
+          <article class="card"><div class="pill">Trigger health</div><h3>Know whether automation exists.</h3><p>See configured versus present triggers, the last successful automatic run, the last privacy-safe error, and a repair action.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Example: migrate a workshop session roster</h2>
+        <p>A coordinator keeps workshop sessions in one Sheet column. The copied Form currently contains “Session A” and “Retired session”; the new roster contains “Session A,” “Session B,” and “Session C.” Preflight should show two added choices, one removed choice, and one unchanged choice before any write.</p>
+        <ol>
+          <li>Select only the roster spreadsheet.</li>
+          <li>Map the copied form's “Choose a session” question.</li>
+          <li>Review duplicates, routing/scoring risk, and the exact diff.</li>
+          <li>Approve and update the copied form.</li>
+          <li>Verify Session A/B/C in the public preview and keep the one-time recovery until the migration is accepted.</li>
+        </ol>
+        <p>This is a before-registration roster refresh, not respondent-time seat locking or booking.</p>
+>>>>>>> Stashed changes
       </section>
 
       <section class="section">
@@ -172,7 +219,11 @@
           <li><a href="./google-forms-dropdown-not-updating-from-google-sheets.html">Dropdown not updating</a><span>Troubleshoot the common high-intent failure path.</span></li>
           <li><a href="./form-ranger-no-data-in-column.html">No data in column</a><span>Recover the selected file, tab, header, or empty source stage.</span></li>
           <li><a href="./form-ranger-duplicate-choices.html">Duplicate choices</a><span>Inspect exact duplicates and look-alike labels before writing.</span></li>
+<<<<<<< Updated upstream
           <li><a href="./google-forms-section-routing-choice-update-risk.html">Section routing risk</a><span>Understand why routed choices must be blocked before update.</span></li>
+=======
+          <li><a href="./google-forms-section-routing-choice-update-risk.html">Section routing risk</a><span>Understand why routed and scored choices must be blocked.</span></li>
+>>>>>>> Stashed changes
           <li><a href="./support.html">Migration support</a><span>Send the failed stage, source sheet context, question type, and public preview result.</span></li>
         </ul>
       </section>

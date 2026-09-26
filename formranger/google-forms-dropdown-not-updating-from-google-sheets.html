@@ -31,7 +31,11 @@
           "description": "A visual troubleshooting checklist for Google Forms dropdown choices that are expected to update from Google Sheets.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
+<<<<<<< Updated upstream
           "dateModified": "2026-08-22",
+=======
+          "dateModified": "2026-08-16",
+>>>>>>> Stashed changes
           "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html"
         },
         {
@@ -299,6 +303,15 @@
         <p>Do not immediately rebuild the form, reinstall every add-on, or edit the live respondent form while people are using it. First reduce the problem to one copied form and two values. If Alpha and Beta do not update correctly in that copied form, the failing step is easier to find. If the copied form works, the live form likely has a mapping, source, or preview mismatch.</p>
       </section>
 
+      <section class="section" aria-labelledby="trigger-title">
+        <h2 id="trigger-title">If manual update works but automatic update does not</h2>
+        <div class="flow">
+          <article class="card"><strong>Check whether the trigger exists</strong><p>The Automatic update health panel separates a configured trigger from a trigger that is actually present.</p></article>
+          <article class="card"><strong>Check last success and error</strong><p>Use the recorded timestamp, run source, and privacy-safe error code instead of assuming a saved schedule is running.</p></article>
+          <article class="card"><strong>Repair only the configured triggers</strong><p>The repair action recreates the expected on-open or timed trigger without changing source values or mappings.</p></article>
+        </div>
+      </section>
+
       <section class="section" aria-labelledby="proof-title">
         <h2 id="proof-title">What to capture before asking for help</h2>
         <div class="flow">
@@ -314,7 +327,13 @@
           <li><a href="./test-google-forms-dynamic-choices-before-launch.html">Test before launch</a><span>Use one copied form and two obvious sheet values.</span></li>
           <li><a href="../resources/google-forms-choices-from-google-sheets.html">Choices from Sheets guide</a><span>Compare manual paste, Apps Script, and FormSuite Choice Sync for Sheets-backed choices.</span></li>
           <li><a href="./dynamic-google-forms-dropdown-guide.html">Visual workflow</a><span>See the Sheets column, mapping, Preflight, and public preview path.</span></li>
+<<<<<<< Updated upstream
           <li><a href="./support.html">FormSuite Choice Sync support</a><span>Send only the failing stage and non-sensitive error text. Do not send form IDs, Sheet IDs, question text, source values, or respondent data.</span></li>
+=======
+          <li><a href="./form-ranger-no-data-in-column.html">No data in column</a><span>Check selected-file access, tab, header, and empty values.</span></li>
+          <li><a href="./form-ranger-duplicate-choices.html">Duplicate choices</a><span>Inspect exact and look-alike labels before update.</span></li>
+          <li><a href="./support.html">FormSuite Choice Sync support</a><span>Send source tab, mapped question type, and preview result.</span></li>
+>>>>>>> Stashed changes
         </ul>
       </section>
 

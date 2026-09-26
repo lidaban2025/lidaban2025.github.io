@@ -13,6 +13,7 @@ const includeDirs = [
   'formnotifier',
   'formranger',
   'resources',
+  'seo-rapid-index-checker',
   'sheetformula'
 ];
 const includeFiles = [

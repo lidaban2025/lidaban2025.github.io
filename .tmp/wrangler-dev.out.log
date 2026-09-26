@@ -1,0 +1,14 @@
+
+ ⛅️ wrangler 4.105.0
+────────────────────
+Your Worker has access to the following bindings:
+Binding                               Resource                  Mode
+env.ASSETS                            Assets                    local
+env.OPENAI_MODEL ("gpt-4o-mini")      Environment Variable      local
+
+⎔ Starting local server...
+[wrangler:info] Ready on http://127.0.0.1:8787
+[wrangler:info] GET /seo-rapid-index-checker/ 200 OK (32ms)
+[wrangler:info] POST /api/indexability-check 200 OK (2010ms)
+[wrangler:info] POST /api/indexability-check 200 OK (2152ms)
+[wrangler:info] GET /seo-rapid-index-checker/ 200 OK (9ms)

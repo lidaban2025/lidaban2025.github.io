@@ -82,7 +82,7 @@
         <article class="card"><div class="pill">1</div><h3>Response row is created</h3><p>The Google Form writes the submission into its linked response Sheet.</p></article>
         <article class="card"><div class="pill">2</div><h3>FormFlow records Pending</h3><p>The workflow starts and the row becomes ready for the first reviewer.</p></article>
         <article class="card"><div class="pill">3</div><h3>Reviewer decides</h3><p>The reviewer opens the approval email and submits Approve or Reject from the decision page.</p></article>
-        <article class="card"><div class="pill">4</div><h3>Sheet shows the result</h3><p>The linked response Sheet becomes the audit record for Approved, Rejected, or the current pending state.</p></article>
+        <article class="card"><div class="pill">4</div><h3>Sheet shows the result</h3><p>The linked response Sheet becomes the audit record for Approved, Rejected, or the current pending state. External-owner write-backs can take approximately one minute.</p></article>
       </div>
     </section>
 
@@ -96,7 +96,7 @@
         <li>Save the setup and run Preflight.</li>
         <li>Submit one internal test response with easy-to-recognize request text.</li>
         <li>Open the reviewer email and click Approve or Reject.</li>
-        <li>Return to the linked Sheet and confirm the response row status changed.</li>
+        <li>Return to the linked Sheet, allow approximately one minute for an external-owner write-back, refresh, and confirm the response row status changed.</li>
       </ol>
     </section>
 
@@ -106,6 +106,7 @@
         <article class="card"><h3>Wrong spreadsheet selected</h3><p>Duplicated forms and copied test Sheets are the most common cause. Re-select the response spreadsheet linked to the exact form you submitted.</p></article>
         <article class="card"><h3>Preflight was skipped</h3><p>Run Preflight before another live test. Fix any linked Sheet, reviewer email, or configuration warning first.</p></article>
         <article class="card"><h3>Decision link did not complete</h3><p>Ask the intended reviewer to open the link with the correct Google account and send the decision page screenshot to support if it fails.</p></article>
+        <article class="card"><h3>Queue processing is pending</h3><p>Allow approximately one minute and refresh the linked Sheet before treating an external-owner write-back as failed.</p></article>
         <article class="card"><h3>Row is hard to identify</h3><p>Use a unique internal test phrase in the form response so you can find the matching row quickly.</p></article>
       </div>
     </section>

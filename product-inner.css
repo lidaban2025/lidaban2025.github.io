@@ -799,6 +799,7 @@ footer a,
   }
 }
 
+<<<<<<< Updated upstream
 .video-proof-shell {
   max-width: 430px;
   margin: 22px auto 0;
@@ -885,6 +886,8 @@ footer a,
   text-align: center;
 }
 
+=======
+>>>>>>> Stashed changes
 @media (max-width: 860px) {
   .shell,
   main,

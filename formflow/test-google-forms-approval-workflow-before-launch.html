@@ -36,7 +36,11 @@
 
       <section class="section">
         <h2>Pass condition</h2>
+<<<<<<< Updated upstream
         <p class="answer">The test passes when Preflight succeeds, the reviewer email arrives, the approver can approve or reject, and the linked Google Sheet shows the expected approval status. Allow approximately one minute and refresh the Sheet after an external-owner decision.</p>
+=======
+        <p class="answer">The test passes when Preflight succeeds, the reviewer email arrives, the approver can approve or reject, and the linked Google Sheet shows the expected approval status. For an external-owner workflow, allow approximately one minute and refresh the Sheet after the decision.</p>
+>>>>>>> Stashed changes
       </section>
 
       <section class="section">
@@ -60,7 +64,11 @@
         <li>Save the configuration.</li>
         <li>Run Preflight and resolve any warning before launch.</li>
         <li>Submit one internal test response.</li>
+<<<<<<< Updated upstream
           <li>Open the reviewer email and make one approve or reject decision. Allow approximately one minute, refresh the Sheet, and check the status.</li>
+=======
+          <li>Open the reviewer email and make one approve or reject decision. For an external-owner workflow, allow approximately one minute and refresh the Sheet before checking the status.</li>
+>>>>>>> Stashed changes
         </ol>
       </section>
 
@@ -80,7 +88,7 @@
         <article class="card"><div class="pill">Sheet</div><h3>Correct response spreadsheet</h3><p>The selected spreadsheet should be the form's linked response sheet, not a duplicate or stale test sheet.</p></article>
         <article class="card"><div class="pill">Email</div><h3>Reviewer receives the request</h3><p>Check the inbox and spam folder for the internal approver account before adding more reviewers.</p></article>
         <article class="card"><div class="pill">Decision</div><h3>Approve/reject link works</h3><p>The reviewer should be able to open the decision page and submit one approval or rejection.</p></article>
-        <article class="card"><div class="pill">Status</div><h3>Sheet status updates</h3><p>The linked response sheet should show the final decision state so the operator can audit what happened.</p></article>
+        <article class="card"><div class="pill">Status</div><h3>Sheet status updates</h3><p>The linked response Sheet should show the final decision state so the operator can audit what happened. External-owner write-backs can take approximately one minute.</p></article>
       </div>
     </section>
 
@@ -90,7 +98,11 @@
         <article class="card"><h3>Preflight warning</h3><p>Re-check linked Sheet access, saved approver email, and the form-to-sheet connection before submitting another response.</p></article>
         <article class="card"><h3>No reviewer email</h3><p>Confirm the approver address is internal and valid, then check spam and Workspace mail restrictions.</p></article>
         <article class="card"><h3>Decision link issue</h3><p>Use the same Google account as the intended reviewer and send the exact screenshot to support.</p></article>
+<<<<<<< Updated upstream
         <article class="card"><h3>Status not updated</h3><p>Allow approximately one minute and refresh the Sheet. Then confirm the selected response Sheet is connected to the tested Form. If an old email shows “Requested entity was not found,” save the FormFlow configuration once and submit a new test response.</p></article>
+=======
+        <article class="card"><h3>Status not updated</h3><p>Allow approximately one minute and refresh the Sheet. Then confirm the selected response sheet is the one connected to the tested form submission.</p></article>
+>>>>>>> Stashed changes
       </div>
       <ul class="plain-links">
         <li><a href="../setup-help.html?product=FormFlow&source=formflow-first-run-failed">Send a FormFlow setup note</a><span>Include the failing step, Preflight result, reviewer email status, decision link result, and linked Sheet status.</span></li>

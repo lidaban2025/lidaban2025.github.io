@@ -16,7 +16,11 @@
     ["sheetformula", "Sheet Formula Helper"]
   ];
   var workflowStates = ["not-installed", "testing", "successful"];
+<<<<<<< Updated upstream
   var workflowSteps = ["select-source", "map-question", "preflight", "update-preview", "help-preflight", "help-update", "help-preview"];
+=======
+  var workflowSteps = ["select-source", "map-question", "preflight", "update-preview"];
+>>>>>>> Stashed changes
 
   function approvedValue(value, allowed) {
     return allowed.indexOf(value) !== -1 ? value : "";
@@ -95,9 +99,13 @@
       step: payload.step || "",
       complete: payload.complete,
       progress_complete: payload.progress_complete,
+<<<<<<< Updated upstream
       confirmation: payload.confirmation || "",
       video_id: payload.video_id || "",
       proof_type: payload.proof_type || ""
+=======
+      confirmation: payload.confirmation || ""
+>>>>>>> Stashed changes
     };
   }
 
@@ -117,6 +125,7 @@
   function targetType(url) {
     var host = url.hostname.toLowerCase();
     var path = url.pathname.toLowerCase();
+<<<<<<< Updated upstream
     var sourcePath = window.location.pathname.toLowerCase();
     var marketplaceTarget = host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1;
     var reviewMedium = url.searchParams && url.searchParams.get("utm_medium") === "review_after_success";
@@ -126,6 +135,11 @@
         url.search.toLowerCase().indexOf("pilot") !== -1) return "pilot_interest";
     if (marketplaceTarget && (reviewMedium || sourcePath.indexOf("/review-after-first-success") !== -1)) return "review_after_success";
     if (marketplaceTarget) return "marketplace";
+=======
+    if (url.protocol === "mailto:" && path === "support@formsuite.dev" &&
+        url.search.toLowerCase().indexOf("choice%20sync%20paid%20team%20pilot") !== -1) return "paid_pilot";
+    if (host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1) return "marketplace";
+>>>>>>> Stashed changes
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
     if (path.indexOf("/resources/google-workspace-add-ons-first-run-checklist") !== -1) return "first_run_checklist";
     if (path.indexOf("/test-google-forms-") !== -1 && path.indexOf("-before-launch") !== -1) return "first_run_checklist";
@@ -140,7 +154,10 @@
 
   function eventName(type) {
     if (type === "paid_pilot") return "paid_pilot_click";
+<<<<<<< Updated upstream
     if (type === "pilot_interest") return "pilot_interest_click";
+=======
+>>>>>>> Stashed changes
     if (type === "marketplace") return "marketplace_cta_click";
     if (type === "demo_video") return "demo_video_click";
     if (type === "first_run_checklist") return "first_run_checklist_click";
@@ -161,6 +178,9 @@
     }
     if (path === "/choose-google-workspace-addon.html") {
       return "chooser_view";
+    }
+    if (path === "/seo-rapid-index-checker/" || path === "/seo-rapid-index-checker/index.html") {
+      return "indexability_tool_page_view";
     }
     if (path === "/sheetformula/" || path === "/sheetformula/index.html" || /^\/sheetformula\/.+\.html$/.test(path)) {
       return "sheetformula_page_view";
@@ -191,10 +211,13 @@
   function isQaSession() {
     var key = "formsuite_qa_session";
     if (storageGet(window.sessionStorage, key) === "1") return true;
+<<<<<<< Updated upstream
     if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
       storageSet(window.sessionStorage, key, "1");
       return true;
     }
+=======
+>>>>>>> Stashed changes
 
     try {
       var params = new URLSearchParams(window.location.search || "");
@@ -357,9 +380,13 @@
       step: approvedValue(data.step, workflowSteps),
       complete: approvedComplete(data.complete),
       progress_complete: approvedProgress(data.progress_complete),
+<<<<<<< Updated upstream
       confirmation: data.confirmation === "Alpha|Beta" ? "Alpha|Beta" : "",
       video_id: typeof data.video_id === "string" ? data.video_id.slice(0, 20) : "",
       proof_type: typeof data.proof_type === "string" ? data.proof_type.slice(0, 80) : ""
+=======
+      confirmation: data.confirmation === "Alpha|Beta" ? "Alpha|Beta" : ""
+>>>>>>> Stashed changes
     };
 
     if (typeof window.gtag === "function") {
@@ -395,6 +422,7 @@
     send(queued.name, queued.data || {});
   });
   window.formsuiteTrackQueue = [];
+  loadClarity();
 
   document.addEventListener("click", function (event) {
     var playButton = event.target && event.target.closest ? event.target.closest("[data-video-proof] .video-proof-play") : null;
