@@ -8,19 +8,19 @@
   <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Forms dropdown not updating from Sheets | FormRanger</title>
-  <meta name="description" content="A visual troubleshooting checklist for Google Forms dropdowns that are not updating from Google Sheets. Check source data, mapping, Preflight, and preview.">
+  <title>Google Forms Dropdown Not Updating from Sheets? Fix It Safely</title>
+  <meta name="description" content="Fix a Google Forms dropdown not updating from Google Sheets. Check mapping, Preflight, scheduled-run health, recovery, Update now, and public preview.">
   <link rel="canonical" href="https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FormSuite">
   <meta property="og:title" content="Google Forms dropdown not updating from Sheets">
   <meta property="og:description" content="Check the source column, mapping, Preflight, Update now, and public preview before changing a live form.">
   <meta property="og:url" content="https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html">
-  <meta property="og:image" content="https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg">
+  <meta property="og:image" content="https://img.youtube.com/vi/il0ZJYrp9UA/hqdefault.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Google Forms dropdown not updating from Sheets">
-  <meta name="twitter:description" content="A short FormRanger troubleshooting path for stale Google Forms dropdown choices.">
-  <meta name="twitter:image" content="https://img.youtube.com/vi/h7jBGOmMm9c/hqdefault.jpg">
+  <meta name="twitter:description" content="A short FormSuite Choice Sync troubleshooting path for stale Google Forms dropdown choices.">
+  <meta name="twitter:image" content="https://img.youtube.com/vi/il0ZJYrp9UA/hqdefault.jpg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,8 +31,28 @@
           "description": "A visual troubleshooting checklist for Google Forms dropdown choices that are expected to update from Google Sheets.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-06-09",
+          "dateModified": "2026-08-22",
           "mainEntityOfPage": "https://formsuite.dev/formranger/google-forms-dropdown-not-updating-from-google-sheets.html"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Google Forms scheduled choice sync with safe recovery history",
+          "description": "A controlled 31-second proof of Choice Sync scheduled-run guards, mapping health, and bounded recovery.",
+          "thumbnailUrl": "https://img.youtube.com/vi/il0ZJYrp9UA/hqdefault.jpg",
+          "uploadDate": "2026-08-22",
+          "duration": "PT31S",
+          "contentUrl": "https://youtube.com/shorts/il0ZJYrp9UA",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/il0ZJYrp9UA"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Google Forms Dropdown from Google Sheets: Safe Scheduled Sync + Recovery",
+          "description": "A controlled full tutorial for diagnosing stale Google Forms choices, approving an exact diff, testing scheduled sync, reading mapping health, and using bounded recovery.",
+          "thumbnailUrl": "https://img.youtube.com/vi/tGH7qXetLTU/hqdefault.jpg",
+          "uploadDate": "2026-08-23",
+          "duration": "PT3M1S",
+          "contentUrl": "https://youtu.be/tGH7qXetLTU",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/tGH7qXetLTU"
         },
         {
           "@type": "FAQPage",
@@ -51,6 +71,11 @@
               "@type": "Question",
               "name": "Should I test on a live form?",
               "acceptedAnswer": { "@type": "Answer", "text": "No. Use a copied form, one dropdown question, and two obvious sheet values before changing a live form." }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I check when a scheduled update did not run?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Run Test scheduled path now, inspect the per-mapping last attempt and safe error code, verify trigger health, and keep the live form unchanged until the copied-form path succeeds." }
             }
           ]
         }
@@ -94,8 +119,16 @@
     summary { cursor:pointer; color:var(--ink); }
     details p { margin-top:8px; }
     .footer { margin-top:28px; text-align:center; color:var(--muted); font-size:.9rem; }
-    @media (max-width:860px) { .hero,.flow { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { max-width:none; } .check-row { grid-template-columns:34px 1fr; } .check-row .status { grid-column:2; } }
-    @media (max-width:540px) { .hero-actions .btn { width:100%; } }
+    .video-proof { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr); gap:22px; align-items:center; }
+    .search-tutorial-player { position:relative; aspect-ratio:16 / 9; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#101826; }
+    .search-tutorial-player iframe,.search-tutorial-player .video-proof-play { width:100%; height:100%; border:0; }
+    .search-tutorial-player iframe[hidden],.search-tutorial-player .video-proof-play[hidden] { display:none; }
+    .video-proof-copy .eyebrow { margin-bottom:10px; }
+    .video-proof-copy p { max-width:650px; }
+    .video-proof-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .video-proof-note { margin-top:10px; font-size:.9rem; }
+    @media (max-width:860px) { .hero,.flow,.video-proof { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { max-width:none; } .check-row { grid-template-columns:34px 1fr; } .check-row .status { grid-column:2; } }
+    @media (max-width:540px) { .hero-actions .btn,.video-proof-actions .btn { width:100%; } }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,7 +139,7 @@
   <div class="shell">
     <nav class="nav">
       <a href="../index.html">FormSuite</a>
-      <a href="./index.html"><strong>FormRanger</strong></a>
+      <a href="./index.html"><strong>FormSuite Choice Sync</strong></a>
       
       <a href="./support.html">Support</a>
       <a href="./permissions.html">Permissions</a>
@@ -119,8 +152,8 @@
           <h1 id="hero-title">Dropdown not updating?</h1>
           <p>Google Forms dropdowns do not stay linked to a Sheets range by default. Check the source column, mapping, Preflight result, Update now report, and public respondent preview.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=google-forms-dropdown-not-updating-from-google-sheets">Install FormRanger</a>
-            <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+            <a class="btn btn-primary" href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
+            <a class="btn" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=google-forms-dropdown-not-updating-from-google-sheets">Install FormSuite Choice Sync</a>
           </div>
         </div>
         <article class="diagnostic" aria-label="Dropdown update diagnostic path">
@@ -133,7 +166,46 @@
 
       <section class="section" aria-labelledby="answer-title">
         <h2 id="answer-title">Quick answer</h2>
-        <p class="answer">If the dropdown is stale, test one copied form with Alpha/Beta in Sheets, run Preflight, click Update now, then inspect the respondent-facing preview. A saved mapping is not enough; the update report must say a question was updated.</p>
+        <p class="answer">If the dropdown is stale, test one copied form with Alpha/Beta in Sheets, run Preflight, click Update now, then inspect the respondent-facing preview. For automatic updates, run Test scheduled path now and read the per-mapping ledger before repairing or recreating a trigger.</p>
+      </section>
+
+      <section class="section" aria-labelledby="reliability-proof-title">
+        <h2 id="reliability-proof-title">See the scheduled-run and recovery proof</h2>
+        <p>This controlled proof shows the every-6-hour or daily path using the same fail-closed checks, recording mapping-level status, and keeping five bounded recovery versions.</p>
+        <div class="video-proof-shell">
+          <div class="video-proof" data-video-proof="safe_scheduled_sync" data-video-id="il0ZJYrp9UA">
+            <button class="video-proof-play" type="button" aria-label="Play the Choice Sync safe scheduled sync proof">
+              <span class="video-proof-kicker">31-second reliability proof</span>
+              <span class="video-proof-title">Schedule tested. Mapping health visible. Recovery bounded.</span>
+              <span class="video-proof-icon" aria-hidden="true">▶</span>
+            </button>
+            <iframe title="Choice Sync safe scheduled sync proof" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
+          </div>
+          <p class="video-proof-caption">The privacy-enhanced YouTube player loads only after you press play. Controlled copied-form proof with synthetic data.</p>
+          <noscript><p class="video-proof-caption"><a href="https://youtube.com/shorts/il0ZJYrp9UA">Watch the Safe Scheduled Sync proof on YouTube</a>.</p></noscript>
+        </div>
+      </section>
+
+      <section class="section video-proof" aria-labelledby="video-proof-title">
+        <div class="search-tutorial-player" data-video-proof="choice_full_tutorial" data-video-id="tGH7qXetLTU">
+          <button class="video-proof-play" type="button" aria-label="Play the complete Choice Sync troubleshooting tutorial">
+            <span class="video-proof-kicker">3-minute search tutorial</span>
+            <span class="video-proof-title">Fix stale choices, test scheduling, recover safely.</span>
+            <span class="video-proof-icon" aria-hidden="true">▶</span>
+          </button>
+          <iframe title="Choice Sync complete dropdown troubleshooting tutorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
+        </div>
+        <div class="video-proof-copy">
+          <div class="eyebrow">Complete search tutorial</div>
+          <h2 id="video-proof-title">Fix the failure, then prove scheduled sync and recovery</h2>
+          <p>Follow the copied-form path from source selection and Preflight through exact diff approval, public respondent preview, scheduled-path testing, mapping health, trigger repair, and five bounded recovery versions.</p>
+          <div class="video-proof-actions">
+            <a class="btn btn-primary" href="https://youtu.be/tGH7qXetLTU" target="_blank" rel="noopener noreferrer">Watch the full tutorial</a>
+            <a class="btn" href="./test-google-forms-dynamic-choices-before-launch.html">Run the Alpha/Beta checklist</a>
+          </div>
+          <p class="video-proof-note">FormSuite Choice Sync refreshes owner-controlled choices before respondents use the form. It is not respondent-time dependent-dropdown, booking, inventory, or payment software.</p>
+          <noscript><p class="video-proof-note"><a href="https://youtu.be/tGH7qXetLTU">Watch the complete Choice Sync tutorial on YouTube</a>.</p></noscript>
+        </div>
       </section>
 
       <section class="section" aria-labelledby="triage-title">
@@ -164,21 +236,40 @@
         </div>
       </section>
 
+      <section class="section" aria-labelledby="automatic-title">
+        <h2 id="automatic-title">If the manual update works but automation does not</h2>
+        <div class="flow">
+          <article class="card"><strong>Test the exact scheduled path</strong><p>Choose Every 6 hours or Daily, save, then use Test scheduled path now. A timed run must not bypass routing, quiz, duplicate, type, or 1,000-choice guards.</p></article>
+          <article class="card"><strong>Read mapping-level health</strong><p>Check last attempted, updated, skipped, or safe error status for the affected mapping instead of assuming the trigger ran.</p></article>
+          <article class="card"><strong>Repair before restoring</strong><p>Verify trigger presence and authorization first. If a bad update occurred, restore only from one of the five bounded versions after live-form safety checks pass.</p></article>
+        </div>
+      </section>
+
       <section class="section" aria-labelledby="screens-title">
         <h2 id="screens-title">Screens to compare against</h2>
         <p>If your setup is stuck before these screens, collect a screenshot of the last screen you reached and send it with the source column and mapped question type.</p>
         <div class="evidence-grid">
-          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormRanger Preflight screen for dropdown update troubleshooting"><figcaption>Preflight should validate the source and mapping before choices are changed.</figcaption></figure>
-          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormRanger update success screen for Google Forms dropdown"><figcaption>Update now should report a real update. Then check the respondent-facing preview.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormSuite Choice Sync Preflight screen for dropdown update troubleshooting"><figcaption>Preflight should validate the source and mapping before choices are changed.</figcaption></figure>
+          <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormSuite Choice Sync update success screen for Google Forms dropdown"><figcaption>Update now should report a real update. Then check the respondent-facing preview.</figcaption></figure>
         </div>
       </section>
 
       <section class="section" aria-labelledby="install-title">
-        <h2 id="install-title">FormRanger fix path</h2>
+        <h2 id="install-title">FormSuite Choice Sync fix path</h2>
         <div class="flow">
           <article class="card"><strong>1. Use a copied form</strong><p>Do not troubleshoot directly on a live respondent form.</p></article>
           <article class="card"><strong>2. Link one dropdown</strong><p>Select the spreadsheet, sheet tab, source column, and dropdown question.</p></article>
           <article class="card"><strong>3. Prove the result</strong><p>Preflight must pass, Update now must update, and the public preview must show the new choices.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="migration-title">
+        <div class="pill">Migrating from the legacy add-on</div>
+        <h2 id="migration-title">Do not repair a live Form Ranger setup in place</h2>
+        <p>If an existing Form Ranger workflow stopped updating or no longer gives you a clear result, copy the form first. Keep the source Sheet unchanged, relink one question in FormSuite Choice Sync, run Preflight, update once, and compare the public preview. FormSuite Choice Sync is an independent FormSuite add-on and is not affiliated with New Visions Cloudlab's Form Ranger.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="./test-google-forms-dynamic-choices-before-launch.html">Run the copied-form migration test</a>
+          <a class="btn btn-secondary" href="./formranger-alternative-google-forms.html">Read the migration comparison</a>
         </div>
       </section>
 
@@ -187,7 +278,7 @@
         <div class="flow">
           <article class="card"><strong>Rare change</strong><p>Manual copy/paste may be enough.</p></article>
           <article class="card"><strong>Code-owned workflow</strong><p>Apps Script works if you maintain IDs, triggers, and authorization.</p></article>
-          <article class="card"><strong>Sidebar workflow</strong><p>FormRanger gives a mapped update flow with Preflight and Update now.</p></article>
+          <article class="card"><strong>Sidebar workflow</strong><p>FormSuite Choice Sync gives a mapped update flow with Preflight, Update now, and a visible result report.</p></article>
         </div>
         <p class="warn"><strong>Boundary</strong> Do not use a visible dropdown as proof of live inventory, paid booking, or reserved seats.</p>
       </section>
@@ -221,9 +312,9 @@
         <h2 id="next-title">Next steps</h2>
         <ul class="plain-links">
           <li><a href="./test-google-forms-dynamic-choices-before-launch.html">Test before launch</a><span>Use one copied form and two obvious sheet values.</span></li>
-          <li><a href="../resources/google-forms-choices-from-google-sheets.html">Choices from Sheets guide</a><span>Compare manual paste, Apps Script, and FormRanger for Sheets-backed choices.</span></li>
+          <li><a href="../resources/google-forms-choices-from-google-sheets.html">Choices from Sheets guide</a><span>Compare manual paste, Apps Script, and FormSuite Choice Sync for Sheets-backed choices.</span></li>
           <li><a href="./dynamic-google-forms-dropdown-guide.html">Visual workflow</a><span>See the Sheets column, mapping, Preflight, and public preview path.</span></li>
-          <li><a href="./support.html">FormRanger support</a><span>Send source tab, mapped question type, and preview result.</span></li>
+          <li><a href="./support.html">FormSuite Choice Sync support</a><span>Send only the failing stage and non-sensitive error text. Do not send form IDs, Sheet IDs, question text, source values, or respondent data.</span></li>
         </ul>
       </section>
 
@@ -252,6 +343,10 @@
         <details>
           <summary><strong>Should I reinstall if the dropdown is stale?</strong></summary>
           <p>Usually not first. Re-select the source, run Preflight, update one copied form, and only then use support if the result still fails.</p>
+        </details>
+        <details>
+          <summary><strong>What if a scheduled update did not run?</strong></summary>
+          <p>Run the scheduled path test, inspect mapping-level status and trigger health, then repair the configured trigger. Do not recreate triggers blindly or test first on a live routed form.</p>
         </details>
       </section>
     </main>

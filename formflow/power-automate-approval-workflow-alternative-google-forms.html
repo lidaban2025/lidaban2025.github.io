@@ -77,12 +77,39 @@
     </section>
 
     <section class="section">
+      <h2>Migration fit check</h2>
+      <p>Use this path when the old workflow is mostly intake, one reviewer decision, and a simple status record. Keep the first Google Workspace version small enough to prove in one internal test before moving real requests.</p>
+      <div class="grid">
+        <article class="card"><div class="pill">Good fit</div><h3>One approver</h3><p>A manager, coordinator, or reviewer makes one approve/reject decision from email.</p></article>
+        <article class="card"><div class="pill">Good fit</div><h3>Sheet status is enough</h3><p>The team can use Pending, Approved, or Rejected next to the original Google Forms response row.</p></article>
+        <article class="card"><div class="pill">Be careful</div><h3>SharePoint list logic</h3><p>If the old flow depends on list permissions, item-level security, attachments, or many calculated states, test only a simplified path first.</p></article>
+        <article class="card"><div class="pill">Not a fit</div><h3>Enterprise workflow engine</h3><p>Do not use this as a replacement for procurement, expense, ticketing, compliance, legal approval, or CRM workflow platforms.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>Translate the workflow</h2>
       <div class="grid">
         <article class="card"><div class="pill">Microsoft Forms</div><h3>Request intake</h3><p>Rebuild the request form in Google Forms and keep the questions needed for a reviewer decision.</p></article>
         <article class="card"><div class="pill">Power Automate trigger</div><h3>New response</h3><p>Use the Google Forms submission and linked response Sheet as the workflow record.</p></article>
         <article class="card"><div class="pill">Approval action</div><h3>Reviewer email</h3><p>FormFlow sends the approval request to one internal reviewer first.</p></article>
         <article class="card"><div class="pill">Approval result</div><h3>Sheet status</h3><p>The linked Sheet records Pending, Approved, or Rejected next to the response row.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Map the Microsoft pieces to Google Workspace</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Old piece</th><th>Google Workspace replacement</th><th>First proof</th></tr></thead>
+          <tbody>
+            <tr><td>Microsoft Forms request form</td><td>Google Forms</td><td>One copied form with the decision fields a reviewer actually needs.</td></tr>
+            <tr><td>Power Automate response trigger</td><td>Google Forms submission plus linked Google Sheet row</td><td>One internal test response appears in the correct linked response Sheet.</td></tr>
+            <tr><td>Power Automate approval card</td><td>FormFlow reviewer email</td><td>One reviewer receives the email without manual forwarding.</td></tr>
+            <tr><td>Approve/reject outcome</td><td>FormFlow decision link</td><td>The reviewer can approve or reject using the intended Google account.</td></tr>
+            <tr><td>SharePoint list status</td><td>Google Sheets status columns</td><td>The response row shows Pending, Approved, or Rejected after the decision.</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -98,6 +125,12 @@
         <li>Submit one internal test response.</li>
         <li>Confirm the reviewer email arrives, the approve/reject link works, and the Sheet status updates.</li>
       </ol>
+    </section>
+
+    <section class="section">
+      <h2>Community answer draft</h2>
+      <p>If someone asks how to rebuild a simple Power Automate approval in Google Workspace, answer with a test path first instead of promising a full platform migration.</p>
+      <div class="callout"><strong>Safe reply:</strong> Start with one copied Google Form, one linked response Sheet, one internal approver, Preflight, one test submission, one reviewer email, one approve/reject decision, and one Sheet status update. If that works, expand the workflow. If the old flow depends on SharePoint list permissions, multi-branch routing, or compliance records, keep those requirements separate from the first Google Forms proof.</div>
     </section>
 
     <section class="section">

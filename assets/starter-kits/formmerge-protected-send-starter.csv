@@ -1,0 +1,4 @@
+business_key,recipient,subject,body,status
+TEST-001,test-one@example.invalid,Alpha status update,Hello Alpha,
+TEST-001,test-one@example.invalid,Alpha status update,Hello Alpha,
+TEST-002,test-two@example.invalid,Beta status update,Hello Beta,

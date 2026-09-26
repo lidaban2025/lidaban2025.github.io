@@ -36,7 +36,7 @@
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Google Workspace",
           "url": "https://formsuite.dev/formranger/",
-          "description": "Safely migrate spreadsheet-backed Google Forms choices with selected-file access, Choice Sync Preflight, routing and scoring guards, exact diff, every-6-hour or daily scheduled sync, per-mapping health, and five-version recovery.",
+          "description": "Sync selected Sheets columns into Google Forms choices with Preflight, exact diff, every-6-hour or daily safe scheduling, per-mapping health, and five-version recovery.",
           "provider": {"@type": "Organization", "name": "FormSuite"}
         },
         {
@@ -86,7 +86,7 @@
         <div class="hero-copy">
           <div class="eyebrow">Google Forms dropdown from Google Sheets</div>
           <h1 id="hero-title">Sync Google Forms choices from Google Sheets—safely</h1>
-          <p>FormSuite Choice Sync checks the selected file, empty and duplicate values, section-routing and quiz risks, choice-count limits, and the exact before/after diff before Update now can change a copied form.</p>
+          <p>Sync spreadsheet-backed form choices without trusting a silent update. Preflight detects duplicate and look-alike labels, blocks section-routing and quiz-answer risks, checks long-list limits, shows the exact diff, and requires approval before Update now can change the form.</p>
           <p class="hero-note"><strong>Previously FormRanger Pro.</strong> FormSuite Choice Sync is an independent FormSuite add-on and is not affiliated with New Visions Cloudlab's Form Ranger.</p>
           <p class="hero-note">Free during public launch. Tested on the real Google Forms add-on path: sidebar mapping, save, Preflight, Update now, and respondent preview.</p>
           <p class="hero-note">If you are deciding whether to install, use the copied-form first-run test before touching a live form. The useful proof is simple: Preflight passes, Update now reports a changed question, and the public preview shows the expected Sheet values.</p>
@@ -98,7 +98,6 @@
             <span>Choice Hygiene</span>
             <span>Review before update</span>
             <span>Every 6 hours or daily</span>
-            <span>Per-mapping health</span>
             <span>Five-version recovery</span>
             <span>Free launch</span>
           </div>
@@ -129,11 +128,11 @@
                 <img src="../assets/product-icons/formranger.png" alt="">
                 <div><strong>FormSuite Choice Sync</strong><span>Workspace add-on</span></div>
               </div>
-              <p>Link one question, run Choice Sync Preflight, review the diff, then verify the public form.</p>
+              <p>Link one question, review duplicate and look-alike labels, approve the exact output, then update the form.</p>
               <span class="status-pill">Preview approved</span>
             </div>
           </div>
-          <div class="preview-steps"><span>1. Select file</span><span>2. Map</span><span>3. Preflight</span><span>4. Diff</span><span>5. Public preview</span></div>
+          <div class="preview-steps"><span>1. Select source</span><span>2. Hygiene preview</span><span>3. Approve + update</span><span>4. Public preview</span></div>
         </article>
       </section>
 
@@ -144,7 +143,7 @@
           <article class="step-card"><div class="step-num">2</div><h3>Read mapping-level health</h3><p>See attempted, updated, skipped, or error without storing Sheet values or Google Form content.</p></article>
           <article class="step-card"><div class="step-num">3</div><h3>Restore a bounded version</h3><p>Choose one of the latest five snapshots. Restore refuses changed, routed, scored, or type-mismatched questions.</p></article>
         </div>
-        <div class="link-row"><a href="https://youtube.com/shorts/CrQfguq0MEQ">Watch the routing blocker proof</a><a href="test-google-forms-dynamic-choices-before-launch.html">Run the copied-form test</a></div>
+        <div class="link-row"><a href="https://youtube.com/shorts/il0ZJYrp9UA" target="_blank" rel="noopener">Watch Safe Scheduled Sync proof</a><a href="test-google-forms-dynamic-choices-before-launch.html">Run the copied-form test</a></div>
       </section>
 
       <section class="section formranger-success-center" data-formranger-success-center data-storage-key="formsuite.formranger.firstSuccess.v1" aria-labelledby="formranger-state-title">
@@ -179,10 +178,9 @@
           <article class="step-card"><div class="step-num">3</div><h3>Choices not updating</h3><p>A mapping was saved, but the public respondent preview still shows old values or no values.</p><p><a href="google-forms-dropdown-not-updating-from-google-sheets.html">Open the troubleshooting guide</a></p></article>
           <article class="step-card"><div class="step-num">4</div><h3>Dependent dropdowns</h3><p>You need to separate owner-controlled choice refresh from respondent-time filtering while someone is filling out the form.</p><p><a href="google-forms-dependent-dropdown-from-google-sheets.html">Open the limits guide</a></p></article>
           <article class="step-card"><div class="step-num">5</div><h3>Long dropdown list</h3><p>The form editor is hard to manage because a dropdown has dozens or hundreds of options that should live in Sheets.</p><p><a href="google-forms-long-dropdown-list-from-google-sheets.html">Open the long-list guide</a></p></article>
-          <article class="step-card"><div class="step-num">6</div><h3>No data in column</h3><p>The legacy mapping cannot find usable values, or its saved file, tab, or header no longer matches.</p><p><a href="form-ranger-no-data-in-column.html">Open the source recovery guide</a></p></article>
-          <article class="step-card"><div class="step-num">7</div><h3>Duplicate choices</h3><p>The source contains exact repeats, case variants, extra spaces, or labels that look almost identical.</p><p><a href="form-ranger-duplicate-choices.html">Open the choice hygiene guide</a></p></article>
-          <article class="step-card"><div class="step-num">8</div><h3>Section routing risk</h3><p>The target question sends respondents to different sections or contains a quiz answer key that must not be erased.</p><p><a href="google-forms-section-routing-choice-update-risk.html">Open the routing safety guide</a></p></article>
-          <article class="step-card"><div class="step-num">9</div><h3>Compare alternatives</h3><p>Choose between narrow migration safety, broader data-source automation, or branded form embedding.</p><p><a href="form-ranger-vs-dynamic-fields-vs-formfacade.html">Open the factual comparison</a></p></article>
+          <article class="step-card"><div class="step-num">6</div><h3>No data in column</h3><p>Preflight cannot find usable values because the selected file, tab, header, or source rows are wrong or empty.</p><p><a href="form-ranger-no-data-in-column.html">Open the no-data recovery guide</a></p></article>
+          <article class="step-card"><div class="step-num">7</div><h3>Duplicate choices</h3><p>The source contains repeated or look-alike labels that should be reviewed before respondents see them.</p><p><a href="form-ranger-duplicate-choices.html">Open the duplicate-choice guide</a></p></article>
+          <article class="step-card"><div class="step-num">8</div><h3>Section routing risk</h3><p>The choice question uses answer-based section routing and must be blocked instead of rebuilt.</p><p><a href="google-forms-section-routing-choice-update-risk.html">Open the routing safety guide</a></p></article>
         </div>
       </section>
 
@@ -225,7 +223,7 @@
           </div>
         </div>
         <div class="grid">
-          <article class="card"><div class="pill">Source list</div><h3>The source contains labels that look the same.</h3><p>Case-only duplicates, extra spaces, punctuation variants, and labels such as “North America” versus “north-america” can create confusing respondent choices. Choice Hygiene surfaces these groups before update.</p></article>
+          <article class="card"><div class="pill">Source list</div><h3>The source contains labels that look the same.</h3><p>Case-only duplicates, extra spaces, punctuation variants, and labels such as ?North America? versus ?north-america? can create confusing respondent choices. Choice Hygiene surfaces these groups before update.</p></article>
           <article class="card"><div class="pill">Question</div><h3>The form question no longer matches.</h3><p>If the dropdown was duplicated, deleted, renamed, or changed from dropdown to another question type, re-select the exact question before updating.</p></article>
           <article class="card"><div class="pill">Action</div><h3>A saved mapping is not an update.</h3><p>The useful result is Update now reporting that a question changed. Saving configuration only proves the setup was stored.</p></article>
           <article class="card"><div class="pill">Preview</div><h3>The editor is not the final proof.</h3><p>Always open the public respondent preview after Update now. That is the surface respondents will see.</p></article>
@@ -304,9 +302,9 @@
           </div>
           <div class="link-row">
             <a href="test-google-forms-dynamic-choices-before-launch.html">Run the checklist</a>
-            <a href="review-after-first-success.html">Review after success</a>
+            <a href="support.html">Troubleshoot setup</a>
             <a href="support.html">Read setup guide</a>
-            <a href="https://youtu.be/h7jBGOmMm9c">Watch demo</a>
+            <a href="google-forms-section-routing-choice-update-risk.html">Watch the 30-second routing blocker proof</a>
           </div>
         </div>
       </section>
@@ -366,7 +364,6 @@
           <article class="step-card"><div class="step-num">3</div><h3>Not updating</h3><p>Use when a saved mapping exists but the respondent-facing dropdown still shows old choices.</p><p><a href="google-forms-dropdown-not-updating-from-google-sheets.html">Open troubleshooting guide</a></p></article>
           <article class="step-card"><div class="step-num">4</div><h3>Dependent dropdown limits</h3><p>Use when you need to separate live respondent-time filtering from owner-controlled Sheets choice sync.</p><p><a href="google-forms-dependent-dropdown-from-google-sheets.html">Open dependent dropdown guide</a></p></article>
           <article class="step-card"><div class="step-num">5</div><h3>Long dropdown list</h3><p>Use when the editor becomes hard to manage because the option list is large and better maintained in Sheets.</p><p><a href="google-forms-long-dropdown-list-from-google-sheets.html">Open long-list guide</a></p></article>
-          <article class="step-card"><div class="step-num">6</div><h3>Legacy source and choice failures</h3><p>Use when you see no data, duplicate labels, or a routed question that must not be overwritten.</p><p><a href="formranger-alternative-google-forms.html">Open migration safety comparison</a></p></article>
         </div>
       </section>
 
@@ -379,6 +376,7 @@
           </div>
           <div class="link-row">
             <a href="google-forms-dropdown-not-updating-from-google-sheets.html">Fix dropdown not updating</a>
+            <a href="google-forms-section-routing-choice-update-risk.html">See the section-routing blocker</a>
             <a href="permissions.html">Read permissions</a>
           </div>
         </div>
@@ -399,7 +397,7 @@
           <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install from Marketplace</a>
         </div>
       </section>
-    <div style="max-width:980px;margin:0 auto 24px;padding:0 20px;"><a href="choice-eliminator-alternative-google-forms.html">Choice Eliminator alternative →</a></div>
+    <div style="max-width:980px;margin:0 auto 24px;padding:0 20px;"><a href="choice-eliminator-alternative-google-forms.html">Choice Eliminator alternative for Google Forms →</a></div>
   </main>
 
     <footer class="footer">
@@ -407,8 +405,8 @@
       <span>&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</span>
     </footer>
   </div>
-  <script src="/formranger/first-success-state.js?v=20260717a" defer></script>
-  <script src="/formranger/first-success.js?v=20260717a" defer></script>
+  <script src="/formranger/first-success-state.js?v=20260718a" defer></script>
+  <script src="/formranger/first-success.js?v=20260718a" defer></script>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

@@ -15,6 +15,20 @@
     ["formranger", "FormRanger"],
     ["sheetformula", "Sheet Formula Helper"]
   ];
+  var workflowStates = ["not-installed", "testing", "successful"];
+  var workflowSteps = ["select-source", "map-question", "preflight", "update-preview", "help-preflight", "help-update", "help-preview"];
+
+  function approvedValue(value, allowed) {
+    return allowed.indexOf(value) !== -1 ? value : "";
+  }
+
+  function approvedProgress(value) {
+    return typeof value === "number" && isFinite(value) && value >= 0 && value <= 4 ? Math.floor(value) : "";
+  }
+
+  function approvedComplete(value) {
+    return value === true || value === false ? value : "";
+  }
 
   function productFromPath(pathname) {
     var lower = String(pathname || "").toLowerCase();
@@ -45,6 +59,24 @@
     document.head.appendChild(tag);
   }
 
+  function loadClarity() {
+    if (window.__formsuiteClarityLoaded) return;
+    var host = window.location.hostname.toLowerCase();
+    if (host !== "formsuite.dev" && host !== "www.formsuite.dev") return;
+    try {
+      var params = new URLSearchParams(window.location.search || "");
+      if (params.has("qa") || params.has("internal") || params.has("smoke")) return;
+    } catch (err) {}
+    window.__formsuiteClarityLoaded = true;
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+    var tag = document.createElement("script");
+    tag.async = true;
+    tag.src = "https://www.clarity.ms/tag/yh90bljfgj";
+    document.head.appendChild(tag);
+  }
+
   function plausibleProps(payload) {
     return {
       product: payload.product || "",
@@ -58,7 +90,14 @@
       utm_content: payload.utm_content || "",
       source_param: payload.source_param || "",
       link_text: payload.link_text || "",
-      source: payload.source || ""
+      source: payload.source || "",
+      state: payload.state || "",
+      step: payload.step || "",
+      complete: payload.complete,
+      progress_complete: payload.progress_complete,
+      confirmation: payload.confirmation || "",
+      video_id: payload.video_id || "",
+      proof_type: payload.proof_type || ""
     };
   }
 
@@ -78,10 +117,20 @@
   function targetType(url) {
     var host = url.hostname.toLowerCase();
     var path = url.pathname.toLowerCase();
-    if (host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1) return "marketplace";
+    var sourcePath = window.location.pathname.toLowerCase();
+    var marketplaceTarget = host === "workspace.google.com" && path.indexOf("/marketplace/") !== -1;
+    var reviewMedium = url.searchParams && url.searchParams.get("utm_medium") === "review_after_success";
+    if (url.protocol === "mailto:" && path === "support@formsuite.dev" &&
+        url.search.toLowerCase().indexOf("choice%20sync%20paid%20team%20pilot") !== -1) return "paid_pilot";
+    if (url.protocol === "mailto:" && path === "support@formsuite.dev" &&
+        url.search.toLowerCase().indexOf("pilot") !== -1) return "pilot_interest";
+    if (marketplaceTarget && (reviewMedium || sourcePath.indexOf("/review-after-first-success") !== -1)) return "review_after_success";
+    if (marketplaceTarget) return "marketplace";
     if (host === "youtu.be" || host.indexOf("youtube.com") !== -1 || host.indexOf("youtube-nocookie.com") !== -1) return "demo_video";
     if (path.indexOf("/resources/google-workspace-add-ons-first-run-checklist") !== -1) return "first_run_checklist";
     if (path.indexOf("/test-google-forms-") !== -1 && path.indexOf("-before-launch") !== -1) return "first_run_checklist";
+    if (path.indexOf("/formmerge/test-mail-merge-on-a-copied-sheet-before-sending") !== -1) return "first_run_checklist";
+    if (path.indexOf("/docforge/generate-one-pdf-from-google-sheets-before-batch") !== -1) return "first_run_checklist";
     if (path.indexOf("/review-after-first-success") !== -1) return "review_after_success";
     if (path.indexOf("/setup-help") !== -1) return "setup_help";
     if (path.indexOf("/support") !== -1) return "support";
@@ -90,6 +139,8 @@
   }
 
   function eventName(type) {
+    if (type === "paid_pilot") return "paid_pilot_click";
+    if (type === "pilot_interest") return "pilot_interest_click";
     if (type === "marketplace") return "marketplace_cta_click";
     if (type === "demo_video") return "demo_video_click";
     if (type === "first_run_checklist") return "first_run_checklist_click";
@@ -135,6 +186,24 @@
     try {
       if (storage) storage.setItem(key, value);
     } catch (err) {}
+  }
+
+  function isQaSession() {
+    var key = "formsuite_qa_session";
+    if (storageGet(window.sessionStorage, key) === "1") return true;
+    if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+      storageSet(window.sessionStorage, key, "1");
+      return true;
+    }
+
+    try {
+      var params = new URLSearchParams(window.location.search || "");
+      if (!params.has("qa")) return false;
+      storageSet(window.sessionStorage, key, "1");
+      return true;
+    } catch (err) {
+      return false;
+    }
   }
 
   function randomId(prefix) {
@@ -283,7 +352,14 @@
       destination_utm_content: data.destination_utm_content || "",
       destination_utm_term: data.destination_utm_term || "",
       link_text: data.link_text || "",
-      source: data.source || "formsuite.dev"
+      source: isQaSession() ? "codex_smoke_test" : data.source || "formsuite.dev",
+      state: approvedValue(data.state, workflowStates),
+      step: approvedValue(data.step, workflowSteps),
+      complete: approvedComplete(data.complete),
+      progress_complete: approvedProgress(data.progress_complete),
+      confirmation: data.confirmation === "Alpha|Beta" ? "Alpha|Beta" : "",
+      video_id: typeof data.video_id === "string" ? data.video_id.slice(0, 20) : "",
+      proof_type: typeof data.proof_type === "string" ? data.proof_type.slice(0, 80) : ""
     };
 
     if (typeof window.gtag === "function") {
@@ -313,6 +389,7 @@
     }
   };
   loadPlausible();
+  loadClarity();
   (window.formsuiteTrackQueue || []).forEach(function (queued) {
     if (!queued || !queued.name) return;
     send(queued.name, queued.data || {});
@@ -320,6 +397,31 @@
   window.formsuiteTrackQueue = [];
 
   document.addEventListener("click", function (event) {
+    var playButton = event.target && event.target.closest ? event.target.closest("[data-video-proof] .video-proof-play") : null;
+    if (playButton) {
+      var proof = playButton.closest("[data-video-proof]");
+      var iframe = proof ? proof.querySelector("iframe") : null;
+      var videoId = proof ? proof.getAttribute("data-video-id") || "" : "";
+      var proofType = proof ? proof.getAttribute("data-video-proof") || "" : "";
+      if (!iframe || !/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
+
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + videoId + "?autoplay=1&rel=0";
+      iframe.hidden = false;
+      playButton.hidden = true;
+      iframe.focus();
+
+      send("video_proof_play", {
+        product: productFromPath(window.location.pathname),
+        target_type: "video_proof",
+        destination_host: "www.youtube-nocookie.com",
+        destination_path: "/embed/" + videoId,
+        link_text: (playButton.textContent || "").replace(/\s+/g, " ").trim().slice(0, 120),
+        video_id: videoId,
+        proof_type: proofType
+      });
+      return;
+    }
+
     var link = event.target && event.target.closest ? event.target.closest("a[href]") : null;
     if (!link) return;
 

@@ -11,7 +11,7 @@ const ROOT = resolve(__dirname, '..');
 
 function findHtmlFiles(dir, files = []) {
   for (const entry of readdirSync(dir)) {
-    if (entry.startsWith('.') || entry === 'node_modules' || entry === 'scripts') continue;
+    if (entry.startsWith('.') || entry === 'node_modules' || entry === 'scripts' || entry === '_site') continue;
     const full = join(dir, entry);
     if (statSync(full).isDirectory()) {
       findHtmlFiles(full, files);

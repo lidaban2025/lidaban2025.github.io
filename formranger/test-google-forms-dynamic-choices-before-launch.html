@@ -31,7 +31,7 @@
           "description": "A short first-run test for Google Forms dynamic choices with FormSuite Choice Sync.",
           "author": { "@type": "Organization", "name": "FormSuite" },
           "publisher": { "@type": "Organization", "name": "FormSuite" },
-          "dateModified": "2026-09-06",
+          "dateModified": "2026-09-15",
           "mainEntityOfPage": "https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html"
         },
         {
@@ -51,14 +51,6 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "The test is successful when Preflight passes, Update now reports an updated question, and the public form preview shows the expected sheet values."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How can I test duplicate and routing safety?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Use the dirty-column starter to inspect duplicate warnings on a copied form. Test routing separately on a copied routed question and confirm Choice Sync blocks the update without changing its destinations."
               }
             }
           ]
@@ -100,7 +92,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../product-inner.css">
+  <link rel="stylesheet" href="../product-inner.css?v=20260822-triage">
 </head>
 <body>
   <div class="shell">
@@ -116,12 +108,12 @@
       <h1>Install, open one copied Form, then create Alpha/Beta</h1>
       <p>Do the first test inside a Google Form you own: install Choice Sync, open a blank or copied Form, create the synthetic Alpha/Beta Sheet from the sidebar, then map one choice question. The public form below is proof to view, not a file you can configure.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=choice_sync_activation_7day_20260907&utm_content=tutorial_copied_form_install" target="_blank" rel="noopener">Install Choice Sync, then return here</a>
-        <a class="btn btn-secondary" href="https://forms.new" target="_blank" rel="noopener">Open a blank Google Form</a>
-        <a class="btn btn-secondary" href="#owner-path">See the exact owner path</a>
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=choice_sync_activation_7day_20260907&utm_content=tutorial_copied_form_install" target="_blank" rel="noopener" data-track="choice_sync_activation_click">Install Choice Sync — then return for the 5-minute test</a>
+        <a class="btn btn-secondary" href="https://forms.new" target="_blank" rel="noopener" data-track="choice_sync_open_form">Open a blank Google Form</a>
+        <a class="btn btn-secondary" href="#owner-path" data-track="choice_sync_owner_path">See the exact owner path</a>
         <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdIm8jMfnQp_1HJY-x4hA4KhpgKZSFLETyTKI2rH5gv5brq-Q/viewform" target="_blank" rel="noopener" data-track="formranger_public_test_form">View public Alpha/Beta proof</a>
       </div>
-      <p><strong>Keep this guide tab open.</strong> After Marketplace installation finishes, return here, open a blank or copied Google Form, and continue with the owner path below.</p>
+      <p><strong>Keep this guide tab open.</strong> After installation, return here and follow <strong>install → first-run → Preflight → Update → public preview</strong>. The public proof link is only a reference and does not replace your own preview.</p>
     </section>
 
       <section class="section" id="owner-path">
@@ -143,7 +135,9 @@
         <p class="answer">Open Choice Sync inside a copied or blank Form, choose “Create Alpha/Beta Sheet,” link one dropdown or multiple-choice question, run Preflight, click Update now, then open that Form’s public preview.</p>
         <div class="hero-actions">
           <a class="btn btn-secondary" href="#preview-success">Start the four-step checklist</a>
+          <a class="btn btn-secondary" href="../assets/starter-kits/choice-sync-dirty-column-starter.csv" download>Download the dirty-column starter</a>
         </div>
+        <p class="muted">The CSV contains synthetic duplicates, a case/whitespace variant, and a blank row so Preflight has something real to diagnose. Import it into a copied test Sheet; do not use live respondent data.</p>
       </section>
 
       <section class="section">
@@ -177,14 +171,26 @@ Beta</pre>
         </div>
       </section>
 
-      <section class="section" id="dirty-column-test">
-        <h2>Test Choice Sync Preflight with a dirty source column</h2>
-        <p>This separate starter intentionally contains exact duplicates, extra spacing, case variants, a blank row, and look-alike labels. Use it only on a copied form to confirm Preflight exposes the problem before Update now.</p>
+      <section class="section" id="school-starter">
+        <h2>Try the same test with a school course list</h2>
+        <p>This synthetic starter gives teachers and school operators a familiar first task without using student names or live enrollment data. Import it into a blank Google Sheet, map the <strong>Course option</strong> column to one copied Form question, then complete Preflight, Update now, and public preview.</p>
         <div class="grid">
-          <div class="card"><strong>Expected findings</strong><p>Duplicate Beta and EMEA values, spacing/case variants, a blank value that is ignored, and North America labels that require human review.</p></div>
-          <div class="card"><strong>Do not auto-clean meaning</strong><p>Preflight can recommend cleanup, but it does not rewrite the source Sheet or guess whether near-duplicate labels mean the same thing.</p><div class="hero-actions"><a class="btn btn-secondary" href="./choice-sync-dirty-column-starter.csv" download>Download dirty-column CSV</a></div></div>
+          <div class="card">
+            <strong>Included choices</strong>
+            <pre class="starter-values">Course option
+Robotics Club
+Drama Workshop
+Yearbook Team</pre>
+          </div>
+          <div class="card">
+            <strong>Download the school starter</strong>
+            <p>Use this only for the first test. Replace it with the school-owned source Sheet after the public preview succeeds.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="./choice-sync-school-course-options.csv" download data-download-school-starter>Download course-options CSV</a>
+            </div>
+          </div>
         </div>
-        <div class="hero-actions"><a class="btn btn-secondary" href="./safe-migration-proof-pack.html">Open the five-card migration proof pack</a></div>
+        <p class="caution"><strong>Boundary:</strong> Choice Sync updates owner-managed Form choices. It does not enforce enrollment capacity, reserve seats, or create respondent-time dependent dropdowns.</p>
       </section>
 
       <section class="section first-run-workspace" data-formranger-first-run id="preview-success">
@@ -210,6 +216,21 @@ Beta</pre>
         <div class="outcome review-outcome" data-review-outcome hidden>
           <p>Your public preview is the success proof. An honest Marketplace review is now appropriate.</p>
           <a class="btn btn-primary" href="review-after-first-success.html">Open the review-after-success page</a>
+        </div>
+      </section>
+
+      <section class="section" id="first-run-triage" data-first-run-triage>
+        <h2>Where did the first test stop?</h2>
+        <p>Choose the first checkpoint that does not match what you see. This records only the checkpoint label, not any form, spreadsheet, question, or choice content.</p>
+        <div class="triage-actions" aria-label="Choose the first failed checkpoint">
+          <button class="btn btn-secondary" type="button" data-first-run-help-stage="help-preflight">1. Preflight warning</button>
+          <button class="btn btn-secondary" type="button" data-first-run-help-stage="help-update">2. Update now changed 0 questions</button>
+          <button class="btn btn-secondary" type="button" data-first-run-help-stage="help-preview">3. Public preview is stale</button>
+        </div>
+        <p class="answer" data-first-run-help-status aria-live="polite">Select one checkpoint to see the next safe action.</p>
+        <p class="caution"><strong>Keep private data private:</strong> do not send a form ID, spreadsheet ID, question text, source values, or respondent data. A stage number and the non-sensitive warning/result label are enough.</p>
+        <div class="link-bar">
+          <a href="./support.html?utm_source=first_run_triage&amp;utm_medium=help_first&amp;utm_campaign=choice_sync_first_success&amp;utm_content=stage_confirmation">Open stage-specific support</a>
         </div>
       </section>
 
@@ -248,7 +269,7 @@ Beta</pre>
 
       <section class="section">
         <h2>Record the result for support and reviews</h2>
-        <p>Write down the date of the test, the copied form name, the source tab, the source column, the mapped question, the Preflight result, the Update now result, and what the public preview showed. If the test fails, this becomes a support note. If it succeeds, it becomes the proof that a Marketplace review is based on real use rather than hope.</p>
+        <p>For your own private note, record the test date and whether Preflight, Update now, and public preview passed. For support, share only checkpoint 1, 2, or 3 plus the non-sensitive warning/result label. If it succeeds, the three completed checks become the proof that a Marketplace review is based on real use rather than hope.</p>
       </section>
 
       <section class="section">
@@ -267,7 +288,7 @@ Beta</pre>
         <div class="grid">
           <div class="card"><strong>Preflight warning</strong><p>Re-select the spreadsheet, confirm the sheet tab, and make sure the mapped question still exists in this form.</p></div>
           <div class="card"><strong>Update skipped</strong><p>Look for empty source values, duplicate-only values, an unsupported question type, or a mapping saved against a copied form.</p></div>
-          <div class="card"><strong>Preview unchanged</strong><p>Open a fresh public preview window after the update. If it still shows old choices, send the update result and preview screenshot to support.</p></div>
+          <div class="card"><strong>Preview unchanged</strong><p>Open a fresh public preview window after the update. If it still shows old choices, report checkpoint 3 and the non-sensitive result label; do not send respondent data or source values.</p></div>
           <div class="card"><strong>Wrong form changed</strong><p>Confirm you opened FormSuite Choice Sync inside the same Google Form whose public link you are checking.</p></div>
         </div>
         <div class="link-bar">
@@ -279,7 +300,7 @@ Beta</pre>
       <section class="section">
         <h2>FAQ</h2>
         <details><summary><strong>Can I skip the copied-form test?</strong></summary><p>No. The copied-form test is the fastest way to separate install/setup issues from production form risk.</p></details>
-        <details><summary><strong>What should I include in a setup-help request?</strong></summary><p>Include the source tab name, source column header, mapped question type, Preflight result, Update now result, and whether the public preview changed.</p></details>
+        <details><summary><strong>What should I include in a setup-help request?</strong></summary><p>Reply with checkpoint 1, 2, or 3 plus the non-sensitive warning/result label. Do not include a form ID, spreadsheet ID, question text, source values, or respondent data.</p></details>
         <details><summary><strong>When is it safe to leave a review?</strong></summary><p>After Preflight passes, Update now reports at least one updated question, and the public preview shows the expected Sheet values.</p></details>
         <details><summary><strong>Does the test cover live capacity?</strong></summary><p>No. FormSuite Choice Sync updates choices; it does not reserve inventory, sell seats, or remove a choice while someone is filling out the form.</p></details>
       </section>
