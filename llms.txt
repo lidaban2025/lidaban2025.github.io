@@ -74,3 +74,9 @@ FormFlow focuses on small Google Forms approval workflows: select the linked res
 - Terms: https://formsuite.dev/terms.html
 
 Last updated: 2026-07-08
+
+## New landing pages (2026-09)
+
+- FormGuard for Schools (district pricing + DPA): https://formsuite.dev/formguard/schools.html
+- Time slot sign-up with limits (Choice Sync + FormGuard combo): https://formsuite.dev/formranger/google-forms-time-slot-sign-up-limits.html
+- Choice Eliminator alternative: https://formsuite.dev/formranger/choice-eliminator-alternative-google-forms.html
