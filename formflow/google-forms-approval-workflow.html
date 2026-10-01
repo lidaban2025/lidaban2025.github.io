@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Forms Approval Workflow — Route Submissions to Approvers | Capture Signoff</title>
+<meta name="description" content="How to build an approval workflow with Google Forms: route each submission to the right approver, get decisions by email, and track everything in a sheet. Native options, Apps Script, and a no-code add-on compared.">
+<link rel="canonical" href="https://formsuite.dev/formflow/google-forms-approval-workflow.html">
+<meta property="og:title" content="Google Forms Approval Workflow — Setup Guide & Options">
+<meta property="og:description" content="Route Google Form submissions to approvers automatically. Compare native options, Apps Script, and FormFlow.">
+<style>
+  :root{--ink:#1b2733;--muted:#5b6b7b;--line:#dfe7ee;--card:#fff;--mint:#eef7f1;--green:#1e8a5a;--bg:#f7fafc}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.65 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  .shell{max-width:860px;margin:0 auto;padding:0 20px}
+  header{background:var(--card);border-bottom:1px solid var(--line)}
+  header .shell{display:flex;align-items:center;justify-content:space-between;height:58px}
+  header a{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;margin-left:16px}
+  header .brand{font-family:Georgia,serif;font-size:18px;font-weight:700}
+  h1{font-family:Georgia,serif;font-size:clamp(28px,5vw,40px);line-height:1.18;margin:40px 0 10px}
+  h2{font-family:Georgia,serif;font-size:24px;margin:34px 0 8px}
+  .lede{color:var(--muted);font-size:17px;max-width:700px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:18px 0}
+  ol,ul{padding-left:22px}
+  li{margin:6px 0}
+  code{background:#eef2f6;padding:2px 6px;border-radius:4px;font-size:14px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:18px 0;font-size:14px}
+  th,td{padding:10px 13px;text-align:left;border-top:1px solid var(--line)}
+  th{background:var(--mint);font-size:13px}
+  .cta{background:var(--mint);border-left:4px solid var(--green);padding:16px 20px;border-radius:0 10px 10px 0;margin:24px 0}
+  .cta a{color:var(--green);font-weight:700}
+  footer{border-top:1px solid var(--line);margin-top:46px;padding:24px 0 40px;color:var(--muted);font-size:13px;background:var(--card)}
+</style>
+</head>
+<body>
+<header><div class="shell"><div class="brand">FormFlow</div><nav><a href="/">FormSuite</a><a href="/install.html">Install</a><a href="/formguard/pricing">FormGuard Pricing</a></nav></div></header>
+
+<main class="shell">
+  <h1>Google Forms Approval Workflow: How to Route Submissions to Approvers</h1>
+  <p class="lede">Google Forms collects answers, but it has no built-in approval routing. Here are the three working ways to send each submission to the right person, collect their decision, and keep an audit trail — with the trade-offs of each.</p>
+
+  <h2>What you actually need</h2>
+  <p>A usable approval workflow answers four questions for every submission:</p>
+  <ol>
+    <li><b>Who approves it?</b> — the approver depends on the answers (department, cost center, requester's manager).</li>
+    <li><b>How do they act?</b> — ideally a link in an email, not "log into a sheet."</li>
+    <li><b>Where is the decision recorded?</b> — back into the responses sheet, with a timestamp.</li>
+    <li><b>What happens after?</b> — requester notified, next step triggered.</li>
+  </ol>
+
+  <h2>Option 1: Manual routing from the responses sheet</h2>
+  <div class="card">
+    <p>Link the form to a Google Sheet, then forward rows to approvers by email yourself. Zero setup, fine for a handful of requests per week — but every step is manual: picking the approver, copying the link, chasing decisions, and copying results back. There is no audit trail beyond your outbox.</p>
+  </div>
+
+  <h2>Option 2: Apps Script (free, DIY)</h2>
+  <div class="card">
+    <p>An <code>onFormSubmit</code> trigger can read the answers, look up the approver in a mapping sheet, send them <code>MailApp.sendEmail()</code> with the response link, and write the decision back when they reply through a second form. It works, and it's free. The costs show up over time: triggers silently fail when quotas are hit, the mapping sheet drifts from the form fields, and every change needs a developer. If you go this route, keep the routing table in one sheet and log every decision row with a timestamp.</p>
+  </div>
+
+  <h2>Option 3: FormFlow (add-on, no code)</h2>
+  <div class="card">
+    <p><a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">FormFlow</a> is a Google Forms add-on that does the same loop without scripts: you define approval routes in a connected Google Sheet, FormFlow emails the right approver for each submission with a one-click decision link, and the approval decision is written back to the sheet automatically. A queued-sync mechanism retries approvals when triggers are throttled, so decisions don't get lost in busy periods. Setup is one sidebar: pick the sheet, define the routes, save.</p>
+  </div>
+
+  <h2>Which one fits?</h2>
+  <table>
+    <tr><th></th><th>Manual</th><th>Apps Script</th><th>FormFlow</th></tr>
+    <tr><td>Setup time</td><td>None</td><td>Hours-days</td><td>~10 minutes</td></tr>
+    <tr><td>Routes by answer</td><td>By hand</td><td>Yes (you maintain it)</td><td>Yes (sheet-driven)</td></tr>
+    <tr><td>Decision written back</td><td>Manual</td><td>DIY</td><td>Automatic</td></tr>
+    <tr><td>Audit trail</td><td>Outbox</td><td>DIY</td><td>Sheet + timestamps</td></tr>
+    <tr><td>Maintenance</td><td>—</td><td>You own it</td><td>Handled by updates</td></tr>
+    <tr><td>Cost</td><td>Time</td><td>Free + time</td><td>Free to install</td></tr>
+  </table>
+
+  <p><b>Straight answers to common questions:</b> Google Forms has no native approval routing (as of 2026). Google Sheets alone can't send approval emails. And if someone tells you "just use e-signature software," that solves signing, not routing — most leave-request and purchase-request cases just need the right person to click approve and have it recorded.</p>
+
+  <div class="cta">
+    <b>Try the no-code route:</b> <a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531">install FormFlow from the Workspace Marketplace</a>, open its sidebar in your form, and point it at a sheet with one route as a test. If the first approval lands in the right inbox with a decision link, you're done. Related: <a href="/formranger/google-forms-time-slot-sign-up-limits.html">capping time-slot sign-ups</a> and <a href="/formguard/pricing">FormGuard pricing</a> for response limits and choice quotas.
+  </div>
+</main>
+
+<footer><div class="shell"><span>&copy; LidaBan Studio · FormSuite</span><a href="/formflow/">FormFlow overview</a><a href="/formguard/pricing">FormGuard pricing</a><a href="/formranger/choice-eliminator-alternative-google-forms.html">Choice quotas</a></div></footer>
+</body>
+</html>
