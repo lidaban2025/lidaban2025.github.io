@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#5e6ad2">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms autoresponder email setup | FormNotifier</title>
+    <meta name="description" content="Set up a Google Forms autoresponder email after submission: native response receipts vs. custom autoresponder templates with merge fields and test sends.">
+    <link rel="canonical" href="https://formsuite.dev/formnotifier/google-forms-autoresponder-email.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FormSuite">
+    <meta property="og:title" content="Google Forms autoresponder email setup | FormNotifier">
+    <meta property="og:description" content="Set up a Google Forms autoresponder email after submission: native response receipts vs. custom autoresponder templates with merge fields and test sends.">
+    <meta property="og:url" content="https://formsuite.dev/formnotifier/google-forms-autoresponder-email.html">
+    <meta property="og:image" content="https://formsuite.dev/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms autoresponder email setup">
+    <meta name="twitter:description" content="Native response receipts vs. custom autoresponder emails for Google Forms.">
+    <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Google Forms autoresponder email setup",
+            "description": "A practical comparison of native Google Forms response receipts and custom autoresponder emails with FormNotifier.",
+            "author": { "@type": "Organization", "name": "FormSuite" },
+            "publisher": { "@type": "Organization", "name": "FormSuite" },
+            "mainEntityOfPage": "https://formsuite.dev/formnotifier/google-forms-autoresponder-email.html"
+        }
+    </script>
+    <style>
+        :root { --ink:#172033; --muted:#5c6b80; --line:#d9e2ef; --blue:#1a5cff; --blue-strong:#0f4fd8; --blue-soft:#eef4ff; --green:#138a43; --green-soft:#ebf8ef; --panel:#ffffff; --surface:#f7faff; --shadow:0 14px 36px rgba(23,32,51,.10); }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7faff 0%,#ffffff 52%); line-height:1.68; }
+        a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+        .shell { max-width:1160px; margin:0 auto; padding:24px 20px 64px; }
+        .nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:26px; font-size:.94rem; }
+        .nav a { color:var(--muted); font-weight:600; }
+        .nav a:first-child { color:var(--ink); margin-right:auto; }
+        .hero { display:grid; grid-template-columns:minmax(0,1fr); gap:34px; align-items:center; padding:20px 0 24px; margin-bottom:12px; }
+        .eyebrow { display:inline-flex; padding:7px 12px; border-radius:8px; background:var(--blue-soft); color:var(--blue); font-size:.8rem; font-weight:800; margin-bottom:16px; }
+        h1 { font-size:clamp(2.1rem,5vw,3.4rem); line-height:1.05; letter-spacing:0; margin-bottom:18px; max-width:20ch; }
+        h2 { font-size:1.75rem; letter-spacing:0; margin-bottom:10px; }
+        .hero p,.section p,.section li { color:var(--muted); }
+        .hero p { font-size:1.08rem; }
+        .hero-actions,.link-bar { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+        .link-bar a { display:inline-flex; min-height:38px; align-items:center; padding:0 12px; border:1px solid var(--line); border-radius:8px; background:#fff; font-weight:700; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:8px; font-weight:700; border:1px solid transparent; }
+        .btn-primary { background:var(--blue); color:#fff; box-shadow:0 10px 24px rgba(26,92,255,.22); } .btn-primary:hover { background:var(--blue-strong); text-decoration:none; } .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+        .section { padding:42px 0 8px; margin-top:14px; }
+        .lead { color:var(--muted); margin-bottom:18px; max-width:760px; }
+        .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .feature,.step-card { padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+        .feature strong { display:block; margin-bottom:8px; font-size:1.02rem; }
+        .install-panel { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--green-soft); border:1px solid #cde8d6; color:#17633f; font-size:.93rem; }
+        .install-panel strong { display:block; color:var(--ink); font-size:1.05rem; margin-bottom:6px; }
+        .install-panel p { color:#17633f; margin-bottom:12px; }
+        .compare { width:100%; border-collapse:collapse; margin-top:10px; background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+        .compare th,.compare td { padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; font-size:.95rem; vertical-align:top; }
+        .compare th { background:var(--surface); color:var(--ink); }
+        .compare td { color:var(--muted); }
+        .compare td:first-child { color:var(--ink); font-weight:700; }
+        .steps { padding-left:20px; display:grid; gap:10px; }
+        .step-card strong { display:block; margin-bottom:6px; }
+        .step-card p { font-size:.92rem; }
+        .note { margin-top:18px; padding:16px 18px; border-radius:8px; background:var(--blue-soft); border:1px solid var(--line); color:#274690; font-size:.93rem; }
+        .footer { margin-top:24px; text-align:center; color:var(--muted); font-size:.9rem; }
+        @media (max-width:900px) { .hero,.grid { grid-template-columns:1fr; } .nav a:first-child { width:100%; margin-right:0; } h1 { font-size:2.1rem; max-width:none; } }
+    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../product-inner.css">
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="../index.html">FormSuite</a>
+            <a href="./index.html"><strong>FormNotifier</strong></a>
+            <a href="./support.html">Support</a>
+            <a href="./google-forms-email-notifications-guide.html">Workflow guide</a>
+        </nav>
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Autoresponder</div>
+                <h1>Google Forms autoresponder email setup</h1>
+                <p>An autoresponder sends an automatic reply after someone submits your form. Google Forms has a basic built-in receipt; here is when it is enough and how to send a custom one.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier</a>
+                    <a class="btn btn-secondary" href="./google-forms-confirmation-email-template-examples.html">Template examples</a>
+                    <a class="btn btn-secondary" href="./support.html">Support</a>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Quick answer</h2>
+            <p class="lead">Google Forms can email respondents a copy of their answers if you enable "Collect email addresses" and set response receipts to "If respondent requests it" or "Always". That is a true autoresponder, but the message is fixed: it is a plain copy of the form answers with no custom subject, no branding, and no next-step instructions. If respondents should receive a tailored confirmation, use an add-on like FormNotifier to send a custom autoresponder template with merge fields.</p>
+        </section>
+        <section class="section">
+            <h2>Native receipts vs. custom autoresponder</h2>
+            <table class="compare">
+                <tr><th></th><th>Native response receipt</th><th>FormNotifier autoresponder</th></tr>
+                <tr><td>Message body</td><td>Fixed copy of all answers</td><td>Custom subject and body with merge fields</td></tr>
+                <tr><td>Who receives it</td><td>Respondent only</td><td>Respondent, owner, or any additional recipients</td></tr>
+                <tr><td>Tone and branding</td><td>Generic Google format</td><td>Write it to match your event, class, or support workflow</td></tr>
+                <tr><td>Next-step instructions</td><td>Not possible</td><td>Add payment links, schedules, or contact details</td></tr>
+                <tr><td>Test before launch</td><td>Submit and check manually</td><td>Send a test email and check the recent send report</td></tr>
+                <tr><td>Setup effort</td><td>One toggle in form settings</td><td>Five-minute sidebar setup, once per form</td></tr>
+            </table>
+            <div class="note">For many internal forms the native receipt is enough. Use a custom autoresponder when the reply is part of the experience: registrations, applications, support intake, and anything where the respondent expects clear next steps.</div>
+        </section>
+        <section class="section">
+            <h2>Option 1: native response receipt (manual)</h2>
+            <ol class="steps">
+                <li>Open the form and go to Settings.</li>
+                <li>Turn on "Collect email addresses" so every respondent has a verified address.</li>
+                <li>Under "Response receipts", choose "If respondent requests it" or "Always".</li>
+                <li>Submit a test response and confirm the copy arrives in your inbox.</li>
+            </ol>
+            <p class="lead" style="margin-top:12px;">Limitations to accept: the email content cannot be edited, it only goes to the respondent, and it contains every answer including ones you may not want echoed back.</p>
+        </section>
+        <section class="section">
+            <h2>Option 2: custom autoresponder with FormNotifier</h2>
+            <div class="grid">
+                <div class="feature"><strong>Write your own message</strong><p>Set a custom subject line and body, and insert form answers with merge fields so each respondent gets a relevant reply.</p></div>
+                <div class="feature"><strong>Separate respondent and owner mail</strong><p>Send the autoresponder to the respondent and a different alert to your team from the same submission.</p></div>
+                <div class="feature"><strong>Test sends</strong><p>Run Preflight and send a test email before sharing the form, so a broken template never reaches real respondents.</p></div>
+                <div class="feature"><strong>Recent send results</strong><p>Check whether autoresponder emails actually went out instead of guessing from silence.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Recommended setup path</h2>
+            <ol class="steps">
+                <li>Install FormNotifier from Google Workspace Marketplace and open it from the Extensions menu.</li>
+                <li>Enable respondent confirmation and choose where the respondent email comes from (collected email or a required email question).</li>
+                <li>Write a short autoresponder: confirm receipt, restate the key answers, and add the next step.</li>
+                <li>Run Preflight, save, and use Send test with your own inbox before launch.</li>
+            </ol>
+            <div class="install-panel">
+                <strong>Set up a custom autoresponder in minutes.</strong>
+                <p>FormNotifier adds respondent confirmations, owner alerts, multiple recipients, custom templates, test sends, and recent send results to Google Forms.</p>
+                <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier from Marketplace</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Common mistakes</h2>
+            <div class="grid">
+                <div class="feature"><strong>No verified email source</strong><p>If the form does not collect emails and has no required email question, the autoresponder has nowhere to go.</p></div>
+                <div class="feature"><strong>Untested merge fields</strong><p>A template that looks fine can break when an answer is empty. Always test with a realistic submission.</p></div>
+                <div class="feature"><strong>Dumping every answer</strong><p>Long receipts get ignored. Echo only the details the respondent needs to act on.</p></div>
+                <div class="feature"><strong>No failure visibility</strong><p>Check the recent send report after launch so failed deliveries surface the same day.</p></div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Next steps</h2>
+            <div class="link-bar">
+                <a href="https://workspace.google.com/marketplace/app/formnotifier_smart_form_notifications/1860439640">Install FormNotifier from Marketplace</a>
+                <a href="./send-google-forms-confirmation-email-after-submit.html">Confirmation email after submit</a>
+                <a href="./google-forms-confirmation-email-template-examples.html">Template examples</a>
+                <a href="./google-forms-registration-confirmation-email.html">Registration confirmation email</a>
+                <a href="./google-forms-respondent-confirmation-email-not-received.html">Email not received troubleshooting</a>
+                <a href="./support.html">Support and setup</a>
+            </div>
+        </section>
+        <div class="footer"><a href="./support.html">Support</a> | <a href="./permissions.html">Permissions</a> | <a href="../index.html#products">Install</a><br>&copy; 2026 FormSuite. All rights reserved.</div>
+    </div>
+    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
+</body>
+</html>
