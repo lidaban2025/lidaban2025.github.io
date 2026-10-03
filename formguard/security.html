@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FormGuard Security Overview — One-Page Summary for District Procurement</title>
+<meta name="description" content="FormGuard security summary: zero student data collection architecture, Google Marketplace verification, executed CA-NDPA (CITE), permission scope list, and incident response contact.">
+<style>
+:root{--blue:#1a73e8;--ink:#202124;--mut:#5f6368;--bg:#f8f9fa}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.5;font-size:14px}
+.wrap{max-width:820px;margin:0 auto;padding:28px 24px}
+header{border-bottom:3px solid var(--blue);padding-bottom:14px;margin-bottom:18px}
+h1{font-size:1.5rem}
+.sub{color:var(--mut);font-size:.95rem;margin-top:4px}
+h2{font-size:1.02rem;margin:18px 0 6px;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.92rem}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid #e8eaed;vertical-align:top}
+th{background:var(--bg);width:220px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--bg);border-radius:8px;padding:12px 14px}
+.card h3{font-size:.95rem;margin-bottom:4px}
+.card p{color:var(--mut);font-size:.85rem}
+ul{padding-left:18px;font-size:.92rem}
+li{margin:3px 0}
+footer{margin-top:22px;padding-top:12px;border-top:1px solid #e8eaed;color:var(--mut);font-size:.78rem}
+@media print{.wrap{padding:0}.no-print{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>FormGuard — Security &amp; Privacy Overview</h1>
+<p class="sub">LidaBan Studio · formsuite.dev/formguard · Prepared for district procurement review · October 2026</p>
+</header>
+
+<div class="grid">
+<div class="card"><h3>Product</h3><p>Google Forms™ add-on (Google Workspace Marketplace): response caps, per-option quotas, scheduled close/reopen, owner alerts.</p></div>
+<div class="card"><h3>Data collected</h3><p><strong>None.</strong> No student or respondent data is read, transmitted, stored, or logged by the vendor.</p></div>
+</div>
+
+<h2>Architecture: zero data collection</h2>
+<table>
+<tr><th>Configuration storage</th><td>All FormGuard settings are stored as properties <em>inside the customer's own Google Form</em> — within the district's Google Workspace tenant, under district control.</td></tr>
+<tr><th>External calls</th><td>The add-on runtime performs no external network requests. There is no vendor server in the data path.</td></tr>
+<tr><th>Response data</th><td>Form responses are never read. The add-on toggles form acceptance and option visibility only.</td></tr>
+<tr><th>Notifications</th><td>Optional alerts are sent by the form owner's own Google account to recipients the owner chooses.</td></tr>
+</table>
+
+<h2>Privacy agreements &amp; compliance</h2>
+<table>
+<tr><th>CA-NDPA</th><td>California Student Data Privacy Agreement v1.5 <strong>fully executed</strong> with San Bernardino City USD via CITE Privacy Services — Document Ref <strong>GMWHH-DGNBA-TUZMK-XBM4S</strong>, term through September 26, 2029. Exhibit E piggyback available to California districts.</td></tr>
+<tr><th>Marketplace</th><td>Published on Google Workspace Marketplace (Google-run security review of OAuth scopes; single sign-on via district Google accounts; no separate student login).</td></tr>
+<tr><th>FERPA/COPPA posture</th><td>No education records or personal information are collected, so no data-processing beyond the executed DPA scope occurs.</td></tr>
+</table>
+
+<h2>Permission scopes (all Google-verified at install)</h2>
+<ul>
+<li>Forms container UI — display the settings sidebar inside a form</li>
+<li>Form service — read/update the form's acceptance setting, options, and FormGuard's own configuration properties</li>
+<li>Script triggers — run scheduled close/reopen at times the form owner sets</li>
+<li>Owner mail — send alerts from the form owner's own account to owner-chosen recipients</li>
+</ul>
+<p style="font-size:.85rem;color:var(--mut)">Full purpose-by-purpose list: formsuite.dev/formguard/permissions.html</p>
+
+<h2>Operations</h2>
+<table>
+<tr><th>Support &amp; incidents</th><td>lidaban2025@gmail.com — acknowledged within one business day; security incidents reported to affected LEA contacts within 72 hours of confirmation.</td></tr>
+<tr><th>Change practice</th><td>Versioned releases; behavior changes documented on the public changelog; no data model changes possible by design (no vendor-side data store).</td></tr>
+<tr><th>Subprocessors</th><td>None for the add-on's core function. Payment/licensing (optional Pro tier) is handled by Creem (Merchant of Record) and involves license keys only — never student data.</td></tr>
+</table>
+
+<footer>Google Forms™ and Google Workspace Marketplace are trademarks of Google LLC. FormGuard is not affiliated with or endorsed by Google. This overview is a summary; the executed CA-NDPA governs. <span class="no-print">Printable as-is (1 page) · https://formsuite.dev/formguard/security.html</span></footer>
+</div>
+</body>
+</html>
