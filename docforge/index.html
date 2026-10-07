@@ -1,96 +1,98 @@
+<!--
+  READY TO PUBLISH — DocForge landing page
+  Suggested placement: docforge/index.html on formsuite.dev (replaces/updates existing page)
+  Add to sitemap.xml manually (hand-maintained) and to llms.txt "New landing pages" section.
+  Converted from copy/landing-docforge.md (2026-10-07).
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#5e6ad2">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document Merge Google Sheets With Verified Batch | DocForge</title>
-  <meta name="description" content="Merge Google Sheets rows into Docs or PDFs with durable one-file proof, output manifest, failed-only retry, and batch reconciliation.">
-  <link rel="canonical" href="https://formsuite.dev/docforge/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../product-landing.css">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="FormSuite">
-  <meta property="og:title" content="Document Merge from Google Sheets to Docs or PDF | DocForge">
-  <meta property="og:description" content="Prove one output, reuse unchanged successes, retry failed rows only, and reconcile a one-template document batch.">
-  <meta property="og:url" content="https://formsuite.dev/docforge/">
+  <title>DocForge — Turn Google Sheets rows into Docs &amp; PDFs | FormSuite</title>
+  <meta name="description" content="DocForge turns spreadsheet rows into finished Google Docs and PDFs from a template you design. Generate one file first and inspect it — the full batch only runs when you're happy.">
+  <link rel="canonical" href="https://formsuite.dev/docforge/index.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="FormSuite">
+  <meta property="og:title" content="DocForge — Google Sheets to Docs &amp; PDF">
+  <meta property="og:description" content="One template. One click. 200 perfect certificates. Re-runs never duplicate what already worked.">
+  <meta property="og:url" content="https://formsuite.dev/docforge/index.html">
   <meta property="og:image" content="https://formsuite.dev/social-card.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Document Merge from Google Sheets | DocForge">
-  <meta name="twitter:description" content="Durable one-file proof, output manifest, failed-only retry, and reconciliation for one-template batches.">
-  <meta name="twitter:image" content="https://formsuite.dev/social-card.svg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"DocForge","applicationCategory":"BusinessApplication","operatingSystem":"Google Workspace","url":"https://formsuite.dev/docforge/","description":"Run one-template document merge from Google Sheets with durable one-file proof, output manifest, failed-only retry, and batch reconciliation.","provider":{"@type":"Organization","name":"FormSuite"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will DocForge generate successful rows twice when a batch is rerun?","acceptedAnswer":{"@type":"Answer","text":"An unchanged successful row with an accessible output is reused from the manifest instead of being generated again."}},{"@type":"Question","name":"When must I generate a new one-file proof?","acceptedAnswer":{"@type":"Answer","text":"A new proof is required after the template version, source headers, mapping, stable key, naming, folder, or output changes."}},{"@type":"Question","name":"Is DocForge a full Autocrat replacement or document management system?","acceptedAnswer":{"@type":"Answer","text":"No. DocForge focuses on one-template verified batches and does not claim approvals, signatures, payments, webhooks, or document management."}}]}]}</script>
   <link rel="stylesheet" href="../product-inner.css">
+  <style>
+    :root{--ink:#17263d;--muted:#5a6a83;--line:#d9e2ef;--blue:#1463ff;--soft:#eef4ff;--warn:#fff7e8}*{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#f8fbff;line-height:1.65}a{color:var(--blue)}.shell{max-width:980px;margin:auto;padding:28px 20px 60px}.nav{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px}.hero,.section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;margin-top:18px}.eyebrow{display:inline-block;background:var(--soft);color:var(--blue);padding:6px 11px;border-radius:99px;font-weight:700;font-size:.82rem}h1{font-size:2.45rem;line-height:1.08;max-width:22ch;margin:14px 0}h2{font-size:1.45rem;margin-top:0}.lead,p,li,td{color:var(--muted)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.btn{padding:11px 17px;border-radius:99px;font-weight:700;text-decoration:none}.primary{background:var(--blue);color:#fff}.secondary{border:1px solid var(--line);color:var(--ink)}.trust{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;font-size:.85rem;color:var(--muted)}.trust span::before{content:"✓ ";color:var(--blue);font-weight:700}
+    .storyboard{display:grid;gap:12px;margin-top:16px}.shot{display:grid;grid-template-columns:64px 1fr;gap:14px;background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:14px 16px}.shot .time{font-weight:700;color:var(--blue);font-size:.85rem;padding-top:2px}.shot .vis{color:var(--ink);font-weight:600}.shot .cap{color:var(--muted);font-style:italic;font-size:.95rem;margin-top:4px}
+    .features{display:grid;gap:12px;margin-top:16px}@media(min-width:700px){.features{grid-template-columns:1fr 1fr}}.feature{border:1px solid var(--line);border-radius:16px;padding:16px 18px}.feature h3{font-size:1.05rem;margin:0 0 6px}.feature p{margin:0;font-size:.95rem}
+    .pricing{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}.pricing strong{color:var(--ink)}
+    .faq-item{border-bottom:1px solid var(--line);padding:14px 0}.faq-item:last-child{border-bottom:none}.faq-item h3{font-size:1.05rem;margin:0 0 6px;color:var(--ink)}.faq-item p{margin:0}
+    .closing{text-align:center;padding:40px 28px}.closing h2{font-size:1.9rem}.closing .actions{justify-content:center}
+    .footer{text-align:center;color:var(--muted);margin-top:24px;font-size:.85rem}
+    @media(max-width:700px){h1{font-size:2rem}.hero,.section{padding:22px}.shot{grid-template-columns:1fr}.shot .time{padding-top:0}}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this a replacement for Autocrat?","acceptedAnswer":{"@type":"Answer","text":"For straightforward one-template merges — certificates, letters, reports — yes, and it's simpler. DocForge doesn't try to be a full document-management or approval platform; it does one job reliably."}},{"@type":"Question","name":"What if my template changes halfway through the year?","acceptedAnswer":{"@type":"Answer","text":"DocForge notices. Any change to the template, column headers, or file naming requires a fresh one-file proof before the next batch — so a mid-year tweak can't silently corrupt 200 files."}},{"@type":"Question","name":"Can it make PDFs, or only Google Docs?","acceptedAnswer":{"@type":"Answer","text":"Both. Generate editable Google Docs, print-ready PDFs, or both from the same run."}},{"@type":"Question","name":"What happens to rows with missing data?","acceptedAnswer":{"@type":"Answer","text":"They're flagged before generation, not after. Blank required fields block the safety check so you fix row 47 instead of apologizing for it."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DocForge","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://formsuite.dev/docforge/index.html"}</script>
 </head>
-<body>
-  <div class="shell">
-    <header class="topbar">
-      <a class="brand" href="../index.html" aria-label="FormSuite home"><span class="brand-mark">DF</span><span>DocForge</span></a>
-      <nav class="nav" aria-label="Product navigation"><a href="../index.html#products">Add-ons</a><a href="support.html">Support</a></nav>
-    </header>
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <div class="eyebrow">Google Sheets document merge</div>
-          <h1 id="hero-title">Prove one file. Generate each row once.</h1>
-          <p>DocForge binds a one-file proof to the selected template, source headers, mapping, stable key, naming, and output. Its manifest reuses unchanged successful outputs, retries failed rows only, and reconciles the batch.</p>
-          <div class="hero-proof" aria-label="Key capabilities">
-            <span>Durable one-file proof</span>
-            <span>Output manifest</span>
-            <span>Retry failed only</span>
-            <span>Batch reconciliation</span>
-          </div>
-          <div class="hero-actions"><a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/501244453885">Install from Marketplace</a></div>
-        </div>
-        <article class="product-visual workflow-preview" aria-label="Product workflow preview">
-          <div class="preview-topline"><strong>Document generation preview</strong><span>Template mapped</span></div>
-          <div class="preview-canvas"><div class="mock-stack">
-              <div class="mock-panel">
-                <div class="mock-title"><strong>Google Sheet</strong><span>source rows</span></div>
-                <div class="mock-line wide"></div>
-                <div class="rule-row"><span>Rows</span><span>86 records</span></div>
-                <div class="sync-source">Name, Course, Date, Score</div>
-              </div>
-              <div class="mock-panel">
-                <div class="mock-title"><strong>Docs template</strong><span>certificate</span></div>
-                <div class="mock-line wide"></div>
-                <div class="rule-row"><span>Placeholder</span><span>{{Name}}</span></div>
-                <div class="sync-source">Generated as Google Doc or PDF</div>
-              </div>
-            </div><div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/docforge.png" alt=""><div><strong>DocForge</strong><span>Workspace add-on</span></div></div><p>Connect a Docs template, map sheet columns to placeholders, preview one file, then generate the batch.</p><span class="status-pill">Preview generated</span></div></div>
-          <div class="preview-steps"><span>1. Configure</span><span>2. Preview</span><span>3. Launch</span></div>
-        </article>
-      </section>
-      <section class="section" aria-labelledby="verified-batch-title"><div class="section-head"><div><h2 id="verified-batch-title">Verified Batch: one-template reliability.</h2><p>The difference is not more connectors. It is knowing which expected rows were generated, reused, changed, or failed—and refusing an old proof after the workflow changes.</p></div></div><div class="step-grid">
-          <article class="step-card"><div class="step-num">1</div><h3>Choose a stable row ID</h3><p>Use an order, invoice, certificate, member, or case ID when available; duplicate and blank keys block Preflight.</p></article>
-          <article class="step-card"><div class="step-num">2</div><h3>Bind and reuse the proof</h3><p>The template version, headers, mapping, output, and proof-row hash must still match after the sidebar closes.</p></article>
-          <article class="step-card"><div class="step-num">3</div><h3>Retry and reconcile</h3><p>Leave successful outputs untouched, retry failed rows only, and compare expected, generated, reused, changed, and failed totals.</p></article>
-        </div></section>
-      <section class="section" aria-labelledby="flow-title"><div class="section-head"><div><h2 id="flow-title">A focused workflow, not another bulky form builder.</h2><p>Each FormSuite add-on does one operational job around Google Forms, Sheets, Docs, or Gmail — then gets out of the way.</p></div></div><div class="step-grid">
-          <article class="step-card"><div class="step-num">1</div><h3>Choose template</h3><p>Start from a Google Docs file with placeholders.</p></article>
-          <article class="step-card"><div class="step-num">2</div><h3>Map fields</h3><p>Connect sheet columns to document tags.</p></article>
-          <article class="step-card"><div class="step-num">3</div><h3>Preview then run</h3><p>Generate one file before bulk output.</p></article>
-        </div></section>
-      <section class="section" aria-labelledby="migration-title"><div class="section-head"><div><h2 id="migration-title">Testing a simple Autocrat-style document merge?</h2><p>Start with a copied spreadsheet and one Google Docs template. DocForge is independent and does not claim full Autocrat feature parity.</p></div></div><div class="step-grid">
-          <article class="step-card"><h3><a href="autocrat-alternative-google-sheets-document-merge.html">Migration fit checklist</a></h3><p>Check whether a one-template Sheets-to-Docs or PDF workflow fits the current product boundary.</p></article>
-          <article class="step-card"><h3><a href="google-docs-template-merge-fields-not-replacing-from-google-sheets.html">Fields not replacing</a></h3><p>Compare template variables, Sheet headers, mapping, blanks, and the one-row preview.</p></article>
-          <article class="step-card"><h3><a href="generate-one-pdf-from-google-sheets-before-batch.html">Generate one PDF first</a></h3><p>Inspect one real output before processing a larger set of rows.</p></article>
-        </div></section>
-      <section class="section" aria-labelledby="proof-title"><div class="section-head"><div><h2 id="proof-title">See a manifest-protected verified batch.</h2><p>The controlled 31-second proof shows durable one-file proof, unchanged-output reuse, changed-workflow invalidation, failed-only retry, and reconciliation. It does not claim full Autocrat feature parity.</p></div></div><div class="hero-actions"><a class="btn btn-primary" href="https://youtube.com/shorts/0KmBS2EKxAk" target="_blank" rel="noopener">Watch Verified Batch proof</a><a class="btn btn-secondary" href="generate-one-pdf-from-google-sheets-before-batch.html">Run the one-row checklist</a></div></section>
-      <section class="section" aria-labelledby="faq-title"><h2 id="faq-title">Frequently asked questions</h2><div class="faq-panel">
-          <details><summary><strong>Can it create PDFs?</strong></summary><p>Yes. The workflow supports generating documents and PDF-style outputs from rows.</p></details>
-          <details><summary><strong>Do I need a template?</strong></summary><p>Yes. A Google Docs template gives the generated files their structure.</p></details>
-          <details><summary><strong>Will a rerun duplicate successful files?</strong></summary><p>An unchanged successful row with an accessible output is reused from the manifest. A changed template, header set, mapping, key, naming pattern, folder, or output requires a new one-file proof.</p></details>
-        </div></section>
-    </main>
-    <footer class="footer"><span><a href="../index.html#products">Add-ons</a> | <a href="support.html">Support</a></span><span>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</span></footer>
+<body><div class="shell">
+  <nav class="nav"><a href="../index.html">FormSuite</a><a href="./index.html"><strong>DocForge</strong></a><a href="./support.html">Support</a></nav>
+  <main>
+    <section class="hero">
+      <span class="eyebrow">Google Sheets to Docs &amp; PDF</span>
+      <h1>One template. One click. 200 perfect certificates.</h1>
+      <p class="lead">DocForge turns spreadsheet rows into finished Google Docs and PDFs from a template you design. Generate one file first and inspect it — the full batch only runs when you're happy, and re-runs never duplicate what already worked.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/?utm_source=formsuite&amp;utm_medium=landing_page&amp;utm_campaign=docforge_20261007">Install free from Marketplace</a>
+        <a class="btn secondary" href="#demo">See the 31-second proof</a>
+      </div>
+      <div class="trust"><span>Free during public launch</span><span>No code</span><span>Your data never leaves Google Workspace</span></div>
+    </section>
+
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <h2 id="demo-title">What 31 seconds with DocForge looks like</h2>
+      <p>The happy path, frame by frame:</p>
+      <div class="storyboard">
+        <div class="shot"><div class="time">0:00–0:05</div><div><div class="vis">A Sheet with 86 rows: Name, Course, Date, Certificate ID; a Docs certificate template with {{Name}} placeholders.</div><div class="cap">"86 graduates. One certificate template."</div></div></div>
+        <div class="shot"><div class="time">0:05–0:11</div><div><div class="vis">You connect the template, clicking each placeholder to link a column.</div><div class="cap">"Link each placeholder to a column. Once."</div></div></div>
+        <div class="shot"><div class="time">0:11–0:17</div><div><div class="vis">One PDF generates; you open it, zoom in on name, date, and ID, and nod.</div><div class="cap">"Generate one file first. Check it with your own eyes."</div></div></div>
+        <div class="shot"><div class="time">0:17–0:23</div><div><div class="vis">The full batch runs; files land in a Drive folder with clean names.</div><div class="cap">"Happy? Run the batch. Every file is named and filed for you."</div></div></div>
+        <div class="shot"><div class="time">0:23–0:31</div><div><div class="vis">You re-run; a "79 reused, 0 duplicated, 7 retried" summary appears.</div><div class="cap">"Run it again any time — finished rows are skipped, only failures retry."</div></div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="features-title">
+      <h2 id="features-title">Why certificate season stops being painful</h2>
+      <div class="features">
+        <div class="feature"><h3>Design once, generate forever</h3><p>Build your certificate, letter, or report in Google Docs with placeholders like {{Name}}. Rows do the rest.</p></div>
+        <div class="feature"><h3>One perfect file first</h3><p>Generate a single Doc or PDF and inspect the layout, file name, and folder before committing to the batch.</p></div>
+        <div class="feature"><h3>Smart file names</h3><p>Name files with real identifiers: name, date, certificate number, request ID — findable later.</p></div>
+        <div class="feature"><h3>Never generates twice</h3><p>Re-running a batch reuses every row that already succeeded. Only failed rows are retried; nothing is duplicated.</p></div>
+        <div class="feature"><h3>Knows when something changed</h3><p>Edit the template or rename a column and DocForge asks for a fresh one-file proof instead of silently using the old one.</p></div>
+        <div class="feature"><h3>A clean summary, every run</h3><p>See generated, reused, changed, and failed counts at a glance. No more wondering "did row 47 go through?"</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Pricing</h2>
+      <div class="pricing"><p style="margin:0"><strong>Free during the public launch.</strong> Pro plans with higher batch limits and team template libraries are on the way, and launch users lock in early-bird pricing.</p></div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions, answered</h2>
+      <div class="faq-item"><h3>Is this a replacement for Autocrat?</h3><p>For straightforward one-template merges — certificates, letters, reports — yes, and it's simpler. DocForge doesn't try to be a full document-management or approval platform; it does one job reliably.</p></div>
+      <div class="faq-item"><h3>What if my template changes halfway through the year?</h3><p>DocForge notices. Any change to the template, column headers, or file naming requires a fresh one-file proof before the next batch — so a mid-year tweak can't silently corrupt 200 files.</p></div>
+      <div class="faq-item"><h3>Can it make PDFs, or only Google Docs?</h3><p>Both. Generate editable Google Docs, print-ready PDFs, or both from the same run.</p></div>
+      <div class="faq-item"><h3>What happens to rows with missing data?</h3><p>They're flagged before generation, not after. Blank required fields block the safety check so you fix row 47 instead of apologizing for it.</p></div>
+    </section>
+
+    <section class="section closing">
+      <h2>This year's certificates are already in your spreadsheet.</h2>
+      <p>Install DocForge, generate one perfect file, then let the batch do the boring part.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://workspace.google.com/marketplace/app/docforge_document_merge_for_google_sheet/?utm_source=formsuite&amp;utm_medium=landing_page&amp;utm_campaign=docforge_20261007">Install free from Marketplace</a>
+        <a class="btn secondary" href="#demo">Try the one-file test →</a>
+      </div>
+    </section>
+  </main>
+  <div class="footer">
+    <a href="./permissions.html">Permissions</a> | <a href="./privacy.html">Privacy</a> | <a href="./support.html">Support</a><br>
+    © FormSuite
   </div>
-    <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
-</body>
-</html>
+</div><script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script></body></html>
