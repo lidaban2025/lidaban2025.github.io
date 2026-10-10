@@ -52,7 +52,7 @@
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="subtitle">FormGuard | Last updated: April 4, 2026</p>
+        <p class="subtitle">FormGuard | Last updated: October 10, 2026</p>
 
         <h2>1. What FormGuard does</h2>
         <p>FormGuard is a Google Forms™ add-on that helps owners manage response limits, choice quotas, notifications, close messages, and answer availability from inside the form editor.</p>
@@ -60,18 +60,19 @@
         <h2>2. Data we access</h2>
         <p>FormGuard accesses only the data needed to configure and operate the controls you enable:</p>
         <ul>
-            <li><strong>Google Forms™ data</strong> for the active form, including form settings, items, response counts, and add-on configuration context.</li>
-            <li><strong>Email address data</strong> when the add-on needs to send owner notifications or reminders that you configure.</li>
+            <li><strong>Google Forms™ data</strong> for forms you explicitly configure, including settings, questions, choices, response counts and responses needed to enforce choice quotas. The updated timer build requests the full Forms permission because scheduled tasks have no active editor and must open the configured form by ID. It does not scan unrelated forms.</li>
+            <li><strong>Email address data</strong> for optional notifications you configure and for binding a paid license to its buyer's Google account.</li>
+            <li><strong>Purchase and license data</strong> when you choose a paid plan, including buyer email, product, transaction identifiers, plan and license expiry. Creem processes checkout and payment information.</li>
         </ul>
 
         <h2>3. Data storage</h2>
-        <p>Configuration settings are stored with Google Apps Script™ storage linked to the form and your Google account. FormGuard does not run an external database or third-party analytics platform for this workflow data.</p>
+        <p>Configuration is stored in Google Apps Script™ document, user and script properties. Scheduled jobs store the configured form ID, timing and notification settings in script properties. Form response content is not sent to our licensing service. Purchase and license records are processed separately by Creem and the FormSuite licensing service.</p>
 
         <h2>4. Data sharing</h2>
-        <p>We do not sell, rent, or disclose form configuration data or personal data to third parties. The add-on operates inside the Google services already connected to your form workflow.</p>
+        <p>We do not sell form responses. Form automation runs inside Google services. Optional notifications send to the address you configure. Paid checkout shares purchase information with Creem; the licensing service uses purchase and buyer-email data to issue an account-bound license and deliver it by email. This does not send form responses to Creem or the licensing service.</p>
 
         <h2>5. Data retention</h2>
-        <p>Settings remain available while the add-on is active on the form. Removing the add-on or changing the configuration stops the workflow from using those saved settings.</p>
+        <p>Saved settings may remain in Apps Script storage until removed. Disable scheduled rules and save before uninstalling to remove the associated timer jobs. Uninstalling alone should not be treated as confirmation that every stored setting or trigger has been deleted. Contact support for assistance with workflow or license-record removal; transaction records may need to be retained for payment and accounting requirements.</p>
 
         <h2>6. Security</h2>
         <p>FormGuard relies on Google's infrastructure for authentication, storage, and execution. The add-on does not ask you to move form data into a separate non-Google storage system.</p>
