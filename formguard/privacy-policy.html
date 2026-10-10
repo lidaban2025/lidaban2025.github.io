@@ -66,6 +66,7 @@
         </ul>
 
         <h2>3. Data storage</h2>
+        <p>The updated paid build uses an HTTPS license-status check (<code>script.external_request</code>). It sends only the signed license key, active account email and FG product prefix to the FormSuite license service, not form IDs, questions, responses or spreadsheet contents. Confirmed status may be cached for 15 minutes; previously confirmed access has at most 24 hours of outage grace. Initial activation and already-revoked licenses have no outage grace. Updated permissions remain subject to Google review.</p>
         <p>Configuration is stored in Google Apps Script™ document, user and script properties. Scheduled jobs store the configured form ID, timing and notification settings in script properties. Form response content is not sent to our licensing service. Purchase and license records are processed separately by Creem and the FormSuite licensing service.</p>
 
         <h2>4. Data sharing</h2>

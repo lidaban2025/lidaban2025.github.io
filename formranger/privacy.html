@@ -61,7 +61,7 @@
 
   <div class="container">
     <a href="index.html" class="back">&larr; Back to FormSuite Choice Sync</a>
-    <p><strong>Last updated:</strong> July 13, 2026</p>
+    <p><strong>Last updated:</strong> October 10, 2026</p>
     <div class="actions">
       <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=privacy">Install from Marketplace</a>
       <a href="permissions.html">Permissions explained</a>
@@ -79,6 +79,7 @@
       <li><strong>User email and profile</strong> (<code>userinfo.email</code>, <code>userinfo.profile</code>) - We use account identity only for basic add-on operation, licensing, and support context.</li>
       <li><strong>Container UI</strong> (<code>script.container.ui</code>) - Used to display the add-on sidebar and picker dialogs within Google Forms.</li>
       <li><strong>Apps Script triggers</strong> (<code>script.scriptapp</code>) - Used to manage refresh/update automation for configured mappings.</li>
+      <li><strong>License status connection</strong> (<code>script.external_request</code>, updated paid build) - Sends only your signed license key, current Google account email and CS product prefix over HTTPS to the FormSuite license service. It confirms paid access, renewal, expiry, refunds and disputes. This request does not include form IDs, questions, responses, spreadsheet IDs or cell contents.</li>
     </ul>
 
     <h2>Data We Store</h2>
@@ -103,6 +104,7 @@
 
     <h2>Data Sharing</h2>
     <p>We do <strong>not</strong> share, sell, rent, or disclose user data to third parties for advertising or marketing. Your form and spreadsheet data remains within the Google ecosystem while the add-on runs.</p>
+    <p>Paid checkout is processed by Creem. The FormSuite licensing service keeps purchase and license-status records and sends a license email through our email provider. The updated paid build checks an account-bound license online; it may cache a confirmed status for 15 minutes and use a bounded 24-hour grace period during service outages. Initial activation and already-revoked licenses do not receive outage grace. These commercial records are separate from form and spreadsheet content. Rollout of updated plugin permissions remains subject to Google review.</p>
 
     <h2>Data Retention</h2>
     <p>Settings are retained in Google Properties Service for as long as the add-on is installed or the configuration remains in the form. You can remove mappings in the add-on and uninstall the add-on from Google Workspace Marketplace.</p>
