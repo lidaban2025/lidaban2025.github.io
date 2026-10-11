@@ -61,7 +61,7 @@
 
   <div class="container">
     <a href="index.html" class="back">&larr; Back to FormSuite Choice Sync</a>
-    <p><strong>Last updated:</strong> October 10, 2026</p>
+    <p><strong>Last updated:</strong> October 11, 2026</p>
     <div class="actions">
       <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=privacy">Install from Marketplace</a>
       <a href="permissions.html">Permissions explained</a>
@@ -74,7 +74,7 @@
     <h2>Data We Access</h2>
     <p>FormSuite Choice Sync requests the following permissions to function:</p>
     <ul>
-      <li><strong>Form structure</strong> (<code>forms.currentonly</code>) - We read and update supported question choices in the current form. We do not access other forms or form responses.</li>
+      <li><strong>Form structure and configured automation</strong> - Earlier releases use <code>forms.currentonly</code> for the open form. The updated scheduled-sync build requests <code>forms</code>, which Google describes as permission to view and manage your Google Forms. A background task needs this broader permission to reopen a form by its saved ID without an active editor. The add-on uses it for forms you configure; it does not scan your other forms or read respondent answers for choice syncing. The permission itself is broader than this application-level boundary.</li>
       <li><strong>Selected spreadsheet file access</strong> (<code>drive.file</code>) - We access spreadsheet files that you explicitly select through the add-on flow. This is used to read source tabs, headers, and values needed for choice mappings.</li>
       <li><strong>User email and profile</strong> (<code>userinfo.email</code>, <code>userinfo.profile</code>) - We use account identity only for basic add-on operation, licensing, and support context.</li>
       <li><strong>Container UI</strong> (<code>script.container.ui</code>) - Used to display the add-on sidebar and picker dialogs within Google Forms.</li>
@@ -83,18 +83,18 @@
     </ul>
 
     <h2>Data We Store</h2>
-    <p>FormSuite Choice Sync stores only the minimum configuration required to run the add-on inside your Google account. This can include the selected spreadsheet ID, sheet name, column name, question ID, and mapping preferences such as sorting or duplicate removal. We do not copy entire spreadsheet datasets into external storage.</p>
+    <p>FormSuite Choice Sync stores configuration in Google Apps Script properties associated with the add-on and your account or configured form. This includes configured form and spreadsheet IDs, sheet and column names, question IDs, mapping preferences, and trigger state. It also keeps up to five bounded recovery snapshots with previous choice labels and relevant question settings so you can restore a safe earlier version. We do not copy entire spreadsheet datasets into external storage.</p>
 
     <h2>Data Storage</h2>
     <p>All user settings, such as question-to-column mappings and update preferences, are stored in Google Apps Script's Properties Service. This data remains within Google's infrastructure and is associated with your Google account and the add-on project.</p>
-    <p><strong>We do not operate an external database for form or spreadsheet content.</strong> Spreadsheet values are read at runtime and used only to build the updated choice list inside the current form.</p>
+    <p><strong>We do not operate an external database for form or spreadsheet content.</strong> Selected spreadsheet values are read to build choices in the configured form. Previous choice labels can be retained in the bounded recovery snapshots within Google's infrastructure.</p>
 
     <h2>Data Protection</h2>
     <p>FormSuite Choice Sync relies on Google's security controls for data in transit and at rest within Google Workspace and Apps Script. We do not independently export spreadsheet contents, store Google credentials, or maintain separate copies of linked spreadsheet data on our own servers.</p>
     <ul>
       <li>Access is limited to spreadsheet files the user explicitly selects for a mapping.</li>
       <li>Spreadsheet data is processed only for the choice-sync function requested by the user.</li>
-      <li>Only lightweight mapping configuration is persisted; raw spreadsheet rows are not retained outside Google services.</li>
+      <li>Persisted Google-side data includes mappings, automation state and bounded recovery snapshots; raw spreadsheet rows are not retained outside Google services.</li>
       <li>Support requests are handled through email; users should avoid sending unnecessary sensitive sheet data in support messages.</li>
     </ul>
 

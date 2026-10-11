@@ -48,7 +48,7 @@
     <section class="hero">
       <div class="eyebrow">Permissions</div>
       <h1>Why FormSuite Choice Sync asks for Google permissions</h1>
-      <p class="lead">FormSuite Choice Sync runs inside the Google Form you open. It needs permission to update supported form-choice questions and to read the spreadsheet file you explicitly select as the source for those choices.</p>
+      <p class="lead">FormSuite Choice Sync updates supported choice questions from spreadsheet files you explicitly select. The sidebar runs in the form you open; configured background updates must also be able to reopen that form when no editor is active.</p>
       <div class="actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=permissions">Install FormSuite Choice Sync</a>
         <a class="btn btn-secondary" href="support.html">Open setup guide</a>
@@ -59,11 +59,13 @@
       <table>
         <thead><tr><th>Scope</th><th>Plain-English use</th></tr></thead>
         <tbody>
-          <tr><td>forms.currentonly</td><td>Lets FormSuite Choice Sync read and update supported choice questions in the current Google Form.</td></tr>
+          <tr><td>forms.currentonly — earlier releases</td><td>Allows choice updates in the open form. This scope alone cannot reopen a saved form from an unattended clock task.</td></tr>
+          <tr><td>forms — updated scheduled-sync build</td><td>Google grants permission to view and manage your Google Forms. Background tasks use a saved form ID to reopen a form you configured. The add-on does not scan other forms or read respondent answers for choice syncing; this is an application boundary, not a restriction built into the broader scope.</td></tr>
           <tr><td>drive.file</td><td>Lets FormSuite Choice Sync access the spreadsheet file you explicitly select through the add-on flow.</td></tr>
           <tr><td>script.scriptapp</td><td>Lets it manage update triggers for configured mappings.</td></tr>
           <tr><td>script.container.ui</td><td>Lets it display the sidebar and picker dialogs inside Google Forms.</td></tr>
           <tr><td>userinfo.email and userinfo.profile</td><td>Lets it identify the signed-in user for add-on operation, licensing, and support context.</td></tr>
+          <tr><td>script.external_request — updated paid build</td><td>Sends the signed license key, purchase-matching Google account email and product prefix over HTTPS to FormSuite's license service. These license requests do not include form or spreadsheet IDs, questions, responses or cell contents.</td></tr>
         </tbody>
       </table>
     </section>
@@ -75,6 +77,11 @@
         <li>It does not change form choices until you configure and run the mapping workflow.</li>
         <li>It does not copy entire spreadsheet datasets into an external customer database.</li>
       </ul>
+    </section>
+    <section class="section">
+      <h2>Release and storage boundaries</h2>
+      <p>Updated permissions remain subject to Google's review and the version available to your account. A working test build is not proof that the public listing has been updated. Review the actual Google consent screen before granting access.</p>
+      <p>Mappings, trigger state and up to five bounded recovery snapshots are stored in Google Apps Script properties. Snapshots can contain previous choice labels and question settings; they are not included in external license checks. See the <a href="privacy.html">privacy policy</a> for the full data flow.</p>
     </section>
     <section class="section">
       <h2>Uninstall and support</h2>
