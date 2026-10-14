@@ -130,6 +130,7 @@
     if (path.indexOf("/resources/google-workspace-add-ons-first-run-checklist") !== -1) return "first_run_checklist";
     if (path.indexOf("/test-google-forms-") !== -1 && path.indexOf("-before-launch") !== -1) return "first_run_checklist";
     if (path.indexOf("/formmerge/test-mail-merge-on-a-copied-sheet-before-sending") !== -1) return "first_run_checklist";
+    if (path.indexOf("/formmerge/send-test-email-from-google-sheets-before-mail-merge") !== -1) return "first_run_checklist";
     if (path.indexOf("/docforge/generate-one-pdf-from-google-sheets-before-batch") !== -1) return "first_run_checklist";
     if (path.indexOf("/review-after-first-success") !== -1) return "review_after_success";
     if (path.indexOf("/setup-help") !== -1) return "setup_help";

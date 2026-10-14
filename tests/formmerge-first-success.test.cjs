@@ -7,6 +7,8 @@ const root = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "formmerge", "test-mail-merge-on-a-copied-sheet-before-sending.html"), "utf8");
 const migrationHtml = fs.readFileSync(path.join(root, "formmerge", "form-mule-alternative-google-sheets.html"), "utf8");
 const duplicateHtml = fs.readFileSync(path.join(root, "formmerge", "prevent-duplicate-mail-merge-emails-google-sheets.html"), "utf8");
+const productHtml = fs.readFileSync(path.join(root, "formmerge", "index.html"), "utf8");
+const trackingJs = fs.readFileSync(path.join(root, "formsuite-tracking.js"), "utf8");
 
 test("FormMerge keeps review and feedback actions inside the completed-test outcome", () => {
   const outcome = html.match(/<div class="success" id="success-message"[\s\S]*?<\/div>\s*<\/div>/);
@@ -36,4 +38,11 @@ test("FormMerge migration and duplicate-fault pages route directly to the copied
   assert.match(migrationHtml, route);
   assert.match(migrationHtml, /Run the copied-sheet test/);
   assert.match(duplicateHtml, route);
+});
+
+test("FormMerge product page routes the secondary CTA to the one-row test and tracks it", () => {
+  assert.match(productHtml, /Send yourself one test email first/);
+  assert.match(productHtml, /send-test-email-from-google-sheets-before-mail-merge\.html\?utm_source=formsuite&amp;utm_medium=product_page&amp;utm_campaign=formmerge_20261014&amp;utm_content=hero_test_email/);
+  assert.match(trackingJs, /\/formmerge\/send-test-email-from-google-sheets-before-mail-merge/);
+  assert.match(trackingJs, /return "first_run_checklist"/);
 });
