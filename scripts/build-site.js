@@ -23,6 +23,7 @@ const includeFiles = [
   'favicon.ico',
   'favicon.svg',
   'formsuite-tracking.js',
+  'first-result-confirmation.js',
   'homepage-top3.css',
   'index.html',
   'install.html',
