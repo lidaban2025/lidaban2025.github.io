@@ -132,6 +132,7 @@
   </style>
   <link rel="stylesheet" href="product-inner.css">
 
+  <style>#small-pilot,#request{scroll-margin-top:130px}</style>
 </head>
 <body>
   <div class="shell">
@@ -171,6 +172,7 @@
         </article>
       </section>
 
+      <section class="section" id="small-pilot"><div class="eyebrow">Small workflow pilot</div><h2>One operator. One copied form. One result.</h2><p class="lead">Choose one test below before using real respondents. No purchase is needed for these first checks. Start with the public Marketplace build; if a control is missing or authorization is blocked, stop and send the failing step. Paid or staged features are not required for this pilot.</p><div class="fit-grid"><article class="fit-card"><h3>FormGuard</h3><p>Alpha fills its quota; Beta remains available.</p><div class="hero-actions"><a class="btn btn-primary" href="formguard/test-google-forms-response-limit-before-launch.html#choice-quota">Run this small test</a><a class="btn" href="?product=FormGuard&amp;source=small-pilot&amp;scenario=choice-quota#request">Ask for setup help</a></div></article><article class="fit-card"><h3>Choice Sync</h3><p>Your own respondent page shows Alpha and Beta from the selected Sheet.</p><div class="hero-actions"><a class="btn btn-primary" href="formranger/test-google-forms-dynamic-choices-before-launch.html">Run this small test</a><a class="btn" href="?product=FormRanger&amp;source=small-pilot&amp;scenario=choice-source#request">Ask for setup help</a></div></article><article class="fit-card"><h3>FormFlow</h3><p>One test response reaches Approved in the linked Sheet.</p><div class="hero-actions"><a class="btn btn-primary" href="formflow/test-google-forms-approval-workflow-before-launch.html">Run this small test</a><a class="btn" href="?product=FormFlow&amp;source=small-pilot&amp;scenario=one-approval#request">Ask for setup help</a></div></article></div><p class="lead">After your own test, tell us which step passed or failed. Sharing a screenshot or leaving a review is optional. Pilot participation does not grant permission to publish your name or data.</p></section>
       <section class="section" aria-labelledby="good-fit-title">
         <div class="eyebrow">Good first tests</div>
         <h2 id="good-fit-title">Send a setup note for one small workflow</h2>
@@ -178,7 +180,7 @@
         <div class="fit-grid">
           <article class="fit-card">
             <strong>FormGuard</strong>
-            <p>Close a Google Form after a response cap or deadline, show a clear full-registration message, or notify the form owner when the form closes.</p>
+            <p>Test one per-choice quota using Alpha and Beta, inspect the respondent page, and keep native Forms controls in mind for simple total caps.</p>
           </article>
           <article class="fit-card">
             <strong>FormCopy Pro</strong>
@@ -193,7 +195,7 @@
             <p>Generate one test document from a sheet row, or send one test personalized email before moving a live workflow through the add-on.</p>
           </article>
           <article class="fit-card">
-            <strong>FormRanger</strong>
+            <strong>Choice Sync (formerly FormRanger)</strong>
             <p>Sync one copied Google Form choice question from one Google Sheets column, then compare Preflight, Update now, and the public preview.</p>
           </article>
           <article class="fit-card">
@@ -217,7 +219,7 @@
               <option>FormCopy Pro</option>
               <option>FormMerge Pro</option>
               <option>DocForge</option>
-              <option>FormRanger</option>
+              <option value="FormRanger">Choice Sync</option>
               <option>FormFlow</option>
             </select>
           </div>
@@ -244,7 +246,7 @@
           </label>
 
           <button class="btn btn-primary" type="submit">Send setup note</button>
-          <p class="status" id="setup-help-status" role="status"></p>
+          <p class="status" id="setup-help-status" role="status"></p><p class="hint">Prefer email? <a href="mailto:lidaban2025@gmail.com?subject=FormSuite%20small%20pilot%20setup%20note">Email a setup note</a>. Include the product and failing step; do not include responses, credentials or private file links.</p>
         </form>
 
         <aside class="checklist">
@@ -294,6 +296,14 @@
         });
       }
 
+      var scenarios = {
+        "choice-quota": "Small pilot: one copied Form, one required Alpha/Beta question, max one per option; verify Alpha is removed while Beta remains.",
+        "choice-source": "Small pilot: one copied Form and one synthetic Sheet; run Preflight and Update now, then verify Alpha/Beta in the respondent page.",
+        "one-approval": "Small pilot: one copied Form, one response Sheet, one internal reviewer; verify the final row shows Approved."
+      };
+      var scenario = params.get("scenario");
+      if (Object.prototype.hasOwnProperty.call(scenarios, scenario)) form.querySelector("[name='workflow']").value = scenarios[scenario];
+
       form.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -331,7 +341,7 @@
         }
 
         status.textContent = sent
-          ? "Setup note sent. Keep your test form or sheet available so the first-run details are easy to check."
+          ? "Your browser submitted the note; delivery is not confirmed here. If needed, use the email option below."
           : "Could not send from this browser. Please try again from the support page link.";
 
         if (sent) form.reset();

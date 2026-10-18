@@ -63,6 +63,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../product-inner.css">
+  <style>#choice-quota,#school-pilot{scroll-margin-top:110px}</style>
 </head>
 <body>
   <div class="shell">
@@ -78,6 +79,28 @@
       <p>Before you share a capped Google Form, prove the limit on a copied form. Set a tiny cap, submit sample responses, reload the public form, and confirm the closed message and owner alert work before real visitors depend on it.</p>
 
     </section>
+    <section class="section" id="choice-quota">
+      <h2>Try one choice quota with Alpha and Beta</h2>
+      <p>For a simple total response cap or closing date, first check the native controls in Google Forms. Use this FormGuard test when each choice needs its own limit. The Free plan supports one quota question per form.</p>
+      <ol class="steps">
+        <li>Create a disposable form with one required multiple-choice question, <strong>Workshop session</strong>, and the options <strong>Alpha</strong> and <strong>Beta</strong>.</li>
+        <li>Install FormGuard, open its settings, enable choice quotas and set <strong>Max per option = 1</strong> for that question. Keep other rules off for this test and save.</li>
+        <li>Publish the test form for your intended test audience and submit one Alpha response through its respondent link.</li>
+        <li>Open a fresh respondent page. Alpha should be removed and Beta should remain. If both remain, stop and request setup help.</li>
+        <li>Optionally submit Beta too. When every choice is full, the current build shows <strong>(All options filled)</strong>; it does not automatically close the whole form.</li>
+        <li>Disable the test rule and unpublish the copied form. Keep the result private unless you choose to share a redacted screenshot with support.</li>
+      </ol>
+      <p class="warn">Choice quotas run after submission. Simultaneous responses can exceed a quota. This is not a strict seat-reservation or payment system.</p>
+      <figure style="margin-top:18px"><img src="../assets/pilot-proofs/formguard-quota-real.png" style="width:100%;height:auto" width="1280" height="800" loading="lazy" alt="Internal synthetic FormGuard test: Alpha and Beta before submission, only Beta after Alpha reaches its quota"><figcaption>Internal synthetic test, October 18, 2026. This illustrates the expected result; it is not an independent customer case.</figcaption></figure>
+      <div class="hero-actions"><a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_response_limits_for_google_for/410120194423?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=small_pilot&amp;utm_content=choice_quota">Install FormGuard</a><a class="btn btn-secondary" href="./support.html#confirm-result">Report your own test result</a><a class="btn btn-secondary" href="../setup-help.html?product=FormGuard&amp;source=formguard-small-pilot&amp;scenario=choice-quota#request">Request help with this test</a></div>
+    </section>
+    <section class="section" id="school-pilot">
+      <h2>One school, one staff member, no student records</h2>
+      <p>Start with the synthetic Alpha/Beta check above, using an account permitted by your school. Do not invite students or import student records for this first check. If administrator approval is required, stop and ask your school administrator.</p>
+      <p>Before any real school rollout or Pro activation, confirm the participating school, named staff accounts, term, support scope and procurement/privacy requirements in writing. An executed agreement alone does not mean a school has accepted or deployed a pilot.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="./security.html">Current security and licensing data flows</a><a class="btn btn-secondary" href="../setup-help.html?product=FormGuard&amp;source=school-one-staff-pilot&amp;scenario=choice-quota#request">Request a school pilot walkthrough</a></div>
+    </section>
+
     <section class="section">
       <h2>Quick answer</h2>
       <p class="lead">Do not test a response cap for the first time on a live registration form. Use a disposable copy, set the cap to 1 or 2, submit enough sample responses to trigger it, then inspect what a late visitor sees.</p>
@@ -113,7 +136,8 @@
     </section>
 
 
-    <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Workspace are trademarks of Google LLC.</div>
+    <section class="section"><h2>Try it with one real operator</h2><p>Run this small test in your own account, then send the result or the step that failed. Use synthetic data first. Setup help, screenshots and reviews are optional; no purchase is needed for this first check.</p><div class="hero-actions"><a class="btn btn-secondary" href="../setup-help.html?product=FormGuard&amp;source=small-pilot-choice-quota&amp;scenario=choice-quota#request">Request help or share your test result</a><a class="btn btn-secondary" href="../setup-help.html#small-pilot">Choose a different small test</a></div></section>
+<div class="footer">&copy; 2026 FormSuite. Google Forms and Google Workspace are trademarks of Google LLC.</div>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
