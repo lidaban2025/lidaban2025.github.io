@@ -155,7 +155,7 @@
           <article class="card"><div class="pill">Connect</div><h3>Select the linked response sheet.</h3><p>Use the Picker flow so FormFlow can write approval status to the right response spreadsheet.</p></article>
           <article class="card"><div class="pill">Configure</div><h3>Add one approver first.</h3><p>Start with one internal reviewer email and a simple approve/reject status before adding more people.</p></article>
           <article class="card"><div class="pill">Prove</div><h3>Run Preflight and submit one test response.</h3><p>Confirm the reviewer email arrives, the decision link works, and the linked Sheet status updates.</p></article>
-          <article class="card"><div class="pill">Verified</div><h3>Final approval loop checked on v51.</h3><p>Production smoke covered Preflight, reviewer email, approve and reject decisions, final status pages, and review/support prompts after the linked Sheet status path works.</p></article>
+          <article class="card"><div class="pill">Verified</div><h3>Confirm the final Sheet status.</h3><p>A decision-received page can mean the decision is queued. The owner-authorized sync runs about hourly or after the next submission; the owner can also use Sync now. Confirm Approved or Rejected in the response row before treating the test as complete.</p></article>
         </div>
       </section>
 
@@ -187,7 +187,7 @@
           <article class="card"><div class="pill">Sheet</div><h3>Wrong response spreadsheet selected</h3><p>Duplicated forms often create duplicated response Sheets. Select the Sheet linked to the exact form being tested.</p></article>
           <article class="card"><div class="pill">Email</div><h3>Reviewer email not delivered</h3><p>Check Preflight, approver address, spam folder, and Workspace mail restrictions before adding more reviewers.</p></article>
           <article class="card"><div class="pill">Account</div><h3>Reviewer account mismatch</h3><p>The person clicking approve or reject should use the intended reviewer Google account, especially in multi-account browsers.</p></article>
-          <article class="card"><div class="pill">Status</div><h3>Decision did not write back</h3><p>Re-check the linked Sheet selection and send the decision page plus Sheet status screenshot to support.</p></article>
+          <article class="card"><div class="pill">Status</div><h3>Decision received, Sheet still pending</h3><p>Check whether the decision is queued. Use owner-side Sync now, or wait for the scheduled sync or next submission. If it remains pending, contact support with the failing step; redact respondent details.</p></article>
         </div>
       </section>
 

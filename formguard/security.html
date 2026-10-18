@@ -36,14 +36,14 @@ footer{margin-top:22px;padding-top:12px;border-top:1px solid #e8eaed;color:var(-
 
 <div class="grid">
 <div class="card"><h3>Product</h3><p>Google Forms™ add-on (Google Workspace Marketplace): response caps, per-option quotas, scheduled close/reopen, owner alerts.</p></div>
-<div class="card"><h3>Data collected</h3><p><strong>None.</strong> No student or respondent data is read, transmitted, stored, or logged by the vendor.</p></div>
+<div class="card"><h3>Data collected</h3><p>Quota calculations read responses through Google services. Optional paid-license checks send account email, signed license key, and product identifier to our license service, excluding form questions and responses.</p></div>
 </div>
 
-<h2>Architecture: zero data collection</h2>
+<h2>Architecture and data boundaries</h2>
 <table>
-<tr><th>Configuration storage</th><td>All FormGuard settings are stored as properties <em>inside the customer's own Google Form</em> — within the district's Google Workspace tenant, under district control.</td></tr>
-<tr><th>External calls</th><td>The add-on runtime performs no external network requests. There is no vendor server in the data path.</td></tr>
-<tr><th>Response data</th><td>Form responses are never read. The add-on toggles form acceptance and option visibility only.</td></tr>
+<tr><th>Configuration storage</th><td>Form-bound configuration uses Google Apps Script properties. Scheduled jobs also use Google-hosted script properties for form identifiers, times, and alert settings; license state uses user/script properties and the FormSuite license service.</td></tr>
+<tr><th>External calls</th><td>The updated paid build calls the FormSuite license service for entitlement validation. These calls include account email, signed license key, and product identifier, but not form questions or responses.</td></tr>
+<tr><th>Response data</th><td>Choice quotas read submitted responses to count selections and update available options. These responses are not included in external license requests.</td></tr>
 <tr><th>Notifications</th><td>Optional alerts are sent by the form owner's own Google account to recipients the owner chooses.</td></tr>
 </table>
 
@@ -51,10 +51,10 @@ footer{margin-top:22px;padding-top:12px;border-top:1px solid #e8eaed;color:var(-
 <table>
 <tr><th>CA-NDPA</th><td>California Student Data Privacy Agreement v1.5 <strong>fully executed</strong> with San Bernardino City USD via CITE Privacy Services — Document Ref <strong>GMWHH-DGNBA-TUZMK-XBM4S</strong>, term through September 26, 2029. Exhibit E piggyback available to California districts.</td></tr>
 <tr><th>Marketplace</th><td>Published on Google Workspace Marketplace (Google-run security review of OAuth scopes; single sign-on via district Google accounts; no separate student login).</td></tr>
-<tr><th>FERPA/COPPA posture</th><td>No education records or personal information are collected, so no data-processing beyond the executed DPA scope occurs.</td></tr>
+<tr><th>FERPA/COPPA posture</th><td>The executed agreement governs the agreed scope. Districts should review the current permissions, data flows, and intended deployment with their privacy contact before enabling real student workflows.</td></tr>
 </table>
 
-<h2>Permission scopes (all Google-verified at install)</h2>
+<h2>Permission purposes (updated scope verification is under review)</h2>
 <ul>
 <li>Forms container UI — display the settings sidebar inside a form</li>
 <li>Form service — read/update the form's acceptance setting, options, and FormGuard's own configuration properties</li>
@@ -66,8 +66,8 @@ footer{margin-top:22px;padding-top:12px;border-top:1px solid #e8eaed;color:var(-
 <h2>Operations</h2>
 <table>
 <tr><th>Support &amp; incidents</th><td>lidaban2025@gmail.com — acknowledged within one business day; security incidents reported to affected LEA contacts within 72 hours of confirmation.</td></tr>
-<tr><th>Change practice</th><td>Versioned releases; behavior changes documented on the public changelog; no data model changes possible by design (no vendor-side data store).</td></tr>
-<tr><th>Subprocessors</th><td>None for the add-on's core function. Payment/licensing (optional Pro tier) is handled by Creem (Merchant of Record) and involves license keys only — never student data.</td></tr>
+<tr><th>Change practice</th><td>Versioned releases; behavior changes documented on the public changelog; data-flow and entitlement changes require review of the published privacy and permission documentation.</td></tr>
+<tr><th>Subprocessors</th><td>Google hosts form processing and configuration. Creem processes optional Pro payments; FormSuite operates the license service. License checks include account email, signed key, and product identifier, excluding form questions and responses.</td></tr>
 </table>
 
 <footer>Google Forms™ and Google Workspace Marketplace are trademarks of Google LLC. FormGuard is not affiliated with or endorsed by Google. This overview is a summary; the executed CA-NDPA governs. <span class="no-print">Printable as-is (1 page) · https://formsuite.dev/formguard/security.html</span></footer>
