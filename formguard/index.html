@@ -38,44 +38,47 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <div class="eyebrow">Google Forms add-on</div>
-          <h1 id="hero-title">FormGuard: capacity controls for Google Forms signups.</h1>
-          <p>Use FormGuard when each session, role, appointment slot, or signup option needs its own quota, close message, owner alert, and safe test path.</p>
+          <h1 id="hero-title">Remove full choices from your Google Form.</h1>
+          <p>Set a maximum per option for one signup question. After a response reaches that option's quota, FormGuard removes it from fresh respondent pages while the other options stay available.</p>
+          <p>Only need a total response cap or closing date? Start with <a href="google-forms-response-limit.html#native-limit">Google Forms' native controls</a>. For option quotas, try Alpha and Beta on a disposable form first.</p>
           <div class="hero-proof" aria-label="Key capabilities">
             <span>Choice quotas</span>
             <span>Time-slot limits</span>
             <span>Close messages</span>
             <span>Owner alerts</span>
           </div>
-          <div class="hero-actions"><a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423?utm_source=formsuite_site&utm_medium=cta&utm_campaign=formguard_low_install&utm_content=existing_page">Install from Marketplace</a></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="test-google-forms-response-limit-before-launch.html?utm_source=formsuite&amp;utm_medium=product_page&amp;utm_campaign=top3_first_result_20261020&amp;utm_content=guard_quota#choice-quota">Try the Alpha/Beta quota test</a><a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formguard_google_forms_allinone/410120194423?utm_source=formsuite_site&utm_medium=cta&utm_campaign=formguard_low_install&utm_content=existing_page">Install from Marketplace</a></div>
+          <p>Quotas run after submission; simultaneous responses can exceed a limit. The same maximum applies to each option in the selected question. This is not a seat-reservation system.</p>
         </div>
         <article class="product-visual workflow-preview" aria-label="Product workflow preview">
-          <div class="preview-topline"><strong>Launch control preview</strong><span>Test before launch</span></div>
+          <div class="preview-topline"><strong>Choice quota example</strong><span>Illustration — test your own form</span></div>
           <div class="preview-canvas"><div class="mock-stack">
               <div class="mock-panel">
-                <div class="mock-title"><strong>Google Form</strong><span>session signup</span></div>
+                <div class="mock-title"><strong>Before submission</strong><span>Max per option: 1</span></div>
                 <div class="mock-line wide"></div>
-                <div class="rule-row"><span>Workshop A</span><span>12 seats</span></div>
-                <div class="sync-source">This session is full. Choose another slot.</div>
+                <div class="rule-row"><span>Alpha</span><span>Beta</span></div>
+                <div class="sync-source">Submit one Alpha response.</div>
               </div>
               <div class="mock-panel">
-                <div class="mock-title"><strong>Closed message</strong><span>visitor sees</span></div>
+                <div class="mock-title"><strong>Fresh respondent page</strong><span>after the trigger runs</span></div>
                 <div class="mock-line wide"></div>
-                <div class="rule-row"><span>Next step</span><span>Alternate slot link</span></div>
-                <div class="sync-source">Thanks — Workshop A is full.</div>
+                <div class="rule-row"><span>Available option</span><span>Beta</span></div>
+                <div class="sync-source">Alpha is removed. The form stays open.</div>
               </div>
-            </div><div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formguard.png" alt=""><div><strong>FormGuard</strong><span>Workspace add-on</span></div></div><p>Set quotas for each option, write the full-message, submit samples, then open the real form.</p><span class="status-pill">Rule active</span></div></div>
+            </div><div class="mock-sidebar"><div class="sidebar-product"><img src="../assets/product-icons/formguard.png" alt=""><div><strong>FormGuard</strong><span>Workspace add-on</span></div></div><p>Set Max per option, save, submit one sample and check a fresh respondent page.</p><span class="status-pill">Test before launch</span></div></div>
           <div class="preview-steps"><span>1. Configure</span><span>2. Preview</span><span>3. Launch</span></div>
         </article>
       </section>
       <section class="section" aria-labelledby="flow-title"><div class="section-head"><div><h2 id="flow-title">A focused workflow, not another bulky form builder.</h2><p>Each FormSuite add-on does one operational job around Google Forms, Sheets, Docs, or Gmail — then gets out of the way.</p></div></div><div class="step-grid">
           <article class="step-card"><div class="step-num">1</div><h3>Pick the capacity field</h3><p>Choose the dropdown, multiple-choice, or checkbox item that represents sessions, roles, or appointment slots.</p></article>
-          <article class="step-card"><div class="step-num">2</div><h3>Set each quota</h3><p>Give every option its own limit and write the message visitors see when it fills.</p></article>
+          <article class="step-card"><div class="step-num">2</div><h3>Set the maximum per option</h3><p>Apply one maximum to each option in that question. Filled options are removed after submission; separate whole-form rules control closing.</p></article>
           <article class="step-card"><div class="step-num">3</div><h3>Test a copy</h3><p>Submit samples first so the live form behaves predictably.</p></article>
         </div></section>
       <section class="section" aria-labelledby="demo-title"><div class="section-head"><div><h2 id="demo-title">Watch the demo.</h2><p>Watch the workflow once, then run a small test in your own Google file.</p></div></div><div class="video-panel"><iframe src="https://www.youtube.com/embed/xtBBgPU2q9Q" title="formguard demo video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></section>
+      <section class="section" aria-labelledby="quota-proof-title"><div class="section-head"><div><h2 id="quota-proof-title">One Alpha response. Only Beta remains.</h2><p>Internal synthetic test, October 18, 2026. This is the result to check in your own respondent page, not an independent customer case.</p></div></div><figure><img src="../assets/pilot-proofs/formguard-quota-real.png" width="1280" height="800" loading="lazy" alt="Actual synthetic quota test: Alpha and Beta before submission, only Beta after Alpha fills"><figcaption>When every option fills, the current build shows “(All options filled)”; choice quotas alone do not close the whole form.</figcaption></figure><div class="hero-actions"><a class="btn btn-primary" href="test-google-forms-response-limit-before-launch.html#choice-quota">Run this test in your own form</a><a class="btn btn-secondary" href="test-google-forms-response-limit-before-launch.html#school-pilot">School: start with one staff member</a></div></section>
       <section class="section" aria-labelledby="faq-title"><h2 id="faq-title">Frequently asked questions</h2><div class="faq-panel">
           <details><summary><strong>Does Google Forms already have response limits?</strong></summary><p>Yes. Google Forms supports native closing by total response count or date and time. Use those controls for a simple cap or deadline. FormGuard adds per-choice quotas, scheduled opening, close messages, and owner alerts. <a href="https://workspaceupdates.googleblog.com/2026/01/forms-stop-collecting-responses.html">Read the Google announcement</a>.</p></details>
-          <details><summary><strong>Can it limit each time slot separately?</strong></summary><p>Yes. Assign a separate quota to each choice. Already-open forms and simultaneous submissions can exceed a quota; use a safety buffer and verify a fresh respondent preview. <a href="google-forms-choice-limit.html">Run a two-choice quota test</a> before launch.</p></details>
+          <details><summary><strong>Can it limit the choices in one question?</strong></summary><p>Yes. Set Max per option for that question; the same maximum applies to all its options. The current setting does not assign different numbers to individual choices. Already-open forms and simultaneous submissions can exceed a quota. <a href="test-google-forms-response-limit-before-launch.html#choice-quota">Run a two-choice quota test</a> before launch.</p></details>
           <details><summary><strong>Should I test on a live form first?</strong></summary><p>No. Use a copied form with tiny quotas, then apply the same setup to the real form after it passes.</p></details>
         </div></section>
       <section class="section" aria-labelledby="edu-title"><div class="section-head"><div><h2 id="edu-title">Built for schools. Signed for student data privacy.</h2><p>FormGuard is requested by California school districts through the CITE Privacy Services program.</p></div></div><div class="faq-panel">
