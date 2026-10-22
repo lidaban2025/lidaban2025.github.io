@@ -39,6 +39,24 @@
         <p class="answer">The test passes when Preflight succeeds, the reviewer email arrives, the approver can approve or reject, and the linked Google Sheet shows the expected approval status. Use Sync pending decisions as the form owner, or wait for the hourly sync or next submission, then refresh the Sheet. A decision-received page alone does not pass the test.</p>
       </section>
 
+      <section class="section" id="team-rollout" aria-labelledby="team-rollout-title">
+        <h2 id="team-rollout-title">Installed for your team? Start with one owner and one reviewer.</h2>
+        <p>An administrator making FormFlow available does not configure each form's response Sheet or reviewer. Before inviting a whole team, have one form owner and one internal reviewer complete a copied-form test together.</p>
+        <div class="compact-table">
+          <table>
+            <thead><tr><th>Who</th><th>First action</th><th>Result to check</th></tr></thead>
+            <tbody>
+              <tr><td>Workspace administrator</td><td>Confirm that the intended form owner can open FormFlow under your organization's app policy.</td><td>The owner can open the sidebar in their own Google Forms editor.</td></tr>
+              <tr><td>Form owner</td><td>Use a copied form, select its linked response Sheet, add one internal reviewer, save, and run Preflight.</td><td>Preflight passes for that form and response Sheet.</td></tr>
+              <tr><td>Reviewer</td><td>Receive one synthetic request and open its Approve link using the intended Google account.</td><td>The decision page receives the approval.</td></tr>
+              <tr><td>Form owner</td><td>Use Sync pending decisions if needed, refresh the linked Sheet, and inspect the matching test row.</td><td>The row actually says Approved. A queued decision alone does not pass.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Keep deployment and successful setup separate in your own rollout notes: add-on available, setup checked, reviewer email received, and final Sheet status verified. Repeat this check for each form owner before expanding the rollout. Use synthetic values and keep staff details and response contents out of shared screenshots.</p>
+        <p><a class="btn btn-secondary" href="../setup-help.html?product=FormFlow&amp;source=formflow-team-rollout&amp;scenario=one-approval#request">Get help with the step that stopped</a></p>
+      </section>
+
       <section class="section">
         <h2>Why this test is the product</h2>
         <p>For a lightweight Google Forms approval add-on, the first real success is not a complex workflow. It is one internal request proving the full chain: linked response Sheet selected, reviewer email delivered, decision link works, and status writes back. This is the check that turns a silent failed install into a diagnosable setup issue.</p>
