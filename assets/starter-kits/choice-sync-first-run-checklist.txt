@@ -1,0 +1,59 @@
+FORMSUITE CHOICE SYNC: FIRST-RUN CHECKLIST
+Updated: 23 October 2026
+
+Goal: a fresh respondent page shows Alpha and Beta from your selected Sheet.
+Use a blank or copied Google Form and synthetic values only.
+
+1. INSTALL, THEN RETURN TO YOUR FORM
+Install FormSuite Choice Sync from its official Marketplace listing:
+https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524
+Open a blank or copied Form that you own. Add one dropdown or multiple-choice
+question. Open Choice Sync from the Form's Add-ons menu.
+
+2. PREPARE TWO OBVIOUS VALUES
+If your sidebar offers Create Alpha/Beta Sheet, use it. Otherwise create a test
+Google Sheet and paste these three lines into cell A1:
+
+Test choice
+Alpha
+Beta
+
+Select that spreadsheet through the add-on. Select its sheet tab and the column
+whose header is Test choice (or Choice in the generated sample).
+
+3. LINK ONE QUESTION AND CHECK THE PROPOSED CHANGE
+Link the column to your copied Form's choice question. Enable updates if the
+setting is shown, then save. Run Preflight and resolve its warnings.
+Review the exact before/after choices and approve the preview when requested.
+Saving a mapping alone does not update the respondent-facing form.
+
+4. UPDATE AND INSPECT THE ACTUAL RESPONDENT PAGE
+Choose Update now. Confirm that the report says at least one question updated.
+Open a fresh respondent preview of YOUR copied Form, not our public example.
+If Google says your copy is not published, publish it for the intended test
+audience, reopen Choice Sync, and open the preview again. Check for both Alpha
+and Beta. You do not need to submit a response for this choice-sync check.
+
+5. RECORD THE RESULT, THEN CLOSE THE TEST
+[ ] Preflight passed.
+[ ] Update now reported an updated question.
+[ ] The fresh respondent page actually showed Alpha and Beta.
+Only mark these after observing the result. Unpublish the copied test Form
+when finished. Do not leave a live test open by accident.
+
+IF A STEP FAILS
+Stop at that step. Note only the stage (install, source selection, mapping,
+Preflight, update, or respondent preview) and the non-sensitive error text.
+Do not send private Form/Sheet URLs, IDs, license keys, or respondent contents.
+Help: https://formsuite.dev/formranger/support.html
+Full guide:
+https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html
+
+BOUNDARIES
+This is an owner-controlled choice update, not live dependent dropdowns,
+inventory locking, booking, payment, or a paid-plan test. No purchase is needed
+for this small first check. Ask for support before buying for another use case.
+
+FormSuite Choice Sync is an independent FormSuite add-on, previously listed as
+FormRanger Pro. It is not affiliated with New Visions Cloudlab's Form Ranger.
+Google Forms and Google Sheets are trademarks of Google LLC.
