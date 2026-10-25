@@ -110,7 +110,7 @@
         <ol>
           <li>Open a copied Google Form and launch FormSuite Choice Sync.</li>
           <li>Select the spreadsheet, sheet tab, and column to use as choices.</li>
-          <li>Run Preflight, click Update now, then preview the public form before sending it.</li>
+          <li>Run Preflight, review and approve the current exact update preview, click Update now, then check the same copied form in the public respondent preview before sending it.</li>
         </ol>
         <h3>Useful guides</h3>
         <div class="path-links">
@@ -125,13 +125,14 @@
       <aside class="card">
         <div class="pill">Need help?</div>
         <h2>Send this info</h2>
-        <p>Contact support with the smallest reproducible setup so the issue can be checked quickly.</p>
+        <p>Use a copied form and synthetic Alpha/Beta choices. Contact support with stage results only so the issue can be checked without private content.</p>
         <ul class="meta-list">
           <li><strong>Product</strong><br>FormSuite Choice Sync</li>
           <li><strong>What failed</strong><br>Install, source selection, mapping, Preflight, Update now, or public preview.</li>
-          <li><strong>Screenshot</strong><br>Include the Preflight text, last update report, and the public preview if choices look wrong.</li>
+          <li><strong>Stage results</strong><br>Send Preflight pass/blocked, current-preview approved/not-approved, updated-question count, and whether the public respondent preview of the same copied form matches the synthetic Alpha/Beta choices. A disabled button is not an update attempt; report not-run if no update ran.</li>
           <li><strong>Contact</strong><br><a href="../setup-help.html?product=FormRanger&source=formranger-support">Send a FormSuite Choice Sync setup note</a> or use <a href="../support.html">FormSuite support</a>.</li>
         </ul>
+        <p>Do not send screenshots, form or spreadsheet IDs, tab names, column headers, question text, source values, credentials, or respondent data. Share only the failing stage and redacted, non-sensitive error text.</p>
       </aside>
     </section>
 
@@ -153,6 +154,7 @@
       <h2>Do not launch until these pass</h2>
       <ul class="meta-list">
         <li><strong>Preflight</strong><br>It says the mapping is valid and shows the expected mapping count.</li>
+        <li><strong>Current-preview approval</strong><br>Review and approve the current exact update preview before Update now. Approval alone does not mean an update succeeded.</li>
         <li><strong>Update report</strong><br>It says at least one question was updated. Skipped or error is not a successful run.</li>
         <li><strong>Public respondent preview</strong><br>The public form shows the choices from the selected Sheets column.</li>
         <li><strong>Review timing</strong><br>Only leave a Marketplace review after the setup succeeds in the public preview. The <a href="./test-google-forms-dynamic-choices-before-launch.html#preview-success">first-run checklist</a> reveals that next step after all four checks and the preview confirmation pass.</li>

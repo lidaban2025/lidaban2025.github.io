@@ -65,7 +65,7 @@
             {
               "@type": "Question",
               "name": "What should I check first?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Check the source column, question mapping, spreadsheet access, Preflight result, Update now action, and respondent-facing preview." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Check the source column, mapping, access, Preflight result, current exact choice preview approval, Update now report, and public preview of the same copied form." }
             },
             {
               "@type": "Question",
@@ -166,7 +166,7 @@
 
       <section class="section" aria-labelledby="answer-title">
         <h2 id="answer-title">Quick answer</h2>
-        <p class="answer">If the dropdown is stale, test one copied form with Alpha/Beta in Sheets, run Preflight, click Update now, then inspect the respondent-facing preview. For automatic updates, run Test scheduled path now and read the per-mapping ledger before repairing or recreating a trigger.</p>
+        <p class="answer">If the dropdown is stale, test one copied form with Alpha/Beta in Sheets. Run Preflight, review and approve the current exact choice preview, then click Update now. Confirm at least one question was updated and inspect the public respondent preview of that same copied form. For automatic updates, run Test scheduled path now and read the per-mapping ledger before repairing or recreating a trigger.</p>
       </section>
 
       <section class="section" aria-labelledby="reliability-proof-title">
@@ -216,7 +216,8 @@
             <thead><tr><th>Symptom</th><th>Likely cause</th><th>Next check</th></tr></thead>
             <tbody>
               <tr><td>Preflight fails</td><td>File, tab, column, or question mapping is invalid.</td><td>Re-select the source and mapped question.</td></tr>
-              <tr><td>Preflight passes but nothing changes</td><td>Update now was not run, source values are empty, or the wrong form copy is open.</td><td>Check the update report and form URL.</td></tr>
+              <tr><td>Preflight passes but Update now is disabled</td><td>The current exact choice preview may still need approval.</td><td>Review the intended output and any duplicate or look-alike warnings on the copied test form, then approve that preview. If still blocked, send only redacted blocker text to support; do not bypass the guard.</td></tr>
+              <tr><td>Update now runs but nothing changes</td><td>No question was updated, source values are empty, or the wrong form copy is open.</td><td>Read the updated-question count and any skipped/error result. Verify the public respondent preview belongs to the same copied form.</td></tr>
               <tr><td>Editor looks right but public link is stale</td><td>Preview window is old or the wrong form link is being checked.</td><td>Open a fresh respondent preview from the tested form.</td></tr>
               <tr><td>Only some values appear</td><td>Blank rows, duplicate cleanup, formula output, or whitespace in the source column.</td><td>Clean the source column and run one copied-form update again.</td></tr>
             </tbody>
@@ -247,7 +248,7 @@
 
       <section class="section" aria-labelledby="screens-title">
         <h2 id="screens-title">Screens to compare against</h2>
-        <p>If your setup is stuck before these screens, collect a screenshot of the last screen you reached and send it with the source column and mapped question type.</p>
+        <p>If your setup is stuck before these screens, report only the failing stage and non-sensitive warning or result label from a copied-form test with synthetic Alpha/Beta choices. Do not send screenshots, form or spreadsheet IDs, tab names, column headers, question text, source values, credentials, or respondent data.</p>
         <div class="evidence-grid">
           <figure class="evidence-shot"><img src="../assets/formranger/preflight-preview.png" alt="FormSuite Choice Sync Preflight screen for dropdown update troubleshooting"><figcaption>Preflight should validate the source and mapping before choices are changed.</figcaption></figure>
           <figure class="evidence-shot"><img src="../assets/formranger/update-success.png" alt="FormSuite Choice Sync update success screen for Google Forms dropdown"><figcaption>Update now should report a real update. Then check the respondent-facing preview.</figcaption></figure>
@@ -259,14 +260,14 @@
         <div class="flow">
           <article class="card"><strong>1. Use a copied form</strong><p>Do not troubleshoot directly on a live respondent form.</p></article>
           <article class="card"><strong>2. Link one dropdown</strong><p>Select the spreadsheet, sheet tab, source column, and dropdown question.</p></article>
-          <article class="card"><strong>3. Prove the result</strong><p>Preflight must pass, Update now must update, and the public preview must show the new choices.</p></article>
+          <article class="card"><strong>3. Prove the result</strong><p>Preflight must pass. Review and approve the current exact choice preview, confirm Update now updates at least one question, and check the expected choices in the same copied form's public preview.</p></article>
         </div>
       </section>
 
       <section class="section" aria-labelledby="migration-title">
         <div class="pill">Migrating from the legacy add-on</div>
         <h2 id="migration-title">Do not repair a live Form Ranger setup in place</h2>
-        <p>If an existing Form Ranger workflow stopped updating or no longer gives you a clear result, copy the form first. Keep the source Sheet unchanged, relink one question in FormSuite Choice Sync, run Preflight, update once, and compare the public preview. FormSuite Choice Sync is an independent FormSuite add-on and is not affiliated with New Visions Cloudlab's Form Ranger.</p>
+        <p>If an existing Form Ranger workflow stopped updating or no longer gives you a clear result, copy the form first. Keep the source Sheet unchanged, relink one question in FormSuite Choice Sync, run Preflight, review and approve the current exact choice preview, update once, and compare the public preview of that same copy. FormSuite Choice Sync is an independent FormSuite add-on and is not affiliated with New Visions Cloudlab's Form Ranger.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="./test-google-forms-dynamic-choices-before-launch.html">Run the copied-form migration test</a>
           <a class="btn btn-secondary" href="./formranger-alternative-google-forms.html">Read the migration comparison</a>
@@ -287,10 +288,10 @@
         <h2 id="support-title">What support needs to diagnose it</h2>
         <p>A useful setup-help request should make the failing step obvious. Send the smallest evidence that proves where the chain broke.</p>
         <div class="grid">
-          <article class="card"><strong>Source context</strong><p>Spreadsheet tab name, source column header, and two visible values from the column.</p></article>
-          <article class="card"><strong>Mapping context</strong><p>Mapped question title and type, plus whether the form was copied after setup.</p></article>
-          <article class="card"><strong>Run context</strong><p>Preflight result and Update now message, especially whether it says updated, skipped, or error.</p></article>
-          <article class="card"><strong>Preview context</strong><p>Whether the public respondent preview shows the old choices, new choices, or a different form.</p></article>
+          <article class="card"><strong>Source context</strong><p>Whether the copied test uses one source column with synthetic Alpha/Beta choices and whether Preflight validates the selected source.</p></article>
+          <article class="card"><strong>Mapping context</strong><p>Supported question type only, whether a mapping is saved, and whether the form was copied after setup.</p></article>
+          <article class="card"><strong>Run context</strong><p>Preflight pass/blocked, current-preview approved/not-approved, updated-question count, and any redacted skipped/error label. A disabled button is not an executed update.</p></article>
+          <article class="card"><strong>Preview context</strong><p>Whether the public respondent preview of the same copied form matches the synthetic Alpha/Beta choices after the update. Report match/no-match, not the actual choices.</p></article>
         </div>
       </section>
 
@@ -311,7 +312,7 @@
       <section class="section" aria-labelledby="proof-title">
         <h2 id="proof-title">What to capture before asking for help</h2>
         <div class="flow">
-          <article class="card"><strong>Source proof</strong><p>Spreadsheet tab name, source column header, and two visible test values.</p></article>
+          <article class="card"><strong>Source proof</strong><p>Confirmation that the copied test uses synthetic Alpha/Beta choices and whether the selected source passes Preflight; no source content is needed.</p></article>
           <article class="card"><strong>Mapping proof</strong><p>The mapped question type and whether Preflight reports a valid file, tab, column, and question.</p></article>
           <article class="card"><strong>Preview proof</strong><p>A respondent preview check after Update now, not just the editor state.</p></article>
         </div>
@@ -335,7 +336,7 @@
         </details>
         <details>
           <summary><strong>What should I check first?</strong></summary>
-          <p>Check the source column, mapping, access, Preflight result, Update now action, last update report, and public preview.</p>
+          <p>Check the source column, mapping, access, Preflight result, current exact choice preview approval, Update now report, and public preview of the same copied form.</p>
         </details>
         <details>
           <summary><strong>Should I fix the live form first?</strong></summary>
@@ -343,7 +344,7 @@
         </details>
         <details>
           <summary><strong>Why did FormRanger say saved but my dropdown did not change?</strong></summary>
-          <p>Saving configuration does not update choices by itself. Run Preflight, click Update now, and then verify the public preview.</p>
+          <p>Saving configuration does not update choices by itself. Run Preflight, review and approve the current exact choice preview, then click Update now. Confirm at least one question was updated and verify the public preview of the same copied form.</p>
         </details>
         <details>
           <summary><strong>Can stale choices come from checking the wrong form?</strong></summary>
@@ -351,7 +352,7 @@
         </details>
         <details>
           <summary><strong>Should I reinstall if the dropdown is stale?</strong></summary>
-          <p>Usually not first. Re-select the source, run Preflight, update one copied form, and only then use support if the result still fails.</p>
+          <p>Usually not first. Re-select the source on a copied form, run Preflight, review and approve the current exact choice preview, and try one update. If blocked or the public preview still differs, use support with redacted result text.</p>
         </details>
         <details>
           <summary><strong>What if a scheduled update did not run?</strong></summary>
