@@ -1,0 +1,21 @@
+FormNotifier: one copied form, two inbox checks
+
+Use only a copied form, synthetic Name=Alpha and email inboxes you control.
+Do not use student, customer or payment data.
+
+1. Add Name and Email questions. Configure owner alerts and respondent confirmation.
+2. Select the Email question if the form does not automatically collect addresses.
+3. Operator subject: Test registration: {{Name}}
+4. Operator body: A synthetic registration was received from {{Name}}.
+5. Respondent subject: We received your registration
+6. Respondent body: Hi {{Name}}, we received your registration. This confirms receipt only, not a reserved place or approval.
+7. Save. Run Preflight. A sidebar test alone does not prove respondent delivery.
+8. Submit one synthetic response on the copied form. Publish only that copy temporarily if required.
+9. Verify the separate operator alert and respondent confirmation in the actual inboxes.
+10. Disable notifications and unpublish the test copy when finished.
+
+Success means both expected messages arrived with Alpha resolved correctly.
+A saved setting or provider acceptance alone is not inbox-delivery evidence.
+
+For support, report only the failed stage and sanitized error text.
+Never send private form links, IDs, screenshots, response contents or credentials.
