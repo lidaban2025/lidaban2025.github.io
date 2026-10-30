@@ -78,12 +78,13 @@
         <div class="pill">Quick start</div>
         <h2>Setup in 3 steps</h2>
         <ol>
-          <li>Open the Google Form and launch FormNotifier.</li>
-          <li>Choose owner alerts, respondent confirmations, or both.</li>
-          <li>Send one test response and confirm the email content before launch.</li>
+          <li>Open a copied Google Form with synthetic data and launch FormNotifier.</li>
+          <li>Choose owner alerts, respondent confirmations, or both; select the respondent email field and save the settings.</li>
+          <li>Run Preflight, submit one synthetic response using inboxes you control, and inspect each actual inbox before using a live form. A sidebar test may cover only the owner path in older releases.</li>
         </ol>
         <h3>Useful guides</h3>
         <div class="path-links">
+          <a href="./test-google-forms-confirmation-email-before-launch.html">Check both emails on a copied form</a>
           <a href="./google-forms-email-notifications-guide.html">Notification guide</a>
           <a href="./why-google-forms-notification-email-is-not-sending.html">Fix emails not sending</a>
           <a href="./google-forms-registration-confirmation-email.html">Confirmation email guide</a>
@@ -94,11 +95,17 @@
         <h2>Send this info</h2>
         <ul class="meta-list">
           <li><strong>Product</strong><br>FormNotifier</li>
-          <li><strong>What failed</strong><br>Setup, test run, email, sync, or generated output.</li>
-          <li><strong>Screenshot</strong><br>Include the error message or the result you expected.</li>
+          <li><strong>Last completed stage</strong><br>Installation, saved settings, Preflight, synthetic submission, owner inbox, or respondent inbox.</li>
+          <li><strong>Sanitized error text</strong><br>Describe what you expected and what appeared. Do not send screenshots, Form or Sheet links/IDs, response contents, email addresses, passwords or license keys.</li>
           <li><strong>Contact</strong><br><a href="../support.html">FormSuite support</a></li>
         </ul>
       </aside>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>What counts as a successful test?</h2>
+      <p>A saved setting or a successful email-provider call does not prove inbox delivery. Confirm that the expected owner alert and respondent acknowledgement actually arrived, and that template values are correct. Check spam and account sending limits if either is missing.</p>
+      <p>After testing, disable notifications and unpublish the copied form. A customer acknowledgement confirms receipt of the enquiry; it does not confirm payment, approval or a reserved place.</p>
     </section>
 
     <section class="card" style="margin-top:18px;">
