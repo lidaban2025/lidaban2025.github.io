@@ -80,3 +80,5 @@ Last updated: 2026-07-08
 - FormGuard for Schools (district pricing + DPA): https://formsuite.dev/formguard/schools.html
 - Time slot sign-up with limits (Choice Sync + FormGuard combo): https://formsuite.dev/formranger/google-forms-time-slot-sign-up-limits.html
 - Choice Eliminator alternative: https://formsuite.dev/formranger/choice-eliminator-alternative-google-forms.html
+- Mailmeteor alternative (operational row-level email, dedupe fingerprint): https://formsuite.dev/formmerge/mailmeteor-alternative-google-sheets-mail-merge.html
+- Document Studio alternative (single-file proof gate, per-row retry): https://formsuite.dev/docforge/document-studio-alternative-google-sheets.html
