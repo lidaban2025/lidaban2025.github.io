@@ -1,4 +1,5 @@
 const assert = require("node:assert/strict");
+const { execFileSync } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
@@ -120,9 +121,55 @@ test("sitemap and LLM index exclude retired FormCopy URLs", () => {
   assert.ok(locations.some((url) => url.pathname === "/formranger/"));
 });
 
-test("retired HTML is removed from source, build, and internal links", () => {
-  assert.deepEqual(fs.readdirSync(path.join(root, "formcopy")).filter((file) => file.endsWith(".html")), []);
+test("retired HTML consists only of English homepage redirect stubs", () => {
+  const expectedFiles = [...new Set(retiredPaths.map((pathname) => {
+    const pathnameOnly = new URL(pathname, "https://formsuite.dev").pathname;
+    return pathnameOnly === "/formcopy" || pathnameOnly === "/formcopy/"
+      ? "formcopy/index.html"
+      : pathnameOnly.slice(1);
+  }))].sort();
+  const actualFiles = fs.readdirSync(path.join(root, "formcopy"), { recursive: true })
+    .filter((file) => file.endsWith(".html"))
+    .map((file) => "formcopy/" + file.replace(/\\/g, "/")).sort();
+  assert.deepEqual(actualFiles, expectedFiles);
+  for (const file of actualFiles) {
+    const html = read(file);
+    assert.match(html, /<html lang="en">/);
+    assert.match(html, /<link rel="canonical" href="https:\/\/formsuite\.dev\/">/);
+    assert.match(html, /<meta http-equiv="refresh" content="0; url=\/">/);
+    const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
+    assert.equal(scripts.length, 1);
+    const destinations = [];
+    vm.runInNewContext(scripts[0][1], { location: { replace: (destination) => destinations.push(destination) } });
+    assert.deepEqual(destinations, ["/"]);
+    assert.match(html, /<body>\s*<p>[^<]*<a href="\/">FormSuite homepage<\/a>[^<]*<\/p>\s*<\/body>/);
+    assert.doesNotMatch(html, /SoftwareApplication|application\/ld\+json|<style|<iframe|<form\b|<img\b|<script[^>]+src=/i);
+    assert.ok(html.length < 700, file + " must remain a minimal redirect stub");
+  }
+});
+
+test("404 redirects FormCopy browser paths immediately and leaves other paths unchanged", () => {
+  const html = read("404.html");
+  const script = html.match(/<head>\s*<script>([\s\S]*?)<\/script>/);
+  assert.ok(script, "Redirect must run first in the head");
+  for (const pathname of [...retiredPaths, "/formcopy/unknown/deep/path", "/formcopycat/", "/formcopy.html", "/", "/missing", "/formflow/missing"]) {
+    const destinations = [];
+    vm.runInNewContext(script[1], {
+      window: { location: { pathname: new URL(pathname, "https://formsuite.dev").pathname, replace: (destination) => destinations.push(destination) } }
+    });
+    assert.deepEqual(destinations, pathname.startsWith("/formcopy") ? ["/"] : []);
+  }
+  assert.match(html, /Page Not Found/);
+});
+
+test("Worker build excludes redirect stubs and includes the updated 404", () => {
   assert.doesNotMatch(read("scripts/build-site.js"), /['"]formcopy['"]/);
+  execFileSync(process.execPath, ["scripts/build-site.js"], { cwd: root });
+  assert.equal(fs.existsSync(path.join(root, "_site/formcopy")), false);
+  assert.equal(read("_site/404.html"), read("404.html"));
+});
+
+test("internal links exclude retired FormCopy URLs", () => {
   function checkDirectory(directory) {
     for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
       if (entry.name.startsWith(".") || ["node_modules", "_site", "scripts"].includes(entry.name)) continue;
