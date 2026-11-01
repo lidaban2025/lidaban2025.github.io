@@ -3,10 +3,8 @@
   "name": "formsuite-site",
   "main": "worker.js",
   "compatibility_date": "2026-06-25",
-  "routes": [
-    { "pattern": "formsuite.dev", "custom_domain": true },
-    { "pattern": "www.formsuite.dev", "custom_domain": true }
-  ],
+  "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "_site",
     "binding": "ASSETS",
