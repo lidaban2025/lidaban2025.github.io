@@ -26,6 +26,22 @@ test("homepage promotes FormFlow and Choice Sync with real Marketplace figures",
   assert.doesNotMatch(homepage, /formnotifier|formcopy|formmerge|docforge|FormNotifier|FormCopy|FormMerge|DocForge/i);
 });
 
+test("FormNotifier enquiry, registration first-run and delivery guidance stays on its product page", () => {
+  const formnotifier = fs.readFileSync(path.join(root, "formnotifier", "index.html"), "utf8");
+  const moreTools = fs.readFileSync(path.join(root, "more-tools.html"), "utf8");
+  assert.ok(formnotifier.includes("Acknowledge the enquiry. Notify your team."));
+  assert.ok(formnotifier.includes("Verify your first enquiry or registration email."));
+  assert.ok(formnotifier.includes("Use one copied form and email addresses you control"));
+  assert.ok(formnotifier.includes("both the respondent acknowledgement and the owner or team alert actually arrive with the correct merge-field values"));
+  assert.ok(formnotifier.includes("successful email-provider call does not prove inbox delivery"));
+  assert.ok(formnotifier.includes("check spam and account sending limits"));
+  assert.ok(formnotifier.includes('href="support.html">delivery support guidance'));
+  assert.ok(formnotifier.includes("disable notifications and unpublish the copied form"));
+  assert.ok(formnotifier.includes("not payment, approval or a reserved place"));
+  assert.ok(formnotifier.includes('href="test-google-forms-confirmation-email-before-launch.html"'));
+  assert.ok(moreTools.includes('href="formnotifier/"'));
+});
+
 test("worker redirects the FormCopy home to the homepage", () => {
   assert.match(worker, /pathname === '\/formcopy'/);
   assert.match(worker, /Response\.redirect\([\s\S]*301\)/);
