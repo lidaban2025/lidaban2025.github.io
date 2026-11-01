@@ -108,7 +108,7 @@
     if (haystack.indexOf("formcopy") !== -1 || haystack.indexOf("cnjfgdfl52m") !== -1) return "FormCopy Pro";
     if (haystack.indexOf("formmerge") !== -1 || haystack.indexOf("smin_klpfky") !== -1) return "FormMerge Pro";
     if (haystack.indexOf("docforge") !== -1 || haystack.indexOf("yaecjc42lfg") !== -1) return "DocForge";
-    if (haystack.indexOf("formranger") !== -1) return "FormRanger";
+    if (haystack.indexOf("formranger") !== -1 || haystack.indexOf("formsuite_choice_sync") !== -1 || haystack.indexOf("18856558524") !== -1 || haystack.indexOf("choice sync") !== -1) return "FormRanger";
     if (haystack.indexOf("formflow") !== -1 || haystack.indexOf("1082615279531") !== -1) return "FormFlow";
     if (haystack.indexOf("sheetformula") !== -1 || haystack.indexOf("sheet formula") !== -1) return "Sheet Formula Helper";
     return productFromPath(window.location.pathname);
@@ -441,8 +441,7 @@
     var name = eventName(type);
     if (!name) return;
     var destinationAttribution = attributionFromSearch(url.search);
-
-    send(name, {
+    var clickData = {
       product: productFromUrl(url, link.textContent),
       target_type: type,
       destination_host: url.hostname,
@@ -454,7 +453,12 @@
       destination_utm_content: destinationAttribution.utm_content,
       destination_utm_term: destinationAttribution.utm_term,
       link_text: link.textContent.replace(/\s+/g, " ").trim().slice(0, 120)
-    });
+    };
+
+    if (type === "marketplace") {
+      send("install_click", Object.assign({}, clickData, { target_type: "install" }));
+    }
+    send(name, clickData);
   }, { capture: true });
 
   send(pageViewEvent(), {

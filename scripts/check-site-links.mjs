@@ -129,7 +129,7 @@ for (const file of htmlFiles) {
 if (!missingMeta) console.log('  ✅ All pages have title and meta description\n');
 
 // Check FAQ sections in product pages
-const productPages = ['docforge', 'formcopy', 'formmerge', 'formflow', 'formguard', 'formnotifier', 'formranger'];
+const productPages = ['docforge', 'formmerge', 'formflow', 'formguard', 'formnotifier', 'formranger'];
 let faqIssues = 0;
 for (const p of productPages) {
   const f = join(ROOT, p, 'index.html');

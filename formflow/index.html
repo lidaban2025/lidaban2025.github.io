@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Approve or Reject Google Forms Responses by Email | FormFlow</title>
-  <meta name="description" content="Send one Google Forms response to one reviewer, capture approve or reject by email, and write the final status to the linked Google Sheet. Test one workflow first.">
+  <meta name="description" content="FormFlow is an approval workflow for Google Forms. Email one reviewer, capture approve or reject, and write the status to the linked Sheet. 1,000+ Marketplace installs.">
   <link rel="canonical" href="https://formsuite.dev/formflow/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
       "url": "https://formsuite.dev/formflow/",
       "description": "A Google Workspace add-on for lightweight Google Forms approval workflows with approval emails and linked-sheet status tracking.",
       "provider": { "@type": "Organization", "name": "FormSuite" },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": [{"@type":"Offer","name":"Free","price":"0","priceCurrency":"USD","description":"50 approval flow runs per month, up to 5 approval levels, unlimited approvers and requesters."},{"@type":"Offer","name":"Pro","price":"79","priceCurrency":"USD","description":"$79/year per admin. Unlimited flow runs, up to 5 levels, unlimited approvers. No per-approver fees.","url":"https://formsuite.dev/pricing.html"}]
     }
   </script>
 </head>
@@ -45,7 +45,8 @@
     <header class="topbar">
       <a class="brand" href="../index.html" aria-label="FormSuite home"><span class="brand-mark">FF</span><span>FormFlow</span></a>
       <nav class="nav" aria-label="Product navigation">
-        <a href="../index.html#products">Add-ons</a>
+        <a href="../index.html#formflow">FormFlow</a>
+        <a href="../formranger/">Choice Sync</a>
         <a href="./google-forms-approval-workflow-guide.html">Guide</a>
         <a href="./support.html">Support</a>
       </nav>
@@ -57,17 +58,18 @@
           <div class="eyebrow">Google Forms approval workflow</div>
           <h1 id="hero-title">Approve or reject Google Forms responses by email.</h1>
           <p>Start with one reviewer and one internal test response. FormFlow sends the approval email, records the approve or reject decision, and writes the final status to the linked Google Sheet.</p>
+          <p><strong>1,000+ installs</strong> on Google Workspace Marketplace.</p>
+          <p>Free: 50 approval flow runs per month, up to 5 approval levels, unlimited approvers and requesters. Pro: $79/year per admin, unlimited flow runs, up to 5 levels, unlimited approvers. No per-approver fees. <a href="../pricing.html">Compare plans</a>.</p>
           <div class="hero-proof" aria-label="Key FormFlow capabilities">
             <span>Approval emails</span>
             <span>Approve/reject links</span>
             <span>Linked Sheet status</span>
-            <span>Check the final Sheet status</span>
+            <span>v51 final status verified</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formflow_activation_reviews&utm_content=home">Install from Marketplace</a>
-            <a class="btn btn-secondary" href="./test-google-forms-approval-workflow-before-launch.html?utm_source=formsuite&amp;utm_medium=product_page&amp;utm_campaign=top3_first_result_20261020&amp;utm_content=flow_one_approval">Try one approval through to Sheet status</a>
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formflow_install&utm_content=home">Install from Marketplace</a>
+            <a class="btn btn-secondary" href="./test-google-forms-approval-workflow-before-launch.html">Run first workflow test</a>
           </div>
-          <p><a href="./test-google-forms-approval-workflow-before-launch.html?utm_source=formsuite&amp;utm_medium=product_page&amp;utm_campaign=formflow_team_first_result_20261022#team-rollout">Installed for your team? Start with one owner and one reviewer.</a></p>
         </div>
 
         <article class="product-visual workflow-preview" aria-label="FormFlow first-run workflow preview">
@@ -97,12 +99,32 @@
         </article>
       </section>
 
+      <section class="section" id="problem" aria-labelledby="problem-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Problem</div>
+            <h2 id="problem-title">Google Forms collects the request. It does not run the approval.</h2>
+            <p>The response lands in a linked Sheet. Someone still has to notice it, forward it, and remember to write Approved or Rejected on the row. That loop fails when the reviewer is busy or the form owner is not watching the inbox.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="solution" aria-labelledby="solution-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Solution</div>
+            <h2 id="solution-title">FormFlow emails one reviewer and writes the decision back.</h2>
+            <p>Install the add-on on the form, select the linked response Sheet, add one approver, and run Preflight. A test submission sends an approve or reject email. The decision is stored, and the final status is written to that Sheet. Owner-authorized sync runs about hourly, after the next submission, or when the owner uses Sync now.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="section" aria-labelledby="quick-paths-title">
         <div class="section-head">
           <div>
             <div class="mini-label">Start from the approval question</div>
             <h2 id="quick-paths-title">Route broad approval-workflow questions into one small test.</h2>
-            <p>Choose the step you need: email one reviewer, capture a decision, or confirm the final status in the linked Sheet. Start with one copied workflow and one test response.</p>
+            <p>Most useful FormFlow traffic starts with a concrete question: how to approve a Google Forms response, how to email a reviewer, how to write status back to Sheets, or how to avoid maintaining Apps Script. Send each question to the smallest proof path first.</p>
           </div>
         </div>
         <div class="step-grid">
@@ -114,7 +136,7 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="fit-title">
+      <section class="section" id="features" aria-labelledby="fit-title">
         <div class="section-head">
           <div>
             <h2 id="fit-title">Use FormFlow for scene-first approval routing.</h2>
@@ -128,12 +150,12 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="scenes-title">
+      <section class="section" id="use-cases" aria-labelledby="scenes-title">
         <div class="section-head">
           <div>
             <div class="mini-label">Use cases</div>
             <h2 id="scenes-title">Approval scenarios that match a small Google Forms workflow.</h2>
-            <p>Choose a scenario you can verify with one reviewer. Confirm Approved or Rejected in the linked response row before inviting your team.</p>
+            <p>These are the pages and community questions FormFlow should target before competing for broad workflow terms.</p>
           </div>
         </div>
         <div class="grid">
@@ -222,7 +244,7 @@
           <li><a href="./privacy-policy.html">Privacy and permissions</a><span>Plain-English context for the form, file, sidebar, and email permissions used by the approval workflow.</span></li>
           <li><a href="./support.html">Support</a><span>Send the form context, failing step, and screenshot when Preflight or email delivery does not match.</span></li>
           <li><a href="./review-after-first-success.html">Review after success</a><span>Use the checklist only after Preflight, reviewer email, decision link, and linked Sheet status all work.</span></li>
-          <li><a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formflow_activation_reviews&utm_content=home">Leave an honest Marketplace review</a><span>If those four checks worked for your form, a short review helps the next Google Forms operator trust the setup.</span></li>
+          <li><a href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531?utm_source=formsuite&utm_medium=review_after_success&utm_campaign=formflow_install&utm_content=home">Leave an honest Marketplace review</a><span>If those four checks worked for your form, a short review helps the next Google Forms operator trust the setup.</span></li>
         </ul>
       </section>
 
@@ -257,9 +279,23 @@
           <details><summary><strong>What evidence matters before a review?</strong></summary><p>Preflight passed, reviewer email arrived, decision link worked, and the linked Sheet status updated. If any of those fail, use support first.</p></details>
         </div>
       </section>
+
+      <section class="section" id="install" aria-labelledby="install-cta-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Install</div>
+            <h2 id="install-cta-title">Install FormFlow and test one copied form.</h2>
+            <p>Use one internal approver and one test response. Confirm the email arrives, the decision link works, and the linked Sheet shows Approved or Rejected.</p>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formflow_approval_workflow_for_google_fo/1082615279531?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=formflow_install&amp;utm_content=closing">Install FormFlow</a>
+          <a class="btn btn-secondary" href="./test-google-forms-approval-workflow-before-launch.html">Run the first approval test</a>
+        </div>
+      </section>
     </main>
 
-    <footer class="footer"><span><a href="../index.html#products">Add-ons</a> | <a href="./google-forms-approval-workflow-guide.html">Approval workflow guide</a> | <a href="./support.html">Support</a></span><span>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</span></footer>
+    <footer class="footer"><span><a href="../index.html#products">FormFlow and Choice Sync</a> | <a href="../more-tools.html">More tools</a> | <a href="./google-forms-approval-workflow-guide.html">Approval workflow guide</a> | <a href="./support.html">Support</a></span><span>&copy; 2026 FormSuite. Google Workspace is a trademark of Google LLC.</span></footer>
   </div>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>

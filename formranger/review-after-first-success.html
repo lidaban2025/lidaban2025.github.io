@@ -30,7 +30,7 @@
           "name": "Review FormSuite Choice Sync after a successful choice update",
           "url": "https://formsuite.dev/formranger/review-after-first-success.html",
           "description": "After FormSuite Choice Sync updates one Google Forms choice question from Google Sheets and the public preview looks right, leave an honest Marketplace review or send setup feedback.",
-          "dateModified": "2026-08-23",
+          "dateModified": "2026-10-26",
           "publisher": { "@type": "Organization", "name": "FormSuite" }
         },
         {
@@ -49,7 +49,7 @@
               "name": "What should I do if the update did not work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "If the update did not work, report only the stage where it stopped and sanitized error text. Do not send Form or Sheet URLs, IDs, contents, credentials or respondent data."
+                "text": "If the update did not work, use a copied form with synthetic Alpha/Beta choices and report only question type, Preflight pass/blocked, current-preview approved/not-approved, updated-question count, and whether the same copied form matches the synthetic Alpha/Beta choices in its public preview. Do not send screenshots, form or spreadsheet IDs, tab names, column headers, question text, source values, credentials, or respondent data. Troubleshoot before considering an optional review."
               }
             }
           ]
@@ -77,11 +77,11 @@
       <h1>Did your FormSuite Choice Sync update work?</h1>
       <p>If one Google Forms choice question updated from Google Sheets and the public respondent preview shows the right values, an honest Marketplace review helps the next operator trust the setup path faster.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=review-after-first-success">Leave a Marketplace review</a>
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=review_after_success&utm_campaign=choice_sync_install&utm_content=review-after-first-success">Leave a Marketplace review</a>
         <a class="btn btn-secondary" href="../setup-help.html?product=FormRanger&source=formranger-review-after-success-feedback">Send setup feedback</a>
         <a class="btn btn-secondary" href="mailto:support@formsuite.dev?subject=FormSuite%20Choice%20Sync%20automation%20history%20pilot&amp;body=Organization%3A%0D%0ANumber%20of%20forms%3A%0D%0APreferred%20schedule%3A%0D%0ARecovery%20or%20history%20need%3A%0D%0AConfirmed%20public-preview%20result%3A%0D%0A%0D%0APlease%20do%20not%20include%20Form%20or%20Sheet%20content%20or%20personal%20data.">Join the automation/history pilot</a>
       </div>
-      <p>The team-pilot link opens your email client; it is separate from the Choice Sync Pro subscription. Direct Choice Sync checkout on our pricing page is paused until public-version activation eligibility is confirmed. Free is not a time-limited launch trial. See <a href="../pricing.html">pricing and release availability</a> before considering a purchase. Do not include Form or Sheet content in a pilot note.</p>
+      <p>There is no paid checkout yet. The pilot link records only a click, opens your email client, and lets you describe the workflow voluntarily without sending Form or Sheet content through site analytics.</p>
     </section>
 
     <section class="grid">
@@ -90,14 +90,17 @@
         <h2>Review after these pass</h2>
         <ol>
           <li>Preflight says the mapping is valid.</li>
+          <li>Review and approve the current exact update preview before Update now. Approval alone is not a successful update.</li>
           <li>Update now reports at least one updated question.</li>
           <li>The public Google Forms preview shows the expected sheet values.</li>
         </ol>
+        <p>A review is optional; no particular rating is requested. Share only a general workflow description, never private form, sheet, or respondent content.</p>
       </article>
       <aside class="card">
         <div class="pill">Support first</div>
         <h2>If it is not working yet</h2>
-        <p>Report only the stage where it stopped and sanitized error text: Preflight, preview approval, Update now, or the respondent-page check. Do not send screenshots, Form or Sheet URLs, IDs, source values, credentials or respondent data.</p>
+        <p>Use a copied form with synthetic Alpha/Beta choices. Report only question type, Preflight pass/blocked, current-preview approved/not-approved, updated-question count, and whether the same copied form matches the synthetic Alpha/Beta choices in its public preview. A disabled Update now button means not-run, not a failed write.</p>
+        <p>Do not send screenshots, form or spreadsheet IDs, tab names, column headers, question text, source values, credentials, or respondent data. Troubleshoot first; there is no need to leave a review while setup is unclear.</p>
         <a class="btn btn-secondary" href="./support.html">Open support</a>
       </aside>
     </section>
@@ -118,7 +121,7 @@
       <h2>Keep the workflow steady</h2>
       <p>When your source sheet changes later, run one update and re-check the public preview before sending new respondents to the form.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=review-after-first-success">Open Marketplace</a>
+        <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=review_after_success&utm_campaign=choice_sync_install&utm_content=review-after-first-success">Open Marketplace</a>
         <a class="btn btn-secondary" href="./test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
         <a class="btn btn-secondary" href="./google-forms-dropdown-not-updating-from-google-sheets.html">Fix not updating</a>
         <a class="btn btn-secondary" href="../setup-help.html?product=FormRanger&source=formranger-review-after-success-next">Send setup note</a>
