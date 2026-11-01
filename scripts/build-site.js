@@ -6,7 +6,6 @@ const out = path.join(root, '_site');
 const includeDirs = [
   'assets',
   'docforge',
-  'formcopy',
   'formflow',
   'formguard',
   'formmerge',

@@ -36,10 +36,9 @@
       "url": "https://formsuite.dev/formflow/",
       "description": "A Google Workspace add-on for lightweight Google Forms approval workflows with approval emails and linked-sheet status tracking.",
       "provider": { "@type": "Organization", "name": "FormSuite" },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": [{"@type":"Offer","name":"Free","price":"0","priceCurrency":"USD","description":"50 approval flow runs per month, up to 5 approval levels, unlimited approvers and requesters."},{"@type":"Offer","name":"Pro","price":"79","priceCurrency":"USD","description":"$79/year per admin. Unlimited flow runs, up to 5 levels, unlimited approvers. No per-approver fees.","url":"https://formsuite.dev/pricing.html"}]
     }
   </script>
-  <!-- TODO: confirm FormFlow price and limits on the Marketplace listing before treating the zero-price offer above as current. -->
 </head>
 <body>
   <div class="shell">
@@ -60,7 +59,7 @@
           <h1 id="hero-title">Approve or reject Google Forms responses by email.</h1>
           <p>Start with one reviewer and one internal test response. FormFlow sends the approval email, records the approve or reject decision, and writes the final status to the linked Google Sheet.</p>
           <p><strong>1,000+ installs</strong> on Google Workspace Marketplace.</p>
-          <!-- TODO: confirm FormFlow price, reviewer limits, and response limits on the current Marketplace listing before publishing them. -->
+          <p>Free: 50 approval flow runs per month, up to 5 approval levels, unlimited approvers and requesters. Pro: $79/year per admin, unlimited flow runs, up to 5 levels, unlimited approvers. No per-approver fees. <a href="../pricing.html">Compare plans</a>.</p>
           <div class="hero-proof" aria-label="Key FormFlow capabilities">
             <span>Approval emails</span>
             <span>Approve/reject links</span>

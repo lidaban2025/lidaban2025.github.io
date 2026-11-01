@@ -7,6 +7,10 @@ FormSuite publishes Google Workspace add-ons for Google Forms. The homepage feat
 
 Do not describe either add-on as OAuth verified by Google. Do not invent prices or limits that are not on the pages below.
 
+FormFlow Free: 50 approval flow runs per month, up to 5 approval levels, unlimited approvers and requesters. Pro: $79/year per admin, unlimited flow runs, up to 5 levels, unlimited approvers. No per-approver fees.
+
+Choice Sync Free: 100 syncs per calendar month, up to 3 linked questions. Pro: $29/year, unlimited syncs and linked questions. Direct Pro checkout is paused pending public-version activation confirmation; email support@formsuite.dev to confirm upgrade availability before paying. Google service quotas still apply.
+
 Production site:
 
 https://formsuite.dev/
@@ -24,7 +28,7 @@ https://formsuite.dev/
 
 ## Other published add-ons
 
-These are not featured on the homepage. FormCopy is not listed; https://formsuite.dev/formcopy/ redirects to the homepage.
+These are not featured on the homepage. FormCopy is retired and not listed.
 
 - FormGuard: response limits, close dates, and choice quotas.
 - FormNotifier: Google Forms confirmation emails and owner notifications.

@@ -13,7 +13,7 @@ export default {
       return indexabilityApi.fetch(request, env, ctx);
     }
 
-    if (url.pathname === '/formcopy' || url.pathname === '/formcopy/' || url.pathname === '/formcopy/index.html') {
+    if (url.pathname === '/formcopy' || url.pathname.startsWith('/formcopy/')) {
       return Response.redirect(new URL('/', url.origin).toString(), 301);
     }
 
