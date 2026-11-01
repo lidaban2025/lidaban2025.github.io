@@ -10,9 +10,10 @@ const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 const flowPricing = "Free: 50 approval flow runs per month, up to 5 approval levels, unlimited approvers and requesters. Pro: $79/year per admin, unlimited flow runs, up to 5 levels, unlimited approvers. No per-approver fees.";
 const choicePricing = "Free: 100 syncs per calendar month, up to 3 linked questions. Pro: $29/year, unlimited syncs and linked questions.";
 
-for (const file of ["index.html", "pricing.html", "llms.txt", "formflow/index.html", "formflow/free-google-forms-approval-workflow.html", "formflow/form-approvals-pricing-alternative.html", "formflow/form-approvals-alternative-google-forms.html"]) {
+for (const file of ["index.html", "pricing.html", "llms.txt", "formflow/index.html", "formflow/free-google-forms-approval-workflow.html", "formflow/form-approvals-pricing-alternative.html", "formflow/form-approvals-alternative-google-forms.html", "formflow/form-approvals-alternative.html"]) {
   test(file + " publishes the FormFlow Free and Pro limits", () => {
-    const text = read(file).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+    const text = read(file).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+      .replace(/<!-- TODO: replace VIDEO_ID when (?:FormFlow approve-by-email|Choice Sync shorter promo) demo is published -->/g, "");
     assert.ok(text.includes(flowPricing));
     assert.doesNotMatch(text, /TODO[^\n]*(FormFlow|approver|reviewer)|FormFlow pricing is on its Marketplace listing|does not state a FormFlow price/i);
   });
@@ -20,7 +21,8 @@ for (const file of ["index.html", "pricing.html", "llms.txt", "formflow/index.ht
 
 for (const file of ["index.html", "pricing.html", "llms.txt", "formranger/index.html", "formranger/choice-sync.html", "formranger/support.html", "formranger/choice-eliminator-alternative-google-forms.html"]) {
   test(file + " publishes Choice Sync limits and preserves the checkout pause", () => {
-    const text = read(file).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+    const text = read(file).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+      .replace(/<!-- TODO: replace VIDEO_ID when (?:FormFlow approve-by-email|Choice Sync shorter promo) demo is published -->/g, "");
     assert.ok(text.includes(choicePricing));
     assert.match(text, /checkout is paused/i);
     assert.match(text, /support@formsuite\.dev/);

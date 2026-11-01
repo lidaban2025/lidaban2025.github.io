@@ -159,8 +159,8 @@
     <lastmod>2026-06-18</lastmod>
   </url>
   <url>
-    <loc>https://formsuite.dev/formflow/form-approvals-alternative-google-forms.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <loc>https://formsuite.dev/formflow/form-approvals-alternative.html</loc>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://formsuite.dev/formflow/form-approvals-pricing-alternative.html</loc>
@@ -751,5 +751,9 @@
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://formsuite.dev/formranger/choicetide-alternative-google-forms.html</loc>
+    <lastmod>2026-11-01</lastmod>
   </url>
 </urlset>

@@ -399,6 +399,10 @@
     send(queued.name, queued.data || {});
   });
   window.formsuiteTrackQueue = [];
+  var reviewPrompt = document.querySelector("[data-review-prompt]");
+  if (reviewPrompt) {
+    window.FormSuiteTrack.event("review_prompt_shown", { product: productFromPath(window.location.pathname), source: "review_after_first_success_page" });
+  }
   loadClarity();
 
   document.addEventListener("click", function (event) {

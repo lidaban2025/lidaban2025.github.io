@@ -44,6 +44,7 @@
         {
           "@type": "FAQPage",
           "mainEntity": [
+            {"@type":"Question","name":"What are the Free and Pro limits, and how do I upgrade?","acceptedAnswer":{"@type":"Answer","text":"Choice Sync Free includes 100 syncs/month and up to 3 linked questions. Pro is $29/year, with unlimited syncs and linked questions. Direct Pro checkout is paused; email support@formsuite.dev to confirm upgrade availability before paying."}},
             {
               "@type": "Question",
               "name": "Which Google Forms question types does FormSuite Choice Sync support?",
@@ -380,6 +381,7 @@
           <div>
             <div class="mini-label">Sheets dropdown guides</div>
             <h2 id="dropdown-guides-title">Pick the exact Google Forms dropdown problem.</h2>
+            <div class="link-row"><a href="./formranger-alternative-google-forms.html">Form Ranger alternative: safe migration</a><a href="./choicetide-alternative-google-forms.html">Choice Sync vs ChoiceTide</a></div>
             <p>These pages separate four common searches: updating a dropdown from Sheets, avoiding Apps Script, troubleshooting stale choices, and understanding dependent dropdown limits.</p>
           </div>
         </div>
@@ -410,6 +412,7 @@
       <section class="section" aria-labelledby="faq-title">
         <h2 id="faq-title">Frequently asked questions</h2>
         <div class="faq-panel">
+          <details><summary><strong>What are the Free and Pro limits, and how do I upgrade?</strong></summary><p>Choice Sync Free includes 100 syncs/month and up to 3 linked questions. Pro is $29/year, with unlimited syncs and linked questions. Direct Pro checkout is paused; email <a href="mailto:support@formsuite.dev">support@formsuite.dev</a> to confirm upgrade availability before paying.</p></details>
           <details><summary><strong>Which question types work?</strong></summary><p>Dropdown, multiple choice, checkbox, multiple-choice grid, and checkbox grid choices.</p></details>
           <details><summary><strong>What should I test first?</strong></summary><p>Use one copied form, one supported question, and one Sheets column with Alpha and Beta. Run Preflight, approve the exact choice preview, update, then check the public respondent preview.</p></details>
           <details><summary><strong>Does Choice Hygiene change my source Sheet?</strong></summary><p>No. It reads the selected source values, shows duplicate and look-alike groups, and recommends consistent labels. You decide whether to edit the Sheet, and Update now remains a separate approved action.</p></details>
@@ -423,6 +426,16 @@
         </div>
       </section>
     <div style="max-width:980px;margin:0 auto 24px;padding:0 20px;"><a href="choice-eliminator-alternative-google-forms.html">Choice Eliminator alternative for Google Forms →</a></div>
+
+      <section class="section" aria-labelledby="demo-title">
+        <div class="guide-panel">
+          <div><div class="mini-label">Demo</div><h2 id="demo-title">Choice Sync short demo</h2>
+            <!-- TODO: replace VIDEO_ID when Choice Sync shorter promo demo is published -->
+            <p>A shorter promo cut is pending. The existing full tutorial covers Preflight, the exact diff, public preview, scheduled sync, and recovery.</p>
+          </div>
+          <div class="link-row"><a href="./formranger-alternative-google-forms.html#choice-tutorial-title">Watch the existing Choice Sync tutorial</a></div>
+        </div>
+      </section>
 
       <section class="section" id="install" aria-labelledby="install-cta-title">
         <div class="section-head">
@@ -445,7 +458,7 @@
     </footer>
   </div>
   <script src="/formranger/first-success-state.js?v=20260718a" defer></script>
-  <script src="/formranger/first-success.js?v=20260718a" defer></script>
+  <script src="/formranger/first-success.js?v=20261101a" defer></script>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

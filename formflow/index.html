@@ -39,6 +39,7 @@
       "offers": [{"@type":"Offer","name":"Free","price":"0","priceCurrency":"USD","description":"50 approval flow runs per month, up to 5 approval levels, unlimited approvers and requesters."},{"@type":"Offer","name":"Pro","price":"79","priceCurrency":"USD","description":"$79/year per admin. Unlimited flow runs, up to 5 levels, unlimited approvers. No per-approver fees.","url":"https://formsuite.dev/pricing.html"}]
     }
   </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the Free and Pro limits?","acceptedAnswer":{"@type":"Answer","text":"FormFlow Free includes 50 approval flow runs/month and up to 5 approval levels. Pro is $79/year per admin, with unlimited flow runs and up to 5 levels. FormFlow is not an enterprise approval suite."}}]}</script>
 </head>
 <body>
   <div class="shell">
@@ -263,7 +264,7 @@
           <article class="mini-guide-card"><strong>Test before launch</strong><p>Use one copied workflow, one approver, Preflight, and one internal test response.</p><a href="./test-google-forms-approval-workflow-before-launch.html">Open checklist</a></article>
           <article class="mini-guide-card"><strong>Approve by email</strong><p>Understand the approval email, decision link, and linked-sheet status update.</p><a href="./approve-reject-google-forms-responses-by-email.html">Open email guide</a></article>
           <article class="mini-guide-card"><strong>Track Sheet status</strong><p>Confirm the linked response Sheet records Pending, Approved, or Rejected after one reviewer decision.</p><a href="./google-forms-approval-status-in-google-sheets.html">Open status guide</a></article>
-          <article class="mini-guide-card"><strong>Form Approvals alternative</strong><p>Compare a broader approval platform with a lightweight Google Forms approval path.</p><a href="./form-approvals-alternative-google-forms.html">Open comparison</a></article>
+          <article class="mini-guide-card"><strong>Form Approvals alternative</strong><p>Compare a broader approval platform with a lightweight Google Forms approval path.</p><a href="./form-approvals-alternative.html">Open comparison</a></article>
           <article class="mini-guide-card"><strong>Pricing alternative</strong><p>Check whether a lightweight workflow is enough before paying for a broader approval suite.</p><a href="./form-approvals-pricing-alternative.html">Open pricing guide</a></article>
           <article class="mini-guide-card"><strong>Email not sending</strong><p>Diagnose Preflight, approver address, linked Sheet, Google account, and mail filtering issues.</p><a href="./why-google-forms-approval-email-is-not-sending.html">Open troubleshooting</a></article>
         </div>
@@ -272,11 +273,24 @@
       <section class="section" aria-labelledby="faq-title">
         <h2 id="faq-title">Frequently asked questions</h2>
         <div class="faq-panel">
+          <details><summary><strong>What are the Free and Pro limits?</strong></summary><p>FormFlow Free includes 50 approval flow runs/month and up to 5 approval levels. Pro is $79/year per admin, with unlimited flow runs and up to 5 levels. FormFlow is not an enterprise approval suite.</p></details>
           <details><summary><strong>Can Google Forms approve submissions natively?</strong></summary><p>Google Forms can collect requests, but it does not provide a full approve/reject workflow with reviewer emails and linked-sheet approval status by itself.</p></details>
           <details><summary><strong>Where does FormFlow store approval status?</strong></summary><p>FormFlow writes status to the linked Google Sheet so operators can review the workflow record next to the form responses.</p></details>
           <details><summary><strong>What should I test first?</strong></summary><p>Use one copied form, select the linked response sheet, add one internal approver, run Preflight, and submit one test response.</p></details>
           <details><summary><strong>What workflow should I try first?</strong></summary><p>Try a small internal workflow such as leave request, access request, event application, or resource request before adding multiple reviewers or complex routing.</p></details>
           <details><summary><strong>What evidence matters before a review?</strong></summary><p>Preflight passed, reviewer email arrived, decision link worked, and the linked Sheet status updated. If any of those fail, use support first.</p></details>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="demo-title">
+        <div class="guide-panel">
+          <div>
+            <div class="mini-label">Demo</div>
+            <h2 id="demo-title">Approve-by-email demo</h2>
+            <!-- TODO: replace VIDEO_ID when FormFlow approve-by-email demo is published -->
+            <p>A short approve-by-email demo is not published yet. Use the first-run checklist to verify reviewer email, the decision link, and linked-Sheet status.</p>
+          </div>
+          <div class="link-row"><a href="./test-google-forms-approval-workflow-before-launch.html">Run the first approval test</a></div>
         </div>
       </section>
 

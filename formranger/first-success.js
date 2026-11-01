@@ -157,6 +157,7 @@
   var review = workspace.querySelector("[data-review-outcome]");
   var support = workspace.querySelector("[data-support-outcome]");
   var progress = workspace.querySelector("[data-first-run-progress]");
+  var checklistReported = false;
 
   function renderWorkspace() {
     inputs.forEach(function (input, index) {
@@ -166,6 +167,10 @@
     var complete = state.steps.filter(Boolean).length;
     progress.textContent = complete + "/4 complete";
     var unlocked = api.canRequestReview(state);
+    if (unlocked && !checklistReported) {
+      checklistReported = true;
+      track("checklist_complete", { source: "self_reported_copied_form_test", progress_complete: 4 });
+    }
     review.hidden = !unlocked;
     support.hidden = unlocked;
   }
