@@ -13,6 +13,10 @@
       var name = section.getAttribute('data-result-confirmation');
       if (window.FormSuiteTrack) window.FormSuiteTrack.event(name, data);
       else (window.formsuiteTrackQueue = window.formsuiteTrackQueue || []).push({name:name,data:data});
+      if (section.hasAttribute('data-checklist-complete')) {
+        if (window.FormSuiteTrack) window.FormSuiteTrack.event('checklist_complete', data);
+        else (window.formsuiteTrackQueue = window.formsuiteTrackQueue || []).push({name:'checklist_complete',data:data});
+      }
       button.disabled = true;
       button.hidden = true;
       status.textContent = 'Your self-reported result is noted. This is not an independent product verification or a payment record.';

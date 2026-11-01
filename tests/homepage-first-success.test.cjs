@@ -47,12 +47,12 @@ test("worker redirects the FormCopy home to the homepage", () => {
   assert.match(worker, /Response\.redirect\([\s\S]*301\)/);
 });
 
-function trackedEvents(href, text) {
+function trackedEvents(href, text, options = {}) {
   const sent = [];
   let clickHandler;
   const storage = () => ({ getItem() { return null; }, setItem() {} });
   const window = {
-    location: { hostname: "localhost", origin: "https://localhost", href: "https://localhost/", pathname: "/", search: "" },
+    location: { hostname: "localhost", origin: "https://localhost", href: "https://localhost" + (options.pathname || "/"), pathname: options.pathname || "/", search: "" },
     localStorage: storage(),
     sessionStorage: storage()
   };
@@ -60,7 +60,7 @@ function trackedEvents(href, text) {
     currentScript: { dataset: { endpoint: "https://events.example.test" } },
     referrer: "",
     addEventListener(type, handler) { if (type === "click") clickHandler = handler; },
-    querySelector() { return null; }
+    querySelector(selector) { return selector === "[data-review-prompt]" && options.reviewPrompt ? {} : null; }
   };
   const navigator = { sendBeacon(url, body) { sent.push(JSON.parse(body)); return true; } };
   vm.runInNewContext(tracking, { window, document, navigator, URL, URLSearchParams });
@@ -68,6 +68,43 @@ function trackedEvents(href, text) {
   clickHandler({ target: { closest(selector) { return selector === "a[href]" ? link : null; } } });
   return sent;
 }
+
+test("landing demos are explicit placeholders rather than broken embeds", () => {
+  for (const [product, label] of [["formflow", "FormFlow approve-by-email"], ["formranger", "Choice Sync shorter promo"]]) {
+    const html = fs.readFileSync(path.join(root, product, "index.html"), "utf8");
+    assert.ok(html.includes("<!-- TODO: replace VIDEO_ID when " + label + " demo is published -->"));
+    assert.match(html, /aria-labelledby="demo-title"/);
+    assert.doesNotMatch(html, /<iframe[^>]*VIDEO_ID/);
+  }
+});
+
+test("promo comparison CTAs still emit install_click with the product campaign", () => {
+  for (const file of ["formflow/form-approvals-alternative.html", "formranger/choicetide-alternative-google-forms.html", "formranger/formranger-alternative-google-forms.html"]) {
+    const html = fs.readFileSync(path.join(root, file), "utf8");
+    const links = [...html.matchAll(/href="(https:\/\/workspace\.google\.com\/marketplace\/app\/[^\"]+)"/g)];
+    assert.ok(links.length > 0, file);
+    for (const [, href] of links) {
+      const install = trackedEvents(href.replaceAll("&amp;", "&"), "Install", { pathname: "/" + file }).filter((event) => event.event === "install_click");
+      assert.equal(install.length, 1, href);
+      assert.equal(install[0].destination_utm_campaign, file.startsWith("formflow/") ? "formflow_install" : "choice_sync_install");
+    }
+  }
+});
+
+test("review prompt impression fires once per load only on marked review pages", () => {
+  for (const product of ["formflow", "formranger"]) {
+    const pathname = "/" + product + "/review-after-first-success.html";
+    const html = fs.readFileSync(path.join(root, pathname), "utf8");
+    assert.match(html, /<body data-review-prompt>/);
+    const sent = trackedEvents(formflowInstall.replaceAll("&amp;", "&"), "Review", { pathname, reviewPrompt: true });
+    const impressions = sent.filter((event) => event.event === "review_prompt_shown");
+    assert.equal(impressions.length, 1);
+    assert.equal(impressions[0].source, "codex_smoke_test");
+    assert.equal(impressions[0].page, pathname);
+    assert.equal(sent.filter((event) => event.event === "install_click").length, 0);
+  }
+  assert.equal(trackedEvents(formflowInstall.replaceAll("&amp;", "&"), "Install").filter((event) => event.event === "review_prompt_shown").length, 0);
+});
 
 test("Marketplace install links emit install_click and keep the legacy marketplace event", () => {
   const cases = [

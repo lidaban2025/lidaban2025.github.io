@@ -109,7 +109,7 @@
           <li>Keep the original Google Sheets source column unchanged.</li>
           <li>Install FormSuite Choice Sync and link only one copied-form question.</li>
           <li>Run Preflight. Stop if the file, tab, column, or question check fails.</li>
-          <li>Run Update now and confirm the public respondent preview shows the expected values.</li>
+          <li>Inspect the exact added/removed/unchanged diff and explicitly approve it before Update now. Then confirm the public respondent preview shows the expected values.</li>
         </ol>
       </section>
 
@@ -124,6 +124,9 @@
       </section>
 
       <section class="section" aria-labelledby="choice-comparison-title">
+        <p>Choice Sync uses selected-file access through drive.file rather than broad Drive access. This limits file access to selected files; it does not remove the need to review all requested permissions. Read the <a href="./permissions.html">permissions explanation</a>.</p>
+        <p>Preflight checks source access and mappings before an update. Choice Hygiene highlights duplicates and look-alike labels without rewriting the source Sheet. Review the exact diff, not just the final choice count. Five bounded recovery versions include live-drift checks before restore; recovery is not unlimited backup. Keep a copied form and stop if checks fail.</p>
+        <p>Also evaluating ChoiceTide? Read the <a href="./choicetide-alternative-google-forms.html">Choice Sync vs ChoiceTide comparison</a> for workflow fit and limits.</p>
         <h2 id="choice-comparison-title">Form Ranger-style workflow vs Choice Sync vs custom Apps Script</h2>
         <p>This comparison is for migration decisions, not a claim that every legacy setup behaves the same. Keep the original workflow until one copied-form path succeeds.</p>
         <div class="compact-table">
