@@ -33,8 +33,8 @@
 
   var actions = {
     "not-installed": {
-      label: "Install FormRanger",
-      href: "https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=first_success_state"
+      label: "Install Choice Sync",
+      href: "https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=choice_sync_install&utm_content=first_success_state"
     },
     testing: {
       label: "Run the Alpha/Beta copied-form test",

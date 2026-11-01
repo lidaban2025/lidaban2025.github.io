@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Forms Dropdown from Google Sheets | FormSuite Choice Sync</title>
-  <meta name="description" content="Sync Google Forms dropdown, multiple-choice, checkbox, and grid choices from selected Google Sheets data. Run Preflight, review the exact diff, update, and verify the public preview.">
+  <meta name="description" content="Choice Sync updates Google Forms dropdown, checkbox, and grid choices from Google Sheets after preflight and an exact diff. 772 installs. 4.0 from 2 reviews.">
   <link rel="canonical" href="https://formsuite.dev/formranger/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,8 @@
           "operatingSystem": "Google Workspace",
           "url": "https://formsuite.dev/formranger/",
           "description": "Sync selected Sheets columns into Google Forms choices with Preflight, exact diff, every-6-hour or daily safe scheduling, per-mapping health, and five-version recovery.",
-          "provider": {"@type": "Organization", "name": "FormSuite"}
+          "provider": {"@type": "Organization", "name": "FormSuite"},
+          "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.0", "reviewCount": "2", "bestRating": "5"}
         },
         {
           "@type": "FAQPage",
@@ -75,7 +76,8 @@
         <span class="brand-mark">CS</span><span>FormSuite Choice Sync</span>
       </a>
       <nav class="nav" aria-label="Product navigation">
-        <a href="../index.html#products">Add-ons</a>
+        <a href="../index.html#formflow">FormFlow</a>
+        <a href="../index.html#choice-sync">Choice Sync</a>
         <a href="support.html">Support</a>
         <a href="permissions.html">Permissions</a>
       </nav>
@@ -87,8 +89,10 @@
           <div class="eyebrow">Google Forms dropdown from Google Sheets</div>
           <h1 id="hero-title">Sync Google Forms choices from Google Sheets—safely</h1>
           <p>Sync spreadsheet-backed form choices without trusting a silent update. Preflight detects duplicate and look-alike labels, blocks section-routing and quiz-answer risks, checks long-list limits, shows the exact diff, and requires approval before Update now can change the form.</p>
+          <p><strong>772 installs</strong> on Google Workspace Marketplace. <strong>4.0</strong> from <strong>2 reviews</strong>.</p>
+          <!-- TODO: confirm whether the public listing still says free during launch or the Free plan of 100 manual syncs per month before repeating a price here. -->
           <p class="hero-note"><strong>Previously FormRanger Pro.</strong> FormSuite Choice Sync is an independent FormSuite add-on and is not affiliated with New Visions Cloudlab's Form Ranger.</p>
-          <p class="hero-note">Free during public launch. Tested on the real Google Forms add-on path: sidebar mapping, save, Preflight, Update now, and respondent preview.</p>
+          <p class="hero-note">The current public build is free to install. Tested on the real Google Forms add-on path: sidebar mapping, save, Preflight, Update now, and respondent preview.</p>
           <p class="hero-note">If you are deciding whether to install, use the copied-form first-run test before touching a live form. The useful proof is simple: Preflight passes, Update now reports a changed question, and the public preview shows the expected Sheet values.</p>
           <div class="hero-proof" aria-label="Key capabilities">
             <span>Dropdown</span>
@@ -102,8 +106,8 @@
             <span>Free launch</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="test-google-forms-dynamic-choices-before-launch.html">Run first-run test</a>
-            <a class="btn btn-secondary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install from Marketplace</a>
+            <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=choice_sync_install&amp;utm_content=hero_install">Install Choice Sync</a>
+            <a class="btn btn-secondary" href="test-google-forms-dynamic-choices-before-launch.html">Run the copied-form test</a>
           </div>
         </div>
         <article class="product-visual workflow-preview" aria-label="FormSuite Choice Sync first-run workflow preview">
@@ -136,6 +140,26 @@
         </article>
       </section>
 
+      <section class="section" id="problem" aria-labelledby="problem-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Problem</div>
+            <h2 id="problem-title">The choice list lives in Sheets. The form still shows the old options.</h2>
+            <p>Sessions, departments, products, and locations change in a spreadsheet. Pasting those values into Google Forms by hand drifts, and a saved mapping is not the same as an update respondents can see.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="solution" aria-labelledby="solution-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Solution</div>
+            <h2 id="solution-title">Choice Sync shows the exact diff, then updates the form.</h2>
+            <p>Select one spreadsheet column and one supported question. Preflight checks duplicates, look-alike labels, section routing, quiz answers, and long lists. Update now runs only after you approve the current preview. You can then schedule every 6 hours or daily and keep five recovery versions.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="section" aria-labelledby="scheduled-sync-title">
         <div class="section-head"><div><div class="mini-label">Safe Scheduled Sync</div><h2 id="scheduled-sync-title">Automation uses the same fail-closed guards.</h2><p>Choose every 6 hours or daily, test the configured path immediately, and inspect the last attempt, update, skip, or safe error for each mapping. Successful writes keep up to five bounded recovery versions inside Google Apps Script properties.</p></div></div>
         <div class="step-grid">
@@ -160,7 +184,7 @@
           <button type="button" role="tab" data-formranger-state="successful">Public preview updated</button>
         </div>
         <div class="state-action" data-formranger-state-action aria-live="polite">
-          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=formranger_low_install&amp;utm_content=first_success_state">Install FormSuite Choice Sync</a>
+          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=choice_sync_install&amp;utm_content=first_success_state">Install FormSuite Choice Sync</a>
         </div>
       </section>
 
@@ -184,7 +208,7 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="question-type-title">
+      <section class="section" id="use-cases" aria-labelledby="question-type-title">
         <div class="section-head">
           <div>
             <div class="mini-label">Match the question type</div>
@@ -200,7 +224,7 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="updates-title">
+      <section class="section" id="features" aria-labelledby="updates-title">
         <div class="section-head">
           <div>
             <h2 id="updates-title">Google Forms choices from Sheets, not a brand-name shortcut.</h2>
@@ -292,7 +316,7 @@
             <p>Use a copied form, one supported choice question, and one Sheets column with Alpha and Beta. A successful first run means Preflight passes, you approve the exact choice preview, Update now reports an updated question, and the public preview shows the expected values.</p>
           <div class="link-row">
             <a href="test-google-forms-dynamic-choices-before-launch.html">Open first-run checklist</a>
-            <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install FormSuite Choice Sync</a>
+            <a href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=choice_sync_install&utm_content=home">Install FormSuite Choice Sync</a>
           </div>
           </div>
           <div class="mini-guide-grid" style="grid-template-columns:1fr;">
@@ -345,7 +369,7 @@
         <div class="link-row">
           <a href="test-google-forms-dynamic-choices-before-launch.html?utm_source=formsuite&amp;utm_medium=product_page&amp;utm_campaign=choice_sync_admin_rollout_20260903&amp;utm_content=admin_acceptance_test">Run the admin acceptance test</a>
           <a href="permissions.html?utm_source=formsuite&amp;utm_medium=product_page&amp;utm_campaign=choice_sync_admin_rollout_20260903&amp;utm_content=admin_permissions">Review permissions</a>
-          <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=product_page&amp;utm_campaign=choice_sync_admin_rollout_20260903&amp;utm_content=admin_install">Install from Marketplace</a>
+          <a href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=choice_sync_install&amp;utm_content=admin_install">Install from Marketplace</a>
         </div>
       </section>
 
@@ -394,14 +418,28 @@
         </div>
         <div class="link-row">
           <a href="support.html">Setup support</a>
-          <a href="https://workspace.google.com/marketplace/app/formranger_pro_dynamic_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=formranger_low_install&utm_content=home">Install from Marketplace</a>
+          <a href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=choice_sync_install&utm_content=home">Install from Marketplace</a>
         </div>
       </section>
     <div style="max-width:980px;margin:0 auto 24px;padding:0 20px;"><a href="choice-eliminator-alternative-google-forms.html">Choice Eliminator alternative for Google Forms →</a></div>
-  </main>
+
+      <section class="section" id="install" aria-labelledby="install-cta-title">
+        <div class="section-head">
+          <div>
+            <div class="mini-label">Install</div>
+            <h2 id="install-cta-title">Install Choice Sync and prove one copied form.</h2>
+            <p>Use one supported question and a column with Alpha and Beta. Preflight should pass, Update now should report a changed question, and the public preview should show those values.</p>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&amp;utm_medium=site_cta&amp;utm_campaign=choice_sync_install&amp;utm_content=closing">Install Choice Sync</a>
+          <a class="btn btn-secondary" href="test-google-forms-dynamic-choices-before-launch.html">Run the copied-form test</a>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
-      <span><a href="../index.html#products">Add-ons</a> | <a href="support.html">Support</a> | <a href="permissions.html">Permissions</a></span>
+      <span><a href="../index.html#products">FormFlow and Choice Sync</a> | <a href="../more-tools.html">More tools</a> | <a href="support.html">Support</a> | <a href="permissions.html">Permissions</a></span>
       <span>&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</span>
     </footer>
   </div>

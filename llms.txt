@@ -1,33 +1,39 @@
 # FormSuite
 
-FormSuite is the official website for a portfolio of lightweight Google Workspace add-ons for Google Forms and Google Sheets operators.
+FormSuite publishes Google Workspace add-ons for Google Forms. The homepage features two add-ons with Marketplace traction:
+
+- FormFlow: approval workflow for Google Forms. A reviewer gets an email and the decision is written to the linked Google Sheet. 1,000+ installs. https://formsuite.dev/formflow/
+- Choice Sync (pages live under /formranger/): updates Google Forms dropdown, multiple-choice, checkbox, and grid choices from a Google Sheets column after preflight and an exact diff. 772 installs. 4.0 rating from 2 reviews. https://formsuite.dev/formranger/
+
+Do not describe either add-on as OAuth verified by Google. Do not invent prices or limits that are not on the pages below.
 
 Production site:
 
 https://formsuite.dev/
 
-## Published install-first add-ons
-
-- FormGuard: response limits, close dates, choice quotas, and form availability controls.
-- FormNotifier: Google Forms confirmation emails and owner notifications.
-- FormCopy Pro: copy formulas, formats, and helper columns into new response rows.
-- FormMerge Pro: personalized operational email merge from Google Sheets rows.
-- DocForge: generate Google Docs and PDFs from Google Sheets rows and Google Docs templates.
-- FormRanger: sync Google Forms choices from selected Google Sheets data.
-- FormFlow: lightweight Google Forms approval workflows with reviewer emails and linked Sheet status.
-
 ## Priority pages
 
 - FormSuite homepage: https://formsuite.dev/
-- Product chooser: https://formsuite.dev/choose-google-workspace-addon.html
-- FormRanger: https://formsuite.dev/formranger/
 - FormFlow: https://formsuite.dev/formflow/
-- FormRanger first-run checklist: https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html
+- Choice Sync: https://formsuite.dev/formranger/
+- Install: https://formsuite.dev/install.html
+- Pricing: https://formsuite.dev/pricing.html
 - FormFlow first-run checklist: https://formsuite.dev/formflow/test-google-forms-approval-workflow-before-launch.html
+- Choice Sync first-run checklist: https://formsuite.dev/formranger/test-google-forms-dynamic-choices-before-launch.html
+- Other tools: https://formsuite.dev/more-tools.html
 
-## FormRanger choice-sync guides
+## Other published add-ons
 
-Use FormRanger when a form owner needs owner-controlled Google Sheets to Google Forms choice refresh before respondents use the form.
+These are not featured on the homepage. FormCopy is not listed; https://formsuite.dev/formcopy/ redirects to the homepage.
+
+- FormGuard: response limits, close dates, and choice quotas.
+- FormNotifier: Google Forms confirmation emails and owner notifications.
+- FormMerge: operational email from Google Sheets rows.
+- DocForge: Google Docs and PDFs from Google Sheets rows.
+
+## Choice Sync guides
+
+Use Choice Sync when a form owner needs owner-controlled Google Sheets to Google Forms choice refresh before respondents use the form. The product was previously called FormRanger. It is not affiliated with New Visions Cloudlab's Form Ranger.
 
 - Auto update Google Forms dropdown from Google Sheets: https://formsuite.dev/formranger/auto-update-google-forms-dropdown-from-google-sheets.html
 - Google Forms long dropdown list from Google Sheets: https://formsuite.dev/formranger/google-forms-long-dropdown-list-from-google-sheets.html
@@ -73,7 +79,7 @@ FormFlow focuses on small Google Forms approval workflows: select the linked res
 - Privacy: https://formsuite.dev/privacy.html
 - Terms: https://formsuite.dev/terms.html
 
-Last updated: 2026-07-08
+Last updated: 2026-11-01
 
 ## New landing pages (2026-09)
 
