@@ -29,4 +29,20 @@ if (!start.test(code) || !end.test(code)) throw Error('Unexpected submit handler
 code=code.replace(start,'function onFormSubmitHandler(e) {\n  LC_BACKGROUND_LICENSE_CONTEXT = true;\n  try {');
 code=code.replace(end,'    saveFormFlowReport_(false, [err.message]);\n  } finally {\n    LC_BACKGROUND_LICENSE_CONTEXT = false;\n  }\n}');
 fs.writeFileSync(codePath,code);
+// A failed usage read is not evidence of zero usage. Fail closed before
+// creating an approval; this does not delete the original Google response.
+// Automatic retry requires separate response-to-row correlation and is NOT
+// implemented by this candidate.
+const usagePath=path.join(destination,'UsageManager.js');
+let usage=fs.readFileSync(usagePath,'utf8');
+const unsafe='try { usage = getMonthlyCount(getOrCreateResponseSheet()); } catch (e) {}';
+if (!usage.includes(unsafe)) throw Error('Unexpected quota read; candidate not ready');
+usage=usage.replace(unsafe,"try { usage = getMonthlyCount(getOrCreateResponseSheet()); } catch (e) { return {allowed:false,isPro:false,reason:'USAGE_UNAVAILABLE',usage:null,limit:FF_FREE_RUNS_PER_MONTH,message:'Usage could not be checked. Approval was not sent; check the Google Form responses and contact support.'}; }");
+fs.writeFileSync(usagePath,usage);
+const enginePath=path.join(destination,'ApprovalEngine.js');
+let engine=fs.readFileSync(enginePath,'utf8');
+const gate='  if (!availability.allowed) {';
+if (!engine.includes(gate)) throw Error('Unexpected submission gate; candidate not ready');
+engine=engine.replace(gate,"  if (!availability.allowed && availability.reason === 'USAGE_UNAVAILABLE') throw new Error('Approval was not sent because usage could not be checked. Check the Google Form responses and contact support.');\n"+gate);
+fs.writeFileSync(enginePath,engine);
 console.log('Local audit candidate prepared; no deployment performed.');

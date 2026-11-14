@@ -55,10 +55,32 @@ test('deactivation removes stored entitlement and returns to the free limit',()=
   assert.equal(c.activateLicense(key).success,true); assert.equal(c.deactivateLicense().success,true);
   assert.equal(user.has('key'),false); assert.equal(c.checkSubmissionAvailability().allowed,false);
 });
-test('documents unresolved quota risk: sheet read error currently falls back to zero usage',()=>{
-  const {c}=fixture('formflow-84-local-candidate');
+test('version 84 treats a failed usage read as zero usage',()=>{
+  const {c}=fixture('formflow-84');
   c.getMonthlyCount=()=>{throw Error('synthetic read failure');};
   const result=c.checkSubmissionAvailability(); assert.equal(result.allowed,true); assert.equal(result.usage,0);
+});
+test('candidate refuses to send a new approval when usage cannot be checked',()=>{
+  const {c,root}=fixture('formflow-84-local-candidate');
+  c.getMonthlyCount=()=>{throw Error('synthetic read failure');};
+  assert.equal(c.checkSubmissionAvailability().reason,'USAGE_UNAVAILABLE');
+  c.syncContainerPropertiesToScriptProperties_=()=>{}; c.syncFormDestinationToScriptProperties_=()=>{};
+  c.pruneTerminalApprovalState_=()=>{}; c.getConfig=()=>({enabled:true});
+  let writes=0; c.writeApprovalRecord=()=>{writes++}; c.sendApprovalRequest=()=>{writes++};
+  vm.runInContext(fs.readFileSync(path.join(root,'ApprovalEngine.js'),'utf8'),c);
+  assert.throws(()=>c.processSubmission({},{}),/usage could not be checked/); assert.equal(writes,0);
+});
+test('documents retry blocker: submission engine writes the last row rather than locating its response',()=>{
+  const {c,root}=fixture('formflow-84-local-candidate');
+  c.syncContainerPropertiesToScriptProperties_=()=>{}; c.syncFormDestinationToScriptProperties_=()=>{}; c.pruneTerminalApprovalState_=()=>{};
+  c.getConfig=()=>({enabled:true}); c.checkSubmissionAvailability=()=>({allowed:true});
+  c.getOrCreateResponseSheet=()=>({getLastRow:()=>3}); c.ensureApprovalColumns=()=>{};
+  c.generateApprovalId=()=> 'synthetic-id'; c.getActiveFormTitleSafe_=()=> 'Synthetic';
+  let row=0; c.writeApprovalRecord=(_sheet,n)=>{row=n}; c.saveApprovalSheetLocator_=()=>{throw Error('stop after write');};
+  vm.runInContext(fs.readFileSync(path.join(root,'ApprovalEngine.js'),'utf8'),c);
+  c.generateApprovalId=()=> 'synthetic-id'; c.getActiveFormTitleSafe_=()=> 'Synthetic';
+  const older={getRespondentEmail:()=>'',getItemResponses:()=>[],getId:()=> 'older-response-at-row-2'};
+  assert.throws(()=>c.processSubmission(older,{}),/stop after write/); assert.equal(row,3);
 });
 test('candidate manifest declares external request for online validation',()=>{
   const {root}=fixture('formflow-84-local-candidate'); const manifest=JSON.parse(fs.readFileSync(path.join(root,'appsscript.json'),'utf8').replace(/^\uFEFF/,''));
