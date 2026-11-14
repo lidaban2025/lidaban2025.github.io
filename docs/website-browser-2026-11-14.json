@@ -1,0 +1,76 @@
+{
+  "scope": "Actual built website UI only. All nonlocalhost network blocked. No Google add-on installation, OAuth, payment, customer data or production telemetry.",
+  "checks": [
+    {
+      "width": 1280,
+      "route": "/",
+      "visibleReleaseGuidance": true,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1280,
+      "route": "/pricing.html",
+      "visibleReleaseGuidance": true,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1280,
+      "route": "/formflow/",
+      "visibleReleaseGuidance": true,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1280,
+      "route": "/formflow/free-google-forms-approval-workflow.html",
+      "visibleReleaseGuidance": true,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1280,
+      "route": "/formranger/",
+      "visibleReleaseGuidance": false,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "visibleReleaseGuidance": true,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "route": "/pricing.html",
+      "visibleReleaseGuidance": true,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "route": "/formflow/",
+      "visibleReleaseGuidance": true,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "route": "/formflow/free-google-forms-approval-workflow.html",
+      "visibleReleaseGuidance": true,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "route": "/formranger/",
+      "visibleReleaseGuidance": false,
+      "noDirectCheckout": true,
+      "noOverflow": true
+    }
+  ],
+  "passed": true
+}

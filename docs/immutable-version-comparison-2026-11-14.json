@@ -1,0 +1,164 @@
+{
+  "scope": "Readonly immutable Apps Script snapshots, not execution, Marketplace SDK inspection or an OAuth approval check. No source content/credentials exported.",
+  "products": [
+    {
+      "product": "formflow",
+      "publicVersionReportedByUser": 83,
+      "newerDeploymentVersion": 84,
+      "changedFiles": [
+        "ApprovalEngine.js",
+        "AuditTools.js",
+        "Code.js",
+        "ConfigManager.js",
+        "EmailService.js",
+        "HistorySidebar.html",
+        "LicenseCore.js",
+        "LicenseManager.js",
+        "PickerDialog.html",
+        "PickerService.js",
+        "ReviewEngine.js",
+        "SheetManager.js",
+        "Sidebar.html",
+        "Styles.html",
+        "Telemetry.js",
+        "UsageManager.js",
+        "WebApp.js",
+        "WebAppPage.html",
+        "appsscript.json"
+      ],
+      "newFiles": [
+        "LicenseCore.js",
+        "LicenseManager.js",
+        "ReviewEngine.js"
+      ],
+      "removedFiles": [],
+      "addedOAuthScopes": [],
+      "removedOAuthScopes": [],
+      "oldManifestScopes": [
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/forms.currentonly",
+        "https://www.googleapis.com/auth/script.container.ui",
+        "https://www.googleapis.com/auth/script.scriptapp",
+        "https://www.googleapis.com/auth/script.send_mail",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+      ],
+      "newManifestScopes": [
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/forms.currentonly",
+        "https://www.googleapis.com/auth/script.container.ui",
+        "https://www.googleapis.com/auth/script.scriptapp",
+        "https://www.googleapis.com/auth/script.send_mail",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+      ],
+      "publicSnapshotIndicators": {
+        "licenseRelatedFunctionNames": [],
+        "numericPlanLines": [
+          "MAX_LEVELS: 5,",
+          "MAX_APPROVERS_PER_LEVEL: 999"
+        ]
+      },
+      "candidateSnapshotIndicators": {
+        "licenseRelatedFunctionNames": [
+          "activateLicense",
+          "activateProKey",
+          "deactivateLicense",
+          "getLicenseInfo",
+          "getLicenseStatus",
+          "lcActivate_",
+          "refreshLicense"
+        ],
+        "numericPlanLines": [
+          "MAX_LEVELS: 5,",
+          "MAX_APPROVERS_PER_LEVEL: 999"
+        ]
+      }
+    },
+    {
+      "product": "choice",
+      "publicVersionReportedByUser": 116,
+      "newerDeploymentVersion": 117,
+      "changedFiles": [
+        "AIService.js",
+        "AuditTools.js",
+        "AutomationContext.js",
+        "Code.js",
+        "CommercialAutomation.js",
+        "CommercialSelfTest.js",
+        "ConfigManager.js",
+        "FirstRunState.js",
+        "LicenseCore.js",
+        "LicenseManager.js",
+        "OnlineLicenseStatus.js",
+        "PaidLoopQaState.js",
+        "PickerDialog.html",
+        "PickerService.js",
+        "RangerEngine.js",
+        "ReviewEngine.js",
+        "Sidebar.html",
+        "Telemetry.js",
+        "appsscript.json"
+      ],
+      "newFiles": [],
+      "removedFiles": [
+        "CommercialSelfTest.js",
+        "PaidLoopQaState.js"
+      ],
+      "addedOAuthScopes": [
+        "https://www.googleapis.com/auth/forms.currentonly"
+      ],
+      "removedOAuthScopes": [
+        "https://www.googleapis.com/auth/forms",
+        "https://www.googleapis.com/auth/script.external_request"
+      ],
+      "oldManifestScopes": [
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/forms",
+        "https://www.googleapis.com/auth/script.container.ui",
+        "https://www.googleapis.com/auth/script.external_request",
+        "https://www.googleapis.com/auth/script.scriptapp",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+      ],
+      "newManifestScopes": [
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/forms.currentonly",
+        "https://www.googleapis.com/auth/script.container.ui",
+        "https://www.googleapis.com/auth/script.scriptapp",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+      ],
+      "publicSnapshotIndicators": {
+        "licenseRelatedFunctionNames": [
+          "activateLicense",
+          "activateProKey",
+          "deactivateLicense",
+          "generateAIPlan",
+          "getLicenseInfo",
+          "getLicenseStatus",
+          "lcActivate_",
+          "refreshLicense",
+          "suggestRangerSetupPlan"
+        ],
+        "numericPlanLines": [
+          "var FREE_QUESTION_LIMIT = 3; // free: 3 questions linked"
+        ]
+      },
+      "candidateSnapshotIndicators": {
+        "licenseRelatedFunctionNames": [
+          "activateLicense",
+          "deactivateLicense",
+          "generateAIPlan",
+          "getLicenseInfo",
+          "getLicenseStatus",
+          "lcActivate_",
+          "suggestRangerSetupPlan"
+        ],
+        "numericPlanLines": [
+          "var FREE_QUESTION_LIMIT = 3; // free: 3 questions linked"
+        ]
+      }
+    }
+  ]
+}
