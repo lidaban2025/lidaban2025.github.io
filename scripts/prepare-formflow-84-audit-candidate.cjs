@@ -11,12 +11,14 @@ const destination = path.join(base, 'formflow-84-local-candidate');
 fs.mkdirSync(destination, {recursive:true});
 const allowed = new Set(fs.readdirSync(source).filter(name => name !== '.clasp.json' && /\.(js|html|json)$/.test(name)));
 allowed.add('OnlineLicenseStatus.js');
+allowed.add('SubmissionSafety.js');
 if (fs.readdirSync(destination).some(name => !allowed.has(name))) throw Error('Unexpected file in candidate directory');
 for (const name of fs.readdirSync(source)) {
   if (name === '.clasp.json' || !/\.(js|html|json)$/.test(name)) continue;
   fs.copyFileSync(path.join(source,name),path.join(destination,name));
 }
 fs.copyFileSync(path.join(base,'choice-116','OnlineLicenseStatus.js'),path.join(destination,'OnlineLicenseStatus.js'));
+fs.copyFileSync(path.join(__dirname,'formflow-candidate','SubmissionSafety.js'),path.join(destination,'SubmissionSafety.js'));
 const manifestPath=path.join(destination,'appsscript.json');
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8').replace(/^\uFEFF/,''));
 const scope='https://www.googleapis.com/auth/script.external_request';
@@ -35,6 +37,11 @@ const end=/    saveFormFlowReport_\(false, \[err\.message\]\);\r?\n  \}\r?\n\}/;
 if (!start.test(code) || !end.test(code)) throw Error('Unexpected submit handler; candidate not ready');
 code=code.replace(start,'function onFormSubmitHandler(e) {\n  LC_BACKGROUND_LICENSE_CONTEXT = true;\n  try {');
 code=code.replace(end,'    saveFormFlowReport_(false, [err.message]);\n  } finally {\n    LC_BACKGROUND_LICENSE_CONTEXT = false;\n  }\n}');
+code=code.replace("    .addItem('View Approval History', 'showHistorySidebar')","    .addItem('View Approval History', 'showHistorySidebar')\n    .addItem('Retry oldest unsent request', 'retryOldestUnsentSubmission')");
+const oldDispatch="    processSubmission(formResponse, e);";
+if (!code.includes(oldDispatch)) throw Error('Unexpected dispatch call');
+code=code.replace(oldDispatch,"    var submission = processSubmission(formResponse, e);");
+code=code.replace("saveFormFlowReport_(true, ['Approval request created for a new submission.']);","saveFormFlowReport_(!!(submission && submission.success), [submission && submission.success ? 'Approval request created for a new submission.' : 'Approval request was not sent. Check the workflow and quota, then use Retry oldest unsent request.']);");
 fs.writeFileSync(codePath,code);
 // A failed usage read is not evidence of zero usage. Fail closed before
 // creating an approval; this does not delete the original Google response.
@@ -52,5 +59,17 @@ engine=restoreFunctionGroup(engine,fs.readFileSync(path.join(stable,'ApprovalEng
 const gate='  if (!availability.allowed) {';
 if (!engine.includes(gate)) throw Error('Unexpected submission gate; candidate not ready');
 engine=engine.replace(gate,"  if (!availability.allowed && availability.reason === 'USAGE_UNAVAILABLE') throw new Error('Approval was not sent because usage could not be checked. Check the Google Form responses and contact support.');\n"+gate);
+const split=engine.indexOf('function processApproval(');
+if(split<0) throw Error('Missing submission boundary');
+let intake=engine.slice(0,split);
+if((intake.match(/var lastRow = sheet.getLastRow\(\);/g)||[]).length!==2) throw Error('Unexpected last-row pattern');
+intake=intake.replace('function processSubmission(formResponse, event) {','function processSubmissionUnlocked_(formResponse, event) {');
+intake=intake.replace('  var availability = checkSubmissionAvailability();','  var verifiedSheet = getOrCreateResponseSheet();\n  var verifiedRow = ffLocateSubmissionRow_(verifiedSheet, formResponse, event);\n  var availability = checkSubmissionAvailability();');
+intake=intake.replace(/var sheet = getOrCreateResponseSheet\(\);/g,'var sheet = verifiedSheet;');
+intake=intake.replace(/var lastRow = sheet.getLastRow\(\);/g,'var lastRow = verifiedRow;');
+intake=intake.replace('    return;',"    return {success:false,reason:'disabled'};");
+intake=intake.replace('    return;',"    return {success:false,reason:'quota'};");
+intake=intake.replace(/\r?\n\}\s*$/, '\n  return {success:true};\n}\n\n');
+engine=intake+engine.slice(split);
 fs.writeFileSync(enginePath,engine);
 console.log('Local audit candidate prepared; no deployment performed.');
