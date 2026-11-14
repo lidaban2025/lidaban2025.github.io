@@ -9,6 +9,13 @@ const names=fs.readdirSync(source).filter(n=>n!=='.clasp.json' && /\.(js|html|js
 const allowed=new Set(names);
 if(fs.readdirSync(dest).some(n=>!allowed.has(n))) throw Error('Unexpected file in candidate directory');
 for(const n of names) fs.copyFileSync(path.join(source,n),path.join(dest,n));
+// Restore the previously deployed purchase/activation UI and startup retry.
+// This is a compatibility candidate, not a claim that all 117 UI changes are retained.
+fs.copyFileSync(path.join(old,'Sidebar.html'),path.join(dest,'Sidebar.html'));
+// The restored sidebar also calls the optional repeat-sync telemetry endpoint.
+fs.copyFileSync(path.join(old,'Telemetry.js'),path.join(dest,'Telemetry.js'));
+// Preserve form-scoped onboarding state when an unattended job has no editor.
+fs.copyFileSync(path.join(old,'FirstRunState.js'),path.join(dest,'FirstRunState.js'));
 const manifestPath=path.join(dest,'appsscript.json');
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8').replace(/^\uFEFF/,''));
 manifest.oauthScopes=manifest.oauthScopes.filter(s=>s!=='https://www.googleapis.com/auth/forms.currentonly');

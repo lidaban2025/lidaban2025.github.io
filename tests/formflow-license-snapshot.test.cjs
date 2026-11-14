@@ -34,11 +34,31 @@ test('candidate refuses initial activation while service is unavailable',()=>{
   const {c,key,state,user}=fixture('formflow-84-local-candidate'); state.network=false;
   assert.equal(c.activateLicense(key).success,false); assert.equal(user.has('key'),false);
 });
+test('candidate does not activate for a different Google account',()=>{
+  const {c,key,user}=fixture('formflow-84-local-candidate');
+  c.Session.getActiveUser=()=>({getEmail:()=> 'other@example.invalid'});
+  assert.equal(c.activateLicense(key).success,false); assert.equal(user.has('key'),false);
+});
+test('candidate never treats a test-realm response as a live purchase',()=>{
+  const {c,key,user}=fixture('formflow-84-local-candidate');
+  c.UrlFetchApp.fetch=()=>({getResponseCode:()=>200,getContentText:()=>JSON.stringify({ok:true,status:'active',prefix:'FF',plan:'pro',realm:'test',expiry:'2099-01-01T00:00:00Z'})});
+  assert.equal(c.activateLicense(key).success,false); assert.equal(user.has('key'),false);
+});
 test('candidate refreshes revoked entitlement for unattended submissions',()=>{
   const {c,key,state}=fixture('formflow-84-local-candidate'); state.usage=50;
   assert.equal(c.activateLicense(key).success,true); state.status='revoked';
   c.LC_BACKGROUND_LICENSE_CONTEXT=true;
   assert.equal(c.getLicenseStatus().isPro,false); assert.equal(c.checkSubmissionAvailability().allowed,false);
+});
+test('deactivation removes stored entitlement and returns to the free limit',()=>{
+  const {c,key,state,user}=fixture('formflow-84-local-candidate'); state.usage=50;
+  assert.equal(c.activateLicense(key).success,true); assert.equal(c.deactivateLicense().success,true);
+  assert.equal(user.has('key'),false); assert.equal(c.checkSubmissionAvailability().allowed,false);
+});
+test('documents unresolved quota risk: sheet read error currently falls back to zero usage',()=>{
+  const {c}=fixture('formflow-84-local-candidate');
+  c.getMonthlyCount=()=>{throw Error('synthetic read failure');};
+  const result=c.checkSubmissionAvailability(); assert.equal(result.allowed,true); assert.equal(result.usage,0);
 });
 test('candidate manifest declares external request for online validation',()=>{
   const {root}=fixture('formflow-84-local-candidate'); const manifest=JSON.parse(fs.readFileSync(path.join(root,'appsscript.json'),'utf8').replace(/^\uFEFF/,''));
