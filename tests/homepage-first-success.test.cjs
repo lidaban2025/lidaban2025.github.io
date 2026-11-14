@@ -15,7 +15,8 @@ const choiceInstall = "https://workspace.google.com/marketplace/app/formsuite_ch
 test("homepage promotes FormFlow and Choice Sync with real Marketplace figures", () => {
   assert.match(homepage, /Approval workflows and Sheets-backed choices for Google Forms/);
   assert.match(homepage, /1,000\+ installs/);
-  assert.match(homepage, /772 installs/);
+  assert.match(homepage, /780 installs/);
+  assert.match(homepage, /Marketplace snapshot checked 14 November 2026/);
   assert.match(homepage, /4\.0/);
   assert.match(homepage, /2 reviews/);
   assert.match(homepage, new RegExp(formflowInstall.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
