@@ -6,6 +6,7 @@ const path = require('node:path');
 const base = process.env.FORMFLOW_AUDIT_ROOT;
 if (!base) throw Error('Set FORMFLOW_AUDIT_ROOT to the isolated audit directory');
 const source = path.join(base, 'formflow-84');
+const stable = path.join(base, 'formflow-83');
 const destination = path.join(base, 'formflow-84-local-candidate');
 fs.mkdirSync(destination, {recursive:true});
 const allowed = new Set(fs.readdirSync(source).filter(name => name !== '.clasp.json' && /\.(js|html|json)$/.test(name)));
@@ -23,6 +24,12 @@ if (!manifest.oauthScopes.includes(scope)) manifest.oauthScopes.push(scope);
 fs.writeFileSync(manifestPath,JSON.stringify(manifest,null,2)+'\n');
 const codePath=path.join(destination,'Code.js');
 let code=fs.readFileSync(codePath,'utf8');
+function restoreFunctionGroup(target, oldText, first, next) {
+  const a=target.indexOf(first), b=target.indexOf(next,a), x=oldText.indexOf(first), y=oldText.indexOf(next,x);
+  if(a<0 || b<0 || x<0 || y<0) throw Error('Expected function boundary not found; candidate not ready');
+  return target.slice(0,a)+oldText.slice(x,y)+target.slice(b);
+}
+code=restoreFunctionGroup(code,fs.readFileSync(path.join(stable,'Code.js'),'utf8'),'function syncPendingApprovalDecisions() {','function include(filename) {');
 const start=/function onFormSubmitHandler\(e\) \{\r?\n  try \{/;
 const end=/    saveFormFlowReport_\(false, \[err\.message\]\);\r?\n  \}\r?\n\}/;
 if (!start.test(code) || !end.test(code)) throw Error('Unexpected submit handler; candidate not ready');
@@ -41,6 +48,7 @@ usage=usage.replace(unsafe,"try { usage = getMonthlyCount(getOrCreateResponseShe
 fs.writeFileSync(usagePath,usage);
 const enginePath=path.join(destination,'ApprovalEngine.js');
 let engine=fs.readFileSync(enginePath,'utf8');
+engine=restoreFunctionGroup(engine,fs.readFileSync(path.join(stable,'ApprovalEngine.js'),'utf8'),'function processQueuedApprovalDecisions_() {','function canCurrentUserAccessApprovalSheet_(spreadsheetId) {');
 const gate='  if (!availability.allowed) {';
 if (!engine.includes(gate)) throw Error('Unexpected submission gate; candidate not ready');
 engine=engine.replace(gate,"  if (!availability.allowed && availability.reason === 'USAGE_UNAVAILABLE') throw new Error('Approval was not sent because usage could not be checked. Check the Google Form responses and contact support.');\n"+gate);
