@@ -95,4 +95,27 @@ test('submission uses the trigger owner and clears background mode even when pro
   vm.runInContext(fs.readFileSync(path.join(root,'Code.js'),'utf8'),c,{filename:'Code.js'});
   c.onFormSubmitHandler({response:{}}); assert.equal(c.LC_BACKGROUND_LICENSE_CONTEXT,false);
 });
+test('manual sync uses the current form selection and forbids global fallback',()=>{
+  const {c,root}=fixture('formflow-84-local-candidate');
+  vm.runInContext(fs.readFileSync(path.join(root,'Code.js'),'utf8'),c);
+  c.getActiveFormSafe_=()=>({}); let scope;
+  c.getResponseSheetSelection=o=>{assert.equal(o.includeScriptFallback,false);return {spreadsheetId:'synthetic-own',sheetName:'responses'}};
+  c.processQueuedApprovalDecisions_=s=>{scope=s;return {processed:1,pending:1,inaccessible:0}};
+  assert.equal(c.syncPendingApprovalDecisions().processed,1);
+  assert.deepEqual(JSON.parse(JSON.stringify(scope)),{spreadsheetId:'synthetic-own',sheetName:'responses'});
+  c.getResponseSheetSelection=()=>null;assert.throws(()=>c.syncPendingApprovalDecisions(),/select its linked response Sheet/);
+});
+test('scoped queue sync leaves other forms and malformed entries untouched',()=>{
+  const {c,root}=fixture('formflow-84-local-candidate'); const prefix='TEST_QUEUE_';
+  const values={TEST_QUEUE_own:JSON.stringify({approvalId:'own'}),TEST_QUEUE_other:JSON.stringify({approvalId:'other'}),TEST_QUEUE_bad:'{bad'};
+  c.APPROVAL_DECISION_QUEUE_PREFIX=prefix;
+  c.PropertiesService.getScriptProperties=()=>({getProperties:()=>({...values}),deleteProperty:k=>delete values[k]});
+  c.getApprovalSheetLocator_=id=>({spreadsheetId:id==='own'?'own-sheet':'other-sheet',sheetName:'responses'});
+  c.Sheets={Spreadsheets:{get:()=>({})}};
+  vm.runInContext(fs.readFileSync(path.join(root,'ApprovalEngine.js'),'utf8'),c);
+  const processed=[];c.processApproval=id=>{processed.push(id);return {success:true}};c.refreshApprovalSnapshotFromSheet_=()=>{};
+  const result=c.processQueuedApprovalDecisions_({spreadsheetId:'own-sheet',sheetName:'responses'});
+  assert.equal(result.processed,1);assert.deepEqual(processed,['own']);
+  assert.equal(values.TEST_QUEUE_own,undefined);assert.ok(values.TEST_QUEUE_other);assert.equal(values.TEST_QUEUE_bad,'{bad');
+});
 
