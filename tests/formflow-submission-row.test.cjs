@@ -11,7 +11,7 @@ function fixture(){
     Utilities:{formatDate:(d,_z,f)=>f==='Z'?'+0000':d.toISOString().slice(0,-1),getUuid:()=> 'synthetic-uuid'},
     PropertiesService:{getUserProperties:()=>({getProperty:k=>data.properties.get(k)||null,setProperty:(k,v)=>data.properties.set(k,v),deleteProperty:k=>data.properties.delete(k)})},
     FormApp:{getActiveForm:()=>form,getUi:()=>({alert:m=>data.alerts.push(m)})},
-    quoteSheetNameForA1_:n=>"'"+n+"'",LockService:{getScriptLock:()=>({tryLock:()=>true,releaseLock:()=>data.released++})}});
+    quoteSheetNameForA1_:n=>"'"+n+"'",LockService:{getUserLock:()=>({tryLock:()=>true,releaseLock:()=>{}}),getScriptLock:()=>({tryLock:()=>true,releaseLock:()=>data.released++})}});
   vm.runInContext(source,c);return {c,data,response,event:{source:form},sheet:{spreadsheetId:'sheet',sheetName:'responses'}};
 }
 test('delayed response resolves its own row, not the newer last row',()=>{
@@ -86,4 +86,15 @@ test('recovery list stays bounded without evicting earlier failed requests',()=>
   const f=fixture();const records=Array.from({length:20},(_,i)=>({id:'old-'+i,firstSeen:stamp.toISOString()}));
   const before=JSON.stringify(records);f.data.properties.set('FF_UNSENT_form',before);
   assert.throws(()=>f.c.ffRememberSubmission_(f.response,f.event,false),/full/);assert.equal(f.data.properties.get('FF_UNSENT_form'),before);
+});
+test('busy recovery storage never performs an unlocked write',()=>{
+  const f=fixture();f.c.LockService.getUserLock=()=>({tryLock:()=>false,releaseLock:()=>assert.fail('unheld lock')});
+  assert.throws(()=>f.c.ffRememberSubmission_(f.response,f.event,false),/storage is busy/);
+  assert.equal(f.data.properties.size,0);
+});
+test('recovery storage lock releases after a failed property write',()=>{
+  const f=fixture();let released=0;
+  f.c.LockService.getUserLock=()=>({tryLock:()=>true,releaseLock:()=>released++});
+  f.c.PropertiesService.getUserProperties=()=>({getProperty:()=>null,setProperty:()=>{throw Error('synthetic storage failure')}});
+  assert.throws(()=>f.c.ffRememberSubmission_(f.response,f.event,false),/synthetic storage failure/);assert.equal(released,1);
 });

@@ -70,6 +70,12 @@ function processSubmission(response, event) {
 
 function ffRecoveryKey_(form) { return 'FF_UNSENT_' + form.getId(); }
 function ffRememberSubmission_(response, event, completed) {
+  var lock = LockService.getUserLock();
+  if (!lock.tryLock(5000)) throw new Error('Recovery storage is busy. Check the response before retrying.');
+  try { return ffRememberSubmissionUnlocked_(response, event, completed); }
+  finally { lock.releaseLock(); }
+}
+function ffRememberSubmissionUnlocked_(response, event, completed) {
   var form = event && event.source;
   if (!form || !response || !form.getId || !response.getId) return;
   var id = response.getId();

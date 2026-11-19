@@ -13,7 +13,7 @@ function fixture(name) {
     Session:{getActiveUser:()=>({getEmail:()=>email}),getEffectiveUser:()=>({getEmail:()=>email})},
     UrlFetchApp:{fetch:()=>{if(!state.network)throw Error('synthetic outage');return {getResponseCode:()=>state.status==='active'?200:403,getContentText:()=>JSON.stringify({ok:state.status==='active',status:state.status,prefix:'FF',plan:'pro',realm:'live',expiry:'2099-01-01T00:00:00Z'})}}},
     Utilities:{MacAlgorithm:{HMAC_SHA_256:'sha256'},computeHmacSignature:(_,m,k)=>[...crypto.createHmac('sha256',k).update(m).digest()],base64EncodeWebSafe:b=>Buffer.from(b).toString('base64url'),base64Decode:v=>[...Buffer.from(v,'base64')],newBlob:b=>({getDataAsString:()=>Buffer.from(b).toString('utf8')})},
-    LockService:{getScriptLock:()=>({tryLock:()=>true,releaseLock:()=>{}})},
+    LockService:{getScriptLock:()=>({tryLock:()=>true,releaseLock:()=>{}}),getUserLock:()=>({tryLock:()=>true,releaseLock:()=>{}})},
     getMonthlyCount:()=>state.usage,getOrCreateResponseSheet:()=>({})});
   for(const f of ['OnlineLicenseStatus.js','LicenseCore.js','LicenseManager.js','UsageManager.js']) if(fs.existsSync(path.join(root,f))) vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),c,{filename:f});
   if(fs.existsSync(path.join(root,'SubmissionSafety.js'))) vm.runInContext(fs.readFileSync(path.join(root,'SubmissionSafety.js'),'utf8'),c);
