@@ -59,7 +59,8 @@ test('submission lock releases after an error and never runs when contended',()=
 test('integrated candidate writes the located row once and refuses a replay',()=>{
   const root=process.env.FORMFLOW_AUDIT_ROOT;if(!root)throw Error('Set FORMFLOW_AUDIT_ROOT');
   const f=fixture(),c=f.c;let emails=0;
-  vm.runInContext(fs.readFileSync(path.join(root,'formflow-84-local-candidate/ApprovalEngine.js'),'utf8'),c);
+  vm.runInContext(fs.readFileSync(path.join(root,process.env.FORMFLOW_CANDIDATE_NAME||'formflow-84-local-candidate','ApprovalEngine.js'),'utf8'),c);
+  c.ffValidateReservedQuestionTitles_=()=>{};
   for(const n of ['syncContainerPropertiesToScriptProperties_','syncFormDestinationToScriptProperties_','pruneTerminalApprovalState_','ensureApprovalColumns','saveApprovalSheetLocator_','saveApprovalRuntimeConfig_','saveApprovalSnapshot_','recordFormFlowEvent_'])c[n]=()=>{};
   c.getConfig=()=>({enabled:true,levels:[{}],notifications:{notifySubmitterOnPending:false}});
   c.checkSubmissionAvailability=()=>({allowed:true});c.getOrCreateResponseSheet=()=>f.sheet;

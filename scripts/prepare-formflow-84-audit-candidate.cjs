@@ -7,11 +7,15 @@ const base = process.env.FORMFLOW_AUDIT_ROOT;
 if (!base) throw Error('Set FORMFLOW_AUDIT_ROOT to the isolated audit directory');
 const source = path.join(base, 'formflow-84');
 const stable = path.join(base, 'formflow-83');
-const destination = path.join(base, 'formflow-84-local-candidate');
+const candidateName=process.env.FORMFLOW_CANDIDATE_NAME||'formflow-84-local-candidate';
+if(!/^[a-z0-9-]+$/.test(candidateName))throw Error('A simple private output directory name is required');
+const destination = path.join(base, candidateName);
 fs.mkdirSync(destination, {recursive:true});
 const allowed = new Set(fs.readdirSync(source).filter(name => name !== '.clasp.json' && /\.(js|html|json)$/.test(name)));
 allowed.add('OnlineLicenseStatus.js');
 allowed.add('SubmissionSafety.js');
+allowed.add('SheetWriteSafety.js');
+allowed.add('.clasp.json');
 if (fs.readdirSync(destination).some(name => !allowed.has(name))) throw Error('Unexpected file in candidate directory');
 for (const name of fs.readdirSync(source)) {
   if (name === '.clasp.json' || !/\.(js|html|json)$/.test(name)) continue;
@@ -19,6 +23,7 @@ for (const name of fs.readdirSync(source)) {
 }
 fs.copyFileSync(path.join(base,'choice-116','OnlineLicenseStatus.js'),path.join(destination,'OnlineLicenseStatus.js'));
 fs.copyFileSync(path.join(__dirname,'formflow-candidate','SubmissionSafety.js'),path.join(destination,'SubmissionSafety.js'));
+fs.copyFileSync(path.join(__dirname,'formflow-candidate','SheetWriteSafety.js'),path.join(destination,'SheetWriteSafety.js'));
 const manifestPath=path.join(destination,'appsscript.json');
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8').replace(/^\uFEFF/,''));
 const scope='https://www.googleapis.com/auth/script.external_request';
@@ -38,6 +43,7 @@ if (!start.test(code) || !end.test(code)) throw Error('Unexpected submit handler
 code=code.replace(start,'function onFormSubmitHandler(e) {\n  LC_BACKGROUND_LICENSE_CONTEXT = true;\n  try {');
 code=code.replace(end,'    saveFormFlowReport_(false, [err.message]);\n  } finally {\n    LC_BACKGROUND_LICENSE_CONTEXT = false;\n  }\n}');
 code=code.replace("    .addItem('View Approval History', 'showHistorySidebar')","    .addItem('View Approval History', 'showHistorySidebar')\n    .addItem('Retry oldest unsent request', 'retryOldestUnsentSubmission')");
+code=code.replace("    .addItem('Configure Approval Flow', 'showSidebar')","    .addItem('Configure Approval Flow', 'showSidebar')\n    .addItem('Select linked response spreadsheet', 'showResponseSheetPickerDialog')");
 const oldDispatch="    processSubmission(formResponse, e);";
 if (!code.includes(oldDispatch)) throw Error('Unexpected dispatch call');
 code=code.replace(oldDispatch,"    var submission = processSubmission(formResponse, e);");
@@ -64,7 +70,7 @@ if(split<0) throw Error('Missing submission boundary');
 let intake=engine.slice(0,split);
 if((intake.match(/var lastRow = sheet.getLastRow\(\);/g)||[]).length!==2) throw Error('Unexpected last-row pattern');
 intake=intake.replace('function processSubmission(formResponse, event) {','function processSubmissionUnlocked_(formResponse, event) {');
-intake=intake.replace('  var availability = checkSubmissionAvailability();','  var verifiedSheet = getOrCreateResponseSheet();\n  var verifiedRow = ffLocateSubmissionRow_(verifiedSheet, formResponse, event);\n  var availability = checkSubmissionAvailability();');
+intake=intake.replace('  var availability = checkSubmissionAvailability();','  ffValidateReservedQuestionTitles_(event && event.source);\n  var verifiedSheet = getOrCreateResponseSheet();\n  var verifiedRow = ffLocateSubmissionRow_(verifiedSheet, formResponse, event);\n  var availability = checkSubmissionAvailability();');
 intake=intake.replace(/var sheet = getOrCreateResponseSheet\(\);/g,'var sheet = verifiedSheet;');
 intake=intake.replace(/var lastRow = sheet.getLastRow\(\);/g,'var lastRow = verifiedRow;');
 intake=intake.replace('    return;',"    return {success:false,reason:'disabled'};");
@@ -72,4 +78,13 @@ intake=intake.replace('    return;',"    return {success:false,reason:'quota'};"
 intake=intake.replace(/\r?\n\}\s*$/, '\n  return {success:true};\n}\n\n');
 engine=intake+engine.slice(split);
 fs.writeFileSync(enginePath,engine);
+const sheetPath=path.join(destination,'SheetManager.js');let sheet=fs.readFileSync(sheetPath,'utf8');
+const writeStart=sheet.indexOf('function writeApprovalRecord(sheet, rowIndex, data) {'),writeEnd=sheet.indexOf('function findRowByApprovalId(',writeStart);
+if(writeStart<0||writeEnd<0)throw Error('Unexpected metadata writer boundary');
+sheet=sheet.slice(0,writeStart)+"function writeApprovalRecord(sheet, rowIndex, data) {\n  return ffWriteApprovalMetadata_(sheet,rowIndex,data);\n}\n\n"+sheet.slice(writeEnd);fs.writeFileSync(sheetPath,sheet);
+const uiPath=path.join(destination,'Sidebar.html');let ui=fs.readFileSync(uiPath,'utf8');
+ui=ui.replace('Set approvers, save, then run Preflight.</p>','Set approvers, save, then run Preflight. · v2026.11.20</p><p id="setupAccount" style="font-size:12px;color:#5f6368"></p>');
+ui=ui.replace('function init() {',"function init() {\n  google.script.run.withSuccessHandler(function(account){document.getElementById('setupAccount').textContent=account && account.email ? 'Google account: '+account.email : 'Google identity unavailable. Do not purchase until it can be checked.';}).withFailureHandler(function(){document.getElementById('setupAccount').textContent='Google identity check unavailable.';}).ffGetSetupAccount();");
+ui=ui.replace('Picker opened. Select the linked response spreadsheet, then refresh this sidebar status.','File-selection window requested. If it does not appear, use Add-ons → FormFlow → Select linked response spreadsheet, then Refresh here.');fs.writeFileSync(uiPath,ui);
+fs.appendFileSync(path.join(destination,'LicenseManager.js'),"\nfunction ffGetSetupAccount(){return {email:lcBuyerEmail_()};}\n");
 console.log('Local audit candidate prepared; no deployment performed.');

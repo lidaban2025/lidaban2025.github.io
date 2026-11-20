@@ -4,7 +4,7 @@ const fs=require('node:fs'), path=require('node:path'), vm=require('node:vm'), c
 const base=process.env.FORMFLOW_AUDIT_ROOT; if (!base) throw Error('Set FORMFLOW_AUDIT_ROOT to the isolated immutable snapshots and candidate');
 const secret='synthetic-local-key', email='buyer@example.invalid';
 function fixture(name) {
-  const root=path.join(base,name), user=new Map(), script=new Map([['LICENSE_SECRET',secret],['LICENSE_PREFIX','FF']]);
+  const root=path.join(base,name==='formflow-84-local-candidate'?(process.env.FORMFLOW_CANDIDATE_NAME||name):name), user=new Map(), script=new Map([['LICENSE_SECRET',secret],['LICENSE_PREFIX','FF']]);
   const props=m=>({getProperty:k=>m.get(k)||null,setProperty:(k,v)=>m.set(k,String(v)),deleteProperty:k=>m.delete(k)});
   const state={status:'active',network:true,usage:0};
   const c=vm.createContext({Date,JSON,String,Number,Math,Array,isNaN,isFinite,
@@ -69,6 +69,7 @@ test('candidate refuses to send a new approval when usage cannot be checked',()=
   c.syncContainerPropertiesToScriptProperties_=()=>{}; c.syncFormDestinationToScriptProperties_=()=>{};
   c.pruneTerminalApprovalState_=()=>{}; c.getConfig=()=>({enabled:true});
   c.ffLocateSubmissionRow_=()=>2;
+  c.ffValidateReservedQuestionTitles_=()=>{};
   let writes=0; c.writeApprovalRecord=()=>{writes++}; c.sendApprovalRequest=()=>{writes++};
   vm.runInContext(fs.readFileSync(path.join(root,'ApprovalEngine.js'),'utf8'),c);
   assert.throws(()=>c.processSubmission({},{}),/usage could not be checked/); assert.equal(writes,0);
