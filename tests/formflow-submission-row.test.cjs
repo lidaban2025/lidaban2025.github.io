@@ -65,9 +65,25 @@ test('integrated candidate writes the located row once and refuses a replay',()=
   c.getConfig=()=>({enabled:true,levels:[{}],notifications:{notifySubmitterOnPending:false}});
   c.checkSubmissionAvailability=()=>({allowed:true});c.getOrCreateResponseSheet=()=>f.sheet;
   c.writeApprovalRecord=(_s,row,record)=>{assert.equal(row,2);f.data.rows[row-1][1]=record['Approval ID']};
-  c.sendApprovalRequest=()=>{emails++};
+  c.ffPrepareApprovalRequests_=()=>[{synthetic:true}];
+  c.ffSendPreparedApprovalRequests_=()=>{emails++};
   c.processSubmission(f.response,f.event);assert.equal(emails,1);assert.equal(f.data.rows[2][1],'');
   assert.throws(()=>c.processSubmission(f.response,f.event),/already has an approval/);assert.equal(emails,1);assert.equal(f.data.released,2);
+});
+test('storage or message preparation failure leaves the native response unreserved and recoverable',()=>{
+  const root=process.env.FORMFLOW_AUDIT_ROOT;if(!root)throw Error('Set FORMFLOW_AUDIT_ROOT');
+  for(const failedAt of ['saveApprovalSheetLocator_','saveApprovalRuntimeConfig_','saveApprovalSnapshot_','ffPrepareApprovalRequests_']){
+    const f=fixture(),c=f.c;let writes=0,emails=0;
+    vm.runInContext(fs.readFileSync(path.join(root,process.env.FORMFLOW_CANDIDATE_NAME||'formflow-dispatch-candidate','ApprovalEngine.js'),'utf8'),c);
+    for(const name of ['syncContainerPropertiesToScriptProperties_','syncFormDestinationToScriptProperties_','pruneTerminalApprovalState_','ensureApprovalColumns','saveApprovalSheetLocator_','saveApprovalRuntimeConfig_','saveApprovalSnapshot_','recordFormFlowEvent_','ffValidateReservedQuestionTitles_'])c[name]=()=>{};
+    c.getConfig=()=>({enabled:true,levels:[{approvers:['owned@example.invalid']}],notifications:{notifySubmitterOnPending:false}});
+    c.checkSubmissionAvailability=()=>({allowed:true});c.getOrCreateResponseSheet=()=>f.sheet;
+    c.writeApprovalRecord=()=>{writes++};c.ffPrepareApprovalRequests_=()=>[{}];c.ffSendPreparedApprovalRequests_=()=>{emails++};
+    c[failedAt]=()=>{throw Error('synthetic preparation failure')};
+    assert.throws(()=>c.processSubmission(f.response,f.event),/preparation failure/);
+    assert.equal(writes,0,failedAt);assert.equal(emails,0,failedAt);assert.equal(f.data.rows[1][1],'');
+    assert.equal(JSON.parse(f.data.properties.get('FF_UNSENT_form'))[0].id,'r1');
+  }
 });
 test('failure saves only a form-scoped reference and a successful retry removes it',()=>{
   const f=fixture();f.c.processSubmissionUnlocked_=()=>{throw Error('temporary failure')};

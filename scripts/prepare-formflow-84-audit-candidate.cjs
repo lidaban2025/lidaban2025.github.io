@@ -15,6 +15,7 @@ const allowed = new Set(fs.readdirSync(source).filter(name => name !== '.clasp.j
 allowed.add('OnlineLicenseStatus.js');
 allowed.add('SubmissionSafety.js');
 allowed.add('SheetWriteSafety.js');
+allowed.add('DispatchSafety.js');
 allowed.add('.clasp.json');
 if (fs.readdirSync(destination).some(name => !allowed.has(name))) throw Error('Unexpected file in candidate directory');
 for (const name of fs.readdirSync(source)) {
@@ -24,6 +25,7 @@ for (const name of fs.readdirSync(source)) {
 fs.copyFileSync(path.join(base,'choice-116','OnlineLicenseStatus.js'),path.join(destination,'OnlineLicenseStatus.js'));
 fs.copyFileSync(path.join(__dirname,'formflow-candidate','SubmissionSafety.js'),path.join(destination,'SubmissionSafety.js'));
 fs.copyFileSync(path.join(__dirname,'formflow-candidate','SheetWriteSafety.js'),path.join(destination,'SheetWriteSafety.js'));
+fs.copyFileSync(path.join(__dirname,'formflow-candidate','DispatchSafety.js'),path.join(destination,'DispatchSafety.js'));
 const manifestPath=path.join(destination,'appsscript.json');
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8').replace(/^\uFEFF/,''));
 const scope='https://www.googleapis.com/auth/script.external_request';
@@ -77,7 +79,36 @@ intake=intake.replace('    return;',"    return {success:false,reason:'disabled'
 intake=intake.replace('    return;',"    return {success:false,reason:'quota'};");
 intake=intake.replace(/\r?\n\}\s*$/, '\n  return {success:true};\n}\n\n');
 engine=intake+engine.slice(split);
+engine=engine.replace(/\r\n/g,'\n');
+const pendingStart=engine.indexOf('  var submittedAt = new Date().toISOString();');
+const dispatchLine='  sendApprovalRequest(approvalId, levelConfig, formData, submitterEmail, formTitle, config);';
+const pendingEnd=engine.indexOf(dispatchLine,pendingStart);
+if(pendingStart<0||pendingEnd<0)throw Error('Unexpected first-dispatch boundary');
+const pendingBlock=engine.slice(pendingStart,pendingEnd+dispatchLine.length);
+const rowWriteStart=pendingBlock.indexOf('  writeApprovalRecord('),rowWriteEnd=pendingBlock.indexOf('  saveApprovalSheetLocator_(',rowWriteStart);
+const levelStart=pendingBlock.indexOf('  var levelConfig = config.levels[0];');
+if(rowWriteStart<0||rowWriteEnd<0||levelStart<0)throw Error('Unexpected context preparation boundary');
+const safePending=pendingBlock.slice(0,rowWriteStart)+pendingBlock.slice(rowWriteEnd,levelStart)+
+  '  var levelConfig = config.levels[0];\n'+
+  '  var messages = ffPrepareApprovalRequests_(approvalId, levelConfig, formData, submitterEmail, formTitle, config);\n'+
+  pendingBlock.slice(rowWriteStart,rowWriteEnd)+'  ffSendPreparedApprovalRequests_(messages);';
+engine=engine.slice(0,pendingStart)+safePending+engine.slice(pendingEnd+dispatchLine.length);
 fs.writeFileSync(enginePath,engine);
+const mailPath=path.join(destination,'EmailService.js');let mail=fs.readFileSync(mailPath,'utf8').replace(/\r\n/g,'\n');
+const sendEnd=mail.indexOf('function sendResultNotification(');if(sendEnd<0)throw Error('Expected request email boundary');
+let prepare=mail.slice(0,sendEnd).replace('function sendApprovalRequest(','function ffPrepareApprovalRequests_(').replace('  var config = runtimeConfig || getApprovalRuntimeConfig_(approvalId);','  var config = runtimeConfig || getApprovalRuntimeConfig_(approvalId);\n  var messages = [];');
+const oldSend=`    try {
+      MailApp.sendEmail(approverEmail, subject, "Please open this email in an HTML-capable client.", {
+        htmlBody: htmlBody,
+        name: "FormFlow"
+      });
+    } catch (e) {
+      Logger.log("Failed to send email to " + approverEmail + ": " + e.message);
+    }`;
+if(!prepare.includes(oldSend))throw Error('Unexpected request email send block');
+prepare=prepare.replace(oldSend,'    messages.push({to:approverEmail,subject:subject,body:"Please open this email in an HTML-capable client.",htmlBody:htmlBody});');
+prepare=prepare.replace(/\n\}\s*$/,'\n  return messages;\n}\n\n');
+mail=prepare+'function sendApprovalRequest(approvalId, levelConfig, formData, submitterEmail, formTitle, runtimeConfig) {\n  return ffSendPreparedApprovalRequests_(ffPrepareApprovalRequests_(approvalId, levelConfig, formData, submitterEmail, formTitle, runtimeConfig));\n}\n\n'+mail.slice(sendEnd);fs.writeFileSync(mailPath,mail);
 const sheetPath=path.join(destination,'SheetManager.js');let sheet=fs.readFileSync(sheetPath,'utf8');
 const writeStart=sheet.indexOf('function writeApprovalRecord(sheet, rowIndex, data) {'),writeEnd=sheet.indexOf('function findRowByApprovalId(',writeStart);
 if(writeStart<0||writeEnd<0)throw Error('Unexpected metadata writer boundary');
