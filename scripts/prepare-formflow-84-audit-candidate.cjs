@@ -16,6 +16,7 @@ allowed.add('OnlineLicenseStatus.js');
 allowed.add('SubmissionSafety.js');
 allowed.add('SheetWriteSafety.js');
 allowed.add('DispatchSafety.js');
+allowed.add('LegacyConfigPacking.js');
 allowed.add('.clasp.json');
 if (fs.readdirSync(destination).some(name => !allowed.has(name))) throw Error('Unexpected file in candidate directory');
 for (const name of fs.readdirSync(source)) {
@@ -26,6 +27,7 @@ fs.copyFileSync(path.join(base,'choice-116','OnlineLicenseStatus.js'),path.join(
 fs.copyFileSync(path.join(__dirname,'formflow-candidate','SubmissionSafety.js'),path.join(destination,'SubmissionSafety.js'));
 fs.copyFileSync(path.join(__dirname,'formflow-candidate','SheetWriteSafety.js'),path.join(destination,'SheetWriteSafety.js'));
 fs.copyFileSync(path.join(__dirname,'formflow-candidate','DispatchSafety.js'),path.join(destination,'DispatchSafety.js'));
+fs.copyFileSync(path.join(__dirname,'formflow-candidate','LegacyConfigPacking.js'),path.join(destination,'LegacyConfigPacking.js'));
 const manifestPath=path.join(destination,'appsscript.json');
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8').replace(/^\uFEFF/,''));
 const scope='https://www.googleapis.com/auth/script.external_request';
@@ -118,4 +120,23 @@ ui=ui.replace('Set approvers, save, then run Preflight.</p>','Set approvers, sav
 ui=ui.replace('function init() {',"function init() {\n  google.script.run.withSuccessHandler(function(account){document.getElementById('setupAccount').textContent=account && account.email ? 'Google account: '+account.email : 'Google identity unavailable. Do not purchase until it can be checked.';}).withFailureHandler(function(){document.getElementById('setupAccount').textContent='Google identity check unavailable.';}).ffGetSetupAccount();");
 ui=ui.replace('Picker opened. Select the linked response spreadsheet, then refresh this sidebar status.','File-selection window requested. If it does not appear, use Add-ons → FormFlow → Select linked response spreadsheet, then Refresh here.');fs.writeFileSync(uiPath,ui);
 fs.appendFileSync(path.join(destination,'LicenseManager.js'),"\nfunction ffGetSetupAccount(){return {email:lcBuyerEmail_()};}\n");
+const configPath=path.join(destination,'ConfigManager.js');let cfg=fs.readFileSync(configPath,'utf8');
+const configStore='    JSON.stringify(config)';if(!cfg.includes(configStore))throw Error('Runtime config store boundary missing');
+cfg=cfg.replace(configStore,'    ffPackRuntimeConfigJSON_(JSON.stringify(config))');
+const configRead='    return mergeConfigWithDefaults_(JSON.parse(raw));';
+const readStart=cfg.indexOf('function getApprovalRuntimeConfig_(approvalId) {');
+const readEnd=cfg.indexOf('function getApprovalSheetLocator_',readStart);
+if(readStart<0||readEnd<0||!cfg.slice(readStart,readEnd).includes(configRead))throw Error('Runtime config reader boundary missing');
+const reader=`function getApprovalRuntimeConfig_(approvalId) {
+  if (!approvalId) return getConfig();
+  var raw = PropertiesService.getScriptProperties().getProperty(APPROVAL_CONFIG_PREFIX + approvalId);
+  if (!raw) return getConfig();
+  var parsed;
+  try { parsed = JSON.parse(raw); } catch (error) { return getConfig(); }
+  if (parsed && Object.prototype.hasOwnProperty.call(parsed,FF_PACKED_CONFIG_FIELD)) parsed=JSON.parse(ffUnpackRuntimeConfigJSON_(raw));
+  return mergeConfigWithDefaults_(parsed);
+}
+
+`;
+cfg=cfg.slice(0,readStart)+reader+cfg.slice(readEnd);fs.writeFileSync(configPath,cfg);
 console.log('Local audit candidate prepared; no deployment performed.');
