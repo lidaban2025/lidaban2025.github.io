@@ -45,5 +45,6 @@ const failureAnchor="document.getElementById('toastError').textContent = 'Error:
 if(!sidebar.includes(failureAnchor))throw Error('Save failure callback boundary changed');
 sidebar=sidebar.replace(failureAnchor,"document.getElementById('toastError').textContent = 'Error: ' + e.message;\n    showToast('toastError');\n    renderAction('Settings were not saved. ' + escapeHtml(e.message || 'Please retry after checking your plan and permissions.'), false);\n  }).saveConfig(config);");fs.writeFileSync(sidebarPath,sidebar);
 const manifest=JSON.parse(fs.readFileSync(path.join(dest,'appsscript.json'),'utf8').replace(/^\uFEFF/,''));
+require('./choice-trigger-hardening.cjs').apply(dest);
 if(!manifest.oauthScopes.includes('https://www.googleapis.com/auth/forms')||!manifest.oauthScopes.includes('https://www.googleapis.com/auth/script.external_request'))throw Error('Required existing scopes missing');
 console.log('Prepared a private candidate from116; no Google source or Marketplace changes.');
