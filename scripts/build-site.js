@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { alignPublishedUrls } = require('./align-published-urls.js');
 
 const root = process.cwd();
 const out = path.join(root, '_site');
@@ -68,4 +69,5 @@ for (const file of includeFiles) {
   copyRecursive(path.join(root, file), path.join(out, file));
 }
 
+alignPublishedUrls(out);
 console.log(`Built static assets in ${out}`);
