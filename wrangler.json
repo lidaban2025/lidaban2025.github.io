@@ -8,7 +8,8 @@
   "assets": {
     "directory": "_site",
     "binding": "ASSETS",
-    "not_found_handling": "single-page-application"
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
   },
   "vars": {
     "OPENAI_MODEL": "gpt-4o-mini"

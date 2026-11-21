@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-15",
+  "overall": "NOT_ACCEPTED",
+  "releaseAllowed": false,
+  "formflowCandidate": {
+    "localSyntheticTests": {"passed": 29, "failed": 0},
+    "realGoogleSubmission": "NOT_RUN",
+    "realTimestampPrecision": "NOT_RUN",
+    "realManualRecovery": "NOT_RUN",
+    "realEmailDelivery": "NOT_RUN"
+  },
+  "licenseWorker": {
+    "localSyntheticTests": {"passed": 66, "failed": 0},
+    "localSourceMatchesDeployedSource": "NOT_VERIFIED",
+    "liveEndpointInvalidSyntheticKey": {"http": 403, "status": "invalid", "accepted": false},
+    "testEndpointInvalidSyntheticKey": {"http": 403, "status": "invalid", "accepted": false}
+  },
+  "googleExecutionProbe": {
+    "command": "clasp run getLicenseStatus --nondev",
+    "result": "Unable to run script function. Please make sure you have permission to run the script function.",
+    "cliExitCode": 0,
+    "executionSucceeded": false,
+    "sourceOrDeploymentChanged": false
+  },
+  "currentMerchantAcceptance": {
+    "testPurchase": "NOT_RUN",
+    "deliveredLicenseActivation": "NOT_RUN",
+    "refundRevocation": "NOT_RUN",
+    "realMoneyCharged": false
+  },
+  "sessionCapabilities": {
+    "authenticatedBrowserControlExposed": false,
+    "computerUseNodeReplExposed": false
+  },
+  "note": "Existing historical QA is not current-candidate acceptance. Local mocks and live invalid-key rejection do not prove a real paid activation or refund."
+}

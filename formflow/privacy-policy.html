@@ -53,7 +53,7 @@
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="subtitle">FormFlow | Last updated: October 18, 2026</p>
+        <p class="subtitle">FormFlow | Last updated: November 20, 2026</p>
 
         <h2>1. What FormFlow does</h2>
         <p>FormFlow is a Google Forms add-on that turns form submissions into approval workflows. It sends approval emails, stores workflow state in a linked Google Sheets response file, and provides a review surface for approvers.</p>
@@ -68,24 +68,26 @@
 
         <h2>3. Data storage</h2>
         <p>Response rows and approval history are written to the linked Google Sheet selected by the owner. The publisher-operated Google Apps Script project also stores approval routing configuration (including approver addresses), Sheet locators, access-link metadata, compact status snapshots, and queued decisions (including bounded comments) in Script Properties. These are Google-hosted but are not all stored inside your own form. FormFlow does not send workflow content to an external analytics service.</p>
+        <p>When you activate or re-check a paid license, FormFlow sends the license key, the active purchasing Google account's email address, and the fixed product identifier to the FormSuite license service at <code>form-suite-license.lidaban2025.workers.dev</code> over HTTPS. This checks payment status, refunds, expiry, and account binding. Form answers, spreadsheet contents, approval comments, and document contents are not included in that license-check payload. The emailed license is saved in your Google user properties. The license service keeps license hashes, buyer hashes, payment references, status, and expiry separately from workflow records.</p>
 
         <h2>4. Email and web app usage</h2>
         <p>FormFlow sends emails only for approval routing and workflow notifications. Approval actions are handled through unique links that point to the workflow web app and are validated before an action is recorded.</p>
 
         <h2>5. OAuth scope status</h2>
-        <p>Google approved the current FormFlow OAuth App Verification request on May 26, 2026 for the Apps Script execution, email sending, and container UI scopes used by this approval workflow build. If FormFlow requests new sensitive or restricted scopes, or if the OAuth consent screen configuration changes, a new verification request may be required.</p>
+        <p>Google approved an earlier FormFlow scope set on May 26, 2026 for Apps Script execution, email sending, and container UI. As of November 20, 2026, a revised build requesting the external-service permission for paid license checks is staged for named testers pending re-verification. The earlier approval does not certify newly requested scopes. FormFlow uses only the form and response spreadsheet configured by the owner for its workflow.</p>
 
         <h2>6. Marketplace install status</h2>
         <p>The public Google Workspace Marketplace install path and first-run Preflight smoke were verified on May 27, 2026. A normal first run requires selecting the linked response spreadsheet with Google Picker before enabling the workflow.</p>
 
         <h2>7. Data sharing</h2>
-        <p>We do not sell, rent, or disclose workflow data or personal data to third parties. Workflow records use the linked Sheet and publisher-operated Google Apps Script properties as described above. Approval emails are sent to the recipients configured by the owner.</p>
+        <p>We do not sell or rent workflow data or personal data. Approval emails are delivered to the recipients configured by the owner. Paid license metadata is processed by the publisher-operated license service hosted on Cloudflare. Creem processes checkout and payment-lifecycle records, including the purchase email and order references; Resend delivers purchase-license emails. Those payment and license processes are separate from your Google Form and response Sheet contents. We do not use workflow or license data for advertising or AI model training.</p>
 
         <h2>8. Data retention</h2>
         <p>Workflow settings remain available while the add-on is active on your form. Approval history stays in the linked spreadsheet under your control until you remove it. Compact runtime records can remain in the publisher-operated Apps Script project; uninstalling alone does not guarantee their deletion. Contact support for removal assistance, and identify the form privately rather than including response contents.</p>
+        <p>Uninstalling the add-on does not itself erase license-status or purchase-support records. Payment and email providers retain their records according to their published policies. Contact FormSuite support about publisher-held records without posting license keys or approval links publicly.</p>
 
         <h2>9. Security</h2>
-        <p>FormFlow relies on Google's infrastructure for storage and authentication. The add-on does not ask you to create a separate password or move your data to a non-Google storage system.</p>
+        <p>FormFlow uses Google infrastructure for workflow storage and authentication. Paid license checks send the limited metadata described above to the FormSuite license service over HTTPS; they do not upload your workflow files or response contents. The add-on does not ask you to create a separate password. Treat license keys and approval links as private access credentials.</p>
 
         <h2>10. Changes to this policy</h2>
         <p>We may update this page from time to time. Material updates will be reflected with a new last-updated date on this policy.</p>

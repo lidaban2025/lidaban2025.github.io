@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path');
+const base=process.env.FORMSUITE_AUDIT_ROOT;if(!base)throw Error('Private audit root required');
+const source=path.join(base,'guard-71'),dest=path.join(base,'guard-release-clean');fs.mkdirSync(dest,{recursive:true});
+const names=fs.readdirSync(source).filter(n=>n!=='.clasp.json'&&n!=='PaidLoopQaState.js'&&/\.(js|html|json)$/.test(n));
+if(fs.readdirSync(dest).some(n=>!names.includes(n)&&n!=='.clasp.json'))throw Error('Unexpected candidate file; preserve it');
+for(const n of names)fs.copyFileSync(path.join(source,n),path.join(dest,n));
+const file=path.join(dest,'Code.js');let code=fs.readFileSync(file,'utf8');
+const old="document.getElementById('upTitle').textContent = 'Pro';\n            document.getElementById('upText').textContent = ' ' + ((settings.planInfo || {}).message || 'All features unlocked.');";
+const replacement="var paidPro = !!((settings.planInfo || {}).isPro);\n            document.getElementById('upTitle').textContent = paidPro ? 'Pro' : (settings.legacyFree ? 'Existing user access' : (settings.districtFree ? 'District access' : 'Access status'));\n            document.getElementById('upText').textContent = paidPro ? ' ' + settings.planInfo.message : (settings.legacyFree ? ' Access retained from an existing setup. This does not indicate an active paid Pro license.' : (settings.districtFree ? ' Access is included under your district program.' : ' ' + ((settings.planInfo || {}).message || 'Check your current access.')));";
+if(!code.includes(old))throw Error('Unexpected verified Guard71 UI boundary');fs.writeFileSync(file,code.replace(old,replacement));
+console.log('Prepared Guard71 label correction only; existing access, scopes and prices unchanged.');
