@@ -15,8 +15,8 @@ const choiceInstall = "https://workspace.google.com/marketplace/app/formsuite_ch
 test("homepage promotes FormFlow and Choice Sync with real Marketplace figures", () => {
   assert.match(homepage, /Approval workflows and Sheets-backed choices for Google Forms/);
   assert.match(homepage, /1,000\+ installs/);
-  assert.match(homepage, /780 installs/);
-  assert.match(homepage, /Marketplace snapshot checked 14 November 2026/);
+  assert.match(homepage, /790 installs/);
+  assert.match(homepage, /Marketplace snapshot checked 22 November 2026/);
   assert.match(homepage, /4\.0/);
   assert.match(homepage, /2 reviews/);
   assert.match(homepage, new RegExp(formflowInstall.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
@@ -69,6 +69,25 @@ function trackedEvents(href, text, options = {}) {
   clickHandler({ target: { closest(selector) { return selector === "a[href]" ? link : null; } } });
   return sent;
 }
+
+test("built canonical paths and legacy HTML aliases emit the same page view event", () => {
+  const cases = [
+    ["/formmerge/form-mule-not-sending-emails", "seo_page_view", "FormMerge Pro"],
+    ["/formranger/test-google-forms-dynamic-choices-before-launch", "seo_page_view", "FormRanger"],
+    ["/install", "install_center_view", "FormSuite"],
+    ["/choose-google-workspace-addon", "chooser_view", "FormSuite"],
+    ["/sheetformula/check-pasted-formula", "sheetformula_page_view", "Sheet Formula Helper"]
+  ];
+  for (const [route, event, product] of cases) {
+    for (const pathname of [route, route + ".html"]) {
+      const views = trackedEvents("/other", "", { pathname });
+      assert.equal(views.length, 1, pathname);
+      assert.equal(views[0].event, event, pathname);
+      assert.equal(views[0].product, product, pathname);
+    }
+  }
+  assert.equal(trackedEvents("/other", "", { pathname: "/formmerge/assets/example.js" }).length, 0);
+});
 
 test("landing demos are explicit placeholders rather than broken embeds", () => {
   for (const [product, label] of [["formflow", "FormFlow approve-by-email"], ["formranger", "Choice Sync shorter promo"]]) {

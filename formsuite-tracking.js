@@ -154,25 +154,26 @@
 
   function pageViewEvent() {
     var path = window.location.pathname.toLowerCase();
+    var route = path.replace(/\.html$/, "");
     if (path === "/" || path === "/index.html") {
       return "homepage_view";
     }
-    if (path === "/install.html") {
+    if (route === "/install") {
       return "install_center_view";
     }
-    if (path === "/choose-google-workspace-addon.html") {
+    if (route === "/choose-google-workspace-addon") {
       return "chooser_view";
     }
     if (path === "/seo-rapid-index-checker/" || path === "/seo-rapid-index-checker/index.html") {
       return "indexability_tool_page_view";
     }
-    if (path === "/sheetformula/" || path === "/sheetformula/index.html" || /^\/sheetformula\/.+\.html$/.test(path)) {
+    if (path === "/sheetformula/" || /^\/sheetformula(?:\/[a-z0-9_-]+)+$/.test(route)) {
       return "sheetformula_page_view";
     }
     if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/$/.test(path) || /\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/index\.html$/.test(path)) {
       return "product_page_view";
     }
-    if (/\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)\/.+\.html$/.test(path) || path.indexOf("/resources/") !== -1) {
+    if (/^\/(formguard|formnotifier|formcopy|formmerge|docforge|formranger|formflow)(?:\/[a-z0-9_-]+)+$/.test(route) || path.indexOf("/resources/") !== -1) {
       return "seo_page_view";
     }
     return "";

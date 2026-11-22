@@ -58,6 +58,14 @@ function alignPublishedUrls(directory) {
   });
   if (!included.has('/')) throw new Error('The homepage must remain in the sitemap.');
   fs.writeFileSync(sitemap, output);
+  const llms = path.join(directory, 'llms.txt');
+  if (fs.existsSync(llms)) {
+    const links = fs.readFileSync(llms, 'utf8').replace(/https:\/\/formsuite\.dev\/[\w/-]+\.html\b/g, value => {
+      const served = routes.get(new URL(value).pathname);
+      return served ? origin + served : value;
+    });
+    fs.writeFileSync(llms, links);
+  }
   console.log('Published sitemap contains ' + included.size + ' canonical URLs.');
 }
 
