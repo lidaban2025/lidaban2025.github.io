@@ -157,20 +157,21 @@
   var review = workspace.querySelector("[data-review-outcome]");
   var support = workspace.querySelector("[data-support-outcome]");
   var progress = workspace.querySelector("[data-first-run-progress]");
-  var checklistReported = false;
+  if (state.previewConfirmed && !state.steps.every(Boolean)) {
+    state.previewConfirmed = false;
+    save();
+  }
+  var checklistReported = api.canRequestReview(state);
 
   function renderWorkspace() {
     inputs.forEach(function (input, index) {
       input.checked = state.steps[index];
     });
-    confirm.checked = state.previewConfirmed;
     var complete = state.steps.filter(Boolean).length;
+    confirm.disabled = complete !== inputs.length;
+    confirm.checked = state.previewConfirmed;
     progress.textContent = complete + "/4 complete";
     var unlocked = api.canRequestReview(state);
-    if (unlocked && !checklistReported) {
-      checklistReported = true;
-      track("checklist_complete", { source: "self_reported_copied_form_test", progress_complete: 4 });
-    }
     review.hidden = !unlocked;
     support.hidden = unlocked;
   }
@@ -179,8 +180,12 @@
     input.addEventListener("change", function () {
       var steps = state.steps.slice();
       steps[index] = input.checked;
-      var nextState = api.canRequestReview({ steps: steps, previewConfirmed: state.previewConfirmed }) ? "successful" : "testing";
-      state = api.normalize(Object.assign({}, state, { state: nextState, steps: steps }));
+      var previewConfirmed = state.previewConfirmed && steps.every(Boolean);
+      state = api.normalize(Object.assign({}, state, {
+        state: previewConfirmed ? "successful" : "testing",
+        steps: steps,
+        previewConfirmed: previewConfirmed
+      }));
       save();
       renderWorkspace();
       track("formranger_first_run_step", {
@@ -192,18 +197,21 @@
   });
 
   confirm.addEventListener("change", function () {
-    var unlocked = api.canRequestReview({ steps: state.steps, previewConfirmed: confirm.checked });
+    var unlocked = state.steps.every(Boolean) && confirm.checked;
     state = api.normalize(Object.assign({}, state, {
       state: unlocked ? "successful" : "testing",
-      previewConfirmed: confirm.checked
+      previewConfirmed: unlocked
     }));
     save();
     renderWorkspace();
-    if (confirm.checked) {
+    if (unlocked && !checklistReported) {
+      checklistReported = true;
       track("formranger_public_preview_confirmed", {
         confirmation: "Alpha|Beta",
-        progress_complete: state.steps.filter(Boolean).length
+        source: "self_reported_copied_form_test",
+        progress_complete: 4
       });
+      track("checklist_complete", { source: "self_reported_copied_form_test", progress_complete: 4 });
     }
   });
 
