@@ -1,0 +1,53 @@
+{
+  "at": "2026-11-14T02:27:44.447Z",
+  "scope": "Current published site text, routes and checkout links only. No JavaScript execution, install, payment, Google grant or user workflow.",
+  "checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "checksPassed": true
+    },
+    {
+      "route": "/pricing.html",
+      "status": 200,
+      "checksPassed": true
+    },
+    {
+      "route": "/formflow/",
+      "status": 200,
+      "checksPassed": true
+    },
+    {
+      "route": "/formflow/free-google-forms-approval-workflow.html",
+      "status": 200,
+      "checksPassed": true
+    },
+    {
+      "route": "/formflow/form-approvals-pricing-alternative.html",
+      "status": 200,
+      "checksPassed": true
+    },
+    {
+      "route": "/formranger/",
+      "status": 200,
+      "checksPassed": true
+    },
+    {
+      "route": "/install.html",
+      "status": 200,
+      "checksPassed": true
+    },
+    {
+      "route": "/choose-google-workspace-addon.html",
+      "status": 200,
+      "checksPassed": true
+    },
+    {
+      "route": "/llms.txt",
+      "status": 200,
+      "checksPassed": true
+    }
+  ],
+  "formcopyRetirementPreserved": true,
+  "passed": true
+}

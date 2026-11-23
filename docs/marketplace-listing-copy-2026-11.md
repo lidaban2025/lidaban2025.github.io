@@ -23,3 +23,8 @@ Start with one copied form, one supported question, and a Sheet column containin
 Free includes 100 syncs per month and up to 3 linked questions. Pro is $29 per year, with unlimited syncs and linked questions. Direct Pro checkout is paused; email support@formsuite.dev to confirm upgrade availability before paying. Checkout resumption is pending, not a working payment link.
 
 Choice Sync is an independent FormSuite add-on and is not affiliated with Form Ranger. It is not live inventory locking, booking, payment processing, or respondent-time dependent dropdown filtering.
+
+
+## Release gate checked 14 November 2026
+
+Do not publish new paid-plan claims in the Marketplace Console solely from website copy. FormFlow has a readable version84 Web App deployment description from4November referring to licensing/pricing, but the current Marketplace SDK public add-on version has not been independently read back in this continuation. Existing Marketplace copy still says free. Confirm the actual public installed-version activation and all advertised Free/Pro limits first; then update the Console description/price classification with matching evidence. Choice Sync direct checkout remains paused. This document is not evidence of a Marketplace edit or Google approval.

@@ -106,33 +106,85 @@
     <section class="hero">
       <div class="eyebrow">5-minute owner test</div>
       <h1>Install, open one copied Form, then create Alpha/Beta</h1>
-      <p>Do the first test inside a Google Form you own: install Choice Sync, open a blank or copied Form, create the synthetic Alpha/Beta Sheet from the sidebar, then map one choice question. The public form below is proof to view, not a file you can configure.</p>
+      <p>Do the first test inside a Google Form you own: install Choice Sync, open a blank or copied Form, add one dropdown, then connect a Sheet with the sample choices Alpha and Beta. The public form below is proof to view, not a file you can configure.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://workspace.google.com/marketplace/app/formsuite_choice_sync/18856558524?utm_source=formsuite&utm_medium=site_cta&utm_campaign=choice_sync_install&utm_content=tutorial_copied_form_install" target="_blank" rel="noopener" data-track="choice_sync_activation_click">Install Choice Sync — then return for the 5-minute test</a>
         <a class="btn btn-secondary" href="https://forms.new" target="_blank" rel="noopener" data-track="choice_sync_open_form">Open a blank Google Form</a>
-        <a class="btn btn-secondary" href="#owner-path" data-track="choice_sync_owner_path">See the exact owner path</a>
+        <a class="btn btn-secondary" href="#preview-success" data-track="choice_sync_owner_path">Start the setup checklist</a>
         <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdIm8jMfnQp_1HJY-x4hA4KhpgKZSFLETyTKI2rH5gv5brq-Q/viewform" target="_blank" rel="noopener" data-track="formranger_public_test_form">View public Alpha/Beta proof</a>
       </div>
-      <p><strong>Keep this guide tab open.</strong> After Marketplace installation finishes, return here, open a blank or copied Google Form, and continue with the owner path below. The success chain is <strong>install → first-run → Preflight → Update → public preview</strong>; the public proof link is only a reference and does not replace your own preview.</p>
+      <p><strong>Keep this guide tab open.</strong> After Marketplace installation finishes, return here, open a blank or copied Google Form, and follow the four steps below. Check Alpha and Beta in your own form’s respondent view before confirming the result.</p>
     </section>
 
       <section class="section" id="owner-path">
-        <h2>Do this in your own Form — no source Sheet required</h2>
+        <h2>Set up one dropdown using Alpha and Beta</h2>
         <div class="grid">
-          <div class="card"><strong>1. Install and open a copied or blank Form</strong><p>Return to Google Forms after installing. Do not try to configure the public verification form.</p></div>
-          <div class="card"><strong>2. Open Choice Sync and choose “Create Alpha/Beta Sheet”</strong><p>The sidebar creates a small synthetic Sheet in your Drive, so you do not need to prepare a spreadsheet first.</p></div>
-          <div class="card"><strong>3. Link one dropdown, then run Preflight</strong><p>Review the exact Alpha/Beta diff and approve it before Update now becomes available.</p></div>
-          <div class="card"><strong>4. Update, then check the respondent preview</strong><p>Open the public preview of your own Form. Only this proves that respondents will see the new choices.</p></div>
+          <div class="card"><strong>1. Install and open a copied or blank Form</strong><p>In a Form you own, add one dropdown with a placeholder option such as “Old option.” Open Choice Sync from the add-ons menu.</p></div>
+          <div class="card"><strong>2. Prepare one test column</strong><p>If the sidebar offers “Create Alpha/Beta Sheet,” select its <strong>Choice</strong> column. Otherwise, <a href="#starter-column">paste the sample cells</a> into a blank Sheet and select its <strong>Test choice</strong> column.</p></div>
+          <div class="card"><strong>3. Link the dropdown and save</strong><p>Wait for <em>Column ready</em>, then click <em>Add</em>. Turn on <em>Enable updates</em>, leave automatic updates off, and click <em>Save</em>.</p></div>
+          <div class="card"><strong>4. Run Preflight and update once</strong><p>Check that the diff adds Alpha and Beta. Click <em>Review preview &amp; enable update</em>, then <em>Update now</em>. Open your Form’s Preview and check the dropdown.</p></div>
         </div>
         <div class="hero-actions">
-          <a class="btn btn-secondary" href="./support.html#selected-file">Can’t see the Alpha/Beta Sheet action?</a>
+          <a class="btn btn-secondary" href="./support.html#selected-file">Help selecting a Sheet</a>
           <a class="btn btn-secondary" href="./permissions.html">Why the add-on asks for file access</a>
+        </div>
+      </section>
+
+      <section class="section" id="starter-column">
+        <h2>Set up the sample Sheet</h2>
+        <p>Start with the same obvious values used in the verified test. Paste this into cell A1 of a blank Google Sheet, then select that column in FormSuite Choice Sync.</p>
+        <div class="grid">
+          <div class="card">
+            <strong>Copy the three-cell column</strong>
+            <pre class="starter-values" data-starter-values>Test choice
+Alpha
+Beta</pre>
+            <button class="btn btn-primary" type="button" data-copy-starter-values>Copy starter column</button>
+            <span class="copy-status" data-copy-starter-status aria-live="polite"></span>
+            <a class="btn btn-secondary" href="https://sheets.new" target="_blank" rel="noopener">Open a blank Google Sheet</a>
+          </div>
+          <div class="card">
+            <strong>Prefer a file?</strong>
+            <p>Download the same values as a small CSV, open it in Google Sheets, and use the first column as the source.</p>
+            <div class="hero-actions">
+              <a class="btn btn-secondary" href="./choice-sync-alpha-beta.csv" download data-download-starter-values>Download Alpha/Beta CSV</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section first-run-workspace" data-formranger-first-run id="preview-success">
+        <h2>Complete one Alpha/Beta update</h2>
+        <p>Use a blank or copied form. Mark each step as you verify it. This checklist is saved in this browser.</p>
+        <div class="first-run-progress" aria-live="polite">
+          <span data-first-run-progress>0/4 complete</span>
+        </div>
+        <ol class="first-run-steps">
+          <li><label><input type="checkbox" data-first-run-step="select-source"> <span>Select the Sheet, tab, and Alpha/Beta column. Wait for Column ready.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="map-question"> <span>Map one question with Add. Turn on Enable updates and click Save.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="preflight"> <span>Run Preflight, resolve every warning, then review and approve the current exact choice preview.</span></label></li>
+          <li><label><input type="checkbox" data-first-run-step="update-preview"> <span>Run Update now, confirm at least one question was updated, and open the same Form’s Preview and inspect the dropdown.</span></label></li>
+        </ol>
+        <p id="preview-confirm-help">Complete the four steps, then confirm the choices you see in the respondent preview of your own test form.</p>
+        <label class="preview-confirm">
+          <input type="checkbox" data-preview-confirm aria-describedby="preview-confirm-help" disabled>
+          <span>My test form’s respondent preview shows Alpha and Beta.</span>
+        </label>
+        <div class="outcome support-outcome" data-support-outcome>
+          <p>Not all checks passed yet? Use the focused troubleshooting path before touching a live form.</p>
+          <a class="btn btn-secondary" href="../setup-help.html?product=FormRanger&amp;source=formranger-first-run-failed">Troubleshoot this test</a>
+        </div>
+        <div class="outcome review-outcome" data-review-outcome hidden>
+          <p>You confirmed the options in your test form’s respondent preview. You can now share an honest Marketplace review.</p>
+          <a class="btn btn-primary" href="review-after-first-success.html">Open the review-after-success page</a>
+          <p>Want the maintainer to check your first run? Send the step result and the version shown in the sidebar. Keep form links, source values, and license keys private.</p>
+          <a class="btn btn-secondary" href="../setup-help.html?product=FormRanger&amp;source=choice-sync-first-run-result&amp;scenario=choice-source#request">Share your first-run result</a>
         </div>
       </section>
 
       <section class="section">
         <h2>Quick answer</h2>
-        <p class="answer">Open Choice Sync inside a copied or blank Form, choose “Create Alpha/Beta Sheet,” link one dropdown or multiple-choice question, run Preflight, review and approve the current exact choice preview, then click Update now. Confirm at least one question was updated and open that same Form’s public preview.</p>
+        <p class="answer">Open Choice Sync inside a copied or blank Form, select the Alpha/Beta test column, link one dropdown or multiple-choice question, turn on Enable updates, and save. Run Preflight, approve the current exact choice preview, then click Update now. Confirm one question was updated, then open that Form’s Preview.</p>
         <div class="hero-actions">
           <a class="btn btn-secondary" href="#preview-success">Start the four-step checklist</a>
           <a class="btn btn-secondary" href="../assets/starter-kits/choice-sync-dirty-column-starter.csv" download>Download the dirty-column starter</a>
@@ -146,28 +198,6 @@
         <div class="grid">
           <div class="card"><strong>What this test proves</strong><p>FormSuite Choice Sync can read the selected Sheet source, validate the mapping, update the selected question, and show the changed choices to respondents.</p></div>
           <div class="card"><strong>What it does not prove</strong><p>It does not prove booking capacity, payment logic, live dependent dropdown behavior, or every mapping in a complex production form.</p></div>
-        </div>
-      </section>
-
-      <section class="section" id="starter-column">
-        <h2>Paste a ready-made test column</h2>
-        <p>Start with the same obvious values used in the verified test. Paste this into cell A1 of a blank Google Sheet, then select that column in FormSuite Choice Sync.</p>
-        <div class="grid">
-          <div class="card">
-            <strong>Copy the three-cell column</strong>
-            <pre class="starter-values" data-starter-values>Test choice
-Alpha
-Beta</pre>
-            <button class="btn btn-primary" type="button" data-copy-starter-values>Copy starter column</button>
-            <span class="copy-status" data-copy-starter-status aria-live="polite"></span>
-          </div>
-          <div class="card">
-            <strong>Prefer a file?</strong>
-            <p>Download the same values as a small CSV, open it in Google Sheets, and use the first column as the source.</p>
-            <div class="hero-actions">
-              <a class="btn btn-secondary" href="./choice-sync-alpha-beta.csv" download data-download-starter-values>Download Alpha/Beta CSV</a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -191,32 +221,6 @@ Yearbook Team</pre>
           </div>
         </div>
         <p class="caution"><strong>Boundary:</strong> Choice Sync updates owner-managed Form choices. It does not enforce enrollment capacity, reserve seats, or create respondent-time dependent dropdowns.</p>
-      </section>
-
-      <section class="section first-run-workspace" data-formranger-first-run id="preview-success">
-        <h2>Complete one Alpha/Beta update</h2>
-        <p>Use a copied form and mark each step as you verify it. This checklist is saved in this browser.</p>
-        <div class="first-run-progress" aria-live="polite">
-          <span data-first-run-progress>0/4 complete</span>
-        </div>
-        <ol class="first-run-steps">
-          <li><label><input type="checkbox" data-first-run-step="select-source"> <span>Select the Sheet, tab, and Alpha/Beta column.</span></label></li>
-          <li><label><input type="checkbox" data-first-run-step="map-question"> <span>Map one supported choice question.</span></label></li>
-          <li><label><input type="checkbox" data-first-run-step="preflight"> <span>Run Preflight, resolve every warning, then review and approve the current exact choice preview.</span></label></li>
-          <li><label><input type="checkbox" data-first-run-step="update-preview"> <span>Run Update now, confirm at least one question was updated, and open the same Form’s public respondent preview.</span></label></li>
-        </ol>
-        <label class="preview-confirm">
-          <input type="checkbox" data-preview-confirm>
-          <span>The public respondent preview shows Alpha and Beta.</span>
-        </label>
-        <div class="outcome support-outcome" data-support-outcome>
-          <p>Not all checks passed yet? Use the focused troubleshooting path before touching a live form.</p>
-          <a class="btn btn-secondary" href="../setup-help.html?product=FormRanger&amp;source=formranger-first-run-failed">Troubleshoot this test</a>
-        </div>
-        <div class="outcome review-outcome" data-review-outcome hidden>
-          <p>Your public preview is the success proof. An honest Marketplace review is now appropriate.</p>
-          <a class="btn btn-primary" href="review-after-first-success.html">Open the review-after-success page</a>
-        </div>
       </section>
 
       <section class="section" id="first-run-triage" data-first-run-triage>
@@ -310,7 +314,7 @@ Yearbook Team</pre>
 <div class="footer">&copy; 2026 FormSuite. Google Forms and Google Sheets are trademarks of Google LLC.</div>
   </div>
   <script src="/formranger/first-success-state.js?v=20260718a" defer></script>
-  <script src="/formranger/first-success.js?v=20261101a" defer></script>
+  <script src="/formranger/first-success.js?v=20261123a" defer></script>
   <script src="/formsuite-tracking.js" defer data-endpoint="https://script.google.com/macros/s/AKfycby2VDJIP5BxDK2oF6-pbQzmSeQgzVnRWEg2uf5W9HX_-7H8r366ZCluO7cfsru-iTtgkQ/exec"></script>
 </body>
 </html>

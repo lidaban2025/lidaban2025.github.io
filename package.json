@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "npm run test:formranger && npm run test:formmerge-first-success && npm run test:docforge-first-success && npm run test:homepage-first-success && npm run test:video-proofs && npm run test:competitor-migrations && npm run test:starter-pilots && npm run test:pricing-retirement && npm run check:links",
+    "test": "npm run test:formranger && npm run test:formmerge-first-success && npm run test:docforge-first-success && npm run test:homepage-first-success && npm run test:video-proofs && npm run test:competitor-migrations && npm run test:starter-pilots && npm run test:pricing-retirement && npm run test:oauth-policy-routing && npm run check:links",
     "test:formranger": "node --test tests/promo-checklist-events.test.cjs tests/formranger-first-success.test.cjs tests/formranger-troubleshooting-privacy.test.cjs",
     "test:formmerge-first-success": "node --test tests/formmerge-first-success.test.cjs",
     "test:docforge-first-success": "node --test tests/docforge-first-success.test.cjs",
@@ -9,6 +9,7 @@
     "test:competitor-migrations": "node --test tests/competitor-migration-pages.test.cjs",
     "test:starter-pilots": "node --test tests/starter-pilot-paths.test.cjs",
     "test:pricing-retirement": "node --test tests/pricing-retirement.test.cjs",
+    "test:oauth-policy-routing": "node --test tests/formflow-oauth-policy-routing.test.mjs",
     "check:links": "node scripts/check-site-links.mjs",
     "build:formranger-short": "node scripts/build-formranger-first-success-short.mjs",
     "build:site": "node scripts/build-site.js",
